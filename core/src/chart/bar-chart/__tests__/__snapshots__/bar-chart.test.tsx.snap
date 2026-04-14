@@ -1,0 +1,1306 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.charts > render bar chart with different categories 1`] = `
+<div
+  class="recharts-wrapper barChart"
+  style="position: relative; cursor: default; width: 600px; height: 300px;"
+>
+  <svg
+    class="recharts-surface"
+    height="300"
+    style="width: 100%; height: 100%;"
+    viewBox="0 0 600 300"
+    width="600"
+  >
+    <title />
+    <desc />
+    <defs>
+      <clippath
+        id="recharts6-clip"
+      >
+        <rect
+          height="242"
+          width="590"
+          x="5"
+          y="5"
+        />
+      </clippath>
+    </defs>
+    <g
+      class="recharts-layer recharts-bar"
+    >
+      <g
+        class="recharts-layer recharts-bar-rectangles"
+      >
+        <g
+          class="recharts-layer"
+        >
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+        </g>
+      </g>
+    </g>
+    <g
+      class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+    >
+      <line
+        class="recharts-cartesian-axis-line"
+        fill="none"
+        height="48"
+        orientation="bottom"
+        stroke="#8c99a6"
+        width="590"
+        x="5"
+        x1="5"
+        x2="595"
+        y="247"
+        y1="247"
+        y2="247"
+      />
+      <g
+        class="recharts-cartesian-axis-ticks"
+      />
+    </g>
+  </svg>
+  <div
+    class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom"
+    style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px; transform: translate(10px, 10px);"
+    tabindex="-1"
+  >
+    <div
+      class="recharts-default-tooltip"
+      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+    >
+      <p
+        class="recharts-tooltip-label"
+        style="margin: 0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.charts > render bar chart with hideable legend 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="recharts-wrapper barChart"
+  style="position: relative; cursor: default; width: 600px; height: 300px;"
+>
+  <svg
+    class="recharts-surface"
+    height="300"
+    style="width: 100%; height: 100%;"
+    viewBox="0 0 600 300"
+    width="600"
+  >
+    <title />
+    <desc />
+    <defs>
+      <clippath
+        id="recharts24-clip"
+      >
+        <rect
+          height="242"
+          width="502"
+          x="61"
+          y="5"
+        />
+      </clippath>
+    </defs>
+    <g
+      class="recharts-layer recharts-bar"
+    >
+      <g
+        class="recharts-layer recharts-bar-rectangles"
+      >
+        <g
+          class="recharts-layer"
+        >
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+        </g>
+      </g>
+    </g>
+    <g
+      class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+    >
+      <line
+        class="recharts-cartesian-axis-line"
+        fill="none"
+        height="48"
+        orientation="bottom"
+        stroke="#8c99a6"
+        width="502"
+        x="61"
+        x1="61"
+        x2="563"
+        y="247"
+        y1="247"
+        y2="247"
+      />
+      <g
+        class="recharts-cartesian-axis-ticks"
+      >
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="502"
+            x="61"
+            x1="144.66666666666669"
+            x2="144.66666666666669"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="502"
+            x="144.66666666666669"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="144.66666666666669"
+            >
+              Jan
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="502"
+            x="61"
+            x1="312"
+            x2="312"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="502"
+            x="312"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="312"
+            >
+              Feb
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="502"
+            x="61"
+            x1="479.33333333333337"
+            x2="479.33333333333337"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="502"
+            x="479.33333333333337"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="479.33333333333337"
+            >
+              Mar
+            </tspan>
+          </text>
+        </g>
+      </g>
+      <text
+        class="recharts-text barChart__axis-label"
+        fill="#808080"
+        offset="0"
+        text-anchor="middle"
+        x="312"
+        y="295"
+      >
+        <tspan
+          dy="0em"
+          x="312"
+        >
+          Month
+        </tspan>
+      </text>
+    </g>
+  </svg>
+  <div
+    class="recharts-legend-wrapper"
+    style="position: absolute; width: auto; height: auto; top: 0px; right: -5px;"
+  >
+    <button
+      class="c0 button button--icon button--primary"
+      data-role="button"
+      data-type="icon"
+      data-variant-type="primary"
+      title=""
+      type="button"
+    >
+      <i
+        class="c1 c2 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </button>
+  </div>
+  <div
+    class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom"
+    style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px; transform: translate(61px, 10px);"
+    tabindex="-1"
+  >
+    <div
+      class="recharts-default-tooltip"
+      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+    >
+      <p
+        class="recharts-tooltip-label"
+        style="margin: 0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.charts > render bar chart with horizontal legend 1`] = `
+.c0 {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(169, 179, 188) 0px 0px 0px 1px;
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  margin: 0px;
+  opacity: 0.9;
+  overflow: auto;
+  padding: 0px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  align-items: center;
+  cursor: pointer;
+  color: rgb(77, 77, 77);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.c1 :focus {
+  outline: none;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  flex: 1 1 auto;
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(241, 242, 244);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    background-color: rgb(241, 242, 244);
+  }
+}
+
+<div
+  class="recharts-wrapper barChart"
+  style="position: relative; cursor: default; width: 600px; height: 300px;"
+>
+  <svg
+    class="recharts-surface"
+    height="300"
+    style="width: 100%; height: 100%;"
+    viewBox="0 0 600 300"
+    width="600"
+  >
+    <title />
+    <desc />
+    <defs>
+      <clippath
+        id="recharts12-clip"
+      >
+        <rect
+          height="208"
+          width="534"
+          x="61"
+          y="39"
+        />
+      </clippath>
+    </defs>
+    <g
+      class="recharts-layer recharts-bar"
+    >
+      <g
+        class="recharts-layer recharts-bar-rectangles"
+      >
+        <g
+          class="recharts-layer"
+        >
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+        </g>
+      </g>
+    </g>
+    <g
+      class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+    >
+      <line
+        class="recharts-cartesian-axis-line"
+        fill="none"
+        height="48"
+        orientation="bottom"
+        stroke="#8c99a6"
+        width="534"
+        x="61"
+        x1="61"
+        x2="595"
+        y="247"
+        y1="247"
+        y2="247"
+      />
+      <g
+        class="recharts-cartesian-axis-ticks"
+      >
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="534"
+            x="61"
+            x1="150"
+            x2="150"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="534"
+            x="150"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="150"
+            >
+              Jan
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="534"
+            x="61"
+            x1="328"
+            x2="328"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="534"
+            x="328"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="328"
+            >
+              Feb
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="534"
+            x="61"
+            x1="506"
+            x2="506"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="534"
+            x="506"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="506"
+            >
+              Mar
+            </tspan>
+          </text>
+        </g>
+      </g>
+      <text
+        class="recharts-text barChart__axis-label"
+        fill="#808080"
+        offset="0"
+        text-anchor="middle"
+        x="328"
+        y="295"
+      >
+        <tspan
+          dy="0em"
+          x="328"
+        >
+          Month
+        </tspan>
+      </text>
+    </g>
+  </svg>
+  <div
+    class="recharts-legend-wrapper"
+    style="position: absolute; width: auto; height: auto; right: 5px; top: 5px;"
+  >
+    <ul
+      class="c0 chart__legend chart__legend--layout-horizontal"
+      data-role="bar-chart-legend"
+      style="max-height: 280px; max-width: 590px;"
+    >
+      <li
+        class="c1 chart__legend-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="c2 chart__legend-text"
+        >
+          Jan
+          :
+        </span>
+        <span />
+      </li>
+      <li
+        class="c1 chart__legend-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="c2 chart__legend-text"
+        >
+          Feb
+          :
+        </span>
+        <span />
+      </li>
+      <li
+        class="c1 chart__legend-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="c2 chart__legend-text"
+        >
+          Mar
+          :
+        </span>
+        <span />
+      </li>
+    </ul>
+  </div>
+  <div
+    class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom"
+    style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px; transform: translate(61px, 39px);"
+    tabindex="-1"
+  >
+    <div
+      class="recharts-default-tooltip"
+      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+    >
+      <p
+        class="recharts-tooltip-label"
+        style="margin: 0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.charts > render bar chart with threshold 1`] = `
+<div
+  class="recharts-wrapper barChart"
+  style="position: relative; cursor: default; width: 600px; height: 300px;"
+>
+  <svg
+    class="recharts-surface"
+    height="300"
+    style="width: 100%; height: 100%;"
+    viewBox="0 0 600 300"
+    width="600"
+  >
+    <title />
+    <desc />
+    <defs>
+      <clippath
+        id="recharts9-clip"
+      >
+        <rect
+          height="242"
+          width="590"
+          x="5"
+          y="5"
+        />
+      </clippath>
+    </defs>
+    <g
+      class="recharts-layer recharts-bar"
+    >
+      <g
+        class="recharts-layer recharts-bar-rectangles"
+      >
+        <g
+          class="recharts-layer"
+        >
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+        </g>
+      </g>
+    </g>
+    <g
+      class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+    >
+      <line
+        class="recharts-cartesian-axis-line"
+        fill="none"
+        height="48"
+        orientation="bottom"
+        stroke="#8c99a6"
+        width="590"
+        x="5"
+        x1="5"
+        x2="595"
+        y="247"
+        y1="247"
+        y2="247"
+      />
+      <g
+        class="recharts-cartesian-axis-ticks"
+      />
+    </g>
+  </svg>
+  <div
+    class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom"
+    style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px; transform: translate(10px, 10px);"
+    tabindex="-1"
+  >
+    <div
+      class="recharts-default-tooltip"
+      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+    >
+      <p
+        class="recharts-tooltip-label"
+        style="margin: 0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.charts > render bar chart with vertical legend 1`] = `
+.c0 {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(169, 179, 188) 0px 0px 0px 1px;
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  margin: 0px;
+  opacity: 0.9;
+  overflow: auto;
+  padding: 0px;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  cursor: pointer;
+  color: rgb(77, 77, 77);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.c1 :focus {
+  outline: none;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  flex: 1 1 auto;
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(241, 242, 244);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    background-color: rgb(241, 242, 244);
+  }
+}
+
+<div
+  class="recharts-wrapper barChart"
+  style="position: relative; cursor: default; width: 600px; height: 300px;"
+>
+  <svg
+    class="recharts-surface"
+    height="300"
+    style="width: 100%; height: 100%;"
+    viewBox="0 0 600 300"
+    width="600"
+  >
+    <title />
+    <desc />
+    <defs>
+      <clippath
+        id="recharts18-clip"
+      >
+        <rect
+          height="242"
+          width="470"
+          x="61"
+          y="5"
+        />
+      </clippath>
+    </defs>
+    <g
+      class="recharts-layer recharts-bar"
+    >
+      <g
+        class="recharts-layer recharts-bar-rectangles"
+      >
+        <g
+          class="recharts-layer"
+        >
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+        </g>
+      </g>
+    </g>
+    <g
+      class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+    >
+      <line
+        class="recharts-cartesian-axis-line"
+        fill="none"
+        height="48"
+        orientation="bottom"
+        stroke="#8c99a6"
+        width="470"
+        x="61"
+        x1="61"
+        x2="531"
+        y="247"
+        y1="247"
+        y2="247"
+      />
+      <g
+        class="recharts-cartesian-axis-ticks"
+      >
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="470"
+            x="61"
+            x1="139.33333333333331"
+            x2="139.33333333333331"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="470"
+            x="139.33333333333331"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="139.33333333333331"
+            >
+              Jan
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="470"
+            x="61"
+            x1="296"
+            x2="296"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="470"
+            x="296"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="296"
+            >
+              Feb
+            </tspan>
+          </text>
+        </g>
+        <g
+          class="recharts-layer recharts-cartesian-axis-tick"
+        >
+          <line
+            class="recharts-cartesian-axis-tick-line"
+            fill="none"
+            height="48"
+            orientation="bottom"
+            stroke="#8c99a6"
+            width="470"
+            x="61"
+            x1="452.66666666666663"
+            x2="452.66666666666663"
+            y="247"
+            y1="253"
+            y2="247"
+          />
+          <text
+            class="recharts-text recharts-cartesian-axis-tick-value"
+            fill="#8c99a6"
+            height="48"
+            orientation="bottom"
+            stroke="none"
+            text-anchor="middle"
+            width="470"
+            x="452.66666666666663"
+            y="255"
+          >
+            <tspan
+              dy="0.71em"
+              x="452.66666666666663"
+            >
+              Mar
+            </tspan>
+          </text>
+        </g>
+      </g>
+      <text
+        class="recharts-text barChart__axis-label"
+        fill="#808080"
+        offset="0"
+        text-anchor="middle"
+        x="296"
+        y="295"
+      >
+        <tspan
+          dy="0em"
+          x="296"
+        >
+          Month
+        </tspan>
+      </text>
+    </g>
+  </svg>
+  <div
+    class="recharts-legend-wrapper"
+    style="position: absolute; width: auto; height: auto; right: 5px; top: 5px;"
+  >
+    <ul
+      class="c0 chart__legend chart__legend--layout-vertical"
+      data-role="bar-chart-legend"
+      style="max-height: 280px; max-width: 300px;"
+    >
+      <li
+        class="c1 chart__legend-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="c2 chart__legend-text"
+        >
+          Jan
+          :
+        </span>
+        <span />
+      </li>
+      <li
+        class="c1 chart__legend-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="c2 chart__legend-text"
+        >
+          Feb
+          :
+        </span>
+        <span />
+      </li>
+      <li
+        class="c1 chart__legend-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="c2 chart__legend-text"
+        >
+          Mar
+          :
+        </span>
+        <span />
+      </li>
+    </ul>
+  </div>
+  <div
+    class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom"
+    style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px; transform: translate(61px, 10px);"
+    tabindex="-1"
+  >
+    <div
+      class="recharts-default-tooltip"
+      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+    >
+      <p
+        class="recharts-tooltip-label"
+        style="margin: 0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.charts > render basic bar chart 1`] = `
+<div
+  class="recharts-wrapper barChart"
+  style="position: relative; cursor: default; width: 600px; height: 300px;"
+>
+  <svg
+    class="recharts-surface"
+    height="300"
+    style="width: 100%; height: 100%;"
+    viewBox="0 0 600 300"
+    width="600"
+  >
+    <title />
+    <desc />
+    <defs>
+      <clippath
+        id="recharts3-clip"
+      >
+        <rect
+          height="242"
+          width="590"
+          x="5"
+          y="5"
+        />
+      </clippath>
+    </defs>
+    <g
+      class="recharts-layer recharts-bar"
+    >
+      <g
+        class="recharts-layer recharts-bar-rectangles"
+      >
+        <g
+          class="recharts-layer"
+        >
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+          <g
+            class="recharts-layer recharts-bar-rectangle"
+          />
+        </g>
+      </g>
+    </g>
+    <g
+      class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+    >
+      <line
+        class="recharts-cartesian-axis-line"
+        fill="none"
+        height="48"
+        orientation="bottom"
+        stroke="#8c99a6"
+        width="590"
+        x="5"
+        x1="5"
+        x2="595"
+        y="247"
+        y1="247"
+        y2="247"
+      />
+      <g
+        class="recharts-cartesian-axis-ticks"
+      />
+    </g>
+  </svg>
+  <div
+    class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom"
+    style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px; transform: translate(10px, 10px);"
+    tabindex="-1"
+  >
+    <div
+      class="recharts-default-tooltip"
+      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+    >
+      <p
+        class="recharts-tooltip-label"
+        style="margin: 0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.charts > render responsive chart container with bar chart 1`] = `
+.c0 .recharts-wrapper {
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.c0 .lineChart {
+  margin-right: 20px;
+}
+
+.c0 .barChart__axis-label,
+.c0 .lineChart__axis-label {
+  font-weight: 700;
+}
+
+.c0 .recharts-text {
+  fill: rgb(77, 77, 77);
+}
+
+.c0 .recharts-legend-wrapper {
+  padding: 10px;
+}
+
+<div
+  class="recharts-responsive-container c0"
+  style="width: 600px; height: 100%; min-width: 0px;"
+>
+  <div
+    class="recharts-wrapper barChart"
+    style="position: relative; cursor: default; width: 100%; height: 100%; max-height: 300px; max-width: 600px;"
+  >
+    <svg
+      class="recharts-surface"
+      height="300"
+      style="width: 100%; height: 100%;"
+      viewBox="0 0 600 300"
+      width="600"
+    >
+      <title />
+      <desc />
+      <defs>
+        <clippath
+          id="recharts1-clip"
+        >
+          <rect
+            height="242"
+            width="534"
+            x="61"
+            y="5"
+          />
+        </clippath>
+      </defs>
+    </svg>
+    <div
+      class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom"
+      style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px; transform: translate(61px, 10px);"
+      tabindex="-1"
+    >
+      <div
+        class="recharts-default-tooltip"
+        style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+      >
+        <p
+          class="recharts-tooltip-label"
+          style="margin: 0px;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

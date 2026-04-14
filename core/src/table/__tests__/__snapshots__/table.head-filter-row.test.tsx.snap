@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.head-filter-row > default 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: hidden;
+  background-color: rgb(241, 242, 244);
+}
+
+.c2 {
+  background-color: inherit;
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+<div
+  class="c0 c1 table__headerRow c2 table__headerRow--filter"
+  data-role="table-header-row--filter"
+  role="row"
+/>
+`;

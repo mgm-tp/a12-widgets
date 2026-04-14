@@ -1,0 +1,1069 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon matching with the variant 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c2 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c5 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c5.c5 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  padding: 16px;
+}
+
+.c1 {
+  position: relative;
+  margin-top: 6px;
+}
+
+.c1::before {
+  background-color: rgb(5, 104, 174);
+  border-width: 1px medium medium 1px;
+  border-style: solid none none solid;
+  border-color: rgb(5, 104, 174) currentcolor currentcolor rgb(5, 104, 174);
+  border-image: initial;
+  content: "";
+  height: 8px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 8px;
+  top: -4px;
+}
+
+.c1::before {
+  left: 20px;
+}
+
+.c1.c1 {
+  margin: 8px 8px 16px 0px;
+}
+
+.c6 {
+  justify-content: center;
+}
+
+<div
+  class="c0 c1 toast toast--connected toast--info"
+  data-role="toast"
+  tabindex="-1"
+>
+  <div
+    class="c2 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c5 c6 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c7 toast__content"
+      data-role="toast-content"
+    >
+      <div
+        class="toast__message"
+        data-role="toast-message"
+      >
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          , ESC to close message
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon matching with the variant 2`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c9 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c2 {
+  background-color: rgb(41, 122, 36);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c5 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c5.c5 {
+  border-color: rgb(41, 122, 36);
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  padding: 16px;
+}
+
+.c1 {
+  position: relative;
+  margin-top: 6px;
+}
+
+.c1::before {
+  background-color: rgb(41, 122, 36);
+  border-width: 1px medium medium 1px;
+  border-style: solid none none solid;
+  border-color: rgb(41, 122, 36) currentcolor currentcolor rgb(41, 122, 36);
+  border-image: initial;
+  content: "";
+  height: 8px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 8px;
+  top: -4px;
+}
+
+.c1::before {
+  left: 20px;
+}
+
+.c1.c1 {
+  margin: 8px 8px 16px 0px;
+}
+
+.c6 {
+  justify-content: center;
+}
+
+<div
+  class="c0 c1 toast toast--connected toast--success"
+  data-role="toast"
+  tabindex="-1"
+>
+  <div
+    class="c2 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        check_circle
+      </span>
+    </i>
+  </div>
+  <div
+    class="c5 c6 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c7 toast__content"
+      data-role="toast-content"
+    >
+      <div
+        class="toast__message"
+        data-role="toast-message"
+      >
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          , ESC to close message
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon matching with the variant 3`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons Outlined";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c9 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c2 {
+  background-color: rgb(249, 191, 48);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c2 .c3 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c5 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c5.c5 {
+  border-color: rgb(249, 191, 48);
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  padding: 16px;
+}
+
+.c1 {
+  position: relative;
+  margin-top: 6px;
+}
+
+.c1::before {
+  background-color: rgb(249, 191, 48);
+  border-width: 1px medium medium 1px;
+  border-style: solid none none solid;
+  border-color: rgb(249, 191, 48) currentcolor currentcolor rgb(249, 191, 48);
+  border-image: initial;
+  content: "";
+  height: 8px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 8px;
+  top: -4px;
+}
+
+.c1::before {
+  left: 20px;
+}
+
+.c1.c1 {
+  margin: 8px 8px 16px 0px;
+}
+
+.c6 {
+  justify-content: center;
+}
+
+<div
+  class="c0 c1 toast toast--connected toast--warning"
+  data-role="toast"
+  tabindex="-1"
+>
+  <div
+    class="c2 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c3 c4 plasma-icon plasma-icon--outlined"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        warning_amber
+      </span>
+    </i>
+  </div>
+  <div
+    class="c5 c6 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c7 toast__content"
+      data-role="toast-content"
+    >
+      <div
+        class="toast__message"
+        data-role="toast-message"
+      >
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          , ESC to close message
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon matching with the variant 4`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c9 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c11 .c3 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c2 {
+  background-color: rgb(201, 29, 29);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c5 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c5.c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  padding: 16px;
+}
+
+.c1 {
+  position: relative;
+  margin-top: 6px;
+}
+
+.c1::before {
+  background-color: rgb(201, 29, 29);
+  border-width: 1px medium medium 1px;
+  border-style: solid none none solid;
+  border-color: rgb(201, 29, 29) currentcolor currentcolor rgb(201, 29, 29);
+  border-image: initial;
+  content: "";
+  height: 8px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 8px;
+  top: -4px;
+}
+
+.c1::before {
+  left: 20px;
+}
+
+.c1.c1 {
+  margin: 8px 8px 16px 0px;
+}
+
+.c6 {
+  justify-content: center;
+}
+
+<div
+  class="c0 c1 toast toast--connected toast--error"
+  data-role="toast"
+  tabindex="-1"
+>
+  <div
+    class="c2 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c3 c4 plasma-icon plasma-icon--custom"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        
+      </span>
+    </i>
+  </div>
+  <div
+    class="c5 c6 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c7 toast__content"
+      data-role="toast-content"
+    >
+      <div
+        class="toast__message"
+        data-role="toast-message"
+      >
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          , ESC to close message
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.connected-toast.template > render connected toast template with id, className and style 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c2 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c5 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c5.c5 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  padding: 16px;
+}
+
+.c1 {
+  position: relative;
+  margin-top: 6px;
+}
+
+.c1::before {
+  background-color: rgb(5, 104, 174);
+  border-width: 1px medium medium 1px;
+  border-style: solid none none solid;
+  border-color: rgb(5, 104, 174) currentcolor currentcolor rgb(5, 104, 174);
+  border-image: initial;
+  content: "";
+  height: 8px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 8px;
+  top: -4px;
+}
+
+.c1::before {
+  left: 20px;
+}
+
+.c1.c1 {
+  margin: 8px 8px 16px 0px;
+}
+
+.c6 {
+  justify-content: center;
+}
+
+<div
+  class="c0 c1 toast toast--connected toast--info class"
+  data-role="toast"
+  id="id"
+  style="font-size: 10px;"
+  tabindex="-1"
+>
+  <div
+    class="c2 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c5 c6 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c7 toast__content"
+      data-role="toast-content"
+    >
+      <div
+        class="toast__message"
+        data-role="toast-message"
+      >
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          , ESC to close message
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.connected-toast.template > render with the message 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c2 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c9 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 .c3 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c11 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c5 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c5.c5 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  padding: 16px;
+}
+
+.c1 {
+  position: relative;
+  margin-top: 6px;
+}
+
+.c1::before {
+  background-color: rgb(5, 104, 174);
+  border-width: 1px medium medium 1px;
+  border-style: solid none none solid;
+  border-color: rgb(5, 104, 174) currentcolor currentcolor rgb(5, 104, 174);
+  border-image: initial;
+  content: "";
+  height: 8px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 8px;
+  top: -4px;
+}
+
+.c1::before {
+  left: 20px;
+}
+
+.c1.c1 {
+  margin: 8px 8px 16px 0px;
+}
+
+.c6 {
+  justify-content: center;
+}
+
+<div
+  class="c0 c1 toast toast--connected toast--info"
+  data-role="toast"
+  tabindex="-1"
+>
+  <div
+    class="c2 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c5 c6 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c7 toast__content"
+      data-role="toast-content"
+    >
+      <div
+        class="toast__message"
+        data-role="toast-message"
+      >
+        Message
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          , ESC to close message
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

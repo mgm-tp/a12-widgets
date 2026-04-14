@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.line-ellipsis > rendering html-line-ellipsis 1`] = `
+.c0 {
+  width: 100%;
+}
+
+.c0 > div {
+  text-transform: none;
+  white-space: pre-wrap;
+}
+
+<div
+  class="c0"
+  data-role="lines-ellipsis-wrapper"
+>
+  <span
+    class="LinesEllipsis  test-class"
+    id="test-id"
+    style="color: hotpink;"
+  >
+    <div>
+      text
+    </div>
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.line-ellipsis > rendering line-ellipsis 1`] = `
+.c0 {
+  width: 100%;
+}
+
+.c0 > div {
+  text-transform: none;
+  white-space: pre-wrap;
+}
+
+<div
+  class="c0"
+  data-role="lines-ellipsis-wrapper"
+>
+  <span
+    class="LinesEllipsis  test-class"
+    id="test-id"
+    style="color: hotpink;"
+  >
+    text
+    <wbr />
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.line-ellipsis > rendering line-ellipsis-without-responsive 1`] = `
+<span
+  class="LinesEllipsis  test-class"
+  id="test-id"
+  style="color: hotpink;"
+>
+  text
+  <wbr />
+</span>
+`;

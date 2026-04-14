@@ -1,0 +1,2663 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > action column 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 15 1.5 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 225px;
+  padding: 0px 16px;
+  text-align: left;
+  width: 225px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  height: 100%;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--15 table__actionCell"
+  data-role="table-header-cell"
+  data-type="table-action-cell"
+  data-width="1.5"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  />
+  <span
+    class="c4 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    Action
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c1 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+  align-items: flex-start;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-top"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 2`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 3`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+.c1 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+  align-items: flex-end;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-bottom"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 4`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+  justify-content: center;
+  text-align: center;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c1 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+  align-items: flex-start;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-center table__headerCell--align-top"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 5`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+  justify-content: center;
+  text-align: center;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-center"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 6`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+  justify-content: center;
+  text-align: center;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+.c1 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+  align-items: flex-end;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-center table__headerCell--align-bottom"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 7`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c1 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+  align-items: flex-start;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-right table__headerCell--align-top"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 8`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-right"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 9`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+.c1 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+  align-items: flex-end;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-right table__headerCell--align-bottom"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > cardView 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 24px 8px 8px;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  position: relative;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10"
+  data-role="table-header-cell"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > column group 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+  justify-content: center;
+  text-align: center;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-center"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    group test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing columns > should depend on whether the normal column is rightmost scroll or not 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c0 [data-head-cell-resizing="true"] div {
+  background-color: transparent;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--fixedWidth"
+  data-role="table-header-cell"
+  data-type="false"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing columns > should depend on whether the normal column is rightmost scroll or not 2`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c0 [data-head-cell-resizing="true"] div {
+  background-color: transparent;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10"
+  data-role="table-header-cell"
+  data-type="false"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing columns > should not for action column 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: unset;
+  padding: 0px 16px;
+  text-align: left;
+  width: unset;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  height: 100%;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c0 [data-head-cell-resizing="true"] div {
+  background-color: transparent;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+.c2 .c7.c7 {
+  overflow: hidden;
+}
+
+.c2 .c8.c8 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__actionCell"
+  data-role="table-header-cell"
+  data-type="table-action-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+  <span
+    class="c4 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    Action
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing columns > should be if props.fixedWidth = true 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--fixedWidth"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing columns > should be if the column is not action column but pinned 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--fixedWidth"
+  data-role="table-header-cell"
+  data-type="false"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing columns > should not be for normal column 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--10"
+  data-role="table-header-cell"
+  data-type="false"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing columns > should not for action column 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: unset;
+  padding: 0px 16px;
+  text-align: left;
+  width: unset;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  height: 100%;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 .c5.c5 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c6.c6 {
+  overflow: hidden;
+}
+
+.c2 .c7.c7 {
+  overflow: hidden;
+}
+
+.c2 .c8.c8 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__actionCell"
+  data-role="table-header-cell"
+  data-type="table-action-cell"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    label test
+  </div>
+  <span
+    class="c4 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    Action
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(201, 29, 29);
+  color: rgb(255, 255, 255);
+}
+
+.c1 .c2 {
+  user-select: none;
+}
+
+.c1 .c2 {
+  color: inherit;
+}
+
+.c1 .c2 {
+  font-size: inherit;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1:not(:disabled):focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c2 {
+  display: block;
+}
+
+.c4 > .c2:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 [data-role="status-icon"] .c2 {
+  display: inherit;
+}
+
+.c4 .c2 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c4 .c0[data-type="icon"]:not([data-role="tag"] .c0) {
+  font-size: 1.5rem;
+  height: 22px;
+  min-height: 22px;
+  width: 22px;
+}
+
+.c5 > .c2:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 [data-role="status-icon"] .c2 {
+  display: inherit;
+}
+
+.c5 .c2 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c5 .c0[data-type="icon"]:not([data-role="tag"] .c0) {
+  font-size: 1.5rem;
+  height: 22px;
+  min-height: 22px;
+  width: 22px;
+}
+
+.c6 > .c2:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c6 [data-role="status-icon"] .c2 {
+  display: inherit;
+}
+
+.c6 .c2 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c6 .c0[data-type="icon"]:not([data-role="tag"] .c0) {
+  font-size: 1.5rem;
+  height: 22px;
+  min-height: 22px;
+  width: 22px;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<button
+  aria-label="Primary destructive icon button"
+  class="c0 c1 button button--icon button--destructive button--primary"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="primary"
+  title="Primary destructive icon button"
+  type="button"
+>
+  <i
+    class="c2 c3 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      delete
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`] = `
+.c1 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons Outlined";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c1 > span {
+  display: inline-block;
+}
+
+.c1.c1 {
+  max-width: unset;
+}
+
+.c5 .c0 {
+  user-select: none;
+}
+
+.c5 .c0 {
+  color: inherit;
+}
+
+.c5 .c0 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c0 {
+  display: block;
+}
+
+.c6 .c0 {
+  user-select: none;
+}
+
+.c6 .c0 {
+  color: inherit;
+}
+
+.c6 .c0 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c0 {
+  display: block;
+}
+
+.c7 .c0 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c8 .c0 {
+  line-height: 18px;
+}
+
+.c9 .c0 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c10 > .c0 {
+  vertical-align: top;
+}
+
+.c2 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c2 [data-role="status-icon"] .c0 {
+  display: inherit;
+}
+
+.c2 .c0 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c3 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c3 [data-role="status-icon"] .c0 {
+  display: inherit;
+}
+
+.c3 .c0 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c4 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 [data-role="status-icon"] .c0 {
+  display: inherit;
+}
+
+.c4 .c0 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+@keyframes k0 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+<i
+  class="c0 c1 plasma-icon plasma-icon--outlined"
+  data-role="plasma-icon"
+>
+  <span
+    aria-hidden="true"
+  >
+    laptop
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
+.c1 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c1 > span {
+  display: inline-block;
+}
+
+.c1.c1 {
+  max-width: unset;
+}
+
+.c5 .c0 {
+  user-select: none;
+}
+
+.c5 .c0 {
+  color: inherit;
+}
+
+.c5 .c0 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c0 {
+  display: block;
+}
+
+.c6 .c0 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c7 .c0 {
+  line-height: 18px;
+}
+
+.c2 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c2 [data-role="status-icon"] .c0 {
+  display: inherit;
+}
+
+.c2 .c0 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c3 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c3 [data-role="status-icon"] .c0 {
+  display: inherit;
+}
+
+.c3 .c0 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c4 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 [data-role="status-icon"] .c0 {
+  display: inherit;
+}
+
+.c4 .c0 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+<i
+  class="c0 c1 plasma-icon"
+  data-role="plasma-icon"
+>
+  <span
+    aria-hidden="true"
+  >
+    delete
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c17 .c11 {
+  user-select: none;
+}
+
+.c17 .c11 {
+  color: inherit;
+}
+
+.c17 .c11 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c11 {
+  display: block;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2:empty {
+  display: none;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c8 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c10 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c10 .c11 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c6 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c13 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c13:not(:disabled) {
+  cursor: pointer;
+}
+
+.c4 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c14 > .c11:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c14 [data-role="status-icon"] .c11 {
+  display: inherit;
+}
+
+.c14 .c11 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c15 > .c11:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c15 [data-role="status-icon"] .c11 {
+  display: inherit;
+}
+
+.c15 .c11 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c16 > .c11:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c16 [data-role="status-icon"] .c11 {
+  display: inherit;
+}
+
+.c16 .c11 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active .c7 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c4:active .c7 .c9 .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:active .c5 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c4:active .c7 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover .c7 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c4:hover .c7 .c9 .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:hover .c5 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c4:hover .c7 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <label
+    class="c1 c2 label field__label -u-unseenButRead"
+    data-role="switch-label"
+  >
+    Enable feature
+  </label>
+  <div
+    class="c3 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c4 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c5 c6 switch__track"
+      />
+      <span
+        class="c7 c8 switch__thumb"
+      >
+        <span
+          class="c9 c10"
+        >
+          <i
+            class="c11 c12 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-checked="false"
+        class="c13 switch__input"
+        data-role="switch-input"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > properties 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 225px;
+  padding: 0px 24px;
+  text-align: left;
+  width: 225px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: rgb(77, 77, 77);
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c0 > * {
+  color: rgb(77, 77, 77);
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  background-color: rgb(227, 229, 233);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+.c1.c1.c1.c1:last-of-type {
+  box-shadow: none;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--15 table__headerCell--fixedWidth table__headerCell--sub-info"
+  data-role="table-header-cell"
+  data-width="1.5"
+  role="grid"
+  style="color: red;"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  />
+  <span
+    class="c4 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    title test
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell > sortable 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c4 > .c5:not(.):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 [data-role="status-icon"] .c5 {
+  display: inherit;
+}
+
+.c4 .c5 {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  height: 22px;
+}
+
+.c3 .c7.c7 {
+  overflow: hidden;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c3 .c1.c1 {
+  overflow: hidden;
+}
+
+.c2 {
+  cursor: pointer;
+  position: relative;
+  color: rgb(5, 104, 174);
+}
+
+.c2::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+}
+
+.c2:not([data-head-cell-resizing="true"]):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c2:not([data-head-cell-resizing="true"]):focus::before {
+  border-bottom: 2px solid rgb(213, 0, 117);
+}
+
+.c2:not([data-head-cell-resizing="true"]):focus::before {
+  outline-offset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2:not([data-head-cell-resizing="true"]):focus::after {
+  border-left: 1px dotted rgb(51, 51, 51);
+}
+
+@media (pointer: coarse) {
+  .c2:not([data-headcell-no-effect="true"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:not([data-headcell-no-effect="true"]):active::before {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not([data-headcell-no-effect="true"]):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:not([data-headcell-no-effect="true"]):hover::before {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  aria-sort="descending"
+  class="c0 c1 c2 table__headerCell table__headerCell--10 table__headerCell--sortable"
+  data-role="table-header-cell"
+  role="columnheader"
+  tabindex="0"
+  title="sortable"
+>
+  <div
+    class="c3 c4 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+    role="button"
+  >
+    label test
+    <i
+      class="c5 c6 plasma-icon plasma-icon--big table__sorting-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_drop_down
+      </span>
+    </i>
+  </div>
+</div>
+`;

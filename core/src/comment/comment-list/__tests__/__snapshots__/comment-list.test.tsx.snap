@@ -1,0 +1,348 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.comment.comment-list > rendering-comment-list 1`] = `
+.c0 {
+  background-color: rgb(255, 255, 255);
+  margin: 0px;
+  min-height: 84px;
+  overflow: hidden auto;
+  padding: 0px;
+}
+
+.c1 {
+  list-style-type: none;
+  position: relative;
+}
+
+.c1:not(:last-child)::after {
+  border-bottom: 1px solid rgb(226, 230, 233);
+  bottom: 0px;
+  content: "";
+  left: 16px;
+  position: absolute;
+  right: 16px;
+}
+
+.c4 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c4 > :last-child {
+  margin-right: 0px;
+}
+
+.c5 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c6 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c7 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+  margin: 0px 4px 0px 0px;
+}
+
+.c8 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+}
+
+.c9 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c9 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+.c10 {
+  color: rgb(77, 77, 77);
+  white-space: pre-wrap;
+}
+
+<ul
+  class="c0 comment-list"
+  data-role="comment-list"
+>
+  <li
+    class="c1 comment-list__item"
+    data-role="comment-list-item"
+  >
+    <div
+      class="c2 comment"
+      data-role="comment"
+    >
+      <div
+        class="c3 comment__meta-container"
+      >
+        <div
+          class="c4 comment__meta"
+          data-role="comment-meta"
+        >
+          <div
+            class="c5 comment__meta-avatar"
+          >
+            avatar
+          </div>
+          <div
+            class="c6 comment__meta-author"
+          >
+            Matt
+          </div>
+          <div
+            class="c7 comment__meta-action"
+          >
+            wrote
+          </div>
+          <div
+            class="c8 comment__meta-date"
+          >
+            date
+          </div>
+        </div>
+      </div>
+      <div
+        class="c9 comment__content"
+      >
+        <div
+          class="c10 comment__text"
+          data-role="comment-text"
+        >
+          content
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="c1 comment-list__item"
+    data-role="comment-list-item"
+  >
+    <div
+      class="c2 comment"
+      data-role="comment"
+    >
+      <div
+        class="c3 comment__meta-container"
+      >
+        <div
+          class="c4 comment__meta"
+          data-role="comment-meta"
+        >
+          <div
+            class="c5 comment__meta-avatar"
+          >
+            avatar
+          </div>
+          <div
+            class="c6 comment__meta-author"
+          >
+            Matt
+          </div>
+          <div
+            class="c7 comment__meta-action"
+          >
+            wrote
+          </div>
+          <div
+            class="c8 comment__meta-date"
+          >
+            date
+          </div>
+        </div>
+      </div>
+      <div
+        class="c9 comment__content"
+      >
+        <div
+          class="c10 comment__text"
+          data-role="comment-text"
+        >
+          content
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="c1 comment-list__item"
+    data-role="comment-list-item"
+  >
+    <div
+      class="c2 comment"
+      data-role="comment"
+    >
+      <div
+        class="c3 comment__meta-container"
+      >
+        <div
+          class="c4 comment__meta"
+          data-role="comment-meta"
+        >
+          <div
+            class="c5 comment__meta-avatar"
+          >
+            avatar
+          </div>
+          <div
+            class="c6 comment__meta-author"
+          >
+            Matt
+          </div>
+          <div
+            class="c7 comment__meta-action"
+          >
+            wrote
+          </div>
+          <div
+            class="c8 comment__meta-date"
+          >
+            date
+          </div>
+        </div>
+      </div>
+      <div
+        class="c9 comment__content"
+      >
+        <div
+          class="c10 comment__text"
+          data-role="comment-text"
+        >
+          content
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="c1 comment-list__item"
+    data-role="comment-list-item"
+  >
+    <div
+      class="c2 comment"
+      data-role="comment"
+    >
+      <div
+        class="c3 comment__meta-container"
+      >
+        <div
+          class="c4 comment__meta"
+          data-role="comment-meta"
+        >
+          <div
+            class="c5 comment__meta-avatar"
+          >
+            avatar
+          </div>
+          <div
+            class="c6 comment__meta-author"
+          >
+            Matt
+          </div>
+          <div
+            class="c7 comment__meta-action"
+          >
+            wrote
+          </div>
+          <div
+            class="c8 comment__meta-date"
+          >
+            date
+          </div>
+        </div>
+      </div>
+      <div
+        class="c9 comment__content"
+      >
+        <div
+          class="c10 comment__text"
+          data-role="comment-text"
+        >
+          content
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="c1 comment-list__item"
+    data-role="comment-list-item"
+  >
+    <div
+      class="c2 comment"
+      data-role="comment"
+    >
+      <div
+        class="c3 comment__meta-container"
+      >
+        <div
+          class="c4 comment__meta"
+          data-role="comment-meta"
+        >
+          <div
+            class="c5 comment__meta-avatar"
+          >
+            avatar
+          </div>
+          <div
+            class="c6 comment__meta-author"
+          >
+            Matt
+          </div>
+          <div
+            class="c7 comment__meta-action"
+          >
+            wrote
+          </div>
+          <div
+            class="c8 comment__meta-date"
+          >
+            date
+          </div>
+        </div>
+      </div>
+      <div
+        class="c9 comment__content"
+      >
+        <div
+          class="c10 comment__text"
+          data-role="comment-text"
+        >
+          content
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+`;

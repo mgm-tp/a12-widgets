@@ -1,0 +1,2798 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.menu.sliding > use MainWrapper to have an overlay and should be visible when expanding 1`] = `
+.c0 {
+  background-color: rgb(255, 255, 255);
+  height: calc(100% - 48px);
+  left: -100%;
+  position: fixed;
+  transition: transform 0.3s ease-in-out, visibility 0.3s, z-index 1s;
+  width: 100%;
+  overflow-y: auto;
+  transform: translateX(100%);
+  visibility: visible;
+  z-index: 2;
+}
+
+<div
+  class="c0 sliding-menu sliding-menu--expanded"
+  id="main-wrapper-id"
+>
+  <span>
+    Sliding Menu here
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.menu.sliding > use MainWrapper to have an overlay but should be invisible initially 1`] = `
+.c0 {
+  background-color: rgb(255, 255, 255);
+  height: calc(100% - 48px);
+  left: -100%;
+  position: fixed;
+  transition: transform 0.3s ease-in-out, visibility 0.3s, z-index 1s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 0;
+}
+
+<div
+  class="c0 sliding-menu"
+  id="main-wrapper-id"
+>
+  <span>
+    Sliding Menu here
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-collapsed 1`] = `
+.c10 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c10 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c0 {
+  outline: transparent solid 1px;
+  overflow-x: hidden;
+}
+
+.c1 {
+  transition: 0.1s linear;
+  position: relative;
+  height: 100%;
+  transform: translateX(0px);
+  width: 100%;
+}
+
+.c1.nav__wrapper--rtl-enter {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transform: translateX(50%);
+}
+
+.c1.nav__wrapper--rtl-exit {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.c1.nav__wrapper--ltr-enter {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+}
+
+.c1.nav__wrapper--ltr-exit {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.c2 {
+  display: flex;
+  list-style: none;
+  margin: 0px;
+  outline: none;
+  padding: 0px;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden auto;
+}
+
+.c13 {
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c13::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c13::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c3 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c3::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c3::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c3:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c3:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+  background-color: rgb(245, 251, 255);
+}
+
+.c11::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c11::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c11:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c11:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c11::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c11:focus-within {
+  background-color: rgb(245, 251, 255);
+}
+
+.c11:focus-within::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c16 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c16::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c16::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c16:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c16:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  min-height: 48px;
+  outline: none;
+  width: 100%;
+  padding: 8px 16px;
+  gap: 0px;
+}
+
+.c4 > :not(:first-child) {
+  flex-grow: 0;
+  gap: 0px;
+  min-width: 0px;
+}
+
+.c17 .c6 {
+  color: inherit;
+  font-size: inherit;
+}
+
+.c5 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 0px;
+  position: relative;
+  color: rgb(127, 140, 155);
+}
+
+.c5 .c6 {
+  color: inherit;
+  font-size: inherit;
+}
+
+.c12 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  height: calc(8px + 1.25rem);
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  width: calc(8px + 1.25rem);
+}
+
+.c14 {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  height: calc(8px + 1.25rem);
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  width: calc(8px + 1.25rem);
+  background-color: rgb(226, 230, 233);
+  color: rgb(255, 255, 255);
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.c8 > :not(:last-child) {
+  margin: 0px 4px 0px 0px;
+}
+
+.c9 {
+  position: relative;
+  display: flex;
+  font-size: 0px;
+  height: 20px;
+  color: rgb(77, 77, 77);
+  overflow-wrap: break-word;
+}
+
+.c9:empty {
+  display: none;
+}
+
+.c15 {
+  position: relative;
+  display: flex;
+  font-size: 0px;
+  height: 20px;
+  overflow-wrap: break-word;
+  color: rgb(169, 179, 188);
+}
+
+.c15:empty {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c11:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c11:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(245, 251, 255);
+  }
+
+  .c11:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(245, 251, 255);
+    cursor: pointer;
+  }
+
+  .c11:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c16:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c16:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<nav
+  class="c0 nav nav--vertical nav--mobile nav--collapsed"
+  data-role="menu"
+  id="test-sliding"
+  tabindex="-1"
+>
+  <div>
+    <div
+      class="c1 nav__wrapper"
+      data-role="menu-wrapper"
+      id="test-sliding_mainmenu"
+    >
+      <ul
+        class="c2 nav__mainLayer"
+        data-role="menu-content"
+      >
+        <li
+          class="c3 nav__item nav__item--has-children test"
+          data-role="menu-item"
+          id="item-1"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="item 1"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  dvr
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                1
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <span
+                class="c10 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                 Open submenu 
+              </span>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c11 nav__item nav__item--is-selected nav__item--has-children"
+          data-role="menu-item"
+          id="item-2"
+          tabindex="0"
+        >
+          <div
+            aria-current="page"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              2
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                2
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <span
+                class="c10 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                 Open submenu 
+              </span>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c13 nav__item nav__item--is-disabled"
+          data-role="menu-item"
+          id="item-3"
+          tabindex="-1"
+        >
+          <div
+            aria-current="false"
+            aria-disabled="true"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c14 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              3
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c15 nav__text"
+                data-role="menu-item-text"
+              >
+                3
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c16 nav__item nav__item--has-children"
+          data-role="menu-item"
+          id="item-4"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              4
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                4 with very long label that will not fit in there
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <span
+                class="c10 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                 Open submenu 
+              </span>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c11 nav__item nav__item--is-selected"
+          data-role="menu-item"
+          id="item-X"
+          tabindex="0"
+        >
+          <div
+            aria-current="page"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              X
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                X Menu
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c16 nav__item"
+          data-role="menu-item"
+          id="item-Y"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              Y
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Y Menu
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="item-Z"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  screen_lock_portrait
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Z Menu
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-not-collapsed-icons 1`] = `
+.c10 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c10 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c0 {
+  outline: transparent solid 1px;
+  overflow-x: hidden;
+}
+
+.c1 {
+  transition: 0.1s linear;
+  position: relative;
+  height: 100%;
+  transform: translateX(0px);
+  width: 100%;
+}
+
+.c1.nav__wrapper--rtl-enter {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transform: translateX(50%);
+}
+
+.c1.nav__wrapper--rtl-exit {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.c1.nav__wrapper--ltr-enter {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+}
+
+.c1.nav__wrapper--ltr-exit {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.c2 {
+  display: flex;
+  list-style: none;
+  margin: 0px;
+  outline: none;
+  padding: 0px;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden auto;
+}
+
+.c3 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c3::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c3::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c3:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c3:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+  background-color: rgb(245, 251, 255);
+}
+
+.c11::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c11::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c11:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c11:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c11::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c11:focus-within {
+  background-color: rgb(245, 251, 255);
+}
+
+.c11:focus-within::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c13 {
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c13::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c13::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c16 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c16::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c16::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c16:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c16:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  gap: 16px;
+  justify-content: center;
+  min-height: 48px;
+  outline: none;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.c5 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+  position: relative;
+  color: rgb(127, 140, 155);
+}
+
+.c5 .c6 {
+  color: inherit;
+  font-size: inherit;
+}
+
+.c12 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  height: calc(8px + 1.25rem);
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  width: calc(8px + 1.25rem);
+}
+
+.c14 {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  height: calc(8px + 1.25rem);
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  width: calc(8px + 1.25rem);
+  background-color: rgb(226, 230, 233);
+  color: rgb(255, 255, 255);
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.c8 > :not(:last-child) {
+  margin: 0px 4px 0px 0px;
+}
+
+.c9 {
+  position: relative;
+  display: flex;
+  color: rgb(77, 77, 77);
+  overflow-wrap: break-word;
+}
+
+.c9:empty {
+  display: none;
+}
+
+.c15 {
+  position: relative;
+  display: flex;
+  overflow-wrap: break-word;
+  color: rgb(169, 179, 188);
+}
+
+.c15:empty {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c11:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c11:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(245, 251, 255);
+  }
+
+  .c11:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(245, 251, 255);
+    cursor: pointer;
+  }
+
+  .c11:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c16:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c16:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<nav
+  class="c0 nav nav--vertical nav--mobile nav--expanded"
+  data-role="menu"
+  id="test-sliding"
+  tabindex="-1"
+>
+  <div>
+    <div
+      class="c1 nav__wrapper"
+      data-role="menu-wrapper"
+      id="test-sliding_mainmenu"
+    >
+      <ul
+        class="c2 nav__mainLayer"
+        data-role="menu-content"
+      >
+        <li
+          class="c3 nav__item nav__item--has-children test"
+          data-role="menu-item"
+          id="item-1"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="item 1"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  dvr
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                1
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  chevron_right
+                </span>
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   Open submenu 
+                </span>
+              </i>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c11 nav__item nav__item--is-selected nav__item--has-children"
+          data-role="menu-item"
+          id="item-2"
+          tabindex="0"
+        >
+          <div
+            aria-current="page"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              2
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                2
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  chevron_right
+                </span>
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   Open submenu 
+                </span>
+              </i>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c13 nav__item nav__item--is-disabled"
+          data-role="menu-item"
+          id="item-3"
+          tabindex="-1"
+        >
+          <div
+            aria-current="false"
+            aria-disabled="true"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c14 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              3
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c15 nav__text"
+                data-role="menu-item-text"
+              >
+                3
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c16 nav__item nav__item--has-children"
+          data-role="menu-item"
+          id="item-4"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              4
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                4 with very long label that will not fit in there
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  chevron_right
+                </span>
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   Open submenu 
+                </span>
+              </i>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c11 nav__item nav__item--is-selected"
+          data-role="menu-item"
+          id="item-X"
+          tabindex="0"
+        >
+          <div
+            aria-current="page"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              X
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                X Menu
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c16 nav__item"
+          data-role="menu-item"
+          id="item-Y"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              Y
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Y Menu
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="item-Z"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  screen_lock_portrait
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Z Menu
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-old-children 1`] = `
+.c10 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c10 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c0 {
+  outline: transparent solid 1px;
+  overflow-x: hidden;
+}
+
+.c1 {
+  transition: 0.1s linear;
+  position: relative;
+  height: 100%;
+  transform: translateX(0px);
+  width: 100%;
+}
+
+.c1.nav__wrapper--rtl-enter {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transform: translateX(50%);
+}
+
+.c1.nav__wrapper--rtl-exit {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.c1.nav__wrapper--ltr-enter {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+}
+
+.c1.nav__wrapper--ltr-exit {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.c2 {
+  display: flex;
+  list-style: none;
+  margin: 0px;
+  outline: none;
+  padding: 0px;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden auto;
+}
+
+.c3 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c3::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c3::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c3:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c3:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+  background-color: rgb(245, 251, 255);
+}
+
+.c11::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c11::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c11:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c11:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c11::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c11:focus-within {
+  background-color: rgb(245, 251, 255);
+}
+
+.c11:focus-within::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c13 {
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c13::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c13::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c16 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c16::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c16::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c16:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c16:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  gap: 16px;
+  justify-content: center;
+  min-height: 48px;
+  outline: none;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.c5 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+  position: relative;
+  color: rgb(127, 140, 155);
+}
+
+.c5 .c6 {
+  color: inherit;
+  font-size: inherit;
+}
+
+.c12 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  height: calc(8px + 1.25rem);
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  width: calc(8px + 1.25rem);
+}
+
+.c14 {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  height: calc(8px + 1.25rem);
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  width: calc(8px + 1.25rem);
+  background-color: rgb(226, 230, 233);
+  color: rgb(255, 255, 255);
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.c8 > :not(:last-child) {
+  margin: 0px 4px 0px 0px;
+}
+
+.c9 {
+  position: relative;
+  display: flex;
+  color: rgb(77, 77, 77);
+  overflow-wrap: break-word;
+}
+
+.c9:empty {
+  display: none;
+}
+
+.c15 {
+  position: relative;
+  display: flex;
+  overflow-wrap: break-word;
+  color: rgb(169, 179, 188);
+}
+
+.c15:empty {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c11:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c11:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(245, 251, 255);
+  }
+
+  .c11:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(245, 251, 255);
+    cursor: pointer;
+  }
+
+  .c11:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c16:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c16:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<nav
+  class="c0 nav nav--vertical nav--mobile nav--expanded"
+  data-role="menu"
+  id="test-sliding"
+  tabindex="-1"
+>
+  <div>
+    <div
+      class="c1 nav__wrapper"
+      data-role="menu-wrapper"
+      id="test-sliding_mainmenu"
+    >
+      <ul
+        class="c2 nav__mainLayer"
+        data-role="menu-content"
+      >
+        <li
+          class="c3 nav__item nav__item--has-children test"
+          data-role="menu-item"
+          id="item-1"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="item 1"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  dvr
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                1
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  chevron_right
+                </span>
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   Open submenu 
+                </span>
+              </i>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c11 nav__item nav__item--is-selected nav__item--has-children"
+          data-role="menu-item"
+          id="item-2"
+          tabindex="0"
+        >
+          <div
+            aria-current="page"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              2
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                2
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  chevron_right
+                </span>
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   Open submenu 
+                </span>
+              </i>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c13 nav__item nav__item--is-disabled"
+          data-role="menu-item"
+          id="item-3"
+          tabindex="-1"
+        >
+          <div
+            aria-current="false"
+            aria-disabled="true"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c14 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              3
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c15 nav__text"
+                data-role="menu-item-text"
+              >
+                3
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c16 nav__item nav__item--has-children"
+          data-role="menu-item"
+          id="item-4"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              4
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                4 with very long label that will not fit in there
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  chevron_right
+                </span>
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   Open submenu 
+                </span>
+              </i>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c11 nav__item nav__item--is-selected"
+          data-role="menu-item"
+          id="item-X"
+          tabindex="0"
+        >
+          <div
+            aria-current="page"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              X
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                X Menu
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c16 nav__item"
+          data-role="menu-item"
+          id="item-Y"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <span
+              aria-hidden="true"
+              class="c12 nav__placeholder"
+              data-role="menu-item-placeholder"
+            >
+              Y
+            </span>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Y Menu
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="item-Z"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  screen_lock_portrait
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Z Menu
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variants 1`] = `
+.c10 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c10 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c0 {
+  outline: transparent solid 1px;
+  overflow-x: hidden;
+}
+
+.c1 {
+  transition: 0.1s linear;
+  position: relative;
+  height: 100%;
+  transform: translateX(0px);
+  width: 100%;
+}
+
+.c1.nav__wrapper--rtl-enter {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transform: translateX(50%);
+}
+
+.c1.nav__wrapper--rtl-exit {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.c1.nav__wrapper--ltr-enter {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+}
+
+.c1.nav__wrapper--ltr-exit {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.c2 {
+  display: flex;
+  list-style: none;
+  margin: 0px;
+  outline: none;
+  padding: 0px;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden auto;
+}
+
+.c3 {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c3::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c3::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c3:focus-within {
+  background-color: rgb(255, 255, 255);
+}
+
+.c3:focus-within::before {
+  margin: 1px;
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  gap: 16px;
+  justify-content: center;
+  min-height: 48px;
+  outline: none;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.c16 .c6 {
+  color: inherit;
+  font-size: inherit;
+}
+
+.c17 .c6 {
+  color: inherit;
+  font-size: inherit;
+}
+
+.c5 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+  position: relative;
+  color: rgb(127, 140, 155);
+}
+
+.c5 .c6 {
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c11 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+  position: relative;
+  color: rgb(127, 140, 155);
+}
+
+.c11 .c6 {
+  color: rgb(5, 104, 174);
+  font-size: inherit;
+}
+
+.c12 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+  position: relative;
+  color: rgb(127, 140, 155);
+}
+
+.c12 .c6 {
+  color: rgb(201, 29, 29);
+  font-size: inherit;
+}
+
+.c14 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+  position: relative;
+  color: rgb(127, 140, 155);
+}
+
+.c14 .c6 {
+  color: rgb(175, 121, 2);
+  font-size: inherit;
+}
+
+.c15 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+  position: relative;
+  color: rgb(127, 140, 155);
+}
+
+.c15 .c6 {
+  color: rgb(41, 122, 36);
+  font-size: inherit;
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.c8 > :not(:last-child) {
+  margin: 0px 4px 0px 0px;
+}
+
+.c9 {
+  position: relative;
+  display: flex;
+  color: rgb(77, 77, 77);
+  overflow-wrap: break-word;
+}
+
+.c9:empty {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<nav
+  class="c0 nav nav--vertical nav--mobile nav--expanded"
+  data-role="menu"
+  id="sliding-menu-width-variants"
+  tabindex="-1"
+>
+  <div>
+    <div
+      class="c1 nav__wrapper"
+      data-role="menu-wrapper"
+      id="sliding-menu-width-variants_mainmenu"
+    >
+      <ul
+        class="c2 nav__mainLayer"
+        data-role="menu-content"
+      >
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="sliding-menu-width-variants_mainmenu.open"
+          tabindex="0"
+          title="Open"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon plasma-icon--filled"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  radio_button_unchecked
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Open
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   - 
+                  Open
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="sliding-menu-width-variants_mainmenu.info"
+          tabindex="0"
+          title="Info"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c11 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon plasma-icon--filled"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Info
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   - 
+                  Info
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="sliding-menu-width-variants_mainmenu.error"
+          tabindex="0"
+          title="Error"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c12 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c13 plasma-icon plasma-icon--custom"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Error
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   - 
+                  Error
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="sliding-menu-width-variants_mainmenu.warning"
+          tabindex="0"
+          title="Warning"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c14 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon plasma-icon--filled"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  warning
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Warning
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   - 
+                  Warning
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="sliding-menu-width-variants_mainmenu.done"
+          tabindex="0"
+          title="Done"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c15 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon plasma-icon--filled"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  check_circle
+                </span>
+              </i>
+            </div>
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Done
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   - 
+                  Done
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;

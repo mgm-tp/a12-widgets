@@ -1,0 +1,9655 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.switch > render auto-width switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c22 .c9 {
+  user-select: none;
+}
+
+.c22 .c9 {
+  color: inherit;
+}
+
+.c22 .c9 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c9 {
+  display: block;
+}
+
+.c21 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c13 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c14 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c14 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c14 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c14 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c15 .c5 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c16 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c16 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c16 .c5 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(175, 121, 2);
+}
+
+.c16 .c3 {
+  background-color: rgb(254, 234, 189);
+}
+
+.c17 .c5 {
+  border-width: 1px;
+}
+
+.c17 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c17 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-color: rgb(97, 111, 124);
+}
+
+.c17 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c17 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c18 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c18 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c18 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c18 .c5 {
+  border-width: 1px;
+}
+
+.c18 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c18 .c5 {
+  background-color: rgb(97, 111, 124);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c5 .c7 .c9 {
+  color: rgb(97, 111, 124);
+}
+
+.c18 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c19 .c5 {
+  border-width: 1px;
+}
+
+.c19 .c3 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c19 .c5 {
+  background-color: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c19 .c5 .c7 .c9 {
+  color: rgb(226, 230, 233);
+}
+
+.c19 .c3 {
+  background-color: rgb(226, 230, 233);
+}
+
+.c20 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c20 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c20 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c20 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c20 .c5 {
+  border-width: 1px;
+}
+
+.c20 .c3 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c20 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c20 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c20 .c3 {
+  background-color: rgb(226, 230, 233);
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render basic switch 1`] = `
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c2:empty {
+  display: none;
+}
+
+.c15 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c14 {
+  display: flex;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c8 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c10 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c10 .c11 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c6 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c13 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c13:not(:disabled) {
+  cursor: pointer;
+}
+
+.c4 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active .c7 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c4:active .c7 .c9 .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:active .c5 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c4:active .c7 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover .c7 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c4:hover .c7 .c9 .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:hover .c5 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c4:hover .c7 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <label
+    class="c1 c2 label field__label"
+    data-role="switch-label"
+    for="test-id"
+    id="test-id-label"
+  >
+    test label
+  </label>
+  <div
+    class="c3 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c4 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c5 c6 switch__track"
+      />
+      <span
+        class="c7 c8 switch__thumb"
+      >
+        <span
+          class="c9 c10"
+        >
+          <i
+            class="c11 c12 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-describedby="test-id-helperText test-ariaDescribedby"
+        class="c13 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+  <div
+    class="c14 field__helper"
+    id="test-id-helperText"
+  >
+    <label
+      class="c15 field__helper-text"
+      data-role="switch-helper-text"
+    >
+      helperText
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render basic switch 2`] = `
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c2:empty {
+  display: none;
+}
+
+.c15 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c14 {
+  display: flex;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c8 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c10 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c10 .c11 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c6 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c13 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c13:not(:disabled) {
+  cursor: pointer;
+}
+
+.c4 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active .c7 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c4:active .c7 .c9 .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:active .c5 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c4:active .c7 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover .c7 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c4:hover .c7 .c9 .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:hover .c5 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c4:hover .c7 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <label
+    class="c1 c2 label field__label"
+    data-role="switch-label"
+    for="test-id"
+    id="test-id-label"
+  >
+    test label
+  </label>
+  <div
+    class="c3 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c4 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c5 c6 switch__track"
+      />
+      <span
+        class="c7 c8 switch__thumb"
+      >
+        <span
+          class="c9 c10"
+        >
+          <i
+            class="c11 c12 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-describedby="test-id-helperText test-ariaDescribedby"
+        class="c13 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+  <div
+    class="c14 field__helper"
+    id="test-id-helperText"
+  >
+    <label
+      class="c15 field__helper-text"
+      data-role="switch-helper-text"
+    >
+      helperText
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render checked switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c2 .c5 {
+  transform: translate(calc(12px));
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--checked"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              check
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-checked="true"
+        checked=""
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render checked switch 2`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c2 .c5 {
+  transform: translate(calc(12px));
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--checked"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              check
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-checked="true"
+        checked=""
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render disabled checked switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c20 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c13 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c14 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c14 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c14 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c14 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c15 .c5 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c16 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c16 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c16 .c5 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(175, 121, 2);
+}
+
+.c16 .c3 {
+  background-color: rgb(254, 234, 189);
+}
+
+.c17 .c5 {
+  border-width: 1px;
+}
+
+.c17 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c17 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-color: rgb(97, 111, 124);
+}
+
+.c17 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c17 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c18 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c18 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c18 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c18 .c5 {
+  border-width: 1px;
+}
+
+.c18 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c18 .c5 {
+  background-color: rgb(97, 111, 124);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c5 .c7 .c9 {
+  color: rgb(97, 111, 124);
+}
+
+.c18 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c19 .c5 {
+  border-width: 1px;
+}
+
+.c19 .c3 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c19 .c5 {
+  background-color: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c19 .c5 .c7 .c9 {
+  color: rgb(226, 230, 233);
+}
+
+.c19 .c3 {
+  background-color: rgb(226, 230, 233);
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c2 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c2 .c5 {
+  border-width: 1px;
+}
+
+.c2 .c3 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c2 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c2 .c3 {
+  background-color: rgb(226, 230, 233);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--checked switch__interactive--disabled"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              check
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-checked="true"
+        checked=""
+        class="c11 switch__input"
+        data-role="switch-input"
+        disabled=""
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render disabled switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c19 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c13 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c14 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c14 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c14 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c14 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c15 .c5 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c16 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c16 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c16 .c5 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(175, 121, 2);
+}
+
+.c16 .c3 {
+  background-color: rgb(254, 234, 189);
+}
+
+.c17 .c5 {
+  border-width: 1px;
+}
+
+.c17 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c17 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-color: rgb(97, 111, 124);
+}
+
+.c17 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c17 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c18 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c18 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c18 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c18 .c5 {
+  border-width: 1px;
+}
+
+.c18 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c18 .c5 {
+  background-color: rgb(97, 111, 124);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c5 .c7 .c9 {
+  color: rgb(97, 111, 124);
+}
+
+.c18 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  border-width: 1px;
+}
+
+.c2 .c3 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c2 .c5 {
+  background-color: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(226, 230, 233);
+}
+
+.c2 .c3 {
+  background-color: rgb(226, 230, 233);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--disabled"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c11 switch__input"
+        data-role="switch-input"
+        disabled=""
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render error checked switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c14 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c13 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c2 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c2 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c2 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--checked switch__interactive--error"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              check
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-checked="true"
+        checked=""
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render error switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c13 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--error"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render error-message switch 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c16 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c16 > span {
+  display: inline-block;
+}
+
+.c16.c16 {
+  max-width: unset;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c5.c5 {
+  color: rgb(201, 29, 29);
+}
+
+.c1 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c2 .c3 {
+  font-size: 1.25rem;
+}
+
+.c7 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c13 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c15 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c15 .c3 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c11 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c17 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c17:not(:disabled) {
+  cursor: pointer;
+}
+
+.c18 .c12 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c12 .c14 .c3 {
+  color: rgb(5, 104, 174);
+}
+
+.c18 .c10 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c18 .c12 {
+  transform: translate(calc(12px));
+}
+
+.c9 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c9 .c12 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c19 .c12 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c19 .c12 .c14 .c3 {
+  color: rgb(5, 104, 174);
+}
+
+.c19 .c10 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c19 .c12 {
+  transform: translate(calc(12px));
+}
+
+.c19 .c12 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c19 .c12 .c14 .c3 {
+  color: rgb(201, 29, 29);
+}
+
+.c19 .c10 {
+  background-color: rgb(247, 197, 197);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c18:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c18:active .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c18:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c18:hover .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c9:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c9:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c9:active .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c9:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c9:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c9:hover .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c19:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c19:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c19:active .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c19:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c19:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c19:hover .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 message message--error"
+    data-role="switch-error-message"
+    id="test-id-error"
+  >
+    <div
+      class="c2 messageIcon"
+    >
+      <i
+        class="c3 c4 c5 plasma-icon plasma-icon--error plasma-icon--custom"
+        data-role="plasma-icon"
+        title="Error"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Error
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 messageText"
+      data-role="error-text"
+    >
+      error
+    </div>
+  </div>
+  <div
+    class="c8 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c9 switch__interactive switch__interactive--error"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c10 c11 switch__track"
+      />
+      <span
+        class="c12 c13 switch__thumb"
+      >
+        <span
+          class="c14 c15"
+        >
+          <i
+            class="c3 c16 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-describedby="test-id-error"
+        class="c17 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render hide-options switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render info checked switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c2 .c5 {
+  transform: translate(calc(12px));
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--checked"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              check
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-checked="true"
+        checked=""
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render info switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render info-message switch 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c5.c5 {
+  color: rgb(5, 104, 174);
+}
+
+.c1 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c2 .c3 {
+  font-size: 1.25rem;
+}
+
+.c7 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c13 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c15 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c15 .c3 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c11 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c16 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c16:not(:disabled) {
+  cursor: pointer;
+}
+
+.c9 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c17 .c12 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c17 .c12 .c14 .c3 {
+  color: rgb(5, 104, 174);
+}
+
+.c17 .c10 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c17 .c12 {
+  transform: translate(calc(12px));
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c9:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c9:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c9:active .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c9:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c9:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c9:hover .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c17:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c17:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c17:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c17:active .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c17:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c17:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c17:hover .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1"
+    data-role="switch-info-message"
+    id="test-id-info"
+  >
+    <div
+      class="c2"
+    >
+      <i
+        class="c3 c4 c5 plasma-icon plasma-icon--info"
+        data-role="plasma-icon"
+        title="Information"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Information
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7"
+      data-role="info-text"
+    >
+      info
+    </div>
+  </div>
+  <div
+    class="c8 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c9 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c10 c11 switch__track"
+      />
+      <span
+        class="c12 c13 switch__thumb"
+      >
+        <span
+          class="c14 c15"
+        >
+          <i
+            class="c3 c4 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c16 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render options switch 1`] = `
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c7 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c9 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c9 .c10 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c5 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c12 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c12:not(:disabled) {
+  cursor: pointer;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.c2:not(:empty):first-of-type {
+  margin: 0px 4px 0px 0px;
+}
+
+.c2:not(:empty):last-of-type {
+  margin: 0px 0px 0px 4px;
+}
+
+.c3 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c13 .c6 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c13 .c6 .c8 .c10 {
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c4 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c13 .c6 {
+  transform: translate(calc(12px));
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active .c6 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c3:active .c6 .c8 .c10 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:active .c4 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c3:active .c6 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover .c6 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c3:hover .c6 .c8 .c10 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:hover .c4 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c3:hover .c6 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c6 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c6 .c8 .c10 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c4 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c6 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c6 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c6 .c8 .c10 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c4 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c6 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      aria-hidden="true"
+      class="c2 switch__option"
+      data-role="switch-unchecked-option"
+    >
+      off
+    </span>
+    <span
+      class="c3 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c4 c5 switch__track"
+      />
+      <span
+        class="c6 c7 switch__thumb"
+      >
+        <span
+          class="c8 c9"
+        >
+          <i
+            class="c10 c11 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c12 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+    <span
+      aria-hidden="true"
+      class="c2 switch__option"
+      data-role="switch-checked-option"
+    >
+      on
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render readonly checked switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c18 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c13 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c14 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c14 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c14 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c14 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c15 .c5 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c16 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c16 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c16 .c5 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(175, 121, 2);
+}
+
+.c16 .c3 {
+  background-color: rgb(254, 234, 189);
+}
+
+.c17 .c5 {
+  border-width: 1px;
+}
+
+.c17 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c17 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-color: rgb(97, 111, 124);
+}
+
+.c17 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c17 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c2 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c2 .c5 {
+  border-width: 1px;
+}
+
+.c2 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c2 .c5 {
+  background-color: rgb(97, 111, 124);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(97, 111, 124);
+}
+
+.c2 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--checked switch__interactive--readonly"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              check
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-checked="true"
+        checked=""
+        class="c11 switch__input"
+        data-role="switch-input"
+        disabled=""
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render readonly switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c17 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c13 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c14 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c14 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c14 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c14 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c15 .c5 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c16 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c16 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c16 .c5 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c5 .c7 .c9 {
+  color: rgb(175, 121, 2);
+}
+
+.c16 .c3 {
+  background-color: rgb(254, 234, 189);
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  border-width: 1px;
+}
+
+.c2 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c2 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-color: rgb(97, 111, 124);
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c2 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--readonly"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c11 switch__input"
+        data-role="switch-input"
+        disabled=""
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render switch with addon after 1`] = `
+.c17 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c17 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c15 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c14 .c10 {
+  color: inherit;
+}
+
+.c14 .c27 {
+  color: inherit;
+}
+
+.c16 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c9 {
+  user-select: none;
+}
+
+.c16 .c9 {
+  color: inherit;
+}
+
+.c16 .c9 {
+  font-size: inherit;
+}
+
+.c16:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c14 .c16.c16 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c14 .c16.c16:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c14 .c16.c16:not(:active):not(:hover):not(:focus) .c9:not(.c30) {
+  color: inherit;
+}
+
+.c14 .c16.c16:focus .c9 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c9 {
+  display: block;
+}
+
+.c29 .c9 {
+  font-size: 1.25rem;
+}
+
+.c13 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c28 .c12 {
+  height: auto;
+  visibility: hidden;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 > .c14 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c18 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c18 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c18 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c19 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c20 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c20 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c20 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c20 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c20 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c20 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c20 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c21 .c5 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c22 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c22 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c22 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c22 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c22 .c5 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c22 .c5 .c7 .c9 {
+  color: rgb(175, 121, 2);
+}
+
+.c22 .c3 {
+  background-color: rgb(254, 234, 189);
+}
+
+.c23 .c5 {
+  border-width: 1px;
+}
+
+.c23 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c23 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-color: rgb(97, 111, 124);
+}
+
+.c23 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c23 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c24 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c24 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c24 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c24 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c24 .c5 {
+  border-width: 1px;
+}
+
+.c24 .c3 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c24 .c5 {
+  background-color: rgb(97, 111, 124);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c24 .c5 .c7 .c9 {
+  color: rgb(97, 111, 124);
+}
+
+.c24 .c3 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c25 .c5 {
+  border-width: 1px;
+}
+
+.c25 .c3 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c25 .c5 {
+  background-color: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c25 .c5 .c7 .c9 {
+  color: rgb(226, 230, 233);
+}
+
+.c25 .c3 {
+  background-color: rgb(226, 230, 233);
+}
+
+.c26 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c26 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c26 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c26 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c26 .c5 {
+  border-width: 1px;
+}
+
+.c26 .c3 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c26 .c5 {
+  background-color: rgb(169, 179, 188);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c26 .c5 .c7 .c9 {
+  color: rgb(169, 179, 188);
+}
+
+.c26 .c3 {
+  background-color: rgb(226, 230, 233);
+}
+
+@media (pointer: coarse) {
+  .c16:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14 .c16.c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c14 .c16.c16:active .c9 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c14 .c16.c16:hover .c9 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c18:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c18:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c18:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c18:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c19:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c19:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c19:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c19:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c19:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c19:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c20:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c20:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c20:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c20:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c20:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c20:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c20:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c21:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c21:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c21:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c21:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c21:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c21:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c21:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c22:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c22:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c22:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c22:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c22:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c22:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c22:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c22:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+    <div
+      class="c12 c13 field-addon field-addon--after"
+      data-role="switch-addon-after-0"
+    >
+      <span
+        class="c14 c15 tooltip tooltip--hint"
+        data-role="tooltip-hint"
+        role="tooltip"
+        title=""
+      >
+        <button
+          class="c16 button button--icon"
+          data-role="button"
+          data-type="icon"
+          title=""
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              info
+            </span>
+            <span
+              class="c17 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Hint: Tooltip
+            </span>
+          </i>
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render switch with tooltips 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c1 .c5 {
+  color: inherit;
+}
+
+.c1 .c25 {
+  color: inherit;
+}
+
+.c3 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c3 .c4 {
+  user-select: none;
+}
+
+.c3 .c4 {
+  color: inherit;
+}
+
+.c3 .c4 {
+  font-size: inherit;
+}
+
+.c3:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c3.c3 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c1 .c3.c3:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c1 .c3.c3:not(:active):not(:hover):not(:focus) .c4:not(.c27) {
+  color: inherit;
+}
+
+.c1 .c3.c3:focus .c4 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c4 {
+  display: block;
+}
+
+.c26 .c4 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 > .c1 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c7 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c12 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c14 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c14 .c4 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c10 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c15 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c15:not(:disabled) {
+  cursor: pointer;
+}
+
+.c8 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c16 .c11 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c16 .c11 .c13 .c4 {
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c9 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c16 .c11 {
+  transform: translate(calc(12px));
+}
+
+.c17 .c11 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c18 .c11 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c11 .c13 .c4 {
+  color: rgb(5, 104, 174);
+}
+
+.c18 .c9 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c18 .c11 {
+  transform: translate(calc(12px));
+}
+
+.c18 .c11 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c18 .c11 .c13 .c4 {
+  color: rgb(201, 29, 29);
+}
+
+.c18 .c9 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c19 .c11 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c20 .c11 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c20 .c11 .c13 .c4 {
+  color: rgb(5, 104, 174);
+}
+
+.c20 .c9 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c20 .c11 {
+  transform: translate(calc(12px));
+}
+
+.c20 .c11 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c20 .c11 .c13 .c4 {
+  color: rgb(175, 121, 2);
+}
+
+.c20 .c9 {
+  background-color: rgb(254, 234, 189);
+}
+
+.c21 .c11 {
+  border-width: 1px;
+}
+
+.c21 .c9 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c21 .c11 {
+  background-color: rgb(169, 179, 188);
+  border-color: rgb(97, 111, 124);
+}
+
+.c21 .c11 .c13 .c4 {
+  color: rgb(169, 179, 188);
+}
+
+.c21 .c9 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c22 .c11 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c22 .c11 .c13 .c4 {
+  color: rgb(5, 104, 174);
+}
+
+.c22 .c9 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c22 .c11 {
+  transform: translate(calc(12px));
+}
+
+.c22 .c11 {
+  border-width: 1px;
+}
+
+.c22 .c9 {
+  border-color: rgb(97, 111, 124);
+}
+
+.c22 .c11 {
+  background-color: rgb(97, 111, 124);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c22 .c11 .c13 .c4 {
+  color: rgb(97, 111, 124);
+}
+
+.c22 .c9 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c23 .c11 {
+  border-width: 1px;
+}
+
+.c23 .c9 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c23 .c11 {
+  background-color: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c23 .c11 .c13 .c4 {
+  color: rgb(226, 230, 233);
+}
+
+.c23 .c9 {
+  background-color: rgb(226, 230, 233);
+}
+
+.c24 .c11 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c24 .c11 .c13 .c4 {
+  color: rgb(5, 104, 174);
+}
+
+.c24 .c9 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c24 .c11 {
+  transform: translate(calc(12px));
+}
+
+.c24 .c11 {
+  border-width: 1px;
+}
+
+.c24 .c9 {
+  border-color: rgb(169, 179, 188);
+}
+
+.c24 .c11 {
+  background-color: rgb(169, 179, 188);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c24 .c11 .c13 .c4 {
+  color: rgb(169, 179, 188);
+}
+
+.c24 .c9 {
+  background-color: rgb(226, 230, 233);
+}
+
+@media (pointer: coarse) {
+  .c3:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1 .c3.c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1 .c3.c3:active .c4 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c1 .c3.c3:hover .c4 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c8:active .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c8:active .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c8:active .c11 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c8:hover .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c8:hover .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c8:hover .c11 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:active .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:active .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:active .c11 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c16:hover .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:hover .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c16:hover .c11 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c17:active .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c17:active .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c17:active .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c17:active .c11 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c17:hover .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c17:hover .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c17:hover .c11 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18:active .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c18:active .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:active .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c18:active .c11 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c18:hover .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:hover .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c18:hover .c11 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c19:active .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c19:active .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c19:active .c11 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c19:hover .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c19:hover .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c19:hover .c11 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c20:active .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c20:active .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c20:active .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c20:active .c11 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover .c11 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c20:hover .c11 .c13 .c4 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c20:hover .c9 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c20:hover .c11 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <span
+    class="c1 c2 tooltip tooltip--hint field__tooltip"
+    data-role="tooltip-hint"
+    role="tooltip"
+    title=""
+  >
+    <button
+      class="c3 button button--icon"
+      data-role="button"
+      data-type="icon"
+      title=""
+      type="button"
+    >
+      <i
+        class="c4 c5 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Hint: Tooltip
+        </span>
+      </i>
+    </button>
+  </span>
+  <div
+    class="c7 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c8 switch__interactive"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c9 c10 switch__track"
+      />
+      <span
+        class="c11 c12 switch__thumb"
+      >
+        <span
+          class="c13 c14"
+        >
+          <i
+            class="c4 c5 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c15 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render warning checked switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c16 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c13 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c14 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c14 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c14 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c14 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c15 .c5 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c2 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c2 .c5 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c2 .c5 .c7 .c9 {
+  color: rgb(175, 121, 2);
+}
+
+.c2 .c3 {
+  background-color: rgb(254, 234, 189);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c15:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c15:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c15:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--checked switch__interactive--warning"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              check
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-checked="true"
+        checked=""
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render warning switch 1`] = `
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c15 .c9 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c8 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c8 .c9 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c11 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c11:not(:disabled) {
+  cursor: pointer;
+}
+
+.c12 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c12 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c12 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c13 .c5 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c14 .c5 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c3 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c14 .c5 {
+  transform: translate(calc(12px));
+}
+
+.c14 .c5 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c14 .c5 .c7 .c9 {
+  color: rgb(201, 29, 29);
+}
+
+.c14 .c3 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c2 .c5 {
+  border-color: rgb(175, 121, 2);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c12:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c12:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c12:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c13:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c13:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c13:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:active .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c14:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c14:hover .c5 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:active .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:active .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover .c5 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c2:hover .c5 .c7 .c9 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c3 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c2:hover .c5 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c2 switch__interactive switch__interactive--warning"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c3 c4 switch__track"
+      />
+      <span
+        class="c5 c6 switch__thumb"
+      >
+        <span
+          class="c7 c8"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        class="c11 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.switch > render warning-message switch 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c5.c5 {
+  color: rgb(175, 121, 2);
+}
+
+.c1 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c2 .c3 {
+  font-size: 1.25rem;
+}
+
+.c7 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  height: 32px;
+}
+
+.c13 {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 20px;
+  position: relative;
+  transition-duration: 0.1s;
+  transition-property: height, transform, margin-left, margin-right, width;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+.c15 {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.c15 .c3 {
+  align-self: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.c11 {
+  background-color: rgb(241, 242, 244);
+  border: 1px dotted rgb(127, 140, 155);
+  border-radius: calc(16px);
+  box-sizing: border-box;
+  height: 12px;
+  position: absolute;
+  top: calc(4px);
+  width: 100%;
+}
+
+.c16 {
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.c16:not(:disabled) {
+  cursor: pointer;
+}
+
+.c17 .c12 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c17 .c12 .c14 .c3 {
+  color: rgb(5, 104, 174);
+}
+
+.c17 .c10 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c17 .c12 {
+  transform: translate(calc(12px));
+}
+
+.c18 .c12 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c19 .c12 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c19 .c12 .c14 .c3 {
+  color: rgb(5, 104, 174);
+}
+
+.c19 .c10 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c19 .c12 {
+  transform: translate(calc(12px));
+}
+
+.c19 .c12 {
+  background-color: rgb(201, 29, 29);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c19 .c12 .c14 .c3 {
+  color: rgb(201, 29, 29);
+}
+
+.c19 .c10 {
+  background-color: rgb(247, 197, 197);
+}
+
+.c9 {
+  align-items: center;
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 32px;
+}
+
+.c9 .c12 {
+  border-color: rgb(175, 121, 2);
+}
+
+.c20 .c12 {
+  background-color: rgb(5, 104, 174);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c20 .c12 .c14 .c3 {
+  color: rgb(5, 104, 174);
+}
+
+.c20 .c10 {
+  background-color: rgb(191, 227, 253);
+}
+
+.c20 .c12 {
+  transform: translate(calc(12px));
+}
+
+.c20 .c12 {
+  background-color: rgb(175, 121, 2);
+  border-width: 0px;
+  outline: transparent solid 1px;
+}
+
+.c20 .c12 .c14 .c3 {
+  color: rgb(175, 121, 2);
+}
+
+.c20 .c10 {
+  background-color: rgb(254, 234, 189);
+}
+
+@media (pointer: coarse) {
+  .iHCRlJ:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:active .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .iHCRlJ:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .iHCRlJ:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .iHCRlJ:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .iHCRlJ:hover .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c17:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c17:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c17:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c17:active .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c17:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c17:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c17:hover .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c18:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c18:active .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c18:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c18:hover .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c19:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c19:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c19:active .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c19:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c19:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c19:hover .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c9:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c9:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c9:active .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c9:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c9:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c9:hover .c12 {
+    height: 22px;
+    transform: translate(-1px);
+    width: 22px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c20:active .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c20:active .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c20:active .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c20:active .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover .c12 {
+    background-color: rgb(213, 0, 117);
+    border-width: 0px;
+    outline: transparent solid 1px;
+  }
+
+  .c20:hover .c12 .c14 .c3 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c20:hover .c10 {
+    background-color: rgb(255, 189, 225);
+  }
+
+  .c20:hover .c12 {
+    height: 22px;
+    transform: translate(calc(13px));
+    width: 22px;
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="switch"
+>
+  <div
+    class="c1 message message--warning"
+    data-role="switch-warning-message"
+    id="test-id-warning"
+  >
+    <div
+      class="c2 messageIcon"
+    >
+      <i
+        class="c3 c4 c5 plasma-icon plasma-icon--warning"
+        data-role="plasma-icon"
+        title="Warning"
+      >
+        <span
+          aria-hidden="true"
+        >
+          warning
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Warning
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 messageText"
+      data-role="warning-text"
+    >
+      warning
+    </div>
+  </div>
+  <div
+    class="c8 switch"
+    data-role="switch-control"
+  >
+    <span
+      class="c9 switch__interactive switch__interactive--warning"
+      data-role="switch-interactive"
+    >
+      <span
+        class="c10 c11 switch__track"
+      />
+      <span
+        class="c12 c13 switch__thumb"
+      >
+        <span
+          class="c14 c15"
+        >
+          <i
+            class="c3 c4 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              remove
+            </span>
+          </i>
+        </span>
+      </span>
+      <input
+        aria-describedby="test-id-warning"
+        class="c16 switch__input"
+        data-role="switch-input"
+        id="test-id"
+        type="checkbox"
+      />
+    </span>
+  </div>
+</div>
+`;

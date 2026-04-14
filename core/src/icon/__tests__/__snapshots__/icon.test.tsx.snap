@@ -1,0 +1,519 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.icon > rendering-icon 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c0 > span {
+  display: inline-block;
+}
+
+.c0.c0 {
+  max-width: unset;
+}
+
+<i
+  class="c0 plasma-icon"
+  data-role="plasma-icon"
+  title="icon-title"
+>
+  <span
+    aria-hidden="true"
+  >
+    reply
+  </span>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    icon-title
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon > rendering-icon-size 1`] = `
+.c0 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c0 > span {
+  display: inline-block;
+}
+
+.c0.c0 {
+  max-width: unset;
+}
+
+<i
+  class="c0 plasma-icon plasma-icon--big"
+  data-role="plasma-icon"
+>
+  <span
+    aria-hidden="true"
+  >
+    reply
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon > rendering-mapped-icons 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c0 > span {
+  display: inline-block;
+}
+
+.c0.c0 {
+  max-width: unset;
+}
+
+<i
+  class="c0 plasma-icon plasma-icon--filled"
+  data-role="plasma-icon"
+  title="info"
+>
+  <span
+    aria-hidden="true"
+  >
+    info
+  </span>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    info
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon > rendering-mapped-icons 2`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons Outlined";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c0 > span {
+  display: inline-block;
+}
+
+.c0.c0 {
+  max-width: unset;
+}
+
+<i
+  class="c0 plasma-icon plasma-icon--outlined"
+  data-role="plasma-icon"
+  title="help"
+>
+  <span
+    aria-hidden="true"
+  >
+    help
+  </span>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    help
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 1`] = `
+.c2 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c0 > span {
+  display: inline-block;
+}
+
+.c0.c0 {
+  max-width: unset;
+}
+
+.c1.c1 {
+  color: rgb(5, 104, 174);
+}
+
+<i
+  class="c0 c1 plasma-icon plasma-icon--info"
+  data-role="plasma-icon"
+  title="info"
+>
+  <span
+    aria-hidden="true"
+  >
+    reply
+  </span>
+  <span
+    class="c2 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    info
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 2`] = `
+.c2 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c0 > span {
+  display: inline-block;
+}
+
+.c0.c0 {
+  max-width: unset;
+}
+
+.c1.c1 {
+  color: rgb(41, 122, 36);
+}
+
+<i
+  class="c0 c1 plasma-icon plasma-icon--success"
+  data-role="plasma-icon"
+  title="success"
+>
+  <span
+    aria-hidden="true"
+  >
+    reply
+  </span>
+  <span
+    class="c2 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    success
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 3`] = `
+.c2 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c0 > span {
+  display: inline-block;
+}
+
+.c0.c0 {
+  max-width: unset;
+}
+
+.c1.c1 {
+  color: rgb(175, 121, 2);
+}
+
+<i
+  class="c0 c1 plasma-icon plasma-icon--warning"
+  data-role="plasma-icon"
+  title="warning"
+>
+  <span
+    aria-hidden="true"
+  >
+    reply
+  </span>
+  <span
+    class="c2 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    warning
+  </span>
+</i>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 4`] = `
+.c2 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c0 > span {
+  display: inline-block;
+}
+
+.c0.c0 {
+  max-width: unset;
+}
+
+.c1.c1 {
+  color: rgb(201, 29, 29);
+}
+
+<i
+  class="c0 c1 plasma-icon plasma-icon--error"
+  data-role="plasma-icon"
+  title="error"
+>
+  <span
+    aria-hidden="true"
+  >
+    reply
+  </span>
+  <span
+    class="c2 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    error
+  </span>
+</i>
+`;

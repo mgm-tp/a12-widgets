@@ -1,0 +1,4416 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render basic checkbox-group 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c8 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c8 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c8 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c8 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c8:focus + label > span::before,
+.c8:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c7 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c7 > label {
+  height: 20px;
+}
+
+.c7 > label > span,
+.c7 > label > span::before {
+  border-radius: 0px;
+}
+
+.c5 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c9 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c9 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c9:focus + label > span::before,
+.c9:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c9 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render basic inline checkbox-group 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c6 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c6 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c10 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c10 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c10 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c10 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c10:focus + label > span::before,
+.c10:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px 24px;
+}
+
+.c8 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  max-width: 100%;
+  width: auto;
+}
+
+.c9 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c9 > label {
+  height: 20px;
+}
+
+.c9 > label > span,
+.c9 > label > span::before {
+  border-radius: 0px;
+}
+
+.c7 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c11 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c11 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c11 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c11:focus + label > span::before,
+.c11:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c5 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c11:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c11 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block field--inline"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="c4 field__group"
+  >
+    <div
+      class="c5 c6 c7 field"
+      data-role="checkbox"
+    >
+      <div
+        class="c8 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c9"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c10 c11 field__check"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c5 c6 c7 field"
+      data-role="checkbox"
+    >
+      <div
+        class="c8 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c9"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c10 c11 field__check"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c5 c6 c7 field"
+      data-role="checkbox"
+    >
+      <div
+        class="c8 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c9"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c10 c11 field__check"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with error message 1`] = `
+.c9 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c9 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c8.c8 {
+  color: rgb(201, 29, 29);
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c5 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c5 .c6 {
+  font-size: 1.25rem;
+}
+
+.c10 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c17 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c15 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c15 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c15 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c15 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c15:focus + label > span::before,
+.c15:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c13 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c14 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c14 > label {
+  height: 20px;
+}
+
+.c14 > label > span,
+.c14 > label > span::before {
+  border-radius: 0px;
+}
+
+.c12 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c16 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c16 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c16 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c16 + label > span::before {
+  border: 1px solid rgb(201, 29, 29);
+}
+
+.c16:focus + label > span::before,
+.c16:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c11 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c15:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c16:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c16 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="c4 message message--error"
+    data-role="checkbox-group-error-message"
+    id="test checkbox-group-error"
+  >
+    <div
+      class="c5 messageIcon"
+    >
+      <i
+        class="c6 c7 c8 plasma-icon plasma-icon--error plasma-icon--custom"
+        data-role="plasma-icon"
+        title="Error"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+        <span
+          class="c9 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Error
+        </span>
+      </i>
+    </div>
+    <div
+      class="c10 messageText"
+      data-role="error-text"
+    >
+      error
+    </div>
+  </div>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-error"
+            class="c15 c16 field__check field__check--error"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-error"
+            class="c15 c16 field__check field__check--error"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-error"
+            class="c15 c16 field__check field__check--error"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with helper-text 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c14 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c12 {
+  display: flex;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c15 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c9 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c9 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c9 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c9 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c9:focus + label > span::before,
+.c9:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4 .c13 {
+  margin: 0px;
+}
+
+.c16 .c13 {
+  margin: 0px;
+}
+
+.c7 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c8 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c8 > label {
+  height: 20px;
+}
+
+.c8 > label > span,
+.c8 > label > span::before {
+  border-radius: 0px;
+}
+
+.c6 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c6 > .c11 > .c13 {
+  margin: 0px;
+}
+
+.c10 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c10 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c10 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c10:focus + label > span::before,
+.c10:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c5 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c10 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="c4 field__group"
+  >
+    <div
+      class="c5 c0 c6 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c7 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c8"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-helperText"
+            class="c9 c10 field__check"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c5 c0 c6 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c7 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c8"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-helperText"
+            class="c9 c10 field__check"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c5 c0 c6 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c7 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c8"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-helperText"
+            class="c9 c10 field__check"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c11 c12 field__helper"
+    id="test checkbox-group-helperText"
+  >
+    <label
+      class="c13 c14 field__helper-text"
+      data-role="checkbox-helper-text"
+    >
+      helper-text
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with hidden label 1`] = `
+.c10 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c10:empty {
+  display: none;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c8 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c8 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c8 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c8 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c8:focus + label > span::before,
+.c8:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c7 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c7 > label {
+  height: 20px;
+}
+
+.c7 > label > span,
+.c7 > label > span::before {
+  border-radius: 0px;
+}
+
+.c5 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c9 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c9 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c9:focus + label > span::before,
+.c9:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c9 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label -u-unseenButRead"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c10 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c10 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c10 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with info message 1`] = `
+.c9 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c9 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c8.c8 {
+  color: rgb(5, 104, 174);
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c5 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c5 .c6 {
+  font-size: 1.25rem;
+}
+
+.c10 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c17 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c15 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c15 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c15 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c15 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c15:focus + label > span::before,
+.c15:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c13 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c14 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c14 > label {
+  height: 20px;
+}
+
+.c14 > label > span,
+.c14 > label > span::before {
+  border-radius: 0px;
+}
+
+.c12 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c16 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c16 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c16 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c16 + label > span::before {
+  border: 1px solid rgb(5, 104, 174);
+}
+
+.c16:focus + label > span::before,
+.c16:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c11 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c15:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c16:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c16 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="c4"
+    data-role="checkbox-group-info-message"
+    id="test checkbox-group-info"
+  >
+    <div
+      class="c5"
+    >
+      <i
+        class="c6 c7 c8 plasma-icon plasma-icon--info"
+        data-role="plasma-icon"
+        title="Information"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+        <span
+          class="c9 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Information
+        </span>
+      </i>
+    </div>
+    <div
+      class="c10"
+      data-role="info-text"
+    >
+      info
+    </div>
+  </div>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-info"
+            class="c15 c16 field__check"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-info"
+            class="c15 c16 field__check"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-info"
+            class="c15 c16 field__check"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with warning message 1`] = `
+.c9 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c9 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c8.c8 {
+  color: rgb(175, 121, 2);
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c5 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c5 .c6 {
+  font-size: 1.25rem;
+}
+
+.c10 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c17 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c15 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c15 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c15 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c15 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c15:focus + label > span::before,
+.c15:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c13 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c14 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c14 > label {
+  height: 20px;
+}
+
+.c14 > label > span,
+.c14 > label > span::before {
+  border-radius: 0px;
+}
+
+.c12 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c16 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c16 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c16 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c16 + label > span::before {
+  border: 1px solid rgb(175, 121, 2);
+}
+
+.c16:focus + label > span::before,
+.c16:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c11 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c15:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c16:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c16 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="c4 message message--warning"
+    data-role="checkbox-group-warning-message"
+    id="test checkbox-group-warning"
+  >
+    <div
+      class="c5 messageIcon"
+    >
+      <i
+        class="c6 c7 c8 plasma-icon plasma-icon--warning"
+        data-role="plasma-icon"
+        title="Warning"
+      >
+        <span
+          aria-hidden="true"
+        >
+          warning
+        </span>
+        <span
+          class="c9 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Warning
+        </span>
+      </i>
+    </div>
+    <div
+      class="c10 messageText"
+      data-role="warning-text"
+    >
+      warning
+    </div>
+  </div>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-warning"
+            class="c15 c16 field__check field__check--warning"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-warning"
+            class="c15 c16 field__check field__check--warning"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c11 c0 c12 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c13 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c14"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-warning"
+            class="c15 c16 field__check field__check--warning"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render disabled checkbox-group 1`] = `
+.c3 {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+  color: rgb(169, 179, 188);
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c10 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c8 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c8 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c8 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c8 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c8 + label {
+  cursor: default;
+}
+
+.c8 + label > span {
+  background: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c6 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c7 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c7 > label {
+  height: 20px;
+}
+
+.c7 > label > span,
+.c7 > label > span::before {
+  border-radius: 0px;
+}
+
+.c5 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c9 {
+  cursor: default;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c9 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c9 + label > span {
+  background-color: rgb(226, 230, 233);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c8 + label > span:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: fine) {
+  .c8 + label > span:hover {
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label label--disabled"
+    data-disabled="true"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--disabled"
+            data-role="checkbox-input"
+            disabled=""
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label label--disabled field__label field__label--disabled"
+          data-disabled="true"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--disabled"
+            data-role="checkbox-input"
+            disabled=""
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label label--disabled field__label field__label--disabled"
+          data-disabled="true"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--disabled"
+            data-role="checkbox-input"
+            disabled=""
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label label--disabled field__label field__label--disabled"
+          data-disabled="true"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render error checkbox-group 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c10 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c8 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c8 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c8 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c8 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c8:focus + label > span::before,
+.c8:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c7 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c7 > label {
+  height: 20px;
+}
+
+.c7 > label > span,
+.c7 > label > span::before {
+  border-radius: 0px;
+}
+
+.c5 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c9 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c9 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(201, 29, 29);
+}
+
+.c9:focus + label > span::before,
+.c9:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c9 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--error"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--error"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--error"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render info checkbox-group 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c10 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c8 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c8 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c8 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c8 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c8:focus + label > span::before,
+.c8:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c7 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c7 > label {
+  height: 20px;
+}
+
+.c7 > label > span,
+.c7 > label > span::before {
+  border-radius: 0px;
+}
+
+.c5 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c9 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c9 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(5, 104, 174);
+}
+
+.c9:focus + label > span::before,
+.c9:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c9 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render inline checkbox-group with helper-text 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c15 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c13 {
+  display: flex;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c6 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c6 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c10 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c10 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c10 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c10 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c10:focus + label > span::before,
+.c10:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c16 .c14 {
+  margin: 0px;
+}
+
+.c4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px 24px;
+}
+
+.c4 .c14 {
+  margin: 0px;
+}
+
+.c8 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  max-width: 100%;
+  width: auto;
+}
+
+.c9 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c9 > label {
+  height: 20px;
+}
+
+.c9 > label > span,
+.c9 > label > span::before {
+  border-radius: 0px;
+}
+
+.c7 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c7 > .c12 > .c14 {
+  margin: 0px;
+}
+
+.c11 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c11 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c11 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c11:focus + label > span::before,
+.c11:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c5 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c11:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c11 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block field--inline"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="c4 field__group"
+  >
+    <div
+      class="c5 c6 c7 field"
+      data-role="checkbox"
+    >
+      <div
+        class="c8 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c9"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-helperText"
+            class="c10 c11 field__check"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c5 c6 c7 field"
+      data-role="checkbox"
+    >
+      <div
+        class="c8 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c9"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-helperText"
+            class="c10 c11 field__check"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c5 c6 c7 field"
+      data-role="checkbox"
+    >
+      <div
+        class="c8 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c9"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label test checkbox-group-helperText"
+            class="c10 c11 field__check"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c12 c13 field__helper"
+    id="test checkbox-group-helperText"
+  >
+    <label
+      class="c14 c15 field__helper-text"
+      data-role="checkbox-helper-text"
+    >
+      helper-text
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render readonly checkbox-group 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c10 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c8 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c8 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c8 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c8 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c8 + label {
+  cursor: default;
+}
+
+.c6 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c7 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c7 > label {
+  height: 20px;
+}
+
+.c7 > label > span,
+.c7 > label > span::before {
+  border-radius: 0px;
+}
+
+.c5 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c9 {
+  cursor: default;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c9 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c9 + label > span {
+  background-color: rgb(226, 230, 233);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--readonly"
+            data-role="checkbox-input"
+            disabled=""
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label field__label--readonly"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--readonly"
+            data-role="checkbox-input"
+            disabled=""
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label field__label--readonly"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--readonly"
+            data-role="checkbox-input"
+            disabled=""
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label field__label--readonly"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox-group > render warning checkbox-group 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c10 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c8 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c8 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c8 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c8 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c8:focus + label > span::before,
+.c8:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c7 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c7 > label {
+  height: 20px;
+}
+
+.c7 > label > span,
+.c7 > label > span::before {
+  border-radius: 0px;
+}
+
+.c5 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c9 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c9 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c9 + label > span::before {
+  border: 1px solid rgb(175, 121, 2);
+}
+
+.c9:focus + label > span::before,
+.c9:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+  min-height: 0px;
+  padding: 0px;
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c9 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox-group"
+  id="test checkbox-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="checkbox-group-label"
+    id="test checkbox-group-label"
+  >
+    Checkbox Group
+  </label>
+  <div
+    class="field__group"
+  >
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-1-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--warning"
+            data-role="checkbox-input"
+            id="item-1"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-1"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-1"
+        >
+          Option 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-2-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--warning"
+            data-role="checkbox-input"
+            id="item-2"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-2"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-2"
+        >
+          Option 2
+        </label>
+      </div>
+    </div>
+    <div
+      class="c4 c0 c5 field field--block"
+      data-role="checkbox"
+    >
+      <div
+        class="c6 field__control field__control--boolean"
+        data-role="checkbox-control"
+        id="item-3-controls"
+      >
+        <span
+          class="c7"
+          data-role="checkbox-control-inner"
+        >
+          <input
+            aria-checked="false"
+            aria-describedby="test checkbox-group-label"
+            class="c8 c9 field__check field__check--warning"
+            data-role="checkbox-input"
+            id="item-3"
+            type="checkbox"
+          />
+          <label
+            aria-hidden="true"
+            data-role="checkbox-control-inner-hidden-label"
+            for="item-3"
+          >
+            <span />
+          </label>
+        </span>
+        <label
+          class="c2 c3 label field__label field__label"
+          data-role="checkbox-label"
+          for="item-3"
+        >
+          Option 3
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,999 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.badge > render badge with given position 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: calc(18px);
+  line-height: normal;
+  outline: transparent solid 1px;
+  padding: 0px 4px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+}
+
+.c4.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c5.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c6.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c6.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c6.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+}
+
+.c0.c0.c0 {
+  top: 0px;
+  right: unset;
+  bottom: unset;
+  left: 0px;
+}
+
+.c0.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+<span
+  class="c0 badge-wrapper"
+  data-role="badge"
+  title="100 Info notifications"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Info notifications
+  </span>
+  <span
+    aria-hidden="true"
+    class="c2 c3 badge badge--info"
+    data-role="badge-content"
+    data-type="info-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > render default badge 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: calc(18px);
+  line-height: normal;
+  outline: transparent solid 1px;
+  padding: 0px 4px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+  top: calc(-12.15px);
+}
+
+.c0.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+<span
+  class="c0 badge-wrapper test-class"
+  data-role="badge"
+  id="test-id"
+  style="background: red; right: -15px;"
+  title="100 Info notifications"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Info notifications
+  </span>
+  <span
+    aria-hidden="true"
+    class="c2 c3 badge badge--info"
+    data-role="badge-content"
+    data-type="info-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > render light info badge 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: calc(18px);
+  line-height: normal;
+  outline: transparent solid 1px;
+  padding: 0px 4px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+  top: calc(-12.15px);
+}
+
+.c0.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c4.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+<span
+  class="c0 badge-wrapper"
+  data-role="badge"
+  style="right: -15px;"
+  title="100 Info notifications"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Info notifications
+  </span>
+  <span
+    aria-hidden="true"
+    class="c2 c3 badge badge--info badge--light"
+    data-role="badge-content"
+    data-type="info-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > render success, warning and error badge 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: calc(18px);
+  line-height: normal;
+  outline: transparent solid 1px;
+  padding: 0px 4px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+  top: calc(-12.15px);
+}
+
+.c0.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c4.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+<span
+  class="c0 badge-wrapper"
+  data-role="badge"
+  style="right: -15px;"
+  title="100 Success notifications"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Success notifications
+  </span>
+  <span
+    aria-hidden="true"
+    class="c2 c3 badge badge--success"
+    data-role="badge-content"
+    data-type="success-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > render success, warning and error badge 2`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: calc(18px);
+  line-height: normal;
+  outline: transparent solid 1px;
+  padding: 0px 4px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(175, 121, 2);
+  color: rgb(22, 25, 29);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+  top: calc(-12.15px);
+}
+
+.c0.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c4.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+<span
+  class="c0 badge-wrapper"
+  data-role="badge"
+  style="right: -15px;"
+  title="100 Warning notifications"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Warning notifications
+  </span>
+  <span
+    aria-hidden="true"
+    class="c2 c3 badge badge--warning"
+    data-role="badge-content"
+    data-type="warning-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > render success, warning and error badge 3`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: calc(18px);
+  line-height: normal;
+  outline: transparent solid 1px;
+  padding: 0px 4px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(201, 29, 29);
+  color: rgb(255, 255, 255);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+  top: calc(-12.15px);
+}
+
+.c0.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c4.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+<span
+  class="c0 badge-wrapper"
+  data-role="badge"
+  style="right: -15px;"
+  title="100 Error notifications"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Error notifications
+  </span>
+  <span
+    aria-hidden="true"
+    class="c2 c3 badge badge--error"
+    data-role="badge-content"
+    data-type="error-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > render tiny badge 1`] = `
+.c2 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: normal;
+  outline: transparent solid 1px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+  height: 8px;
+  padding: 0px;
+  width: 8px;
+}
+
+.c5.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c6.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c6.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c6.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+}
+
+.c0.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c1 {
+  right: calc(-4px);
+  top: calc(-4px);
+}
+
+<span
+  class="c0 c1 badge-wrapper badge-wrapper--tiny"
+  data-role="badge"
+  title="100 Success notifications available"
+>
+  <span
+    class="c2 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Success notifications available
+  </span>
+  <span
+    aria-hidden="true"
+    class="c3 c4 badge badge--success"
+    data-role="badge-content"
+    data-type="success-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > render tiny badge 2`] = `
+.c2 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: normal;
+  outline: transparent solid 1px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(175, 121, 2);
+  color: rgb(22, 25, 29);
+  height: 8px;
+  padding: 0px;
+  width: 8px;
+}
+
+.c5.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c6.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c6.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c6.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+}
+
+.c0.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c1 {
+  right: calc(-4px);
+  top: calc(-4px);
+}
+
+<span
+  class="c0 c1 badge-wrapper badge-wrapper--tiny"
+  data-role="badge"
+  title="100 Warning notifications available"
+>
+  <span
+    class="c2 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Warning notifications available
+  </span>
+  <span
+    aria-hidden="true"
+    class="c3 c4 badge badge--warning"
+    data-role="badge-content"
+    data-type="warning-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > render tiny badge 3`] = `
+.c2 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: normal;
+  outline: transparent solid 1px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(201, 29, 29);
+  color: rgb(255, 255, 255);
+  height: 8px;
+  padding: 0px;
+  width: 8px;
+}
+
+.c5.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c6.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c6.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c6.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+}
+
+.c0.badge-wrapper-exit-active .c3 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c3 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c3 {
+  transform: scale(1);
+}
+
+.c1 {
+  right: calc(-4px);
+  top: calc(-4px);
+}
+
+<span
+  class="c0 c1 badge-wrapper badge-wrapper--tiny"
+  data-role="badge"
+  title="100 Error notifications available"
+>
+  <span
+    class="c2 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , 100 Error notifications available
+  </span>
+  <span
+    aria-hidden="true"
+    class="c3 c4 badge badge--error"
+    data-role="badge-content"
+    data-type="error-badge"
+  >
+    100
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.badge > test custom title 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: calc(18px);
+  line-height: normal;
+  outline: transparent solid 1px;
+  padding: 0px 4px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+}
+
+.c0 {
+  display: inline-flex;
+  position: absolute;
+  top: calc(-12.15px);
+}
+
+.c0.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c0.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c4.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+.c5.badge-wrapper-exit-active .c2 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter .c2 {
+  transform: scale(0);
+}
+
+.c5.badge-wrapper-enter-active .c2 {
+  transform: scale(1);
+}
+
+<span
+  class="c0 badge-wrapper"
+  data-role="badge"
+  style="right: -15px;"
+  title="Test Tile"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    , Test Tile
+  </span>
+  <span
+    aria-hidden="true"
+    class="c2 c3 badge badge--info"
+    data-role="badge-content"
+    data-type="info-badge"
+  >
+    100
+  </span>
+</span>
+`;

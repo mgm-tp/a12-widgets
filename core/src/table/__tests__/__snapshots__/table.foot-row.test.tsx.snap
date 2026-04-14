@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.foot-row > cardView 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+<div
+  class="c0 table__footerRow"
+  data-role="table-footer-row"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-row > default footer row 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+<div
+  class="c0 table__footerRow"
+  data-role="table-footer-row"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-row > when footer has content and is not card 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+<div
+  class="c0 table__footerRow"
+  data-role="table-footer-row"
+  role="grid"
+/>
+`;

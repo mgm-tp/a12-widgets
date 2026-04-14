@@ -1,0 +1,1564 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.input.radio > inline-radio 1`] = `
+.c9 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c9:empty {
+  display: none;
+}
+
+.c10[data-role="checkbox-group"] .c8,
+.c10[data-role="radio-group"] .c8,
+.c10[data-role="file-upload"] .c8 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c8 {
+  display: block;
+  width: fit-content;
+}
+
+.c6 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c6 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c6 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c6 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c6:focus + label > span::before,
+.c6:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px 24px;
+}
+
+.c4 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  max-width: 100%;
+  width: auto;
+}
+
+.c1 .c3 {
+  margin: 0px 0px 2px;
+}
+
+.c5 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c7 {
+  height: 20px;
+}
+
+.c7 + label {
+  height: 20px;
+}
+
+.c7 + label > span {
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.c7 + label > span::before {
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+
+.c7:focus + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c7:focus + label > span::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block field--inline"
+  data-role="radio-group"
+>
+  <div
+    aria-labelledby="test-id-label"
+    class="c2 field__group"
+    role="radiogroup"
+  >
+    <div
+      class="c3 c4 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c5"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          class="c6 c7 field__radio"
+          data-role="radio-input"
+          id="test-id-input1"
+          name="test-id"
+          type="radio"
+          value="1"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input1"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c8 c9 label field__label field__label"
+        data-role="radio-label"
+        for="test-id-input1"
+        id="test-id-input1-label-label"
+      >
+        Option 1
+      </label>
+    </div>
+    <div
+      class="c3 c4 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c5"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          class="c6 c7 field__radio"
+          data-role="radio-input"
+          id="test-id-input2"
+          name="test-id"
+          type="radio"
+          value="2"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input2"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c8 c9 label field__label field__label"
+        data-role="radio-label"
+        for="test-id-input2"
+        id="test-id-input2-label-label"
+      >
+        Option 2
+      </label>
+    </div>
+    <div
+      class="c3 c4 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c5"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          class="c6 c7 field__radio"
+          data-role="radio-input"
+          id="test-id-input3"
+          name="test-id"
+          type="radio"
+          value="3"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input3"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c8 c9 label field__label field__label"
+        data-role="radio-label"
+        for="test-id-input3"
+        id="test-id-input3-label-label"
+      >
+        Option 3
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`] = `
+.c9 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c9 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c8.c8 {
+  color: rgb(201, 29, 29);
+}
+
+.c13.c13 {
+  color: rgb(175, 121, 2);
+}
+
+.c15.c15 {
+  color: rgb(5, 104, 174);
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c22 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c22:empty {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c11 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c14 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c5 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c5 .c6 {
+  font-size: 1.25rem;
+}
+
+.c10 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c25 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c23 {
+  display: flex;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0[data-role="checkbox-group"] .c2,
+.c0[data-role="radio-group"] .c2,
+.c0[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c20 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c20 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c20 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c20 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c20:focus + label > span::before,
+.c20:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c16 .c24 {
+  margin: 0px;
+}
+
+.c18 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c17 {
+  margin: 0px 0px 2px;
+}
+
+.c19 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c21 {
+  height: 20px;
+}
+
+.c21 + label {
+  height: 20px;
+}
+
+.c21 + label > span {
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.c21 + label > span::before {
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+
+.c21 + label > span::before {
+  border: 1px solid rgb(5, 104, 174);
+}
+
+.c21 + label > span::before {
+  border: 1px solid rgb(175, 121, 2);
+}
+
+.c21 + label > span::before {
+  border: 1px solid rgb(201, 29, 29);
+}
+
+.c21:focus + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c21:focus + label > span::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+@media (pointer: coarse) {
+  .c20:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c20:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c21:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c21:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--tooltips field--block test-classname"
+  data-role="radio-group"
+  style="background-color: red;"
+>
+  <label
+    class="c2 c3 label field__label -u-unseenButRead"
+    data-role="radio-group-label"
+    id="test-id-label"
+  >
+    Test Radio
+  </label>
+  Test tooltips
+  <div
+    class="c4 message message--error"
+    data-role="radio-group-error-message"
+    id="test-id-error"
+  >
+    <div
+      class="c5 messageIcon"
+    >
+      <i
+        class="c6 c7 c8 plasma-icon plasma-icon--error plasma-icon--custom"
+        data-role="plasma-icon"
+        title="Error"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+        <span
+          class="c9 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Error
+        </span>
+      </i>
+    </div>
+    <div
+      class="c10 messageText"
+      data-role="error-text"
+    >
+      Test error message
+    </div>
+  </div>
+  <div
+    class="c11 message message--warning"
+    data-role="radio-group-warning-message"
+    id="test-id-warning"
+  >
+    <div
+      class="c5 messageIcon"
+    >
+      <i
+        class="c6 c12 c13 plasma-icon plasma-icon--warning"
+        data-role="plasma-icon"
+        title="Warning"
+      >
+        <span
+          aria-hidden="true"
+        >
+          warning
+        </span>
+        <span
+          class="c9 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Warning
+        </span>
+      </i>
+    </div>
+    <div
+      class="c10 messageText"
+      data-role="warning-text"
+    >
+      Test warning message
+    </div>
+  </div>
+  <div
+    class="c14"
+    data-role="radio-group-info-message"
+    id="test-id-info"
+  >
+    <div
+      class="c5"
+    >
+      <i
+        class="c6 c12 c15 plasma-icon plasma-icon--info"
+        data-role="plasma-icon"
+        title="Information"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+        <span
+          class="c9 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Information
+        </span>
+      </i>
+    </div>
+    <div
+      class="c10"
+      data-role="info-text"
+    >
+      Test info message
+    </div>
+  </div>
+  <div
+    aria-labelledby="test-id-label"
+    class="c16 field__group"
+    role="radiogroup"
+  >
+    <div
+      class="c17 c18 field__control field__control--boolean"
+      data-role="radio-control"
+      style="background-color: red;"
+    >
+      <span
+        class="c19"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label test-id-info test-id-warning test-id-error test-id-helperText test-aria-describedby"
+          class="c20 c21 field__radio field__radio--error field__radio--warning"
+          data-role="radio-input"
+          id="test-id-input1"
+          name="test-name"
+          tabindex="-1"
+          type="radio"
+          value="1"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input1"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c22 label field__label field__label"
+        data-role="radio-label"
+        for="test-id-input1"
+        id="test-id-input1-label-label"
+      >
+        Option 1
+      </label>
+    </div>
+    <div
+      class="c17 c18 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c19"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label test-id-info test-id-warning test-id-error test-id-helperText test-aria-describedby"
+          class="c20 c21 field__radio field__radio--error field__radio--warning"
+          data-role="radio-input"
+          id="test-id-input2"
+          name="test-name"
+          type="radio"
+          value="2"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input2"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c22 label field__label field__label"
+        data-role="radio-label"
+        for="test-id-input2"
+        id="test-id-input2-label-label"
+      >
+        Option 2
+      </label>
+    </div>
+    <div
+      class="c17 c18 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c19"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label test-id-info test-id-warning test-id-error test-id-helperText test-aria-describedby"
+          class="c20 c21 field__radio field__radio--error field__radio--warning"
+          data-role="radio-input"
+          id="test-id-input3"
+          name="test-name"
+          type="radio"
+          value="3"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input3"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c22 label field__label field__label"
+        data-role="radio-label"
+        for="test-id-input3"
+        id="test-id-input3-label-label"
+      >
+        Option 3
+      </label>
+    </div>
+  </div>
+  <div
+    class="c23 field__helper"
+    id="test-id-helperText"
+  >
+    <label
+      class="c24 c25 field__helper-text"
+      data-role="radio-group-helper-text"
+    >
+      Test helper test
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.radio > rendering-a-disabled-radio-group 1`] = `
+.c3 {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+  color: rgb(169, 179, 188);
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c9[data-role="checkbox-group"] .c2,
+.c9[data-role="radio-group"] .c2,
+.c9[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c7 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c7 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c7 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c7 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c7 + label {
+  cursor: default;
+}
+
+.c7 + label > span {
+  background: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c5 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+}
+
+.c6 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c8 {
+  height: 20px;
+}
+
+.c8 + label {
+  height: 20px;
+}
+
+.c8 + label > span {
+  border-radius: 50%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c8 + label > span::before {
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+
+.c8 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+@media (pointer: coarse) {
+  .c7 + label > span:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: fine) {
+  .c7 + label > span:hover {
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="radio-group"
+>
+  <label
+    class="c2 c3 label field__label label--disabled"
+    data-disabled="true"
+    data-role="radio-group-label"
+    id="test-id-label"
+  >
+    Radio's label
+  </label>
+  <div
+    aria-labelledby="test-id-label"
+    class="field__group"
+    role="radiogroup"
+  >
+    <div
+      class="c4 c5 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c6"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label"
+          class="c7 c8 field__radio field__radio--disabled"
+          data-role="radio-input"
+          disabled=""
+          id="test-id-input1"
+          name="test-id"
+          type="radio"
+          value="1"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input1"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c3 label field__label label--disabled field__label field__label--disabled"
+        data-disabled="true"
+        data-role="radio-label"
+        for="test-id-input1"
+        id="test-id-input1-label-label"
+      >
+        Option 1
+      </label>
+    </div>
+    <div
+      class="c4 c5 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c6"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label"
+          class="c7 c8 field__radio field__radio--disabled"
+          data-role="radio-input"
+          disabled=""
+          id="test-id-input2"
+          name="test-id"
+          type="radio"
+          value="2"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input2"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c3 label field__label label--disabled field__label field__label--disabled"
+        data-disabled="true"
+        data-role="radio-label"
+        for="test-id-input2"
+        id="test-id-input2-label-label"
+      >
+        Option 2
+      </label>
+    </div>
+    <div
+      class="c4 c5 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c6"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label"
+          class="c7 c8 field__radio field__radio--disabled"
+          data-role="radio-input"
+          disabled=""
+          id="test-id-input3"
+          name="test-id"
+          type="radio"
+          value="3"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input3"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c3 label field__label label--disabled field__label field__label--disabled"
+        data-disabled="true"
+        data-role="radio-label"
+        for="test-id-input3"
+        id="test-id-input3-label-label"
+      >
+        Option 3
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.radio > rendering-a-radio-disabled-readonly 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c9 {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+  color: rgb(169, 179, 188);
+}
+
+.c9:empty {
+  display: none;
+}
+
+.c15[data-role="checkbox-group"] .c2,
+.c15[data-role="radio-group"] .c2,
+.c15[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c13 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c13 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c13 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c13 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c13:focus + label > span::before,
+.c13:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c7 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c7 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c7 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c7 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c7 + label {
+  cursor: default;
+}
+
+.c7 + label > span {
+  background: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c10 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c10 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c10 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c10 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c10 + label {
+  cursor: default;
+}
+
+.c12 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c5 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c4 {
+  margin: 0px 0px 2px;
+}
+
+.c6 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c8 {
+  height: 20px;
+}
+
+.c8 + label {
+  height: 20px;
+}
+
+.c8 + label > span {
+  border-radius: 50%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c8 + label > span::before {
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+
+.c8 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+.c11 {
+  height: 20px;
+}
+
+.c11 + label {
+  height: 20px;
+}
+
+.c11 + label > span {
+  border-radius: 50%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c11 + label > span::before {
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+
+.c11 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+.c14 {
+  height: 20px;
+}
+
+.c14 + label {
+  height: 20px;
+}
+
+.c14 + label > span {
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.c14 + label > span::before {
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+
+.c14:focus + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c14:focus + label > span::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7 + label > span:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: fine) {
+  .c7 + label > span:hover {
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c14:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="radio-group"
+>
+  <label
+    class="c2 c3 label field__label"
+    data-role="radio-group-label"
+    id="test-id-label"
+  >
+    Radio's label
+  </label>
+  <div
+    aria-labelledby="test-id-label"
+    class="field__group"
+    role="radiogroup"
+  >
+    <div
+      class="c4 c5 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c6"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label"
+          class="c7 c8 field__radio field__radio--disabled"
+          data-role="radio-input"
+          disabled=""
+          id="test-id-input1"
+          name="test-id"
+          type="radio"
+          value="1"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input1"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c9 label field__label label--disabled field__label field__label--disabled"
+        data-disabled="true"
+        data-role="radio-label"
+        for="test-id-input1"
+        id="test-id-input1-label-label"
+      >
+        Option 1
+      </label>
+    </div>
+    <div
+      class="c4 c5 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c6"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label"
+          class="c10 c11 field__radio field__radio--readonly"
+          data-role="radio-input"
+          disabled=""
+          id="test-id-input2"
+          name="test-id"
+          type="radio"
+          value="2"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input2"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c3 label field__label field__label field__label--readonly"
+        data-role="radio-label"
+        for="test-id-input2"
+        id="test-id-input2-label-label"
+      >
+        Option 2
+      </label>
+    </div>
+    <div
+      class="c4 c12 field__control field__control--boolean"
+      data-role="radio-control"
+    >
+      <span
+        class="c6"
+        data-role="radio-control-inner"
+      >
+        <input
+          aria-checked="false"
+          aria-describedby="test-id-label"
+          class="c13 c14 field__radio"
+          data-role="radio-input"
+          id="test-id-input3"
+          name="test-id"
+          type="radio"
+          value="3"
+        />
+        <label
+          aria-hidden="true"
+          for="test-id-input3"
+        >
+          <span />
+        </label>
+      </span>
+      <label
+        class="c2 c3 label field__label field__label"
+        data-role="radio-label"
+        for="test-id-input3"
+        id="test-id-input3-label-label"
+      >
+        Option 3
+      </label>
+    </div>
+  </div>
+</div>
+`;

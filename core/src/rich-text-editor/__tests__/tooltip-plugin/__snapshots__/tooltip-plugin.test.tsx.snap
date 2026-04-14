@@ -1,0 +1,132 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.tooltip-plugin > Tooltip plugin basic 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph ltr"
+    dir="ltr"
+  >
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+       .
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      . ,
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      , ;
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      ; :
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      : '
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      ' "
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      " (
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      ) [
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      ] {
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      } &lt;
+    </span>
+    <span
+      class="editor-with-tooltip-word"
+      data-lexical-text="true"
+    >
+      mgm-tp
+    </span>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;
+    </span>
+  </p>,
+]
+`;

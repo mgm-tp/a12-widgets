@@ -1,0 +1,77 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.css-ellipsis > rendering-with-max-line 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.c0 > * {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+<div>
+  <div
+    class="c0 css-ellipsis css-ellipsis-2-lines"
+    data-role="css-ellipsis"
+  >
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.css-ellipsis > rendering-with-max-line-1 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  word-break: break-all;
+}
+
+.c0 > * {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+<div>
+  <div
+    class="c0 css-ellipsis css-ellipsis-1-lines"
+    data-role="css-ellipsis"
+  >
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;

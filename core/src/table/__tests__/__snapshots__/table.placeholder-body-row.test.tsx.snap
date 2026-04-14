@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.placeholder-body-row > default 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c1:active,
+.c1:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+<div
+  class="c0 c1 table__contentRow"
+  data-role="table-body-row"
+  role="row"
+  tabindex="-1"
+/>
+`;

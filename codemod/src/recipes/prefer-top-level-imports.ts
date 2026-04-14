@@ -1,0 +1,158 @@
+/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License – EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED “AS IS” AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+import { type Recipe, migrateImports, type ImportMigrationConfiguration } from "@com.mgmtp.a12.devtools/codemod";
+
+const packageName = "@com.mgmtp.a12.widgets/widgets-core";
+
+const migrationConfig: ImportMigrationConfiguration = {
+	entityMigrations: [
+		{
+			from: { packageName, subPath: "/lib/table/new-api/table.api.js", entity: "ResizeEventHandler" },
+			to: { subPath: "", entity: "ColumnResizeEventHandler" }
+		},
+		{
+			from: { packageName, subPath: "/lib/table/new-api/index.js", entity: "ResizeEventHandler" },
+			to: { subPath: "", entity: "ColumnResizeEventHandler" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/common/main/a11y-localization/a11y-key-definition.api.js",
+				entity: "IconPicker"
+			},
+			to: { subPath: "", entity: "IconPickerTitles" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/common/main/a11y-localization/index.js",
+				entity: "IconPicker"
+			},
+			to: { subPath: "", entity: "IconPickerTitles" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/rich-text-editor/main/plugins/tooltip-plugin/view/tooltip.api.js",
+				entity: "TooltipProps"
+			},
+			to: { subPath: "", entity: "TooltipPluginProps" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/rich-text-editor/main/plugins/tooltip-plugin/view/tooltip.view.js",
+				entity: "Tooltip"
+			},
+			to: { subPath: "", entity: "TooltipPlugin" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/rich-text-editor/main/plugins/tooltip-plugin/view/tooltip.api.js",
+				entity: "TooltipWrapperProps"
+			},
+			to: { subPath: "", entity: "TooltipPluginWrapperProps" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/theme/flat/config/components/interactive-tile.config.js",
+				entity: "commonTileConfigs"
+			},
+			to: { subPath: "", entity: "commonInteractiveTileFlatConfigs" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/tree-table/main/tree-table.view.js",
+				entity: "BodyContent"
+			},
+			to: { subPath: "", entity: "TreeTableBodyContent" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/tree-table/main/tree-table.view.js",
+				entity: "BodyCell"
+			},
+			to: { subPath: "", entity: "TreeTableBodyCell" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/tree/main/behavior/tree.behavior.api.js",
+				entity: "walk"
+			},
+			to: { subPath: "", entity: "walkTreeNode" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/tree/main/index.js",
+				entity: "walk"
+			},
+			to: { subPath: "", entity: "walkTreeNode" }
+		},
+		{
+			from: {
+				packageName,
+				subPath: "/lib/index.js",
+				entity: "walk"
+			},
+			to: { subPath: "", entity: "walkTreeNode" }
+		}
+	],
+	pathMigrations: [
+		{
+			from: `${packageName}/lib/**/*.js`,
+			to: packageName
+		}
+	]
+};
+
+export const preferTopLevelImportsRecipe: Recipe = {
+	metadata: {
+		id: "prefer-top-level-imports",
+		description: "Migrates imports from deep paths to top-level imports",
+		supportedVersions: "^38.2.0"
+	},
+
+	execute(project): void {
+		const sourceFiles = project.getSourceFiles();
+
+		for (const sourceFile of sourceFiles) {
+			migrateImports(sourceFile, migrationConfig);
+		}
+	}
+};

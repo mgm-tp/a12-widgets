@@ -1,0 +1,3558 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled file name 1`] = `
+.c13 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c13 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c18 .c11 {
+  user-select: none;
+}
+
+.c18 .c11 {
+  color: inherit;
+}
+
+.c18 .c11 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c11 {
+  display: block;
+}
+
+.c3 {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+  color: rgb(169, 179, 188);
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c19 .c11 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c15[data-role="checkbox-group"] .c2,
+.c15[data-role="radio-group"] .c2,
+.c15[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c20 > .c11,
+.c20 > span:first-child > .c11 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c21 > .c11,
+.c21 > span:first-child > .c11 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c16 .c11 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c8 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c8 .c11 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c5 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c14 {
+  display: none;
+}
+
+.c6 {
+  box-sizing: border-box;
+  background: rgb(241, 242, 244);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+  cursor: default;
+}
+
+.c6,
+.c6 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c6 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c6 {
+  justify-content: flex-start;
+}
+
+.c6 .c7 {
+  color: rgb(169, 179, 188);
+  cursor: default;
+  pointer-events: none;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c4 {
+  flex: 0 1 0%;
+}
+
+.c10 {
+  background-size: calc(100% - 1px) calc(0.08rem);
+  font-weight: 600;
+}
+
+.c10 .c11 {
+  font-size: 1rem;
+}
+
+.c17 .c4 {
+  flex: 1 1 0%;
+}
+
+@media (pointer: fine) {
+  .cQeHJf:hover .c9 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .cEJYpV:hover .c9 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .jVroVV:hover .c9 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .ekvKIa:hover .c9 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .cLNTSn:hover .c9 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+<div
+  class="c0 c1 field field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label label--disabled"
+      data-disabled="true"
+      data-role="file-upload-label"
+      id="test-id-label"
+    >
+      Test File Name
+    </label>
+  </div>
+  <div
+    class="c4 c5 field__upload field__upload--disabled field__upload--placeholder"
+    data-role="file-upload-control"
+  >
+    <div
+      aria-describedby="test-id-label"
+      aria-disabled="false"
+      class="c6 field__upload-content"
+      data-role="file-upload-content"
+      id="test-id-content"
+      tabindex="-1"
+    >
+      <a
+        aria-disabled="true"
+        class="c7 c8 link c9 c10 -u-truncate"
+        data-role="link"
+        href="#"
+        tabindex="0"
+      >
+        <i
+          class="c11 c12 plasma-icon plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Datatype PDF"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c13 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Datatype PDF
+          </span>
+        </i>
+        <span
+          data-role="file-upload-visible-text"
+          id="test-id-content-visible-text"
+        >
+          Test File.pdf
+        </span>
+      </a>
+      <span
+        class="c13 -u-unseenButRead"
+        data-role="hidden-text"
+        id="test-id-upload-button-title"
+      >
+        Upload file
+      </span>
+      <input
+        class="c14 field__upload-input"
+        data-role="file-upload-input"
+        disabled=""
+        id="test-id"
+        tabindex="-1"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name after uploading 1`] = `
+.c12 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c12 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c7 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c7 .c10 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c7:visited {
+  color: rgb(5, 104, 174);
+}
+
+.c7:focus {
+  background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+  background-position: left bottom;
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  text-decoration: none;
+}
+
+.c5 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c13 {
+  display: none;
+}
+
+.c6 {
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px dashed rgb(5, 104, 174);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+}
+
+.c6,
+.c6 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c6 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c6 {
+  justify-content: flex-start;
+}
+
+.c6 svg {
+  pointer-events: none;
+}
+
+.c6:focus::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  outline: rgb(51, 51, 51) dotted 1px;
+  border-radius: inherit;
+}
+
+.c6:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c4 {
+  flex: 0 1 0%;
+}
+
+.c9 {
+  background-size: calc(100% - 1px) calc(0.08rem);
+  font-weight: 600;
+}
+
+.c9 .c10 {
+  font-size: 1rem;
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover .c8 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+<div
+  class="c0 c1 field field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label"
+      data-disabled="false"
+      data-role="file-upload-label"
+      id="test-id-label"
+    >
+      Test File Name
+    </label>
+  </div>
+  <div
+    class="c4 c5 field__upload field__upload--placeholder"
+    data-role="file-upload-control"
+  >
+    <div
+      aria-describedby="test-id-label"
+      aria-disabled="false"
+      class="c6 field__upload-content"
+      data-role="file-upload-content"
+      id="test-id-content"
+      tabindex="0"
+      title="Upload file"
+    >
+      <a
+        class="c7 link c8 c9 -u-truncate"
+        data-role="link"
+        href="#"
+        tabindex="0"
+      >
+        <i
+          class="c10 c11 plasma-icon plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Datatype PDF"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c12 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Datatype PDF
+          </span>
+        </i>
+        <span
+          data-role="file-upload-visible-text"
+          id="test-id-content-visible-text"
+        >
+          Test File.pdf
+        </span>
+      </a>
+      <span
+        class="c12 -u-unseenButRead"
+        data-role="hidden-text"
+        id="test-id-upload-button-title"
+      >
+        Upload file
+      </span>
+      <input
+        class="c13 field__upload-input"
+        data-role="file-upload-input"
+        id="test-id"
+        tabindex="-1"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name before uploading 1`] = `
+.c9 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c9 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c5 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c8 {
+  color: rgb(5, 104, 174);
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.c8 + svg {
+  width: 9999px;
+}
+
+.c10 {
+  display: none;
+}
+
+.c6 {
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px dashed rgb(5, 104, 174);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+}
+
+.c6,
+.c6 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c6 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c6 {
+  justify-content: flex-start;
+}
+
+.c6 svg {
+  pointer-events: none;
+}
+
+.c6:focus::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  outline: rgb(51, 51, 51) dotted 1px;
+  border-radius: inherit;
+}
+
+.c6:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c4 {
+  flex: 0 1 0%;
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label"
+      data-disabled="false"
+      data-role="file-upload-label"
+      id="file-upload-label"
+    >
+      Test File Name
+    </label>
+  </div>
+  <div
+    class="c4 c5 field__upload field__upload--placeholder"
+    data-role="file-upload-control"
+  >
+    <div
+      aria-describedby="file-upload-label"
+      aria-disabled="false"
+      class="c6 field__upload-content"
+      data-role="file-upload-content"
+      id="file-upload-content"
+      role="button"
+      tabindex="0"
+      title="Upload file"
+    >
+      <i
+        class="c7 plasma-icon c8 field__upload-icon field__upload-icon--withPlaceholder"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          file_upload
+        </span>
+      </i>
+      <span
+        class="c9 -u-unseenButRead"
+        data-role="hidden-text"
+        id="file-upload-upload-button-title"
+      >
+        Upload file
+      </span>
+      <input
+        class="c10 field__upload-input"
+        data-role="file-upload-input"
+        id="file-upload"
+        tabindex="-1"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name with tooltip 1`] = `
+.c13 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c13 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c16 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c18 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c18 > span {
+  display: inline-block;
+}
+
+.c18.c18 {
+  max-width: unset;
+}
+
+.c15 .c18 {
+  color: inherit;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c15 .c12 {
+  color: inherit;
+}
+
+.c17 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c17 .c11 {
+  user-select: none;
+}
+
+.c17 .c11 {
+  color: inherit;
+}
+
+.c17 .c11 {
+  font-size: inherit;
+}
+
+.c17:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c15 .c17.c17 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c15 .c17.c17:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c15 .c17.c17:not(:active):not(:hover):not(:focus) .c11:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c15 .c17.c17:focus .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c11 {
+  display: block;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c19 > .c15 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c19 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c15 {
+  align-self: center;
+  flex-shrink: 0;
+  text-align: right;
+  width: 28px;
+}
+
+.c0[data-role="checkbox-group"] .c2,
+.c0[data-role="radio-group"] .c2,
+.c0[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c0[data-role="checkbox-group"] .c2 ~ .c15,
+.c0[data-role="radio-group"] .c2 ~ .c15,
+.c0[data-role="file-upload"] .c2 ~ .c15 {
+  margin: 0px 0px 4px;
+}
+
+.c8 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c8 .c11 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c8:visited {
+  color: rgb(5, 104, 174);
+}
+
+.c8:focus {
+  background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+  background-position: left bottom;
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  text-decoration: none;
+}
+
+.c6 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c14 {
+  display: none;
+}
+
+.c7 {
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px dashed rgb(5, 104, 174);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+}
+
+.c7,
+.c7 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c7 {
+  width: 100%;
+}
+
+.c7 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c7 {
+  justify-content: flex-start;
+}
+
+.c7 svg {
+  pointer-events: none;
+}
+
+.c7:focus::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  outline: rgb(51, 51, 51) dotted 1px;
+  border-radius: inherit;
+}
+
+.c7:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c5 {
+  flex: 0 1 0%;
+}
+
+.c1 .c15 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c10 {
+  background-size: calc(100% - 1px) calc(0.08rem);
+  font-weight: 600;
+}
+
+.c10 .c11 {
+  font-size: 1rem;
+}
+
+.c4 {
+  display: flex;
+  align-items: center;
+}
+
+.c4 .c5 {
+  flex: 1 1 0%;
+}
+
+.c4 > .c15 {
+  margin: 0px;
+}
+
+@media (pointer: coarse) {
+  .c17:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15 .c17.c17:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c15 .c17.c17:active .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c15 .c17.c17:hover .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover .c9 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:active::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+<div
+  class="c0 c1 field field--tooltips field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label"
+      data-disabled="false"
+      data-role="file-upload-label"
+      id="test-id-label"
+    >
+      Test File Name
+    </label>
+  </div>
+  <div
+    class="c4"
+  >
+    <div
+      class="c5 c6 field__upload field__upload--placeholder"
+      data-role="file-upload-control"
+    >
+      <div
+        aria-describedby="test-id-label"
+        aria-disabled="false"
+        class="c7 field__upload-content"
+        data-role="file-upload-content"
+        id="test-id-content"
+        tabindex="0"
+        title="Upload file"
+      >
+        <a
+          class="c8 link c9 c10 -u-truncate"
+          data-role="link"
+          href="#"
+          tabindex="0"
+        >
+          <i
+            class="c11 c12 plasma-icon plasma-icon--custom"
+            data-role="plasma-icon"
+            title="Datatype PDF"
+          >
+            <span
+              aria-hidden="true"
+            >
+              
+            </span>
+            <span
+              class="c13 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Datatype PDF
+            </span>
+          </i>
+          <span
+            data-role="file-upload-visible-text"
+            id="test-id-content-visible-text"
+          >
+            Test File.pdf
+          </span>
+        </a>
+        <span
+          class="c13 -u-unseenButRead"
+          data-role="hidden-text"
+          id="test-id-upload-button-title"
+        >
+          Upload file
+        </span>
+        <input
+          class="c14 field__upload-input"
+          data-role="file-upload-input"
+          id="test-id"
+          tabindex="-1"
+          type="file"
+        />
+      </div>
+    </div>
+    <span
+      class="c15 c16 tooltip tooltip--hint"
+      data-role="tooltip-hint"
+      id="test-info-tooltip"
+      role="tooltip"
+      title=""
+    >
+      <button
+        class="c17 button button--icon"
+        data-role="button"
+        data-type="icon"
+        title=""
+        type="button"
+      >
+        <i
+          class="c11 c18 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            info
+          </span>
+          <span
+            class="c13 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Hint: Tooltip
+          </span>
+        </i>
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly file name 1`] = `
+.c12 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c12 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+.c16 .c10 {
+  user-select: none;
+}
+
+.c16 .c10 {
+  color: inherit;
+}
+
+.c16 .c10 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c10 {
+  display: block;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c17 .c10 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c14[data-role="checkbox-group"] .c2,
+.c14[data-role="radio-group"] .c2,
+.c14[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c7 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c7 .c10 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c7:visited {
+  color: rgb(5, 104, 174);
+}
+
+.c7:focus {
+  background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+  background-position: left bottom;
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  text-decoration: none;
+}
+
+.c5 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c13 {
+  display: none;
+}
+
+.c6 {
+  box-sizing: border-box;
+  background: rgb(241, 242, 244);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.c6,
+.c6 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c6 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c6 {
+  justify-content: flex-start;
+}
+
+.c6 svg {
+  fill: rgb(97, 111, 124);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c4 {
+  flex: 0 1 0%;
+}
+
+.c9 {
+  background-size: calc(100% - 1px) calc(0.08rem);
+  font-weight: 600;
+}
+
+.c9 .c10 {
+  font-size: 1rem;
+}
+
+.c15 .c4 {
+  flex: 1 1 0%;
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .cQeHJf:hover .c8 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .cEJYpV:hover .c8 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .jVroVV:hover .c8 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover .c8 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+<div
+  class="c0 c1 field field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label"
+      data-disabled="false"
+      data-role="file-upload-label"
+      id="test-id-label"
+    >
+      Test File Name
+    </label>
+  </div>
+  <div
+    class="c4 c5 field__upload field__upload--readonly field__upload--placeholder"
+    data-role="file-upload-control"
+  >
+    <div
+      aria-describedby="test-id-label"
+      aria-disabled="false"
+      class="c6 field__upload-content"
+      data-role="file-upload-content"
+      id="test-id-content"
+      tabindex="-1"
+    >
+      <a
+        class="c7 link c8 c9 -u-truncate"
+        data-role="link"
+        href="#"
+        tabindex="0"
+      >
+        <i
+          class="c10 c11 plasma-icon plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Datatype PDF"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c12 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Datatype PDF
+          </span>
+        </i>
+        <span
+          data-role="file-upload-visible-text"
+          id="test-id-content-visible-text"
+        >
+          Test File.pdf
+        </span>
+      </a>
+      <span
+        class="c12 -u-unseenButRead"
+        data-role="hidden-text"
+        id="test-id-upload-button-title"
+      >
+        Upload file
+      </span>
+      <input
+        class="c13 field__upload-input"
+        data-role="file-upload-input"
+        disabled=""
+        id="test-id"
+        tabindex="-1"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with error message 1`] = `
+.c9 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c9 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c8.c8 {
+  color: rgb(201, 29, 29);
+}
+
+.c20 .c6 {
+  user-select: none;
+}
+
+.c20 .c6 {
+  color: inherit;
+}
+
+.c20 .c6 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c6 {
+  display: block;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c5 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c5 .c6 {
+  font-size: 1.25rem;
+}
+
+.c10 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c18[data-role="checkbox-group"] .c2,
+.c18[data-role="radio-group"] .c2,
+.c18[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c14 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c14 .c6 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c14:visited {
+  color: rgb(5, 104, 174);
+}
+
+.c14:focus {
+  background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+  background-position: left bottom;
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  text-decoration: none;
+}
+
+.c12 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c17 {
+  display: none;
+}
+
+.c13 {
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px dashed rgb(201, 29, 29);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+}
+
+.c13,
+.c13 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c13 {
+  width: 100%;
+}
+
+.c13 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c13 {
+  justify-content: flex-start;
+}
+
+.c13 svg {
+  pointer-events: none;
+}
+
+.c13:focus::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  outline: rgb(51, 51, 51) dotted 1px;
+  border-radius: inherit;
+}
+
+.c13:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c11 {
+  flex: 0 1 0%;
+}
+
+.c16 {
+  background-size: calc(100% - 1px) calc(0.08rem);
+  font-weight: 600;
+}
+
+.c16 .c6 {
+  font-size: 1rem;
+}
+
+.c19 .c11 {
+  flex: 1 1 0%;
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .cQeHJf:hover .c15 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c15 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13:active::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+<div
+  class="c0 c1 field field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label"
+      data-disabled="false"
+      data-role="file-upload-label"
+      id="test-id-label"
+    >
+      Test File Name
+    </label>
+    <div
+      class="c4 message message--error"
+      data-role="file-upload-error-message"
+      id="test-id-error"
+    >
+      <div
+        class="c5 messageIcon"
+      >
+        <i
+          class="c6 c7 c8 plasma-icon plasma-icon--error plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Error"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c9 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Error
+          </span>
+        </i>
+      </div>
+      <div
+        class="c10 messageText"
+        data-role="error-text"
+      >
+        Test Error Message
+      </div>
+    </div>
+  </div>
+  <div
+    class="c11 c12 field__upload field__upload--error field__upload--placeholder"
+    data-role="file-upload-control"
+  >
+    <div
+      aria-describedby="test-id-label test-id-error"
+      aria-disabled="false"
+      class="c13 field__upload-content"
+      data-role="file-upload-content"
+      id="test-id-content"
+      tabindex="0"
+      title="Upload file"
+    >
+      <a
+        class="c14 link c15 c16 -u-truncate"
+        data-role="link"
+        href="#"
+        tabindex="0"
+      >
+        <i
+          class="c6 c7 plasma-icon plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Datatype PDF"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c9 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Datatype PDF
+          </span>
+        </i>
+        <span
+          data-role="file-upload-visible-text"
+          id="test-id-content-visible-text"
+        >
+          Test File.pdf
+        </span>
+      </a>
+      <span
+        class="c9 -u-unseenButRead"
+        data-role="hidden-text"
+        id="test-id-upload-button-title"
+      >
+        Upload file
+      </span>
+      <input
+        class="c17 field__upload-input"
+        data-role="file-upload-input"
+        id="test-id"
+        tabindex="-1"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info message 1`] = `
+.c12 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c12 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+.c16 .c10 {
+  user-select: none;
+}
+
+.c16 .c10 {
+  color: inherit;
+}
+
+.c16 .c10 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c10 {
+  display: block;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c17 .c10 {
+  font-size: 1.25rem;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c14[data-role="checkbox-group"] .c2,
+.c14[data-role="radio-group"] .c2,
+.c14[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c7 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c7 .c10 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c7:visited {
+  color: rgb(5, 104, 174);
+}
+
+.c7:focus {
+  background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+  background-position: left bottom;
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  text-decoration: none;
+}
+
+.c5 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c13 {
+  display: none;
+}
+
+.c6 {
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px dashed rgb(5, 104, 174);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+}
+
+.c6,
+.c6 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c6 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c6 {
+  justify-content: flex-start;
+}
+
+.c6 svg {
+  pointer-events: none;
+}
+
+.c6:focus::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  outline: rgb(51, 51, 51) dotted 1px;
+  border-radius: inherit;
+}
+
+.c6:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c4 {
+  flex: 0 1 0%;
+}
+
+.c9 {
+  background-size: calc(100% - 1px) calc(0.08rem);
+  font-weight: 600;
+}
+
+.c9 .c10 {
+  font-size: 1rem;
+}
+
+.c15 .c4 {
+  flex: 1 1 0%;
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover .c8 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .cEJYpV:hover .c8 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .jVroVV:hover .c8 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+<div
+  class="c0 c1 field field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label"
+      data-disabled="false"
+      data-role="file-upload-label"
+      id="test-id-label"
+    >
+      Test File Name
+    </label>
+  </div>
+  <div
+    class="c4 c5 field__upload field__upload--placeholder"
+    data-role="file-upload-control"
+  >
+    <div
+      aria-describedby="test-id-label"
+      aria-disabled="false"
+      class="c6 field__upload-content"
+      data-role="file-upload-content"
+      id="test-id-content"
+      tabindex="0"
+      title="Upload file"
+    >
+      <a
+        class="c7 link c8 c9 -u-truncate"
+        data-role="link"
+        href="#"
+        tabindex="0"
+      >
+        <i
+          class="c10 c11 plasma-icon plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Datatype PDF"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c12 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Datatype PDF
+          </span>
+        </i>
+        <span
+          data-role="file-upload-visible-text"
+          id="test-id-content-visible-text"
+        >
+          Test File.pdf
+        </span>
+      </a>
+      <span
+        class="c12 -u-unseenButRead"
+        data-role="hidden-text"
+        id="test-id-upload-button-title"
+      >
+        Upload file
+      </span>
+      <input
+        class="c13 field__upload-input"
+        data-role="file-upload-input"
+        id="test-id"
+        tabindex="-1"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with loading state 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: transparent;
+  box-shadow: none;
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c10[data-role="checkbox-group"] .c2,
+.c10[data-role="radio-group"] .c2,
+.c10[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c5 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c9 {
+  display: none;
+}
+
+.c6 {
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px dashed rgb(5, 104, 174);
+  border-radius: 2px;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+  cursor: default;
+}
+
+.c6,
+.c6 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c6 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c6 {
+  justify-content: flex-start;
+}
+
+.c6 svg {
+  pointer-events: none;
+}
+
+.c6:focus::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  outline: rgb(51, 51, 51) dotted 1px;
+  border-radius: inherit;
+}
+
+.c6:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c4 {
+  flex: 0 1 0%;
+}
+
+.c11 .c4 {
+  flex: 1 1 0%;
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  class="c0 c1 field field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label"
+      data-disabled="false"
+      data-role="file-upload-label"
+      id="test-id-label"
+    >
+      Test File Name
+    </label>
+  </div>
+  <div
+    class="c4 c5 field__upload field__upload--loading"
+    data-role="file-upload-control"
+  >
+    <div
+      aria-describedby="test-id-label test-id-loading"
+      aria-disabled="false"
+      class="c6 field__upload-content"
+      data-role="file-upload-content"
+      id="test-id-content"
+      style="position: relative;"
+      tabindex="0"
+      title="Upload file"
+    >
+      <span
+        class="c7 loading__outerOverlay loading__outerOverlay--transparent"
+        data-role="progress-indicator-outer-overlay"
+        role="status"
+        style="top: 0px; left: 0px;"
+      />
+      <span
+        class="c8 -u-unseenButRead"
+        data-role="hidden-text"
+        id="test-id-loading"
+      >
+        It's loading
+      </span>
+      <input
+        class="c9 field__upload-input"
+        data-role="file-upload-input"
+        id="test-id"
+        tabindex="-1"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warning message 1`] = `
+.c9 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c9 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c17 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c17 > span {
+  display: inline-block;
+}
+
+.c17.c17 {
+  max-width: unset;
+}
+
+.c8.c8 {
+  color: rgb(175, 121, 2);
+}
+
+.c21 .c6 {
+  user-select: none;
+}
+
+.c21 .c6 {
+  color: inherit;
+}
+
+.c21 .c6 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c6 {
+  display: block;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c3:empty {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c5 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c5 .c6 {
+  font-size: 1.25rem;
+}
+
+.c10 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c2 {
+  display: block;
+  width: fit-content;
+}
+
+.c19[data-role="checkbox-group"] .c2,
+.c19[data-role="radio-group"] .c2,
+.c19[data-role="file-upload"] .c2 {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.c14 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c14 .c6 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c14:visited {
+  color: rgb(5, 104, 174);
+}
+
+.c14:focus {
+  background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+  background-position: left bottom;
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  text-decoration: none;
+}
+
+.c12 {
+  display: flex;
+  min-width: 48px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex: 1 1 0%;
+  min-height: 32px;
+  height: 32px;
+}
+
+.c18 {
+  display: none;
+}
+
+.c13 {
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px dashed rgb(175, 121, 2);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  min-height: 32px;
+  padding: 4px 12px;
+}
+
+.c13,
+.c13 [data-role="file-upload-content-inner"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: inherit;
+  width: 100%;
+}
+
+.c13 {
+  width: 100%;
+}
+
+.c13 [data-role="file-upload-content-inner"] {
+  pointer-events: none;
+}
+
+.c13 {
+  justify-content: flex-start;
+}
+
+.c13 svg {
+  pointer-events: none;
+}
+
+.c13:focus::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  outline: rgb(51, 51, 51) dotted 1px;
+  border-radius: inherit;
+}
+
+.c13:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.c1 > .c11 {
+  flex: 0 1 0%;
+}
+
+.c16 {
+  background-size: calc(100% - 1px) calc(0.08rem);
+  font-weight: 600;
+}
+
+.c16 .c6 {
+  font-size: 1rem;
+}
+
+.c20 .c11 {
+  flex: 1 1 0%;
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .cQeHJf:hover .c15 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .cEJYpV:hover .c15 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c15 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13:active::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover::before {
+    content: "";
+    inset: 0px;
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
+    color: rgb(5, 104, 174);
+  }
+}
+
+<div
+  class="c0 c1 field field__upload--fit"
+  data-role="file-upload"
+>
+  <div>
+    <label
+      class="c2 c3 label field__label"
+      data-disabled="false"
+      data-role="file-upload-label"
+      id="test-id-label"
+    >
+      Test File Name
+    </label>
+    <div
+      class="c4 message message--warning"
+      data-role="file-upload-warning-message"
+      id="test-id-warning"
+    >
+      <div
+        class="c5 messageIcon"
+      >
+        <i
+          class="c6 c7 c8 plasma-icon plasma-icon--warning"
+          data-role="plasma-icon"
+          title="Warning"
+        >
+          <span
+            aria-hidden="true"
+          >
+            warning
+          </span>
+          <span
+            class="c9 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Warning
+          </span>
+        </i>
+      </div>
+      <div
+        class="c10 messageText"
+        data-role="warning-text"
+      >
+        Test Warning Message
+      </div>
+    </div>
+  </div>
+  <div
+    class="c11 c12 field__upload field__upload--warning field__upload--placeholder"
+    data-role="file-upload-control"
+  >
+    <div
+      aria-describedby="test-id-label test-id-warning"
+      aria-disabled="false"
+      class="c13 field__upload-content"
+      data-role="file-upload-content"
+      id="test-id-content"
+      tabindex="0"
+      title="Upload file"
+    >
+      <a
+        class="c14 link c15 c16 -u-truncate"
+        data-role="link"
+        href="#"
+        tabindex="0"
+      >
+        <i
+          class="c6 c17 plasma-icon plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Datatype PDF"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c9 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Datatype PDF
+          </span>
+        </i>
+        <span
+          data-role="file-upload-visible-text"
+          id="test-id-content-visible-text"
+        >
+          Test File.pdf
+        </span>
+      </a>
+      <span
+        class="c9 -u-unseenButRead"
+        data-role="hidden-text"
+        id="test-id-upload-button-title"
+      >
+        Upload file
+      </span>
+      <input
+        class="c18 field__upload-input"
+        data-role="file-upload-input"
+        id="test-id"
+        tabindex="-1"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;

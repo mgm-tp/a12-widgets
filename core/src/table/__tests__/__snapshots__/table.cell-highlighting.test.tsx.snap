@@ -1,0 +1,1663 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting 1`] = `
+.c3 {
+  display: flex;
+  position: relative;
+}
+
+.c9 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c9 p:first-child {
+  margin-top: 0px;
+}
+
+.c9 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c5:first-child .c9.c9:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c5:first-child .c9.c9:first-child.c5:first-child .c9.c9:first-child {
+  padding-left: calc(24px);
+}
+
+.c7 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  overflow: hidden;
+}
+
+.c17 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c17::before,
+.c17::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c17::before {
+  right: 0px;
+}
+
+.c17::after {
+  display: block;
+}
+
+.c16:focus .c18:last-child > :last-child {
+  background-clip: unset;
+}
+
+.c16:focus .c18:last-child > :last-child::before {
+  border-right: 2px solid rgb(213, 0, 117);
+  margin-right: 1px;
+}
+
+.c19 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+.c16:last-child .c19.c19 {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+[data-role="tree"] .c19.c19 {
+  padding: 8px;
+}
+
+.c19.c19 > * {
+  align-self: flex-start;
+}
+
+.c19 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c20 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+.c16:last-child .c20.c20 {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+[data-role="tree"] .c20.c20 {
+  padding: 8px;
+}
+
+.c20.c20 > * {
+  align-self: flex-start;
+}
+
+.c20 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c15 {
+  border-width: 1px 1px medium;
+  border-style: solid solid none;
+  border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
+  border-image: initial;
+  outline: none;
+}
+
+.c15:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c15:not(:empty) {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+}
+
+.c24 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.c24:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.c22 {
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.c22 > * {
+  position: relative;
+}
+
+.c22 > ::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c22 > :first-child {
+  box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
+}
+
+.c22 > :first-child::before {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+.c12 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c10 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c11 .c10.c10 {
+  overflow: hidden;
+}
+
+.c6:first-child .c10.c10.c10:first-child[data-role*="group-parent"] {
+  min-width: 100%;
+}
+
+.c13 {
+  background-color: rgb(227, 229, 233);
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c13:focus {
+  outline: none;
+}
+
+.c11 .c13.c13 {
+  overflow: hidden;
+}
+
+.c6:first-child .c13.c13.c13:first-child[data-role*="group-parent"] {
+  min-width: 100%;
+}
+
+.c4 {
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: hidden;
+  background-color: rgb(241, 242, 244);
+}
+
+.c2 {
+  background-color: rgb(241, 242, 244);
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+}
+
+.c0 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  height: 100%;
+  outline: none;
+  position: relative;
+}
+
+.c0 .c14:not(:empty) {
+  flex-grow: 0;
+}
+
+.c0 .c21 {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.c0 .c23:last-child {
+  flex-grow: 1;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+.c1[data-table-container-resizing="true"] .c8 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.c25 {
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  margin-top: -1px;
+}
+
+.c26 {
+  overflow-x: auto;
+}
+
+@media (pointer: coarse) {
+  .c17:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c17:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:not(:focus):hover .c18:last-child > :last-child::before {
+    border-right: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c19:active,
+  .c19:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c20:active,
+  .c20:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+<div
+  aria-label="Table"
+  class="c0 table"
+  data-role="table"
+  role="table"
+  tabindex="-1"
+>
+  <div
+    class="c1 table__containerWrapper"
+  >
+    <div
+      class="c2 table__header"
+      data-role="table-header"
+      role="rowgroup"
+    >
+      <div
+        class="c3 c4 table__headerRow"
+        data-role="table-header-row"
+        role="row"
+      >
+        <div
+          class="c5 c6 c7 table__headerRow--scroll"
+          data-role="table-header-row--scroll"
+        >
+          <div
+            aria-colindex="1"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 1
+            </div>
+          </div>
+          <div
+            aria-colindex="2"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 2
+            </div>
+          </div>
+          <div
+            aria-colindex="3"
+            class="c8 c9 c13 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 3
+            </div>
+          </div>
+          <div
+            aria-colindex="4"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 4
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c14 c15 table__content"
+      data-role="table-body"
+      role="rowgroup"
+      tabindex="0"
+    >
+      <div
+        aria-selected="false"
+        class="c16 c3 c17 table__contentRow"
+        data-role="table-body-row"
+        role="row"
+        tabindex="-1"
+      >
+        <div
+          class="c5 c7 c18 table__contentRow--scroll"
+          data-role="table-body-row--scroll"
+        >
+          <div
+            aria-colindex="1"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            data-role="table-body-cell"
+            role="cell"
+            tabindex="-1"
+          >
+            11
+          </div>
+          <div
+            aria-colindex="2"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            data-role="table-body-cell"
+            role="cell"
+            tabindex="-1"
+          >
+            12
+          </div>
+          <div
+            aria-colindex="3"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            data-role="table-body-cell"
+            role="cell"
+            tabindex="-1"
+          >
+            13
+          </div>
+          <div
+            aria-colindex="4"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            data-role="table-body-cell"
+            role="cell"
+            tabindex="-1"
+          >
+            14
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c21 c22 table__footer"
+      data-role="table-footer"
+    >
+      <div
+        class="c23 c3 table__footerRow"
+        data-role="table-footer-row"
+      >
+        <div
+          class="c5 c7 table__footerRow--scroll"
+          data-role="table-footer-row--scroll"
+        >
+          <div
+            class="c8 c9 c24 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c24 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c24 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c24 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      class="c3 c25"
+      data-role="table-row-scroller"
+    >
+      <div
+        class="c5 c7 c26"
+        data-role="table-row-scroller--scroll"
+        tabindex="-1"
+      >
+        <div
+          class="c8 c9 c24"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c24"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c24"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c24"
+          data-role="table-row-scroller-cell"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting 2`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c3 .c6.c6 {
+  overflow: hidden;
+}
+
+.c2 {
+  background-color: rgb(227, 229, 233);
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c3 .c2.c2 {
+  overflow: hidden;
+}
+
+.c5[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+<div
+  aria-colindex="3"
+  class="c0 c1 c2 table__headerCell table__headerCell--10"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c3 c4 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    Column 3
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting 3`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c2 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c2.c2 {
+  padding: 8px;
+}
+
+.c2.c2 > * {
+  align-self: flex-start;
+}
+
+.c2 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c3[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c2:active,
+  .c2:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+<div
+  aria-colindex="3"
+  class="c0 c1 c2 table__contentCell table__contentCell--10"
+  data-role="table-body-cell"
+  role="cell"
+  tabindex="-1"
+>
+  13
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-column-group-cross-tabulation 1`] = `
+[
+  .c0:first-child .c8.c8:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c0:first-child .c8.c8:first-child.c0:first-child .c8.c8:first-child {
+  padding-left: calc(24px);
+}
+
+.c4 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.c4 p:first-child {
+  margin-top: 0px;
+}
+
+.c4 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c4:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c4:first-child.c4:first-child {
+  padding-left: calc(24px);
+}
+
+.c2 {
+  display: flex;
+  position: relative;
+  background: rgb(241, 242, 244);
+}
+
+.c2::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  left: unset;
+  border-right: 1px solid rgb(211, 214, 220);
+}
+
+.c5 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c5.c5 {
+  padding: 8px;
+}
+
+.c5.c5 > * {
+  align-self: flex-start;
+}
+
+.c5 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c6 {
+  position: relative;
+}
+
+.c1 > .c6.c6::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  display: block;
+  left: unset;
+  border-right: 2px solid rgb(241, 242, 244);
+}
+
+.c1 > .c6.c6:last-child::after {
+  border-right-color: transparent;
+}
+
+.c1 > .c9.c9::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  display: block;
+  left: unset;
+  border-right: 2px solid rgb(241, 242, 244);
+}
+
+.c7[data-table-container-resizing="true"] .c3 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c5:active,
+  .c5:focus {
+    outline: none;
+  }
+}
+
+<div
+    class="c0 c1 c2 table__contentRow--left"
+    data-role="table-body-row--left"
+  >
+    <div
+      aria-colindex="1"
+      class="c3 c4 c5 c6 table__contentCell table__contentCell--10 table__contentCell--fixedWidth"
+      data-role="table-body-cell"
+      role="cell"
+      tabindex="-1"
+    >
+      11
+    </div>
+  </div>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-tabulation 1`] = `
+[
+  .c0:first-child .c6.c6:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c0:first-child .c6.c6:first-child.c0:first-child .c6.c6:first-child {
+  padding-left: calc(24px);
+}
+
+.c3 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.c3 p:first-child {
+  margin-top: 0px;
+}
+
+.c3 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c3:first-child.c3:first-child {
+  padding-left: calc(24px);
+}
+
+.c1 {
+  display: flex;
+  position: relative;
+  background: rgb(241, 242, 244);
+}
+
+.c1::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  left: unset;
+  border-right: 1px solid rgb(211, 214, 220);
+}
+
+.c4 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c4.c4 {
+  padding: 8px;
+}
+
+.c4.c4 > * {
+  align-self: flex-start;
+}
+
+.c4 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c5[data-table-container-resizing="true"] .c2 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c4:active,
+  .c4:focus {
+    outline: none;
+  }
+}
+
+<div
+    class="c0 c1 table__contentRow--left"
+    data-role="table-body-row--left"
+  >
+    <div
+      aria-colindex="1"
+      class="c2 c3 c4 table__contentCell table__contentCell--10 table__contentCell--fixedWidth"
+      data-role="table-body-cell"
+      role="cell"
+      tabindex="-1"
+    >
+      11
+    </div>
+  </div>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-tabulation 2`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c2 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c3 .c2.c2 {
+  overflow: hidden;
+}
+
+.c3 .c6.c6 {
+  overflow: hidden;
+}
+
+.c5[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+<div
+  aria-colindex="3"
+  class="c0 c1 c2 table__headerCell table__headerCell--10"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c3 c4 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    Column 3
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-tabulation 3`] = `
+[
+  .c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c2 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c2.c2 {
+  padding: 8px;
+}
+
+.c2.c2 > * {
+  align-self: flex-start;
+}
+
+.c2 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c3[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c2:active,
+  .c2:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+<div
+    aria-colindex="2"
+    class="c0 c1 c2 table__contentCell table__contentCell--10"
+    data-role="table-body-cell"
+    role="cell"
+    tabindex="-1"
+  >
+    12
+  </div>,
+  .c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c2 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c2.c2 {
+  padding: 8px;
+}
+
+.c2.c2 > * {
+  align-self: flex-start;
+}
+
+.c2 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c3[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c2:active,
+  .c2:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+<div
+    aria-colindex="3"
+    class="c0 c1 c2 table__contentCell table__contentCell--10"
+    data-role="table-body-cell"
+    role="cell"
+    tabindex="-1"
+  >
+    13
+  </div>,
+  .c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c2 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c2.c2 {
+  padding: 8px;
+}
+
+.c2.c2 > * {
+  align-self: flex-start;
+}
+
+.c2 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c3[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c2:active,
+  .c2:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+<div
+    aria-colindex="4"
+    class="c0 c1 c2 table__contentCell table__contentCell--10"
+    data-role="table-body-cell"
+    role="cell"
+    tabindex="-1"
+  >
+    14
+  </div>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-tabulation 4`] = `
+[
+  .c0:first-child .c6.c6:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c0:first-child .c6.c6:first-child.c0:first-child .c6.c6:first-child {
+  padding-left: calc(24px);
+}
+
+.c3 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.c3 p:first-child {
+  margin-top: 0px;
+}
+
+.c3 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c3:first-child.c3:first-child {
+  padding-left: calc(24px);
+}
+
+.c1 {
+  display: flex;
+  position: relative;
+  background: rgb(241, 242, 244);
+}
+
+.c1::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  left: unset;
+  border-right: 1px solid rgb(211, 214, 220);
+}
+
+.c4 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c4.c4 {
+  padding: 8px;
+}
+
+.c4.c4 > * {
+  align-self: flex-start;
+}
+
+.c4 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c5[data-table-container-resizing="true"] .c2 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c4:active,
+  .c4:focus {
+    outline: none;
+  }
+}
+
+<div
+    class="c0 c1 table__contentRow--left"
+    data-role="table-body-row--left"
+  >
+    <div
+      aria-colindex="1"
+      class="c2 c3 c4 table__contentCell table__contentCell--10 table__contentCell--fixedWidth"
+      data-role="table-body-cell"
+      role="cell"
+      tabindex="-1"
+    >
+      11
+    </div>
+  </div>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-tabulation 5`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c3 .c6.c6 {
+  overflow: hidden;
+}
+
+.c2 {
+  background-color: rgb(227, 229, 233);
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c3 .c2.c2 {
+  overflow: hidden;
+}
+
+.c5[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+<div
+  aria-colindex="3"
+  class="c0 c1 c2 table__headerCell table__headerCell--10"
+  data-role="table-header-cell"
+  role="columnheader"
+>
+  <div
+    class="c3 c4 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  >
+    Column 3
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-tabulation 6`] = `
+[
+  .c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c2 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c2.c2 {
+  padding: 8px;
+}
+
+.c2.c2 > * {
+  align-self: flex-start;
+}
+
+.c2 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c3[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c2:active,
+  .c2:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+<div
+    aria-colindex="2"
+    class="c0 c1 c2 table__contentCell table__contentCell--10"
+    data-role="table-body-cell"
+    role="cell"
+    tabindex="-1"
+  >
+    12
+  </div>,
+  .c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c2 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c2.c2 {
+  padding: 8px;
+}
+
+.c2.c2 > * {
+  align-self: flex-start;
+}
+
+.c2 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c3[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c2:active,
+  .c2:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+<div
+    aria-colindex="3"
+    class="c0 c1 c2 table__contentCell table__contentCell--10"
+    data-role="table-body-cell"
+    role="cell"
+    tabindex="-1"
+  >
+    13
+  </div>,
+  .c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 p:first-child {
+  margin-top: 0px;
+}
+
+.c1 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c2 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 214, 220);
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c2.c2 {
+  padding: 8px;
+}
+
+.c2.c2 > * {
+  align-self: flex-start;
+}
+
+.c2 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c3[data-table-container-resizing="true"] .c0 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background-color: rgb(242, 242, 242);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c2:active,
+  .c2:focus {
+    outline: none;
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+<div
+    aria-colindex="4"
+    class="c0 c1 c2 table__contentCell table__contentCell--10"
+    data-role="table-body-cell"
+    role="cell"
+    tabindex="-1"
+  >
+    14
+  </div>,
+]
+`;

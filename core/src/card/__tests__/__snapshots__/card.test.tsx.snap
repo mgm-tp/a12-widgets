@@ -1,0 +1,187 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.card > rendering-card 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 1px;
+}
+
+.c0 > :not(:only-child):not(:nth-of-type(1)) {
+  margin: 4px 4px 0px;
+}
+
+.c0 > :not(:only-child):nth-of-type(1) {
+  margin: 0px 0px 4px;
+}
+
+<div
+  class="c0 card test-class"
+  data-role="card"
+  id="test-id"
+  style="background-color: red;"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.card > rendering-card-action-area 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.c0 > :not(:only-child):not(:nth-of-type(1)) {
+  margin: 4px 4px 0px;
+}
+
+.c0 > :not(:only-child):nth-of-type(1) {
+  margin: 0px 0px 4px;
+}
+
+.c0::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+}
+
+.c0:focus {
+  box-shadow: none;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c0:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 card__action-area test-class"
+  data-role="card-action-area"
+  id="test-id"
+  role="link"
+  style="background-color: red;"
+  tabindex="0"
+>
+  <div
+    id="test"
+  >
+    Test Text
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.card > rendering-card-content 1`] = `
+.c1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  position: relative;
+}
+
+.c2 .c0:last-child {
+  padding-bottom: 4px;
+}
+
+<div
+  class="c0 c1 card__content test-class"
+  data-role="card-content"
+  id="test-id"
+  style="background-color: red;"
+>
+  <div
+    id="test"
+  >
+    Test Text
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.card > rendering-card-media 1`] = `
+.c0 {
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  max-height: 300px;
+  min-height: 52px;
+  overflow: hidden;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+<div
+  class="c0 card__media test-class"
+  data-role="card-media"
+  id="test-id"
+  style="background-color: red;"
+>
+  <div
+    id="test"
+  >
+    Test Text
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.card > rendering-card-with-card-contain 1`] = `
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  position: relative;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 1px;
+}
+
+.c0 .c1:last-child {
+  padding-bottom: 4px;
+}
+
+.c0 > :not(:only-child):not(:nth-of-type(1)) {
+  margin: 4px 4px 0px;
+}
+
+.c0 > :not(:only-child):nth-of-type(1) {
+  margin: 0px 0px 4px;
+}
+
+<div
+  class="c0 card"
+  data-role="card"
+>
+  <div
+    class="c1 c2 card__content"
+    data-role="card-content"
+  >
+    Test Text
+  </div>
+</div>
+`;

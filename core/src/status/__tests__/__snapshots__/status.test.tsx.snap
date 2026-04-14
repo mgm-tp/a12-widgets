@@ -1,0 +1,344 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.status > render status with icon and text 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c2 {
+  box-sizing: border-box;
+  border-radius: 3px;
+  height: 24px;
+}
+
+.c2:not(:only-child) {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c2 .c3 {
+  line-height: 18px;
+}
+
+.c6 {
+  border-radius: 3px;
+}
+
+.c6:not(:only-child) {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.c0 {
+  display: inline-flex;
+  gap: 0px 2px;
+  transform: skew(-12deg);
+}
+
+.c0 .c1,
+.c0 .c5 {
+  background-color: rgb(5, 104, 174);
+  padding: 3px 8px;
+}
+
+.c0 .c1 > *,
+.c0 .c5 > * {
+  transform: skew(12deg);
+}
+
+.c0 .c3,
+.c0 .c5 {
+  color: rgb(255, 255, 255);
+  cursor: default;
+}
+
+<div
+  class="c0"
+  data-role="status"
+>
+  <div
+    class="c1 c2"
+    data-role="status-icon"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c5 c6"
+    data-role="status-label-wrapper"
+  >
+    <div
+      class="c7"
+      data-role="status-label"
+    >
+      Info
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.status > render status with icon only 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c1 {
+  box-sizing: border-box;
+  border-radius: 3px;
+  height: 24px;
+}
+
+.c1:not(:only-child) {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c1 .c2 {
+  line-height: 18px;
+}
+
+.c0 {
+  display: inline-flex;
+  gap: 0px 2px;
+  transform: skew(-12deg);
+}
+
+<div
+  class="c0"
+  data-role="status"
+>
+  <div
+    class="c1"
+    data-role="status-icon"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.status > render status with long text in narrow container 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c2 {
+  box-sizing: border-box;
+  border-radius: 3px;
+  height: 24px;
+}
+
+.c2:not(:only-child) {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c2 .c3 {
+  line-height: 18px;
+}
+
+.c6 {
+  border-radius: 3px;
+}
+
+.c6:not(:only-child) {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.c0 {
+  display: inline-flex;
+  gap: 0px 2px;
+  transform: skew(-12deg);
+}
+
+.c0 .c1,
+.c0 .c5 {
+  background-color: rgb(5, 104, 174);
+  padding: 3px 8px;
+}
+
+.c0 .c1 > *,
+.c0 .c5 > * {
+  transform: skew(12deg);
+}
+
+.c0 .c3,
+.c0 .c5 {
+  color: rgb(255, 255, 255);
+  cursor: default;
+}
+
+<div
+  style="width: 90px;"
+>
+  <div
+    class="c0"
+    data-role="status"
+  >
+    <div
+      class="c1 c2"
+      data-role="status-icon"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </div>
+    <div
+      class="c5 c6"
+      data-role="status-label-wrapper"
+    >
+      <div
+        class="c7"
+        data-role="status-label"
+      >
+        Status with long text
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.status > render status with text only 1`] = `
+.c1 {
+  border-radius: 3px;
+}
+
+.c1:not(:only-child) {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.c0 {
+  display: inline-flex;
+  gap: 0px 2px;
+  transform: skew(-12deg);
+}
+
+<div
+  class="c0"
+  data-role="status"
+>
+  <div
+    class="c1"
+    data-role="status-label-wrapper"
+  >
+    <div
+      class="c2"
+      data-role="status-label"
+    >
+      Info
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,307 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.comment.comment-container > rendering-comment-container 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c1 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c1 > * {
+  max-height: inherit;
+}
+
+.c5 {
+  background-color: rgb(255, 225, 128);
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: 0px 16px 16px;
+}
+
+.c6 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: 48px;
+}
+
+.c7 {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.c7 > :first-child {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  margin: 0px;
+}
+
+.c4 {
+  background-color: rgb(255, 225, 128);
+  outline: transparent solid 1px;
+  position: absolute;
+  pointer-events: none;
+  height: 10px;
+  width: 10px;
+  left: 10px;
+  transform: translate(0px, -50%) rotate(45deg);
+  top: 0px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  padding: 16px;
+  position: relative;
+}
+
+.c8:not(:empty) {
+  min-height: 72px;
+}
+
+.c8:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3 {
+  display: flex;
+  flex-direction: column;
+  min-width: 0px;
+  outline: transparent solid 1px;
+  position: relative;
+  width: 490px;
+  margin-top: 15px;
+}
+
+.c2 {
+  position: fixed;
+}
+
+<div
+  class="c0"
+  data-role="portal-placeholder"
+>
+  <div
+    class="portal base"
+    data-role="portal"
+  >
+    <div>
+      <div
+        class="c1 attached-portal h_bottomStart c2"
+        data-role="attached-portal"
+        style="top: 21px; left: 0px; visibility: visible; opacity: 1; max-height: 689px; max-width: 1280px;"
+        tabindex="-1"
+      >
+        <div
+          class="c3 callout callout--hasPointer "
+          data-role="callout"
+        >
+          <div
+            class="c4 callout__pointer"
+            data-role="callout-pointer"
+          />
+          <div
+            class="c5 callout__inner"
+            data-role="callout-inner"
+          >
+            <div
+              class="c6 callout__header"
+              data-role="callout-header"
+            >
+              <div
+                class="c7 callout__header-title"
+                data-role="callout-header-title"
+              >
+                <p>
+                  header
+                </p>
+              </div>
+            </div>
+            <div
+              class="c8 callout__body"
+              data-role="callout-body"
+              style="padding: 0px;"
+            >
+              body
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-sandbox-supporter"
+        data-role="tab-sandbox-supporter"
+        tabindex="0"
+      />
+      <div
+        class="c0"
+        data-role="portal-placeholder"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment-container > rendering-comment-container 2`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c4 {
+  background-color: rgb(255, 225, 128);
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: 0px 16px 16px;
+}
+
+.c5 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: 48px;
+}
+
+.c6 {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.c6 > :first-child {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  margin: 0px;
+}
+
+.c3 {
+  background-color: rgb(255, 225, 128);
+  outline: transparent solid 1px;
+  position: absolute;
+  pointer-events: none;
+  height: 10px;
+  width: 10px;
+  left: 10px;
+  transform: translate(0px, -50%) rotate(45deg);
+  top: 0px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  padding: 16px;
+  position: relative;
+}
+
+.c7:not(:empty) {
+  min-height: 72px;
+}
+
+.c7:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+  min-width: 0px;
+  outline: transparent solid 1px;
+  position: relative;
+  width: 490px;
+  margin-top: 15px;
+}
+
+.c1 {
+  position: fixed;
+}
+
+<div
+  class="c0 attached-portal h_bottomStart c1"
+  data-role="attached-portal"
+  style="top: 21px; left: 0px; visibility: visible; opacity: 1; max-height: 689px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    class="c2 callout callout--hasPointer "
+    data-role="callout"
+  >
+    <div
+      class="c3 callout__pointer"
+      data-role="callout-pointer"
+    />
+    <div
+      class="c4 callout__inner"
+      data-role="callout-inner"
+    >
+      <div
+        class="c5 callout__header"
+        data-role="callout-header"
+      >
+        <div
+          class="c6 callout__header-title"
+          data-role="callout-header-title"
+        >
+          <p>
+            header
+          </p>
+        </div>
+      </div>
+      <div
+        class="c7 callout__body"
+        data-role="callout-body"
+        style="padding: 0px;"
+      >
+        body
+      </div>
+    </div>
+  </div>
+</div>
+`;

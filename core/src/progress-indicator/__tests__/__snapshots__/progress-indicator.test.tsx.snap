@@ -1,0 +1,603 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render basic progress indicator 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render bright outer & inner overlay progress indicator 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(241, 242, 244, 0.9);
+  box-shadow: none;
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay loading__outerOverlay--bright"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render custom color progress indicator 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render fast appear progress indicator 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay loading__outerOverlay--no-animation"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render horizontal progress indicator with label 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render medium progress indicator 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render progress indicator with hidden loading circle 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render progress indicator with label 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render progress indicator with loading dots 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render single overlay progress indicator 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.8);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay loading__outerOverlay--singleOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render small progress indicator 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(22, 25, 29, 0.4);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-indicator > render transparent outer & inner overlay progress indicator 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: transparent;
+  box-shadow: none;
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div
+  style="position: relative;"
+>
+  <span
+    class="c0 loading__outerOverlay loading__outerOverlay--transparent"
+    data-role="progress-indicator-outer-overlay"
+    id="id-test"
+    role="status"
+    style="top: 0px; left: 0px;"
+    tabindex="-1"
+  />
+  <div
+    class="c1"
+    data-role="portal-placeholder"
+  />
+</div>
+`;

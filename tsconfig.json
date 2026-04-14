@@ -1,0 +1,8 @@
+{
+	"extends": "@com.mgmtp.a12.devtools/tsconfig",
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"incremental": true
+	},
+	"exclude": ["./node_modules"]
+}

@@ -1,0 +1,1162 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.calendar-week-view > render basic widgets.calendar-week-view 1`] = `
+.c4 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(241, 242, 244);
+}
+
+.c4:focus-visible {
+  outline: none;
+}
+
+.c4::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c4:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c8 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(229, 244, 255);
+}
+
+.c8:focus-visible {
+  outline: none;
+}
+
+.c8::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c8:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c8::before {
+  border: 1px solid rgb(5, 104, 174);
+}
+
+.c9 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(254, 242, 218);
+}
+
+.c9:focus-visible {
+  outline: none;
+}
+
+.c9::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c9:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c10 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(226, 230, 233);
+}
+
+.c10:focus-visible {
+  outline: none;
+}
+
+.c10::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c10:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c11 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(162, 166, 169);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.3;
+}
+
+.c11:focus-visible {
+  outline: none;
+}
+
+.c11::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c11:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c6 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+}
+
+.c7 {
+  border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 8px;
+  background: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c7:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c7::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c7:focus-visible {
+  outline: none;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.c1 {
+  display: flex;
+  gap: 4px;
+  background: rgb(239, 240, 242);
+  padding-inline: 4px;
+}
+
+.c3 {
+  flex: 1 1 0%;
+  display: flex;
+  gap: 4px;
+  background: rgb(211, 214, 220);
+  padding: 4px;
+  overflow: hidden;
+}
+
+.c2 {
+  color: rgb(22, 25, 29);
+  font-weight: 700;
+  padding: 12px;
+  flex: 1 1 0%;
+  font-size: 0.875rem;
+  text-align: center;
+  background: rgb(239, 240, 242);
+  overflow: hidden;
+}
+
+.c5 {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 8px;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c11:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0"
+  data-role="calendar-week-view-wrapper"
+>
+  <div
+    class="c1"
+    data-role="calendar-week-view-day-header"
+  >
+    <div
+      class="c2"
+      data-role="calendar-week-view-day-header-item"
+    >
+      Monday, 26.05
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-week-view-day-header-item"
+    >
+      Tuesday, 27.05
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-week-view-day-header-item"
+    >
+      Wednesday, 28.05
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-week-view-day-header-item"
+    >
+      Thursday, 29.05
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-week-view-day-header-item"
+    >
+      Friday, 30.05
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-week-view-day-header-item"
+    >
+      Saturday, 31.05
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-week-view-day-header-item"
+    >
+      Sunday, 01.06
+    </div>
+  </div>
+  <div
+    class="c3"
+    data-role="calendar-week-view-content"
+  >
+    <div
+      class="c4"
+      data-day="2025-05-26"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c5"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c6"
+          data-role="calendar-week-view-day-content"
+        >
+          <div
+            class="c7"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          />
+          <div
+            class="c7"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-day="2025-05-27"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c5"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c6"
+          data-role="calendar-week-view-day-content"
+        />
+      </div>
+    </div>
+    <div
+      class="c8"
+      data-day="2025-05-28"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c5"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c6"
+          data-role="calendar-week-view-day-content"
+        >
+          <div
+            class="c7"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c9"
+      data-day="2025-05-29"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c5"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c6"
+          data-role="calendar-week-view-day-content"
+        />
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-day="2025-05-30"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c5"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c6"
+          data-role="calendar-week-view-day-content"
+        >
+          <div
+            class="c7"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c10"
+      data-day="2025-05-31"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c5"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c6"
+          data-role="calendar-week-view-day-content"
+        >
+          <div
+            class="c7"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c11"
+      data-day="2025-06-01"
+      data-outside="true"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="-1"
+    >
+      <div
+        class="c5"
+        data-role="calendar-week-view-day-content-wrapper"
+        tabindex="-1"
+      >
+        <div
+          class="c6"
+          data-role="calendar-week-view-day-content"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.calendar-week-view > render widgets.calendar-week-view with custom renderers 1`] = `
+.c3 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(241, 242, 244);
+}
+
+.c3:focus-visible {
+  outline: none;
+}
+
+.c3::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c7 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(229, 244, 255);
+}
+
+.c7:focus-visible {
+  outline: none;
+}
+
+.c7::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c7:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c7::before {
+  border: 1px solid rgb(5, 104, 174);
+}
+
+.c8 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(254, 242, 218);
+}
+
+.c8:focus-visible {
+  outline: none;
+}
+
+.c8::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c8:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c9 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(226, 230, 233);
+}
+
+.c9:focus-visible {
+  outline: none;
+}
+
+.c9::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c9:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c10 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(162, 166, 169);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.3;
+}
+
+.c10:focus-visible {
+  outline: none;
+}
+
+.c10::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c10:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c5 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+}
+
+.c6 {
+  border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 8px;
+  background: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c6:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c6::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c6:focus-visible {
+  outline: none;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.c1 {
+  display: flex;
+  gap: 4px;
+  background: rgb(239, 240, 242);
+  padding-inline: 4px;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  display: flex;
+  gap: 4px;
+  background: rgb(211, 214, 220);
+  padding: 4px;
+  overflow: hidden;
+}
+
+.c4 {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 8px;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0"
+  data-role="calendar-week-view-wrapper"
+>
+  <div
+    class="c1"
+    data-role="calendar-week-view-day-header"
+  >
+    <div>
+      Header for 
+      5/26/2025
+    </div>
+    <div>
+      Header for 
+      5/27/2025
+    </div>
+    <div>
+      Header for 
+      5/28/2025
+    </div>
+    <div>
+      Header for 
+      5/29/2025
+    </div>
+    <div>
+      Header for 
+      5/30/2025
+    </div>
+    <div>
+      Header for 
+      5/31/2025
+    </div>
+    <div>
+      Header for 
+      6/1/2025
+    </div>
+  </div>
+  <div
+    class="c2"
+    data-role="calendar-week-view-content"
+  >
+    <div
+      class="c3"
+      data-day="2025-05-26"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c4"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c5"
+          data-role="calendar-week-view-day-content"
+        >
+          <div
+            class="c6"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          >
+            <div>
+              Marketing Meeting
+            </div>
+          </div>
+          <div
+            class="c6"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          >
+            <div>
+              Product Brainstorming
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        Footer for 
+        5/26/2025
+      </div>
+    </div>
+    <div
+      class="c3"
+      data-day="2025-05-27"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c4"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c5"
+          data-role="calendar-week-view-day-content"
+        />
+      </div>
+      <div>
+        Footer for 
+        5/27/2025
+      </div>
+    </div>
+    <div
+      class="c7"
+      data-day="2025-05-28"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c4"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c5"
+          data-role="calendar-week-view-day-content"
+        >
+          <div
+            class="c6"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          >
+            <div>
+              Checkpoint Calendar Widget (Another checkpoint for the basic calendar widget)
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        Footer for 
+        5/28/2025
+      </div>
+    </div>
+    <div
+      class="c8"
+      data-day="2025-05-29"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c4"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c5"
+          data-role="calendar-week-view-day-content"
+        />
+      </div>
+      <div>
+        Footer for 
+        5/29/2025
+      </div>
+    </div>
+    <div
+      class="c3"
+      data-day="2025-05-30"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c4"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c5"
+          data-role="calendar-week-view-day-content"
+        >
+          <div
+            class="c6"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          >
+            <div>
+              Code Review
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        Footer for 
+        5/30/2025
+      </div>
+    </div>
+    <div
+      class="c9"
+      data-day="2025-05-31"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="0"
+    >
+      <div
+        class="c4"
+        data-role="calendar-week-view-day-content-wrapper"
+      >
+        <div
+          class="c5"
+          data-role="calendar-week-view-day-content"
+        >
+          <div
+            class="c6"
+            data-role="calendar-week-view-day-content-item"
+            tabindex="0"
+          >
+            <div>
+              Project Deadline
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        Footer for 
+        5/31/2025
+      </div>
+    </div>
+    <div
+      class="c10"
+      data-day="2025-06-01"
+      data-outside="true"
+      data-role="calendar-week-view-day-wrapper"
+      tabindex="-1"
+    >
+      <div
+        class="c4"
+        data-role="calendar-week-view-day-content-wrapper"
+        tabindex="-1"
+      >
+        <div
+          class="c5"
+          data-role="calendar-week-view-day-content"
+        />
+      </div>
+      <div>
+        Footer for 
+        6/1/2025
+      </div>
+    </div>
+  </div>
+</div>
+`;

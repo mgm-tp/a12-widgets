@@ -1,0 +1,28 @@
+//// 
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+Copyright (c) 2012-2026 mgm technology partners GmbH
+Dual License
+This source file is part of the mgm A12 Platform and available under a choice of two different licenses:
+1. Open-Source License – EUPL v1.2
+You may redistribute and/or modify this file under the terms of the European Union Public License, version 1.2 - see https://eupl.eu/.
+2. Commercial License
+Alternatively, you may obtain a commercial license from mgm technology partners GmbH, that permits use of this software under different terms (including support and maintenance services).
+
+Please contact a12-license@mgm-tp.com for more information.
+    
+You must select and comply with exactly one of the above license options.
+
+Warranty Disclaimer (applies to either option)
+THIS SOFTWARE IS PROVIDED “AS IS” AND WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS. 
+////
+:imagesdir: attachments/
+
+= Widgets Showcase
+
+Our A12 Widgets mission is to provide a wide range of web components that follow a consistent and attractive design and interaction concept (Plasma) to support business applications running on desktop, tablet and smartphone supporting keyboard, mouse and touch input. The components provide an easy to use, well documented, strongly typed API and are extendable and customizable.
+
+The widgets showcase serves not only as a showcase of examples but also as full user documentation.
+
+Click link:https://www.mgm-tp.com/a12.htmlshowcase/{{showcase-version}}/#/[here,role="external",window="_blank"] for the Widgets showcase.
+
+If you are updating to the latest version of Widgets, you can find detailed migration instructions link:https://www.mgm-tp.com/a12.htmlshowcase/{{showcase-version}}/#/get-started/migration-instructions/migration-notes[here].

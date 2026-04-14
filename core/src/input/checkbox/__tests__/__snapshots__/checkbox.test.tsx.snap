@@ -1,0 +1,2261 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.checkbox > render basic checkbox with label 1`] = `
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c4 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c4 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c4 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c4 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c4:focus + label > span::before,
+.c4:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c3 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c3 > label {
+  height: 20px;
+}
+
+.c3 > label > span,
+.c3 > label > span::before {
+  border-radius: 0px;
+}
+
+.c1 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c5 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c5 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c5 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c5:focus + label > span::before,
+.c5:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c5:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c5 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="checkbox"
+>
+  <div
+    class="c2 field__control field__control--boolean"
+    data-role="checkbox-control"
+    id="testId-controls"
+  >
+    <span
+      class="c3"
+      data-role="checkbox-control-inner"
+    >
+      <input
+        aria-checked="false"
+        class="c4 c5 field__check"
+        data-role="checkbox-input"
+        id="testId"
+        type="checkbox"
+      />
+      <label
+        aria-hidden="true"
+        data-role="checkbox-control-inner-hidden-label"
+        for="testId"
+      >
+        <span />
+      </label>
+    </span>
+    <label
+      class="c6 c7 label field__label field__label"
+      data-role="checkbox-label"
+      for="testId"
+    >
+      Test checkbox
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox > render basic checked checkbox 1`] = `
+.c0 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c0 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c0 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c0 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.c0:focus + label > span::before,
+.c0:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c1 + label > span {
+  background-color: rgb(77, 77, 77);
+}
+
+.c1 + label > span::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c1 + label > span::after {
+  box-sizing: border-box;
+  border-width: medium medium 2px 2px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
+  border-image: initial;
+  content: "";
+  display: block;
+  margin: 2px 0px 0px 2px;
+  height: 7px;
+  transform: rotate(-55deg);
+  width: 10px;
+}
+
+.c1 + label > span::before {
+  border: 1px solid transparent;
+}
+
+.c1:focus + label > span,
+.c1:focus-within + label > span {
+  background-color: rgb(213, 0, 117);
+}
+
+.c1:focus + label > span::before,
+.c1:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c1:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1 + label:hover > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c1 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c1 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<input
+  aria-checked="true"
+  checked=""
+  class="c0 c1 field__check field__check--checked"
+  data-role="checkbox-input"
+  id="testId"
+  type="checkbox"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox > render disabled & checked checkbox 1`] = `
+.c0 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c0 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c0 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c0 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.c0 + label {
+  cursor: default;
+}
+
+.c0 + label > span {
+  background: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c1 {
+  cursor: default;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c1 + label > span {
+  background-color: rgb(77, 77, 77);
+}
+
+.c1 + label > span::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c1 + label > span::after {
+  box-sizing: border-box;
+  border-width: medium medium 2px 2px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
+  border-image: initial;
+  content: "";
+  display: block;
+  margin: 2px 0px 0px 2px;
+  height: 7px;
+  transform: rotate(-55deg);
+  width: 10px;
+}
+
+.c1 + label > span::before {
+  border: 1px solid transparent;
+}
+
+.c1 + label > span {
+  background-color: rgb(169, 179, 188);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+@media (pointer: coarse) {
+  .c0 + label > span:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 + label > span:hover {
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+<input
+  aria-checked="true"
+  checked=""
+  class="c0 c1 field__check field__check--disabled field__check--checked"
+  data-role="checkbox-input"
+  disabled=""
+  id="testId"
+  type="checkbox"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox > render disabled checkbox 1`] = `
+.c0 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c0 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c0 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c0 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c0 + label {
+  cursor: default;
+}
+
+.c0 + label > span {
+  background: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c1 {
+  cursor: default;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c1 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c1 + label > span {
+  background-color: rgb(226, 230, 233);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+@media (pointer: coarse) {
+  .c0 + label > span:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 + label > span:hover {
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+<input
+  aria-checked="false"
+  class="c0 c1 field__check field__check--disabled"
+  data-role="checkbox-input"
+  disabled=""
+  id="testId"
+  type="checkbox"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox > render error checkbox 1`] = `
+.c0 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c0 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c0 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c0 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c0:focus + label > span::before,
+.c0:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c1 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(201, 29, 29);
+}
+
+.c1:focus + label > span::before,
+.c1:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c1 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<input
+  aria-checked="false"
+  class="c0 c1 field__check field__check--error"
+  data-role="checkbox-input"
+  id="testId"
+  type="checkbox"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox > render info checkbox 1`] = `
+.c0 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c0 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c0 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c0 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c0:focus + label > span::before,
+.c0:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c1 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(5, 104, 174);
+}
+
+.c1:focus + label > span::before,
+.c1:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c1 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<input
+  aria-checked="false"
+  class="c0 c1 field__check"
+  data-role="checkbox-input"
+  id="testId"
+  type="checkbox"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox > render readonly & checked checkbox 1`] = `
+.c0 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c0 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c0 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c0 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.c0 + label {
+  cursor: default;
+}
+
+.c1 {
+  cursor: default;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c1 + label > span {
+  background-color: rgb(77, 77, 77);
+}
+
+.c1 + label > span::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c1 + label > span::after {
+  box-sizing: border-box;
+  border-width: medium medium 2px 2px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
+  border-image: initial;
+  content: "";
+  display: block;
+  margin: 2px 0px 0px 2px;
+  height: 7px;
+  transform: rotate(-55deg);
+  width: 10px;
+}
+
+.c1 + label > span::before {
+  border: 1px solid transparent;
+}
+
+.c1 + label > span {
+  background-color: rgb(169, 179, 188);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+<input
+  aria-checked="true"
+  checked=""
+  class="c0 c1 field__check field__check--readonly field__check--checked"
+  data-role="checkbox-input"
+  disabled=""
+  id="testId"
+  type="checkbox"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox > render readonly checkbox 1`] = `
+.c0 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c0 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c0 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c0 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c0 + label {
+  cursor: default;
+}
+
+.c1 {
+  cursor: default;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c1 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c1 + label > span {
+  background-color: rgb(226, 230, 233);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+<input
+  aria-checked="false"
+  class="c0 c1 field__check field__check--readonly"
+  data-role="checkbox-input"
+  disabled=""
+  id="testId"
+  type="checkbox"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.checkbox > render warning checkbox 1`] = `
+.c0 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c0 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c0 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c0 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c0:focus + label > span::before,
+.c0:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c1 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c1 + label > span::before {
+  border: 1px solid rgb(175, 121, 2);
+}
+
+.c1:focus + label > span::before,
+.c1:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c1 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<input
+  aria-checked="false"
+  class="c0 c1 field__check field__check--warning"
+  data-role="checkbox-input"
+  id="testId"
+  type="checkbox"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.indeterminate.checkbox > render basic indeterminate checkbox 1`] = `
+.c10 .c7 {
+  margin: 0px;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c9 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c4 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c4 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c4 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c4 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c4:focus + label > span::before,
+.c4:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c3 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c3 > label {
+  height: 20px;
+}
+
+.c3 > label > span,
+.c3 > label > span::before {
+  border-radius: 0px;
+}
+
+.c1 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c5 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c5 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c5 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c5:focus + label > span::before,
+.c5:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c6 > button {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  cursor: pointer;
+  height: 100%;
+  padding: 0px;
+  width: 100%;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c5:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c5 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field"
+  data-role="checkbox"
+>
+  <div
+    class="c2 field__control field__control--boolean"
+    data-role="checkbox-control"
+    id="testId-controls"
+  >
+    <span
+      class="c3"
+      data-role="checkbox-control-inner"
+    >
+      <span
+        class="c4 c5 c6 field__check"
+        data-role="checkbox-input-indeterminate"
+      >
+        <button
+          aria-checked="false"
+          data-role="checkbox-input"
+          id="testId"
+          role="checkbox"
+        />
+      </span>
+      <label
+        aria-hidden="true"
+        data-role="checkbox-control-inner-hidden-label"
+        for="testId"
+      >
+        <span />
+      </label>
+    </span>
+    <label
+      class="c7 c8 label field__label field__label"
+      data-role="checkbox-label"
+      for="testId"
+    >
+      Test checkbox
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.indeterminate.checkbox > render checked indeterminate checkbox 1`] = `
+.c10 .c7 {
+  margin: 0px;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c9 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c4 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c4 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c4 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c4 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.c4:focus + label > span::before,
+.c4:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c3 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c3 > label {
+  height: 20px;
+}
+
+.c3 > label > span,
+.c3 > label > span::before {
+  border-radius: 0px;
+}
+
+.c1 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c5 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c5 + label > span {
+  background-color: rgb(77, 77, 77);
+}
+
+.c5 + label > span::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c5 + label > span::after {
+  box-sizing: border-box;
+  border-width: medium medium 2px 2px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
+  border-image: initial;
+  content: "";
+  display: block;
+  margin: 2px 0px 0px 2px;
+  height: 7px;
+  transform: rotate(-55deg);
+  width: 10px;
+}
+
+.c5 + label > span::before {
+  border: 1px solid transparent;
+}
+
+.c5:focus + label > span,
+.c5:focus-within + label > span {
+  background-color: rgb(213, 0, 117);
+}
+
+.c5:focus + label > span::before,
+.c5:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c6 > button {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  cursor: pointer;
+  height: 100%;
+  padding: 0px;
+  width: 100%;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c5:active + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c5:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c5:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5 + label:hover > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c5 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c5 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field"
+  data-role="checkbox"
+>
+  <div
+    class="c2 field__control field__control--boolean"
+    data-role="checkbox-control"
+    id="testId-controls"
+  >
+    <span
+      class="c3"
+      data-role="checkbox-control-inner"
+    >
+      <span
+        class="c4 c5 c6 field__check field__check--checked"
+        data-role="checkbox-input-indeterminate"
+      >
+        <button
+          aria-checked="true"
+          data-role="checkbox-input"
+          id="testId"
+          role="checkbox"
+        />
+      </span>
+      <label
+        aria-hidden="true"
+        data-role="checkbox-control-inner-hidden-label"
+        for="testId"
+      >
+        <span />
+      </label>
+    </span>
+    <label
+      class="c7 c8 label field__label field__label"
+      data-role="checkbox-label"
+      for="testId"
+    >
+      Test checkbox
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.indeterminate.checkbox > render disabled indeterminate checkbox 1`] = `
+.c10 .c7 {
+  margin: 0px;
+}
+
+.c8 {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+  color: rgb(169, 179, 188);
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c9 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c4 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c4 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c4 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c4 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c4 + label {
+  cursor: default;
+}
+
+.c4 + label > span {
+  background: rgb(226, 230, 233);
+  border-color: rgb(169, 179, 188);
+}
+
+.c2 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c3 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c3 > label {
+  height: 20px;
+}
+
+.c3 > label > span,
+.c3 > label > span::before {
+  border-radius: 0px;
+}
+
+.c1 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c5 {
+  cursor: default;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c5 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c5 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c5 + label > span {
+  background-color: rgb(226, 230, 233);
+}
+
+.c5 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+.c6 > button {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  height: 100%;
+  padding: 0px;
+  width: 100%;
+}
+
+.c6 + label > span::after {
+  background-color: rgb(77, 77, 77);
+  content: " ";
+  height: 6px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  border: 3px solid transparent;
+}
+
+.c6 + label > span::after {
+  background-color: rgb(169, 179, 188);
+}
+
+@media (pointer: coarse) {
+  .c4 + label > span:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: fine) {
+  .c4 + label > span:hover {
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+<div
+  class="c0 c1 field"
+  data-role="checkbox"
+>
+  <div
+    class="c2 field__control field__control--boolean"
+    data-role="checkbox-control"
+    id="testId-controls"
+  >
+    <span
+      class="c3"
+      data-role="checkbox-control-inner"
+    >
+      <span
+        class="c4 c5 c6 field__check field__check--disabled field__check--indeterminate"
+        data-role="checkbox-input-indeterminate"
+      >
+        <button
+          aria-checked="mixed"
+          data-role="checkbox-input"
+          disabled=""
+          id="testId"
+          role="checkbox"
+        />
+      </span>
+      <label
+        aria-hidden="true"
+        data-role="checkbox-control-inner-hidden-label"
+        for="testId"
+      >
+        <span />
+      </label>
+    </span>
+    <label
+      class="c7 c8 label field__label label--disabled field__label field__label--disabled"
+      data-disabled="true"
+      data-role="checkbox-label"
+      for="testId"
+    >
+      Test checkbox
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.indeterminate.checkbox > render mixed indeterminate checkbox 1`] = `
+.c10 .c7 {
+  margin: 0px;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c9 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c4 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c4 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c4 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c4 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c4:focus + label > span::before,
+.c4:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c3 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c3 > label {
+  height: 20px;
+}
+
+.c3 > label > span,
+.c3 > label > span::before {
+  border-radius: 0px;
+}
+
+.c1 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c5 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c5 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c5 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c5:focus + label > span::before,
+.c5:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c6 > button {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  cursor: pointer;
+  height: 100%;
+  padding: 0px;
+  width: 100%;
+}
+
+.c6 + label > span::after {
+  background-color: rgb(77, 77, 77);
+  content: " ";
+  height: 6px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  border: 3px solid transparent;
+}
+
+.c6:focus + label > span::after,
+.c6:focus-within + label > span::after {
+  background-color: rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c5:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c5 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active + label > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover + label > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 c1 field"
+  data-role="checkbox"
+>
+  <div
+    class="c2 field__control field__control--boolean"
+    data-role="checkbox-control"
+    id="testId-controls"
+  >
+    <span
+      class="c3"
+      data-role="checkbox-control-inner"
+    >
+      <span
+        class="c4 c5 c6 field__check field__check--indeterminate"
+        data-role="checkbox-input-indeterminate"
+      >
+        <button
+          aria-checked="mixed"
+          data-role="checkbox-input"
+          id="testId"
+          role="checkbox"
+        />
+      </span>
+      <label
+        aria-hidden="true"
+        data-role="checkbox-control-inner-hidden-label"
+        for="testId"
+      >
+        <span />
+      </label>
+    </span>
+    <label
+      class="c7 c8 label field__label field__label"
+      data-role="checkbox-label"
+      for="testId"
+    >
+      Test checkbox
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.indeterminate.checkbox > render readOnly indeterminate checkbox 1`] = `
+.c10 .c7 {
+  margin: 0px;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c9 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c0 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c4 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: default;
+}
+
+.c4 + label {
+  align-items: center;
+  cursor: default;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c4 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c4 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c4 + label {
+  cursor: default;
+}
+
+.c2 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c3 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c3 > label {
+  height: 20px;
+}
+
+.c3 > label > span,
+.c3 > label > span::before {
+  border-radius: 0px;
+}
+
+.c1 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c5 {
+  cursor: default;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c5 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c5 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c5 + label > span {
+  background-color: rgb(226, 230, 233);
+}
+
+.c5 + label > span::before {
+  border: 1px solid rgb(169, 179, 188);
+}
+
+.c6 > button {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  height: 100%;
+  padding: 0px;
+  width: 100%;
+}
+
+.c6 + label > span::after {
+  background-color: rgb(77, 77, 77);
+  content: " ";
+  height: 6px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  border: 3px solid transparent;
+}
+
+.c6 + label > span::after {
+  background-color: rgb(169, 179, 188);
+}
+
+<div
+  class="c0 c1 field"
+  data-role="checkbox"
+>
+  <div
+    class="c2 field__control field__control--boolean"
+    data-role="checkbox-control"
+    id="testId-controls"
+  >
+    <span
+      class="c3"
+      data-role="checkbox-control-inner"
+    >
+      <span
+        class="c4 c5 c6 field__check field__check--readonly field__check--indeterminate"
+        data-role="checkbox-input-indeterminate"
+      >
+        <button
+          aria-checked="mixed"
+          data-role="checkbox-input"
+          disabled=""
+          id="testId"
+          role="checkbox"
+        />
+      </span>
+      <label
+        aria-hidden="true"
+        data-role="checkbox-control-inner-hidden-label"
+        for="testId"
+      >
+        <span />
+      </label>
+    </span>
+    <label
+      class="c7 c8 label field__label field__label field__label--readonly"
+      data-role="checkbox-label"
+      for="testId"
+    >
+      Test checkbox
+    </label>
+  </div>
+</div>
+`;

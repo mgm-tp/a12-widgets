@@ -1,0 +1,1994 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table-row-group > render all groups 1`] = `
+.c15 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c15 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  display: flex;
+  position: relative;
+}
+
+.c9 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c9 p:first-child {
+  margin-top: 0px;
+}
+
+.c9 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c5:first-child .c9.c9:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c5:first-child .c9.c9:first-child.c5:first-child .c9.c9:first-child {
+  padding-left: calc(24px);
+}
+
+.c7 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  overflow: hidden;
+}
+
+.c20 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c20::before,
+.c20::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c20::before {
+  right: 0px;
+}
+
+.c20::after {
+  display: block;
+}
+
+.c20:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c20:active,
+.c20:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+.c19:focus .c21:last-child > :last-child {
+  background-clip: unset;
+}
+
+.c19:focus .c21:last-child > :last-child::before {
+  border-right: 2px solid rgb(213, 0, 117);
+  margin-right: 1px;
+}
+
+.c22 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c22.c22 {
+  padding: 8px;
+}
+
+.c22.c22 > * {
+  align-self: flex-start;
+}
+
+.c22 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c23 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c23.c23 {
+  padding: 8px;
+}
+
+.c23.c23 > * {
+  align-self: flex-start;
+}
+
+.c23 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c14 {
+  border-width: 1px 1px medium;
+  border-style: solid solid none;
+  border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
+  border-image: initial;
+  outline: none;
+}
+
+.c14:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c14:not(:empty) {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+}
+
+.c27 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.c27:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.c25 {
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.c25 > * {
+  position: relative;
+}
+
+.c25 > ::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c25 > :first-child {
+  box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
+}
+
+.c25 > :first-child::before {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+.c12 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c10 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c11 .c10.c10 {
+  overflow: hidden;
+}
+
+.c6:first-child .c10.c10.c10:first-child[data-role*="group-parent"] {
+  min-width: 100%;
+}
+
+.c4 {
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: hidden;
+  background-color: rgb(241, 242, 244);
+}
+
+.c2 {
+  background-color: rgb(241, 242, 244);
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+}
+
+.c17 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 4px 16px 4px 24px;
+}
+
+.c13 > .c16 + .c16.c16 {
+  border-top: 1px solid rgb(226, 230, 233);
+}
+
+.c0 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  height: 100%;
+  outline: none;
+  position: relative;
+}
+
+.c0 .c13:not(:empty) {
+  flex-grow: 0;
+}
+
+.c0 .c24 {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.c0 .c26:last-child {
+  flex-grow: 1;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+.c1[data-table-container-resizing="true"] .c8 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.c28 {
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  margin-top: -1px;
+}
+
+.c29 {
+  overflow-x: auto;
+}
+
+.c18 {
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.c18.table-row-group-animation-enter {
+  opacity: 0;
+  max-height: 0px;
+}
+
+.c18.table-row-group-animation-enter-active,
+.c18.table-row-group-animation-exit {
+  opacity: 1;
+  max-height: var(--table-max-height);
+}
+
+.c18.table-row-group-animation-exit-active {
+  opacity: 0;
+  max-height: 0px;
+}
+
+@media (pointer: fine) {
+  .c20:hover {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c20:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c20:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c20:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: fine) {
+  .c19:not(:focus):hover .c21:last-child > :last-child::before {
+    border-right: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  aria-label="Table"
+  class="c0 table"
+  data-role="table"
+  tabindex="-1"
+>
+  <div
+    class="c1 table__containerWrapper"
+  >
+    <div
+      aria-hidden="true"
+      class="c2 table__header"
+      data-role="table-header"
+      role="rowgroup"
+    >
+      <div
+        class="c3 c4 table__headerRow"
+        data-role="table-header-row"
+        role="row"
+      >
+        <div
+          class="c5 c6 c7 table__headerRow--scroll"
+          data-role="table-header-row--scroll"
+        >
+          <div
+            aria-colindex="1"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 1
+            </div>
+          </div>
+          <div
+            aria-colindex="2"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 2
+            </div>
+          </div>
+          <div
+            aria-colindex="3"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 3
+            </div>
+          </div>
+          <div
+            aria-colindex="4"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 4
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13 c14 table__content"
+      data-role="table-body"
+      role="table"
+      tabindex="0"
+    >
+      <div
+        class="c15 -u-unseenButRead"
+        data-role="hidden-text"
+        role="rowgroup"
+      >
+        <div
+          role="row"
+        >
+          <div
+            role="columnheader"
+          >
+            Column 1
+          </div>
+          <div
+            role="columnheader"
+          >
+            Column 2
+          </div>
+          <div
+            role="columnheader"
+          >
+            Column 3
+          </div>
+          <div
+            role="columnheader"
+          >
+            Column 4
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="Row group 1"
+        class="c16 table__rowGroup"
+        data-role="table-row-group"
+        role="rowgroup"
+      >
+        <div
+          class="c17 table__rowGroupHeader"
+          data-role="table-row-group-header"
+          role="row"
+        >
+          Row group 1
+        </div>
+        <div>
+          <div
+            class="c18"
+            style="--table-max-height: 160px;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="Row group 2"
+        class="c16 table__rowGroup"
+        data-role="table-row-group"
+        role="rowgroup"
+      >
+        <div
+          class="c17 table__rowGroupHeader"
+          data-role="table-row-group-header"
+          role="row"
+        >
+          Row group 2
+        </div>
+        <div>
+          <div
+            class="c18"
+            style="--table-max-height: 160px;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="Row group 3"
+        class="c16 table__rowGroup"
+        data-role="table-row-group"
+        role="rowgroup"
+      >
+        <div
+          class="c17 table__rowGroupHeader"
+          data-role="table-row-group-header"
+          role="row"
+        >
+          Row group 3
+        </div>
+        <div>
+          <div
+            class="c18"
+            style="--table-max-height: 160px;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="Row group 4"
+        class="c16 table__rowGroup"
+        data-role="table-row-group"
+        role="rowgroup"
+      >
+        <div
+          class="c17 table__rowGroupHeader"
+          data-role="table-row-group-header"
+          role="row"
+        >
+          Row group 4
+        </div>
+        <div>
+          <div
+            class="c18"
+            style="--table-max-height: 160px;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="Row group 5"
+        class="c16 table__rowGroup"
+        data-role="table-row-group"
+        role="rowgroup"
+      >
+        <div
+          class="c17 table__rowGroupHeader"
+          data-role="table-row-group-header"
+          role="row"
+        >
+          Row group 5
+        </div>
+        <div>
+          <div
+            class="c18"
+            style="--table-max-height: 160px;"
+          >
+            <div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="c19 c3 c20 table__contentRow"
+                data-role="table-body-row"
+                role="row"
+                tabindex="-1"
+              >
+                <div
+                  class="c5 c7 c21 table__contentRow--scroll"
+                  data-role="table-body-row--scroll"
+                >
+                  <div
+                    aria-colindex="1"
+                    class="c8 c9 c22 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="2"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="3"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                  <div
+                    aria-colindex="4"
+                    class="c8 c9 c23 table__contentCell table__contentCell--10"
+                    data-role="table-body-cell"
+                    role="cell"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c24 c25 table__footer"
+      data-role="table-footer"
+    >
+      <div
+        class="c26 c3 table__footerRow"
+        data-role="table-footer-row"
+      >
+        <div
+          class="c5 c7 table__footerRow--scroll"
+          data-role="table-footer-row--scroll"
+        >
+          <div
+            class="c8 c9 c27 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c27 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c27 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c27 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      class="c3 c28"
+      data-role="table-row-scroller"
+    >
+      <div
+        class="c5 c7 c29"
+        data-role="table-row-scroller--scroll"
+        tabindex="-1"
+      >
+        <div
+          class="c8 c9 c27"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c27"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c27"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c27"
+          data-role="table-row-scroller-cell"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
+.c3 {
+  display: flex;
+  position: relative;
+}
+
+.c9 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c9 p:first-child {
+  margin-top: 0px;
+}
+
+.c9 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c5:first-child .c9.c9:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c5:first-child .c9.c9:first-child.c5:first-child .c9.c9:first-child {
+  padding-left: calc(24px);
+}
+
+.c7 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  overflow: hidden;
+}
+
+.c14 {
+  border-width: 1px 1px medium;
+  border-style: solid solid none;
+  border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
+  border-image: initial;
+  outline: none;
+}
+
+.c14:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c14:not(:empty) {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+}
+
+.c19 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.c19:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.c17 {
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.c17 > * {
+  position: relative;
+}
+
+.c17 > ::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c17 > :first-child {
+  box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
+}
+
+.c17 > :first-child::before {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+.c12 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c10 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c11 .c10.c10 {
+  overflow: hidden;
+}
+
+.c6:first-child .c10.c10.c10:first-child[data-role*="group-parent"] {
+  min-width: 100%;
+}
+
+.c4 {
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: hidden;
+  background-color: rgb(241, 242, 244);
+}
+
+.c2 {
+  background-color: rgb(241, 242, 244);
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+}
+
+.c13 > .c23 + .c23.c23 {
+  border-top: 1px solid rgb(226, 230, 233);
+}
+
+.c22 .c13:not(:empty) {
+  flex-grow: 0;
+}
+
+.c22 .c16 {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.c22 .c18:last-child {
+  flex-grow: 1;
+}
+
+.c0 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  height: 100%;
+  outline: none;
+  position: relative;
+}
+
+.c0 .c13 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 .c13:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 .c13:not(:empty) {
+  overflow-y: hidden;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+.c1[data-table-container-resizing="true"] .c8 {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.c15 .ReactVirtualized__List {
+  border: 1px solid rgb(241, 242, 244);
+  outline: none;
+}
+
+.c15 .ReactVirtualized__List:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c20 {
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  margin-top: -1px;
+}
+
+.c21 {
+  overflow-x: auto;
+}
+
+<div
+  aria-label="Table"
+  class="c0 table table--virtual-scroll"
+  data-role="table"
+  role="table"
+  tabindex="-1"
+>
+  <div
+    class="c1 table__containerWrapper"
+  >
+    <div
+      class="c2 table__header"
+      data-role="table-header"
+      role="rowgroup"
+    >
+      <div
+        class="c3 c4 table__headerRow"
+        data-role="table-header-row"
+        role="row"
+      >
+        <div
+          class="c5 c6 c7 table__headerRow--scroll"
+          data-role="table-header-row--scroll"
+        >
+          <div
+            aria-colindex="1"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 1
+            </div>
+          </div>
+          <div
+            aria-colindex="2"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 2
+            </div>
+          </div>
+          <div
+            aria-colindex="3"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 3
+            </div>
+          </div>
+          <div
+            aria-colindex="4"
+            class="c8 c9 c10 table__headerCell table__headerCell--10"
+            data-role="table-header-cell"
+            role="columnheader"
+          >
+            <div
+              class="c11 c12 table__contentHeaderCell"
+              data-role="table-header-cell-content"
+            >
+              Column 4
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13 c14 table__content c15"
+      data-role="table-body"
+      style="position: relative;"
+      tabindex="-1"
+    >
+      <div
+        style="overflow: visible; height: 0px; width: 0px;"
+      >
+        <div
+          aria-label="Table body"
+          aria-readonly="true"
+          class="ReactVirtualized__Grid ReactVirtualized__List"
+          role="rowgroup"
+          style="box-sizing: border-box; direction: ltr; height: 0px; position: relative; width: 1280px; will-change: transform; overflow: hidden auto;"
+          tabindex="0"
+        />
+      </div>
+      <div
+        class="resize-triggers"
+      >
+        <div
+          class="expand-trigger"
+        >
+          <div
+            style="width: 1281px; height: 1px;"
+          />
+        </div>
+        <div
+          class="contract-trigger"
+        />
+      </div>
+    </div>
+    <div
+      class="c16 c17 table__footer"
+      data-role="table-footer"
+    >
+      <div
+        class="c18 c3 table__footerRow"
+        data-role="table-footer-row"
+      >
+        <div
+          class="c5 c7 table__footerRow--scroll"
+          data-role="table-footer-row--scroll"
+        >
+          <div
+            class="c8 c9 c19 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c19 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c19 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+          <div
+            class="c8 c9 c19 table__footerCell table__footerCell--10"
+            data-role="table-footer-cell"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      class="c3 c20"
+      data-role="table-row-scroller"
+    >
+      <div
+        class="c5 c7 c21"
+        data-role="table-row-scroller--scroll"
+        tabindex="-1"
+      >
+        <div
+          class="c8 c9 c19"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c19"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c19"
+          data-role="table-row-scroller-cell"
+        />
+        <div
+          class="c8 c9 c19"
+          data-role="table-row-scroller-cell"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,3230 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > disable collapsing sub 1`] = `
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c7 {
+  box-sizing: border-box;
+  height: 100%;
+  outline: none;
+  padding: 24px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow-y: auto;
+  transition: width 0.3s;
+  width: calc(100% - 212px);
+}
+
+.c3 {
+  background-color: rgb(78, 89, 101);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 4px 0px;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0px;
+  padding-bottom: 0px;
+  position: absolute;
+  top: 0px;
+  transition: width 0.3s;
+  width: 212px;
+  z-index: 1;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border-right-width: medium;
+  border-right-style: none;
+  border-right-color: currentcolor;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c7 {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c7 {
+    min-height: 0px;
+    padding: 0px;
+    position: static;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .dVrOwu .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hZxYuJ .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: relative;
+  }
+
+  .c3 .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    box-shadow: none;
+    padding-bottom: 0px;
+    transition: transform 0.3s, visibility 0.3s;
+    transform: translateX(0px);
+    visibility: visible;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+<div
+  class="c0 wrapper"
+  data-role="application-frame"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content content--sidebar content--collapsingDisabled"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 sidebar sidebar--expanded sidebar--overlap"
+      data-role="application-frame-sidebar-wrapper"
+    >
+      <div
+        class="c4 c5"
+        data-role="resizable-handler-wrapper"
+      >
+        <div
+          class="c6 sidebar__container"
+          data-role="application-frame-sidebar"
+        >
+          <div>
+            sub
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c7 main__container main__container--animation main__container--collapsed"
+      data-role="application-frame-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > maximized sidebar 1`] = `
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c12 {
+  user-select: none;
+}
+
+.c10 .c12 {
+  color: inherit;
+}
+
+.c10 .c12 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c12 {
+  display: block;
+}
+
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c14 ~ .c7 {
+  z-index: 1;
+}
+
+.c15 ~ .c7 {
+  z-index: 1;
+}
+
+.c3 {
+  background-color: rgb(78, 89, 101);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 4px 0px;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0px;
+  padding-bottom: 48px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+  transition: width 0.1s, z-index 0.15s;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border-right-width: medium;
+  border-right-style: none;
+  border-right-color: currentcolor;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.c8 {
+  bottom: 0px;
+  height: 52px;
+  text-align: right;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+.c16 .c12 {
+  padding: 4px;
+}
+
+.c11 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  height: 100%;
+  width: 52px;
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c11 .c9 {
+  width: 100%;
+}
+
+.c11 .c12 {
+  padding: 4px;
+}
+
+.c17 .c12 {
+  padding: 4px;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .dVrOwu .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hZxYuJ .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .gRONIr .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .kOCEWv .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .efkqUQ .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: relative;
+  }
+
+  .c3 .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    box-shadow: none;
+    padding-bottom: 0px;
+    transform: translateX(-100%);
+    transition: transform 0.3s, visibility 0.3s;
+    visibility: hidden;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c8 {
+    bottom: 24px;
+    border-radius: 50%;
+    box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+    height: auto;
+    right: 16px;
+    width: auto;
+    display: none;
+    position: fixed;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c16.c16 .c12 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .c11.c11 {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+
+  .c11.c11:focus {
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c11.c11 {
+    border-radius: inherit;
+    height: 48px;
+    width: 48px;
+    background: rgb(5, 104, 174);
+    color: rgb(255, 255, 255);
+  }
+
+  .c11.c11:not(:disabled):focus {
+    outline: rgb(255, 255, 255) dotted 1px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 wrapper"
+  data-role="application-frame"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content content--sidebar"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 sidebar sidebar--maximized sidebar--collapsible"
+      data-role="application-frame-sidebar-wrapper"
+    >
+      <div
+        class="c4 c5"
+        data-role="resizable-handler-wrapper"
+      >
+        <div
+          class="c6 sidebar__container"
+          data-role="application-frame-sidebar"
+        >
+          <div>
+            sub
+          </div>
+        </div>
+        <div
+          class="c7 c8 sidebar__trigger sidebar__trigger--largeView sidebar__trigger--opened"
+          data-role="application-frame-toggle-sidebar-button"
+        >
+          <button
+            aria-expanded="false"
+            aria-label="Expand sidebar"
+            class="c9 c10 button button--icon c11"
+            data-role="button"
+            data-type="icon"
+            title="Expand sidebar"
+            type="button"
+          >
+            <i
+              class="c12 c13 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                chevron_right
+              </span>
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > minimized sidebar 1`] = `
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c12 {
+  user-select: none;
+}
+
+.c10 .c12 {
+  color: inherit;
+}
+
+.c10 .c12 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c12 {
+  display: block;
+}
+
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c15 ~ .c7 {
+  z-index: 1;
+}
+
+.c16 ~ .c7 {
+  z-index: 1;
+}
+
+.c14 {
+  box-sizing: border-box;
+  height: 100%;
+  outline: none;
+  padding: 24px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow-y: auto;
+  transition: width 0.3s;
+  width: calc(100% - 384px);
+}
+
+.c3 {
+  background-color: rgb(78, 89, 101);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 4px 0px;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0px;
+  padding-bottom: 48px;
+  position: absolute;
+  top: 0px;
+  width: 384px;
+  z-index: 0;
+  transition: width 0.1s, z-index 0.15s;
+  flex-shrink: 0;
+  min-width: 378px;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border-right-width: medium;
+  border-right-style: none;
+  border-right-color: currentcolor;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.c8 {
+  bottom: 0px;
+  height: 52px;
+  text-align: right;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+.c17 .c12 {
+  padding: 4px;
+}
+
+.c11 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  height: 100%;
+  width: 52px;
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c11 .c9 {
+  width: 100%;
+}
+
+.c11 .c12 {
+  padding: 4px;
+}
+
+.c18 .c12 {
+  padding: 4px;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c14 {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c14 {
+    min-height: 0px;
+    padding: 0px;
+    position: static;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .dVrOwu .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hZxYuJ .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .gRONIr .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .kOCEWv .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: relative;
+  }
+
+  .c3 .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    box-shadow: none;
+    padding-bottom: 0px;
+    transform: translateX(-100%);
+    transition: transform 0.3s, visibility 0.3s;
+    visibility: hidden;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c8 {
+    bottom: 24px;
+    border-radius: 50%;
+    box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+    height: auto;
+    right: 16px;
+    width: auto;
+    display: none;
+    position: fixed;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c17.c17 .c12 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .c11.c11 {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+
+  .c11.c11:focus {
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c11.c11 {
+    border-radius: inherit;
+    height: 48px;
+    width: 48px;
+    background: rgb(5, 104, 174);
+    color: rgb(255, 255, 255);
+  }
+
+  .c11.c11:not(:disabled):focus {
+    outline: rgb(255, 255, 255) dotted 1px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 wrapper"
+  data-role="application-frame"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content content--sidebar"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 sidebar sidebar--minimized sidebar--collapsible"
+      data-role="application-frame-sidebar-wrapper"
+    >
+      <div
+        class="c4 c5"
+        data-role="resizable-handler-wrapper"
+      >
+        <div
+          class="c6 sidebar__container"
+          data-role="application-frame-sidebar"
+        >
+          <div>
+            sub
+          </div>
+        </div>
+        <div
+          class="c7 c8 sidebar__trigger sidebar__trigger--largeView sidebar__trigger--opened"
+          data-role="application-frame-toggle-sidebar-button"
+        >
+          <button
+            aria-expanded="false"
+            aria-label="Expand sidebar"
+            class="c9 c10 button button--icon c11"
+            data-role="button"
+            data-type="icon"
+            title="Expand sidebar"
+            type="button"
+          >
+            <i
+              class="c12 c13 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                chevron_right
+              </span>
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c14 main__container main__container--animation"
+      data-role="application-frame-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > render Application Frame with custom style 1`] = `
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c12 {
+  user-select: none;
+}
+
+.c10 .c12 {
+  color: inherit;
+}
+
+.c10 .c12 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c12 {
+  display: block;
+}
+
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c15 ~ .c7 {
+  z-index: 1;
+}
+
+.c16 ~ .c7 {
+  z-index: 1;
+}
+
+.c14 {
+  box-sizing: border-box;
+  height: 100%;
+  outline: none;
+  padding: 24px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow-y: auto;
+  transition: width 0.3s;
+  width: calc(100% - 52px);
+}
+
+.c3 {
+  background-color: rgb(78, 89, 101);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 4px 0px;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0px;
+  padding-bottom: 48px;
+  position: absolute;
+  top: 0px;
+  width: 52px;
+  z-index: 0;
+  transition: width 0.1s, z-index 0.15s;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border-right-width: medium;
+  border-right-style: none;
+  border-right-color: currentcolor;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.c8 {
+  bottom: 0px;
+  height: 52px;
+  text-align: right;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+.c17 .c12 {
+  padding: 4px;
+}
+
+.c11 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  height: 100%;
+  width: 52px;
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c11 .c9 {
+  width: 100%;
+}
+
+.c11 .c12 {
+  padding: 4px;
+}
+
+.c18 .c12 {
+  padding: 4px;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c14 {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c14 {
+    min-height: 0px;
+    padding: 0px;
+    position: static;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .dVrOwu .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: relative;
+  }
+
+  .c3 .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    box-shadow: none;
+    padding-bottom: 0px;
+    transform: translateX(-100%);
+    transition: transform 0.3s, visibility 0.3s;
+    visibility: hidden;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .gRONIr .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .kOCEWv .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .efkqUQ .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .fJaJsq .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .eCmjCi .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ftXBPo .c4 {
+    position: unset;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c8 {
+    bottom: 24px;
+    border-radius: 50%;
+    box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+    height: auto;
+    right: 16px;
+    width: auto;
+    display: none;
+    position: fixed;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c17.c17 .c12 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .c11.c11 {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+
+  .c11.c11:focus {
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c11.c11 {
+    border-radius: inherit;
+    height: 48px;
+    width: 48px;
+    background: rgb(5, 104, 174);
+    color: rgb(255, 255, 255);
+  }
+
+  .c11.c11:not(:disabled):focus {
+    outline: rgb(255, 255, 255) dotted 1px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 wrapper"
+  data-role="application-frame"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+    style="color: red;"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content content--sidebar"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 sidebar sidebar--collapsible"
+      data-role="application-frame-sidebar-wrapper"
+      style="color: red;"
+    >
+      <div
+        class="c4 c5"
+        data-role="resizable-handler-wrapper"
+      >
+        <div
+          class="c6 sidebar__container"
+          data-role="application-frame-sidebar"
+        >
+          <div>
+            sub
+          </div>
+        </div>
+        <div
+          class="c7 c8 sidebar__trigger sidebar__trigger--largeView sidebar__trigger--opened"
+          data-role="application-frame-toggle-sidebar-button"
+        >
+          <button
+            aria-expanded="false"
+            aria-label="Expand sidebar"
+            class="c9 c10 button button--icon c11"
+            data-role="button"
+            data-type="icon"
+            title="Expand sidebar"
+            type="button"
+          >
+            <i
+              class="c12 c13 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                chevron_right
+              </span>
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c14 main__container main__container--animation"
+      data-role="application-frame-main"
+      role="main"
+      style="color: red;"
+      tabindex="-1"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+  <div
+    class="footer"
+    data-role="application-frame-footer"
+    role="contentinfo"
+    style="color: red;"
+  >
+    <div>
+      footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > render base structure 1`] = `
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c3 {
+  box-sizing: border-box;
+  height: 100%;
+  outline: none;
+  padding: 24px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    min-height: 0px;
+    padding: 0px;
+    position: static;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+}
+
+<div
+  class="c0 wrapper test-class"
+  data-role="application-frame"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 main__container"
+      data-role="application-frame-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > render content with full stuff 1`] = `
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c9 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c9 .c11 {
+  user-select: none;
+}
+
+.c9 .c11 {
+  color: inherit;
+}
+
+.c9 .c11 {
+  font-size: inherit;
+}
+
+.c9:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c11 {
+  display: block;
+}
+
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c2 ~ .c7 {
+  z-index: 1;
+}
+
+.c13 {
+  box-sizing: border-box;
+  height: 100%;
+  outline: none;
+  padding: 24px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow-y: auto;
+  transition: width 0.3s;
+  width: calc(100% - 212px);
+}
+
+.c3 {
+  background-color: rgb(78, 89, 101);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 4px 0px;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0px;
+  padding-bottom: 48px;
+  position: absolute;
+  top: 0px;
+  transition: width 0.3s;
+  width: 212px;
+  z-index: 1;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border-right-width: medium;
+  border-right-style: none;
+  border-right-color: currentcolor;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.c8 {
+  bottom: 0px;
+  height: 52px;
+  text-align: right;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+.c10 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  height: 100%;
+  width: 52px;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c10 .c11 {
+  padding: 4px;
+}
+
+@media (pointer: coarse) {
+  .c9:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c13 {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c13 {
+    min-height: 0px;
+    padding: 0px;
+    position: static;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: relative;
+    z-index: 0;
+  }
+
+  .c3 .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    box-shadow: none;
+    padding-bottom: 0px;
+    transition: transform 0.3s, visibility 0.3s;
+    transform: translateX(0px);
+    visibility: visible;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c8 {
+    bottom: 24px;
+    border-radius: 50%;
+    box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+    height: auto;
+    right: 16px;
+    width: auto;
+    display: none;
+    position: fixed;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .c10.c10 {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+
+  .c10.c10:focus {
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c10.c10 {
+    border-radius: inherit;
+    height: 48px;
+    width: 48px;
+    background: rgb(5, 104, 174);
+    color: rgb(255, 255, 255);
+  }
+
+  .c10.c10:not(:disabled):focus {
+    outline: rgb(255, 255, 255) dotted 1px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c10.c10 .c11 {
+    font-size: 1.75rem;
+  }
+}
+
+<div
+  class="c0 wrapper"
+  data-role="application-frame"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content content--sidebar"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 sidebar sidebar--expanded sidebar--overlap sidebar--collapsible"
+      data-role="application-frame-sidebar-wrapper"
+    >
+      <div
+        class="c4 c5"
+        data-role="resizable-handler-wrapper"
+      >
+        <div
+          class="c6 sidebar__container"
+          data-role="application-frame-sidebar"
+        >
+          <div>
+            sub toolbar
+          </div>
+          <div>
+            sub
+          </div>
+        </div>
+        <div
+          class="c7 c8 sidebar__trigger sidebar__trigger--largeView sidebar__trigger--closed"
+          data-role="application-frame-toggle-sidebar-button"
+        >
+          <button
+            aria-expanded="true"
+            aria-label="Collapse sidebar"
+            class="c9 button button--icon c10"
+            data-role="button"
+            data-type="icon"
+            title="Collapse sidebar"
+            type="button"
+          >
+            <i
+              class="c11 c12 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                chevron_left
+              </span>
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13 main__container main__container--animation main__container--collapsed"
+      data-role="application-frame-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div>
+        content toolbar
+      </div>
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > render footer 1`] = `
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c3 {
+  box-sizing: border-box;
+  height: 100%;
+  outline: none;
+  padding: 24px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    min-height: 0px;
+    padding: 0px;
+    position: static;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+}
+
+<div
+  class="c0 wrapper"
+  data-role="application-frame"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 main__container"
+      data-role="application-frame-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+  <div
+    class="footer"
+    data-role="application-frame-footer"
+    role="contentinfo"
+  >
+    <div>
+      footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > render toggle button when sub area is collapsed 1`] = `
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c12 {
+  user-select: none;
+}
+
+.c10 .c12 {
+  color: inherit;
+}
+
+.c10 .c12 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c12 {
+  display: block;
+}
+
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c17 ~ .c7 {
+  z-index: 1;
+}
+
+.c18 ~ .c7 {
+  z-index: 1;
+}
+
+.c14 {
+  box-sizing: border-box;
+  height: 100%;
+  outline: none;
+  padding: 24px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow-y: auto;
+  transition: width 0.3s;
+  width: calc(100% - 52px);
+}
+
+.c3 {
+  background-color: rgb(78, 89, 101);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 4px 0px;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0px;
+  padding-bottom: 48px;
+  position: absolute;
+  top: 0px;
+  width: 52px;
+  z-index: 0;
+  transition: width 0.1s, z-index 0.15s;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border-right-width: medium;
+  border-right-style: none;
+  border-right-color: currentcolor;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.c8 {
+  bottom: 0px;
+  height: 52px;
+  text-align: right;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+.c15 {
+  bottom: 0px;
+  height: 52px;
+  text-align: right;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+  display: none;
+}
+
+.c19 .c12 {
+  padding: 4px;
+}
+
+.c11 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  height: 100%;
+  width: 52px;
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c11 .c9 {
+  width: 100%;
+}
+
+.c11 .c12 {
+  padding: 4px;
+}
+
+.c16 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  height: 100%;
+  width: 52px;
+}
+
+.c16:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c16 .c12 {
+  padding: 4px;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c14 {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c14 {
+    min-height: 0px;
+    padding: 0px;
+    position: static;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .dVrOwu .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: relative;
+  }
+
+  .c3 .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    box-shadow: none;
+    padding-bottom: 0px;
+    transform: translateX(-100%);
+    transition: transform 0.3s, visibility 0.3s;
+    visibility: hidden;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c8 {
+    bottom: 24px;
+    border-radius: 50%;
+    box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+    height: auto;
+    right: 16px;
+    width: auto;
+    display: none;
+    position: fixed;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c15 {
+    bottom: 24px;
+    border-radius: 50%;
+    box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+    height: auto;
+    right: 16px;
+    width: auto;
+    display: block;
+    position: fixed;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c19.c19 .c12 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .c11.c11 {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+
+  .c11.c11:focus {
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c11.c11 {
+    border-radius: inherit;
+    height: 48px;
+    width: 48px;
+    background: rgb(5, 104, 174);
+    color: rgb(255, 255, 255);
+  }
+
+  .c11.c11:not(:disabled):focus {
+    outline: rgb(255, 255, 255) dotted 1px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .c16.c16 {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+
+  .c16.c16:focus {
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c16.c16 {
+    border-radius: inherit;
+    height: 48px;
+    width: 48px;
+    background: rgb(5, 104, 174);
+    color: rgb(255, 255, 255);
+  }
+
+  .c16.c16:not(:disabled):focus {
+    outline: rgb(255, 255, 255) dotted 1px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 wrapper"
+  data-role="application-frame"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content content--sidebar"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 sidebar sidebar--collapsible"
+      data-role="application-frame-sidebar-wrapper"
+    >
+      <div
+        class="c4 c5"
+        data-role="resizable-handler-wrapper"
+      >
+        <div
+          class="c6 sidebar__container"
+          data-role="application-frame-sidebar"
+        >
+          <div>
+            sub
+          </div>
+        </div>
+        <div
+          class="c7 c8 sidebar__trigger sidebar__trigger--largeView sidebar__trigger--opened"
+          data-role="application-frame-toggle-sidebar-button"
+        >
+          <button
+            aria-expanded="false"
+            aria-label="Expand sidebar"
+            class="c9 c10 button button--icon c11"
+            data-role="button"
+            data-type="icon"
+            title="Expand sidebar"
+            type="button"
+          >
+            <i
+              class="c12 c13 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                chevron_right
+              </span>
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c14 main__container main__container--animation"
+      data-role="application-frame-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+  <div
+    class="c7 c15 sidebar__trigger sidebar__trigger--smallView sidebar__trigger--opened"
+    data-role="application-frame-toggle-sidebar-button"
+  >
+    <button
+      aria-expanded="false"
+      aria-label="Expand sidebar"
+      class="c9 c10 button button--icon c16"
+      data-role="button"
+      data-type="icon"
+      title="Expand sidebar"
+      type="button"
+    >
+      <i
+        class="c12 c13 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          more_vert
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.application-frame > render toggle button when sub area is expanded 1`] = `
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c9 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c9 .c11 {
+  user-select: none;
+}
+
+.c9 .c11 {
+  color: inherit;
+}
+
+.c9 .c11 {
+  font-size: inherit;
+}
+
+.c9:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c11 {
+  display: block;
+}
+
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-sizing: border-box;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: absolute;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.c15 ~ .c7 {
+  z-index: 1;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.c2 ~ .c7 {
+  z-index: 1;
+}
+
+.c13 {
+  box-sizing: border-box;
+  height: 100%;
+  outline: none;
+  padding: 24px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow-y: auto;
+  transition: width 0.3s;
+  width: calc(100% - 212px);
+}
+
+.c3 {
+  background-color: rgb(78, 89, 101);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 4px 0px;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0px;
+  padding-bottom: 48px;
+  position: absolute;
+  top: 0px;
+  transition: width 0.3s;
+  width: 212px;
+  z-index: 1;
+}
+
+.c6 {
+  background-color: rgb(255, 255, 255);
+  border-right-width: medium;
+  border-right-style: none;
+  border-right-color: currentcolor;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.c8 {
+  bottom: 0px;
+  height: 52px;
+  text-align: right;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+.c14 {
+  bottom: 0px;
+  height: 52px;
+  text-align: right;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+  display: none;
+}
+
+.c10 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  height: 100%;
+  width: 52px;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c10 .c11 {
+  padding: 4px;
+}
+
+@media (pointer: coarse) {
+  .c9:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c0 {
+    height: 100%;
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c2 {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c2 {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 48px);
+  }
+
+  .c2:has(.StyledContentBox-sc-TBvej) {
+    min-height: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c13 {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c13 {
+    min-height: 0px;
+    padding: 0px;
+    position: static;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    position: relative;
+    z-index: 0;
+  }
+
+  .c3 .c4 {
+    position: unset;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .c3 {
+    box-shadow: none;
+    padding-bottom: 0px;
+    transition: transform 0.3s, visibility 0.3s;
+    transform: translateX(0px);
+    visibility: visible;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c8 {
+    bottom: 24px;
+    border-radius: 50%;
+    box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+    height: auto;
+    right: 16px;
+    width: auto;
+    display: none;
+    position: fixed;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c14 {
+    bottom: 24px;
+    border-radius: 50%;
+    box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+    height: auto;
+    right: 16px;
+    width: auto;
+    display: block;
+    position: fixed;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .c10.c10 {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+
+  .c10.c10:focus {
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c10.c10 {
+    border-radius: inherit;
+    height: 48px;
+    width: 48px;
+    background: rgb(5, 104, 174);
+    color: rgb(255, 255, 255);
+  }
+
+  .c10.c10:not(:disabled):focus {
+    outline: rgb(255, 255, 255) dotted 1px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c10.c10 .c11 {
+    font-size: 1.75rem;
+  }
+}
+
+<div
+  class="c0 wrapper"
+  data-role="application-frame"
+>
+  <div
+    class="c1 header"
+    data-role="application-frame-header"
+  >
+    <div>
+      main
+    </div>
+  </div>
+  <div
+    class="c2 content content--sidebar"
+    data-role="application-frame-content"
+  >
+    <div
+      class="c3 sidebar sidebar--expanded sidebar--overlap sidebar--collapsible"
+      data-role="application-frame-sidebar-wrapper"
+    >
+      <div
+        class="c4 c5"
+        data-role="resizable-handler-wrapper"
+      >
+        <div
+          class="c6 sidebar__container"
+          data-role="application-frame-sidebar"
+        >
+          <div>
+            sub
+          </div>
+        </div>
+        <div
+          class="c7 c8 sidebar__trigger sidebar__trigger--largeView sidebar__trigger--closed"
+          data-role="application-frame-toggle-sidebar-button"
+        >
+          <button
+            aria-expanded="true"
+            aria-label="Collapse sidebar"
+            class="c9 button button--icon c10"
+            data-role="button"
+            data-type="icon"
+            title="Collapse sidebar"
+            type="button"
+          >
+            <i
+              class="c11 c12 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                chevron_left
+              </span>
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13 main__container main__container--animation main__container--collapsed"
+      data-role="application-frame-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+  <div
+    class="c7 c14 sidebar__trigger sidebar__trigger--smallView sidebar__trigger--closed"
+    data-role="application-frame-toggle-sidebar-button"
+  >
+    <button
+      aria-expanded="true"
+      aria-label="Collapse sidebar"
+      class="c9 button button--icon c10"
+      data-role="button"
+      data-type="icon"
+      title="Collapse sidebar"
+      type="button"
+    >
+      <i
+        class="c11 c12 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;

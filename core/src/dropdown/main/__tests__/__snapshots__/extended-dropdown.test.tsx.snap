@@ -1,0 +1,269 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.extended-dropdown > extended-dropdown 1`] = `
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c4 {
+  background-color: rgb(89, 102, 115);
+  color: rgb(255, 255, 255);
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+}
+
+.c3 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-weight: 600;
+}
+
+.c5 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c6 {
+  color: rgb(89, 102, 115);
+  font-size: 0.625rem;
+  margin: 2px 0px 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c2::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c2:not(:focus)::after {
+  border-bottom: 1px solid rgb(226, 230, 233);
+  content: "";
+}
+
+.c2:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    cursor: default;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c2:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 dropdown"
+  data-role="dropdown"
+  role="presentation"
+  tabindex="0"
+>
+  <div
+    class="c1 dropdown__content"
+    data-role="dropdown-content"
+    role="listbox"
+  >
+    <div
+      aria-selected="false"
+      class="c2 dropdown__item dropdown__item--extended"
+      data-preselect="false"
+      data-role="dropdown-item"
+      role="option"
+    >
+      <div
+        class="c3 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Cost Report
+      </div>
+    </div>
+    <div
+      class="c4 dropdown__section section-class"
+      data-role="dropdown-section-item"
+      id="section-id"
+      style="color: red;"
+    >
+      <div
+        class="c5 dropdown__text"
+      >
+        Cost Report with something
+      </div>
+      <div
+        class="dropdown__section-secondaryText"
+      >
+        Section Secondary Text
+      </div>
+    </div>
+    <div
+      aria-describedby="section-id"
+      aria-selected="false"
+      class="c2 dropdown__item dropdown__item--extended"
+      data-preselect="false"
+      data-role="dropdown-item"
+      role="option"
+    >
+      <div
+        class="c3 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Costs
+      </div>
+      <div
+        class="c6 dropdown__secondary-text"
+        data-role="dropdown-secondary-text"
+      >
+        Secondary text
+      </div>
+    </div>
+    <div
+      aria-describedby="section-id"
+      aria-selected="false"
+      class="c2 dropdown__item dropdown__item--extended"
+      data-preselect="false"
+      data-role="dropdown-item"
+      role="option"
+    >
+      <div
+        class="c3 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Insurance Company
+      </div>
+    </div>
+    <div
+      class="c4 dropdown__section"
+      data-role="dropdown-section-item"
+      id="section-2"
+    >
+      <div
+        class="c5 dropdown__text"
+      >
+        Offer
+      </div>
+    </div>
+    <div
+      aria-describedby="section-2"
+      aria-selected="false"
+      class="c2 dropdown__item dropdown__item--extended"
+      data-preselect="false"
+      data-role="dropdown-item"
+      role="option"
+    >
+      <div
+        class="c3 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Coverage
+      </div>
+    </div>
+    <div
+      aria-describedby="section-2"
+      aria-selected="false"
+      class="c2 dropdown__item dropdown__item--extended"
+      data-preselect="false"
+      data-role="dropdown-item"
+      role="option"
+    >
+      <div
+        class="c3 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Clauses
+      </div>
+    </div>
+  </div>
+</div>
+`;

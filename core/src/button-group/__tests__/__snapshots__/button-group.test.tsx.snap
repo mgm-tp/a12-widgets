@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.button-group > rendering-additional-class-when-defined 1`] = `
+.c0 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+<div
+  class="c0 button-group test"
+  data-role="button-group"
+  style="color: red;"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.button-group > rendering-button-group-by-default 1`] = `
+.c0 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+<div
+  class="c0 button-group"
+  data-role="button-group"
+  id="button-group-id"
+>
+  <button
+    type="button"
+  />
+  <button
+    type="button"
+  />
+  <button
+    type="button"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.button-group > rendering-vertical-button-group 1`] = `
+.c0 {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 8px;
+  align-items: stretch;
+}
+
+<div
+  class="c0 button-group"
+  data-role="button-group"
+>
+  <button
+    type="button"
+  />
+  <button
+    type="button"
+  />
+  <button
+    type="button"
+  />
+</div>
+`;

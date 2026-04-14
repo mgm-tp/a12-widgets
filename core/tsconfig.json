@@ -1,0 +1,15 @@
+{
+	"extends": "../tsconfig.json",
+	"include": ["./src"],
+	"exclude": ["./scripts", "./node_modules"],
+	"compilerOptions": {
+		"outDir": "./lib",
+		"rootDir": "./src",
+		"typeRoots": ["./node_modules/@types", "./src/@types"],
+		"paths": {
+			"test-utils": ["./src/common/test/test-utils.tsx"]
+		},
+		"noEmit": true,
+		"tsBuildInfoFile": "target/tsconfig.tsbuildinfo"
+	}
+}

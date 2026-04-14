@@ -1,0 +1,1504 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.simple-pagination > render all disabled simple pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c6 .c3 {
+  user-select: none;
+}
+
+.c6 .c3 {
+  color: inherit;
+}
+
+.c6 .c3 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c3 {
+  display: block;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c1 .c3 {
+  user-select: none;
+}
+
+.c1 .c3 {
+  color: inherit;
+}
+
+.c1 .c3 {
+  font-size: inherit;
+}
+
+.c1.c1 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c3 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+}
+
+.c5 {
+  align-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  margin: 0px 4px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.c2 {
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+  color: rgb(255, 255, 255);
+  opacity: 0.3;
+}
+
+.c2:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c2:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+<div
+  class="c0 simple-pagination"
+  data-role="simple-pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="true"
+    aria-label="Previous page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_left
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 simple-pagination__label"
+    data-role="simple-pagination-label"
+  >
+    3/5
+  </div>
+  <button
+    aria-disabled="true"
+    aria-label="Next page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_right
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.simple-pagination > render left aligned simple pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c1 .c3 {
+  user-select: none;
+}
+
+.c1 .c3 {
+  color: inherit;
+}
+
+.c1 .c3 {
+  font-size: inherit;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c3 {
+  display: block;
+}
+
+.c6 .c3 {
+  user-select: none;
+}
+
+.c6 .c3 {
+  color: inherit;
+}
+
+.c6 .c3 {
+  font-size: inherit;
+}
+
+.c6.c6 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c3 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  float: left;
+  margin-right: auto;
+  order: 1;
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+}
+
+.c5 {
+  align-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  margin: 0px 4px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.c2 {
+  color: rgb(255, 255, 255);
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+}
+
+.c2.c2:focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+.c2:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c2:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c2.c2:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 simple-pagination"
+  data-role="simple-pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="false"
+    aria-label="Previous page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_left
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 simple-pagination__label"
+    data-role="simple-pagination-label"
+  >
+    3/5
+  </div>
+  <button
+    aria-disabled="false"
+    aria-label="Next page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_right
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.simple-pagination > render right aligned simple pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c1 .c3 {
+  user-select: none;
+}
+
+.c1 .c3 {
+  color: inherit;
+}
+
+.c1 .c3 {
+  font-size: inherit;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c3 {
+  display: block;
+}
+
+.c6 .c3 {
+  user-select: none;
+}
+
+.c6 .c3 {
+  color: inherit;
+}
+
+.c6 .c3 {
+  font-size: inherit;
+}
+
+.c6.c6 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c3 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  float: right;
+  margin-left: auto;
+  order: 1;
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+}
+
+.c5 {
+  align-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  margin: 0px 4px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.c2 {
+  color: rgb(255, 255, 255);
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+}
+
+.c2.c2:focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+.c2:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c2:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c2.c2:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 simple-pagination"
+  data-role="simple-pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="false"
+    aria-label="Previous page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_left
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 simple-pagination__label"
+    data-role="simple-pagination-label"
+  >
+    3/5
+  </div>
+  <button
+    aria-disabled="false"
+    aria-label="Next page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_right
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.simple-pagination > render simple pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c1 .c3 {
+  user-select: none;
+}
+
+.c1 .c3 {
+  color: inherit;
+}
+
+.c1 .c3 {
+  font-size: inherit;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c3 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+}
+
+.c5 {
+  align-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  margin: 0px 4px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.c2 {
+  color: rgb(255, 255, 255);
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+}
+
+.c2.c2:focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+.c2:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c2:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c2.c2:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 simple-pagination"
+  data-role="simple-pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="false"
+    aria-label="Previous page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_left
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 simple-pagination__label"
+    data-role="simple-pagination-label"
+  >
+    3/5
+  </div>
+  <button
+    aria-disabled="false"
+    aria-label="Next page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_right
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.simple-pagination > render simple pagination with disabled navigation button when current page is first page 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c6 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c6 .c3 {
+  user-select: none;
+}
+
+.c6 .c3 {
+  color: inherit;
+}
+
+.c6 .c3 {
+  font-size: inherit;
+}
+
+.c6:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c3 {
+  display: block;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c1 .c3 {
+  user-select: none;
+}
+
+.c1 .c3 {
+  color: inherit;
+}
+
+.c1 .c3 {
+  font-size: inherit;
+}
+
+.c1.c1 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c3 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+}
+
+.c5 {
+  align-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  margin: 0px 4px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.c7 {
+  color: rgb(255, 255, 255);
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+}
+
+.c7.c7:focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+.c7:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c7:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+.c2 {
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+  color: rgb(255, 255, 255);
+  opacity: 0.3;
+}
+
+.c2:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c2:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+@media (pointer: coarse) {
+  .c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7.c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c7.c7:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 simple-pagination"
+  data-role="simple-pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="true"
+    aria-label="Previous page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_left
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 simple-pagination__label"
+    data-role="simple-pagination-label"
+  >
+    1/5
+  </div>
+  <button
+    aria-disabled="false"
+    aria-label="Next page"
+    class="c6 button button--icon c7 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_right
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.simple-pagination > render simple pagination with disabled navigation button when current page is last page 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c1 .c3 {
+  user-select: none;
+}
+
+.c1 .c3 {
+  color: inherit;
+}
+
+.c1 .c3 {
+  font-size: inherit;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c3 {
+  display: block;
+}
+
+.c6 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c6 .c3 {
+  user-select: none;
+}
+
+.c6 .c3 {
+  color: inherit;
+}
+
+.c6 .c3 {
+  font-size: inherit;
+}
+
+.c6.c6 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c3 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+}
+
+.c5 {
+  align-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  margin: 0px 4px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.c2 {
+  color: rgb(255, 255, 255);
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+}
+
+.c2.c2:focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+.c2:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c2:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+.c7 {
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+  color: rgb(255, 255, 255);
+  opacity: 0.3;
+}
+
+.c7:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c7:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c2.c2:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 simple-pagination"
+  data-role="simple-pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="false"
+    aria-label="Previous page"
+    class="c1 button button--icon c2 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_left
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 simple-pagination__label"
+    data-role="simple-pagination-label"
+  >
+    5/5
+  </div>
+  <button
+    aria-disabled="true"
+    aria-label="Next page"
+    class="c6 button button--icon c7 simple-pagination__action"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon simple-pagination__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_right
+      </span>
+    </i>
+  </button>
+</div>
+`;

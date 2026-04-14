@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.row-segments > default 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+<div
+  class="c0 table__contentRow--left"
+  data-role="table-body-row--left"
+/>
+`;

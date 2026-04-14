@@ -1,0 +1,41 @@
+{
+	"name": "@com.mgmtp.a12.widgets/widgets-storybook",
+	"private": true,
+	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
+	"version": "38.3.3",
+	"type": "module",
+	"scripts": {
+		"clean": "rimraf ./storybook-static target",
+		"lint:eslint": "eslint --quiet --cache --cache-location target/.eslintcache",
+		"start": "storybook dev -p 6006",
+		"compile": "pnpm \"/^compile:.*/\"",
+		"compile:storybook-build": "storybook build",
+		"compile:typescript": "tsc -b"
+	},
+	"dependencies": {
+		"@com.mgmtp.a12.widgets/widgets-core": "workspace:*",
+		"date-fns": "^4.1.0",
+		"lodash-es": "^4.18.1",
+		"react": "^19.2.5",
+		"react-dom": "^19.2.5",
+		"styled-components": "6.1.19"
+	},
+	"devDependencies": {
+		"rimraf": "^6.1.2",
+		"@storybook/addon-a11y": "^10.3.5",
+		"@storybook/addon-docs": "^10.3.5",
+		"@storybook/addon-themes": "^10.3.5",
+		"@storybook/addon-vitest": "^10.3.5",
+		"@storybook/react": "^10.3.5",
+		"@storybook/react-vite": "^10.3.5",
+		"@types/lodash-es": "^4.17.12",
+		"@types/node": "^24.10.1",
+		"@types/react": "^19.2.6",
+		"@types/react-dom": "^19.2.3",
+		"@types/styled-components": "^5.1.36",
+		"@vitejs/plugin-react": "^6.0.1",
+		"storybook": "^10.3.5",
+		"typescript": "~5.8.2",
+		"vite": "^8.0.8"
+	}
+}

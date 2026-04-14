@@ -1,0 +1,5658 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c5 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c6 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c6 .c7 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c10.c10 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c11 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c14 {
+  font-size: 1.5rem;
+}
+
+.c15 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c17 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c17 .c9 {
+  flex: 1 1 0%;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  isolation: isolate;
+  max-width: none;
+  margin: 2px 8px;
+  width: auto;
+}
+
+.c1 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c9 {
+  flex: 1 1 0%;
+}
+
+.c1 .c4 {
+  bottom: 0px;
+  opacity: 1;
+  left: 0px;
+  position: absolute;
+  visibility: visible;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-exit {
+  animation: 0.35s ease 0s 1 normal none running k2;
+  opacity: 0;
+  transition-delay: 0.35s;
+  visibility: hidden;
+}
+
+.c2 .toast-exit:not(:last-child) {
+  animation: auto ease 0s 1 normal none running none;
+}
+
+.c3:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes k2 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 toast-group--mobile toast-group"
+          data-role="toast-group"
+          style="bottom: 0px; right: 0px; left: 0px;"
+          tabindex="-1"
+        >
+          <div
+            class="c2 toast-container"
+            data-role="toast-container"
+            tabindex="-1"
+          >
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="1"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="2"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="3"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c14 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c14 > span {
+  display: inline-block;
+}
+
+.c14.c14 {
+  max-width: unset;
+}
+
+.c19 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c19 .c13 {
+  user-select: none;
+}
+
+.c19 .c13 {
+  color: inherit;
+}
+
+.c19 .c13 {
+  font-size: inherit;
+}
+
+.c19:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c13 {
+  display: block;
+}
+
+.c5 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c5 .c13 {
+  user-select: none;
+}
+
+.c5 .c13 {
+  color: inherit;
+}
+
+.c5:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c13 {
+  display: block;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.c10 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c12 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c12 .c13 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c16 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c16.c16 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c17 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c18 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c20 {
+  font-size: 1.5rem;
+}
+
+.c21 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c22 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c23 .c9 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c23 .c15 {
+  flex: 1 1 0%;
+}
+
+.c24 .c9 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c24 .c15 {
+  flex: 1 1 0%;
+}
+
+.c24 .c9 {
+  bottom: 0px;
+  opacity: 1;
+  left: 0px;
+  position: absolute;
+  visibility: visible;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c9 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c15 {
+  flex: 1 1 0%;
+}
+
+.c1 .c15 {
+  max-width: none;
+}
+
+.c1 .c7 {
+  margin-bottom: calc(10px);
+}
+
+.c1 .c7,
+.c1 .c9 {
+  margin-top: 0px;
+}
+
+.c1 .c11 {
+  box-shadow: rgb(169, 179, 188) 15px 5px, rgb(226, 230, 233) 30px calc(10px);
+  transition: 0.2s ease-in;
+}
+
+.c1 .c11::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.c1 .c11::after {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.c1 .c15 {
+  box-shadow: rgb(169, 179, 188) 5px 5px, rgb(226, 230, 233) calc(10px) calc(10px);
+  margin-right: calc(10px);
+  transition: 0.2s ease-in;
+}
+
+.c1 .c15::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.c1 .c15::after {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.c6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c6 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c6 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c6 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c6 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c6 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c6 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c6 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c6 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c8:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+.c2 {
+  align-items: center;
+  background: rgb(241, 242, 244);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 0px 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: calc(10px);
+  padding: 8px;
+  position: sticky;
+  top: 0px;
+  transition: 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+@media (pointer: coarse) {
+  .c19:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c19:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c11,
+  .c1:hover .c15 {
+    box-shadow: none;
+    transition: 0.2s ease-in-out;
+    position: relative;
+  }
+
+  .c1:hover .c11::before {
+    box-shadow: rgb(169, 179, 188) 15px 5px;
+    transition: 0.2s ease-in;
+  }
+
+  .c1:hover .c15::before {
+    box-shadow: rgb(169, 179, 188) 15px calc(6px);
+    transition: 0.2s ease-in;
+    width: calc(100% - 30px);
+    z-index: -1;
+  }
+
+  .c1:hover .c11::after {
+    box-shadow: rgb(226, 230, 233) 30px calc(10px);
+    transition: 0.2s ease-in;
+    z-index: -2;
+  }
+
+  .c1:hover .c15::after {
+    box-shadow: rgb(226, 230, 233) 30px calc(11px);
+    transition: 0.2s ease-in;
+    width: calc(100% - 60px);
+    z-index: -2;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes k2 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          aria-atomic="false"
+          role="status"
+        >
+          <div
+            class="c1 toast-group"
+            data-role="toast-group"
+            style="top: 0px; right: 0px;"
+            tabindex="-1"
+          >
+            <div
+              class="c2"
+              data-role="toast-group-toolbar"
+            >
+              <div
+                aria-level="2"
+                class="c3"
+                data-role="toast-group-toolbar-title"
+                role="heading"
+              >
+                Test
+              </div>
+              <div
+                class="c4 button-group"
+                data-role="button-group"
+              >
+                <button
+                  class="c5 button button--secondary"
+                  data-role="button"
+                  title=""
+                  type="button"
+                >
+                  <span
+                    data-role="button-label"
+                  >
+                    test button
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="c6 toast-container"
+              data-role="toast-container"
+              tabindex="-1"
+            >
+              <div
+                class="c7 c8"
+              >
+                <div
+                  class="c9 c10 toast toast--info"
+                  data-role="toast"
+                  id="3"
+                  tabindex="-1"
+                >
+                  <div
+                    class="c11 c12 toast__left"
+                    data-role="toast-left"
+                  >
+                    <i
+                      class="c13 c14 plasma-icon"
+                      data-role="plasma-icon"
+                    >
+                      <span
+                        aria-hidden="true"
+                      >
+                        info
+                      </span>
+                    </i>
+                  </div>
+                  <div
+                    class="c15 c16 toast__right"
+                    data-role="toast-right"
+                  >
+                    <div
+                      class="c17 toast__header"
+                      data-role="toast-header"
+                    >
+                      <div
+                        class="c18 toast__actions"
+                        data-role="toast-action"
+                      >
+                        <button
+                          aria-label="Close"
+                          class="c19 button button--icon c20"
+                          data-role="button"
+                          data-type="icon"
+                          title="Close"
+                          type="button"
+                        >
+                          <i
+                            class="c13 c14 plasma-icon"
+                            data-role="plasma-icon"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              close
+                            </span>
+                          </i>
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="c21 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c22 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c14 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c14 > span {
+  display: inline-block;
+}
+
+.c14.c14 {
+  max-width: unset;
+}
+
+.c19 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c19 .c13 {
+  user-select: none;
+}
+
+.c19 .c13 {
+  color: inherit;
+}
+
+.c19 .c13 {
+  font-size: inherit;
+}
+
+.c19:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c13 {
+  display: block;
+}
+
+.c5 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c5 .c13 {
+  user-select: none;
+}
+
+.c5 .c13 {
+  color: inherit;
+}
+
+.c5:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c13 {
+  display: block;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.c10 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c12 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c12 .c13 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c16 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c16.c16 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c17 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c18 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c20 {
+  font-size: 1.5rem;
+}
+
+.c21 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c22 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c23 .c9 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c23 .c15 {
+  flex: 1 1 0%;
+}
+
+.c24 .c9 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c24 .c15 {
+  flex: 1 1 0%;
+}
+
+.c24 .c9 {
+  bottom: 0px;
+  opacity: 1;
+  left: 0px;
+  position: absolute;
+  visibility: visible;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c9 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c15 {
+  flex: 1 1 0%;
+}
+
+.c1 .c15 {
+  max-width: none;
+}
+
+.c1 .c7 {
+  margin-bottom: calc(10px);
+}
+
+.c1 .c7,
+.c1 .c9 {
+  margin-top: 0px;
+}
+
+.c1 .c11 {
+  box-shadow: rgb(169, 179, 188) 15px 5px, rgb(226, 230, 233) 30px calc(10px);
+  transition: 0.2s ease-in;
+}
+
+.c1 .c11::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.c1 .c11::after {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.c1 .c15 {
+  box-shadow: rgb(169, 179, 188) 5px 5px, rgb(226, 230, 233) calc(10px) calc(10px);
+  margin-right: calc(10px);
+  transition: 0.2s ease-in;
+}
+
+.c1 .c15::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.c1 .c15::after {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.c6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c6 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c6 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c6 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c6 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c6 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c6 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c6 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c6 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c8:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+.c2 {
+  align-items: center;
+  background: rgb(241, 242, 244);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 0px 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: calc(10px);
+  padding: 8px;
+  position: sticky;
+  top: 0px;
+  transition: 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+@media (pointer: coarse) {
+  .c19:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c19:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c11,
+  .c1:hover .c15 {
+    box-shadow: none;
+    transition: 0.2s ease-in-out;
+    position: relative;
+  }
+
+  .c1:hover .c11::before {
+    box-shadow: rgb(169, 179, 188) 15px 5px;
+    transition: 0.2s ease-in;
+  }
+
+  .c1:hover .c15::before {
+    box-shadow: rgb(169, 179, 188) 15px calc(6px);
+    transition: 0.2s ease-in;
+    width: calc(100% - 30px);
+    z-index: -1;
+  }
+
+  .c1:hover .c11::after {
+    box-shadow: rgb(226, 230, 233) 30px calc(10px);
+    transition: 0.2s ease-in;
+    z-index: -2;
+  }
+
+  .c1:hover .c15::after {
+    box-shadow: rgb(226, 230, 233) 30px calc(11px);
+    transition: 0.2s ease-in;
+    width: calc(100% - 60px);
+    z-index: -2;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes k2 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          aria-atomic="false"
+          role="status"
+        >
+          <div
+            class="c1 toast-group"
+            data-role="toast-group"
+            style="top: 0px; right: 0px;"
+            tabindex="-1"
+          >
+            <div
+              class="c2"
+              data-role="toast-group-toolbar"
+            >
+              <div
+                aria-level="2"
+                class="c3"
+                data-role="toast-group-toolbar-title"
+                role="heading"
+              >
+                Test
+              </div>
+              <div
+                class="c4 button-group"
+                data-role="button-group"
+              >
+                <button
+                  class="c5 button button--secondary"
+                  data-role="button"
+                  title=""
+                  type="button"
+                >
+                  <span
+                    data-role="button-label"
+                  >
+                    test button
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="c6 toast-container"
+              data-role="toast-container"
+              tabindex="-1"
+            >
+              <div
+                class="c7 c8"
+              >
+                <div
+                  class="c9 c10 toast toast--info"
+                  data-role="toast"
+                  id="3"
+                  tabindex="-1"
+                >
+                  <div
+                    class="c11 c12 toast__left"
+                    data-role="toast-left"
+                  >
+                    <i
+                      class="c13 c14 plasma-icon"
+                      data-role="plasma-icon"
+                    >
+                      <span
+                        aria-hidden="true"
+                      >
+                        info
+                      </span>
+                    </i>
+                  </div>
+                  <div
+                    class="c15 c16 toast__right"
+                    data-role="toast-right"
+                  >
+                    <div
+                      class="c17 toast__header"
+                      data-role="toast-header"
+                    >
+                      <div
+                        class="c18 toast__actions"
+                        data-role="toast-action"
+                      >
+                        <button
+                          aria-label="Close"
+                          class="c19 button button--icon c20"
+                          data-role="button"
+                          data-type="icon"
+                          title="Close"
+                          type="button"
+                        >
+                          <i
+                            class="c13 c14 plasma-icon"
+                            data-role="plasma-icon"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              close
+                            </span>
+                          </i>
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="c21 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c22 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c5 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c6 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c6 .c7 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c10.c10 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c11 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c14 {
+  font-size: 1.5rem;
+}
+
+.c15 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c9 {
+  flex: 1 1 0%;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c2 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c2 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c2 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c3:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 toast-group"
+          data-role="toast-group"
+          style="top: 0px; left: 0px;"
+          tabindex="-1"
+        >
+          <div
+            class="c2 toast-container"
+            data-role="toast-container"
+            tabindex="-1"
+          >
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="3"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="2"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="1"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c5 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c6 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c6 .c7 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c10.c10 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c11 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c14 {
+  font-size: 1.5rem;
+}
+
+.c15 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c9 {
+  flex: 1 1 0%;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c2 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c2 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c2 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c3:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 toast-group"
+          data-role="toast-group"
+          style="top: 0px; left: 0px;"
+          tabindex="-1"
+        >
+          <div
+            class="c2 toast-container"
+            data-role="toast-container"
+            tabindex="-1"
+          >
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="1"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="2"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="3"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c5 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c6 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c6 .c7 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c10.c10 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c11 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c14 {
+  font-size: 1.5rem;
+}
+
+.c15 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c9 {
+  flex: 1 1 0%;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c2 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c2 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c2 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c3:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 toast-group"
+          data-role="toast-group"
+          style="top: 0px; right: 0px;"
+          tabindex="-1"
+        >
+          <div
+            class="c2 toast-container"
+            data-role="toast-container"
+            tabindex="-1"
+          >
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="1"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="2"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="3"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c5 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c6 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c6 .c7 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c10.c10 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c11 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c14 {
+  font-size: 1.5rem;
+}
+
+.c15 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c9 {
+  flex: 1 1 0%;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c2 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c2 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c2 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c3:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 toast-group"
+          data-role="toast-group"
+          style="bottom: 0px; left: 0px;"
+          tabindex="-1"
+        >
+          <div
+            class="c2 toast-container"
+            data-role="toast-container"
+            tabindex="-1"
+          >
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="3"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="2"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="1"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c5 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c6 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c6 .c7 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c10.c10 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c11 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c14 {
+  font-size: 1.5rem;
+}
+
+.c15 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c9 {
+  flex: 1 1 0%;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c2 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c2 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c2 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c3:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 toast-group"
+          data-role="toast-group"
+          style="bottom: 0px; right: 0px;"
+          tabindex="-1"
+        >
+          <div
+            class="c2 toast-container"
+            data-role="toast-container"
+            tabindex="-1"
+          >
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="3"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="2"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="1"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c5 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c6 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c6 .c7 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c10.c10 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c11 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c14 {
+  font-size: 1.5rem;
+}
+
+.c15 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c9 {
+  flex: 1 1 0%;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c2 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c2 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c2 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c3:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 toast-group test-class"
+          data-role="toast-group"
+          id="test-id"
+          style="font-size: 10px; top: 0px; right: 0px;"
+          tabindex="-1"
+        >
+          <div
+            class="c2 toast-container"
+            data-role="toast-container"
+            tabindex="-1"
+          >
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="1"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="2"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="3"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group structure 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c5 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c6 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c6 .c7 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c10.c10 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c11 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c14 {
+  font-size: 1.5rem;
+}
+
+.c15 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.c1 {
+  box-sizing: border-box;
+  position: fixed;
+  padding: 4px 4px 8px 8px;
+  outline: none;
+  width: 496px;
+  max-width: calc(100% - 16px);
+  isolation: isolate;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.c1 .c4 {
+  margin: 4px 0px;
+  pointer-events: auto;
+  width: 100%;
+}
+
+.c1 .c9 {
+  flex: 1 1 0%;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c2 .toast-enter {
+  animation: 0.2s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-stacked-enter {
+  animation: 0.5s ease 0s 1 normal none running k0;
+}
+
+.c2 .toast-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.2s 0.25s, padding 0.2s;
+}
+
+.c2 .toast-stacked-exit {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden;
+  margin: 0px;
+  transition: 0.35s 0.25s;
+}
+
+.c2 .toast-stacked-exit * {
+  margin: 0px;
+  padding: 0px;
+  transition: margin 0.5s 0.25s, padding 0.5s;
+}
+
+.c2 .toast-exit-active {
+  animation: 0.35s ease 0s 1 normal forwards running k1;
+}
+
+.c2 .toast-stacked-exit-active {
+  animation: 0s ease 0s 1 normal forwards running k1;
+}
+
+.c3:nth-last-child(2):not(.toast-exit) {
+  transition: visibility linear 0.35s, opacity 0.35s;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    max-height: 9999px;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 toast-group"
+          data-role="toast-group"
+          style="top: 0px; right: 0px;"
+          tabindex="-1"
+        >
+          <div
+            class="c2 toast-container"
+            data-role="toast-container"
+            tabindex="-1"
+          >
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="1"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="2"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="c3"
+            >
+              <div
+                class="c4 c5 toast toast--info"
+                data-role="toast"
+                id="3"
+                style="outline: none;"
+                tabindex="-1"
+              >
+                <div
+                  class="c6 toast__left"
+                  data-role="toast-left"
+                >
+                  <i
+                    class="c7 c8 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      info
+                    </span>
+                  </i>
+                </div>
+                <div
+                  class="c9 c10 toast__right"
+                  data-role="toast-right"
+                >
+                  <div
+                    class="c11 toast__header"
+                    data-role="toast-header"
+                  >
+                    <div
+                      class="c12 toast__actions"
+                      data-role="toast-action"
+                    >
+                      <button
+                        aria-label="Close"
+                        class="c13 button button--icon c14"
+                        data-role="button"
+                        data-type="icon"
+                        title="Close"
+                        type="button"
+                      >
+                        <i
+                          class="c7 c8 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="c15 toast__content"
+                    data-role="toast-content"
+                  >
+                    <div
+                      class="c16 toast__message"
+                      data-role="toast-message"
+                    >
+                      message 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

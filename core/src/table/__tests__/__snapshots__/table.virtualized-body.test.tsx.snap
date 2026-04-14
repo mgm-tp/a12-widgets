@@ -1,0 +1,479 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.virtualized-body > List 1`] = `
+.c2 {
+  display: flex;
+  position: relative;
+}
+
+.c3 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c3::before,
+.c3::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c3::before {
+  right: 0px;
+}
+
+.c3::after {
+  display: block;
+}
+
+.c3:focus.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3:focus::before {
+  box-sizing: border-box;
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3:focus::after {
+  background-color: rgb(213, 0, 117);
+  background-clip: padding-box;
+  border-left-width: 2px;
+  box-sizing: border-box;
+  margin: 1px 0px 1px 1px;
+  width: 2px;
+}
+
+.c0 {
+  border-width: 1px 1px medium;
+  border-style: solid solid none;
+  border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
+  border-image: initial;
+  outline: none;
+}
+
+.c0:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c0:not(:empty) {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+}
+
+.c1 .ReactVirtualized__List {
+  border: 1px solid rgb(241, 242, 244);
+  outline: none;
+}
+
+.c1 .ReactVirtualized__List:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active.c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    cursor: pointer;
+  }
+
+  .c3:hover.c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c3:not(:focus):active::before {
+    border-width: medium medium 1px;
+    border-style: none none solid;
+    border-color: currentcolor currentcolor rgb(211, 214, 220);
+    border-image: initial;
+    box-sizing: border-box;
+  }
+
+  .c3:not(:focus):active::after {
+    box-sizing: border-box;
+  }
+}
+
+<div
+  class="c0 table__content c1"
+  data-role="table-body"
+  style="position: relative;"
+  tabindex="-1"
+>
+  <div
+    style="overflow: visible; height: 0px; width: 0px;"
+  >
+    <div
+      aria-label="Table body"
+      aria-readonly="true"
+      class="ReactVirtualized__Grid ReactVirtualized__List"
+      role="rowgroup"
+      style="box-sizing: border-box; direction: ltr; height: 1px; position: relative; width: 1280px; will-change: transform; overflow: hidden auto; color: red;"
+      tabindex="0"
+    >
+      <div
+        class="ReactVirtualized__Grid__innerScrollContainer"
+        role="rowgroup"
+        style="width: auto; height: 500px; max-width: 1280px; max-height: 500px; overflow: hidden; position: relative;"
+      >
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 50px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 100px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 150px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 200px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 250px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 300px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 350px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 400px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="gridcell"
+          style="height: 50px; left: 0px; position: absolute; top: 450px; width: 100%;"
+          tabindex="0"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="resize-triggers"
+  >
+    <div
+      class="expand-trigger"
+    >
+      <div
+        style="width: 1279px; height: 1px;"
+      />
+    </div>
+    <div
+      class="contract-trigger"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.virtualized-body > TableTemplate.Body 1`] = `
+.c2 {
+  display: flex;
+  position: relative;
+}
+
+.c3 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c3::before,
+.c3::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c3::before {
+  right: 0px;
+}
+
+.c3::after {
+  display: block;
+}
+
+.c3:focus.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3:focus::before {
+  box-sizing: border-box;
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3:focus::after {
+  background-color: rgb(213, 0, 117);
+  background-clip: padding-box;
+  border-left-width: 2px;
+  box-sizing: border-box;
+  margin: 1px 0px 1px 1px;
+  width: 2px;
+}
+
+.c0 {
+  border-width: 1px 1px medium;
+  border-style: solid solid none;
+  border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
+  border-image: initial;
+  outline: none;
+}
+
+.c0:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c0:not(:empty) {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+}
+
+.c1 .ReactVirtualized__List {
+  border: 1px solid rgb(241, 242, 244);
+  outline: none;
+}
+
+.c1 .ReactVirtualized__List:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active.c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    cursor: pointer;
+  }
+
+  .c3:hover.c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c3:not(:focus):active::before {
+    border-width: medium medium 1px;
+    border-style: none none solid;
+    border-color: currentcolor currentcolor rgb(211, 214, 220);
+    border-image: initial;
+    box-sizing: border-box;
+  }
+
+  .c3:not(:focus):active::after {
+    box-sizing: border-box;
+  }
+}
+
+<div
+  class="c0 table__content c1"
+  data-role="table-body"
+  style="position: relative;"
+  tabindex="-1"
+>
+  <div
+    style="overflow: visible; height: 0px; width: 0px;"
+  >
+    <div
+      aria-label="Table body"
+      aria-readonly="true"
+      class="ReactVirtualized__Grid ReactVirtualized__List"
+      role="rowgroup"
+      style="box-sizing: border-box; direction: ltr; height: 1px; position: relative; width: 1280px; will-change: transform; overflow: hidden;"
+      tabindex="0"
+    >
+      <div
+        class="ReactVirtualized__Grid__innerScrollContainer"
+        role="rowgroup"
+        style="width: auto; height: 0px; max-width: 1280px; max-height: 0px; overflow: hidden; position: relative;"
+      >
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+        <div
+          aria-selected="false"
+          class="c2 c3 table__contentRow table__contentRow--interactive"
+          data-role="table-body-row"
+          role="row"
+          style="height: 0px; left: 0px; position: absolute; top: 0px; width: 100%;"
+          tabindex="0"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="resize-triggers"
+  >
+    <div
+      class="expand-trigger"
+    >
+      <div
+        style="width: 1279px; height: 1px;"
+      />
+    </div>
+    <div
+      class="contract-trigger"
+    />
+  </div>
+</div>
+`;

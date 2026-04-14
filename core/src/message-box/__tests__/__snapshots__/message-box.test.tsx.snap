@@ -1,0 +1,1217 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.message-box > default-message-box 1`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c7.c7 {
+  color: rgb(201, 29, 29);
+}
+
+.c0 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  border: 2px solid rgb(201, 29, 29);
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.c9 {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0px 16px 8px calc(56px);
+}
+
+.c9 > * {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  outline: none;
+}
+
+.c4 {
+  align-content: center;
+  display: flex;
+  margin-right: 16px;
+}
+
+.c4 .c5 {
+  font-size: 1.5rem;
+}
+
+.c8 {
+  line-height: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 768px) {
+  .c1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c9 {
+    border-top: 2px solid rgb(226, 230, 233);
+    align-items: flex-start;
+  }
+}
+
+<div
+  class="c0 messageBox messageBox--error"
+  data-role="messagebox"
+>
+  <div
+    class="c1 messageBox__mainContainer"
+    data-role="messagebox-main"
+  >
+    <div
+      class="c2 messageBox__title"
+      data-role="messagebox-title"
+      tabindex="-1"
+    >
+      <span
+        class="c3 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Error
+      </span>
+      <div
+        class="c4 messageBox__icon"
+        data-role="messagebox-icon"
+      >
+        <i
+          class="c5 c6 c7 plasma-icon plasma-icon--error plasma-icon--custom"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+        </i>
+      </div>
+      <div
+        class="c8 messageBox__label"
+        data-role="messagebox-label"
+      >
+        The specified attribute is not between the expected value of 0 and 100.
+      </div>
+    </div>
+  </div>
+  <div
+    class="c9 messageBox__subContainer"
+    data-role="messagebox-detail"
+  >
+    Test error message line
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.message-box > rendering-icon-as-passed-in 1`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c0 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  border: 2px solid rgb(41, 122, 36);
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.c8 {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0px 16px 8px calc(56px);
+}
+
+.c8 > * {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  outline: none;
+}
+
+.c4 {
+  align-content: center;
+  display: flex;
+  margin-right: 16px;
+}
+
+.c5 {
+  line-height: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 400px;
+}
+
+.c6 {
+  margin-left: 16px;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c8 {
+    border-top: 2px solid rgb(226, 230, 233);
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c6 {
+    margin-left: 40px;
+  }
+}
+
+<div
+  class="c0 messageBox messageBox--success"
+  data-role="messagebox"
+>
+  <div
+    class="c1 messageBox__mainContainer"
+    data-role="messagebox-main"
+  >
+    <div
+      class="c2 messageBox__title"
+      data-role="messagebox-title"
+      tabindex="-1"
+    >
+      <span
+        class="c3 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Success
+      </span>
+      <div
+        class="c4 messageBox__icon"
+        data-role="messagebox-icon"
+      >
+        icon
+      </div>
+      <div
+        class="c5 messageBox__label"
+        data-role="messagebox-label"
+      >
+        The specified attribute is not between the expected value of 0 and 100.
+      </div>
+    </div>
+    <div
+      class="c6 messageBox__action"
+      data-role="messagebox-action"
+    >
+      <button
+        class="c7 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          SHOW DETAILS
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="c8 messageBox__subContainer"
+    data-role="messagebox-detail"
+  >
+    Test success message line
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.message-box > rendering-message-box-with-variant-info 1`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c7.c7 {
+  color: rgb(5, 104, 174);
+}
+
+.c10 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c5 {
+  user-select: none;
+}
+
+.c10 .c5 {
+  color: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c5 {
+  display: block;
+}
+
+.c0 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  border: 2px solid rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.c11 {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0px 16px 8px calc(56px);
+}
+
+.c11 > * {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  outline: none;
+}
+
+.c4 {
+  align-content: center;
+  display: flex;
+  margin-right: 16px;
+}
+
+.c4 .c5 {
+  font-size: 1.5rem;
+}
+
+.c8 {
+  line-height: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 400px;
+}
+
+.c9 {
+  margin-left: 16px;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c11 {
+    border-top: 2px solid rgb(226, 230, 233);
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c9 {
+    margin-left: 40px;
+  }
+}
+
+<div
+  class="c0 messageBox messageBox--info"
+  data-role="messagebox"
+>
+  <div
+    class="c1 messageBox__mainContainer"
+    data-role="messagebox-main"
+  >
+    <div
+      class="c2 messageBox__title"
+      data-role="messagebox-title"
+      tabindex="-1"
+    >
+      <span
+        class="c3 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Information
+      </span>
+      <div
+        class="c4 messageBox__icon"
+        data-role="messagebox-icon"
+      >
+        <i
+          class="c5 c6 c7 plasma-icon plasma-icon--info"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            info
+          </span>
+        </i>
+      </div>
+      <div
+        class="c8 messageBox__label"
+        data-role="messagebox-label"
+      >
+        The specified attribute is not between the expected value of 0 and 100.
+      </div>
+    </div>
+    <div
+      class="c9 messageBox__action"
+      data-role="messagebox-action"
+    >
+      <button
+        class="c10 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          SHOW DETAILS
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="c11 messageBox__subContainer"
+    data-role="messagebox-detail"
+  >
+    Test info message line
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.message-box > rendering-message-box-with-variant-success 1`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c7.c7 {
+  color: rgb(41, 122, 36);
+}
+
+.c10 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c5 {
+  user-select: none;
+}
+
+.c10 .c5 {
+  color: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c5 {
+  display: block;
+}
+
+.c0 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  border: 2px solid rgb(41, 122, 36);
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.c11 {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0px 16px 8px calc(56px);
+}
+
+.c11 > * {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  outline: none;
+}
+
+.c4 {
+  align-content: center;
+  display: flex;
+  margin-right: 16px;
+}
+
+.c4 .c5 {
+  font-size: 1.5rem;
+}
+
+.c8 {
+  line-height: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 400px;
+}
+
+.c9 {
+  margin-left: 16px;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c11 {
+    border-top: 2px solid rgb(226, 230, 233);
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c9 {
+    margin-left: 40px;
+  }
+}
+
+<div
+  class="c0 messageBox messageBox--success"
+  data-role="messagebox"
+>
+  <div
+    class="c1 messageBox__mainContainer"
+    data-role="messagebox-main"
+  >
+    <div
+      class="c2 messageBox__title"
+      data-role="messagebox-title"
+      tabindex="-1"
+    >
+      <span
+        class="c3 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Success
+      </span>
+      <div
+        class="c4 messageBox__icon"
+        data-role="messagebox-icon"
+      >
+        <i
+          class="c5 c6 c7 plasma-icon plasma-icon--success"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            check_circle
+          </span>
+        </i>
+      </div>
+      <div
+        class="c8 messageBox__label"
+        data-role="messagebox-label"
+      >
+        The specified attribute is not between the expected value of 0 and 100.
+      </div>
+    </div>
+    <div
+      class="c9 messageBox__action"
+      data-role="messagebox-action"
+    >
+      <button
+        class="c10 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          SHOW DETAILS
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="c11 messageBox__subContainer"
+    data-role="messagebox-detail"
+  >
+    Test success message line
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.message-box > rendering-message-box-with-variant-warning 1`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c7.c7 {
+  color: rgb(175, 121, 2);
+}
+
+.c10 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c5 {
+  user-select: none;
+}
+
+.c10 .c5 {
+  color: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c5 {
+  display: block;
+}
+
+.c0 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  border: 2px solid rgb(249, 191, 48);
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.c11 {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0px 16px 8px calc(56px);
+}
+
+.c11 > * {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  outline: none;
+}
+
+.c4 {
+  align-content: center;
+  display: flex;
+  margin-right: 16px;
+}
+
+.c4 .c5 {
+  font-size: 1.5rem;
+}
+
+.c8 {
+  line-height: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 400px;
+}
+
+.c9 {
+  margin-left: 16px;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c11 {
+    border-top: 2px solid rgb(226, 230, 233);
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c9 {
+    margin-left: 40px;
+  }
+}
+
+<div
+  class="c0 messageBox messageBox--warning"
+  data-role="messagebox"
+>
+  <div
+    class="c1 messageBox__mainContainer"
+    data-role="messagebox-main"
+  >
+    <div
+      class="c2 messageBox__title"
+      data-role="messagebox-title"
+      tabindex="-1"
+    >
+      <span
+        class="c3 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Warning
+      </span>
+      <div
+        class="c4 messageBox__icon"
+        data-role="messagebox-icon"
+      >
+        <i
+          class="c5 c6 c7 plasma-icon plasma-icon--warning"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            warning
+          </span>
+        </i>
+      </div>
+      <div
+        class="c8 messageBox__label"
+        data-role="messagebox-label"
+      >
+        The specified attribute is not between the expected value of 0 and 100.
+      </div>
+    </div>
+    <div
+      class="c9 messageBox__action"
+      data-role="messagebox-action"
+    >
+      <button
+        class="c10 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          SHOW DETAILS
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="c11 messageBox__subContainer"
+    data-role="messagebox-detail"
+  >
+    Test warning message line
+  </div>
+</div>
+`;

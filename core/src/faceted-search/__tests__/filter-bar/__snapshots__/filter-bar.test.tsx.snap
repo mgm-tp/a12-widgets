@@ -1,0 +1,2892 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c16 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c9 {
+  user-select: none;
+}
+
+.c16 .c9 {
+  color: inherit;
+}
+
+.c16 .c9 {
+  font-size: inherit;
+}
+
+.c16:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c9 {
+  display: block;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c4 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c14 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c3 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c3.c3 {
+  overflow: hidden;
+}
+
+.c3::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c3:only-child::before {
+  border-radius: 4px;
+}
+
+.c3:not(:disabled) {
+  cursor: pointer;
+}
+
+.c3:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3:focus .c7,
+.c3:focus .c13 {
+  color: rgb(213, 0, 117);
+}
+
+.c3:focus .c11 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c5 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c8 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c15 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c15::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c17 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  overflow: hidden auto;
+  padding: 0px 24px;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  max-height: 144px;
+  min-width: 0px;
+  padding: 0px 1px;
+}
+
+.c1:empty {
+  display: none;
+}
+
+.c1::after {
+  content: "";
+  height: 6px;
+  width: 100%;
+}
+
+.c18 {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-height: auto;
+  padding: 6px calc(3px);
+  position: sticky;
+  top: 0px;
+  width: auto;
+}
+
+.c19 {
+  align-self: center;
+}
+
+.c19:focus {
+  color: unset;
+}
+
+@media (pointer: coarse) {
+  .c16:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active .c7,
+  .c3:active .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:active .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover .c7,
+  .c3:hover .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:hover .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: unset;
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover {
+    color: unset;
+  }
+}
+
+<div
+  aria-label="Filter bar"
+  class="c0 filter-bar filter-bar--collapsed"
+  data-role="filterbar"
+  role="region"
+>
+  <div
+    class="c1 filter-bar__content"
+    data-role="filterbar-content"
+  >
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Category
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Blue
+            , 
+            Green
+            , 
+            White
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c18 filter-bar__action h_hidden"
+    data-role="filterbar-action"
+  >
+    <button
+      aria-expanded="false"
+      aria-label="Show more filters"
+      class="c16 button button--icon c19 filter-bar__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Show more filters"
+      type="button"
+    >
+      <i
+        class="c9 c10 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          keyboard_arrow_down
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c21 .c9 {
+  user-select: none;
+}
+
+.c21 .c9 {
+  color: inherit;
+}
+
+.c21 .c9 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c9 {
+  display: block;
+}
+
+.c16 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c16 .c9 {
+  user-select: none;
+}
+
+.c16 .c9 {
+  color: inherit;
+}
+
+.c16 .c9 {
+  font-size: inherit;
+}
+
+.c16.c16 .c9 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c9 {
+  display: block;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+}
+
+.c4 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c14 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  color: rgb(169, 179, 188);
+}
+
+.c20:focus .c7,
+.c20:focus .c13 {
+  color: rgb(213, 0, 117);
+}
+
+.c20:focus .c11 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c3 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c3.c3 {
+  overflow: hidden;
+}
+
+.c3::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c3:only-child::before {
+  border-radius: 4px;
+}
+
+.c3:not(:disabled) {
+  cursor: pointer;
+}
+
+.c5 {
+  align-items: center;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+  color: rgb(169, 179, 188);
+}
+
+.c8 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+  color: rgb(169, 179, 188);
+}
+
+.c15 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c15::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c17 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  overflow: hidden auto;
+  padding: 0px 24px;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  max-height: 144px;
+  min-width: 0px;
+  padding: 0px 1px;
+}
+
+.c1:empty {
+  display: none;
+}
+
+.c1::after {
+  content: "";
+  height: 6px;
+  width: 100%;
+}
+
+.c18 {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-height: auto;
+  padding: 6px calc(3px);
+  position: sticky;
+  top: 0px;
+  width: auto;
+}
+
+.c19 {
+  align-self: center;
+}
+
+@media (pointer: coarse) {
+  .c20:active .c7,
+  .c20:active .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c20:active .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover .c7,
+  .c20:hover .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c20:hover .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  aria-label="Filter bar"
+  class="c0 filter-bar filter-bar--disabled filter-bar--collapsed"
+  data-role="filterbar"
+  role="region"
+>
+  <div
+    class="c1 filter-bar__content"
+    data-role="filterbar-content"
+  >
+    <div
+      class="c2 filter filter--disabled"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+        disabled=""
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Category
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Blue
+            , 
+            Green
+            , 
+            White
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          disabled=""
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c18 filter-bar__action h_hidden"
+    data-role="filterbar-action"
+  >
+    <button
+      aria-expanded="false"
+      aria-label="Show more filters"
+      class="c16 button button--icon c19 filter-bar__action-button"
+      data-role="button"
+      data-type="icon"
+      disabled=""
+      title="Show more filters"
+      type="button"
+    >
+      <i
+        class="c9 c10 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          keyboard_arrow_down
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-classes 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c16 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c9 {
+  user-select: none;
+}
+
+.c16 .c9 {
+  color: inherit;
+}
+
+.c16 .c9 {
+  font-size: inherit;
+}
+
+.c16:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c9 {
+  display: block;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c4 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c14 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c3 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c3.c3 {
+  overflow: hidden;
+}
+
+.c3::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c3:only-child::before {
+  border-radius: 4px;
+}
+
+.c3:not(:disabled) {
+  cursor: pointer;
+}
+
+.c3:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3:focus .c7,
+.c3:focus .c13 {
+  color: rgb(213, 0, 117);
+}
+
+.c3:focus .c11 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c5 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c8 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c15 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c15::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c17 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  overflow: hidden auto;
+  padding: 0px 24px;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  max-height: 144px;
+  min-width: 0px;
+  padding: 0px 1px;
+}
+
+.c1:empty {
+  display: none;
+}
+
+.c1::after {
+  content: "";
+  height: 6px;
+  width: 100%;
+}
+
+.c18 {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-height: auto;
+  padding: 6px calc(3px);
+  position: sticky;
+  top: 0px;
+  width: auto;
+}
+
+.c19 {
+  align-self: flex-end;
+}
+
+.c19:focus {
+  color: unset;
+}
+
+@media (pointer: coarse) {
+  .c16:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active .c7,
+  .c3:active .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:active .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover .c7,
+  .c3:hover .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:hover .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: unset;
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover {
+    color: unset;
+  }
+}
+
+<div
+  aria-label="Filter bar"
+  class="c0 filter-bar test-class"
+  data-role="filterbar"
+  id="test-id"
+  role="region"
+  style="color: red;"
+>
+  <div
+    class="c1 filter-bar__content"
+    data-role="filterbar-content"
+  >
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Category
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Blue
+            , 
+            Green
+            , 
+            White
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Food
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Fish
+            , 
+            Meat
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Category
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Blue
+            , 
+            Green
+            , 
+            White
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c18 filter-bar__action h_hidden"
+    data-role="filterbar-action"
+  >
+    <button
+      aria-expanded="true"
+      aria-label="Show less filters"
+      class="c16 button button--icon c19 filter-bar__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Show less filters"
+      type="button"
+    >
+      <i
+        class="c9 c10 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          keyboard_arrow_up
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-bar 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c16 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c9 {
+  user-select: none;
+}
+
+.c16 .c9 {
+  color: inherit;
+}
+
+.c16 .c9 {
+  font-size: inherit;
+}
+
+.c16:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c9 {
+  display: block;
+}
+
+.c20 .c9 {
+  user-select: none;
+}
+
+.c20 .c9 {
+  color: inherit;
+}
+
+.c20 .c9 {
+  font-size: inherit;
+}
+
+.c20.c20 .c9 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c9 {
+  display: block;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c4 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c14 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c3 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c3.c3 {
+  overflow: hidden;
+}
+
+.c3::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c3:only-child::before {
+  border-radius: 4px;
+}
+
+.c3:not(:disabled) {
+  cursor: pointer;
+}
+
+.c3:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3:focus .c7,
+.c3:focus .c13 {
+  color: rgb(213, 0, 117);
+}
+
+.c3:focus .c11 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c5 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c8 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c15 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c15::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c17 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  overflow: hidden auto;
+  padding: 0px 24px;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  max-height: 144px;
+  min-width: 0px;
+  padding: 0px 1px;
+}
+
+.c1:empty {
+  display: none;
+}
+
+.c1::after {
+  content: "";
+  height: 6px;
+  width: 100%;
+}
+
+.c18 {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-height: auto;
+  padding: 6px calc(3px);
+  position: sticky;
+  top: 0px;
+  width: auto;
+}
+
+.c19 {
+  align-self: flex-end;
+}
+
+.c19:focus {
+  color: unset;
+}
+
+@media (pointer: coarse) {
+  .c16:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active .c7,
+  .c3:active .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:active .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover .c7,
+  .c3:hover .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:hover .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: unset;
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover {
+    color: unset;
+  }
+}
+
+<div
+  aria-label="Filter bar"
+  class="c0 filter-bar"
+  data-role="filterbar"
+  role="region"
+>
+  <div
+    class="c1 filter-bar__content"
+    data-role="filterbar-content"
+  >
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Category
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Blue
+            , 
+            Green
+            , 
+            White
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Food
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Fish
+            , 
+            Meat
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Category
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Blue
+            , 
+            Green
+            , 
+            White
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c18 filter-bar__action h_hidden"
+    data-role="filterbar-action"
+  >
+    <button
+      aria-expanded="true"
+      aria-label="Show less filters"
+      class="c16 button button--icon c19 filter-bar__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Show less filters"
+      type="button"
+    >
+      <i
+        class="c9 c10 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          keyboard_arrow_up
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-bar 2`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c16 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c16 .c9 {
+  user-select: none;
+}
+
+.c16 .c9 {
+  color: inherit;
+}
+
+.c16 .c9 {
+  font-size: inherit;
+}
+
+.c16:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c9 {
+  display: block;
+}
+
+.c20 .c9 {
+  user-select: none;
+}
+
+.c20 .c9 {
+  color: inherit;
+}
+
+.c20 .c9 {
+  font-size: inherit;
+}
+
+.c20.c20 .c9 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c9 {
+  display: block;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c4 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c14 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c3 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c3.c3 {
+  overflow: hidden;
+}
+
+.c3::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c3:only-child::before {
+  border-radius: 4px;
+}
+
+.c3:not(:disabled) {
+  cursor: pointer;
+}
+
+.c3:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3:focus .c7,
+.c3:focus .c13 {
+  color: rgb(213, 0, 117);
+}
+
+.c3:focus .c11 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c5 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c8 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c15 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c15::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c17 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  overflow: hidden auto;
+  padding: 0px 24px;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  max-height: 144px;
+  min-width: 0px;
+  padding: 0px 1px;
+}
+
+.c1:empty {
+  display: none;
+}
+
+.c1::after {
+  content: "";
+  height: 6px;
+  width: 100%;
+}
+
+.c18 {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-height: auto;
+  padding: 6px calc(3px);
+  position: sticky;
+  top: 0px;
+  width: auto;
+}
+
+.c19 {
+  align-self: center;
+}
+
+.c19:focus {
+  color: unset;
+}
+
+@media (pointer: coarse) {
+  .c16:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active .c7,
+  .c3:active .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:active .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover .c7,
+  .c3:hover .c13 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c3:hover .c11 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: unset;
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover {
+    color: unset;
+  }
+}
+
+<div
+  aria-label="Filter bar"
+  class="c0 filter-bar filter-bar--collapsed"
+  data-role="filterbar"
+  role="region"
+>
+  <div
+    class="c1 filter-bar__content"
+    data-role="filterbar-content"
+  >
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Category
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Blue
+            , 
+            Green
+            , 
+            White
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Food
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Fish
+            , 
+            Meat
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c2 filter"
+      data-role="filter"
+    >
+      <button
+        class="c3 filter__content"
+        data-role="filter-content"
+      >
+        <span
+          class="c4 filter__content-inner"
+        >
+          <span
+            class="c5 filter__name"
+            data-role="filter-name"
+          >
+            <span
+              class="c6 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              Filter name 
+            </span>
+            <span
+              class="c7 c8 filter__name-text"
+              data-role="filter-name-text"
+            >
+              Category
+            </span>
+            <i
+              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              />
+            </i>
+          </span>
+          <span
+            class="c6 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Selected option 
+          </span>
+          <span
+            class="c13 c14 filter__options"
+            data-role="filter-options"
+          >
+            Blue
+            , 
+            Green
+            , 
+            White
+          </span>
+        </span>
+      </button>
+      <div
+        class="c15 filter__action"
+        data-role="filter-action"
+      >
+        <button
+          aria-label="Delete"
+          class="c16 button button--icon c17 filter__action-button"
+          data-role="button"
+          data-type="icon"
+          title="Delete"
+          type="button"
+        >
+          <i
+            class="c9 c10 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c18 filter-bar__action h_hidden"
+    data-role="filterbar-action"
+  >
+    <button
+      aria-expanded="false"
+      aria-label="Show more filters"
+      class="c16 button button--icon c19 filter-bar__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Show more filters"
+      type="button"
+    >
+      <i
+        class="c9 c10 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          keyboard_arrow_down
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-bar.mobile > rendering-filter-bar-on-mobile 1`] = `
+.c0 {
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  overflow: hidden auto;
+  padding: 0px 24px;
+}
+
+.c2 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  max-height: 144px;
+  min-width: 0px;
+  padding: 0px 1px 6px;
+}
+
+.c2:empty {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-height: auto;
+  padding: 6px calc(3px);
+  position: sticky;
+  top: 0px;
+  width: auto;
+}
+
+.c1 {
+  align-items: center;
+}
+
+.c3 {
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.c5 {
+  flex-grow: 1;
+  justify-content: flex-end;
+  min-height: 0px;
+  padding: 0px;
+  width: auto;
+}
+
+<div
+  class="c0 c1 filter-bar filter-bar--mobile test-class"
+  data-role="filterbar"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c2 c3 filter-bar__content"
+    data-role="filterbar-content"
+  >
+    <div>
+      test
+    </div>
+  </div>
+  <div
+    class="c4 c5 filter-bar__action"
+    data-role="filterbar-action"
+  >
+    action
+  </div>
+</div>
+`;

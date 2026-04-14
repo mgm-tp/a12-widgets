@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.reply-action-container > rendering-reply-action-container 1`] = `
+.c0 {
+  background-color: rgb(241, 242, 244);
+  padding: 4px;
+  text-align: center;
+  position: relative;
+}
+
+.c0::before {
+  top: 0px;
+}
+
+.c0::after {
+  bottom: 0px;
+}
+
+.c0::before,
+.c0::after {
+  content: "";
+  border-bottom: 1px solid rgb(255, 255, 255);
+  display: block;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+<div
+  class="c0 comment__replies-item-action test-class"
+  data-role="comment-replies-item-action"
+  id="test-id"
+  style="color: grey;"
+>
+  Some random string
+</div>
+`;

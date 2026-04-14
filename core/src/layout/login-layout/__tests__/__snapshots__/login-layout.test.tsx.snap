@@ -1,0 +1,523 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-fullscreen-login-layout 1`] = `
+.c2 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  overflow-y: auto;
+  padding: 64px 64px 0px;
+  width: 100%;
+}
+
+.c2::after {
+  content: "";
+  display: block;
+  height: 64px;
+  width: 100%;
+}
+
+.c3 .c1 {
+  width: 378px;
+}
+
+.c0 {
+  background-attachment: fixed;
+  background-color: rgb(78, 89, 101);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+.c0 .field__label {
+  color: rgb(77, 77, 77);
+}
+
+.c0 > * {
+  margin: 0px auto;
+  max-width: calc(100% - 48px);
+  width: calc(100% - 48px);
+}
+
+.c0::before,
+.c0::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  height: 24px;
+  width: 100%;
+}
+
+.c0 .c1 {
+  width: 378px;
+}
+
+@media screen and (max-width: 575px) {
+  .c2 {
+    padding: 40px 40px 0px;
+  }
+}
+
+<div
+  class="c0 -l-login -l-login--fullscreen"
+  data-role="login-layout"
+>
+  <div
+    class="c1 c2 -l-login__container"
+    data-role="login-layout-container"
+  >
+    Children
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-fullscreen-login-layout 2`] = `
+.c2 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  overflow-y: auto;
+  padding: 64px 64px 0px;
+  width: 100%;
+}
+
+.c2::after {
+  content: "";
+  display: block;
+  height: 64px;
+  width: 100%;
+}
+
+.c3 .c1 {
+  width: 378px;
+}
+
+.c4 .c1 {
+  width: 378px;
+}
+
+.c0 {
+  background-attachment: fixed;
+  background-color: rgb(78, 89, 101);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: hidden;
+  justify-content: start;
+}
+
+.c0 .field__label {
+  color: rgb(77, 77, 77);
+}
+
+.c0 > * {
+  margin: 0px auto;
+  max-width: calc(100% - 48px);
+  width: calc(100% - 48px);
+}
+
+.c0::before,
+.c0::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  height: 24px;
+  width: 100%;
+}
+
+.c0 .c1 {
+  margin: 0px auto;
+  padding: 40px 40px 0px;
+}
+
+.c0 .c1::after {
+  height: 40px;
+}
+
+@media screen and (max-width: 575px) {
+  .c2 {
+    padding: 40px 40px 0px;
+  }
+}
+
+<div
+  class="c0 -l-login -l-login--mobile"
+  data-role="login-layout"
+>
+  <div
+    class="c1 c2 -l-login__container"
+    data-role="login-layout-container"
+  >
+    Children
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-container 1`] = `
+.c1 {
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 64px 64px 0px;
+  width: 100%;
+  background-color: rgb(241, 242, 244);
+}
+
+.c1::after {
+  content: "";
+  display: block;
+  height: 64px;
+  width: 100%;
+}
+
+.c2 .c0 {
+  width: 378px;
+}
+
+.c3 .c0 {
+  width: 378px;
+}
+
+.c4 .c0 {
+  margin: 0px auto;
+  padding: 40px 40px 0px;
+}
+
+.c4 .c0::after {
+  height: 40px;
+}
+
+@media screen and (max-width: 575px) {
+  .c1 {
+    padding: 40px 40px 0px;
+  }
+}
+
+<div
+  class="c0 c1 -l-login__container -l-login__container--secondary test-class"
+  data-role="login-layout-container"
+  id="test-id"
+  style="color: hotpink;"
+>
+  container
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-footer 1`] = `
+.c0 {
+  margin: 24px 0px 0px;
+}
+
+.c0 > :not(:last-child) {
+  margin: 0px 0px 24px;
+}
+
+<div
+  class="c0 -l-login__footer test-class"
+  data-role="login-layout-footer"
+  id="test-id"
+  style="color: hotpink;"
+>
+  footer
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-form 1`] = `
+<div
+  class="-l-login__form test-class"
+  data-role="login-layout-form"
+  id="test-id"
+  style="color: hotpink;"
+>
+  Login layout form child
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-form-item 1`] = `
+.c0 {
+  margin-bottom: 16px;
+}
+
+.c0:last-child {
+  margin-bottom: 0px;
+}
+
+<div
+  class="c0 -l-login__form-item test-class"
+  data-role="login-layout-form-item"
+  id="test-id"
+  style="color: hotpink;"
+>
+  Login layout form item child
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-headline 1`] = `
+.c0 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+<div
+  aria-level="1"
+  class="c0 -l-login__headline test-class"
+  data-role="login-layout-headline"
+  id="test-id"
+  role="heading"
+  style="color: hotpink;"
+>
+  Login layout headline
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-headline-ariaLevel 1`] = `
+.c0 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+<div
+  aria-level="2"
+  class="c0 -l-login__headline"
+  data-role="login-layout-headline"
+  role="heading"
+>
+  headline
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-layout 1`] = `
+.c2 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  overflow-y: auto;
+  padding: 64px 64px 0px;
+  width: 100%;
+}
+
+.c2::after {
+  content: "";
+  display: block;
+  height: 64px;
+  width: 100%;
+}
+
+.c0 {
+  background-attachment: fixed;
+  background-color: rgb(78, 89, 101);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  overflow-y: hidden;
+}
+
+.c0 .field__label {
+  color: rgb(77, 77, 77);
+}
+
+.c0 > * {
+  margin: 0px auto;
+  max-width: calc(100% - 48px);
+  width: calc(100% - 48px);
+}
+
+.c0::before,
+.c0::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  height: 24px;
+  width: 100%;
+}
+
+.c0 .c1 {
+  width: 378px;
+}
+
+@media screen and (max-width: 575px) {
+  .c2 {
+    padding: 40px 40px 0px;
+  }
+}
+
+<div
+  class="c0 -l-login test-class"
+  data-role="login-layout"
+  id="test-id"
+  style="color: hotpink;"
+>
+  <div
+    class="c1 c2 -l-login__container"
+    data-role="login-layout-container"
+  >
+    Children
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-layout-with-background 1`] = `
+.c2 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  overflow-y: auto;
+  padding: 64px 64px 0px;
+  width: 100%;
+}
+
+.c2::after {
+  content: "";
+  display: block;
+  height: 64px;
+  width: 100%;
+}
+
+.c0 {
+  background-attachment: fixed;
+  background-color: rgb(78, 89, 101);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  overflow-y: hidden;
+}
+
+.c0 .field__label {
+  color: rgb(77, 77, 77);
+}
+
+.c0 > * {
+  margin: 0px auto;
+  max-width: calc(100% - 48px);
+  width: calc(100% - 48px);
+}
+
+.c0::before,
+.c0::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  height: 24px;
+  width: 100%;
+}
+
+.c0 .c1 {
+  width: 378px;
+}
+
+.c3 .c1 {
+  width: 378px;
+}
+
+.c4 .c1 {
+  margin: 0px auto;
+  padding: 40px 40px 0px;
+}
+
+.c4 .c1::after {
+  height: 40px;
+}
+
+@media screen and (max-width: 575px) {
+  .c2 {
+    padding: 40px 40px 0px;
+  }
+}
+
+<div
+  class="c0 -l-login"
+  data-role="login-layout"
+>
+  <div
+    class="c1 c2 -l-login__container"
+    data-role="login-layout-container"
+  >
+    Children
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-logo 1`] = `
+.c0 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.c0 > * {
+  max-height: 56px;
+  max-width: 252px;
+  min-height: 24px;
+}
+
+<div
+  class="c0 -l-login__logo test-class"
+  data-role="login-layout-logo"
+  id="test-id"
+  style="color: hotpink;"
+>
+  Login layout logo
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-noGutter-login-layout 1`] = `
+.c0 {
+  background-attachment: fixed;
+  background-color: rgb(78, 89, 101);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  overflow-y: hidden;
+}
+
+.c0 .field__label {
+  color: rgb(77, 77, 77);
+}
+
+.c0 > * {
+  margin: 0px auto;
+  max-width: calc(100% - 48px);
+  width: calc(100% - 48px);
+}
+
+.c0::before,
+.c0::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  height: 24px;
+  width: 100%;
+}
+
+<div
+  class="c0 -l-login"
+  data-role="login-layout"
+>
+  Children
+</div>
+`;

@@ -1,0 +1,1764 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.modal-notification > test rendering default modal notification 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c16 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c16 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c8 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c8.c8 {
+  padding: 0px 24px;
+}
+
+.c19 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-radius: 0px;
+  border-top: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  min-height: 48px;
+  padding: 4px 24px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c15 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c18 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c18:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c18.c18 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c18.c18 {
+  padding: 16px;
+}
+
+.c1 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c2 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 24px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  max-width: 756px;
+  width: 756px;
+}
+
+.c2 .c3 {
+  outline: none;
+}
+
+.c2 .c3 .c17 {
+  font-size: 0.75rem;
+}
+
+.c2 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c2 .c3 {
+  width: calc(-48px + 100vw);
+}
+
+.c10 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c13 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c13.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c13.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c5 .c7 {
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c5 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c5 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 756px) {
+  .c2 {
+    width: calc(100% - 48px);
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 modalOverlay modal-notification modal-notification--info"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-labelledby="test-id-title"
+            aria-modal="true"
+            class="c2 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            style="outline: transparent solid 1px;"
+            tabindex="-1"
+          >
+            <div
+              class="c3 c4 contentbox c5"
+              data-role="contentbox"
+              id="test-id"
+              tabindex="-1"
+            >
+              <div
+                class="c6 contentbox__header"
+                data-role="contentbox-header"
+              >
+                <div
+                  class="c7 c8 contentbox__heading"
+                  data-role="contentbox-heading"
+                  id="test-id--heading"
+                >
+                  <div
+                    class="c9 c10 contentbox__addon-prefix"
+                    data-role="contentbox-addon-prefix"
+                  >
+                    <i
+                      class="c11 c12 plasma-icon contentbox__headingGraphic"
+                      data-role="plasma-icon"
+                    >
+                      <span
+                        aria-hidden="true"
+                      >
+                        info
+                      </span>
+                    </i>
+                  </div>
+                  <div
+                    class="c13"
+                  >
+                    <div
+                      aria-level="1"
+                      class="c14 c15 contentbox__title"
+                      data-role="contentbox-title"
+                      id="test-id-title"
+                      role="heading"
+                    >
+                      <span
+                        class="c16 -u-unseenButRead"
+                        data-role="hidden-text"
+                      >
+                        Information: 
+                      </span>
+                      title
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c17 c18 contentbox__content contentbox__content--initial-padding"
+                data-role="contentbox-content"
+              />
+              <div
+                class="c19 contentbox__footer"
+                data-role="contentbox-footer"
+              >
+                <span
+                  aria-level="2"
+                  class="c16 -u-unseenButRead"
+                  data-role="hidden-text"
+                  role="heading"
+                >
+                  Action Section
+                </span>
+                footer
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.modal-notification > test rendering error modal notification 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c16 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c16 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c8 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c8.c8 {
+  padding: 0px 24px;
+}
+
+.c19 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-radius: 0px;
+  border-top: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  min-height: 48px;
+  padding: 4px 24px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c15 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c18 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c18:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c18.c18 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c18.c18 {
+  padding: 16px;
+}
+
+.c1 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c2 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 24px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  max-width: 756px;
+  width: 756px;
+}
+
+.c2 .c3 {
+  outline: none;
+}
+
+.c2 .c3 .c17 {
+  font-size: 0.75rem;
+}
+
+.c2 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c2 .c3 {
+  width: calc(-48px + 100vw);
+}
+
+.c10 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c13 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c13.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c13.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c20 .c7 {
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c20 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c20 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+.c21 .c7 {
+  background-color: rgb(41, 122, 36);
+  color: rgb(41, 122, 36);
+}
+
+.c21 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c21 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+.c5 .c7 {
+  background-color: rgb(201, 29, 29);
+  color: rgb(201, 29, 29);
+}
+
+.c5 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c5 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 756px) {
+  .c2 {
+    width: calc(100% - 48px);
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 modalOverlay modal-notification modal-notification--error"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-labelledby="test-id-title"
+            aria-modal="true"
+            class="c2 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            style="outline: transparent solid 1px;"
+            tabindex="-1"
+          >
+            <div
+              class="c3 c4 contentbox c5"
+              data-role="contentbox"
+              id="test-id"
+              tabindex="-1"
+            >
+              <div
+                class="c6 contentbox__header"
+                data-role="contentbox-header"
+              >
+                <div
+                  class="c7 c8 contentbox__heading"
+                  data-role="contentbox-heading"
+                  id="test-id--heading"
+                >
+                  <div
+                    class="c9 c10 contentbox__addon-prefix"
+                    data-role="contentbox-addon-prefix"
+                  >
+                    <i
+                      class="c11 c12 plasma-icon plasma-icon--custom contentbox__headingGraphic"
+                      data-role="plasma-icon"
+                    >
+                      <span
+                        aria-hidden="true"
+                      >
+                        
+                      </span>
+                    </i>
+                  </div>
+                  <div
+                    class="c13"
+                  >
+                    <div
+                      aria-level="1"
+                      class="c14 c15 contentbox__title"
+                      data-role="contentbox-title"
+                      id="test-id-title"
+                      role="heading"
+                    >
+                      <span
+                        class="c16 -u-unseenButRead"
+                        data-role="hidden-text"
+                      >
+                        Error: 
+                      </span>
+                      title
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c17 c18 contentbox__content contentbox__content--initial-padding"
+                data-role="contentbox-content"
+              />
+              <div
+                class="c19 contentbox__footer"
+                data-role="contentbox-footer"
+              >
+                <span
+                  aria-level="2"
+                  class="c16 -u-unseenButRead"
+                  data-role="hidden-text"
+                  role="heading"
+                >
+                  Action Section
+                </span>
+                footer
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.modal-notification > test rendering modal notification with custom icon & padding 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c13 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c13 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c8 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c8.c8 {
+  padding: 0px 24px;
+}
+
+.c16 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-radius: 0px;
+  border-top: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  min-height: 48px;
+  padding: 4px 24px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c12 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c15 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c15:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c2 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 24px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  max-width: 756px;
+  width: 756px;
+}
+
+.c2 .c3 {
+  outline: none;
+}
+
+.c2 .c3 .c14 {
+  font-size: 0.75rem;
+}
+
+.c2 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c2 .c3 {
+  width: calc(-48px + 100vw);
+}
+
+.c9 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c10 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c10.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c10.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c5 .c7 {
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c5 .c11 {
+  color: rgb(255, 255, 255);
+}
+
+.c17 .c7 {
+  background-color: rgb(41, 122, 36);
+  color: rgb(41, 122, 36);
+}
+
+.c17 .c11 {
+  color: rgb(255, 255, 255);
+}
+
+.c18 .c7 {
+  background-color: rgb(201, 29, 29);
+  color: rgb(201, 29, 29);
+}
+
+.c18 .c11 {
+  color: rgb(255, 255, 255);
+}
+
+.c19 .c7 {
+  background-color: rgb(249, 191, 48);
+  color: rgb(249, 191, 48);
+}
+
+.c19 .c11 {
+  color: rgb(22, 25, 29);
+}
+
+@media only screen and (max-width: 756px) {
+  .c2 {
+    width: calc(100% - 48px);
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 modalOverlay modal-notification modal-notification--info"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-labelledby="test-id-title"
+            aria-modal="true"
+            class="c2 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            style="outline: transparent solid 1px;"
+            tabindex="-1"
+          >
+            <div
+              class="c3 c4 contentbox c5"
+              data-role="contentbox"
+              id="test-id"
+              tabindex="-1"
+            >
+              <div
+                class="c6 contentbox__header"
+                data-role="contentbox-header"
+              >
+                <div
+                  class="c7 c8 contentbox__heading"
+                  data-role="contentbox-heading"
+                  id="test-id--heading"
+                >
+                  <div
+                    class="c9 contentbox__addon-prefix"
+                    data-role="contentbox-addon-prefix"
+                  >
+                    icon
+                  </div>
+                  <div
+                    class="c10"
+                  >
+                    <div
+                      aria-level="1"
+                      class="c11 c12 contentbox__title"
+                      data-role="contentbox-title"
+                      id="test-id-title"
+                      role="heading"
+                    >
+                      <span
+                        class="c13 -u-unseenButRead"
+                        data-role="hidden-text"
+                      >
+                        Information: 
+                      </span>
+                      title
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c14 c15 contentbox__content"
+                data-role="contentbox-content"
+                style="padding: 24px;"
+              />
+              <div
+                class="c16 contentbox__footer"
+                data-role="contentbox-footer"
+              >
+                <span
+                  aria-level="2"
+                  class="c13 -u-unseenButRead"
+                  data-role="hidden-text"
+                  role="heading"
+                >
+                  Action Section
+                </span>
+                footer
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.modal-notification > test rendering success modal notification 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c16 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c16 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c8 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c8.c8 {
+  padding: 0px 24px;
+}
+
+.c19 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-radius: 0px;
+  border-top: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  min-height: 48px;
+  padding: 4px 24px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c15 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c18 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c18:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c18.c18 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c18.c18 {
+  padding: 16px;
+}
+
+.c1 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c2 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 24px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  max-width: 756px;
+  width: 756px;
+}
+
+.c2 .c3 {
+  outline: none;
+}
+
+.c2 .c3 .c17 {
+  font-size: 0.75rem;
+}
+
+.c2 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c2 .c3 {
+  width: calc(-48px + 100vw);
+}
+
+.c10 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c13 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c13.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c13.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c20 .c7 {
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c20 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c20 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+.c5 .c7 {
+  background-color: rgb(41, 122, 36);
+  color: rgb(41, 122, 36);
+}
+
+.c5 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c5 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 756px) {
+  .c2 {
+    width: calc(100% - 48px);
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 modalOverlay modal-notification modal-notification--success"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-labelledby="test-id-title"
+            aria-modal="true"
+            class="c2 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            style="outline: transparent solid 1px;"
+            tabindex="-1"
+          >
+            <div
+              class="c3 c4 contentbox c5"
+              data-role="contentbox"
+              id="test-id"
+              tabindex="-1"
+            >
+              <div
+                class="c6 contentbox__header"
+                data-role="contentbox-header"
+              >
+                <div
+                  class="c7 c8 contentbox__heading"
+                  data-role="contentbox-heading"
+                  id="test-id--heading"
+                >
+                  <div
+                    class="c9 c10 contentbox__addon-prefix"
+                    data-role="contentbox-addon-prefix"
+                  >
+                    <i
+                      class="c11 c12 plasma-icon contentbox__headingGraphic"
+                      data-role="plasma-icon"
+                    >
+                      <span
+                        aria-hidden="true"
+                      >
+                        check_circle
+                      </span>
+                    </i>
+                  </div>
+                  <div
+                    class="c13"
+                  >
+                    <div
+                      aria-level="1"
+                      class="c14 c15 contentbox__title"
+                      data-role="contentbox-title"
+                      id="test-id-title"
+                      role="heading"
+                    >
+                      <span
+                        class="c16 -u-unseenButRead"
+                        data-role="hidden-text"
+                      >
+                        Success: 
+                      </span>
+                      title
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c17 c18 contentbox__content contentbox__content--initial-padding"
+                data-role="contentbox-content"
+              />
+              <div
+                class="c19 contentbox__footer"
+                data-role="contentbox-footer"
+              >
+                <span
+                  aria-level="2"
+                  class="c16 -u-unseenButRead"
+                  data-role="hidden-text"
+                  role="heading"
+                >
+                  Action Section
+                </span>
+                footer
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.modal-notification > test rendering warning modal notification 1`] = `
+.c0 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c16 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c16 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons Outlined";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c8 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c8.c8 {
+  padding: 0px 24px;
+}
+
+.c19 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-radius: 0px;
+  border-top: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  min-height: 48px;
+  padding: 4px 24px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c15 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c18 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c18:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c18.c18 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c18.c18 {
+  padding: 16px;
+}
+
+.c1 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c2 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 24px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  max-width: 756px;
+  width: 756px;
+}
+
+.c2 .c3 {
+  outline: none;
+}
+
+.c2 .c3 .c17 {
+  font-size: 0.75rem;
+}
+
+.c2 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c2 .c3 {
+  width: calc(-48px + 100vw);
+}
+
+.c10 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c13 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c13.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c13.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c20 .c7 {
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c20 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c20 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+.c21 .c7 {
+  background-color: rgb(41, 122, 36);
+  color: rgb(41, 122, 36);
+}
+
+.c21 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c21 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+.c22 .c7 {
+  background-color: rgb(201, 29, 29);
+  color: rgb(201, 29, 29);
+}
+
+.c22 .c9 > .c11 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c22 .c14 {
+  color: rgb(255, 255, 255);
+}
+
+.c5 .c7 {
+  background-color: rgb(249, 191, 48);
+  color: rgb(249, 191, 48);
+}
+
+.c5 .c9 > .c11 {
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 .c14 {
+  color: rgb(22, 25, 29);
+}
+
+@media only screen and (max-width: 756px) {
+  .c2 {
+    width: calc(100% - 48px);
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c1 modalOverlay modal-notification modal-notification--warning"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-labelledby="test-id-title"
+            aria-modal="true"
+            class="c2 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            style="outline: transparent solid 1px;"
+            tabindex="-1"
+          >
+            <div
+              class="c3 c4 contentbox c5"
+              data-role="contentbox"
+              id="test-id"
+              tabindex="-1"
+            >
+              <div
+                class="c6 contentbox__header"
+                data-role="contentbox-header"
+              >
+                <div
+                  class="c7 c8 contentbox__heading"
+                  data-role="contentbox-heading"
+                  id="test-id--heading"
+                >
+                  <div
+                    class="c9 c10 contentbox__addon-prefix"
+                    data-role="contentbox-addon-prefix"
+                  >
+                    <i
+                      class="c11 c12 plasma-icon plasma-icon--outlined contentbox__headingGraphic"
+                      data-role="plasma-icon"
+                    >
+                      <span
+                        aria-hidden="true"
+                      >
+                        warning_amber
+                      </span>
+                    </i>
+                  </div>
+                  <div
+                    class="c13"
+                  >
+                    <div
+                      aria-level="1"
+                      class="c14 c15 contentbox__title"
+                      data-role="contentbox-title"
+                      id="test-id-title"
+                      role="heading"
+                    >
+                      <span
+                        class="c16 -u-unseenButRead"
+                        data-role="hidden-text"
+                      >
+                        Warning: 
+                      </span>
+                      title
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c17 c18 contentbox__content contentbox__content--initial-padding"
+                data-role="contentbox-content"
+              />
+              <div
+                class="c19 contentbox__footer"
+                data-role="contentbox-footer"
+              >
+                <span
+                  aria-level="2"
+                  class="c16 -u-unseenButRead"
+                  data-role="hidden-text"
+                  role="heading"
+                >
+                  Action Section
+                </span>
+                footer
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c0"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

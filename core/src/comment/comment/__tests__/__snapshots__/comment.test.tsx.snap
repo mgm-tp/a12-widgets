@@ -1,0 +1,1931 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-a-comment-reply-item 1`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c3 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c5 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c11 .c4,
+.c11 .c6,
+.c11 .c8 {
+  color: rgb(97, 111, 124);
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  text-size-adjust: none;
+  background-color: rgb(241, 242, 244);
+  padding: 8px;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c7 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+  margin: 0px 4px 0px 0px;
+}
+
+.c9 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+}
+
+.c10 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 0px 24px;
+}
+
+.c10 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment comment__replies-item"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-avatar"
+      >
+        avatar
+      </div>
+      <div
+        class="c4 c5 comment__meta-author"
+      >
+        Matt
+      </div>
+      <div
+        class="c6 c7 comment__meta-action"
+      >
+        wrote
+      </div>
+      <div
+        class="c8 c9 comment__meta-date"
+      >
+        Fri, 16 Dec 2022 20:24:00 GMT
+      </div>
+    </div>
+  </div>
+  <div
+    class="c10 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-action-buttons-comment 1`] = `
+.c5 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c5:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  order: 1;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c2 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+.c3 {
+  height: fit-content;
+  margin: 4px 0px 0px 24px;
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  />
+  <div
+    class="c2 comment__content"
+  />
+  <div
+    class="c3 comment__actions"
+    data-role="comment-actions"
+  >
+    <div
+      class="c4 button-group h_floatRight button-group--right "
+      data-role="button-group"
+    >
+      <button
+        class="c5 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          Reply
+        </span>
+      </button>
+      <button
+        class="c5 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          Delete
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-action-buttons-comment 2`] = `
+.c5 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c5:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  order: 1;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c2 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+.c3 {
+  height: fit-content;
+  margin: 4px 0px 0px 24px;
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  />
+  <div
+    class="c2 comment__content"
+  />
+  <div
+    class="c3 comment__actions"
+    data-role="comment-actions"
+  >
+    <div
+      class="c4 button-group h_floatRight button-group--right "
+      data-role="button-group"
+    >
+      <button
+        class="c5 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          Reply
+        </span>
+      </button>
+      <button
+        class="c5 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          Delete
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c2 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  white-space: pre-wrap;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    Comment Meta
+  </div>
+  <div
+    class="c2 comment__content"
+  >
+    <div
+      class="c3 comment__text"
+      data-role="comment-text"
+    >
+      Some random string
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-action-buttons 1`] = `
+.c16 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c16 > span {
+  display: inline-block;
+}
+
+.c16.c16 {
+  max-width: unset;
+}
+
+.c20 .c15 {
+  user-select: none;
+}
+
+.c20 .c15 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c15 {
+  display: block;
+}
+
+.c14 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c15 {
+  user-select: none;
+}
+
+.c14 .c15 {
+  color: inherit;
+}
+
+.c14 .c15 {
+  font-size: inherit;
+}
+
+.c14:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c15 {
+  display: block;
+}
+
+.c13 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c13 .c15 {
+  position: relative;
+}
+
+.c13 .c15::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c13 .c15:focus {
+  outline: none;
+}
+
+.c13 .c15:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c3 > :last-child {
+  margin-right: 0px;
+}
+
+.c5 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c7 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c19 .c4 .c15 {
+  color: rgb(169, 179, 188);
+}
+
+.c19 .c6,
+.c19 .c8,
+.c19 .c10 {
+  color: rgb(97, 111, 124);
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  flex-grow: 1;
+}
+
+.c12 {
+  display: flex;
+  margin: 4px 0px 0px 24px;
+}
+
+.c9 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+  margin: 0px 4px 0px 0px;
+}
+
+.c11 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+}
+
+.c17 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c17 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+.c18 {
+  color: rgb(77, 77, 77);
+  white-space: pre-wrap;
+}
+
+@media (pointer: coarse) {
+  .c14:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta-group"
+      data-role="comment-meta-group"
+    >
+      <div
+        class="c3 comment__meta"
+        data-role="comment-meta"
+      >
+        <div
+          class="c4 c5 comment__meta-avatar"
+        >
+          avatar
+        </div>
+        <div
+          class="c6 c7 comment__meta-author"
+        >
+          Matt
+        </div>
+        <div
+          class="c8 c9 comment__meta-action"
+        >
+          wrote
+        </div>
+        <div
+          class="c10 c11 comment__meta-date"
+        >
+          Fri, 16 Dec 2022 20:24:00 GMT
+        </div>
+      </div>
+    </div>
+    <div
+      class="c12 comment__actions-combine"
+      data-role="comment-actions-combine"
+    >
+      <div
+        class="c13 popup"
+        data-role="popup"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Open menu"
+          class="c14 button button--icon"
+          data-role="popup-trigger-element"
+          data-type="icon"
+          title="Open menu"
+          type="button"
+        >
+          <i
+            class="c15 c16 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              more_vert
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c17 comment__content"
+  >
+    <div
+      class="c18 comment__text"
+      data-role="comment-text"
+    >
+      Some random string
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-comment-tags 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c2 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment comment--inactive comment--minimised"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  />
+  <div
+    class="c2 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-provided-class-id-style 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c2 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment test-class"
+  data-role="comment"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c1 comment__meta-container"
+  />
+  <div
+    class="c2 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-replies-comment 1`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c3 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c5 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c12 .c4,
+.c12 .c6,
+.c12 .c8 {
+  color: rgb(97, 111, 124);
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c7 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+  margin: 0px 4px 0px 0px;
+}
+
+.c9 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+}
+
+.c10 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c10 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+.c11 {
+  margin: 16px 0px 4px 24px;
+}
+
+.c11:empty {
+  margin: 0px;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-avatar"
+      >
+        avatar
+      </div>
+      <div
+        class="c4 c5 comment__meta-author"
+      >
+        Matt
+      </div>
+      <div
+        class="c6 c7 comment__meta-action"
+      >
+        wrote
+      </div>
+      <div
+        class="c8 c9 comment__meta-date"
+      >
+        Fri, 16 Dec 2022 20:24:00 GMT
+      </div>
+    </div>
+  </div>
+  <div
+    class="c10 comment__content"
+  />
+  <div
+    class="c11 comment__replies"
+    data-role="comment-replies"
+  >
+    <p>
+      Comment here
+    </p>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-inactive-comment 1`] = `
+.c12 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c12:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c11 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c3 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c5 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c0 .c4,
+.c0 .c6,
+.c0 .c8 {
+  color: rgb(97, 111, 124);
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c7 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+  margin: 0px 4px 0px 0px;
+}
+
+.c9 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+}
+
+.c10 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c10 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+@media (pointer: coarse) {
+  .c12:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 comment comment--inactive comment--minimised"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-avatar"
+      >
+        avatar
+      </div>
+      <div
+        class="c4 c5 comment__meta-author"
+      >
+        Matt
+      </div>
+      <div
+        class="c6 c7 comment__meta-action"
+      >
+        wrote
+      </div>
+      <div
+        class="c8 c9 comment__meta-date"
+      >
+        Fri, 16 Dec 2022 20:24:00 GMT
+      </div>
+    </div>
+  </div>
+  <div
+    class="c10 comment__content"
+  >
+    <div
+      class="c11 button-group"
+      data-role="button-group"
+    >
+      <button
+        class="c12 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        Show all
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-inactive-comment 2`] = `
+.c12 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c12:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c11 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c3 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c5 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c0 .c4,
+.c0 .c6,
+.c0 .c8 {
+  color: rgb(97, 111, 124);
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c7 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+  margin: 0px 4px 0px 0px;
+}
+
+.c9 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+}
+
+.c10 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c10 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+@media (pointer: coarse) {
+  .c12:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 comment comment--inactive"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-avatar"
+      >
+        avatar
+      </div>
+      <div
+        class="c4 c5 comment__meta-author"
+      >
+        Matt
+      </div>
+      <div
+        class="c6 c7 comment__meta-action"
+      >
+        wrote
+      </div>
+      <div
+        class="c8 c9 comment__meta-date"
+      >
+        Fri, 16 Dec 2022 20:24:00 GMT
+      </div>
+    </div>
+  </div>
+  <div
+    class="c10 comment__content"
+  >
+    <div
+      class="comment__tag"
+      data-role="comment-tag"
+    />
+    <div
+      class="c11 button-group"
+      data-role="button-group"
+    >
+      <button
+        class="c12 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        Minimize
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-inactive-comment-meta 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c2 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  white-space: pre-wrap;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    Inactive comment meta
+  </div>
+  <div
+    class="c2 comment__content"
+  >
+    <div
+      class="c3 comment__text"
+      data-role="comment-text"
+    >
+      Some random string
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-with-comment-meta 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c2 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  />
+  <div
+    class="c2 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-with-comment-meta 2`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c2 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    Text Meta
+  </div>
+  <div
+    class="c2 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-with-comment-meta 3`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c3 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c4 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c4 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-avatar"
+      >
+        avatar
+      </div>
+    </div>
+  </div>
+  <div
+    class="c4 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-with-comment-meta 4`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c3 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c4 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c4 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-author"
+      >
+        author
+      </div>
+    </div>
+  </div>
+  <div
+    class="c4 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-with-comment-meta 5`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c3 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+  margin: 0px 4px 0px 0px;
+}
+
+.c4 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c4 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-action"
+      >
+        action
+      </div>
+    </div>
+  </div>
+  <div
+    class="c4 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-with-comment-meta 6`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c3 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+}
+
+.c4 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c4 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-date"
+      >
+        date
+      </div>
+    </div>
+  </div>
+  <div
+    class="c4 comment__content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.comment.comment > rendering-with-comment-meta 7`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c3 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c4 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px 16px 16px;
+  overflow-x: auto;
+  text-size-adjust: none;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  margin: 0px 24px 8px;
+}
+
+.c5 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+  margin: 0px 4px 0px 0px;
+}
+
+.c6 {
+  color: rgb(97, 111, 124);
+  display: inline-block;
+}
+
+.c7 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  overflow-x: auto;
+  padding: 4px 24px;
+}
+
+.c7 > :not(:last-child) {
+  margin: 0px 0px 8px;
+}
+
+<div
+  class="c0 comment"
+  data-role="comment"
+>
+  <div
+    class="c1 comment__meta-container"
+  >
+    <div
+      class="c2 comment__meta"
+      data-role="comment-meta"
+    >
+      <div
+        class="c3 comment__meta-avatar"
+      >
+        avatar
+      </div>
+      <div
+        class="c4 comment__meta-author"
+      >
+        Matt
+      </div>
+      <div
+        class="c5 comment__meta-action"
+      >
+        wrote
+      </div>
+      <div
+        class="c6 comment__meta-date"
+      >
+        Fri, 16 Dec 2022 20:24:00 GMT
+      </div>
+    </div>
+  </div>
+  <div
+    class="c7 comment__content"
+  />
+</div>
+`;

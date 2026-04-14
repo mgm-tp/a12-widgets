@@ -1,0 +1,54 @@
+{
+	"name": "root",
+	"private": true,
+	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
+	"packageManager": "pnpm@10.18.2+sha512.9fb969fa749b3ade6035e0f109f0b8a60b5d08a1a87fdf72e337da90dcc93336e2280ca4e44f2358a649b83c17959e9993e777c2080879f3801e6f0d999ad3dd",
+	"scripts": {
+		"compile": "pnpm -r compile",
+		"clean": "pnpm -r clean",
+		"start": "pnpm -r --parallel start",
+		"test": "pnpm -r test",
+		"lint": "pnpm \"/^lint:.*/\"",
+		"lint:eslint": "pnpm -r --parallel --no-bail lint:eslint",
+		"lint:prettier": "prettier . --check",
+		"lint:detect-cycle": "devtools detect-cycles \"./{core,utils,new-showcase}/src/**/*.@(ts|tsx)\"",
+		"format": "pnpm \"/format:/\"",
+		"format:eslint": "pnpm lint:eslint --fix",
+		"format:prettier": "prettier . --write",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"@com.mgmtp.a12.devtools/build-tools": "^1.1.0",
+		"@com.mgmtp.a12.devtools/eslint-config": "^3.1.0",
+		"@com.mgmtp.a12.devtools/prettier-config": "^1.1.0",
+		"@com.mgmtp.a12.devtools/tsconfig": "^1.1.0",
+		"@stylistic/eslint-plugin": "5.6.1",
+		"@types/unzipper": "^0.10.11",
+		"eslint": "^9.39.4",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
+		"eslint-plugin-notice": "^1.0.0",
+		"eslint-plugin-react-refresh": "^0.4.26",
+		"eslint-plugin-storybook": "^10.3.5",
+		"globals": "^16.5.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.4.0",
+		"prettier": "^3.8.2",
+		"typescript": "5.8.2",
+		"typescript-eslint": "^8.58.1",
+		"unzipper": "^0.12.3"
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": [
+			"prettier --write",
+			"eslint --fix"
+		]
+	},
+	"version": "38.3.3",
+	"a12Version": "2025.06-ext5",
+	"pnpm": {
+		"patchedDependencies": {
+			"react-dnd@16.0.1": "core/patches/pnpm/react-dnd@16.0.1.patch"
+		}
+	},
+	"type": "module"
+}

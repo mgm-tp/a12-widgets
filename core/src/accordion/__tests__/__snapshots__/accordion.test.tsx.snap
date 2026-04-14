@@ -1,0 +1,1677 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.accordion > interaction hint > should position hint at left edge 1`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(181, 76, 23);
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 1px 2px 2px 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  max-height: 100%;
+  outline: none;
+  overflow-y: auto;
+  padding: 4px 8px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 {
+  max-width: 472px;
+  margin: 9px 0px 0px;
+  position: relative;
+  outline: none;
+}
+
+.c1 + span {
+  outline: none;
+}
+
+.c1::before {
+  background-color: rgb(255, 255, 255);
+  border-width: 1px medium medium 1px;
+  border-style: solid none none solid;
+  border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
+  border-image: initial;
+  content: "";
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  width: 12px;
+  top: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  left: 6px;
+}
+
+<div
+  class="c0 attached-portal h_bottom"
+  data-role="attached-portal"
+  style="top: 48px; left: 0px; visibility: visible; opacity: 1; max-height: 662px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    class="c1"
+    data-role="interaction-hint"
+    role="dialog"
+  >
+    <div
+      class="c2"
+      data-role="interaction-hint-content"
+    >
+      Open
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all sections 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+
+.c7 {
+  -webkit-font-smoothing: antialiased;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0px;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.c15 .c4 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c15 .c4 + .c6 {
+  padding-left: 0px;
+}
+
+.c3 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c3 .c4 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c3 .c4[data-variant-type="open"] {
+  color: rgb(77, 77, 77);
+}
+
+.c3 .c4 + .c6 {
+  padding-left: 0px;
+}
+
+.c3:focus {
+  position: relative;
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c9 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c9 .c4 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c9 .c4[data-variant-type="info"] {
+  color: rgb(5, 104, 174);
+}
+
+.c9 .c4 + .c6 {
+  padding-left: 0px;
+}
+
+.c9:focus {
+  position: relative;
+}
+
+.c9:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c10 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c10 .c4 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c10 .c4[data-variant-type="error"] {
+  color: rgb(201, 29, 29);
+}
+
+.c10 .c4 + .c6 {
+  padding-left: 0px;
+}
+
+.c10:focus {
+  position: relative;
+}
+
+.c10:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c12 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c12 .c4 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c12 .c4[data-variant-type="warning"] {
+  color: rgb(175, 121, 2);
+}
+
+.c12 .c4 + .c6 {
+  padding-left: 0px;
+}
+
+.c12:focus {
+  position: relative;
+}
+
+.c12:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c13 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c13 .c4 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c13 .c4[data-variant-type="done"] {
+  color: rgb(41, 122, 36);
+}
+
+.c13 .c4 + .c6 {
+  padding-left: 0px;
+}
+
+.c13:focus {
+  position: relative;
+}
+
+.c13:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c16 .c16 .c2 {
+  border-radius: 0px;
+  padding-left: 32px;
+}
+
+.c16 .c16 .c2 .c6 {
+  font-weight: 600;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.c1::before,
+.c1 .c2::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c1::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c1 .c2::before {
+  top: 0px;
+}
+
+.c1:first-child::before {
+  border-top: 1px solid rgb(226, 230, 233);
+  top: 0px;
+}
+
+.c14::before,
+.c14 .c2::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c14 .c2::before {
+  top: 0px;
+}
+
+.c14 > .c2 {
+  background-color: rgb(245, 251, 255);
+  border-radius: 0px;
+}
+
+.c14 > .c2::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c14 > .c2:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c14 > .c2 .c6 {
+  color: rgb(77, 77, 77);
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    position: relative;
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c9:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    position: relative;
+  }
+
+  .c9:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c10:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    position: relative;
+  }
+
+  .c10:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c12:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    position: relative;
+  }
+
+  .c12:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c13:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    position: relative;
+  }
+
+  .c13:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c14 > .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c14 > .c2:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14 > .c2:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 accordion__container"
+  data-role="accordion"
+  role="navigation"
+>
+  <div
+    class="c1 accordion__section"
+    data-role="accordion-section"
+  >
+    <div
+      aria-expanded="false"
+      class="c2 c3 accordion__summary"
+      data-role="accordion-summary"
+      role="button"
+      tabindex="0"
+      title="Open"
+    >
+      <i
+        class="c4 c5 plasma-icon plasma-icon--filled"
+        data-role="plasma-icon"
+        data-variant-type="open"
+      >
+        <span
+          aria-hidden="true"
+        >
+          radio_button_unchecked
+        </span>
+      </i>
+      <div
+        class="c6 c7 accordion__text"
+        data-role="accordion-text"
+      >
+        Open Section
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+           - 
+          Open
+        </span>
+      </div>
+      <i
+        class="c4 c5 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          add
+        </span>
+      </i>
+    </div>
+  </div>
+  <div
+    class="c1 accordion__section"
+    data-role="accordion-section"
+  >
+    <div
+      aria-expanded="false"
+      class="c2 c9 accordion__summary"
+      data-role="accordion-summary"
+      role="button"
+      tabindex="0"
+      title="Info"
+    >
+      <i
+        class="c4 c5 plasma-icon plasma-icon--filled"
+        data-role="plasma-icon"
+        data-variant-type="info"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+      <div
+        class="c6 c7 accordion__text"
+        data-role="accordion-text"
+      >
+        Info Section
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+           - 
+          Info
+        </span>
+      </div>
+      <i
+        class="c4 c5 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          add
+        </span>
+      </i>
+    </div>
+  </div>
+  <div
+    class="c1 accordion__section"
+    data-role="accordion-section"
+  >
+    <div
+      aria-expanded="false"
+      class="c2 c10 accordion__summary"
+      data-role="accordion-summary"
+      role="button"
+      tabindex="0"
+      title="Error"
+    >
+      <i
+        class="c4 c11 plasma-icon plasma-icon--custom"
+        data-role="plasma-icon"
+        data-variant-type="error"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+      </i>
+      <div
+        class="c6 c7 accordion__text"
+        data-role="accordion-text"
+      >
+        Error Section
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+           - 
+          Error
+        </span>
+      </div>
+      <i
+        class="c4 c5 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          add
+        </span>
+      </i>
+    </div>
+  </div>
+  <div
+    class="c1 accordion__section"
+    data-role="accordion-section"
+  >
+    <div
+      aria-expanded="false"
+      class="c2 c12 accordion__summary"
+      data-role="accordion-summary"
+      role="button"
+      tabindex="0"
+      title="Warning"
+    >
+      <i
+        class="c4 c5 plasma-icon plasma-icon--filled"
+        data-role="plasma-icon"
+        data-variant-type="warning"
+      >
+        <span
+          aria-hidden="true"
+        >
+          warning
+        </span>
+      </i>
+      <div
+        class="c6 c7 accordion__text"
+        data-role="accordion-text"
+      >
+        Warning Section
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+           - 
+          Warning
+        </span>
+      </div>
+      <i
+        class="c4 c5 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          add
+        </span>
+      </i>
+    </div>
+  </div>
+  <div
+    class="c1 accordion__section"
+    data-role="accordion-section"
+  >
+    <div
+      aria-expanded="false"
+      class="c2 c13 accordion__summary"
+      data-role="accordion-summary"
+      role="button"
+      tabindex="0"
+      title="Done"
+    >
+      <i
+        class="c4 c5 plasma-icon plasma-icon--filled"
+        data-role="plasma-icon"
+        data-variant-type="done"
+      >
+        <span
+          aria-hidden="true"
+        >
+          check_circle
+        </span>
+      </i>
+      <div
+        class="c6 c7 accordion__text"
+        data-role="accordion-text"
+      >
+        Done Section
+        <span
+          class="c8 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+           - 
+          Done
+        </span>
+      </div>
+      <i
+        class="c4 c5 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          add
+        </span>
+      </i>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.accordion > test custom icons for all sections 1`] = `
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+
+.c5 {
+  -webkit-font-smoothing: antialiased;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0px;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.c3 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c3 .c6 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c3 .c6 + .c4 {
+  padding-left: 0px;
+}
+
+.c3:focus {
+  position: relative;
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c8 {
+  background-color: rgb(241, 242, 244);
+  font-size: 0.75rem;
+  overflow-y: auto;
+  position: relative;
+}
+
+.c8 .c8 .c2 {
+  border-radius: 0px;
+  padding-left: 32px;
+}
+
+.c8 .c8 .c2 .c4 {
+  font-weight: 600;
+}
+
+.c8:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.c1::before,
+.c1 .c2::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c1::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c1 .c2::before {
+  top: 0px;
+}
+
+.c1:first-child::before {
+  border-top: 1px solid rgb(226, 230, 233);
+  top: 0px;
+}
+
+.c9::before,
+.c9 .c2::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c9 .c2::before {
+  top: 0px;
+}
+
+.c9 > .c2 {
+  background-color: rgb(245, 251, 255);
+  border-radius: 0px;
+}
+
+.c9 > .c2::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c9 > .c2:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c9 > .c2 .c4 {
+  color: rgb(77, 77, 77);
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    position: relative;
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9 > .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9 > .c2:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9 > .c2:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 accordion__container"
+  data-role="accordion"
+  role="navigation"
+>
+  <div
+    class="c1 accordion__section"
+    data-role="accordion-section"
+  >
+    <div
+      aria-expanded="true"
+      class="c2 c3 accordion__summary"
+      data-role="accordion-summary"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c4 c5 accordion__text"
+        data-role="accordion-text"
+      >
+        Section 1
+      </div>
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          expand_less
+        </span>
+      </i>
+    </div>
+    <div
+      class="c8 accordion__details"
+      data-role="accordion-details"
+      role="document"
+    >
+      Detail 1
+    </div>
+  </div>
+  <div
+    class="c1 accordion__section"
+    data-role="accordion-section"
+  >
+    <div
+      aria-expanded="false"
+      class="c2 c3 accordion__summary"
+      data-role="accordion-summary"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c4 c5 accordion__text"
+        data-role="accordion-text"
+      >
+        Section 2
+      </div>
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          expand_more
+        </span>
+      </i>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.accordion > test passed in properties 1`] = `
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+
+.c5 {
+  -webkit-font-smoothing: antialiased;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0px;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.c3 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c3 .c6 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c3 .c6 + .c4 {
+  padding-left: 0px;
+}
+
+.c3:focus {
+  position: relative;
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.c1::before,
+.c1 .c2::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c1::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c1 .c2::before {
+  top: 0px;
+}
+
+.c1:first-child::before {
+  border-top: 1px solid rgb(226, 230, 233);
+  top: 0px;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    position: relative;
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 accordion__container container-class"
+  data-role="accordion"
+  id="container-id"
+  role="container-role"
+  style="background: red;"
+>
+  <div
+    class="c1 accordion__section section-class"
+    data-role="accordion-section"
+    id="section-id"
+    style="background: red;"
+  >
+    <div
+      aria-expanded="false"
+      class="c2 c3 accordion__summary summary-class"
+      data-role="accordion-summary"
+      id="summary-id"
+      role="button"
+      style="background: red;"
+      tabindex="0"
+    >
+      Test Graphic
+      <div
+        class="c4 c5 accordion__text"
+        data-role="accordion-text"
+      >
+        Summary
+      </div>
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          add
+        </span>
+      </i>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.accordion > test selected Section 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c4 {
+  -webkit-font-smoothing: antialiased;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0px;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.c2 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c2 .c5 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c2 .c5 + .c3 {
+  padding-left: 0px;
+}
+
+.c2:focus {
+  position: relative;
+}
+
+.c2:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c7 {
+  background-color: rgb(241, 242, 244);
+  font-size: 0.75rem;
+  overflow-y: auto;
+  position: relative;
+}
+
+.c7 .c7 .c1 {
+  border-radius: 0px;
+  padding-left: 32px;
+}
+
+.c7 .c7 .c1 .c3 {
+  font-weight: 600;
+}
+
+.c7:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c8::before,
+.c8 .c1::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c8 .c1::before {
+  top: 0px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.c0::before,
+.c0 .c1::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c0::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c0 .c1::before {
+  top: 0px;
+}
+
+.c0:first-child::before {
+  border-top: 1px solid rgb(226, 230, 233);
+  top: 0px;
+}
+
+.c0 > .c1 {
+  background-color: rgb(245, 251, 255);
+  border-radius: 0px;
+}
+
+.c0 > .c1::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c0 > .c1:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c0 > .c1 .c3 {
+  color: rgb(77, 77, 77);
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c2:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    position: relative;
+  }
+
+  .c2:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 > .c1:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > .c1:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 accordion__section accordion__section--selected"
+  data-role="accordion-section"
+>
+  <div
+    aria-current="page"
+    aria-expanded="true"
+    class="c1 c2 accordion__summary"
+    data-role="accordion-summary"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="c3 c4 accordion__text"
+      data-role="accordion-text"
+    >
+      Summary
+    </div>
+    <i
+      class="c5 c6 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        remove
+      </span>
+    </i>
+  </div>
+  <div
+    class="c7 accordion__details"
+    data-role="accordion-details"
+    role="document"
+  >
+    Detail
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.accordion > test structure and base properties 1`] = `
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+
+.c5 {
+  -webkit-font-smoothing: antialiased;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0px;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.c3 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  min-height: 48px;
+  outline: none;
+  padding: 8px 2px 8px 24px;
+  width: 100%;
+}
+
+.c3 .c6 {
+  display: block;
+  flex: 0 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(127, 140, 155);
+  font-size: 1.25rem;
+  padding: 0px 16px 0px 0px;
+}
+
+.c3 .c6 + .c4 {
+  padding-left: 0px;
+}
+
+.c3:focus {
+  position: relative;
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.c1::before,
+.c1 .c2::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c1::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c1 .c2::before {
+  top: 0px;
+}
+
+.c1:first-child::before {
+  border-top: 1px solid rgb(226, 230, 233);
+  top: 0px;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    position: relative;
+  }
+
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 accordion__container"
+  data-role="accordion"
+  role="navigation"
+>
+  <div
+    class="c1 accordion__section"
+    data-role="accordion-section"
+  >
+    <div
+      aria-expanded="false"
+      class="c2 c3 accordion__summary"
+      data-role="accordion-summary"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c4 c5 accordion__text"
+        data-role="accordion-text"
+      >
+        Summary
+      </div>
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          add
+        </span>
+      </i>
+    </div>
+  </div>
+</div>
+`;

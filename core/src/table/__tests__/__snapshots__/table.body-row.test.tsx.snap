@@ -1,0 +1,1032 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.body-row > default row 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c1:active,
+.c1:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 c1 table__contentRow"
+  data-role="table-body-row"
+  role="row"
+  tabindex="-1"
+  title="title-test"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > default row when hovering 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c1:active,
+.c1:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 c1 table__contentRow"
+  data-role="table-body-row"
+  role="row"
+  tabindex="-1"
+  title="title-test"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > default row when hovering 2`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c1:active,
+.c1:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 c1 table__contentRow"
+  data-role="table-body-row"
+  role="row"
+  tabindex="-1"
+  title="title-test"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > disabled row 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(241, 242, 244);
+  color: rgb(169, 179, 188);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c1:not(:focus):active::before {
+    border-width: medium medium 1px;
+    border-style: none none solid;
+    border-color: currentcolor currentcolor rgb(211, 214, 220);
+    border-image: initial;
+    box-sizing: border-box;
+  }
+
+  .c1:not(:focus):active::after {
+    box-sizing: border-box;
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 c1 table__contentRow table__contentRow--interactive table__contentRow--disabled"
+  data-role="table-body-row"
+  role="row"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > highlight variant 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(245, 251, 255);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c1:active,
+.c1:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 c1 table__contentRow table__contentRow--info"
+  data-role="table-body-row"
+  role="row"
+  tabindex="-1"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > highlight variant 2`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(236, 249, 235);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c1:active,
+.c1:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 c1 table__contentRow table__contentRow--success"
+  data-role="table-body-row"
+  role="row"
+  tabindex="-1"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > interactive row 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  box-sizing: border-box;
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus::after {
+  background-color: rgb(213, 0, 117);
+  background-clip: padding-box;
+  border-left-width: 2px;
+  box-sizing: border-box;
+  margin: 1px 0px 1px 1px;
+  width: 2px;
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active.c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    cursor: pointer;
+  }
+
+  .c1:hover.c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c1:not(:focus):active::before {
+    border-width: medium medium 1px;
+    border-style: none none solid;
+    border-color: currentcolor currentcolor rgb(211, 214, 220);
+    border-image: initial;
+    box-sizing: border-box;
+  }
+
+  .c1:not(:focus):active::after {
+    box-sizing: border-box;
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 c1 table__contentRow table__contentRow--interactive"
+  data-role="table-body-row"
+  role="row"
+  tabindex="0"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > other context values 1`] = `
+.c1 {
+  display: block;
+  position: relative;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c3:not(:last-child)::before,
+.c0:not(:last-child) .c3::before {
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c4:not(:last-child)::before,
+.c0:not(:last-child) .c4::before {
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c5:not(:last-child)::before,
+.c0:not(:last-child) .c5::before {
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c6:not(:last-child)::before,
+.c0:not(:last-child) .c6::before {
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c7:not(:last-child)::before,
+.c0:not(:last-child) .c7::before {
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c8:not(:last-child)::before,
+.c0:not(:last-child) .c8::before {
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c2 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  margin: 16px auto;
+  width: 97%;
+}
+
+.c2::before,
+.c2::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c2::before {
+  right: 0px;
+}
+
+.c2:not(:last-child)::before,
+.c0:not(:last-child) .c2::before {
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c2::after {
+  display: block;
+}
+
+.c2:focus.c2:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c2:focus::before {
+  box-sizing: border-box;
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2:focus::after {
+  background-color: rgb(213, 0, 117);
+  background-clip: padding-box;
+  border-left-width: 2px;
+  box-sizing: border-box;
+  margin: 1px 0px 1px 1px;
+  width: 2px;
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child:hover + .c3 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child:active + .c3 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child + .c3:hover {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child + .c3:active {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child:hover + .c4 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child:active + .c4 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child + .c4:hover {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child + .c4:active {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child:hover + .c5 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child:active + .c5 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child + .c5:hover {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child + .c5:active {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child:hover + .c6 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child:active + .c6 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child + .c6:hover {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child + .c6:active {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child:hover + .c7 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child:active + .c7 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child + .c7:hover {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child + .c7:active {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child:hover + .c8 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child:active + .c8 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child + .c8:hover {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child + .c8:active {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active.c2:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    cursor: pointer;
+  }
+
+  .c2:hover.c2:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child:hover + .c2 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child:active + .c2 {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > :first-child + .c2:hover {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > :first-child + .c2:active {
+    background-color: rgb(245, 251, 255);
+  }
+}
+
+@media (pointer: coarse) and (any-hover: none) {
+  .c2:not(:focus):active::before {
+    border-width: medium medium 1px;
+    border-style: none none solid;
+    border-color: currentcolor currentcolor rgb(211, 214, 220);
+    border-image: initial;
+    box-sizing: border-box;
+  }
+
+  .c2:not(:focus):active::after {
+    box-sizing: border-box;
+  }
+}
+
+<div
+  class="c0 table__expandable-row-wrapper"
+>
+  <div
+    class="c1 c2 table__contentRow table__contentRow--interactive"
+    data-role="table-body-row"
+    role="list"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > selected row 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(245, 251, 255);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c1::after {
+  border-bottom: 0px;
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c1:active,
+.c1:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+<div
+  aria-selected="true"
+  class="c0 c1 table__contentRow table__contentRow--selected"
+  data-role="table-body-row"
+  role="row"
+  tabindex="-1"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body-row > test rowStyling context 1`] = `
+.c0 {
+  display: flex;
+  position: relative;
+}
+
+.c1 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(245, 251, 255);
+}
+
+.c1::before,
+.c1::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c1::before {
+  right: 0px;
+}
+
+.c1::after {
+  display: block;
+}
+
+.c1:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c1:active,
+.c1:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 c1 table__contentRow table__contentRow--info"
+  data-role="table-body-row"
+  role="row"
+  tabindex="-1"
+/>
+`;

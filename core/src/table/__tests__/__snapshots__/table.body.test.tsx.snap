@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.body > bodyRowRenderer 1`] = `
+.c0 {
+  border-width: 1px 1px medium;
+  border-style: solid solid none;
+  border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
+  border-image: initial;
+  outline: none;
+}
+
+.c0:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c0:not(:empty) {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+}
+
+<div
+  class="c0 table__content"
+  data-role="table-body"
+  role="rowgroup"
+  tabindex="0"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.body > dndBodyRowRendererFn 1`] = `
+.c0 {
+  border-width: 1px 1px medium;
+  border-style: solid solid none;
+  border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
+  border-image: initial;
+  outline: none;
+}
+
+.c0:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c0:not(:empty) {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+}
+
+<div
+  class="c0 table__content"
+  data-role="table-body"
+  role="rowgroup"
+  tabindex="0"
+/>
+`;

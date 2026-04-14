@@ -1,0 +1,1325 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.chat.Container > rendering-container 1`] = `
+.c1 {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  padding: 24px 24px 0px;
+}
+
+.c0 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  height: 100%;
+  line-height: 1.45;
+  position: relative;
+  overflow: hidden;
+}
+
+<div
+  aria-live="polite"
+  class="c0 chat-container test-class"
+  data-role="chat"
+  id="test-id"
+  role="log"
+  style="color: red;"
+>
+  <div
+    class="c1 chat-container__inner"
+    id="test-id-inner-container"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-avatar 1`] = `
+.c0 {
+  border-radius: 50%;
+  height: 1rem;
+  width: 1rem;
+}
+
+<img
+  alt="avatar"
+  class="c0 chat-user__avatar-image test-class"
+  data-role="chat-avatar-img"
+  id="test-id"
+  src="images/user-avatar.png"
+  style="color: red;"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-date-marker 1`] = `
+.c0 + .c4 {
+  padding-top: 0px;
+}
+
+.c0 + .c5 {
+  padding-top: 0px;
+}
+
+.c0 + .c6 {
+  padding-top: 0px;
+}
+
+.c1 {
+  display: flex;
+  justify-content: center;
+  padding: 0px 8px;
+}
+
+.c1:first-child > .c2 {
+  margin-top: 0px;
+}
+
+.c3 {
+  background-color: rgb(97, 111, 124);
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  cursor: default;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: normal;
+  margin: 8px 0px;
+  padding: 4px 16px;
+}
+
+<div
+  class="c0 c1 chat-date test-class"
+  data-role="chat-date-marker"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c2 c3 chat-date__content"
+  >
+    Yesterday
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-message 1`] = `
+.c0:not(:first-child) {
+  padding: 4px 0px 0px;
+}
+
+.c0:last-child {
+  padding-bottom: 8px;
+}
+
+.c3 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.c4 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  padding-left: 16px;
+  text-align: right;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(181, 228, 253);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  max-width: 100%;
+  min-height: 24px;
+  padding: 2px 4px;
+  position: relative;
+  margin-left: 6px;
+}
+
+.c2::before {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  content: "";
+  height: 5px;
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  width: 6px;
+}
+
+.c1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+<div
+  class="c0 chat-message chat-message--left test-class"
+  data-role="chat-message"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c1 chat-message__container"
+  >
+    <div
+      class="c2 chat-message__bubble"
+    >
+      <div
+        aria-label="You said:"
+        class="c3 chat-message__content"
+        data-role="chat-message-content"
+        role="region"
+      >
+        message
+      </div>
+      <div
+        class="c4 chat-message__status"
+        data-role="chat-message-status"
+      >
+        11:11 am
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c9:not(:first-child) {
+  padding: 4px 0px 0px;
+}
+
+.c9 + .c2 {
+  padding-top: 8px;
+}
+
+.c9:last-child {
+  padding-bottom: 8px;
+}
+
+.c1 {
+  position: relative;
+  padding: 8px 0px 0px;
+}
+
+.c1:first-child {
+  padding-top: 0px;
+}
+
+.c1 .c8:last-child {
+  padding-bottom: 0px;
+}
+
+.c1:last-child {
+  padding: 8px 0px;
+}
+
+.c1 .c8 .c12 {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(181, 228, 253);
+  margin-left: 6px;
+}
+
+.c1 .c8 {
+  padding-right: 5%;
+}
+
+.c1 .c8:not(.c8 ~ .c8) .c12 {
+  border-top-left-radius: 0px;
+}
+
+.c1 .c8:not(.c8 ~ .c8) .c12::before {
+  background-color: rgb(255, 255, 255);
+  border-bottom: 0px;
+  border-left-color: rgb(181, 228, 253);
+  border-right: 0px;
+  border-top-color: rgb(181, 228, 253);
+  left: -4px;
+  transform: rotate(0deg) skew(50deg, 0deg);
+}
+
+.c15 .c8:last-child {
+  padding-bottom: 0px;
+}
+
+.c15 .c8 .c12 {
+  background-color: rgb(241, 242, 244);
+  border-color: rgb(241, 242, 244);
+  margin-right: 6px;
+}
+
+.c15 .c8 .c10 {
+  justify-content: flex-end;
+}
+
+.c15 .c8 {
+  padding-left: 5%;
+}
+
+.c15 .c8:not(.c8 ~ .c8) .c12 {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0px;
+}
+
+.c15 .c8:not(.c8 ~ .c8) .c12::before {
+  background-color: rgb(241, 242, 244);
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 1px solid rgb(241, 242, 244);
+  border-top-color: rgb(241, 242, 244);
+  left: unset;
+  right: -4px;
+  transform: rotate(0deg) skew(-50deg, 0deg);
+}
+
+.c21 .c5 {
+  color: inherit;
+  font-size: inherit;
+  margin: 0px 0px 0px 8px;
+}
+
+.c22 .c5 {
+  color: inherit;
+  font-size: inherit;
+  margin: 0px 0px 0px 8px;
+}
+
+.c4 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c7 {
+  align-self: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c3 {
+  display: flex;
+  width: 100%;
+}
+
+.c14 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.c13 {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(181, 228, 253);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  max-width: 100%;
+  min-height: 24px;
+  padding: 2px 4px;
+  position: relative;
+  margin-left: 6px;
+}
+
+.c13::before {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  content: "";
+  height: 5px;
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  width: 6px;
+}
+
+.c11 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c16 + .c8,
+.c16 + .c0 {
+  padding-top: 0px;
+}
+
+.c17 + .c8,
+.c17 + .c0 {
+  padding-top: 0px;
+}
+
+.c18 + .c8,
+.c18 + .c0 {
+  padding-top: 0px;
+}
+
+.c19 + .c8,
+.c19 + .c0 {
+  padding-top: 0px;
+}
+
+.c20 + .c8,
+.c20 + .c0 {
+  padding-top: 0px;
+}
+
+<div
+  class="c0 c1 chat-message-group"
+  data-role="chat-message-group"
+>
+  <div
+    class="c2 c3 chat-user chat-user--left"
+    data-role="chat-user-info"
+  >
+    <div
+      class="c4 chat-user__avatar"
+      data-role="chat-user-avatar"
+    >
+      <i
+        class="c5 c6 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          account_circle
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 chat-user__name"
+      data-role="chat-user-name"
+    >
+      Peter
+    </div>
+  </div>
+  <div
+    class="c8 c9 chat-message chat-message--left"
+    data-role="chat-message"
+  >
+    <div
+      class="c10 c11 chat-message__container"
+    >
+      <div
+        class="c12 c13 chat-message__bubble"
+      >
+        <div
+          aria-label="Peter said:"
+          class="c14 chat-message__content"
+          data-role="chat-message-content"
+          role="region"
+        >
+          Hello, my name is Peter. How can I help you?
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c10:not(:first-child) {
+  padding: 4px 0px 0px;
+}
+
+.c10 + .c2 {
+  padding-top: 8px;
+}
+
+.c10:last-child {
+  padding-bottom: 8px;
+}
+
+.c16 .c9:last-child {
+  padding-bottom: 0px;
+}
+
+.c16 .c9 .c13 {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(181, 228, 253);
+  margin-left: 6px;
+}
+
+.c16 .c9 {
+  padding-right: 5%;
+}
+
+.c16 .c9:not(.c9 ~ .c9) .c13 {
+  border-top-left-radius: 0px;
+}
+
+.c16 .c9:not(.c9 ~ .c9) .c13::before {
+  background-color: rgb(255, 255, 255);
+  border-bottom: 0px;
+  border-left-color: rgb(181, 228, 253);
+  border-right: 0px;
+  border-top-color: rgb(181, 228, 253);
+  left: -4px;
+  transform: rotate(0deg) skew(50deg, 0deg);
+}
+
+.c1 {
+  position: relative;
+  padding: 8px 0px 0px;
+}
+
+.c1:first-child {
+  padding-top: 0px;
+}
+
+.c1 .c9:last-child {
+  padding-bottom: 0px;
+}
+
+.c1:last-child {
+  padding: 8px 0px;
+}
+
+.c1 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border-color: rgb(241, 242, 244);
+  margin-right: 6px;
+}
+
+.c1 .c9 .c11 {
+  justify-content: flex-end;
+}
+
+.c1 .c9 {
+  padding-left: 5%;
+}
+
+.c1 .c9:not(.c9 ~ .c9) .c13 {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0px;
+}
+
+.c1 .c9:not(.c9 ~ .c9) .c13::before {
+  background-color: rgb(241, 242, 244);
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 1px solid rgb(241, 242, 244);
+  border-top-color: rgb(241, 242, 244);
+  left: unset;
+  right: -4px;
+  transform: rotate(0deg) skew(-50deg, 0deg);
+}
+
+.c22 .c5 {
+  color: inherit;
+  font-size: inherit;
+  margin: 0px 0px 0px 8px;
+}
+
+.c23 .c5 {
+  color: inherit;
+  font-size: inherit;
+  margin: 0px 0px 0px 8px;
+}
+
+.c4 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c7 {
+  align-self: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c3 {
+  display: flex;
+  width: 100%;
+}
+
+.c15 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.c14 {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(181, 228, 253);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  max-width: 100%;
+  min-height: 24px;
+  padding: 2px 4px;
+  position: relative;
+  margin-left: 6px;
+}
+
+.c14::before {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  content: "";
+  height: 5px;
+  position: absolute;
+  pointer-events: none;
+  top: -1px;
+  width: 6px;
+}
+
+.c12 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c17 + .c9,
+.c17 + .c0 {
+  padding-top: 0px;
+}
+
+.c18 + .c9,
+.c18 + .c0 {
+  padding-top: 0px;
+}
+
+.c19 + .c9,
+.c19 + .c0 {
+  padding-top: 0px;
+}
+
+.c20 + .c9,
+.c20 + .c0 {
+  padding-top: 0px;
+}
+
+.c21 + .c9,
+.c21 + .c0 {
+  padding-top: 0px;
+}
+
+<div
+  class="c0 c1 chat-message-group chat-message-group--right"
+  data-role="chat-message-group"
+>
+  <div
+    class="c2 c3 chat-user chat-user--left"
+    data-role="chat-user-info"
+  >
+    <div
+      class="c4 chat-user__avatar"
+      data-role="chat-user-avatar"
+    >
+      <i
+        class="c5 c6 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          account_circle
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 chat-user__name"
+      data-role="chat-user-name"
+    >
+      Peter
+    </div>
+  </div>
+  <span
+    class="c8 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    Me: 
+  </span>
+  <div
+    class="c9 c10 chat-message chat-message--left"
+    data-role="chat-message"
+  >
+    <div
+      class="c11 c12 chat-message__container"
+    >
+      <div
+        class="c13 c14 chat-message__bubble"
+      >
+        <div
+          aria-label="Peter said:"
+          class="c15 chat-message__content"
+          data-role="chat-message-content"
+          role="region"
+        >
+          Hello, my name is Peter. How can I help you?
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group-properties 1`] = `
+.c0 {
+  position: relative;
+  padding: 8px 0px 0px;
+}
+
+.c0:first-child {
+  padding-top: 0px;
+}
+
+.c0:last-child {
+  padding: 8px 0px;
+}
+
+<div
+  class="c0 chat-message-group test-class"
+  data-role="chat-message-group"
+  id="test-id"
+  style="color: red;"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group-with-position 1`] = `
+.c0 {
+  position: relative;
+  padding: 8px 0px 0px;
+}
+
+.c0:first-child {
+  padding-top: 0px;
+}
+
+.c0:last-child {
+  padding: 8px 0px;
+}
+
+<div
+  class="c0 chat-message-group"
+  data-role="chat-message-group"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group-with-position 2`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  position: relative;
+  padding: 8px 0px 0px;
+}
+
+.c0:first-child {
+  padding-top: 0px;
+}
+
+.c0:last-child {
+  padding: 8px 0px;
+}
+
+<div
+  class="c0 chat-message-group chat-message-group--right"
+  data-role="chat-message-group"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    Me: 
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification 1`] = `
+.c2 {
+  align-items: center;
+  background-color: rgb(5, 104, 174);
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: normal;
+  padding: 4px 16px;
+  text-align: center;
+}
+
+.c2 > :first-child {
+  flex-shrink: 1;
+}
+
+.c1 {
+  cursor: default;
+  display: flex;
+  transition: visibility 0.4s, opacity 0.4s linear;
+  visibility: visible;
+  opacity: 1;
+}
+
+.c0 {
+  display: flex;
+  justify-content: center;
+  margin: 8px auto;
+  width: 75%;
+}
+
+<div
+  class="c0 chat-notification chat-notification--info test-class"
+  data-role="chat-notification"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    aria-live="polite"
+    class="c1 chat-notification-wrapper"
+  >
+    <div
+      class="c2 chat-notification-content"
+      role="log"
+    >
+      2 new messages
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-type 1`] = `
+.c3 {
+  align-items: center;
+  background-color: rgb(5, 104, 174);
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: normal;
+  padding: 4px 16px;
+  text-align: center;
+}
+
+.c3 > :first-child {
+  flex-shrink: 1;
+}
+
+.c1 {
+  cursor: default;
+  display: flex;
+  transition: visibility 0.4s, opacity 0.4s linear;
+  visibility: visible;
+  opacity: 1;
+}
+
+.c0 {
+  display: flex;
+  justify-content: center;
+  margin: 8px auto;
+  width: 75%;
+}
+
+.c0 .c2 {
+  background-color: rgb(41, 122, 36);
+}
+
+<div
+  class="c0 chat-notification chat-notification--success test-class"
+  data-role="chat-notification"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    aria-live="polite"
+    class="c1 chat-notification-wrapper"
+  >
+    <div
+      class="c2 c3 chat-notification-content"
+      role="log"
+    >
+      2 new messages
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-type 2`] = `
+.c3 {
+  align-items: center;
+  background-color: rgb(5, 104, 174);
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: normal;
+  padding: 4px 16px;
+  text-align: center;
+}
+
+.c3 > :first-child {
+  flex-shrink: 1;
+}
+
+.c1 {
+  cursor: default;
+  display: flex;
+  transition: visibility 0.4s, opacity 0.4s linear;
+  visibility: visible;
+  opacity: 1;
+}
+
+.c4 .c2 {
+  background-color: rgb(41, 122, 36);
+}
+
+.c0 {
+  display: flex;
+  justify-content: center;
+  margin: 8px auto;
+  width: 75%;
+}
+
+.c0 .c2 {
+  background-color: rgb(201, 29, 29);
+}
+
+<div
+  class="c0 chat-notification chat-notification--error test-class"
+  data-role="chat-notification"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    aria-live="polite"
+    class="c1 chat-notification-wrapper"
+  >
+    <div
+      class="c2 c3 chat-notification-content"
+      role="log"
+    >
+      2 new messages
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-type 3`] = `
+.c3 {
+  align-items: center;
+  background-color: rgb(5, 104, 174);
+  border-radius: 12px;
+  color: rgb(22, 25, 29);
+  display: flex;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: normal;
+  padding: 4px 16px;
+  text-align: center;
+}
+
+.c3 > :first-child {
+  flex-shrink: 1;
+}
+
+.c1 {
+  cursor: default;
+  display: flex;
+  transition: visibility 0.4s, opacity 0.4s linear;
+  visibility: visible;
+  opacity: 1;
+}
+
+.c4 .c2 {
+  background-color: rgb(41, 122, 36);
+}
+
+.c5 .c2 {
+  background-color: rgb(201, 29, 29);
+}
+
+.c0 {
+  display: flex;
+  justify-content: center;
+  margin: 8px auto;
+  width: 75%;
+}
+
+.c0 .c2 {
+  background-color: rgb(249, 191, 48);
+}
+
+<div
+  class="c0 chat-notification chat-notification--warning test-class"
+  data-role="chat-notification"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    aria-live="polite"
+    class="c1 chat-notification-wrapper"
+  >
+    <div
+      class="c2 c3 chat-notification-content"
+      role="log"
+    >
+      2 new messages
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-with-fixToBottom 1`] = `
+.c3 {
+  align-items: center;
+  background-color: rgb(5, 104, 174);
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: normal;
+  padding: 4px 16px;
+  text-align: center;
+}
+
+.c3 > :first-child {
+  flex-shrink: 1;
+}
+
+.c1 {
+  cursor: default;
+  display: flex;
+  transition: visibility 0.4s, opacity 0.4s linear;
+  visibility: visible;
+  opacity: 1;
+}
+
+.c4 .c2 {
+  background-color: rgb(41, 122, 36);
+}
+
+.c5 .c2 {
+  background-color: rgb(201, 29, 29);
+}
+
+.c6 .c2 {
+  background-color: rgb(249, 191, 48);
+}
+
+.c0 {
+  display: flex;
+  justify-content: center;
+  bottom: 0px;
+  position: absolute;
+  left: 50%;
+  margin: 0px 0px 4px;
+  transform: translateX(-50%);
+  width: 70%;
+}
+
+<div
+  class="c0 chat-notification chat-notification--info chat-notification--fixed-to-bottom"
+  data-role="chat-notification"
+>
+  <div
+    aria-live="polite"
+    class="c1 chat-notification-wrapper"
+  >
+    <div
+      class="c2 c3 chat-notification-content"
+      role="alert"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-secondary-content 1`] = `
+.c0 {
+  color: rgb(97, 111, 124);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  font-style: italic;
+  margin: 12px 0px 0px;
+}
+
+<div
+  class="c0 chat-message__secondary-content test-class"
+  id="test-id"
+  style="color: red;"
+>
+  secondary content...
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-type-marker 1`] = `
+.c0 {
+  padding: 8px 0px;
+}
+
+<div
+  class="c0 chat-typing test-class"
+  data-role="chat-typing-marker"
+  id="test-id"
+  style="color: red;"
+>
+  typing...
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > rendering-user-info 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c5 + .c0 {
+  padding-top: 8px;
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c4 {
+  align-self: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c1 {
+  display: flex;
+  width: 100%;
+}
+
+<div
+  class="c0 c1 chat-user chat-user--left test-class"
+  data-role="chat-user-info"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c2 chat-user__avatar"
+    data-role="chat-user-avatar"
+  >
+    <i
+      class="c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        account_circle
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 chat-user__name"
+    data-role="chat-user-name"
+  >
+    Peter
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.chat.template > simulating-click-event-notification 1`] = `
+.c3 {
+  align-items: center;
+  background-color: rgb(5, 104, 174);
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: normal;
+  padding: 4px 16px;
+  text-align: center;
+}
+
+.c3 > :first-child {
+  flex-shrink: 1;
+}
+
+.c1 {
+  display: flex;
+  transition: visibility 0.4s, opacity 0.4s linear;
+  cursor: pointer;
+  visibility: visible;
+  opacity: 1;
+}
+
+.c0 {
+  display: flex;
+  justify-content: center;
+  margin: 8px auto;
+  width: 75%;
+}
+
+.c4 .c2 {
+  background-color: rgb(41, 122, 36);
+}
+
+.c5 .c2 {
+  background-color: rgb(201, 29, 29);
+}
+
+.c6 .c2 {
+  background-color: rgb(249, 191, 48);
+}
+
+<div
+  class="c0 chat-notification chat-notification--info"
+  data-role="chat-notification"
+>
+  <div
+    aria-live="polite"
+    class="c1 chat-notification-wrapper chat-notification-wrapper--clickable"
+  >
+    <div
+      class="c2 c3 chat-notification-content"
+      role="log"
+    />
+  </div>
+</div>
+`;

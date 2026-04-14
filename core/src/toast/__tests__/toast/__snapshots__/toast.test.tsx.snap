@@ -1,0 +1,226 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.toast > render with id, class, style, wrapperRef 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info class"
+  data-role="toast"
+  id="id"
+  style="font-size: 10px; outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,12 @@
+{
+	"extends": "../tsconfig",
+	"include": ["./src"],
+	"compilerOptions": {
+		"outDir": "./lib",
+		"sourceMap": false,
+		"declaration": false,
+		"declarationMap": false,
+		"tsBuildInfoFile": "target/tsbuildinfo",
+		"rootDir": "./src"
+	}
+}

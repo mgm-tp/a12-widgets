@@ -1,0 +1,1096 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.validation-bar.view > rendering-default-validation-bar 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  background-color: rgb(201, 29, 29);
+  color: rgb(201, 29, 29);
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 24px;
+  min-height: 48px;
+}
+
+.c2 {
+  display: flex;
+  justify-content: center;
+  margin: 0px 8px 0px 0px;
+  padding: 0px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+<section
+  aria-label="Status of validation"
+  class="c0 validation-bar validation-bar--error"
+  data-role="validation-bar"
+  tabindex="-1"
+>
+  <div
+    class="c1 validation-bar__header"
+    data-role="validation-bar-header"
+  >
+    <div
+      class="c2 validation-bar__graphic"
+      data-role="validation-bar-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon plasma-icon--custom"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+      </i>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`com.mgmtp.a12.widgets.validation-bar.view > rendering-info-validation-bar 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 24px;
+  min-height: 48px;
+}
+
+.c2 {
+  display: flex;
+  justify-content: center;
+  margin: 0px 8px 0px 0px;
+  padding: 0px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c5 .c3 {
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+<section
+  aria-label="Status of validation"
+  class="c0 validation-bar validation-bar--error"
+  data-role="validation-bar"
+  tabindex="-1"
+>
+  <div
+    class="c1 validation-bar__header"
+    data-role="validation-bar-header"
+  >
+    <div
+      class="c2 validation-bar__graphic"
+      data-role="validation-bar-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`com.mgmtp.a12.widgets.validation-bar.view > rendering-validation-bar-with-quick-access-menu-and-pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c3 {
+  user-select: none;
+}
+
+.c10 .c3 {
+  color: inherit;
+}
+
+.c10 .c3 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c3 {
+  display: block;
+}
+
+.c8 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c8 .c3 {
+  position: relative;
+}
+
+.c8 .c3::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c8 .c3:focus {
+  outline: none;
+}
+
+.c8 .c3:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  display: flex;
+  isolation: isolate;
+}
+
+.c6 .c9 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c6 > .c9 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c11 {
+  font-size: 1.25rem;
+}
+
+.c11 .c3 {
+  font-size: inherit;
+}
+
+.c11.c11 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c7 {
+  align-items: stretch;
+  width: 2px;
+}
+
+.c14 {
+  align-items: center;
+  cursor: default;
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+}
+
+.c18 {
+  align-self: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  margin: 0px 4px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.c16 {
+  color: rgb(255, 255, 255);
+  border-radius: 0px;
+  font-size: 1.5rem;
+  padding: 4px 0px;
+}
+
+.c16.c16:focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+.c16:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  margin: -1px 0px -1px -1px;
+}
+
+.c16:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: -1px -1px -1px 0px;
+}
+
+.c0 {
+  background-color: rgb(201, 29, 29);
+  color: rgb(201, 29, 29);
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0 .c13[data-role="simple-pagination"] {
+  margin: 0px 0px 0px 16px;
+}
+
+.c19 .c13[data-role="simple-pagination"] {
+  margin: 0px 0px 0px 16px;
+}
+
+.c20 .c13[data-role="simple-pagination"] {
+  margin: 0px 0px 0px 16px;
+}
+
+.c1 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 24px;
+  min-height: 48px;
+}
+
+.c21 .c9 {
+  color: rgb(22, 25, 29);
+}
+
+.c21 .c9:not(:disabled):focus {
+  border-color: rgb(22, 25, 29);
+  color: rgb(22, 25, 29);
+  outline-color: rgb(22, 25, 29);
+}
+
+.c21 .c9[data-variant-type="primary"] {
+  background-color: rgb(22, 25, 29);
+  color: rgb(249, 191, 48);
+}
+
+.c21 .c9[data-variant-type="primary"]:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.c21 .c9[data-variant-type="primary"]:hover::before,
+.c21 .c9[data-variant-type="primary"]:active::before,
+.c21 .c9[data-variant-type="primary"]:focus::before {
+  border-color: rgb(22, 25, 29);
+}
+
+.c21 .c9[data-variant-type="secondary"]::before {
+  border-color: rgb(22, 25, 29);
+}
+
+.c21 .c9[data-variant-type="secondary"]:hover::before,
+.c21 .c9[data-variant-type="secondary"]:active::before,
+.c21 .c9[data-variant-type="secondary"]:focus::before {
+  border-color: rgb(22, 25, 29);
+}
+
+.c21 .c13 {
+  border-color: rgb(22, 25, 29);
+}
+
+.c21 .c13 .c15[aria-disabled="true"] {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c21 .c13 .c17 {
+  color: rgb(22, 25, 29);
+}
+
+.c2 {
+  display: flex;
+  justify-content: center;
+  margin: 0px 8px 0px 0px;
+  padding: 0px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c22 .c3 {
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c23 + .c5 {
+  margin: 0px 0px 0px 16px;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c16.c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c16.c16:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c21 .c9:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(22, 25, 29);
+    color: rgb(22, 25, 29);
+  }
+}
+
+@media (pointer: fine) {
+  .c21 .c9:not(:disabled):hover {
+    border-color: rgb(22, 25, 29);
+    color: rgb(22, 25, 29);
+  }
+}
+
+@media (pointer: coarse) {
+  .c21 .c9[data-variant-type="primary"]:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (pointer: fine) {
+  .c21 .c9[data-variant-type="primary"]:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+<section
+  aria-label="Status of validation"
+  class="c0 validation-bar validation-bar--error"
+  data-role="validation-bar"
+  tabindex="-1"
+>
+  <div
+    class="c1 validation-bar__header"
+    data-role="validation-bar-header"
+  >
+    <div
+      class="c2 validation-bar__graphic"
+      data-role="validation-bar-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon plasma-icon--custom"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+      </i>
+    </div>
+    <div
+      class="c5 c6 quick-access-button quick-access-button--secondary"
+      data-role="quick-access-button"
+    >
+      <div
+        class="c7 quick-access-button__divider"
+        data-role="quick-access-button-divider"
+      />
+      <div
+        class="c8 popup quick-access-button__popup"
+        data-role="quick-access-button-popup"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Open validation menu"
+          class="c9 c10 button button--icon c11"
+          data-role="quick-access-button-trigger-element"
+          data-type="icon"
+          tabindex="0"
+          title="Open validation menu"
+          type="button"
+        >
+          <i
+            class="c3 c12 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              arrow_drop_down
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c13 c14 simple-pagination"
+      data-role="simple-pagination"
+      role="navigation"
+    >
+      <button
+        aria-disabled="false"
+        aria-label="Previous issue"
+        class="c9 c10 button button--icon c15 c16 simple-pagination__action"
+        data-role="button"
+        data-type="icon"
+        tabindex="0"
+        title="Previous issue"
+        type="button"
+      >
+        <i
+          class="c3 c12 plasma-icon simple-pagination__icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            arrow_left
+          </span>
+        </i>
+      </button>
+      <div
+        class="c17 c18 simple-pagination__label"
+        data-role="simple-pagination-label"
+      >
+        3 / 10
+      </div>
+      <button
+        aria-disabled="false"
+        aria-label="Next issue"
+        class="c9 c10 button button--icon c15 c16 simple-pagination__action"
+        data-role="button"
+        data-type="icon"
+        tabindex="0"
+        title="Next issue"
+        type="button"
+      >
+        <i
+          class="c3 c12 plasma-icon simple-pagination__icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            arrow_right
+          </span>
+        </i>
+      </button>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`com.mgmtp.a12.widgets.validation-bar.view > rendering-validation-bar-with-title 1`] = `
+.c7 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c7 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c8 {
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  word-break: break-all;
+}
+
+.c8 > * {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.c0 {
+  background-color: rgb(201, 29, 29);
+  color: rgb(201, 29, 29);
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 24px;
+  min-height: 48px;
+}
+
+.c2 {
+  display: flex;
+  justify-content: center;
+  margin: 0px 8px 0px 0px;
+  padding: 0px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  flex: 1 1 0%;
+  line-height: 1rem;
+  outline: none;
+  overflow: hidden;
+  padding: 0px 2px;
+  color: rgb(255, 255, 255);
+}
+
+.c5:focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c6 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.c9 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+<section
+  aria-label="Status of validation"
+  class="c0 validation-bar validation-bar--error"
+  data-role="validation-bar"
+  tabindex="-1"
+>
+  <div
+    class="c1 validation-bar__header"
+    data-role="validation-bar-header"
+  >
+    <div
+      class="c2 validation-bar__graphic"
+      data-role="validation-bar-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon plasma-icon--custom"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+      </i>
+    </div>
+    <div
+      aria-atomic="true"
+      class="c5 validation-bar__titles"
+      data-role="validation-bar-titles"
+      role="status"
+    >
+      <div
+        aria-level="2"
+        class="c6 validation-bar__primary-title"
+        data-role="validation-bar-primary-title"
+        role="heading"
+      >
+        <span
+          class="c7 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Error: 
+        </span>
+        <div
+          class="c8 css-ellipsis css-ellipsis-1-lines"
+          data-role="css-ellipsis"
+        >
+          Primary Title
+        </div>
+      </div>
+      <div
+        class="c9 validation-bar__secondary-title"
+        data-role="validation-bar-secondary-title"
+      >
+        <div
+          class="c8 css-ellipsis css-ellipsis-1-lines"
+          data-role="css-ellipsis"
+        >
+          Secondary Title
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`com.mgmtp.a12.widgets.validation-bar.view > rendering-warning-validation-bar 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons Outlined";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  background-color: rgb(249, 191, 48);
+  color: rgb(249, 191, 48);
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 24px;
+  min-height: 48px;
+}
+
+.c5 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c2 {
+  display: flex;
+  justify-content: center;
+  margin: 0px 8px 0px 0px;
+  padding: 0px;
+}
+
+.c2 .c3 {
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+<section
+  aria-label="Status of validation"
+  class="c0 validation-bar validation-bar--warning"
+  data-role="validation-bar"
+  tabindex="-1"
+>
+  <div
+    class="c1 validation-bar__header"
+    data-role="validation-bar-header"
+  >
+    <div
+      class="c2 validation-bar__graphic"
+      data-role="validation-bar-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon plasma-icon--outlined"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          warning_amber
+        </span>
+      </i>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`com.mgmtp.a12.widgets.validation-bar.view > rendering-warning-validation-bar-with-content 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  background-color: rgb(201, 29, 29);
+  color: rgb(201, 29, 29);
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 24px;
+  min-height: 48px;
+}
+
+.c2 {
+  display: flex;
+  justify-content: center;
+  margin: 0px 8px 0px 0px;
+  padding: 0px;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c6 .c3 {
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  align-items: flex-start;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 2px 2px;
+  height: 180px;
+  overflow-y: auto;
+  outline: none;
+  padding: 24px 24px 0px;
+}
+
+.c5::after {
+  content: "";
+  display: block;
+  height: 8px;
+  width: 100%;
+}
+
+<section
+  aria-label="Status of validation"
+  class="c0 validation-bar validation-bar--error"
+  data-role="validation-bar"
+  tabindex="-1"
+>
+  <div
+    class="c1 validation-bar__header"
+    data-role="validation-bar-header"
+  >
+    <div
+      class="c2 validation-bar__graphic"
+      data-role="validation-bar-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon plasma-icon--custom"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+      </i>
+    </div>
+  </div>
+  <div
+    class="c5 validation-bar__content"
+    data-role="validation-bar-content"
+    tabindex="-1"
+  >
+    Content
+  </div>
+</section>
+`;

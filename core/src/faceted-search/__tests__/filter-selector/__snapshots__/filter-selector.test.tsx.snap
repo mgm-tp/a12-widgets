@@ -1,0 +1,4244 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.filter-selector > rendering-list-item 1`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c23 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c23 > span {
+  display: inline-block;
+}
+
+.c23.c23 {
+  max-width: unset;
+}
+
+.c7 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c25 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+}
+
+.c25:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c9 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c9 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+}
+
+.c10 {
+  background-color: rgb(241, 242, 244);
+  padding: 8px 24px;
+}
+
+.c21 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c21:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c20 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c20::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c18 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c28 .c13 {
+  display: flex;
+  width: 100%;
+}
+
+.c12 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c12 .c13 {
+  display: flex;
+  width: 100%;
+}
+
+.c12 * {
+  max-width: 100%;
+}
+
+.c12[class*="h_"] .c17 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c16 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c14 {
+  display: inline-flex;
+}
+
+.c14 .c15 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c19 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c26 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c29 .c22 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c29 .c22:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px auto;
+  outline: none;
+}
+
+.c1 .filter-selector__content-enter {
+  max-height: 0px;
+  transition: max-height 0.3s ease-out;
+}
+
+.c1 .filter-selector__content-exit {
+  transition: height 0.3s ease-in;
+  height: 0px !important;
+}
+
+.c1 .c8 > :not(:empty) {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c1 .c8 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+  border-top-width: medium;
+  border-top-style: none;
+  border-top-color: currentcolor;
+}
+
+.c1 .c24 {
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.c6 .c24 {
+  padding: 0px;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-height: inherit;
+  min-height: 244.4px;
+}
+
+.c2 .c5 {
+  box-shadow: none;
+  outline: 0px;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  max-height: 468px;
+  outline: 0px;
+  max-width: 248px;
+  min-width: 248px;
+}
+
+.c11 {
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 48px;
+  padding: 8px 16px;
+}
+
+.c27 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  outline: none;
+  overflow-y: auto;
+}
+
+<div
+  class="c0 attached-portal h_bottomStart"
+  data-role="attached-portal"
+  style="top: 21px; left: 0px; visibility: visible; opacity: 1; max-height: 689px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    aria-label="Filter container"
+    class="c1 filter-selector"
+    data-role="filter-selector"
+    role="dialog"
+    style="margin-bottom: 10px; height: 244px;"
+  >
+    <div
+      class="c2 filter-selector__body"
+    >
+      <div
+        class="c3 filter-selector__content filter-selector__content--primary"
+        data-role="filter-selector-content-primary"
+        role="region"
+      >
+        <div
+          class="c4 contentbox c5 c6 filter-selector__container"
+          data-role="contentbox"
+          tabindex="-1"
+        >
+          <div
+            class="c7 contentbox__header"
+            data-role="contentbox-header"
+          >
+            <div
+              class="c8 c9 contentbox__subheading"
+              data-role="contentbox-subheading"
+            >
+              <div
+                class="c10 contentbox__subheadingSubActionBar"
+                data-role="contentbox-action-bar"
+              >
+                <div
+                  class="c11 filter-selector__action-bar"
+                  data-role="filter-selector-action-bar"
+                >
+                  <div
+                    class="c12 field-wrapper field-wrapper--block filter-selector__search"
+                    data-role="textline"
+                  >
+                    <div
+                      class="c13 c14 field__main"
+                    >
+                      <div
+                        class="c15 c16 field"
+                        data-role="textline-control"
+                      >
+                        <div
+                          class="c17 c18 field__input field__input--disabled"
+                          data-disabled="true"
+                          data-role="textline-input-wrapper"
+                        >
+                          <span
+                            class="c19 supported-unseen-span"
+                          />
+                          <input
+                            class="c20 field__text"
+                            data-role="textline-input"
+                            disabled=""
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="c19 supported-unseen-span"
+                          />
+                          <div
+                            class="c21 field__suffix field__suffix--first"
+                            data-role="textline-suffix-0"
+                          >
+                            <i
+                              class="c22 c23 plasma-icon"
+                              data-role="plasma-icon"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                search
+                              </span>
+                            </i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c24 c25 contentbox__content"
+            data-role="contentbox-content"
+          >
+            <ul
+              class="c26 list c27 filter-selector__list"
+              data-role="filter-selector-list"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="tab-sandbox-supporter"
+    data-role="tab-sandbox-supporter"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-selector > rendering-primaryContent 1`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c27 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c27 > span {
+  display: inline-block;
+}
+
+.c27.c27 {
+  max-width: unset;
+}
+
+.c9 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c9.c9 {
+  padding: 0px 24px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c12 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c29 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+}
+
+.c29:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c10 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c10.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c10.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c14 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c14 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+}
+
+.c15 {
+  background-color: rgb(241, 242, 244);
+  padding: 8px 24px;
+}
+
+.c25 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c25:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c24 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c24::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c22 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c17 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c17 .c18 {
+  display: flex;
+  width: 100%;
+}
+
+.c17 * {
+  max-width: 100%;
+}
+
+.c21 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c19 {
+  display: inline-flex;
+}
+
+.c19 .c20 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c23 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c31 .c26 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c31 .c26:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px auto;
+  outline: none;
+}
+
+.c1 .filter-selector__content-enter {
+  max-height: 0px;
+  transition: max-height 0.3s ease-out;
+}
+
+.c1 .filter-selector__content-exit {
+  transition: height 0.3s ease-in;
+  height: 0px !important;
+}
+
+.c1 .c13 > :not(:empty) {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c1 .c13 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+  border-top-width: medium;
+  border-top-style: none;
+  border-top-color: currentcolor;
+}
+
+.c1 .c8 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  padding: 8px 16px;
+}
+
+.c1 .c11 {
+  margin: 0px;
+}
+
+.c1 .c28 {
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.c30 {
+  height: 100%;
+  outline: none;
+  border: 1px dotted transparent;
+}
+
+.c30:focus {
+  border: 1px dotted rgb(51, 51, 51);
+}
+
+.c6 .c28 {
+  padding: 0px;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-height: inherit;
+  min-height: 244.4px;
+}
+
+.c2 .c5 {
+  box-shadow: none;
+  outline: 0px;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  max-height: 468px;
+  outline: 0px;
+  max-width: 248px;
+  min-width: 248px;
+}
+
+.c3 .c8 {
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.c16 {
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 48px;
+  padding: 8px 16px;
+}
+
+@media (pointer: coarse) {
+  .c22:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c22:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+<div
+  class="c0 attached-portal h_bottomStart"
+  data-role="attached-portal"
+  style="top: 21px; left: 0px; visibility: visible; opacity: 1; max-height: 689px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    aria-label="Filter container"
+    class="c1 filter-selector"
+    data-role="filter-selector"
+    role="dialog"
+    style="margin-bottom: 10px; height: 244px;"
+  >
+    <div
+      class="c2 filter-selector__body"
+    >
+      <div
+        aria-labelledby="ariaLabelledby"
+        class="c3 filter-selector__content filter-selector__content--primary"
+        data-role="filter-selector-content-primary"
+        role="region"
+      >
+        <div
+          class="c4 contentbox c5 c6 filter-selector__container"
+          data-role="contentbox"
+          tabindex="-1"
+        >
+          <div
+            class="c7 contentbox__header"
+            data-role="contentbox-header"
+          >
+            <div
+              class="c8 c9 contentbox__heading"
+              data-role="contentbox-heading"
+            >
+              <div
+                class="c10"
+              >
+                <div
+                  class="c11 c12 contentbox__title"
+                  data-role="contentbox-title"
+                  id="header-filter-test"
+                  role="heading"
+                >
+                  Filter Selector
+                </div>
+              </div>
+            </div>
+            <div
+              class="c13 c14 contentbox__subheading"
+              data-role="contentbox-subheading"
+            >
+              <div
+                class="c15 contentbox__subheadingSubActionBar"
+                data-role="contentbox-action-bar"
+              >
+                <div
+                  class="c16 filter-selector__action-bar"
+                  data-role="filter-selector-action-bar"
+                >
+                  <div
+                    class="c17 field-wrapper field-wrapper--block filter-selector__search"
+                    data-role="textline"
+                  >
+                    <div
+                      class="c18 c19 field__main"
+                    >
+                      <div
+                        class="c20 c21 field"
+                        data-role="textline-control"
+                      >
+                        <div
+                          class="c22 field__input"
+                          data-role="textline-input-wrapper"
+                        >
+                          <span
+                            class="c23 supported-unseen-span"
+                          />
+                          <input
+                            class="c24 field__text"
+                            data-role="textline-input"
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="c23 supported-unseen-span"
+                          />
+                          <div
+                            class="c25 field__suffix field__suffix--first"
+                            data-role="textline-suffix-0"
+                          >
+                            <i
+                              class="c26 c27 plasma-icon"
+                              data-role="plasma-icon"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                search
+                              </span>
+                            </i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="c16 filter-selector__action-bar"
+                  data-role="filter-selector-action-bar"
+                >
+                  <div
+                    id="actionElement"
+                  >
+                    action element
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c28 c29 contentbox__content"
+            data-role="contentbox-content"
+          >
+            <div
+              class="c30 filter-selector__children-wrapper"
+              tabindex="0"
+            >
+              children
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="tab-sandbox-supporter"
+    data-role="tab-sandbox-supporter"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-selector > rendering-properties 1`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c55 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c55 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c22 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c22 > span {
+  display: inline-block;
+}
+
+.c22.c22 {
+  max-width: unset;
+}
+
+.c54 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-radius: 0px;
+  border-top: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  min-height: 48px;
+  padding: 4px 24px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c24 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+}
+
+.c24:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c9 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c9 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+}
+
+.c10 {
+  background-color: rgb(241, 242, 244);
+  padding: 8px 24px;
+}
+
+.c43 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c43:empty {
+  display: none;
+}
+
+.c43 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c20 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c20:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c19 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c19::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c17 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c53 .c17.c17,
+.c8 .c17.c17 {
+  background-color: rgb(255, 255, 255);
+}
+
+.c12 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c12 .c13 {
+  display: flex;
+  width: 100%;
+}
+
+.c12 * {
+  max-width: 100%;
+}
+
+.c16 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c16 .c42 {
+  display: block;
+  width: fit-content;
+}
+
+.c35 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c35 .c42 {
+  display: block;
+  width: fit-content;
+}
+
+.c14 {
+  display: inline-flex;
+}
+
+.c14 .c15 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c18 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c25 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c28 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c31 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c31::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c27:not([data-role*="filter-selector"]) .c31.c31 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c27:not([data-role*="filter-selector"]) .c31.c31::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c27:not([data-role*="filter-selector"]) .c31.c31:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c31:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c31:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c31:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c31 .c44 {
+  outline: none;
+}
+
+.c49 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c49::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c49:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c49:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c49:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c49 .c44 {
+  outline: none;
+}
+
+.c33 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c33 .c21 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c33 .c21:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c45 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
+  color: inherit;
+  font-weight: 400;
+}
+
+.c52 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c46 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c40 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c40 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c40 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c40 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.c40:focus + label > span::before,
+.c40:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c50 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c50 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c50 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c50 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c50:focus + label > span::before,
+.c50:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c37 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c38 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c38 > label {
+  height: 20px;
+}
+
+.c38 > label > span,
+.c38 > label > span::before {
+  border-radius: 0px;
+}
+
+.c36 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c27 .c36 {
+  min-height: auto;
+}
+
+.c27 > .c36 {
+  min-height: auto;
+}
+
+.c41 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c41 + label > span {
+  background-color: rgb(77, 77, 77);
+}
+
+.c41 + label > span::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c41 + label > span::after {
+  box-sizing: border-box;
+  border-width: medium medium 2px 2px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
+  border-image: initial;
+  content: "";
+  display: block;
+  margin: 2px 0px 0px 2px;
+  height: 7px;
+  transform: rotate(-55deg);
+  width: 10px;
+}
+
+.c41 + label > span::before {
+  border: 1px solid transparent;
+}
+
+.c41:focus + label > span,
+.c41:focus-within + label > span {
+  background-color: rgb(213, 0, 117);
+}
+
+.c41:focus + label > span::before,
+.c41:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c51 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c51 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c51 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c51:focus + label > span::before,
+.c51:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px auto;
+  outline: none;
+}
+
+.c1 .filter-selector__content-enter {
+  max-height: 0px;
+  transition: max-height 0.3s ease-out;
+}
+
+.c1 .filter-selector__content-exit {
+  transition: height 0.3s ease-in;
+  height: 0px !important;
+}
+
+.c1 .c8 > :not(:empty) {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c1 .c8 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+  border-top-width: medium;
+  border-top-style: none;
+  border-top-color: currentcolor;
+}
+
+.c1 .c23 {
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.c1 .c53 {
+  padding: 8px 16px;
+}
+
+.c6 .c23 {
+  padding: 0px;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-height: inherit;
+  min-height: 244.4px;
+}
+
+.c2 .c5 {
+  box-shadow: none;
+  outline: 0px;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  max-height: 468px;
+  outline: 0px;
+  max-width: 248px;
+  min-width: 248px;
+}
+
+.c3 .c30 {
+  padding: 8px 16px 8px calc(56px);
+}
+
+.c11 {
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 48px;
+  padding: 8px 16px;
+}
+
+.c11 .c34 {
+  align-items: center;
+  display: inline-flex;
+}
+
+.c26 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  outline: none;
+  overflow-y: auto;
+}
+
+.c26 .c27 {
+  flex: 0 0 auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c26 .c27:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c26 .c27::before,
+.c26 .c27 .c30::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c26 .c27 .c30::before {
+  background-color: transparent;
+  top: 0px;
+}
+
+.c26 .c30 {
+  min-height: 48px;
+}
+
+.c26 .c32 {
+  bottom: 0px;
+  font-size: 0px;
+  height: auto;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  top: 0px;
+  width: 48px;
+}
+
+.c26 .c32 .c39 {
+  width: 1px;
+}
+
+.c26 .c44 {
+  font-size: 0.75rem;
+  line-height: normal;
+  overflow: hidden;
+}
+
+.c29 {
+  background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
+}
+
+.c29 .c30 {
+  background: none;
+}
+
+.c47 {
+  background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
+}
+
+.c47 .c30 {
+  background: none;
+}
+
+.c47::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c48 {
+  background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
+}
+
+.c48 .c30 {
+  background: transparent;
+}
+
+@media (pointer: coarse) {
+  .c17:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c27:not([data-role*="filter-selector"]) .c31.c31:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c27:not([data-role*="filter-selector"]) .c31.c31:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c27:not([data-role*="filter-selector"]) .c31.c31:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c31:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c31:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c31:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c31:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c49:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c49:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c49:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c49:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c49:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c40:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c40:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c40:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c50:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c50:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c50:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c41:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c41:active + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c41:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c41:hover + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c41:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c41 + label:hover > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c41 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c41 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c51:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c51:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c51:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c51 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c51 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 attached-portal h_bottomStart"
+  data-role="attached-portal"
+  style="top: 21px; left: 0px; visibility: visible; opacity: 1; max-height: 689px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    aria-label="Filter container"
+    class="c1 filter-selector test-className"
+    data-role="filter-selector"
+    id="test-id"
+    role="dialog"
+    style="color: red; margin-bottom: 10px; height: 342px;"
+  >
+    <div
+      class="c2 filter-selector__body"
+    >
+      <div
+        class="c3 filter-selector__content filter-selector__content--primary"
+        data-role="filter-selector-content-primary"
+        role="region"
+      >
+        <div
+          class="c4 contentbox c5 c6 filter-selector__container"
+          data-role="contentbox"
+          tabindex="-1"
+        >
+          <div
+            class="c7 contentbox__header"
+            data-role="contentbox-header"
+          >
+            <div
+              class="c8 c9 contentbox__subheading"
+              data-role="contentbox-subheading"
+            >
+              <div
+                class="c10 contentbox__subheadingSubActionBar"
+                data-role="contentbox-action-bar"
+              >
+                <div
+                  class="c11 filter-selector__action-bar"
+                  data-role="filter-selector-action-bar"
+                >
+                  <div
+                    class="c12 field-wrapper field-wrapper--block filter-selector__search"
+                    data-role="textline"
+                  >
+                    <div
+                      class="c13 c14 field__main"
+                    >
+                      <div
+                        class="c15 c16 field"
+                        data-role="textline-control"
+                      >
+                        <div
+                          class="c17 field__input"
+                          data-role="textline-input-wrapper"
+                        >
+                          <span
+                            class="c18 supported-unseen-span"
+                          />
+                          <input
+                            class="c19 field__text"
+                            data-role="textline-input"
+                            id="test-id-input"
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="c18 supported-unseen-span"
+                          />
+                          <div
+                            class="c20 field__suffix field__suffix--first"
+                            data-role="textline-suffix-0"
+                          >
+                            <i
+                              class="c21 c22 plasma-icon"
+                              data-role="plasma-icon"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                search
+                              </span>
+                            </i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c23 c24 contentbox__content"
+            data-role="contentbox-content"
+          >
+            <ul
+              class="c25 list c26 filter-selector__list"
+              data-role="filter-selector-list"
+              tabindex="-1"
+            >
+              <li
+                class="c27 c28 list-item list-item--selected c29"
+                data-role="filter-selector-list-item"
+                id="number-filter"
+              >
+                <div
+                  class="c30 c31 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="number-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="true"
+                            checked=""
+                            class="c39 c40 c41 field__check field__check--checked"
+                            data-role="checkbox-input"
+                            id="number-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="number-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="number-filter-graphic"
+                        >
+                          Number Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c45 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Number Filter
+                    </span>
+                  </div>
+                  <div
+                    class="c46 list-item__meta"
+                    data-role="list-item-meta"
+                  >
+                    test
+                  </div>
+                </div>
+              </li>
+              <li
+                class="c27 c28 list-item list-item--selected c47"
+                data-role="filter-selector-list-item"
+                id="enumeration-filter"
+              >
+                <div
+                  class="c30 c31 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="enumeration-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="true"
+                            checked=""
+                            class="c39 c40 c41 field__check field__check--checked"
+                            data-role="checkbox-input"
+                            id="enumeration-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="enumeration-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="enumeration-filter-graphic"
+                        >
+                          Enumeration Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c45 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Enumeration Filter
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="c27 c28 list-item c48"
+                data-role="filter-selector-list-item"
+                id="error-filter"
+              >
+                <div
+                  class="c30 c49 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="error-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="false"
+                            class="c39 c50 c51 field__check"
+                            data-role="checkbox-input"
+                            id="error-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="error-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="error-filter-graphic"
+                        >
+                          Filter With Error Message
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c52 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Filter With Error Message
+                    </span>
+                  </div>
+                  <div
+                    class="c46 list-item__meta"
+                    data-role="list-item-meta"
+                  >
+                    test
+                  </div>
+                </div>
+              </li>
+              <li
+                class="c27 c28 list-item c48"
+                data-role="filter-selector-list-item"
+                id="date-filter"
+              >
+                <div
+                  class="c30 c49 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="date-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="false"
+                            class="c39 c50 c51 field__check"
+                            data-role="checkbox-input"
+                            id="date-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="date-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="date-filter-graphic"
+                        >
+                          Date Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c52 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Date Filter
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="c27 c28 list-item c48"
+                data-role="filter-selector-list-item"
+                id="time-filter"
+              >
+                <div
+                  class="c30 c49 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="time-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="false"
+                            class="c39 c50 c51 field__check"
+                            data-role="checkbox-input"
+                            id="time-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="time-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="time-filter-graphic"
+                        >
+                          Time Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c52 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Time Filter
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="filter-selector__footer"
+      data-role="filter-selector-footer"
+    >
+      <div
+        class="c53 c54 contentbox__footer"
+        data-role="contentbox-footer"
+      >
+        <span
+          aria-level="2"
+          class="c55 -u-unseenButRead"
+          data-role="hidden-text"
+          role="heading"
+        >
+          Action Section
+        </span>
+        footContent
+      </div>
+    </div>
+  </div>
+  <div
+    class="tab-sandbox-supporter"
+    data-role="tab-sandbox-supporter"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-selector > rendering-secondary-content 1`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c23 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c23 > span {
+  display: inline-block;
+}
+
+.c23.c23 {
+  max-width: unset;
+}
+
+.c7 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c25 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+}
+
+.c25:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c9 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c9 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+}
+
+.c10 {
+  background-color: rgb(241, 242, 244);
+  padding: 8px 24px;
+}
+
+.c21 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c21:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c20 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c20::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c18 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c29 .c13 {
+  display: flex;
+  width: 100%;
+}
+
+.c12 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c12 .c13 {
+  display: flex;
+  width: 100%;
+}
+
+.c12 * {
+  max-width: 100%;
+}
+
+.c12[class*="h_"] .c17 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c16 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c14 {
+  display: inline-flex;
+}
+
+.c14 .c15 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c19 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c26 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c30 .c22 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c30 .c22:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px auto;
+  outline: none;
+}
+
+.c1 .filter-selector__content-enter {
+  max-height: 0px;
+  transition: max-height 0.3s ease-out;
+}
+
+.c1 .filter-selector__content-exit {
+  transition: height 0.3s ease-in;
+  height: 0px !important;
+}
+
+.c1 .c8 > :not(:empty) {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c1 .c8 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+  border-top-width: medium;
+  border-top-style: none;
+  border-top-color: currentcolor;
+}
+
+.c1 .c24 {
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.c6 .c24 {
+  padding: 0px;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-height: inherit;
+  min-height: 244.4px;
+}
+
+.c2 .c5 {
+  box-shadow: none;
+  outline: 0px;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  max-height: 468px;
+  outline: 0px;
+  max-width: 248px;
+  min-width: 248px;
+}
+
+.c28 {
+  color: rgb(77, 77, 77);
+  max-height: 468px;
+  outline: 0px;
+  min-width: 248px;
+  width: 248px;
+}
+
+.c28 .c24 {
+  min-height: 48px;
+}
+
+.c11 {
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 48px;
+  padding: 8px 16px;
+}
+
+.c27 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  outline: none;
+  overflow-y: auto;
+}
+
+<div
+  class="c0 attached-portal h_bottomStart"
+  data-role="attached-portal"
+  style="top: 21px; left: 0px; visibility: visible; opacity: 1; max-height: 689px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    aria-label="Filter container"
+    class="c1 filter-selector"
+    data-role="filter-selector"
+    role="dialog"
+    style="margin-bottom: 10px; height: 244px;"
+  >
+    <div
+      class="c2 filter-selector__body"
+    >
+      <div
+        class="c3 filter-selector__content filter-selector__content--primary"
+        data-role="filter-selector-content-primary"
+        role="region"
+      >
+        <div
+          class="c4 contentbox c5 c6 filter-selector__container"
+          data-role="contentbox"
+          tabindex="-1"
+        >
+          <div
+            class="c7 contentbox__header"
+            data-role="contentbox-header"
+          >
+            <div
+              class="c8 c9 contentbox__subheading"
+              data-role="contentbox-subheading"
+            >
+              <div
+                class="c10 contentbox__subheadingSubActionBar"
+                data-role="contentbox-action-bar"
+              >
+                <div
+                  class="c11 filter-selector__action-bar"
+                  data-role="filter-selector-action-bar"
+                >
+                  <div
+                    class="c12 field-wrapper field-wrapper--block filter-selector__search"
+                    data-role="textline"
+                  >
+                    <div
+                      class="c13 c14 field__main"
+                    >
+                      <div
+                        class="c15 c16 field"
+                        data-role="textline-control"
+                      >
+                        <div
+                          class="c17 c18 field__input field__input--disabled"
+                          data-disabled="true"
+                          data-role="textline-input-wrapper"
+                        >
+                          <span
+                            class="c19 supported-unseen-span"
+                          />
+                          <input
+                            class="c20 field__text"
+                            data-role="textline-input"
+                            disabled=""
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="c19 supported-unseen-span"
+                          />
+                          <div
+                            class="c21 field__suffix field__suffix--first"
+                            data-role="textline-suffix-0"
+                          >
+                            <i
+                              class="c22 c23 plasma-icon"
+                              data-role="plasma-icon"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                search
+                              </span>
+                            </i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c24 c25 contentbox__content"
+            data-role="contentbox-content"
+          >
+            <ul
+              class="c26 list c27 filter-selector__list"
+              data-role="filter-selector-list"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="Filter option container"
+        class="c28 filter-selector__content filter-selector__content--secondary"
+        data-role="filter-selector-content-secondary"
+        role="region"
+      >
+        test
+      </div>
+    </div>
+  </div>
+  <div
+    class="tab-sandbox-supporter"
+    data-role="tab-sandbox-supporter"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter-selector > rendering-section 1`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c22 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c22 > span {
+  display: inline-block;
+}
+
+.c22.c22 {
+  max-width: unset;
+}
+
+.c7 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c24 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+}
+
+.c24:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c9 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c9 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+}
+
+.c10 {
+  background-color: rgb(241, 242, 244);
+  padding: 8px 24px;
+}
+
+.c43 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c43:empty {
+  display: none;
+}
+
+.c43 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c20 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c20:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c19 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c19::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c17 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c12 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c12 .c13 {
+  display: flex;
+  width: 100%;
+}
+
+.c12 * {
+  max-width: 100%;
+}
+
+.c16 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c16 .c42 {
+  display: block;
+  width: fit-content;
+}
+
+.c35 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c35 .c42 {
+  display: block;
+  width: fit-content;
+}
+
+.c14 {
+  display: inline-flex;
+}
+
+.c14 .c15 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c18 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c25 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c28 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c31 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c31::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c27:not([data-role*="filter-selector"]) .c31.c31 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c27:not([data-role*="filter-selector"]) .c31.c31::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c27:not([data-role*="filter-selector"]) .c31.c31:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c31:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c31:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c31:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c31 .c44 {
+  outline: none;
+}
+
+.c49 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c49::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c49:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c49:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c49:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c49 .c44 {
+  outline: none;
+}
+
+.c33 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c33 .c21 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c33 .c21:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c45 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
+  color: inherit;
+  font-weight: 400;
+}
+
+.c52 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c46 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c40 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c40 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c40 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c40 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.c40:focus + label > span::before,
+.c40:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c50 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c50 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c50 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c50 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c50:focus + label > span::before,
+.c50:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c37 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c38 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c38 > label {
+  height: 20px;
+}
+
+.c38 > label > span,
+.c38 > label > span::before {
+  border-radius: 0px;
+}
+
+.c36 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c27 .c36 {
+  min-height: auto;
+}
+
+.c27 > .c36 {
+  min-height: auto;
+}
+
+.c41 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c41 + label > span {
+  background-color: rgb(77, 77, 77);
+}
+
+.c41 + label > span::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c41 + label > span::after {
+  box-sizing: border-box;
+  border-width: medium medium 2px 2px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
+  border-image: initial;
+  content: "";
+  display: block;
+  margin: 2px 0px 0px 2px;
+  height: 7px;
+  transform: rotate(-55deg);
+  width: 10px;
+}
+
+.c41 + label > span::before {
+  border: 1px solid transparent;
+}
+
+.c41:focus + label > span,
+.c41:focus-within + label > span {
+  background-color: rgb(213, 0, 117);
+}
+
+.c41:focus + label > span::before,
+.c41:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c51 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c51 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c51 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c51:focus + label > span::before,
+.c51:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1 {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px auto;
+  outline: none;
+}
+
+.c1 .filter-selector__content-enter {
+  max-height: 0px;
+  transition: max-height 0.3s ease-out;
+}
+
+.c1 .filter-selector__content-exit {
+  transition: height 0.3s ease-in;
+  height: 0px !important;
+}
+
+.c1 .c8 > :not(:empty) {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c1 .c8 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+  border-top-width: medium;
+  border-top-style: none;
+  border-top-color: currentcolor;
+}
+
+.c1 .c23 {
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.c6 .c23 {
+  padding: 0px;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-height: inherit;
+  min-height: 244.4px;
+}
+
+.c2 .c5 {
+  box-shadow: none;
+  outline: 0px;
+}
+
+.c3 {
+  color: rgb(77, 77, 77);
+  max-height: 468px;
+  outline: 0px;
+  max-width: 248px;
+  min-width: 248px;
+}
+
+.c3 .c30 {
+  padding: 8px 16px 8px calc(56px);
+}
+
+.c11 {
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 48px;
+  padding: 8px 16px;
+}
+
+.c11 .c34 {
+  align-items: center;
+  display: inline-flex;
+}
+
+.c26 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  outline: none;
+  overflow-y: auto;
+}
+
+.c26 .c27 {
+  flex: 0 0 auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c26 .c27:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c26 .c27::before,
+.c26 .c27 .c30::before {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.c26 .c27 .c30::before {
+  background-color: transparent;
+  top: 0px;
+}
+
+.c26 .c30 {
+  min-height: 48px;
+}
+
+.c26 .c32 {
+  bottom: 0px;
+  font-size: 0px;
+  height: auto;
+  left: 0px;
+  margin: 0px;
+  position: absolute;
+  top: 0px;
+  width: 48px;
+}
+
+.c26 .c32 .c39 {
+  width: 1px;
+}
+
+.c26 .c44 {
+  font-size: 0.75rem;
+  line-height: normal;
+  overflow: hidden;
+}
+
+.c29 {
+  background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
+}
+
+.c29 .c30 {
+  background: none;
+}
+
+.c47 {
+  background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
+}
+
+.c47 .c30 {
+  background: none;
+}
+
+.c47::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c48 {
+  background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
+}
+
+.c48 .c30 {
+  background: transparent;
+}
+
+@media (pointer: coarse) {
+  .c17:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c27:not([data-role*="filter-selector"]) .c31.c31:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c27:not([data-role*="filter-selector"]) .c31.c31:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c27:not([data-role*="filter-selector"]) .c31.c31:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c31:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c31:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c31:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c31:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c49:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c49:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c49:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c49:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c49:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c40:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c40:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c40:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c50:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c50:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c50:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c41:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c41:active + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c41:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c41:hover + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c41:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c41 + label:hover > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c41 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c41 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c51:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c51:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c51:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c51 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c51 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 attached-portal h_bottomStart"
+  data-role="attached-portal"
+  style="top: 21px; left: 0px; visibility: visible; opacity: 1; max-height: 689px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    aria-label="Filter container"
+    class="c1 filter-selector"
+    data-role="filter-selector"
+    role="dialog"
+    style="margin-bottom: 10px; height: 361px;"
+  >
+    <div
+      class="c2 filter-selector__body"
+    >
+      <div
+        class="c3 filter-selector__content filter-selector__content--primary"
+        data-role="filter-selector-content-primary"
+        role="region"
+      >
+        <div
+          class="c4 contentbox c5 c6 filter-selector__container"
+          data-role="contentbox"
+          tabindex="-1"
+        >
+          <div
+            class="c7 contentbox__header"
+            data-role="contentbox-header"
+          >
+            <div
+              class="c8 c9 contentbox__subheading"
+              data-role="contentbox-subheading"
+            >
+              <div
+                class="c10 contentbox__subheadingSubActionBar"
+                data-role="contentbox-action-bar"
+              >
+                <div
+                  class="c11 filter-selector__action-bar"
+                  data-role="filter-selector-action-bar"
+                >
+                  <div
+                    class="c12 field-wrapper field-wrapper--block filter-selector__search"
+                    data-role="textline"
+                  >
+                    <div
+                      class="c13 c14 field__main"
+                    >
+                      <div
+                        class="c15 c16 field"
+                        data-role="textline-control"
+                      >
+                        <div
+                          class="c17 field__input"
+                          data-role="textline-input-wrapper"
+                        >
+                          <span
+                            class="c18 supported-unseen-span"
+                          />
+                          <input
+                            class="c19 field__text"
+                            data-role="textline-input"
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="c18 supported-unseen-span"
+                          />
+                          <div
+                            class="c20 field__suffix field__suffix--first"
+                            data-role="textline-suffix-0"
+                          >
+                            <i
+                              class="c21 c22 plasma-icon"
+                              data-role="plasma-icon"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                search
+                              </span>
+                            </i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="c23 c24 contentbox__content"
+            data-role="contentbox-content"
+          >
+            <ul
+              class="c25 list c26 filter-selector__list"
+              data-role="filter-selector-list"
+              tabindex="-1"
+            >
+              <li
+                class="c27 c28 list-item list-item--selected c29"
+                data-role="filter-selector-list-item"
+                id="number-filter"
+              >
+                <div
+                  class="c30 c31 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="number-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="true"
+                            checked=""
+                            class="c39 c40 c41 field__check field__check--checked"
+                            data-role="checkbox-input"
+                            id="number-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="number-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="number-filter-graphic"
+                        >
+                          Number Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c45 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Number Filter
+                    </span>
+                  </div>
+                  <div
+                    class="c46 list-item__meta"
+                    data-role="list-item-meta"
+                  >
+                    test
+                  </div>
+                </div>
+              </li>
+              <li
+                class="c27 c28 list-item list-item--selected c47"
+                data-role="filter-selector-list-item"
+                id="enumeration-filter"
+              >
+                <div
+                  class="c30 c31 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="enumeration-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="true"
+                            checked=""
+                            class="c39 c40 c41 field__check field__check--checked"
+                            data-role="checkbox-input"
+                            id="enumeration-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="enumeration-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="enumeration-filter-graphic"
+                        >
+                          Enumeration Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c45 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Enumeration Filter
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="form__sectionTitle h_zeroMargin"
+                data-role="filter-selector-section"
+                id="section1"
+              >
+                Section 1
+              </li>
+              <li
+                class="c27 c28 list-item c48"
+                data-role="filter-selector-list-item"
+                id="date-filter"
+              >
+                <div
+                  class="c30 c49 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="date-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="false"
+                            class="c39 c50 c51 field__check"
+                            data-role="checkbox-input"
+                            id="date-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="date-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="date-filter-graphic"
+                        >
+                          Date Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c52 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Date Filter
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="c27 c28 list-item c48"
+                data-role="filter-selector-list-item"
+                id="time-filter"
+              >
+                <div
+                  class="c30 c49 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="time-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="false"
+                            class="c39 c50 c51 field__check"
+                            data-role="checkbox-input"
+                            id="time-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="time-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="time-filter-graphic"
+                        >
+                          Time Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c52 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Time Filter
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="form__sectionTitle h_zeroMargin"
+                data-role="filter-selector-section"
+                id="section2"
+              >
+                Section 2
+              </li>
+              <li
+                class="c27 c28 list-item c48"
+                data-role="filter-selector-list-item"
+                id="boolean-filter"
+              >
+                <div
+                  class="c30 c49 list-item__content"
+                  data-role="list-item-content"
+                >
+                  <div
+                    class="c32 c33"
+                    data-role="list-item-graphic"
+                  >
+                    <div
+                      class="c15 c34 c35 c36 field "
+                      data-role="checkbox"
+                    >
+                      <div
+                        class="c37 field__control field__control--boolean"
+                        data-role="checkbox-control"
+                        id="boolean-filter-graphic-controls"
+                      >
+                        <span
+                          class="c38"
+                          data-role="checkbox-control-inner"
+                        >
+                          <input
+                            aria-checked="false"
+                            class="c39 c50 c51 field__check"
+                            data-role="checkbox-input"
+                            id="boolean-filter-graphic"
+                            tabindex="-1"
+                            type="checkbox"
+                          />
+                          <label
+                            aria-hidden="true"
+                            data-role="checkbox-control-inner-hidden-label"
+                            for="boolean-filter-graphic"
+                          >
+                            <span />
+                          </label>
+                        </span>
+                        <label
+                          class="c42 c43 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                          data-role="checkbox-label"
+                          for="boolean-filter-graphic"
+                        >
+                          Boolean Filter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c44 c52 list-item__text"
+                    data-role="list-item-text"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      Boolean Filter
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="tab-sandbox-supporter"
+    data-role="tab-sandbox-supporter"
+    tabindex="0"
+  />
+</div>
+`;

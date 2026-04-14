@@ -1,0 +1,33 @@
+<svg version="1.1" id="icon_version"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <g id="keyboard_option_key_black_24dp">
+    <g id="Gruppe_628">
+      <rect id="Rechteck_1123" width="24" height="24" fill="none"/>
+    </g>
+    <g id="Gruppe_630" transform="translate(5 22) rotate(-90)">
+      <g id="Gruppe_629" transform="translate(3.98 2)">
+        <path id="Pfad_159" d="M0,0H11.389V2H0Z"/>
+        <path id="Pfad_158" d="M4.484,0H0V2H3.452Z"/>
+      </g>
+      <g id="Gruppe_632">
+        <g id="Gruppe_632-2">
+          <circle id="Ellipse_1" cx="3" cy="3" r="3"/>
+        </g>
+      </g>
+      <g id="Gruppe_633" transform="translate(14 9)">
+        <g id="Gruppe_632-3">
+          <circle id="Ellipse_1-2" cx="3" cy="3" r="3"/>
+        </g>
+      </g>
+      <g id="Gruppe_634" transform="translate(14)">
+        <g id="Gruppe_632-4">
+          <circle id="Ellipse_1-3" cx="3" cy="3" r="3"/>
+        </g>
+      </g>
+      <g id="Gruppe_636" transform="translate(15.37 2) rotate(90)">
+        <g id="Gruppe_636-2">
+          <path id="Pfad_160" d="M6.775,6.244a2.006,2.006,0,0,0,2-2V1.064a1,1,0,1,1,2,0v3.18a4,4,0,0,1-4,4S.1,8.245,0,8.244v-2C.375,6.259,6.594,6.259,6.775,6.244Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,29 @@
+/* Styling the entire scrollbar */
+::-webkit-scrollbar {
+	width: 8px; /* Adjust width as needed */
+	height: 8px; /* Adjust height for horizontal scrollbars */
+	background-color: #f5f5f5; /* Color of the scrollbar track */
+}
+
+/* Styling the draggable thumb */
+::-webkit-scrollbar-thumb {
+	background-color: #888; /* Color of the scrollbar thumb */
+	border-radius: 5px; /* Rounded corners for the thumb */
+}
+
+/* Styling the track (the area the thumb moves in) */
+::-webkit-scrollbar-track {
+	background-color: #f5f5f5; /* Same as scrollbar background for consistency */
+}
+
+/* Optional: Styling the corner where vertical and horizontal scrollbars meet */
+::-webkit-scrollbar-corner {
+	background-color: #f5f5f5;
+}
+
+/* Firefox scrollbar styles */
+html {
+	/* or the specific element with overflow */
+	scrollbar-color: #888 #f5f5f5; /* thumb color track color */
+	scrollbar-width: thin; /* or auto, none */
+}

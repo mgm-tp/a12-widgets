@@ -1,0 +1,7 @@
+# CI sets this to warn by default
+loglevel: info
+strictPeerDependencies: true
+lockfileIncludeTarballUrl: false
+
+packages:
+  - "*"

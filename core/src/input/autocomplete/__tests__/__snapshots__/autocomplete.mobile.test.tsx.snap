@@ -1,0 +1,7617 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with link options on mobile 1`] = `
+.c16 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c14 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c14 > span {
+  display: inline-block;
+}
+
+.c14.c14 {
+  max-width: unset;
+}
+
+.c41 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c41 .c13 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c41:visited {
+  color: rgb(5, 104, 174);
+}
+
+.c41:focus {
+  background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+  background-position: left bottom;
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  text-decoration: none;
+}
+
+.c29 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c29 .c13 {
+  user-select: none;
+}
+
+.c29 .c13 {
+  color: inherit;
+}
+
+.c29 .c13 {
+  font-size: inherit;
+}
+
+.c29:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c29.c29 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c29.c29 > .c13 {
+  display: block;
+}
+
+.c53 .c13 {
+  user-select: none;
+}
+
+.c53 .c13 {
+  color: inherit;
+}
+
+.c53 .c13 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c53.c53 > .c13 {
+  display: block;
+}
+
+.c24 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c24.c24 {
+  padding: 0px 24px;
+}
+
+.c23 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c26 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c22 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c32 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c32:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c32.c32 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c32.c32 {
+  padding: 16px;
+}
+
+.c27 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c25 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c25.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c25.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c30.c30 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c30.c30:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c17 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c20 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.c20 .c21 {
+  outline: none;
+}
+
+.c20 .c21 .c31 {
+  font-size: 0.75rem;
+}
+
+.c20 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c20 .c21 {
+  border-radius: 0px;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c48 .c13 {
+  font-size: 1.25rem;
+}
+
+.c15 {
+  color: rgb(127, 140, 155);
+  user-select: none;
+  cursor: pointer;
+}
+
+.c12 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c12:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c11 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c11::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c49 .c28 {
+  border-radius: 0px;
+}
+
+.c50 .c28 {
+  border-radius: 0px;
+}
+
+.c51 .c28 {
+  border-radius: 0px;
+}
+
+.c52 .c28 {
+  border-radius: 0px;
+}
+
+.c9 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c9 .c28 {
+  border-radius: 0px;
+}
+
+.c34 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c34 .c28 {
+  border-radius: 0px;
+}
+
+.c1 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c1 * {
+  max-width: 100%;
+}
+
+.c33 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c33 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c33 * {
+  max-width: 100%;
+}
+
+.c47 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c47[class*="h_"] .c8 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c47[class*="h_"] .c6 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c5 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  display: inline-flex;
+}
+
+.c3 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c37 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c37:focus {
+  outline: none;
+}
+
+.c42 {
+  background-color: rgb(226, 230, 233);
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  height: auto;
+  min-height: 24px;
+  padding: 2px 8px;
+}
+
+.c43 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c45 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c44 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c44::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c44:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c44[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c44[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c44[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c55 .c13 {
+  color: inherit;
+}
+
+.c39 {
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.c39::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  position: absolute;
+}
+
+.c38 {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c10 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c0 {
+  position: relative;
+  width: 100%;
+}
+
+.c46[class*="h_"] .c8 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c46[class*="h_"] .c6 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c35 {
+  display: flex;
+  outline: transparent solid 1px;
+  margin: 2px 0px 0px;
+}
+
+.c35 .c36 {
+  min-height: inherit;
+}
+
+.c54 .c36 {
+  min-height: inherit;
+}
+
+.c18 .c19 .c31 {
+  padding: 24px 24px 0px;
+}
+
+@media (pointer: coarse) {
+  .c41:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c41:hover {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c41:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c41:hover {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c29:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c29:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c29:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c30.c30:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c30.c30:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c20 {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c44:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c44:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c44:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c44:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c44[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c44[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c44[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c39:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c39:active .c40 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c39:hover .c40 {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c39:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c39:active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+
+  .c39:active .c40 {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c39:hover {
+    cursor: pointer;
+  }
+
+  .c39:hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+
+  .c39:hover .c40 {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div>
+  <div
+    class="c0 autocomplete"
+    data-role="autocomplete"
+  >
+    <div
+      class="c1 field-wrapper field-wrapper--block"
+      data-role="textline"
+    >
+      <div
+        class="c2 c3 field__main"
+      >
+        <div
+          class="c4 c5 field"
+          data-role="textline-control"
+        >
+          <label
+            class="c6 c7 label field__label"
+            data-role="textline-label"
+            for="test-id-autocomplete__input"
+            id="test-id-autocomplete__input-label"
+          >
+            Autocomplete with Links mobile
+          </label>
+          <div
+            aria-describedby="test-id-autocomplete__input test-id-autocomplete__input-label"
+            aria-expanded="true"
+            aria-haspopup="listbox"
+            class="c8 c9 field__input"
+            data-role="textline-input-wrapper"
+            id="test-id-autocomplete__input-wrapper"
+            role="combobox"
+            tabindex="0"
+          >
+            <span
+              class="c10 supported-unseen-span"
+            />
+            <input
+              aria-hidden="true"
+              class="c11 field__text"
+              data-role="textline-input"
+              id="test-id-autocomplete__input"
+              type="text"
+              value=""
+            />
+            <span
+              class="c10 supported-unseen-span"
+            />
+            <div
+              class="c12 field__suffix field__suffix--first"
+              data-role="textline-suffix-0"
+            >
+              <i
+                aria-hidden="true"
+                class="c13 c14 plasma-icon plasma-icon--big c15"
+                data-role="selection-suffix"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  expand_more
+                </span>
+              </i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c16"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c17 modalOverlay--fullscreen modalOverlay--noGutter modalOverlay c18 autocomplete__modal"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-modal="true"
+            class="c19 c20 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            tabindex="0"
+          >
+            <div
+              class="c21 c22 contentbox"
+              data-role="contentbox"
+              tabindex="-1"
+            >
+              <div
+                class="c23 contentbox__header"
+                data-role="contentbox-header"
+              >
+                <div
+                  class="c24 contentbox__heading"
+                  data-role="contentbox-heading"
+                >
+                  <div
+                    class="c25"
+                  >
+                    <div
+                      class="c26 contentbox__title"
+                      data-role="contentbox-title"
+                      role="heading"
+                    >
+                      Autocomplete with Links mobile
+                    </div>
+                  </div>
+                  <div
+                    class="c27 contentbox__addon-suffix"
+                    data-role="contentbox-addon-suffix"
+                  >
+                    <div
+                      class="contentbox__addon"
+                      data-role="contentbox-addon"
+                    >
+                      <button
+                        aria-label="Save and close"
+                        class="c28 c29 button button--icon c30"
+                        data-role="button"
+                        data-type="icon"
+                        title="Save and close"
+                        type="button"
+                      >
+                        <i
+                          class="c13 c14 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c31 c32 contentbox__content contentbox__content--initial-padding"
+                data-role="contentbox-content"
+              >
+                <div
+                  class="c33 field-wrapper field-wrapper--block field-wrapper--mobile"
+                  data-role="textline"
+                >
+                  <div
+                    class="c2 c3 field__main"
+                  >
+                    <div
+                      class="c4 c5 field"
+                      data-role="textline-control"
+                    >
+                      <div
+                        class="c8 c34 field__input field__input--focus"
+                        data-isfocused="true"
+                        data-role="textline-input-wrapper"
+                      >
+                        <span
+                          class="c10 supported-unseen-span"
+                        />
+                        <input
+                          aria-autocomplete="list"
+                          aria-expanded="true"
+                          aria-haspopup="listbox"
+                          autocomplete="off"
+                          class="c11 field__text"
+                          data-role="textline-input"
+                          role="combobox"
+                          type="text"
+                          value=""
+                        />
+                        <span
+                          class="c10 supported-unseen-span"
+                        />
+                        <div
+                          class="c12 field__suffix field__suffix--first"
+                          data-role="textline-suffix-0"
+                        >
+                          <i
+                            aria-hidden="true"
+                            class="c13 c14 plasma-icon plasma-icon--big c15"
+                            data-role="selection-suffix"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              expand_more
+                            </span>
+                          </i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="c35 autocomplete__dropdown"
+                >
+                  <div
+                    class="c36 c37 dropdown"
+                    data-role="dropdown"
+                    id="test-id-dropdown"
+                    role="presentation"
+                    style="width: 1232px;"
+                    tabindex="0"
+                  >
+                    <div
+                      class="c38"
+                      data-role="dropdown-links"
+                      id="test-id-dropdown--links"
+                      role="listbox"
+                    >
+                      <div
+                        aria-selected="false"
+                        class="c39"
+                        data-role="dropdown-link-item-wrapper"
+                        id="test-id-dropdown--link-0"
+                        role="option"
+                      >
+                        <a
+                          class="c40 c41 link"
+                          data-role="link"
+                          href="#"
+                          tabindex="0"
+                        >
+                          Assign to me
+                        </a>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c39"
+                        data-role="dropdown-link-item-wrapper"
+                        id="test-id-dropdown--link-1"
+                        role="option"
+                      >
+                        <a
+                          class="c40 c41 link"
+                          data-role="link"
+                          href="#"
+                          tabindex="0"
+                        >
+                          <i
+                            class="c13 c14 plasma-icon"
+                            data-role="plasma-icon"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              person_remove
+                            </span>
+                          </i>
+                           Remove assignment
+                        </a>
+                      </div>
+                    </div>
+                    <div
+                      class="c42 dropdown__hint"
+                      data-role="dropdown-hint"
+                      id="test-id-dropdown--hint"
+                    >
+                      22 out of 22 options shown
+                    </div>
+                    <div
+                      aria-labelledby="test-id-dropdown--hint"
+                      class="c43 dropdown__content"
+                      data-role="dropdown-content"
+                      role="listbox"
+                    >
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="ActionScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          ActionScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="AppleScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          AppleScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Asp"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Asp
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="BASIC"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          BASIC
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="C"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          C
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="C++"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          C++
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Clojure"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Clojure
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="COBOL"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          COBOL
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="ColdFusion"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          ColdFusion
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Erlang"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Erlang
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Fortran"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Fortran
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Groovy"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Groovy
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Haskell"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Haskell
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Java"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Java
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="JavaScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          JavaScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Lisp"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Lisp
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Perl"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Perl
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="PHP"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          PHP
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Python"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Python
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Ruby"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Ruby
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Scala"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Scala
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c44 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Scheme"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c45 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Scheme
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c16"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autocomplete 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c33 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c32 .c13 {
+  color: inherit;
+}
+
+.c17 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c17 > span {
+  display: inline-block;
+}
+
+.c17.c17 {
+  max-width: unset;
+}
+
+.c32 .c17 {
+  color: inherit;
+}
+
+.c28.c28.c28,
+.c32 .c28.c28.c28 {
+  font-size: 1.5rem;
+}
+
+.c14.c14 {
+  color: rgb(201, 29, 29);
+}
+
+.c18.c18 {
+  color: rgb(175, 121, 2);
+}
+
+.c20.c20 {
+  color: rgb(5, 104, 174);
+}
+
+.c26 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c26 .c11 {
+  user-select: none;
+}
+
+.c26 .c11 {
+  color: inherit;
+}
+
+.c26 .c11 {
+  font-size: inherit;
+}
+
+.c26:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c32 .c26.c26 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c32 .c26.c26:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c32 .c26.c26:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
+  color: inherit;
+}
+
+.c32 .c26.c26:focus .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 > .c11 {
+  display: block;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c9 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c16 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c19 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c10 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c10 .c11 {
+  font-size: 1.25rem;
+}
+
+.c15 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c29 {
+  color: rgb(127, 140, 155);
+  user-select: none;
+  cursor: pointer;
+}
+
+.c31 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c35 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c34 {
+  display: flex;
+}
+
+.c34 .c30 {
+  height: auto;
+  visibility: hidden;
+}
+
+.c24 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c24:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c27 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+}
+
+.c27:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c23 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c23::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c21 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c21 .c25 {
+  border-radius: 0px;
+}
+
+.c1 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c1 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c5 > .c32 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  display: inline-flex;
+}
+
+.c3 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c22 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c0 {
+  position: relative;
+  width: 100%;
+}
+
+@media (pointer: coarse) {
+  .c26:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c26:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c26:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c32 .c26.c26:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c32 .c26.c26:active .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c32 .c26.c26:hover .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c21:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21.c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c21.c21:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+<div
+  class="c0 autocomplete"
+  data-role="autocomplete"
+>
+  <div
+    class="c1 field-wrapper field-wrapper--block"
+    data-role="textline"
+  >
+    <div
+      class="c2 c3 field__main"
+    >
+      <div
+        class="c4 c5 field"
+        data-role="textline-control"
+      >
+        <label
+          class="c6 c7 label field__label"
+          data-role="textline-label"
+          for="test-id-autocomplete__input"
+          id="test-id-autocomplete__input-label"
+        >
+          Basic Autocomplete
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            , Autocomplete placeholder
+          </span>
+        </label>
+        <div
+          class="c9 message message--error field__message"
+          data-role="textline-error-message"
+          id="test-id-autocomplete__input-error"
+        >
+          <div
+            class="c10 messageIcon"
+          >
+            <i
+              class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+              data-role="plasma-icon"
+              title="Error"
+            >
+              <span
+                aria-hidden="true"
+              >
+                
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Error
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15 messageText"
+            data-role="error-text"
+          >
+            Error message
+          </div>
+        </div>
+        <div
+          class="c16 message message--warning field__message"
+          data-role="textline-warning-message"
+          id="test-id-autocomplete__input-warning"
+        >
+          <div
+            class="c10 messageIcon"
+          >
+            <i
+              class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+              data-role="plasma-icon"
+              title="Warning"
+            >
+              <span
+                aria-hidden="true"
+              >
+                warning
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Warning
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15 messageText"
+            data-role="warning-text"
+          >
+            Warning message
+          </div>
+        </div>
+        <div
+          class="c19 field__message"
+          data-role="textline-info-message"
+          id="test-id-autocomplete__input-info"
+        >
+          <div
+            class="c10"
+          >
+            <i
+              class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+              data-role="plasma-icon"
+              title="Information"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Information
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15"
+            data-role="info-text"
+          >
+            Info message
+          </div>
+        </div>
+        <div
+          aria-describedby="test-id-autocomplete__input test-id-autocomplete__input-label test-id-autocomplete__input-info test-id-autocomplete__input-warning test-id-autocomplete__input-error"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-placeholder="Autocomplete placeholder"
+          class="c21 field__input field__input--warning field__input--error"
+          data-role="textline-input-wrapper"
+          id="test-id-autocomplete__input-wrapper"
+          role="combobox"
+          tabindex="0"
+        >
+          <span
+            class="c22 supported-unseen-span"
+          />
+          <input
+            aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
+            aria-hidden="true"
+            class="c23 field__text"
+            data-role="textline-input"
+            id="test-id-autocomplete__input"
+            placeholder="Autocomplete placeholder"
+            tabindex="-1"
+            type="text"
+            value=""
+          />
+          <span
+            class="c22 supported-unseen-span"
+          />
+          <div
+            class="c24 field__suffix field__suffix--first"
+            data-role="textline-suffix-0"
+          >
+            <button
+              class="c25 c26 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c11 c17 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  description
+                </span>
+              </i>
+            </button>
+          </div>
+          <div
+            class="c27 field__suffix"
+            data-role="textline-suffix-1"
+          >
+            <i
+              aria-hidden="true"
+              class="c11 c17 c28 plasma-icon plasma-icon--big c29"
+              data-role="selection-suffix"
+            >
+              <span
+                aria-hidden="true"
+              >
+                expand_more
+              </span>
+            </i>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c30 c31 field-addon field-addon--after"
+        data-role="textline--addon-after-0"
+      >
+        <span
+          class="c32 c33 tooltip tooltip--hint"
+          data-role="tooltip-hint"
+          role="tooltip"
+          title=""
+        >
+          <button
+            class="c25 c26 button button--icon"
+            data-role="button"
+            data-type="icon"
+            title=""
+            type="button"
+          >
+            <i
+              class="c11 c17 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Hint: Tooltip
+              </span>
+            </i>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div
+      class="c34 field__helper"
+    >
+      <label
+        class="c35 field__helper-text"
+        data-role="textline-helper-text"
+        for="test-id-autocomplete__input"
+      >
+        Helper text
+      </label>
+      <div
+        class="c30 c31 field-addon field-addon--after"
+      >
+        <span
+          class="c32 c33 tooltip tooltip--hint"
+          data-role="tooltip-hint"
+          role="tooltip"
+          title=""
+        >
+          <button
+            class="c25 c26 button button--icon"
+            data-role="button"
+            data-type="icon"
+            title=""
+            type="button"
+          >
+            <i
+              class="c11 c17 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Hint: Tooltip
+              </span>
+            </i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autocomplete 2`] = `
+.c36 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c53 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  display: none;
+  margin: -1px !important;
+}
+
+.c53 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c33 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c32 .c13 {
+  color: inherit;
+}
+
+.c17 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c17 > span {
+  display: inline-block;
+}
+
+.c17.c17 {
+  max-width: unset;
+}
+
+.c32 .c17 {
+  color: inherit;
+}
+
+.c28.c28.c28,
+.c32 .c28.c28.c28 {
+  font-size: 1.5rem;
+}
+
+.c14.c14 {
+  color: rgb(201, 29, 29);
+}
+
+.c18.c18 {
+  color: rgb(175, 121, 2);
+}
+
+.c20.c20 {
+  color: rgb(5, 104, 174);
+}
+
+.c26 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c26 .c11 {
+  user-select: none;
+}
+
+.c26 .c11 {
+  color: inherit;
+}
+
+.c26 .c11 {
+  font-size: inherit;
+}
+
+.c26:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c32 .c26.c26 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c32 .c26.c26:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c32 .c26.c26:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
+  color: inherit;
+}
+
+.c32 .c26.c26:focus .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 > .c11 {
+  display: block;
+}
+
+.c44 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c44.c44 {
+  padding: 0px 24px;
+}
+
+.c43 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c46 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c42 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c50 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c50:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c50.c50 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c50.c50 {
+  padding: 16px;
+}
+
+.c47 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c45 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c45.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c45.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c48.c48 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c48.c48:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c37 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c40 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.c40 .c41 {
+  outline: none;
+}
+
+.c40 .c41 .c49 {
+  font-size: 0.75rem;
+}
+
+.c40 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c40 .c41 {
+  border-radius: 0px;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c52 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c52:empty {
+  display: none;
+}
+
+.c52 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c9 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c16 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c19 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c10 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c10 .c11 {
+  font-size: 1.25rem;
+}
+
+.c15 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c29 {
+  color: rgb(127, 140, 155);
+  user-select: none;
+  cursor: pointer;
+}
+
+.c31 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c35 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c34 {
+  display: flex;
+}
+
+.c34 .c30 {
+  height: auto;
+  visibility: hidden;
+}
+
+.c24 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c24:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c27 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+}
+
+.c27:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c23 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c23::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c21 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c21 .c25 {
+  border-radius: 0px;
+}
+
+.c54 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c54 .c25 {
+  border-radius: 0px;
+}
+
+.c54.c54 {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+}
+
+.c54.c54::before {
+  display: none;
+}
+
+.c1 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c1 * {
+  max-width: 100%;
+}
+
+.c51 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c51 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c51 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c5 > .c32 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  display: inline-flex;
+}
+
+.c3 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c57 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c57:focus {
+  outline: none;
+}
+
+.c58 {
+  background-color: rgb(226, 230, 233);
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  height: auto;
+  min-height: 24px;
+  padding: 2px 8px;
+}
+
+.c59 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c61 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c60 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c60::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c60:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c60[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c60[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c60[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c22 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c0 {
+  position: relative;
+  width: 100%;
+}
+
+.c55 {
+  display: flex;
+  outline: transparent solid 1px;
+  margin: 2px 0px 0px;
+}
+
+.c55 .c56 {
+  min-height: inherit;
+}
+
+.c38 .c39 .c49 {
+  padding: 24px 24px 0px;
+}
+
+@media (pointer: coarse) {
+  .c26:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c26:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c26:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c32 .c26.c26:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c32 .c26.c26:active .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c32 .c26.c26:hover .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c48.c48:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c48.c48:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c40 {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c21:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21.c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c21.c21:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c54.c54:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c54.c54:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c60:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c60:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c60:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c60:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c60[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c60[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c60[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div>
+  <div
+    class="c0 autocomplete"
+    data-role="autocomplete"
+  >
+    <div
+      class="c1 field-wrapper field-wrapper--block"
+      data-role="textline"
+    >
+      <div
+        class="c2 c3 field__main"
+      >
+        <div
+          class="c4 c5 field"
+          data-role="textline-control"
+        >
+          <label
+            class="c6 c7 label field__label"
+            data-role="textline-label"
+            for="test-id-autocomplete__input"
+            id="test-id-autocomplete__input-label"
+          >
+            Basic Autocomplete
+            <span
+              class="c8 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              , Autocomplete placeholder
+            </span>
+          </label>
+          <div
+            class="c9 message message--error field__message"
+            data-role="textline-error-message"
+            id="test-id-autocomplete__input-error"
+          >
+            <div
+              class="c10 messageIcon"
+            >
+              <i
+                class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+                data-role="plasma-icon"
+                title="Error"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Error
+                </span>
+              </i>
+            </div>
+            <div
+              class="c15 messageText"
+              data-role="error-text"
+            >
+              Error message
+            </div>
+          </div>
+          <div
+            class="c16 message message--warning field__message"
+            data-role="textline-warning-message"
+            id="test-id-autocomplete__input-warning"
+          >
+            <div
+              class="c10 messageIcon"
+            >
+              <i
+                class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+                data-role="plasma-icon"
+                title="Warning"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  warning
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Warning
+                </span>
+              </i>
+            </div>
+            <div
+              class="c15 messageText"
+              data-role="warning-text"
+            >
+              Warning message
+            </div>
+          </div>
+          <div
+            class="c19 field__message"
+            data-role="textline-info-message"
+            id="test-id-autocomplete__input-info"
+          >
+            <div
+              class="c10"
+            >
+              <i
+                class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+                data-role="plasma-icon"
+                title="Information"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Information
+                </span>
+              </i>
+            </div>
+            <div
+              class="c15"
+              data-role="info-text"
+            >
+              Info message
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id-autocomplete__input test-id-autocomplete__input-label test-id-autocomplete__input-info test-id-autocomplete__input-warning test-id-autocomplete__input-error"
+            aria-expanded="true"
+            aria-haspopup="listbox"
+            aria-placeholder="Autocomplete placeholder"
+            class="c21 field__input field__input--warning field__input--error"
+            data-role="textline-input-wrapper"
+            id="test-id-autocomplete__input-wrapper"
+            role="combobox"
+            tabindex="0"
+          >
+            <span
+              class="c22 supported-unseen-span"
+            />
+            <input
+              aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
+              aria-hidden="true"
+              class="c23 field__text"
+              data-role="textline-input"
+              id="test-id-autocomplete__input"
+              placeholder="Autocomplete placeholder"
+              type="text"
+              value=""
+            />
+            <span
+              class="c22 supported-unseen-span"
+            />
+            <div
+              class="c24 field__suffix field__suffix--first"
+              data-role="textline-suffix-0"
+            >
+              <button
+                class="c25 c26 button button--icon"
+                data-role="button"
+                data-type="icon"
+                title=""
+                type="button"
+              >
+                <i
+                  class="c11 c17 plasma-icon"
+                  data-role="plasma-icon"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    description
+                  </span>
+                </i>
+              </button>
+            </div>
+            <div
+              class="c27 field__suffix"
+              data-role="textline-suffix-1"
+            >
+              <i
+                aria-hidden="true"
+                class="c11 c17 c28 plasma-icon plasma-icon--big c29"
+                data-role="selection-suffix"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  expand_more
+                </span>
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c30 c31 field-addon field-addon--after"
+          data-role="textline--addon-after-0"
+        >
+          <span
+            class="c32 c33 tooltip tooltip--hint"
+            data-role="tooltip-hint"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c25 c26 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c11 c17 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Hint: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="c34 field__helper"
+      >
+        <label
+          class="c35 field__helper-text"
+          data-role="textline-helper-text"
+          for="test-id-autocomplete__input"
+        >
+          Helper text
+        </label>
+        <div
+          class="c30 c31 field-addon field-addon--after"
+        >
+          <span
+            class="c32 c33 tooltip tooltip--hint"
+            data-role="tooltip-hint"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c25 c26 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c11 c17 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Hint: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c36"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c37 modalOverlay--fullscreen modalOverlay--noGutter modalOverlay c38 autocomplete__modal"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-modal="true"
+            class="c39 c40 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            tabindex="0"
+          >
+            <div
+              class="c41 c42 contentbox"
+              data-role="contentbox"
+              tabindex="-1"
+            >
+              <div
+                class="c43 contentbox__header"
+                data-role="contentbox-header"
+              >
+                <div
+                  class="c44 contentbox__heading"
+                  data-role="contentbox-heading"
+                >
+                  <div
+                    class="c45"
+                  >
+                    <div
+                      class="c46 contentbox__title"
+                      data-role="contentbox-title"
+                      role="heading"
+                    >
+                      Basic Autocomplete
+                    </div>
+                  </div>
+                  <div
+                    class="c47 contentbox__addon-suffix"
+                    data-role="contentbox-addon-suffix"
+                  >
+                    <div
+                      class="contentbox__addon"
+                      data-role="contentbox-addon"
+                    >
+                      <button
+                        aria-label="Save and close"
+                        class="c25 c26 button button--icon c48"
+                        data-role="button"
+                        data-type="icon"
+                        title="Save and close"
+                        type="button"
+                      >
+                        <i
+                          class="c11 c17 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c49 c50 contentbox__content contentbox__content--initial-padding"
+                data-role="contentbox-content"
+              >
+                <div
+                  class="c51 field-wrapper field-wrapper--block field-wrapper--mobile"
+                  data-role="textline"
+                >
+                  <div
+                    class="c2 c3 field__main"
+                  >
+                    <div
+                      class="c4 c5 field"
+                      data-role="textline-control"
+                    >
+                      <label
+                        class="c6 c52 label field__label -u-unseenButRead"
+                        data-role="textline-label"
+                      >
+                        <span
+                          class="c53 -u-unseenButRead"
+                          data-role="hidden-text"
+                        >
+                          Autocomplete placeholder
+                        </span>
+                      </label>
+                      <div
+                        class="c9 message message--error field__message"
+                        data-role="textline-error-message"
+                      >
+                        <div
+                          class="c10 messageIcon"
+                        >
+                          <i
+                            class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+                            data-role="plasma-icon"
+                            title="Error"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              
+                            </span>
+                            <span
+                              class="c8 -u-unseenButRead"
+                              data-role="hidden-text"
+                            >
+                              Error
+                            </span>
+                          </i>
+                        </div>
+                        <div
+                          class="c15 messageText"
+                          data-role="error-text"
+                        >
+                          Error message
+                        </div>
+                      </div>
+                      <div
+                        class="c16 message message--warning field__message"
+                        data-role="textline-warning-message"
+                      >
+                        <div
+                          class="c10 messageIcon"
+                        >
+                          <i
+                            class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+                            data-role="plasma-icon"
+                            title="Warning"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              warning
+                            </span>
+                            <span
+                              class="c8 -u-unseenButRead"
+                              data-role="hidden-text"
+                            >
+                              Warning
+                            </span>
+                          </i>
+                        </div>
+                        <div
+                          class="c15 messageText"
+                          data-role="warning-text"
+                        >
+                          Warning message
+                        </div>
+                      </div>
+                      <div
+                        class="c19 field__message"
+                        data-role="textline-info-message"
+                      >
+                        <div
+                          class="c10"
+                        >
+                          <i
+                            class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+                            data-role="plasma-icon"
+                            title="Information"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              info
+                            </span>
+                            <span
+                              class="c8 -u-unseenButRead"
+                              data-role="hidden-text"
+                            >
+                              Information
+                            </span>
+                          </i>
+                        </div>
+                        <div
+                          class="c15"
+                          data-role="info-text"
+                        >
+                          Info message
+                        </div>
+                      </div>
+                      <div
+                        class="c54 field__input field__input--warning field__input--error field__input--focus"
+                        data-isfocused="true"
+                        data-role="textline-input-wrapper"
+                      >
+                        <span
+                          class="c22 supported-unseen-span"
+                        />
+                        <input
+                          aria-autocomplete="list"
+                          aria-describedby="warning-tooltip"
+                          aria-expanded="true"
+                          aria-haspopup="listbox"
+                          aria-required="true"
+                          autocomplete="off"
+                          class="c23 field__text"
+                          data-role="textline-input"
+                          placeholder="Autocomplete placeholder"
+                          role="combobox"
+                          type="text"
+                          value=""
+                        />
+                        <span
+                          class="c22 supported-unseen-span"
+                        />
+                        <div
+                          class="c24 field__suffix field__suffix--first"
+                          data-role="textline-suffix-0"
+                        >
+                          <button
+                            class="c25 c26 button button--icon"
+                            data-role="button"
+                            data-type="icon"
+                            title=""
+                            type="button"
+                          >
+                            <i
+                              class="c11 c17 plasma-icon"
+                              data-role="plasma-icon"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                description
+                              </span>
+                            </i>
+                          </button>
+                        </div>
+                        <div
+                          class="c27 field__suffix"
+                          data-role="textline-suffix-1"
+                        >
+                          <i
+                            aria-hidden="true"
+                            class="c11 c17 c28 plasma-icon plasma-icon--big c29"
+                            data-role="selection-suffix"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              expand_more
+                            </span>
+                          </i>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="c30 c31 field-addon field-addon--after"
+                      data-role="textline--addon-after-0"
+                    >
+                      <span
+                        class="c32 c33 tooltip tooltip--hint"
+                        data-role="tooltip-hint"
+                        role="tooltip"
+                        title=""
+                      >
+                        <button
+                          class="c25 c26 button button--icon"
+                          data-role="button"
+                          data-type="icon"
+                          title=""
+                          type="button"
+                        >
+                          <i
+                            class="c11 c17 plasma-icon"
+                            data-role="plasma-icon"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              info
+                            </span>
+                            <span
+                              class="c8 -u-unseenButRead"
+                              data-role="hidden-text"
+                            >
+                              Hint: Tooltip
+                            </span>
+                          </i>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="c55 autocomplete__dropdown"
+                >
+                  <div
+                    class="c56 c57 dropdown"
+                    data-role="dropdown"
+                    id="test-id-dropdown"
+                    role="presentation"
+                    style="width: 1191.78px;"
+                    tabindex="0"
+                  >
+                    <div
+                      class="c58 dropdown__hint"
+                      data-role="dropdown-hint"
+                      id="test-id-dropdown--hint"
+                    >
+                      22 out of 22 options shown
+                    </div>
+                    <div
+                      aria-labelledby="test-id-dropdown--hint"
+                      class="c59 dropdown__content"
+                      data-role="dropdown-content"
+                      role="listbox"
+                    >
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="ActionScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          ActionScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="AppleScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          AppleScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Asp"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Asp
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="BASIC"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          BASIC
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="C"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          C
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="C++"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          C++
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Clojure"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Clojure
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="COBOL"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          COBOL
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="ColdFusion"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          ColdFusion
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Erlang"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Erlang
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Fortran"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Fortran
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Groovy"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Groovy
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Haskell"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Haskell
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Java"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Java
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="JavaScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          JavaScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Lisp"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Lisp
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Perl"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Perl
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="PHP"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          PHP
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Python"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Python
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Ruby"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Ruby
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Scala"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Scala
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c60 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Scheme"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c61 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Scheme
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c36"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render disabled mobile autocomplete 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c34 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c33 .c13 {
+  color: inherit;
+}
+
+.c17 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c17 > span {
+  display: inline-block;
+}
+
+.c17.c17 {
+  max-width: unset;
+}
+
+.c33 .c17 {
+  color: inherit;
+}
+
+.c29.c29.c29,
+.c33 .c29.c29.c29 {
+  font-size: 1.5rem;
+}
+
+.c14.c14 {
+  color: rgb(201, 29, 29);
+}
+
+.c18.c18 {
+  color: rgb(175, 121, 2);
+}
+
+.c20.c20 {
+  color: rgb(5, 104, 174);
+}
+
+.c27 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c27 .c11 {
+  user-select: none;
+}
+
+.c27 .c11 {
+  color: inherit;
+}
+
+.c27 .c11 {
+  font-size: inherit;
+}
+
+.c27:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c33 .c27.c27 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c33 .c27.c27:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c33 .c27.c27:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
+  color: inherit;
+}
+
+.c33 .c27.c27:focus .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c27.c27 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c27.c27 > .c11 {
+  display: block;
+}
+
+.c7 {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+  color: rgb(169, 179, 188);
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c9 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c16 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c19 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c10 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c10 .c11 {
+  font-size: 1.25rem;
+}
+
+.c15 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c30 {
+  user-select: none;
+  color: inherit;
+  cursor: default;
+}
+
+.c32 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c36 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c35 {
+  display: flex;
+}
+
+.c35 .c31 {
+  height: auto;
+  visibility: hidden;
+}
+
+.c25 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c25:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c28 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+}
+
+.c28:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c24 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c24::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c39 .c26 {
+  border-radius: 0px;
+}
+
+.c40 .c26 {
+  border-radius: 0px;
+}
+
+.c41 .c26 {
+  border-radius: 0px;
+}
+
+.c22 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c22 .c26 {
+  border-radius: 0px;
+}
+
+.c37 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c38 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c1 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c1 * {
+  max-width: 100%;
+}
+
+.c1[class*="h_"] .c21 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c1[class*="h_"] .c6 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c5 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c5 > .c33 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  display: inline-flex;
+}
+
+.c3 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c23 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c0 {
+  position: relative;
+  width: 100%;
+}
+
+.c0[class*="h_"] .c21 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c0[class*="h_"] .c6 {
+  color: rgb(169, 179, 188) !important;
+}
+
+@media (pointer: coarse) {
+  .c27:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c27:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c27:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c33 .c27.c27:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c33 .c27.c27:active .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c33 .c27.c27:hover .c11 {
+    color: inherit;
+  }
+}
+
+<div
+  class="c0 autocomplete"
+  data-role="autocomplete"
+>
+  <div
+    class="c1 field-wrapper field-wrapper--block"
+    data-role="textline"
+  >
+    <div
+      class="c2 c3 field__main"
+    >
+      <div
+        class="c4 c5 field"
+        data-role="textline-control"
+      >
+        <label
+          class="c6 c7 label field__label label--disabled"
+          data-disabled="true"
+          data-role="textline-label"
+          for="test-id-autocomplete__input"
+          id="test-id-autocomplete__input-label"
+        >
+          Basic Autocomplete
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            , Autocomplete placeholder
+          </span>
+        </label>
+        <div
+          class="c9 message message--error field__message"
+          data-role="textline-error-message"
+          id="test-id-autocomplete__input-error"
+        >
+          <div
+            class="c10 messageIcon"
+          >
+            <i
+              class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+              data-role="plasma-icon"
+              title="Error"
+            >
+              <span
+                aria-hidden="true"
+              >
+                
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Error
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15 messageText"
+            data-role="error-text"
+          >
+            Error message
+          </div>
+        </div>
+        <div
+          class="c16 message message--warning field__message"
+          data-role="textline-warning-message"
+          id="test-id-autocomplete__input-warning"
+        >
+          <div
+            class="c10 messageIcon"
+          >
+            <i
+              class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+              data-role="plasma-icon"
+              title="Warning"
+            >
+              <span
+                aria-hidden="true"
+              >
+                warning
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Warning
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15 messageText"
+            data-role="warning-text"
+          >
+            Warning message
+          </div>
+        </div>
+        <div
+          class="c19 field__message"
+          data-role="textline-info-message"
+          id="test-id-autocomplete__input-info"
+        >
+          <div
+            class="c10"
+          >
+            <i
+              class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+              data-role="plasma-icon"
+              title="Information"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Information
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15"
+            data-role="info-text"
+          >
+            Info message
+          </div>
+        </div>
+        <div
+          aria-describedby="test-id-autocomplete__input test-id-autocomplete__input-label test-id-autocomplete__input-info test-id-autocomplete__input-warning test-id-autocomplete__input-error"
+          aria-placeholder="Autocomplete placeholder"
+          class="c21 c22 field__input field__input--disabled field__input--warning field__input--error"
+          data-disabled="true"
+          data-role="textline-input-wrapper"
+          id="test-id-autocomplete__input-wrapper"
+          role="combobox"
+          tabindex="0"
+        >
+          <span
+            class="c23 supported-unseen-span"
+          />
+          <input
+            aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
+            aria-hidden="true"
+            class="c24 field__text"
+            data-role="textline-input"
+            disabled=""
+            id="test-id-autocomplete__input"
+            placeholder="Autocomplete placeholder"
+            tabindex="-1"
+            type="text"
+            value=""
+          />
+          <span
+            class="c23 supported-unseen-span"
+          />
+          <div
+            class="c25 field__suffix field__suffix--first"
+            data-role="textline-suffix-0"
+          >
+            <button
+              class="c26 c27 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c11 c17 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  description
+                </span>
+              </i>
+            </button>
+          </div>
+          <div
+            class="c28 field__suffix"
+            data-role="textline-suffix-1"
+          >
+            <i
+              aria-hidden="true"
+              class="c11 c17 c29 plasma-icon plasma-icon--big c30"
+              data-role="selection-suffix"
+            >
+              <span
+                aria-hidden="true"
+              >
+                expand_more
+              </span>
+            </i>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c31 c32 field-addon field-addon--after"
+        data-role="textline--addon-after-0"
+      >
+        <span
+          class="c33 c34 tooltip tooltip--hint"
+          data-role="tooltip-hint"
+          role="tooltip"
+          title=""
+        >
+          <button
+            class="c26 c27 button button--icon"
+            data-role="button"
+            data-type="icon"
+            title=""
+            type="button"
+          >
+            <i
+              class="c11 c17 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Hint: Tooltip
+              </span>
+            </i>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div
+      class="c35 field__helper"
+    >
+      <label
+        class="c36 field__helper-text"
+        data-role="textline-helper-text"
+        for="test-id-autocomplete__input"
+      >
+        Helper text
+      </label>
+      <div
+        class="c31 c32 field-addon field-addon--after"
+      >
+        <span
+          class="c33 c34 tooltip tooltip--hint"
+          data-role="tooltip-hint"
+          role="tooltip"
+          title=""
+        >
+          <button
+            class="c26 c27 button button--icon"
+            data-role="button"
+            data-type="icon"
+            title=""
+            type="button"
+          >
+            <i
+              class="c11 c17 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Hint: Tooltip
+              </span>
+            </i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autocomplete 1`] = `
+.c37 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c54 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  display: none;
+  margin: -1px !important;
+}
+
+.c54 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c34 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c33 .c13 {
+  color: inherit;
+}
+
+.c17 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c17 > span {
+  display: inline-block;
+}
+
+.c17.c17 {
+  max-width: unset;
+}
+
+.c33 .c17 {
+  color: inherit;
+}
+
+.c29.c29.c29,
+.c33 .c29.c29.c29 {
+  font-size: 1.5rem;
+}
+
+.c14.c14 {
+  color: rgb(201, 29, 29);
+}
+
+.c18.c18 {
+  color: rgb(175, 121, 2);
+}
+
+.c20.c20 {
+  color: rgb(5, 104, 174);
+}
+
+.c63 {
+  animation: 0.2s ease 0s 1 normal none running k0;
+  background-color: rgba(241, 242, 244, 0.9);
+  box-shadow: none;
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+.c27 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c27 .c11 {
+  user-select: none;
+}
+
+.c27 .c11 {
+  color: inherit;
+}
+
+.c27 .c11 {
+  font-size: inherit;
+}
+
+.c27:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c33 .c27.c27 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c33 .c27.c27:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c33 .c27.c27:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
+  color: inherit;
+}
+
+.c33 .c27.c27:focus .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c27.c27 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c27.c27 > .c11 {
+  display: block;
+}
+
+.c45 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c45.c45 {
+  padding: 0px 24px;
+}
+
+.c44 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c47 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c43 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c51 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c51:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c51.c51 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c51.c51 {
+  padding: 16px;
+}
+
+.c48 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c46 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c46.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c46.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c49.c49 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c49.c49:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c38 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c41 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.c41 .c42 {
+  outline: none;
+}
+
+.c41 .c42 .c50 {
+  font-size: 0.75rem;
+}
+
+.c41 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c41 .c42 {
+  border-radius: 0px;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c53 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c53:empty {
+  display: none;
+}
+
+.c53 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c9 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c16 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c19 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c10 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c10 .c11 {
+  font-size: 1.25rem;
+}
+
+.c15 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c30 {
+  color: rgb(127, 140, 155);
+  user-select: none;
+  cursor: pointer;
+}
+
+.c32 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c36 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c35 {
+  display: flex;
+}
+
+.c35 .c31 {
+  height: auto;
+  visibility: hidden;
+}
+
+.c25 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c25:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c28 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+}
+
+.c28:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c24 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c24::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c22 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c22 .c26 {
+  border-radius: 0px;
+}
+
+.c55 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c55 .c26 {
+  border-radius: 0px;
+}
+
+.c55.c55 {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+}
+
+.c55.c55::before {
+  display: none;
+}
+
+.c66 .c26 {
+  border-radius: 0px;
+}
+
+.c67 .c26 {
+  border-radius: 0px;
+}
+
+.c1 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c1 * {
+  max-width: 100%;
+}
+
+.c52 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c52 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c52 * {
+  max-width: 100%;
+}
+
+.c65 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c65[class*="h_"] .c21 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c65[class*="h_"] .c6 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c5 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c5 > .c33 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  display: inline-flex;
+}
+
+.c3 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c58 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c58:focus {
+  outline: none;
+}
+
+.c59 {
+  background-color: rgb(226, 230, 233);
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  height: auto;
+  min-height: 24px;
+  padding: 2px 8px;
+}
+
+.c60 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c62 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c61 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c61::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c61:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c61[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c61[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c61[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c23 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c0 {
+  position: relative;
+  width: 100%;
+}
+
+.c64[class*="h_"] .c21 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c64[class*="h_"] .c6 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c68 .c57 {
+  min-height: inherit;
+}
+
+.c56 {
+  display: flex;
+  outline: transparent solid 1px;
+  margin: 2px 0px 0px;
+  min-height: 48px;
+}
+
+.c56 .c57 {
+  min-height: inherit;
+}
+
+.c39 .c40 .c50 {
+  padding: 24px 24px 0px;
+}
+
+@media (pointer: coarse) {
+  .c27:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c27:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c27:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c33 .c27.c27:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c33 .c27.c27:active .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c33 .c27.c27:hover .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c49.c49:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c49.c49:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c41 {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c22:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c22:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c22.c22:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c22.c22:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c55.c55:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c55.c55:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c61:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c61:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c61:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c61:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c61[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c61[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c61[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<div>
+  <div
+    class="c0 autocomplete"
+    data-role="autocomplete"
+  >
+    <div
+      class="c1 field-wrapper field-wrapper--block"
+      data-role="textline"
+    >
+      <div
+        class="c2 c3 field__main"
+      >
+        <div
+          class="c4 c5 field"
+          data-role="textline-control"
+        >
+          <label
+            class="c6 c7 label field__label"
+            data-role="textline-label"
+            for="test-id-autocomplete__input"
+            id="test-id-autocomplete__input-label"
+          >
+            Basic Autocomplete
+            <span
+              class="c8 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              , Autocomplete placeholder
+            </span>
+          </label>
+          <div
+            class="c9 message message--error field__message"
+            data-role="textline-error-message"
+            id="test-id-autocomplete__input-error"
+          >
+            <div
+              class="c10 messageIcon"
+            >
+              <i
+                class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+                data-role="plasma-icon"
+                title="Error"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Error
+                </span>
+              </i>
+            </div>
+            <div
+              class="c15 messageText"
+              data-role="error-text"
+            >
+              Error message
+            </div>
+          </div>
+          <div
+            class="c16 message message--warning field__message"
+            data-role="textline-warning-message"
+            id="test-id-autocomplete__input-warning"
+          >
+            <div
+              class="c10 messageIcon"
+            >
+              <i
+                class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+                data-role="plasma-icon"
+                title="Warning"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  warning
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Warning
+                </span>
+              </i>
+            </div>
+            <div
+              class="c15 messageText"
+              data-role="warning-text"
+            >
+              Warning message
+            </div>
+          </div>
+          <div
+            class="c19 field__message"
+            data-role="textline-info-message"
+            id="test-id-autocomplete__input-info"
+          >
+            <div
+              class="c10"
+            >
+              <i
+                class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+                data-role="plasma-icon"
+                title="Information"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Information
+                </span>
+              </i>
+            </div>
+            <div
+              class="c15"
+              data-role="info-text"
+            >
+              Info message
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id-autocomplete__input test-id-autocomplete__input-label test-id-autocomplete__input-info test-id-autocomplete__input-warning test-id-autocomplete__input-error"
+            aria-expanded="true"
+            aria-haspopup="listbox"
+            aria-placeholder="Autocomplete placeholder"
+            class="c21 c22 field__input field__input--warning field__input--error"
+            data-role="textline-input-wrapper"
+            id="test-id-autocomplete__input-wrapper"
+            role="combobox"
+            tabindex="0"
+          >
+            <span
+              class="c23 supported-unseen-span"
+            />
+            <input
+              aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
+              aria-hidden="true"
+              class="c24 field__text"
+              data-role="textline-input"
+              id="test-id-autocomplete__input"
+              placeholder="Autocomplete placeholder"
+              type="text"
+              value=""
+            />
+            <span
+              class="c23 supported-unseen-span"
+            />
+            <div
+              class="c25 field__suffix field__suffix--first"
+              data-role="textline-suffix-0"
+            >
+              <button
+                class="c26 c27 button button--icon"
+                data-role="button"
+                data-type="icon"
+                title=""
+                type="button"
+              >
+                <i
+                  class="c11 c17 plasma-icon"
+                  data-role="plasma-icon"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    description
+                  </span>
+                </i>
+              </button>
+            </div>
+            <div
+              class="c28 field__suffix"
+              data-role="textline-suffix-1"
+            >
+              <i
+                aria-hidden="true"
+                class="c11 c17 c29 plasma-icon plasma-icon--big c30"
+                data-role="selection-suffix"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  expand_more
+                </span>
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c31 c32 field-addon field-addon--after"
+          data-role="textline--addon-after-0"
+        >
+          <span
+            class="c33 c34 tooltip tooltip--hint"
+            data-role="tooltip-hint"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c26 c27 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c11 c17 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Hint: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="c35 field__helper"
+      >
+        <label
+          class="c36 field__helper-text"
+          data-role="textline-helper-text"
+          for="test-id-autocomplete__input"
+        >
+          Helper text
+        </label>
+        <div
+          class="c31 c32 field-addon field-addon--after"
+        >
+          <span
+            class="c33 c34 tooltip tooltip--hint"
+            data-role="tooltip-hint"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c26 c27 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c11 c17 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Hint: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c37"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c38 modalOverlay--fullscreen modalOverlay--noGutter modalOverlay c39 autocomplete__modal"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-modal="true"
+            class="c40 c41 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            tabindex="0"
+          >
+            <div
+              class="c42 c43 contentbox"
+              data-role="contentbox"
+              tabindex="-1"
+            >
+              <div
+                class="c44 contentbox__header"
+                data-role="contentbox-header"
+              >
+                <div
+                  class="c45 contentbox__heading"
+                  data-role="contentbox-heading"
+                >
+                  <div
+                    class="c46"
+                  >
+                    <div
+                      class="c47 contentbox__title"
+                      data-role="contentbox-title"
+                      role="heading"
+                    >
+                      Basic Autocomplete
+                    </div>
+                  </div>
+                  <div
+                    class="c48 contentbox__addon-suffix"
+                    data-role="contentbox-addon-suffix"
+                  >
+                    <div
+                      class="contentbox__addon"
+                      data-role="contentbox-addon"
+                    >
+                      <button
+                        aria-label="Save and close"
+                        class="c26 c27 button button--icon c49"
+                        data-role="button"
+                        data-type="icon"
+                        title="Save and close"
+                        type="button"
+                      >
+                        <i
+                          class="c11 c17 plasma-icon"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            close
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c50 c51 contentbox__content contentbox__content--initial-padding"
+                data-role="contentbox-content"
+              >
+                <div
+                  class="c52 field-wrapper field-wrapper--block field-wrapper--mobile"
+                  data-role="textline"
+                >
+                  <div
+                    class="c2 c3 field__main"
+                  >
+                    <div
+                      class="c4 c5 field"
+                      data-role="textline-control"
+                    >
+                      <label
+                        class="c6 c53 label field__label -u-unseenButRead"
+                        data-role="textline-label"
+                      >
+                        <span
+                          class="c54 -u-unseenButRead"
+                          data-role="hidden-text"
+                        >
+                          Autocomplete placeholder
+                        </span>
+                      </label>
+                      <div
+                        class="c9 message message--error field__message"
+                        data-role="textline-error-message"
+                      >
+                        <div
+                          class="c10 messageIcon"
+                        >
+                          <i
+                            class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+                            data-role="plasma-icon"
+                            title="Error"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              
+                            </span>
+                            <span
+                              class="c8 -u-unseenButRead"
+                              data-role="hidden-text"
+                            >
+                              Error
+                            </span>
+                          </i>
+                        </div>
+                        <div
+                          class="c15 messageText"
+                          data-role="error-text"
+                        >
+                          Error message
+                        </div>
+                      </div>
+                      <div
+                        class="c16 message message--warning field__message"
+                        data-role="textline-warning-message"
+                      >
+                        <div
+                          class="c10 messageIcon"
+                        >
+                          <i
+                            class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+                            data-role="plasma-icon"
+                            title="Warning"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              warning
+                            </span>
+                            <span
+                              class="c8 -u-unseenButRead"
+                              data-role="hidden-text"
+                            >
+                              Warning
+                            </span>
+                          </i>
+                        </div>
+                        <div
+                          class="c15 messageText"
+                          data-role="warning-text"
+                        >
+                          Warning message
+                        </div>
+                      </div>
+                      <div
+                        class="c19 field__message"
+                        data-role="textline-info-message"
+                      >
+                        <div
+                          class="c10"
+                        >
+                          <i
+                            class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+                            data-role="plasma-icon"
+                            title="Information"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              info
+                            </span>
+                            <span
+                              class="c8 -u-unseenButRead"
+                              data-role="hidden-text"
+                            >
+                              Information
+                            </span>
+                          </i>
+                        </div>
+                        <div
+                          class="c15"
+                          data-role="info-text"
+                        >
+                          Info message
+                        </div>
+                      </div>
+                      <div
+                        class="c21 c55 field__input field__input--warning field__input--error field__input--focus"
+                        data-isfocused="true"
+                        data-role="textline-input-wrapper"
+                      >
+                        <span
+                          class="c23 supported-unseen-span"
+                        />
+                        <input
+                          aria-autocomplete="list"
+                          aria-describedby="warning-tooltip"
+                          aria-expanded="true"
+                          aria-haspopup="listbox"
+                          aria-required="true"
+                          autocomplete="off"
+                          class="c24 field__text"
+                          data-role="textline-input"
+                          placeholder="Autocomplete placeholder"
+                          role="combobox"
+                          type="text"
+                          value=""
+                        />
+                        <span
+                          class="c23 supported-unseen-span"
+                        />
+                        <div
+                          class="c25 field__suffix field__suffix--first"
+                          data-role="textline-suffix-0"
+                        >
+                          <button
+                            class="c26 c27 button button--icon"
+                            data-role="button"
+                            data-type="icon"
+                            title=""
+                            type="button"
+                          >
+                            <i
+                              class="c11 c17 plasma-icon"
+                              data-role="plasma-icon"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                description
+                              </span>
+                            </i>
+                          </button>
+                        </div>
+                        <div
+                          class="c28 field__suffix"
+                          data-role="textline-suffix-1"
+                        >
+                          <i
+                            aria-hidden="true"
+                            class="c11 c17 c29 plasma-icon plasma-icon--big c30"
+                            data-role="selection-suffix"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              expand_more
+                            </span>
+                          </i>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="c31 c32 field-addon field-addon--after"
+                      data-role="textline--addon-after-0"
+                    >
+                      <span
+                        class="c33 c34 tooltip tooltip--hint"
+                        data-role="tooltip-hint"
+                        role="tooltip"
+                        title=""
+                      >
+                        <button
+                          class="c26 c27 button button--icon"
+                          data-role="button"
+                          data-type="icon"
+                          title=""
+                          type="button"
+                        >
+                          <i
+                            class="c11 c17 plasma-icon"
+                            data-role="plasma-icon"
+                          >
+                            <span
+                              aria-hidden="true"
+                            >
+                              info
+                            </span>
+                            <span
+                              class="c8 -u-unseenButRead"
+                              data-role="hidden-text"
+                            >
+                              Hint: Tooltip
+                            </span>
+                          </i>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="c56 autocomplete__dropdown autocomplete__dropdown--loading"
+                  style="position: relative;"
+                >
+                  <div
+                    class="c57 c58 dropdown"
+                    data-role="dropdown"
+                    id="test-id-dropdown"
+                    role="presentation"
+                    style="width: 1204px;"
+                    tabindex="0"
+                  >
+                    <div
+                      class="c59 dropdown__hint"
+                      data-role="dropdown-hint"
+                      id="test-id-dropdown--hint"
+                    >
+                      22 out of 22 options shown
+                    </div>
+                    <div
+                      aria-labelledby="test-id-dropdown--hint"
+                      class="c60 dropdown__content"
+                      data-role="dropdown-content"
+                      role="listbox"
+                    >
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="ActionScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          ActionScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="AppleScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          AppleScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Asp"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Asp
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="BASIC"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          BASIC
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="C"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          C
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="C++"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          C++
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Clojure"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Clojure
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="COBOL"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          COBOL
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="ColdFusion"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          ColdFusion
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Erlang"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Erlang
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Fortran"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Fortran
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Groovy"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Groovy
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Haskell"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Haskell
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Java"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Java
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="JavaScript"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          JavaScript
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Lisp"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Lisp
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Perl"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Perl
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="PHP"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          PHP
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Python"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Python
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Ruby"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Ruby
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Scala"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Scala
+                        </div>
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="c61 dropdown__item"
+                        data-preselect="false"
+                        data-role="dropdown-item"
+                        id="Scheme"
+                        role="option"
+                        tabindex="0"
+                      >
+                        <div
+                          class="c62 dropdown__text"
+                          data-role="dropdown-text"
+                        >
+                          Scheme
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    class="c63 loading__outerOverlay loading__outerOverlay--singleOverlay loading__outerOverlay--bright"
+                    data-role="progress-indicator-outer-overlay"
+                    role="status"
+                    style="top: 0px; left: 0px;"
+                    tabindex="-1"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c37"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render readonly mobile autocomplete 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c30 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c13 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c13 > span {
+  display: inline-block;
+}
+
+.c13.c13 {
+  max-width: unset;
+}
+
+.c29 .c13 {
+  color: inherit;
+}
+
+.c17 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c17 > span {
+  display: inline-block;
+}
+
+.c17.c17 {
+  max-width: unset;
+}
+
+.c29 .c17 {
+  color: inherit;
+}
+
+.c36.c36.c36,
+.c29 .c36.c36.c36 {
+  font-size: 1.5rem;
+}
+
+.c14.c14 {
+  color: rgb(201, 29, 29);
+}
+
+.c18.c18 {
+  color: rgb(175, 121, 2);
+}
+
+.c20.c20 {
+  color: rgb(5, 104, 174);
+}
+
+.c26 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c26 .c11 {
+  user-select: none;
+}
+
+.c26 .c11 {
+  color: inherit;
+}
+
+.c26 .c11 {
+  font-size: inherit;
+}
+
+.c26:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c29 .c26.c26 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c29 .c26.c26:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c29 .c26.c26:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
+  color: inherit;
+}
+
+.c29 .c26.c26:focus .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 > .c11 {
+  display: block;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c9 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c16 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c19 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c10 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c10 .c11 {
+  font-size: 1.25rem;
+}
+
+.c15 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c28 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c32 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c31 {
+  display: flex;
+}
+
+.c31 .c27 {
+  height: auto;
+  visibility: hidden;
+}
+
+.c24 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c24:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c23 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c23::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c34 .c25 {
+  border-radius: 0px;
+}
+
+.c35 .c25 {
+  border-radius: 0px;
+}
+
+.c21 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c21 .c25 {
+  border-radius: 0px;
+}
+
+.c1 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c1 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c1 * {
+  max-width: 100%;
+}
+
+.c33 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c5 > .c29 {
+  margin: 0px 4px 4px 0px;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c3 {
+  display: inline-flex;
+}
+
+.c3 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c22 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c0 {
+  position: relative;
+  width: 100%;
+}
+
+@media (pointer: coarse) {
+  .c26:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c26:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c26:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c29 .c26.c26:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c29 .c26.c26:active .c11 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c29 .c26.c26:hover .c11 {
+    color: inherit;
+  }
+}
+
+<div
+  class="c0 autocomplete"
+  data-role="autocomplete"
+>
+  <div
+    class="c1 field-wrapper field-wrapper--block"
+    data-role="textline"
+  >
+    <div
+      class="c2 c3 field__main"
+    >
+      <div
+        class="c4 c5 field"
+        data-role="textline-control"
+      >
+        <label
+          class="c6 c7 label field__label"
+          data-role="textline-label"
+          for="test-id-autocomplete__input"
+          id="test-id-autocomplete__input-label"
+        >
+          Basic Autocomplete
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            , Autocomplete placeholder
+          </span>
+        </label>
+        <div
+          class="c9 message message--error field__message"
+          data-role="textline-error-message"
+          id="test-id-autocomplete__input-error"
+        >
+          <div
+            class="c10 messageIcon"
+          >
+            <i
+              class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+              data-role="plasma-icon"
+              title="Error"
+            >
+              <span
+                aria-hidden="true"
+              >
+                
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Error
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15 messageText"
+            data-role="error-text"
+          >
+            Error message
+          </div>
+        </div>
+        <div
+          class="c16 message message--warning field__message"
+          data-role="textline-warning-message"
+          id="test-id-autocomplete__input-warning"
+        >
+          <div
+            class="c10 messageIcon"
+          >
+            <i
+              class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+              data-role="plasma-icon"
+              title="Warning"
+            >
+              <span
+                aria-hidden="true"
+              >
+                warning
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Warning
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15 messageText"
+            data-role="warning-text"
+          >
+            Warning message
+          </div>
+        </div>
+        <div
+          class="c19 field__message"
+          data-role="textline-info-message"
+          id="test-id-autocomplete__input-info"
+        >
+          <div
+            class="c10"
+          >
+            <i
+              class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+              data-role="plasma-icon"
+              title="Information"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Information
+              </span>
+            </i>
+          </div>
+          <div
+            class="c15"
+            data-role="info-text"
+          >
+            Info message
+          </div>
+        </div>
+        <div
+          aria-describedby="test-id-autocomplete__input test-id-autocomplete__input-label test-id-autocomplete__input-info test-id-autocomplete__input-warning test-id-autocomplete__input-error"
+          aria-placeholder="Autocomplete placeholder"
+          class="c21 field__input field__input--readonly field__input--warning field__input--error"
+          data-readonly="true"
+          data-role="textline-input-wrapper"
+          id="test-id-autocomplete__input-wrapper"
+          role="combobox"
+          tabindex="0"
+        >
+          <span
+            class="c22 supported-unseen-span"
+          />
+          <input
+            aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
+            aria-hidden="true"
+            class="c23 field__text"
+            data-role="textline-input"
+            id="test-id-autocomplete__input"
+            placeholder="Autocomplete placeholder"
+            readonly=""
+            tabindex="-1"
+            type="text"
+            value=""
+          />
+          <span
+            class="c22 supported-unseen-span"
+          />
+          <div
+            class="c24 field__suffix field__suffix--first"
+            data-role="textline-suffix-0"
+          >
+            <button
+              class="c25 c26 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c11 c17 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  description
+                </span>
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c27 c28 field-addon field-addon--after"
+        data-role="textline--addon-after-0"
+      >
+        <span
+          class="c29 c30 tooltip tooltip--hint"
+          data-role="tooltip-hint"
+          role="tooltip"
+          title=""
+        >
+          <button
+            class="c25 c26 button button--icon"
+            data-role="button"
+            data-type="icon"
+            title=""
+            type="button"
+          >
+            <i
+              class="c11 c17 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Hint: Tooltip
+              </span>
+            </i>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div
+      class="c31 field__helper"
+    >
+      <label
+        class="c32 field__helper-text"
+        data-role="textline-helper-text"
+        for="test-id-autocomplete__input"
+      >
+        Helper text
+      </label>
+      <div
+        class="c27 c28 field-addon field-addon--after"
+      >
+        <span
+          class="c29 c30 tooltip tooltip--hint"
+          data-role="tooltip-hint"
+          role="tooltip"
+          title=""
+        >
+          <button
+            class="c25 c26 button button--icon"
+            data-role="button"
+            data-type="icon"
+            title=""
+            type="button"
+          >
+            <i
+              class="c11 c17 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                info
+              </span>
+              <span
+                class="c8 -u-unseenButRead"
+                data-role="hidden-text"
+              >
+                Hint: Tooltip
+              </span>
+            </i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

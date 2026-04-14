@@ -1,0 +1,2505 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c3 {
+  background-color: inherit;
+  border-radius: inherit;
+  inset: 0px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.c3 > * {
+  inset: 0px;
+  position: absolute;
+}
+
+.c4 {
+  background-color: inherit;
+  outline: transparent solid 1px;
+  transition: width 1s ease-out;
+  width: 50%;
+  z-index: 1;
+}
+
+.c5 {
+  background-color: rgb(226, 230, 233);
+}
+
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: default;
+  color: rgb(169, 179, 188);
+}
+
+.c13 .c8 {
+  user-select: none;
+}
+
+.c1:not([data-role*="filter-selector"]) .c14.c14 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c1:not([data-role*="filter-selector"]) .c14.c14::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c1:not([data-role*="filter-selector"]) .c14.c14:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c15 .c8 {
+  user-select: none;
+}
+
+.c1:not([data-role*="filter-selector"]) .c15.c15 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c1:not([data-role*="filter-selector"]) .c15.c15::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c1:not([data-role*="filter-selector"]) .c15.c15:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c6 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c6::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c6 .c8 {
+  user-select: none;
+}
+
+.c6:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c17 .c8 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c17 .c8:not(.c21) {
+  color: inherit;
+}
+
+.c18 .c8 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c18 .c8:not(.c21) {
+  color: inherit;
+}
+
+.c7 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c7 .c8 {
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.c7 .c8:not(.c21) {
+  color: inherit;
+}
+
+.c10 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c11 {
+  color: inherit;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  overflow: hidden;
+}
+
+.c12 {
+  color: inherit;
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c12 .c8 {
+  color: inherit;
+}
+
+.c16 .c8 {
+  user-select: none;
+}
+
+.c20 .c8 {
+  color: inherit;
+}
+
+.c19 .c8 {
+  color: inherit;
+}
+
+@media (pointer: coarse) {
+  .c1:not([data-role*="filter-selector"]) .c14.c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:not([data-role*="filter-selector"]) .c14.c14:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not([data-role*="filter-selector"]) .c14.c14:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:not([data-role*="filter-selector"]) .c15.c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:not([data-role*="filter-selector"]) .c15.c15:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not([data-role*="filter-selector"]) .c15.c15:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 c2 list-item"
+    data-role="list-item"
+    style="cursor: default; position: relative;"
+  >
+    <span
+      class="c3"
+      data-role="progress-bar"
+    >
+      <span
+        class="c4"
+        data-role="progress-bar-fill"
+      />
+      <span
+        class="c5"
+        data-role="progress-bar-buffer"
+      />
+    </span>
+    <div
+      aria-disabled="true"
+      class="c6 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        aria-hidden="true"
+        class="c7"
+        data-role="list-item-graphic"
+      >
+        <i
+          class="c8 c9 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            folder
+          </span>
+        </i>
+      </div>
+      <div
+        class="c10 list-item__text"
+        data-role="list-item-text"
+      >
+        Photos
+        <div
+          class="c11 list-item__secondary-text"
+          data-role="list-item-secondary-text"
+        >
+          Aug 5, 2007
+        </div>
+      </div>
+      <div
+        class="c12 list-item__meta"
+        data-role="list-item-meta"
+      >
+        900 MB
+      </div>
+    </div>
+  </li>
+  <li
+    class="c1 c2 list-item list-item--disabled list-item--non-interactive"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="true"
+      class="c6 list-item__content"
+      data-role="list-item-content"
+      role="button"
+    >
+      <div
+        aria-hidden="true"
+        class="c7"
+        data-role="list-item-graphic"
+      >
+        <i
+          class="c8 c9 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            folder
+          </span>
+        </i>
+      </div>
+      <div
+        class="c10 list-item__text"
+        data-role="list-item-text"
+      >
+        Photos
+        <div
+          class="c11 list-item__secondary-text"
+          data-role="list-item-secondary-text"
+        >
+          Sept 30, 2014
+        </div>
+      </div>
+      <div
+        class="c12 list-item__meta"
+        data-role="list-item-meta"
+      >
+        900 MB
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render basic list 1`] = `
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c1 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c2 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c2::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c2:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c4 {
+  color: inherit;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  overflow: hidden;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c2:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c2 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c3 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+  <li
+    class="c1 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c2 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c3 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+        <div
+          class="c4 list-item__secondary-text"
+          data-role="list-item-secondary-text"
+        >
+          secondary test
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render border and divider list 1`] = `
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c1 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-left: 1px solid rgb(226, 230, 233);
+  border-right: 1px solid rgb(226, 230, 233);
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c1:first-of-type {
+  border-top: 1px solid rgb(226, 230, 233);
+}
+
+.c1:last-of-type {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c2 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c2::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c2:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c2:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+<ul
+  class="c0 list list--items-divider list--bordered"
+  data-role="list"
+>
+  <li
+    class="c1 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c2 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c3 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+  <li
+    class="c1 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c2 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c3 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render divider list item 1`] = `
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c1 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c2 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c2::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c2:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c2:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c2 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c3 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+  <li
+    class="c4 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c2 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c3 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render flipped list 1`] = `
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c1 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c2 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c2::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c2:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c4 {
+  color: inherit;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  overflow: hidden;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c2:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c2 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c3 list-item__text"
+        data-role="list-item-text"
+      >
+        <div
+          class="c4 list-item__secondary-text"
+          data-role="list-item-secondary-text"
+        >
+          secondary test
+        </div>
+        test
+      </div>
+    </div>
+  </li>
+  <li
+    class="c1 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c2 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c3 list-item__text"
+        data-role="list-item-text"
+      >
+        <div
+          class="c4 list-item__secondary-text"
+          data-role="list-item-secondary-text"
+        >
+          secondary test
+        </div>
+        test
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render graphic and meta list item 1`] = `
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c3 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c3::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:not([data-role*="filter-selector"]) .c7.c7 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c1:not([data-role*="filter-selector"]) .c7.c7::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c1:not([data-role*="filter-selector"]) .c7.c7:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c1:not([data-role*="filter-selector"]) .c8.c8 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c1:not([data-role*="filter-selector"]) .c8.c8::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c1:not([data-role*="filter-selector"]) .c8.c8:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c4 {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+  color: rgb(255, 255, 255);
+  background-color: rgb(78, 89, 101);
+  font-size: 1rem;
+  height: 24px;
+  line-height: 24px;
+  width: 24px;
+}
+
+.c5 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c6 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c3:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:not([data-role*="filter-selector"]) .c7.c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:not([data-role*="filter-selector"]) .c7.c7:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not([data-role*="filter-selector"]) .c7.c7:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:not([data-role*="filter-selector"]) .c8.c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:not([data-role*="filter-selector"]) .c8.c8:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not([data-role*="filter-selector"]) .c8.c8:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 c2 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c3 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        aria-hidden="true"
+        class="c4"
+        data-role="list-item-graphic"
+      >
+        T
+      </div>
+      <div
+        class="c5 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+      <div
+        class="c6 list-item__meta"
+        data-role="list-item-meta"
+      >
+        T
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`] = `
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c16.c16 {
+  color: rgb(5, 104, 174);
+}
+
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c17 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: default;
+  color: rgb(169, 179, 188);
+}
+
+.c12 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c12::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c12 .c6 {
+  user-select: none;
+}
+
+.c12:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c10:not([data-role*="filter-selector"]) .c21.c21 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c10:not([data-role*="filter-selector"]) .c21.c21::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c10:not([data-role*="filter-selector"]) .c21.c21:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c22 .c6 {
+  user-select: none;
+}
+
+.c10:not([data-role*="filter-selector"]) .c22.c22 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c10:not([data-role*="filter-selector"]) .c22.c22::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c10:not([data-role*="filter-selector"]) .c22.c22:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c18 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c18::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c18 .c6 {
+  user-select: none;
+}
+
+.c18:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c23 .c6 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c23 .c6:not(.c15) {
+  color: inherit;
+}
+
+.c4 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c4 .c6 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c4 .c6:not(.c15) {
+  color: inherit;
+}
+
+.c19 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c19 .c6 {
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.c19 .c6:not(.c15) {
+  color: inherit;
+}
+
+.c13 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c14 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c20 {
+  color: inherit;
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c20 .c6 {
+  color: inherit;
+}
+
+.c1 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 32px;
+  min-height: 32px;
+  line-height: 1.5rem;
+  position: relative;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: default;
+  height: 100%;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  height: 100%;
+  padding: 0px 16px;
+}
+
+.c8 {
+  flex-grow: 1;
+}
+
+.c9 {
+  display: flex;
+}
+
+.c9 .c6 {
+  color: inherit;
+}
+
+.c5 {
+  color: inherit;
+}
+
+.c5 .c6 {
+  color: inherit;
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c12:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c12:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not([data-role*="filter-selector"]) .c21.c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:not([data-role*="filter-selector"]) .c21.c21:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not([data-role*="filter-selector"]) .c21.c21:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not([data-role*="filter-selector"]) .c22.c22:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:not([data-role*="filter-selector"]) .c22.c22:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not([data-role*="filter-selector"]) .c22.c22:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 list-sub-header"
+    data-role="list-sub-header"
+  >
+    <div
+      aria-level="2"
+      class="c2"
+      data-role="list-sub-header-content-wrapper"
+      role="heading"
+    >
+      <div
+        class="c3"
+        data-role="list-sub-header-content"
+      >
+        <div
+          class="c4 c5"
+          data-role="list-sub-header-graphic"
+        >
+          <i
+            class="c6 c7 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              folder
+            </span>
+          </i>
+        </div>
+        <div
+          class="c8"
+        >
+          Folders
+        </div>
+        <div
+          class="c9"
+          data-role="list-sub-header-meta"
+        >
+          <i
+            class="c6 c7 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              edit
+            </span>
+          </i>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="c10 c11 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c12 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        aria-hidden="true"
+        class="c4"
+        data-role="list-item-graphic"
+      >
+        <i
+          class="c6 c7 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            Wifi
+          </span>
+        </i>
+      </div>
+      <div
+        class="c13 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+      <div
+        class="c14 list-item__meta"
+        data-role="list-item-meta"
+      >
+        <i
+          class="c6 c7 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            Wifi
+          </span>
+        </i>
+      </div>
+    </div>
+  </li>
+  <li
+    class="c10 c11 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c12 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        aria-hidden="true"
+        class="c4"
+        data-role="list-item-graphic"
+      >
+        <i
+          class="c6 c15 c7 c16 plasma-icon plasma-icon--info"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            Wifi
+          </span>
+        </i>
+      </div>
+      <div
+        class="c13 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+      <div
+        class="c14 list-item__meta"
+        data-role="list-item-meta"
+      >
+        <i
+          class="c6 c15 c7 c16 plasma-icon plasma-icon--info"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            Wifi
+          </span>
+        </i>
+      </div>
+    </div>
+  </li>
+  <li
+    class="c10 c17 list-item list-item--disabled list-item--non-interactive"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="true"
+      class="c18 list-item__content"
+      data-role="list-item-content"
+      role="button"
+    >
+      <div
+        aria-hidden="true"
+        class="c19"
+        data-role="list-item-graphic"
+      >
+        <i
+          class="c6 c15 c7 c16 plasma-icon plasma-icon--info"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            Wifi
+          </span>
+        </i>
+      </div>
+      <div
+        class="c13 list-item__text"
+        data-role="list-item-text"
+      >
+        test (disabled)
+      </div>
+      <div
+        class="c20 list-item__meta"
+        data-role="list-item-meta"
+      >
+        <i
+          class="c6 c15 c7 c16 plasma-icon plasma-icon--info"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            Wifi
+          </span>
+        </i>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render selected list item 1`] = `
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c1:not([data-role*="filter-selector"]) .c5.c5 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c1:not([data-role*="filter-selector"]) .c5.c5::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c1:not([data-role*="filter-selector"]) .c5.c5:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c3::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c1:not([data-role*="filter-selector"]) .c3.c3 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c1:not([data-role*="filter-selector"]) .c3.c3::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c1:not([data-role*="filter-selector"]) .c3.c3:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
+  color: inherit;
+  font-weight: 400;
+}
+
+@media (pointer: coarse) {
+  .c1:not([data-role*="filter-selector"]) .c5.c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:not([data-role*="filter-selector"]) .c5.c5:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not([data-role*="filter-selector"]) .c5.c5:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:not([data-role*="filter-selector"]) .c3.c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:not([data-role*="filter-selector"]) .c3.c3:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not([data-role*="filter-selector"]) .c3.c3:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 c2 list-item list-item--selected"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      aria-pressed="true"
+      class="c3 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c4 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c12 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c12::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c12 .c6 {
+  user-select: none;
+}
+
+.c12:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c10:not([data-role*="filter-selector"]) .c15.c15 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c10:not([data-role*="filter-selector"]) .c15.c15::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c10:not([data-role*="filter-selector"]) .c15.c15:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c16 .c6 {
+  user-select: none;
+}
+
+.c10:not([data-role*="filter-selector"]) .c16.c16 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c10:not([data-role*="filter-selector"]) .c16.c16::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c10:not([data-role*="filter-selector"]) .c16.c16:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c17 .c6 {
+  user-select: none;
+}
+
+.c18 .c6 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c18 .c6:not(.c21) {
+  color: inherit;
+}
+
+.c4 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c4 .c6 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c4 .c6:not(.c21) {
+  color: inherit;
+}
+
+.c19 .c6 {
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.c19 .c6:not(.c21) {
+  color: inherit;
+}
+
+.c13 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c14 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c20 .c6 {
+  color: inherit;
+}
+
+.c1 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 32px;
+  min-height: 32px;
+  line-height: 1.5rem;
+  position: relative;
+}
+
+.c2 {
+  cursor: pointer;
+  height: 100%;
+  color: rgb(255, 255, 255);
+  background-color: rgb(89, 102, 115);
+}
+
+.c2::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+}
+
+.c2:focus {
+  outline: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(213, 0, 117);
+}
+
+.c2:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  height: 100%;
+  padding: 0px 16px;
+}
+
+.c3 .c6 {
+  user-select: none;
+}
+
+.c8 {
+  flex-grow: 1;
+}
+
+.c9 {
+  display: flex;
+}
+
+.c9 .c6 {
+  color: inherit;
+}
+
+.c5 {
+  color: inherit;
+}
+
+.c5 .c6 {
+  color: inherit;
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c12:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c12:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not([data-role*="filter-selector"]) .c15.c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:not([data-role*="filter-selector"]) .c15.c15:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not([data-role*="filter-selector"]) .c15.c15:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not([data-role*="filter-selector"]) .c16.c16:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:not([data-role*="filter-selector"]) .c16.c16:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not([data-role*="filter-selector"]) .c16.c16:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(213, 0, 117);
+  }
+
+  .c2:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 list-sub-header list-sub-header--fill"
+    data-role="list-sub-header"
+  >
+    <div
+      aria-level="2"
+      class="c2"
+      data-role="list-sub-header-content-wrapper"
+      role="heading"
+      tabindex="0"
+    >
+      <div
+        class="c3"
+        data-role="list-sub-header-content"
+        role="button"
+      >
+        <div
+          class="c4 c5"
+          data-role="list-sub-header-graphic"
+        >
+          <i
+            class="c6 c7 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              folder
+            </span>
+          </i>
+        </div>
+        <div
+          class="c8"
+        >
+          Folders
+        </div>
+        <div
+          class="c9"
+          data-role="list-sub-header-meta"
+        >
+          <i
+            class="c6 c7 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              edit
+            </span>
+          </i>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="c10 c11 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c12 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c13 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+      <div
+        class="c14 list-item__meta"
+        data-role="list-item-meta"
+      >
+        <i
+          class="c6 c7 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            Wifi
+          </span>
+        </i>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render subHeader list 1`] = `
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c5 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c6 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c6::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c6:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c7 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c1 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 32px;
+  min-height: 32px;
+  line-height: 1.5rem;
+  position: relative;
+}
+
+.c2 {
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: default;
+  height: 100%;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  height: 100%;
+  padding: 0px 16px;
+}
+
+.c4 {
+  flex-grow: 1;
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c6:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 list-sub-header"
+    data-role="list-sub-header"
+  >
+    <div
+      aria-level="2"
+      class="c2"
+      data-role="list-sub-header-content-wrapper"
+      role="heading"
+    >
+      <div
+        class="c3"
+        data-role="list-sub-header-content"
+      >
+        <div
+          class="c4"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class="c5 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c6 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c7 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+  <li
+    class="c5 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c6 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c7 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.list > test render subHeader-fill list 1`] = `
+.c0 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c5 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c6 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c6::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c6:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c7 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c1 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 32px;
+  min-height: 32px;
+  line-height: 1.5rem;
+  position: relative;
+}
+
+.c2 {
+  cursor: default;
+  height: 100%;
+  color: rgb(255, 255, 255);
+  background-color: rgb(89, 102, 115);
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  height: 100%;
+  padding: 0px 16px;
+}
+
+.c4 {
+  flex-grow: 1;
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c6:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c6:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+<ul
+  class="c0 list"
+  data-role="list"
+>
+  <li
+    class="c1 list-sub-header list-sub-header--fill"
+    data-role="list-sub-header"
+  >
+    <div
+      aria-level="2"
+      class="c2"
+      data-role="list-sub-header-content-wrapper"
+      role="heading"
+    >
+      <div
+        class="c3"
+        data-role="list-sub-header-content"
+      >
+        <div
+          class="c4"
+        />
+      </div>
+    </div>
+  </li>
+  <li
+    class="c5 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c6 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c7 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+  <li
+    class="c5 list-item"
+    data-role="list-item"
+  >
+    <div
+      aria-disabled="false"
+      class="c6 list-item__content"
+      data-role="list-item-content"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="c7 list-item__text"
+        data-role="list-item-text"
+      >
+        test
+      </div>
+    </div>
+  </li>
+</ul>
+`;

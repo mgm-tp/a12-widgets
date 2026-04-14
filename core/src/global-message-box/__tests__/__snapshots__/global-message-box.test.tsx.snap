@@ -1,0 +1,1747 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-message-box 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.c10 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c10 .c3 {
+  user-select: none;
+}
+
+.c10 .c3 {
+  color: inherit;
+}
+
+.c10::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c10:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c3 {
+  display: block;
+}
+
+.c11 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  padding: 0px 32px;
+  box-shadow: none;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c11 .c3 {
+  user-select: none;
+}
+
+.c11 .c3 {
+  color: inherit;
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c3 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c12 .c3 {
+  display: block;
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+.c7 .c9[data-type="icon"] {
+  border-radius: 50%;
+}
+
+.c13 .c9 {
+  color: rgb(22, 25, 29);
+}
+
+.c13 .c9[data-type="icon"] {
+  border-radius: 50%;
+}
+
+.c13 .c9:not(:disabled):focus {
+  border-color: rgb(22, 25, 29);
+  color: rgb(22, 25, 29);
+  outline-color: rgb(22, 25, 29);
+}
+
+.c13 .c9[data-variant-type="primary"] {
+  background-color: rgb(22, 25, 29);
+  color: rgb(249, 191, 48);
+}
+
+.c13 .c9[data-variant-type="primary"]:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.c13 .c9[data-variant-type="primary"]:hover::before,
+.c13 .c9[data-variant-type="primary"]:active::before,
+.c13 .c9[data-variant-type="primary"]:focus::before {
+  border-color: rgb(22, 25, 29);
+}
+
+.c13 .c9[data-variant-type="secondary"]::before {
+  border-color: rgb(22, 25, 29);
+}
+
+.c13 .c9[data-variant-type="secondary"]:hover::before,
+.c13 .c9[data-variant-type="secondary"]:active::before,
+.c13 .c9[data-variant-type="secondary"]:focus::before {
+  border-color: rgb(22, 25, 29);
+}
+
+.c14 .c9[data-type="icon"] {
+  border-radius: 50%;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c10:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c10:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13 .c9:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(22, 25, 29);
+    color: rgb(22, 25, 29);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 .c9:not(:disabled):hover {
+    border-color: rgb(22, 25, 29);
+    color: rgb(22, 25, 29);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13 .c9[data-variant-type="primary"]:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 .c9[data-variant-type="primary"]:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+<div
+  class="c0 global-message-box global-message-box--info"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Information: 
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  >
+    <div
+      class="c8 button-group"
+      data-role="button-group"
+    >
+      <button
+        class="c9 c10 button button--secondary button--outline button--dark"
+        data-role="button"
+        data-variant-type="secondary"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          Secondary
+        </span>
+      </button>
+      <button
+        class="c9 c11 button button--primary button--invert button--dark"
+        data-role="button"
+        data-variant-type="primary"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          Primary
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering CONTENT global-message-box 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c8 .c3 {
+  display: block;
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--info"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Information: 
+      </span>
+      test content
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering ERROR global-message-box 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(201, 29, 29);
+  color: rgb(201, 29, 29);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c8 .c3 {
+  display: block;
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--error"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          error
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Error: 
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering INFO global-message-box 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--info"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Information: 
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering SUCCESS global-message-box 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(41, 122, 36);
+  color: rgb(41, 122, 36);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--success"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          check_circle
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Success: 
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering WARNING global-message-box 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(249, 191, 48);
+  color: rgb(249, 191, 48);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c8 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(22, 25, 29);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--warning"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          warning
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Warning: 
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering base global-message-box 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c8 .c3 {
+  display: block;
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--info"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Information: 
+      </span>
+      a
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering false-ellipsis (multiline) global-message-box 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+  padding: 8px 0px;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c8 .c3 {
+  display: block;
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 36px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--info global-message-box--multiline"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Information: 
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box with a custom icon 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c8 .c3 {
+  display: block;
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--info"
+  data-role="global-message-box"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          speaker_notes
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Information: 
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box with provided props 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 52px;
+  padding: 8px 24px;
+  background-color: rgb(5, 104, 174);
+  color: rgb(5, 104, 174);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.c2 {
+  display: block;
+  margin: 0px 8px 0px 0px;
+}
+
+.c2 .c3 {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+}
+
+.c8 .c3 {
+  display: block;
+  color: rgb(22, 25, 29);
+  font-size: 1.25rem;
+}
+
+.c5 {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7 {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 16px;
+}
+
+<div
+  class="c0 global-message-box global-message-box--info test class"
+  data-role="global-message-box"
+  id="box-id"
+  style="background-color: blue;"
+  tabindex="-1"
+>
+  <div
+    class="c1 global-message-box__content"
+  >
+    <div
+      class="c2 global-message-box__graphic"
+      data-role="global-message-box-graphic"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+      </i>
+    </div>
+    <div
+      aria-level="2"
+      class="c5 global-message-box__text"
+      data-role="global-message-box-text"
+      role="heading"
+    >
+      <span
+        class="c6 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Information: 
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7 global-message-box__actions"
+    data-role="global-message-box-actions"
+  />
+</div>
+`;

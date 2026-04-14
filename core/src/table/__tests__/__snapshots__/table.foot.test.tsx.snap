@@ -1,0 +1,79 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.foot > custom footRowRenderer and when footer has content 1`] = `
+.c0 {
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.c0 > * {
+  position: relative;
+}
+
+.c0 > ::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c0 > :first-child {
+  box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
+}
+
+<div
+  aria-label="Footer"
+  class="c0 table__footer"
+  data-role="table-footer"
+  role="grid"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot > default footer 1`] = `
+.c1 {
+  display: flex;
+  position: relative;
+}
+
+.c0 {
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.c0 > * {
+  position: relative;
+}
+
+.c0 > ::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border-bottom: 1px solid rgb(211, 214, 220);
+}
+
+.c0 > :first-child {
+  box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
+}
+
+.c0 > :first-child::before {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+<div
+  class="c0 table__footer"
+  data-role="table-footer"
+>
+  <div
+    class="c1 table__footerRow"
+    data-role="table-footer-row"
+  />
+</div>
+`;

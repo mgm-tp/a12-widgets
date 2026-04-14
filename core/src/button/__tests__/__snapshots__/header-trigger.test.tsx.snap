@@ -1,0 +1,1542 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.header-trigger > rendering a header trigger with only graphic icon 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c4 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c5 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c6 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c7 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c8 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0 {
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  gap: 8px;
+  padding: 0px 4px;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 2px;
+  justify-content: center;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0:focus {
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c3.c3.c3 {
+  font-size: 1.125rem;
+}
+
+@media (pointer: coarse) {
+  .c4 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c4 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c5 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c6 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c7 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c8 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c8 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<button
+  aria-label="Open menu"
+  class="c0 header-trigger"
+  data-role="header-trigger"
+  title="Open menu"
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon c3 header-trigger__graphic"
+    data-role="header-trigger-graphic"
+  >
+    <span
+      aria-hidden="true"
+    >
+      public
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.header-trigger > rendering a header trigger with only meta icon 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c4 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c5 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c6 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c7 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c8 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0 {
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  gap: 8px;
+  padding: 0px 4px;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 2px;
+  justify-content: center;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0:focus {
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c3.c3.c3 {
+  font-size: 1rem;
+}
+
+@media (pointer: coarse) {
+  .c4 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c4 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c5 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c6 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c7 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c8 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c8 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<button
+  aria-label="Open menu"
+  class="c0 header-trigger"
+  data-role="header-trigger"
+  title="Open menu"
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon c3 header-trigger__meta"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      arrow_drop_down
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.header-trigger > rendering disabled header trigger 1`] = `
+.c5 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c5 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c8 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0 {
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  gap: 8px;
+  padding: 0px 4px;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 2px;
+  min-height: 36px;
+  min-width: 36px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3.c3.c3 {
+  font-size: 1.125rem;
+}
+
+.c7.c7.c7 {
+  font-size: 1rem;
+}
+
+.c4 {
+  line-height: normal;
+}
+
+.c6 {
+  text-decoration: none;
+}
+
+@media (pointer: coarse) {
+  .c8 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c8 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:hover {
+    color: inherit;
+  }
+}
+
+<button
+  class="c0 header-trigger"
+  data-role="header-trigger"
+  disabled=""
+  title="Open menu"
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon c3 header-trigger__graphic"
+    data-role="header-trigger-graphic"
+  >
+    <span
+      aria-hidden="true"
+    >
+      info
+    </span>
+  </i>
+  <span
+    class="c4 header-trigger__text"
+    data-role="header-trigger-text"
+  >
+    <span
+      class="c5 -u-unseenButRead"
+      data-role="hidden-text"
+    >
+      Selected 
+    </span>
+    <abbr
+      class="c6"
+    >
+      test text
+    </abbr>
+  </span>
+  <i
+    class="c1 c2 plasma-icon c7 header-trigger__meta"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      keyboard_arrow_down
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.header-trigger > rendering header trigger 1`] = `
+.c5 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c5 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  gap: 8px;
+  padding: 0px 4px;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 2px;
+  min-height: 36px;
+  min-width: 36px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0:focus {
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c3.c3.c3 {
+  font-size: 1.125rem;
+}
+
+.c7.c7.c7 {
+  font-size: 1rem;
+}
+
+.c4 {
+  line-height: normal;
+}
+
+.c6 {
+  text-decoration: none;
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<button
+  class="c0 header-trigger"
+  data-role="header-trigger"
+  title="Open menu"
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon c3 header-trigger__graphic"
+    data-role="header-trigger-graphic"
+  >
+    <span
+      aria-hidden="true"
+    >
+      info
+    </span>
+  </i>
+  <span
+    class="c4 header-trigger__text"
+    data-role="header-trigger-text"
+  >
+    <span
+      class="c5 -u-unseenButRead"
+      data-role="hidden-text"
+    >
+      Selected 
+    </span>
+    <abbr
+      class="c6"
+    >
+      test text
+    </abbr>
+  </span>
+  <i
+    class="c1 c2 plasma-icon c7 header-trigger__meta"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      keyboard_arrow_down
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.header-trigger > rendering horizontal multilingual header trigger 1`] = `
+.c5 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c5 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c8 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c9 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0 {
+  align-items: center;
+  background: rgb(78, 89, 101);
+  cursor: pointer;
+  display: flex;
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 2px;
+  min-width: 36px;
+  gap: 6px;
+  height: 100%;
+  min-height: inherit;
+  padding: 2px 6px;
+  width: 100%;
+}
+
+.c0:disabled {
+  pointer-events: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0:focus {
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c3.c3.c3 {
+  font-size: 1.125rem;
+}
+
+.c7.c7.c7 {
+  font-size: 1rem;
+}
+
+.c4 {
+  line-height: normal;
+}
+
+.c6 {
+  text-decoration: none;
+}
+
+@media (pointer: coarse) {
+  .c8 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c8 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c9 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<button
+  class="c0 header-trigger"
+  data-role="header-trigger"
+  title="TT Open menu"
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon c3 header-trigger__graphic"
+    data-role="header-trigger-graphic"
+  >
+    <span
+      aria-hidden="true"
+    >
+      public
+    </span>
+  </i>
+  <span
+    class="c4 header-trigger__text"
+    data-role="header-trigger-text"
+  >
+    <span
+      class="c5 -u-unseenButRead"
+      data-role="hidden-text"
+    >
+      Selected 
+    </span>
+    <abbr
+      class="c6"
+    >
+      test text
+    </abbr>
+  </span>
+  <i
+    class="c1 c2 plasma-icon c7 header-trigger__meta"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      arrow_drop_down
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.header-trigger > rendering light horizontal multilingual header trigger 1`] = `
+.c5 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c5 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c8 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c9 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c10 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0 {
+  align-items: center;
+  background: rgb(241, 242, 244);
+  cursor: pointer;
+  display: flex;
+  border: 2px solid transparent;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 2px;
+  min-width: 36px;
+  color: rgb(77, 77, 77);
+  gap: 6px;
+  height: 100%;
+  min-height: inherit;
+  padding: 2px 6px;
+  width: 100%;
+}
+
+.c0:disabled {
+  pointer-events: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0:focus {
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3.c3.c3 {
+  font-size: 1.125rem;
+}
+
+.c7.c7.c7 {
+  font-size: 1rem;
+}
+
+.c4 {
+  line-height: normal;
+}
+
+.c6 {
+  text-decoration: none;
+}
+
+@media (pointer: coarse) {
+  .c8 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c8 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c9 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c10 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+  }
+}
+
+<button
+  class="c0 header-trigger"
+  data-role="header-trigger"
+  title="TT Open menu"
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon c3 header-trigger__graphic"
+    data-role="header-trigger-graphic"
+  >
+    <span
+      aria-hidden="true"
+    >
+      public
+    </span>
+  </i>
+  <span
+    class="c4 header-trigger__text"
+    data-role="header-trigger-text"
+  >
+    <span
+      class="c5 -u-unseenButRead"
+      data-role="hidden-text"
+    >
+      Selected 
+    </span>
+    <abbr
+      class="c6"
+    >
+      test text
+    </abbr>
+  </span>
+  <i
+    class="c1 c2 plasma-icon c7 header-trigger__meta"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      arrow_drop_down
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.header-trigger > rendering vertical multilingual header trigger 1`] = `
+.c5 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c5 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c8 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c9 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c10 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c11 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0 {
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  color: rgb(5, 104, 174);
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  height: 32px;
+  justify-content: center;
+  padding: 0px;
+  width: 32px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c0:focus {
+  border-color: rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c3.c3.c3 {
+  font-size: 1.125rem;
+}
+
+.c7.c7.c7 {
+  font-size: 1rem;
+}
+
+.c4 {
+  line-height: normal;
+}
+
+.c6 {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (pointer: coarse) {
+  .c8 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c8 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c9 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c10 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c11 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    border-color: rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+  }
+}
+
+<button
+  class="c0 header-trigger"
+  data-role="header-trigger"
+  title="TT Open menu"
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon c3 header-trigger__graphic"
+    data-role="header-trigger-graphic"
+  >
+    <span
+      aria-hidden="true"
+    >
+      public
+    </span>
+  </i>
+  <span
+    class="c4 header-trigger__text"
+    data-role="header-trigger-text"
+  >
+    <span
+      class="c5 -u-unseenButRead"
+      data-role="hidden-text"
+    >
+      Selected 
+    </span>
+    <abbr
+      class="c6"
+    >
+      test text
+    </abbr>
+  </span>
+  <i
+    class="c1 c2 plasma-icon c7 header-trigger__meta"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      arrow_drop_down
+    </span>
+  </i>
+</button>
+`;

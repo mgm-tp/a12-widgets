@@ -1,0 +1,2783 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.calendar-month-view > render basic widgets.calendar-month-view 1`] = `
+.c5 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(162, 166, 169);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.3;
+}
+
+.c5:focus-visible {
+  outline: none;
+}
+
+.c5::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c5:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c10 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(241, 242, 244);
+}
+
+.c10:focus-visible {
+  outline: none;
+}
+
+.c10::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c10:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c11 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(226, 230, 233);
+}
+
+.c11:focus-visible {
+  outline: none;
+}
+
+.c11::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c11:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c12 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(229, 244, 255);
+}
+
+.c12:focus-visible {
+  outline: none;
+}
+
+.c12::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c12:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c12::before {
+  border: 1px solid rgb(5, 104, 174);
+}
+
+.c13 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(254, 242, 218);
+}
+
+.c13:focus-visible {
+  outline: none;
+}
+
+.c13::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c13:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c14 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(162, 166, 169);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.3;
+}
+
+.c14:focus-visible {
+  outline: none;
+}
+
+.c14::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c14:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c8 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+}
+
+.c9 {
+  border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 12px;
+  background: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c9:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c9::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c9:focus-visible {
+  outline: none;
+}
+
+.c0 {
+  background: rgb(211, 214, 220);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.c1 {
+  display: flex;
+  background: rgb(239, 240, 242);
+  gap: 4px;
+  padding-inline: 4px;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  background: rgb(239, 240, 242);
+  padding: 12px;
+  font-size: 0.875rem;
+  text-align: center;
+  color: rgb(22, 25, 29);
+  font-weight: 700;
+}
+
+.c3 {
+  flex: 1 1 0%;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: rgb(211, 214, 220);
+  overflow: hidden;
+}
+
+.c4 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  overflow: hidden;
+  gap: 4px;
+}
+
+.c6 {
+  padding: 8px;
+}
+
+.c7 {
+  flex-grow: 1;
+  overflow: auto hidden;
+  padding: 8px;
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c5:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c11:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c12:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c14:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0"
+  data-role="calendar-month-view-wrapper"
+>
+  <div
+    class="c1"
+    data-role="calendar-month-view-week-day-header"
+  >
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Monday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Tuesday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Wednesday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Thursday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Friday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Saturday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Sunday
+    </div>
+  </div>
+  <div
+    class="c3"
+    data-role="calendar-month-view-table"
+  >
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c5"
+        data-day="2025-04-28"
+        data-outside="true"
+        data-role="calendar-month-view-day"
+        tabindex="-1"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          28-04
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+          tabindex="-1"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c5"
+        data-day="2025-04-29"
+        data-outside="true"
+        data-role="calendar-month-view-day"
+        tabindex="-1"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          29-04
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+          tabindex="-1"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c9"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="-1"
+            />
+            <div
+              class="c9"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="c5"
+        data-day="2025-04-30"
+        data-outside="true"
+        data-role="calendar-month-view-day"
+        tabindex="-1"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          30-04
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+          tabindex="-1"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-01"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          01-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-02"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          02-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-03"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          03-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-04"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          04-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c12"
+        data-day="2025-05-05"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          05-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c9"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            />
+            <div
+              class="c9"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-06"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          06-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-07"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          07-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c9"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-08"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          08-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-09"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          09-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c9"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-10"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          10-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-11"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          11-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c13"
+        data-day="2025-05-12"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          12-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c9"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-13"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          13-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-14"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          14-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-15"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          15-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-16"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          16-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-17"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          17-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-18"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          18-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c10"
+        data-day="2025-05-19"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          19-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-20"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          20-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-21"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          21-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-22"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          22-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-23"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          23-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-24"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          24-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-25"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          25-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c10"
+        data-day="2025-05-26"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          26-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-27"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          27-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-28"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          28-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-29"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          29-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-30"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          30-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-day="2025-05-31"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          31-05
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+      <div
+        class="c14"
+        data-day="2025-06-01"
+        data-outside="true"
+        data-role="calendar-month-view-day"
+        tabindex="-1"
+      >
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-header"
+        >
+          01-06
+        </div>
+        <div
+          class="c7"
+          data-role="calendar-month-view-day-content-wrapper"
+          tabindex="-1"
+        >
+          <div
+            class="c8"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.calendar-month-view > render widgets.calendar-month-view with custom renderers 1`] = `
+.c5 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(162, 166, 169);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.3;
+}
+
+.c5:focus-visible {
+  outline: none;
+}
+
+.c5::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c5:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c9 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(241, 242, 244);
+}
+
+.c9:focus-visible {
+  outline: none;
+}
+
+.c9::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c9:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c10 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(226, 230, 233);
+}
+
+.c10:focus-visible {
+  outline: none;
+}
+
+.c10::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c10:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c11 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(229, 244, 255);
+}
+
+.c11:focus-visible {
+  outline: none;
+}
+
+.c11::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c11:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c11::before {
+  border: 1px solid rgb(5, 104, 174);
+}
+
+.c12 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(254, 242, 218);
+}
+
+.c12:focus-visible {
+  outline: none;
+}
+
+.c12::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c12:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c13 {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-width: 0px;
+  justify-content: flex-start;
+  border-radius: 0px;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(162, 166, 169);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.3;
+}
+
+.c13:focus-visible {
+  outline: none;
+}
+
+.c13::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c13:focus::before {
+  border: 2px solid rgb(201, 29, 29);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c7 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+}
+
+.c8 {
+  border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 12px;
+  background: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c8:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  margin: 1px;
+}
+
+.c8::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+}
+
+.c8:focus-visible {
+  outline: none;
+}
+
+.c0 {
+  background: rgb(211, 214, 220);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.c1 {
+  display: flex;
+  background: rgb(239, 240, 242);
+  gap: 4px;
+  padding-inline: 4px;
+}
+
+.c2 {
+  flex: 1 1 0%;
+  background: rgb(239, 240, 242);
+  padding: 12px;
+  font-size: 0.875rem;
+  text-align: center;
+  color: rgb(22, 25, 29);
+  font-weight: 700;
+}
+
+.c3 {
+  flex: 1 1 0%;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: rgb(211, 214, 220);
+  overflow: hidden;
+}
+
+.c4 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  overflow: hidden;
+  gap: 4px;
+}
+
+.c6 {
+  flex-grow: 1;
+  overflow: auto hidden;
+  padding: 8px;
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c5:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c11:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c12:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13:active::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover::before {
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0"
+  data-role="calendar-month-view-wrapper"
+>
+  <div
+    class="c1"
+    data-role="calendar-month-view-week-day-header"
+  >
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Monday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Tuesday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Wednesday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Thursday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Friday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Saturday
+    </div>
+    <div
+      class="c2"
+      data-role="calendar-month-view-week-day-header-item"
+    >
+      Sunday
+    </div>
+  </div>
+  <div
+    class="c3"
+    data-role="calendar-month-view-table"
+  >
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c5"
+        data-day="2025-04-28"
+        data-outside="true"
+        data-role="calendar-month-view-day"
+        tabindex="-1"
+      >
+        <div>
+          Header for 
+          4/28/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+          tabindex="-1"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          4/28/2025
+        </div>
+      </div>
+      <div
+        class="c5"
+        data-day="2025-04-29"
+        data-outside="true"
+        data-role="calendar-month-view-day"
+        tabindex="-1"
+      >
+        <div>
+          Header for 
+          4/29/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+          tabindex="-1"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c8"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="-1"
+            >
+              <div>
+                Marketing Meeting
+              </div>
+            </div>
+            <div
+              class="c8"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="-1"
+            >
+              <div>
+                Product Brainstorming
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          Footer for 
+          4/29/2025
+        </div>
+      </div>
+      <div
+        class="c5"
+        data-day="2025-04-30"
+        data-outside="true"
+        data-role="calendar-month-view-day"
+        tabindex="-1"
+      >
+        <div>
+          Header for 
+          4/30/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+          tabindex="-1"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          4/30/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-01"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/1/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/1/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-02"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/2/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/2/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-03"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/3/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/3/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-04"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/4/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/4/2025
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c11"
+        data-day="2025-05-05"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/5/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c8"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            >
+              <div>
+                Marketing Meeting
+              </div>
+            </div>
+            <div
+              class="c8"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            >
+              <div>
+                Product Brainstorming
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          Footer for 
+          5/5/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-06"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/6/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/6/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-07"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/7/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c8"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            >
+              <div>
+                Checkpoint Calendar Widget (Another checkpoint for the basic calendar widget)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          Footer for 
+          5/7/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-08"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/8/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/8/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-09"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/9/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c8"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            >
+              <div>
+                Code Review
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          Footer for 
+          5/9/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-10"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/10/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/10/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-11"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/11/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/11/2025
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c12"
+        data-day="2025-05-12"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/12/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          >
+            <div
+              class="c8"
+              data-role="calendar-month-view-day-content-item"
+              tabindex="0"
+            >
+              <div>
+                Project Deadline
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          Footer for 
+          5/12/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-13"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/13/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/13/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-14"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/14/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/14/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-15"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/15/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/15/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-16"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/16/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/16/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-17"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/17/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/17/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-18"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/18/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/18/2025
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c9"
+        data-day="2025-05-19"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/19/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/19/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-20"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/20/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/20/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-21"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/21/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/21/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-22"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/22/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/22/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-23"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/23/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/23/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-24"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/24/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/24/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-25"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/25/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/25/2025
+        </div>
+      </div>
+    </div>
+    <div
+      class="c4"
+      data-role="calendar-month-view-week"
+    >
+      <div
+        class="c9"
+        data-day="2025-05-26"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/26/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/26/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-27"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/27/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/27/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-28"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/28/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/28/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-29"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/29/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/29/2025
+        </div>
+      </div>
+      <div
+        class="c9"
+        data-day="2025-05-30"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/30/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/30/2025
+        </div>
+      </div>
+      <div
+        class="c10"
+        data-day="2025-05-31"
+        data-role="calendar-month-view-day"
+        tabindex="0"
+      >
+        <div>
+          Header for 
+          5/31/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          5/31/2025
+        </div>
+      </div>
+      <div
+        class="c13"
+        data-day="2025-06-01"
+        data-outside="true"
+        data-role="calendar-month-view-day"
+        tabindex="-1"
+      >
+        <div>
+          Header for 
+          6/1/2025
+        </div>
+        <div
+          class="c6"
+          data-role="calendar-month-view-day-content-wrapper"
+          tabindex="-1"
+        >
+          <div
+            class="c7"
+            data-role="calendar-month-view-day-content"
+          />
+        </div>
+        <div>
+          Footer for 
+          6/1/2025
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

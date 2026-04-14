@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.responsive-image-container > rendering-a-responsive-image-container 1`] = `
+.c0 {
+  background-color: transparent;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+<img
+  alt="Sample Image"
+  class="c0 responsive-image-container"
+  data-role="responsive-image-container"
+  src="image-path"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.responsive-image-container > rendering-a-responsive-image-container-without-alt 1`] = `
+.c0 {
+  background-color: transparent;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+<img
+  alt=""
+  class="c0 responsive-image-container"
+  data-role="responsive-image-container"
+  src="image-path"
+/>
+`;

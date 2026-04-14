@@ -1,0 +1,5950 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > quick-access-button-with-actionItems-prop 1`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c2 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c8 {
+  user-select: none;
+}
+
+.c2 .c8 {
+  color: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c8 {
+  display: block;
+}
+
+.c6 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c6 .c8 {
+  user-select: none;
+}
+
+.c6 .c8 {
+  color: inherit;
+}
+
+.c6 .c8 {
+  font-size: inherit;
+}
+
+.c6:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c8 {
+  display: block;
+}
+
+.c15 .c8 {
+  user-select: none;
+}
+
+.c15 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c8 {
+  display: block;
+}
+
+.c16 .c8 {
+  user-select: none;
+}
+
+.c16 .c8 {
+  color: inherit;
+}
+
+.c16 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c8 {
+  display: block;
+}
+
+.c17 .c8 {
+  user-select: none;
+}
+
+.c17 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c8 {
+  display: block;
+}
+
+.c18 .c8 {
+  user-select: none;
+}
+
+.c18 .c8 {
+  color: inherit;
+}
+
+.c18 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c8 {
+  display: block;
+}
+
+.c19 .c8 {
+  user-select: none;
+}
+
+.c19 .c8 {
+  color: inherit;
+}
+
+.c19 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c8 {
+  display: block;
+}
+
+.c20 .c8 {
+  user-select: none;
+}
+
+.c20 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c8 {
+  display: block;
+}
+
+.c21 .c8 {
+  user-select: none;
+}
+
+.c21 .c8 {
+  color: inherit;
+}
+
+.c21 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c8 {
+  display: block;
+}
+
+.c22 .c8 {
+  user-select: none;
+}
+
+.c22 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c8 {
+  display: block;
+}
+
+.c23 .c8 {
+  user-select: none;
+}
+
+.c23 .c8 {
+  color: inherit;
+}
+
+.c23 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c8 {
+  display: block;
+}
+
+.c24 .c8 {
+  user-select: none;
+}
+
+.c24 .c8 {
+  color: inherit;
+}
+
+.c24.c24 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c24.c24 > .c8 {
+  display: block;
+}
+
+.c25 .c8 {
+  user-select: none;
+}
+
+.c25 .c8 {
+  color: inherit;
+}
+
+.c25 .c8 {
+  font-size: inherit;
+}
+
+.c25.c25 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c25.c25 > .c8 {
+  display: block;
+}
+
+.c5 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c5 .c8 {
+  position: relative;
+}
+
+.c5 .c8::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c5 .c8:focus {
+  outline: none;
+}
+
+.c5 .c8:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  display: flex;
+  isolation: isolate;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c10 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c10 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c11 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c11 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c11 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c12 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c12 .c1::before {
+  border-radius: 2px;
+}
+
+.c12 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(213, 0, 117);
+  position: absolute;
+  z-index: 1;
+}
+
+.c12 .c1:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c12 .c1:focus + .c3,
+.c12 .c1:focus::after {
+  background-color: rgb(213, 0, 117);
+}
+
+.c12 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c12 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 2px solid rgb(226, 230, 233);
+}
+
+.c12 > .c1,
+.c12 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c12 > .c1::before,
+.c12 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c12 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c13 .c1 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c13 .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c13 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c13 .c1:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c13 .c1:not(:disabled):focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  outline: none;
+}
+
+.c13 .c1:not(:disabled):active,
+.c13 .c1:not(:disabled):hover {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c13 .c1::before {
+  border-radius: 2px;
+}
+
+.c13 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+}
+
+.c13 .c1:focus::before {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c13 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c13 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.c13 > .c1,
+.c13 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c13 > .c1::before,
+.c13 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c13 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c14 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c14 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c7 {
+  font-size: 1.25rem;
+}
+
+.c7 .c8 {
+  font-size: inherit;
+}
+
+.c7.c7 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c26 .c8 {
+  font-size: inherit;
+}
+
+.c27 .c8 {
+  font-size: inherit;
+}
+
+.c4 {
+  align-items: stretch;
+  width: 2px;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c12 .c1:not(:disabled):hover + .c3,
+  .c12 .c1:not(:disabled):hover::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+@media (pointer: fine) {
+  .c12 > .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12 > .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c12 > .c1:not(:disabled):active + .c3,
+  .c12 > .c1:not(:disabled):active::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c13 .c1:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c13 .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+<div
+  class="c0 quick-access-button quick-access-button--secondary"
+  data-role="quick-access-button"
+>
+  <button
+    class="c1 c2 button button--secondary"
+    data-role="quick-access-button-main-action"
+    tabindex="0"
+    title=""
+    type="button"
+  >
+    <span
+      data-role="quick-access-button-main-action-label"
+    >
+      Active Element
+    </span>
+  </button>
+  <div
+    class="c3 c4 quick-access-button__divider"
+    data-role="quick-access-button-divider"
+  />
+  <div
+    class="c5 popup quick-access-button__popup"
+    data-role="quick-access-button-popup"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open further options"
+      class="c1 c6 button button--icon c7"
+      data-role="quick-access-button-trigger-element"
+      data-type="icon"
+      tabindex="0"
+      title="Open further options"
+      type="button"
+    >
+      <i
+        class="c8 c9 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          "more_vert"
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-default-quick-access-button 1`] = `
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c2 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c7 {
+  user-select: none;
+}
+
+.c2 .c7 {
+  color: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c7 {
+  display: block;
+}
+
+.c5 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c5 .c7 {
+  user-select: none;
+}
+
+.c5 .c7 {
+  color: inherit;
+}
+
+.c5 .c7 {
+  font-size: inherit;
+}
+
+.c5:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c7 {
+  display: block;
+}
+
+.c4 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c4 .c7 {
+  position: relative;
+}
+
+.c4 .c7::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c4 .c7:focus {
+  outline: none;
+}
+
+.c4 .c7:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  display: flex;
+  isolation: isolate;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c6 {
+  font-size: 1.25rem;
+}
+
+.c6 .c7 {
+  font-size: inherit;
+}
+
+.c6.c6 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c3 {
+  align-items: stretch;
+  width: 2px;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 quick-access-button quick-access-button--secondary"
+  data-role="quick-access-button"
+>
+  <button
+    class="c1 c2 button button--secondary"
+    data-role="quick-access-button-main-action"
+    tabindex="0"
+    title=""
+    type="button"
+  >
+    <span
+      data-role="quick-access-button-main-action-label"
+    >
+      Active Element
+    </span>
+  </button>
+  <div
+    class="c3 quick-access-button__divider"
+    data-role="quick-access-button-divider"
+  />
+  <div
+    class="c4 popup quick-access-button__popup"
+    data-role="quick-access-button-popup"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open further options"
+      class="c1 c5 button button--icon c6"
+      data-role="quick-access-button-trigger-element"
+      data-type="icon"
+      tabindex="0"
+      title="Open further options"
+      type="button"
+    >
+      <i
+        class="c7 c8 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          "more_vert"
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-destructive-access-button 1`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c14 .c8 {
+  user-select: none;
+}
+
+.c14 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c8 {
+  display: block;
+}
+
+.c15 .c8 {
+  user-select: none;
+}
+
+.c15 .c8 {
+  color: inherit;
+}
+
+.c15 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c8 {
+  display: block;
+}
+
+.c16 .c8 {
+  user-select: none;
+}
+
+.c16 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c8 {
+  display: block;
+}
+
+.c17 .c8 {
+  user-select: none;
+}
+
+.c17 .c8 {
+  color: inherit;
+}
+
+.c17 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c8 {
+  display: block;
+}
+
+.c18 .c8 {
+  user-select: none;
+}
+
+.c18 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c8 {
+  display: block;
+}
+
+.c19 .c8 {
+  user-select: none;
+}
+
+.c19 .c8 {
+  color: inherit;
+}
+
+.c19 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c8 {
+  display: block;
+}
+
+.c20 .c8 {
+  user-select: none;
+}
+
+.c20 .c8 {
+  color: inherit;
+}
+
+.c20 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c8 {
+  display: block;
+}
+
+.c21 .c8 {
+  user-select: none;
+}
+
+.c21 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c8 {
+  display: block;
+}
+
+.c22 .c8 {
+  user-select: none;
+}
+
+.c22 .c8 {
+  color: inherit;
+}
+
+.c22 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c8 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(201, 29, 29);
+}
+
+.c2 .c8 {
+  user-select: none;
+}
+
+.c2 .c8 {
+  color: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c2:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c8 {
+  display: block;
+}
+
+.c6 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(201, 29, 29);
+}
+
+.c6 .c8 {
+  user-select: none;
+}
+
+.c6 .c8 {
+  color: inherit;
+}
+
+.c6 .c8 {
+  font-size: inherit;
+}
+
+.c6:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c6:not(:disabled):focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c8 {
+  display: block;
+}
+
+.c5 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c5 .c8 {
+  position: relative;
+}
+
+.c5 .c8::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c5 .c8:focus {
+  outline: none;
+}
+
+.c5 .c8:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  display: flex;
+  isolation: isolate;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c10 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c10 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c11 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c11 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c11 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c12 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c12 .c1::before {
+  border-radius: 2px;
+}
+
+.c12 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(213, 0, 117);
+  position: absolute;
+  z-index: 1;
+}
+
+.c12 .c1:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c12 .c1:focus + .c3,
+.c12 .c1:focus::after {
+  background-color: rgb(213, 0, 117);
+}
+
+.c12 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c12 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 2px solid rgb(226, 230, 233);
+}
+
+.c12 > .c1,
+.c12 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c12 > .c1::before,
+.c12 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c12 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c13 .c1 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c13 .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c13 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c13 .c1:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c13 .c1:not(:disabled):focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  outline: none;
+}
+
+.c13 .c1:not(:disabled):active,
+.c13 .c1:not(:disabled):hover {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c13 .c1::before {
+  border-radius: 2px;
+}
+
+.c13 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+}
+
+.c13 .c1:focus::before {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c13 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c13 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.c13 > .c1,
+.c13 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c13 > .c1::before,
+.c13 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c13 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c7 {
+  font-size: 1.25rem;
+}
+
+.c7 .c8 {
+  font-size: inherit;
+}
+
+.c7.c7 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c23 .c8 {
+  font-size: inherit;
+}
+
+.c24 .c8 {
+  font-size: inherit;
+}
+
+.c4 {
+  align-items: stretch;
+  width: 2px;
+  background-color: rgb(201, 29, 29);
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c12 .c1:not(:disabled):hover + .c3,
+  .c12 .c1:not(:disabled):hover::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+@media (pointer: fine) {
+  .c12 > .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12 > .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c12 > .c1:not(:disabled):active + .c3,
+  .c12 > .c1:not(:disabled):active::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c13 .c1:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c13 .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+<div
+  class="c0 quick-access-button quick-access-button--destructive quick-access-button--secondary"
+  data-role="quick-access-button"
+>
+  <button
+    class="c1 c2 button button--destructive button--secondary"
+    data-role="quick-access-button-main-action"
+    tabindex="0"
+    title=""
+    type="button"
+  >
+    <span
+      data-role="quick-access-button-main-action-label"
+    >
+      Active Element
+    </span>
+  </button>
+  <div
+    class="c3 c4 quick-access-button__divider"
+    data-role="quick-access-button-divider"
+  />
+  <div
+    class="c5 popup quick-access-button__popup"
+    data-role="quick-access-button-popup"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open further options"
+      class="c1 c6 button button--icon button--destructive c7"
+      data-role="quick-access-button-trigger-element"
+      data-type="icon"
+      tabindex="0"
+      title="Open further options"
+      type="button"
+    >
+      <i
+        class="c8 c9 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          arrow_drop_down
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-disabled-access-button 1`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c15 .c8 {
+  user-select: none;
+}
+
+.c15 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c8 {
+  display: block;
+}
+
+.c16 .c8 {
+  user-select: none;
+}
+
+.c16 .c8 {
+  color: inherit;
+}
+
+.c16 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c8 {
+  display: block;
+}
+
+.c17 .c8 {
+  user-select: none;
+}
+
+.c17 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c8 {
+  display: block;
+}
+
+.c18 .c8 {
+  user-select: none;
+}
+
+.c18 .c8 {
+  color: inherit;
+}
+
+.c18 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c8 {
+  display: block;
+}
+
+.c19 .c8 {
+  user-select: none;
+}
+
+.c19 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c8 {
+  display: block;
+}
+
+.c20 .c8 {
+  user-select: none;
+}
+
+.c20 .c8 {
+  color: inherit;
+}
+
+.c20 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c8 {
+  display: block;
+}
+
+.c21 .c8 {
+  user-select: none;
+}
+
+.c21 .c8 {
+  color: inherit;
+}
+
+.c21 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c8 {
+  display: block;
+}
+
+.c22 .c8 {
+  user-select: none;
+}
+
+.c22 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c8 {
+  display: block;
+}
+
+.c23 .c8 {
+  user-select: none;
+}
+
+.c23 .c8 {
+  color: inherit;
+}
+
+.c23 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c8 {
+  display: block;
+}
+
+.c24 .c8 {
+  user-select: none;
+}
+
+.c24 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c24.c24 > .c8 {
+  display: block;
+}
+
+.c25 .c8 {
+  user-select: none;
+}
+
+.c25 .c8 {
+  color: inherit;
+}
+
+.c25 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c25.c25 > .c8 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c2 .c8 {
+  user-select: none;
+}
+
+.c2 .c8 {
+  color: inherit;
+}
+
+.c2.c2 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c8 {
+  display: block;
+}
+
+.c6 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c6 .c8 {
+  user-select: none;
+}
+
+.c6 .c8 {
+  color: inherit;
+}
+
+.c6 .c8 {
+  font-size: inherit;
+}
+
+.c6.c6 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c8 {
+  display: block;
+}
+
+.c5 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c5 .c8 {
+  position: relative;
+}
+
+.c5 .c8::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c5 .c8:focus {
+  outline: none;
+}
+
+.c5 .c8:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c10 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c10 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c11 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c11 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c12 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c12 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c12 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c13 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c13 .c1::before {
+  border-radius: 2px;
+}
+
+.c13 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(213, 0, 117);
+  position: absolute;
+  z-index: 1;
+}
+
+.c13 .c1:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c13 .c1:focus + .c3,
+.c13 .c1:focus::after {
+  background-color: rgb(213, 0, 117);
+}
+
+.c13 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c13 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 2px solid rgb(226, 230, 233);
+}
+
+.c13 > .c1,
+.c13 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c13 > .c1::before,
+.c13 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c13 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c14 .c1 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c14 .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c14 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c14 .c1:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c14 .c1:not(:disabled):focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  outline: none;
+}
+
+.c14 .c1:not(:disabled):active,
+.c14 .c1:not(:disabled):hover {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c14 .c1::before {
+  border-radius: 2px;
+}
+
+.c14 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+}
+
+.c14 .c1:focus::before {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c14 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c14 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.c14 > .c1,
+.c14 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c14 > .c1::before,
+.c14 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c14 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  display: flex;
+  isolation: isolate;
+  box-shadow: none;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c7 {
+  font-size: 1.25rem;
+}
+
+.c7 .c8 {
+  font-size: inherit;
+}
+
+.c7.c7 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c26 .c8 {
+  font-size: inherit;
+}
+
+.c27 .c8 {
+  font-size: inherit;
+}
+
+.c4 {
+  align-items: stretch;
+  width: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+@media (pointer: coarse) {
+  .c12 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c12 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 .c1:not(:disabled):hover + .c3,
+  .c13 .c1:not(:disabled):hover::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+@media (pointer: fine) {
+  .c13 > .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13 > .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13 > .c1:not(:disabled):active + .c3,
+  .c13 > .c1:not(:disabled):active::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c14 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c14 .c1:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c14 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c14 .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c14 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+<div
+  class="c0 quick-access-button quick-access-button--disabled quick-access-button--secondary"
+  data-role="quick-access-button"
+>
+  <button
+    class="c1 c2 button button--secondary"
+    data-role="quick-access-button-main-action"
+    disabled=""
+    tabindex="0"
+    title=""
+    type="button"
+  >
+    <span
+      data-role="quick-access-button-main-action-label"
+    >
+      Active Element
+    </span>
+  </button>
+  <div
+    class="c3 c4 quick-access-button__divider"
+    data-role="quick-access-button-divider"
+  />
+  <div
+    class="c5 popup quick-access-button__popup"
+    data-role="quick-access-button-popup"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open further options"
+      class="c1 c6 button button--icon c7"
+      data-role="quick-access-button-trigger-element"
+      data-type="icon"
+      disabled=""
+      tabindex="0"
+      title="Open further options"
+      type="button"
+    >
+      <i
+        class="c8 c9 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          arrow_drop_down
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-primary-invert-quick-access-button 1`] = `
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c11 .c7 {
+  user-select: none;
+}
+
+.c11 .c7 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c7 {
+  display: block;
+}
+
+.c12 .c7 {
+  user-select: none;
+}
+
+.c12 .c7 {
+  color: inherit;
+}
+
+.c12 .c7 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c7 {
+  display: block;
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c14 .c7 {
+  user-select: none;
+}
+
+.c14 .c7 {
+  color: inherit;
+}
+
+.c14 .c7 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c7 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  padding: 0px 32px;
+  box-shadow: none;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c2 .c7 {
+  user-select: none;
+}
+
+.c2 .c7 {
+  color: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c7 {
+  display: block;
+}
+
+.c5 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+}
+
+.c5 .c7 {
+  user-select: none;
+}
+
+.c5 .c7 {
+  color: inherit;
+}
+
+.c5 .c7 {
+  font-size: inherit;
+}
+
+.c5:not([data-role^="quick-access-button"]) {
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c5:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c7 {
+  display: block;
+}
+
+.c4 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c4 .c7 {
+  position: relative;
+}
+
+.c4 .c7::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c4 .c7:focus {
+  outline: none;
+}
+
+.c4 .c7:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c9 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c9 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c10 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c10 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  isolation: isolate;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c0 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c6 {
+  font-size: 1.25rem;
+}
+
+.c6 .c7 {
+  font-size: inherit;
+}
+
+.c6.c6 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c3 {
+  align-items: stretch;
+  width: 2px;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.5;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 quick-access-button quick-access-button--primary quick-access-button--invert"
+  data-role="quick-access-button"
+>
+  <button
+    class="c1 c2 button button--primary button--invert button--dark"
+    data-role="quick-access-button-main-action"
+    data-variant-type="primary"
+    tabindex="0"
+    title=""
+    type="button"
+  >
+    <span
+      data-role="quick-access-button-main-action-label"
+    >
+      Active Element
+    </span>
+  </button>
+  <div
+    class="c3 quick-access-button__divider"
+    data-role="quick-access-button-divider"
+  />
+  <div
+    class="c4 popup quick-access-button__popup"
+    data-role="quick-access-button-popup"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open further options"
+      class="c1 c5 button button--icon button--primary button--invert button--dark c6"
+      data-role="quick-access-button-trigger-element"
+      data-type="icon"
+      data-variant-type="primary"
+      tabindex="0"
+      title="Open further options"
+      type="button"
+    >
+      <i
+        class="c7 c8 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          arrow_drop_down
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-primary-quick-access-button 1`] = `
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c10 .c7 {
+  user-select: none;
+}
+
+.c10 .c7 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c7 {
+  display: block;
+}
+
+.c11 .c7 {
+  user-select: none;
+}
+
+.c11 .c7 {
+  color: inherit;
+}
+
+.c11 .c7 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c7 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  padding: 0px 32px;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c2 .c7 {
+  user-select: none;
+}
+
+.c2 .c7 {
+  color: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c7 {
+  display: block;
+}
+
+.c5 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c5 .c7 {
+  user-select: none;
+}
+
+.c5 .c7 {
+  color: inherit;
+}
+
+.c5 .c7 {
+  font-size: inherit;
+}
+
+.c5:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c5:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c7 {
+  display: block;
+}
+
+.c4 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c4 .c7 {
+  position: relative;
+}
+
+.c4 .c7::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c4 .c7:focus {
+  outline: none;
+}
+
+.c4 .c7:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c9 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c9 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  isolation: isolate;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c6 {
+  font-size: 1.25rem;
+}
+
+.c6 .c7 {
+  font-size: inherit;
+}
+
+.c6.c6 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c3 {
+  align-items: stretch;
+  width: 2px;
+  background-color: rgb(41, 122, 36);
+  opacity: 0.2;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 quick-access-button quick-access-button--primary"
+  data-role="quick-access-button"
+>
+  <button
+    class="c1 c2 button button--primary"
+    data-role="quick-access-button-main-action"
+    data-variant-type="primary"
+    tabindex="0"
+    title=""
+    type="button"
+  >
+    <span
+      data-role="quick-access-button-main-action-label"
+    >
+      Active Element
+    </span>
+  </button>
+  <div
+    class="c3 quick-access-button__divider"
+    data-role="quick-access-button-divider"
+  />
+  <div
+    class="c4 popup quick-access-button__popup"
+    data-role="quick-access-button-popup"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open further options"
+      class="c1 c5 button button--icon button--primary c6"
+      data-role="quick-access-button-trigger-element"
+      data-type="icon"
+      data-variant-type="primary"
+      tabindex="0"
+      title="Open further options"
+      type="button"
+    >
+      <i
+        class="c7 c8 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          "more_vert"
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-secondary-invert-access-button 1`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c14 .c8 {
+  user-select: none;
+}
+
+.c14 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c8 {
+  display: block;
+}
+
+.c15 .c8 {
+  user-select: none;
+}
+
+.c15 .c8 {
+  color: inherit;
+}
+
+.c15 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c8 {
+  display: block;
+}
+
+.c16 .c8 {
+  user-select: none;
+}
+
+.c16 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c8 {
+  display: block;
+}
+
+.c17 .c8 {
+  user-select: none;
+}
+
+.c17 .c8 {
+  color: inherit;
+}
+
+.c17 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c8 {
+  display: block;
+}
+
+.c18 .c8 {
+  user-select: none;
+}
+
+.c18 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c8 {
+  display: block;
+}
+
+.c19 .c8 {
+  user-select: none;
+}
+
+.c19 .c8 {
+  color: inherit;
+}
+
+.c19 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c8 {
+  display: block;
+}
+
+.c20 .c8 {
+  user-select: none;
+}
+
+.c20 .c8 {
+  color: inherit;
+}
+
+.c20 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c8 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c2 .c8 {
+  user-select: none;
+}
+
+.c2 .c8 {
+  color: inherit;
+}
+
+.c2::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c2:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c8 {
+  display: block;
+}
+
+.c6 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+}
+
+.c6 .c8 {
+  user-select: none;
+}
+
+.c6 .c8 {
+  color: inherit;
+}
+
+.c6 .c8 {
+  font-size: inherit;
+}
+
+.c6:not([data-role^="quick-access-button"]) {
+  border-radius: 50%;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c6:not([data-role^="quick-access-button"])::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 50%;
+}
+
+.c6:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c6:not([data-role^="quick-access-button"]):not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c8 {
+  display: block;
+}
+
+.c5 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c5 .c8 {
+  position: relative;
+}
+
+.c5 .c8::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c5 .c8:focus {
+  outline: none;
+}
+
+.c5 .c8:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c10 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c10 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c11 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c11 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c12 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c12 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c12 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c13 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c13 .c1::before {
+  border-radius: 2px;
+}
+
+.c13 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(213, 0, 117);
+  position: absolute;
+  z-index: 1;
+}
+
+.c13 .c1:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c13 .c1:focus + .c3,
+.c13 .c1:focus::after {
+  background-color: rgb(213, 0, 117);
+}
+
+.c13 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c13 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 2px solid rgb(226, 230, 233);
+}
+
+.c13 > .c1,
+.c13 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c13 > .c1::before,
+.c13 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c13 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  display: flex;
+  isolation: isolate;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c0 .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c0 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c0 .c1:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c0 .c1:not(:disabled):focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  outline: none;
+}
+
+.c0 .c1:not(:disabled):active,
+.c0 .c1:not(:disabled):hover {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 .c1::before {
+  border-radius: 2px;
+}
+
+.c0 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+}
+
+.c0 .c1:focus::before {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.c0 > .c1,
+.c0 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c0 > .c1::before,
+.c0 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c0 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c21 .c8 {
+  font-size: inherit;
+}
+
+.c22 .c8 {
+  font-size: inherit;
+}
+
+.c7 {
+  font-size: 1.25rem;
+}
+
+.c7 .c8 {
+  font-size: inherit;
+}
+
+.c7.c7 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c7,
+.c7::before {
+  border-left-width: medium !important;
+  border-left-style: none !important;
+  border-left-color: currentcolor !important;
+}
+
+.c7.c7:focus::before,
+.c7.c7::before {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c7.c7.c7::before {
+  left: -2px;
+  right: 0px;
+}
+
+.c4 {
+  align-items: stretch;
+  width: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c2:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c2:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c6:not([data-role^="quick-access-button"]):not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c6:not([data-role^="quick-access-button"]):not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c12 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 .c1:not(:disabled):hover + .c3,
+  .c13 .c1:not(:disabled):hover::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+@media (pointer: fine) {
+  .c13 > .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13 > .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c13 > .c1:not(:disabled):active + .c3,
+  .c13 > .c1:not(:disabled):active::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c0 .c1:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c0 .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+<div
+  class="c0 quick-access-button quick-access-button--secondary"
+  data-role="quick-access-button"
+>
+  <button
+    class="c1 c2 button button--secondary button--outline button--dark"
+    data-role="quick-access-button-main-action"
+    data-variant-type="secondary"
+    tabindex="0"
+    title=""
+    type="button"
+  >
+    <span
+      data-role="quick-access-button-main-action-label"
+    >
+      Active Element
+    </span>
+  </button>
+  <div
+    class="c3 c4 quick-access-button__divider"
+    data-role="quick-access-button-divider"
+  />
+  <div
+    class="c5 popup quick-access-button__popup"
+    data-role="quick-access-button-popup"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open further options"
+      class="c1 c6 button button--icon button--secondary button--outline button--dark c7"
+      data-role="quick-access-button-trigger-element"
+      data-type="icon"
+      data-variant-type="secondary"
+      tabindex="0"
+      title="Open further options"
+      type="button"
+    >
+      <i
+        class="c8 c9 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          arrow_drop_down
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-secondary-quick-access-button 1`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c2 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c8 {
+  user-select: none;
+}
+
+.c2 .c8 {
+  color: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c8 {
+  display: block;
+}
+
+.c13 .c8 {
+  user-select: none;
+}
+
+.c13 .c8 {
+  color: inherit;
+}
+
+.c13 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c8 {
+  display: block;
+}
+
+.c14 .c8 {
+  user-select: none;
+}
+
+.c14 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c8 {
+  display: block;
+}
+
+.c15 .c8 {
+  user-select: none;
+}
+
+.c15 .c8 {
+  color: inherit;
+}
+
+.c15 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c8 {
+  display: block;
+}
+
+.c16 .c8 {
+  user-select: none;
+}
+
+.c16 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c8 {
+  display: block;
+}
+
+.c17 .c8 {
+  user-select: none;
+}
+
+.c17 .c8 {
+  color: inherit;
+}
+
+.c17 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c8 {
+  display: block;
+}
+
+.c6 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border: 2px solid rgb(226, 230, 233);
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(255, 255, 255);
+  color: rgb(5, 104, 174);
+}
+
+.c6 .c8 {
+  user-select: none;
+}
+
+.c6 .c8 {
+  color: inherit;
+}
+
+.c6 .c8 {
+  font-size: inherit;
+}
+
+.c6:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c6:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c8 {
+  display: block;
+}
+
+.c5 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c5 .c8 {
+  position: relative;
+}
+
+.c5 .c8::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c5 .c8:focus {
+  outline: none;
+}
+
+.c5 .c8:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c10 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c10 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c11 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c11 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c12 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c12 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c12 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  display: flex;
+  isolation: isolate;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c0 .c1::before {
+  border-radius: 2px;
+}
+
+.c0 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(213, 0, 117);
+  position: absolute;
+  z-index: 1;
+}
+
+.c0 .c1:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c0 .c1:focus + .c3,
+.c0 .c1:focus::after {
+  background-color: rgb(213, 0, 117);
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 2px solid rgb(226, 230, 233);
+}
+
+.c0 > .c1,
+.c0 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c0 > .c1::before,
+.c0 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c0 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c18 .c8 {
+  font-size: inherit;
+}
+
+.c7 {
+  font-size: 1.25rem;
+}
+
+.c7 .c8 {
+  font-size: inherit;
+}
+
+.c7.c7 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c7,
+.c7::before {
+  border-left-width: medium !important;
+  border-left-style: none !important;
+  border-left-color: currentcolor !important;
+}
+
+.c7.c7:focus::before,
+.c7.c7::before {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c7::after {
+  bottom: 0px;
+  content: "";
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 2px;
+}
+
+.c7.c7:focus::before {
+  outline: none;
+}
+
+.c4 {
+  align-items: stretch;
+  width: 2px;
+  background-color: rgb(226, 230, 233);
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c12 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c12 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c1:not(:disabled):hover + .c3,
+  .c0 .c1:not(:disabled):hover::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 > .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 > .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 > .c1:not(:disabled):active + .c3,
+  .c0 > .c1:not(:disabled):active::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 quick-access-button quick-access-button--secondary"
+  data-role="quick-access-button"
+>
+  <button
+    class="c1 c2 button button--secondary"
+    data-role="quick-access-button-main-action"
+    data-variant-type="secondary"
+    tabindex="0"
+    title=""
+    type="button"
+  >
+    <span
+      data-role="quick-access-button-main-action-label"
+    >
+      Active Element
+    </span>
+  </button>
+  <div
+    class="c3 c4 quick-access-button__divider"
+    data-role="quick-access-button-divider"
+  />
+  <div
+    class="c5 popup quick-access-button__popup"
+    data-role="quick-access-button-popup"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Open further options"
+      class="c1 c6 button button--icon button--secondary c7"
+      data-role="quick-access-button-trigger-element"
+      data-type="icon"
+      data-variant-type="secondary"
+      tabindex="0"
+      title="Open further options"
+      type="button"
+    >
+      <i
+        class="c8 c9 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          arrow_drop_down
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.quick-access-menu.view > mobile > should have default headerTitle for action menu 1`] = `
+.c10 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c2 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c8 {
+  user-select: none;
+}
+
+.c2 .c8 {
+  color: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c8 {
+  display: block;
+}
+
+.c6 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c6 .c8 {
+  user-select: none;
+}
+
+.c6 .c8 {
+  color: inherit;
+}
+
+.c6 .c8 {
+  font-size: inherit;
+}
+
+.c6:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c8 {
+  display: block;
+}
+
+.c28 .c8 {
+  user-select: none;
+}
+
+.c28 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c28.c28 > .c8 {
+  display: block;
+}
+
+.c29 .c8 {
+  user-select: none;
+}
+
+.c29 .c8 {
+  color: inherit;
+}
+
+.c29 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c29.c29 > .c8 {
+  display: block;
+}
+
+.c30 .c8 {
+  user-select: none;
+}
+
+.c30 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c30.c30 > .c8 {
+  display: block;
+}
+
+.c31 .c8 {
+  user-select: none;
+}
+
+.c31 .c8 {
+  color: inherit;
+}
+
+.c31 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c31.c31 > .c8 {
+  display: block;
+}
+
+.c32 .c8 {
+  user-select: none;
+}
+
+.c32 .c8 {
+  color: inherit;
+}
+
+.c32 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c32.c32 > .c8 {
+  display: block;
+}
+
+.c33 .c8 {
+  user-select: none;
+}
+
+.c33 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c33.c33 > .c8 {
+  display: block;
+}
+
+.c34 .c8 {
+  user-select: none;
+}
+
+.c34 .c8 {
+  color: inherit;
+}
+
+.c34 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c34.c34 > .c8 {
+  display: block;
+}
+
+.c35 .c8 {
+  user-select: none;
+}
+
+.c35 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c35.c35 > .c8 {
+  display: block;
+}
+
+.c36 .c8 {
+  user-select: none;
+}
+
+.c36 .c8 {
+  color: inherit;
+}
+
+.c36 .c8 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c36.c36 > .c8 {
+  display: block;
+}
+
+.c37 .c8 {
+  user-select: none;
+}
+
+.c37 .c8 {
+  color: inherit;
+}
+
+.c37.c37 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c37.c37 > .c8 {
+  display: block;
+}
+
+.c38 .c8 {
+  user-select: none;
+}
+
+.c38 .c8 {
+  color: inherit;
+}
+
+.c38 .c8 {
+  font-size: inherit;
+}
+
+.c38.c38 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c38.c38 > .c8 {
+  display: block;
+}
+
+.c17 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c18 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c19 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c19::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c19 .c8 {
+  user-select: none;
+}
+
+.c19:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c20 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c20 .c8 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c20 .c8:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c21 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c22 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c5 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c5 .c8 {
+  position: relative;
+}
+
+.c5 .c8::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c5 .c8:focus {
+  outline: none;
+}
+
+.c5 .c8:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c15 {
+  background: rgb(255, 255, 255);
+  display: flex;
+  min-height: 48px;
+  padding: 2px 8px 2px 16px;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  align-items: center;
+}
+
+.c16 {
+  align-items: center;
+  font-weight: 700;
+  margin: 0px auto 0px 0px;
+}
+
+.c14 {
+  background: rgb(255, 255, 255);
+  max-width: 100%;
+  min-width: 168px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden auto;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 8px 8px 0px 0px;
+  bottom: 0px;
+  max-height: 90%;
+  position: fixed;
+  width: 100%;
+  animation-duration: 400ms;
+}
+
+[data-role="tab-panel-sub-tab-list"] .c14.c14 {
+  min-width: 52px;
+}
+
+.c14.popup-enter {
+  opacity: 0;
+}
+
+.c14.popup-enter-active {
+  opacity: 1;
+  animation-name: k1;
+}
+
+.c14.popup-exit {
+  opacity: 1;
+}
+
+.c14.popup-exit-active {
+  opacity: 0;
+  animation-name: k2;
+}
+
+.c11 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c13 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 24px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: calc(100% - 48px);
+}
+
+.c13 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c12 {
+  opacity: 1;
+  animation-name: k0;
+  animation-duration: 400ms;
+}
+
+.c0 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  display: flex;
+  isolation: isolate;
+}
+
+.c0 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c0 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c23 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c23 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c24 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c24 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c24 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c25 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c25 .c1::before {
+  border-radius: 2px;
+}
+
+.c25 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(213, 0, 117);
+  position: absolute;
+  z-index: 1;
+}
+
+.c25 .c1:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c25 .c1:focus + .c3,
+.c25 .c1:focus::after {
+  background-color: rgb(213, 0, 117);
+}
+
+.c25 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c25 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 2px solid rgb(226, 230, 233);
+}
+
+.c25 > .c1,
+.c25 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c25 > .c1::before,
+.c25 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c25 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c26 .c1 {
+  border-radius: 2px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.c26 .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c26 .c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c26 .c1:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c26 .c1:not(:disabled):focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  outline: none;
+}
+
+.c26 .c1:not(:disabled):active,
+.c26 .c1:not(:disabled):hover {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c26 .c1::before {
+  border-radius: 2px;
+}
+
+.c26 .c1:focus::before {
+  inset: 0px -2px 0px 0px;
+  border: 2px solid rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+}
+
+.c26 .c1:focus::before {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c26 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c26 > .c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.c26 > .c1,
+.c26 > .c1::before {
+  border-right-width: medium !important;
+  border-right-style: none !important;
+  border-right-color: currentcolor !important;
+}
+
+.c26 > .c1::before,
+.c26 > .c1:focus::before {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c26 > .c1:not(:disabled):focus {
+  outline: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c27 .c1 {
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+}
+
+.c27 > .c1 {
+  margin: 0px;
+  min-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.c39 .c8 {
+  font-size: inherit;
+}
+
+.c40 .c8 {
+  font-size: inherit;
+}
+
+.c41 .c8 {
+  font-size: inherit;
+}
+
+.c7 {
+  font-size: 1.25rem;
+}
+
+.c7 .c8 {
+  font-size: inherit;
+}
+
+.c7.c7 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.c7.c7,
+.c7.c7::before {
+  border-radius: 0px;
+}
+
+.c4 {
+  align-items: stretch;
+  width: 2px;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c19:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c19:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c19:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c13 {
+    width: calc(100% - 48px);
+  }
+}
+
+@media (pointer: coarse) {
+  .c24 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c24 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c25 .c1:not(:disabled):hover + .c3,
+  .c25 .c1:not(:disabled):hover::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c25 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+@media (pointer: fine) {
+  .c25 > .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c25 > .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c25 > .c1:not(:disabled):active + .c3,
+  .c25 > .c1:not(:disabled):active::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c26 .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c26 .c1:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c26 .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c26 .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c26 > .c1:hover {
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    bottom: -100px;
+    opacity: 0;
+  }
+
+  100% {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes k2 {
+  0% {
+    bottom: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: -100px;
+    opacity: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0 quick-access-button quick-access-button--touch quick-access-button--secondary"
+    data-role="quick-access-button"
+  >
+    <button
+      class="c1 c2 button button--secondary"
+      data-role="quick-access-button-main-action"
+      tabindex="0"
+      title=""
+      type="button"
+    >
+      <span
+        data-role="quick-access-button-main-action-label"
+      >
+        Active Element
+      </span>
+    </button>
+    <div
+      class="c3 c4 quick-access-button__divider"
+      data-role="quick-access-button-divider"
+    />
+    <div
+      class="c5 popup quick-access-button__popup"
+      data-role="quick-access-button-popup"
+    >
+      <button
+        aria-expanded="true"
+        aria-label="Close further options"
+        class="c1 c6 button button--icon c7 quick-access-button__popup-opened"
+        data-role="quick-access-button-trigger-element"
+        data-type="icon"
+        tabindex="0"
+        title="Close further options"
+        type="button"
+      >
+        <i
+          class="c8 c9 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            "more_vert"
+          </span>
+        </i>
+      </button>
+    </div>
+  </div>
+  <div
+    class="c10"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c11 modalOverlay--fullscreen modalOverlay modalOverlay--mobile c12"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-modal="true"
+            class="c13 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            style="outline: transparent solid 1px;"
+            tabindex="-1"
+          >
+            <div
+              class="c14 popup-menu"
+              data-role="popup-menu"
+            >
+              <div
+                class="c15"
+                data-role="popup-header-wrapper"
+              >
+                <div
+                  aria-level="1"
+                  class="c16"
+                  data-role="popup-header-title"
+                  role="heading"
+                >
+                  Further options
+                </div>
+                <button
+                  aria-label="Close menu"
+                  class="c1 c6 button button--icon"
+                  data-role="popup-close-button"
+                  data-type="icon"
+                  title="Close menu"
+                  type="button"
+                >
+                  <i
+                    class="c8 c9 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      close
+                    </span>
+                  </i>
+                </button>
+              </div>
+              <ul
+                class="c17 list"
+                data-role="list"
+              >
+                <li
+                  class="c18 list-item"
+                  data-role="list-item"
+                >
+                  <div
+                    aria-disabled="false"
+                    class="c19 list-item__content"
+                    data-role="list-item-content"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="c20"
+                      data-role="list-item-graphic"
+                    >
+                      <i
+                        class="c8 c9 plasma-icon"
+                        data-role="plasma-icon"
+                      >
+                        <span
+                          aria-hidden="true"
+                        >
+                          save
+                        </span>
+                      </i>
+                    </div>
+                    <div
+                      class="c21 list-item__text"
+                      data-role="list-item-text"
+                    >
+                      Save
+                    </div>
+                    <div
+                      class="c22 list-item__meta"
+                      data-role="list-item-meta"
+                    >
+                      <i
+                        class="c8 c9 plasma-icon"
+                        data-role="plasma-icon"
+                      >
+                        <span
+                          aria-hidden="true"
+                        >
+                          check
+                        </span>
+                      </i>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="c18 list-item"
+                  data-role="list-item"
+                >
+                  <div
+                    aria-disabled="false"
+                    class="c19 list-item__content"
+                    data-role="list-item-content"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="c20"
+                      data-role="list-item-graphic"
+                    >
+                      <i
+                        class="c8 c9 plasma-icon"
+                        data-role="plasma-icon"
+                      >
+                        <span
+                          aria-hidden="true"
+                        >
+                          save
+                        </span>
+                      </i>
+                    </div>
+                    <div
+                      class="c21 list-item__text"
+                      data-role="list-item-text"
+                    >
+                      Save and close
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c10"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.layout.split-view > render Split View 1`] = `
+.c1 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  box-sizing: border-box;
+  min-width: 0px;
+  flex: 1 1 0%;
+}
+
+.c0:only-child {
+  width: 100%;
+  max-width: 100%;
+}
+
+<div
+  class="c0 split-view__area test-class"
+  data-role="split-view-area"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c1"
+    data-role="resizable-handler-wrapper"
+  >
+    Split View
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.split-view > render Split View Area with custom width 1`] = `
+.c1 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  box-sizing: border-box;
+  min-width: 0px;
+  flex: 0 0 auto;
+  width: 100px;
+}
+
+.c0:only-child {
+  width: 100%;
+  max-width: 100%;
+}
+
+<div
+  class="c0 split-view__area -u-flex-none"
+  data-role="split-view-area"
+>
+  <div
+    class="c1"
+    data-role="resizable-handler-wrapper"
+  >
+    Split View Area with custom width
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.split-view > render default Split View Area 1`] = `
+.c1 {
+  height: 100%;
+  width: 100%;
+}
+
+.c0 {
+  box-sizing: border-box;
+  min-width: 0px;
+  flex: 1 1 0%;
+}
+
+.c0:only-child {
+  width: 100%;
+  max-width: 100%;
+}
+
+<div
+  class="c0 split-view__area test-class"
+  data-role="split-view-area"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c1"
+    data-role="resizable-handler-wrapper"
+  >
+    Split View Area
+  </div>
+</div>
+`;

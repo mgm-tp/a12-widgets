@@ -1,0 +1,613 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > action column and custom role 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 15 1.5 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 225px;
+  padding: 0px 16px;
+  text-align: left;
+  width: 225px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  height: 100%;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--15 table__actionCell"
+  data-role="table-footer-cell"
+  data-type="table-action-cell"
+  data-width="1.5"
+  role="grid"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 2`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: center;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10 table__footerCell--align-middle"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 3`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-end;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 4`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  align-items: flex-start;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10 table__footerCell--align-center"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 5`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10 table__footerCell--align-center table__footerCell--align-middle"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 6`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  align-items: flex-end;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10 table__footerCell--align-center table__footerCell--align-bottom"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 7`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-end;
+  text-align: right;
+  align-items: flex-start;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10 table__footerCell--align-right"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 8`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-end;
+  text-align: right;
+  align-items: center;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10 table__footerCell--align-right table__footerCell--align-middle"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > alignment 9`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-end;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10 table__footerCell--align-right table__footerCell--align-bottom"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > cardView 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 24px 8px 8px;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  position: relative;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--10"
+  data-role="table-footer-cell"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > cardViewProperties 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  min-width: 225px;
+  padding: 24px 24px 0px;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: rgb(77, 77, 77);
+  position: relative;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c0 > * {
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--15 table__footerCell--sub-info table__footerCell--fixedWidth"
+  data-role="table-footer-cell"
+  data-width="1.5"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > column group 1`] = `
+.c0 {
+  display: flex;
+  flex-grow: 1;
+}
+
+<div
+  class="c0 table__footer-group"
+  style="flex-grow: 20; flex-shrink: 2;"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.foot-cell > properties 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 225px;
+  padding: 0px 24px;
+  text-align: left;
+  width: 225px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: rgb(77, 77, 77);
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c0 > * {
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  font-weight: 600;
+  min-height: 32px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.c1:empty {
+  min-height: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+<div
+  class="c0 c1 table__footerCell table__footerCell--15 table__footerCell--sub-info table__footerCell--fixedWidth"
+  data-role="table-footer-cell"
+  data-width="1.5"
+  role="grid"
+/>
+`;

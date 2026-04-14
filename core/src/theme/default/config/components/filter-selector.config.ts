@@ -1,0 +1,192 @@
+/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+import { rgba, setLightness } from "polished";
+
+import type { BaseThemeType } from "../../../schema/base-theme.js";
+
+import { contentBoxConfig } from "./contentbox.config.js";
+
+export type FilterSelectorConfigType = {
+	actionBar: { borderBottom: string; elementMargin: string; minHeight: string; padding: string };
+	actionBarHorizontalPadding: string;
+	body: { background: string; minHeight: string };
+	borderRadius: number;
+	boxShadow: string;
+	childrenWrapper: { border: string; focusByKeyBoardBorder: string };
+	containerWidth: string;
+	content: {
+		color: string;
+		maxHeight: string;
+		primary: { headerBorderRight: string; width: string };
+		secondary: {
+			borderLeft: string;
+			contentBoxContent: { minHeight: string; padding: string };
+			listItemPadding: string;
+			subHeaderMargin: string;
+			width: string;
+		};
+	};
+	footerPadding: string;
+	headerPadding: string;
+	height: string;
+	list: { optionItem: { background: { default: string; hover: string } }; sectionPadding: string };
+	listItem: {
+		activeBG: string;
+		activeBorderLeft: { active: string; default: string; focus: string; hover: string };
+		activeIndicator: { background: string; width: string };
+		background: string;
+		borderBottom: string;
+		disabledColor: string;
+		focusByKeyBoardBorder: string;
+		graphicWidth: string;
+		minHeight: string;
+		padding: string;
+		secondaryTextColor: string;
+		text: { fontSize: string; lineHeight: string };
+	};
+	messageBoxMargin: string;
+	secondaryContent: {
+		borderLeft: string;
+		contentBoxContent: { minHeight: string; padding: string };
+		listItemPadding: string;
+		subHeaderMargin: string;
+		width: string;
+	};
+};
+
+export const filterSelectorConfig = (theme: BaseThemeType): FilterSelectorConfigType => {
+	const {
+		colors,
+		spacing: { baseSpacing, spacing, horizontalSpacing, verticalSpacing },
+		typography: { fontSize },
+		focusStyles
+	} = theme;
+
+	const actionBarHorizontalPadding = `${horizontalSpacing.horizWhiteSpacingsm}px`;
+	const containerPadding = `${verticalSpacing.vertWhiteSpacingxs}px ${actionBarHorizontalPadding}`;
+	const containerWidth = "248px";
+	const graphicWidth = "48px";
+	const activeIndicatorWidth = `${spacing.spacing2xs}px`;
+	const activeIndicatorBackground = colors.interaction.selected.color;
+
+	return {
+		actionBarHorizontalPadding: actionBarHorizontalPadding,
+		height: `${9 * spacing.spacingXl}px`,
+
+		boxShadow: `0px 0px 20px 0px ${rgba(colors.boxShadowBackground, 0.3)}`,
+		borderRadius: 0,
+		messageBoxMargin: `${verticalSpacing.vertWhiteSpacingsm}px ${horizontalSpacing.horizWhiteSpacingsm}px`,
+		headerPadding: containerPadding,
+		footerPadding: containerPadding,
+		containerWidth: containerWidth,
+		body: {
+			background: colors.background.primaryBackground,
+			minHeight: `${4.7 * spacing.spacingXl}px`
+		},
+		content: {
+			color: colors.text.color,
+			maxHeight: `${9 * spacing.spacingXl}px`,
+			primary: {
+				width: containerWidth,
+				headerBorderRight: `1px solid ${rgba(colors.background.primaryBackground, 0.12)}`
+			},
+			secondary: {
+				width: containerWidth,
+				borderLeft: `1px solid ${rgba(colors.boxShadowBackground, 0.22)}`,
+				listItemPadding: `0 ${actionBarHorizontalPadding}`,
+				subHeaderMargin: `0 0 ${verticalSpacing.vertWhiteSpacingsm}px 0`,
+				contentBoxContent: {
+					minHeight: `${2 * spacing.spacingMd}px`,
+					padding: `${verticalSpacing.vertWhiteSpacingsm}px ${actionBarHorizontalPadding}`
+				}
+			}
+		},
+		secondaryContent: {
+			width: containerWidth,
+			borderLeft: `1px solid ${rgba(colors.boxShadowBackground, 0.22)}`,
+			listItemPadding: `0 ${actionBarHorizontalPadding}`,
+			subHeaderMargin: `0 0 ${verticalSpacing.vertWhiteSpacingsm}px 0`,
+			contentBoxContent: {
+				minHeight: `${2 * spacing.spacingMd}px`,
+				padding: `${verticalSpacing.vertWhiteSpacingsm}px ${actionBarHorizontalPadding}`
+			}
+		},
+		list: {
+			sectionPadding: containerPadding,
+			optionItem: {
+				background: {
+					default: colors.background.primaryBackground,
+					hover: colors.interaction.selected.colorLight
+				}
+			}
+		},
+		listItem: {
+			text: {
+				fontSize: fontSize.tinyFontSize,
+				lineHeight: "normal"
+			},
+			minHeight: `${baseSpacing.BASE * 3}px`,
+			activeBG: `linear-gradient(to right, ${setLightness(
+				0.9,
+				colors.interaction.selected.colorLight
+			)} ${graphicWidth}, ${colors.interaction.selected.colorLight} ${graphicWidth})`,
+			background: `linear-gradient(to right, ${colors.background.interactiveBackground} ${graphicWidth}, ${colors.background.primaryBackground} ${graphicWidth})`,
+			padding: `${verticalSpacing.vertWhiteSpacingxs}px ${actionBarHorizontalPadding} ${verticalSpacing.vertWhiteSpacingxs}px calc(${graphicWidth} + ${horizontalSpacing.horizWhiteSpacingxs}px)`,
+			borderBottom: `1px solid ${colors.divider.color}`,
+			focusByKeyBoardBorder: focusStyles.focusedBoundaryDark,
+			activeIndicator: {
+				background: activeIndicatorBackground,
+				width: activeIndicatorWidth
+			},
+			activeBorderLeft: {
+				default: `${activeIndicatorWidth} solid ${activeIndicatorBackground}`,
+				active: `${activeIndicatorWidth} solid ${colors.interaction.active.colorTouch}`,
+				hover: `${activeIndicatorWidth} solid ${colors.interaction.hover.color}`,
+				focus: `${activeIndicatorWidth} solid ${colors.interaction.focus.color}`
+			},
+			disabledColor: colors.interaction.disabled.color,
+			graphicWidth: graphicWidth,
+			secondaryTextColor: colors.text.secondaryColorDark
+		},
+		childrenWrapper: {
+			border: "1px dotted transparent",
+			focusByKeyBoardBorder: focusStyles.focusedBoundaryDark
+		},
+		actionBar: {
+			borderBottom: `1px solid ${rgba(colors.boxShadowBackground, 0.22)}`,
+			minHeight: contentBoxConfig(theme).actionBar.minHeight,
+			padding: containerPadding,
+			elementMargin: `0 ${horizontalSpacing.horizWhiteSpacingxs}px 0 0`
+		}
+	};
+};

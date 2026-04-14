@@ -1,0 +1,1119 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render active primary tile 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  background: rgb(181, 76, 23);
+  color: rgb(255, 255, 255);
+  padding: 0px 32px;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="0"
+>
+  <div>
+    Primary Active Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render active secondary tile 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c6 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  background: transparent;
+  color: rgb(181, 76, 23);
+  padding: 0px 8px;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="0"
+>
+  <div>
+    Secondary Active Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render default tile same as the style of secondary title 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  padding: 0px 8px;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c6 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c6 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c9 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c9 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="0"
+>
+  <div>
+    Default Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled primary tile 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 {
+  align-items: center;
+  border-radius: 4px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  background: rgb(226, 230, 233);
+  border: 2px solid rgb(226, 230, 233);
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  padding: 0px 32px;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="-1"
+>
+  <div>
+    Primary Disabled Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled secondary tile 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c6 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c7 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c7 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 {
+  align-items: center;
+  border-radius: 4px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  background: transparent;
+  border: 2px solid rgb(169, 179, 188);
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  padding: 0px 8px;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="-1"
+>
+  <div>
+    Secondary Disabled Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.c7 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  background: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+  padding: 0px 32px;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c3 {
+  position: absolute;
+  color: inherit;
+  font-size: 1rem;
+  top: 8px;
+  right: 8px;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="0"
+>
+  <i
+    class="c1 c2 plasma-icon c3"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      check_circle
+    </span>
+  </i>
+  <div>
+    Primary Selected Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render primary tile 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+  padding: 0px 32px;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="0"
+>
+  <div>
+    Primary Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.c7 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.c10 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c10 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  background: rgb(241, 242, 244);
+  color: rgb(5, 104, 174);
+  padding: 0px 8px;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c3 {
+  position: absolute;
+  color: inherit;
+  font-size: 1rem;
+  top: 8px;
+  right: 8px;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="0"
+>
+  <i
+    class="c1 c2 plasma-icon c3"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      check_circle
+    </span>
+  </i>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+  <div>
+    Secondary Selected Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary tile 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 32px;
+  outline: none;
+  position: relative;
+  text-transform: unset;
+  vertical-align: middle;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  padding: 0px 8px;
+}
+
+.c0:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(213, 0, 117);
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+}
+
+.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(213, 0, 117);
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0"
+  data-role="interactive-tile"
+  role="button"
+  tabindex="0"
+>
+  <div>
+    Secondary Tile
+  </div>
+  <i
+    class="c1 c2 plasma-icon plasma-icon--big"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      location_on
+    </span>
+  </i>
+</div>
+`;

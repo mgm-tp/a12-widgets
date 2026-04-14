@@ -1,0 +1,237 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.contentbox.tile > redering-contentbox-with-provided-properties 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c4 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.c4.c4.c4 {
+  border-bottom-color: red;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c4.c4 {
+  padding: 0px 24px;
+}
+
+.c8.c8.c8 {
+  background-color: red;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c12 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c14 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c14:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c14.c14 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c14.c14 {
+  padding: 16px;
+}
+
+.c5 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c10 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c10.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c10.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c1 .c3 {
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(107, 40, 215);
+  border-top-width: medium;
+  border-top-style: none;
+  border-top-color: currentcolor;
+  flex: 1 1 0%;
+  gap: 16px;
+  min-height: auto;
+  padding-left: 0px;
+}
+
+.c1 .c7 {
+  align-items: center;
+  align-self: flex-start;
+  background-color: rgb(107, 40, 215);
+  color: rgb(255, 255, 255);
+  cursor: default;
+  display: flex;
+  font-size: 1.5rem;
+  height: 48px;
+  justify-content: center;
+  user-select: none;
+  width: 48px;
+}
+
+.c1 .c11 {
+  flex: 1 1 0%;
+  color: rgb(107, 40, 215);
+  margin: 0px;
+}
+
+.c1 .c9:only-child {
+  margin: 0px 0px 0px 16px;
+}
+
+.c1 .c13 {
+  padding: 24px 16px 0px;
+}
+
+.c1 .c13::after {
+  height: 24px;
+}
+
+<div
+  class="c0 contentbox c1 contentbox--tile test-class"
+  data-role="contentbox"
+  id="test-id"
+  style="background-color: red;"
+  tabindex="-1"
+>
+  <div
+    class="c2 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div
+      class="c3 c4 contentbox__heading"
+      data-role="contentbox-heading"
+    >
+      <div
+        class="c5 contentbox__addon-prefix"
+        data-role="contentbox-addon-prefix"
+      >
+        <i
+          class="c6 plasma-icon c7 c8 contentbox__icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            info
+          </span>
+        </i>
+      </div>
+      <div
+        class="c9 c10"
+      >
+        <div
+          aria-level="2"
+          class="c11 c12 contentbox__title"
+          data-role="contentbox-title"
+          role="heading"
+          style="color: red;"
+        >
+          tile
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c13 c14 contentbox__content contentbox__content--initial-padding"
+    data-role="contentbox-content"
+  >
+    tile content
+  </div>
+</div>
+`;

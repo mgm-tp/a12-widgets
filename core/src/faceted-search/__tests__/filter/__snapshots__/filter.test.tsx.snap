@@ -1,0 +1,3092 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-disabled-filter 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c15 .c6 {
+  user-select: none;
+}
+
+.c15 .c6 {
+  color: inherit;
+}
+
+.c15 .c6 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c6 {
+  display: block;
+}
+
+.c11 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c11 .c6 {
+  user-select: none;
+}
+
+.c11 .c6 {
+  color: inherit;
+}
+
+.c11 .c6 {
+  font-size: inherit;
+}
+
+.c11.c11 .c6 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c6 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c13:focus .c8 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c14:focus .c8 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+  color: rgb(169, 179, 188);
+}
+
+.c5 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+  color: rgb(169, 179, 188);
+}
+
+.c10 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c10::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c12 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+@media (pointer: coarse) {
+  .c13:active .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter filter--disabled"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+    disabled=""
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c6 c7 plasma-icon c8 c9 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+    </span>
+  </button>
+  <div
+    class="c10 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c11 button button--icon c12 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      disabled=""
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c14 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c7 {
+  user-select: none;
+}
+
+.c14 .c7 {
+  color: inherit;
+}
+
+.c14 .c7 {
+  font-size: inherit;
+}
+
+.c14:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c7 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c12 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c5,
+.c1:focus .c11 {
+  color: rgb(213, 0, 117);
+}
+
+.c1:focus .c9 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c6 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c10 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c13 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c13::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c15 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+@media (pointer: coarse) {
+  .c14:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c5,
+  .c1:active .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:active .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c5,
+  .c1:hover .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:hover .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 c6 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c7 c8 plasma-icon c9 c10 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Selected option 
+      </span>
+      <span
+        class="c11 c12 filter__options"
+        data-role="filter-options"
+      >
+        Blue
+        , 
+        Green
+        , 
+        White
+      </span>
+    </span>
+  </button>
+  <div
+    class="c13 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c14 button button--icon c15 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c7 c8 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter 2`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c13 .c7 {
+  user-select: none;
+}
+
+.c13 .c7 {
+  color: inherit;
+}
+
+.c13 .c7 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c12 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c5,
+.c1:focus .c11 {
+  color: rgb(213, 0, 117);
+}
+
+.c1:focus .c9 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c6 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c10 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c5,
+  .c1:active .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:active .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c5,
+  .c1:hover .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:hover .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 c6 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c7 c8 plasma-icon c9 c10 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Selected option 
+      </span>
+      <span
+        class="c11 c12 filter__options"
+        data-role="filter-options"
+      >
+        Blue
+        , 
+        Green
+        , 
+        White
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-active 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c11 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c11 .c6 {
+  user-select: none;
+}
+
+.c11 .c6 {
+  color: inherit;
+}
+
+.c11 .c6 {
+  font-size: inherit;
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c6 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c13:focus .c8 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c8 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 4px;
+  background-color: rgb(5, 104, 174);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.c1:focus::after {
+  background-color: rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c5 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c10 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c10::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c12 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover::after {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter filter--active"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c6 c7 plasma-icon c8 c9 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+    </span>
+  </button>
+  <div
+    class="c10 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c11 button button--icon c12 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-custom-action 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c12 .c6 {
+  user-select: none;
+}
+
+.c12 .c6 {
+  color: inherit;
+}
+
+.c12 .c6 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c6 {
+  display: block;
+}
+
+.c13 .c6 {
+  user-select: none;
+}
+
+.c13 .c6 {
+  color: inherit;
+}
+
+.c13 .c6 {
+  font-size: inherit;
+}
+
+.c13.c13 .c6 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c6 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c8 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c11:focus .c8 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c5 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c10 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c10::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c6 c7 plasma-icon c8 c9 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+    </span>
+  </button>
+  <div
+    class="c10 filter__action"
+    data-role="filter-action"
+  >
+    <div>
+      This is custom action
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-an-element-option 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c14 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c7 {
+  user-select: none;
+}
+
+.c14 .c7 {
+  color: inherit;
+}
+
+.c14 .c7 {
+  font-size: inherit;
+}
+
+.c14:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c7 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c12 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c5,
+.c1:focus .c11 {
+  color: rgb(213, 0, 117);
+}
+
+.c1:focus .c9 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c6 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c10 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c13 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c13::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c15 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+@media (pointer: coarse) {
+  .c14:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c5,
+  .c1:active .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:active .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c5,
+  .c1:hover .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:hover .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 c6 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c7 c8 plasma-icon c9 c10 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Selected option 
+      </span>
+      <span
+        class="c11 c12 filter__options"
+        data-role="filter-options"
+      >
+        <span>
+          option
+        </span>
+      </span>
+    </span>
+  </button>
+  <div
+    class="c13 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c14 button button--icon c15 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c7 c8 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-custom-separator 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c14 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c7 {
+  user-select: none;
+}
+
+.c14 .c7 {
+  color: inherit;
+}
+
+.c14 .c7 {
+  font-size: inherit;
+}
+
+.c14:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c7 {
+  display: block;
+}
+
+.c17 .c7 {
+  user-select: none;
+}
+
+.c17 .c7 {
+  color: inherit;
+}
+
+.c17 .c7 {
+  font-size: inherit;
+}
+
+.c17.c17 .c7 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c7 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c12 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c5,
+.c1:focus .c11 {
+  color: rgb(213, 0, 117);
+}
+
+.c1:focus .c9 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c16:focus .c5,
+.c16:focus .c11 {
+  color: rgb(213, 0, 117);
+}
+
+.c16:focus .c9 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c6 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c10 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c13 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c13::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c15 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+@media (pointer: coarse) {
+  .c14:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c5,
+  .c1:active .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:active .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c5,
+  .c1:hover .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:hover .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c16:active .c5,
+  .c16:active .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:active .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c16:hover .c5,
+  .c16:hover .c11 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c16:hover .c9 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 c6 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c7 c8 plasma-icon c9 c10 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Selected option 
+      </span>
+      <span
+        class="c11 c12 filter__options"
+        data-role="filter-options"
+      >
+        1
+        |
+        2
+        |
+        3
+        |
+        4
+      </span>
+    </span>
+  </button>
+  <div
+    class="c13 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c14 button button--icon c15 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c7 c8 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-valid-classes 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c11 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c11 .c6 {
+  user-select: none;
+}
+
+.c11 .c6 {
+  color: inherit;
+}
+
+.c11 .c6 {
+  font-size: inherit;
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c6 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c8 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c5 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c10 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c10::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c12 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter test-classname"
+  data-role="filter"
+  id="test-id"
+  style="color: red;"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 filter__name-text"
+          data-role="filter-name-text"
+          id="test-id-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c6 c7 plasma-icon c8 c9 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+    </span>
+  </button>
+  <div
+    class="c10 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      aria-labelledby="test-id-action-button-hidden-text test-id-name-text"
+      class="c11 button button--icon c12 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+        id="test-id-action-button-hidden-text"
+      >
+        Delete filter: 
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-without-options 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c11 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c11 .c6 {
+  user-select: none;
+}
+
+.c11 .c6 {
+  color: inherit;
+}
+
+.c11 .c6 {
+  font-size: inherit;
+}
+
+.c11:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c6 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c2 {
+  place-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c1 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c8 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c5 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c10 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c10::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c12 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+@media (pointer: coarse) {
+  .c11:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c8 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <span
+      class="c2 filter__content-inner"
+    >
+      <span
+        class="c3 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c4 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c5 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c6 c7 plasma-icon c8 c9 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+    </span>
+  </button>
+  <div
+    class="c10 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c11 button button--icon c12 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;

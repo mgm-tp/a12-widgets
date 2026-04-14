@@ -1,0 +1,10311 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.button > rendering-active-button 1`] = `
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(181, 76, 23);
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  class="c0 button button--secondary button--activated"
+  data-role="button"
+  data-variant-type="activated"
+  title=""
+  type="button"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-block-button 1`] = `
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  height: 100%;
+  width: 100%;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  class="c0 button button--block button--secondary"
+  data-role="button"
+  title=""
+  type="button"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-destructive-button 1`] = `
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(201, 29, 29);
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  class="c0 button button--destructive button--secondary"
+  data-role="button"
+  title=""
+  type="button"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-disabled-button 1`] = `
+.c0 {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+<button
+  class="c0 button button--secondary"
+  data-role="button"
+  disabled=""
+  title=""
+  type="button"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-disabled-secondary-invert 1`] = `
+.c0 {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid rgb(226, 230, 233);
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+<button
+  class="c0 button button--secondary button--outline button--dark"
+  data-role="button"
+  disabled=""
+  title=""
+  type="button"
+>
+  <span
+    data-role="button-label"
+  >
+    test
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-invert-primary-button 1`] = `
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  padding: 0px 32px;
+  box-shadow: none;
+  background: rgb(255, 255, 255);
+  color: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  class="c0 button button--primary button--invert button--dark"
+  data-role="button"
+  data-variant-type="primary"
+  title=""
+  type="button"
+>
+  <span
+    data-role="button-label"
+  >
+    test
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-primary-active-button 1`] = `
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  padding: 0px 32px;
+  background: rgb(181, 76, 23);
+  color: rgb(255, 255, 255);
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  class="c0 button button--primary button--activated"
+  data-role="button"
+  data-variant-type="primary"
+  title=""
+  type="button"
+>
+  <span
+    data-role="button-label"
+  >
+    test
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-primary-button 1`] = `
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  padding: 0px 32px;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  class="c0 button button--primary"
+  data-role="button"
+  data-variant-type="primary"
+  title=""
+  type="button"
+>
+  <span
+    data-role="button-label"
+  >
+    test
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-primary-destructive-button 1`] = `
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  padding: 0px 32px;
+  background: rgb(201, 29, 29);
+  color: rgb(255, 255, 255);
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  class="c0 button button--destructive button--primary"
+  data-role="button"
+  data-variant-type="primary"
+  title=""
+  type="button"
+>
+  <span
+    data-role="button-label"
+  >
+    test
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-progress-button 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  animation: 0.2s ease 0s 1 normal none running k1;
+  background-color: rgba(22, 25, 29, 0.8);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  box-shadow: none;
+  pointer-events: none;
+  overflow: visible !important;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2 {
+  animation-name: k0;
+  background-color: rgb(255, 255, 255);
+  border-radius: inherit;
+  height: auto;
+  opacity: 0.9;
+  inset: -2px !important;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  aria-labelledby="loading-test-loading-hidden-label loading-test-button-label"
+  class="c0 button button--secondary"
+  data-role="button"
+  disabled=""
+  id="loading-test"
+  title=""
+  type="button"
+>
+  <span
+    data-role="button-label"
+    id="loading-test-button-label"
+  >
+    In Progress
+  </span>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+    id="loading-test-loading-hidden-label"
+  >
+    Loading
+     
+  </span>
+  <span
+    class="c2 c3 loading__outerOverlay loading__outerOverlay--singleOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="loading-test-progress-indicator"
+    style="top: 0px; left: 0px;"
+  />
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-progress-button-with-icon 1`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c5 {
+  animation: 0.2s ease 0s 1 normal none running k1;
+  background-color: rgba(22, 25, 29, 0.8);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.c8.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16.c16 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  box-shadow: none;
+  pointer-events: none;
+  overflow: visible !important;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c4 {
+  animation-name: k0;
+  background-color: rgb(255, 255, 255);
+  border-radius: inherit;
+  height: auto;
+  opacity: 0.9;
+  inset: -2px !important;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  aria-labelledby="loading-test-loading-hidden-label loading-test-button-label"
+  class="c0 button button--secondary"
+  data-role="button"
+  disabled=""
+  id="loading-test"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      search
+    </span>
+  </i>
+  <span
+    data-role="button-label"
+    id="loading-test-button-label"
+  >
+    In Progress
+  </span>
+  <span
+    class="c3 -u-unseenButRead"
+    data-role="hidden-text"
+    id="loading-test-loading-hidden-label"
+  >
+    Loading
+     
+  </span>
+  <span
+    class="c4 c5 loading__outerOverlay loading__outerOverlay--singleOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="loading-test-progress-indicator"
+    style="top: 0px; left: 0px;"
+  />
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-secondary 1`] = `
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  aria-label="test-title"
+  class="c0 button button--secondary test-class-name"
+  data-role="button"
+  id="test-id"
+  style="color: red;"
+  title="test-title"
+  type="reset"
+>
+  <span
+    data-role="button-label"
+  >
+    test
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-secondary-invert 1`] = `
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c0::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c0:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c0:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c0:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+<button
+  class="c0 button button--secondary button--outline button--dark"
+  data-role="button"
+  title=""
+  type="button"
+>
+  <span
+    data-role="button-label"
+  >
+    test
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.button > rendering-vertical-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  vertical-align: middle;
+  align-self: stretch;
+  border-radius: 2px;
+  font-size: 0.625rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  line-height: 1;
+  min-height: 48px;
+  padding: 4px;
+  text-transform: none;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: 1.5rem;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<button
+  class="c0 button button--vertical"
+  data-role="button"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      search
+    </span>
+  </i>
+  <span
+    data-role="button-label"
+  >
+    Search
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering button with progress bar 1`] = `
+.c2 {
+  background-color: inherit;
+  border-radius: inherit;
+  inset: 0px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.c2 > * {
+  inset: 0px;
+  position: absolute;
+}
+
+.c3 {
+  background-color: inherit;
+  outline: transparent solid 1px;
+  transition: width 1s ease-out;
+  width: 50%;
+  z-index: 1;
+}
+
+.c4 {
+  background-color: rgb(226, 230, 233);
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  padding: 0px 32px;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c0 .c1 {
+  inset: -2px;
+}
+
+.c0 > * {
+  isolation: isolate;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--primary"
+  data-role="button"
+  data-variant-type="primary"
+  disabled=""
+  style="cursor: default; position: relative;"
+  title=""
+  type="button"
+>
+  <span
+    class="c1 c2"
+    data-role="progress-bar"
+  >
+    <span
+      class="c3"
+      data-role="progress-bar-fill"
+    />
+    <span
+      class="c4"
+      data-role="progress-bar-buffer"
+    />
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(181, 76, 23);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--activated"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="activated"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not([data-role^="quick-access-button"]) {
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.4);
+  color: rgb(255, 255, 255);
+}
+
+.c0:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c0:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--outline button--dark button--activated"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="activated"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-with-rounded-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not([data-role^="quick-access-button"]) {
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.4);
+  color: rgb(255, 255, 255);
+}
+
+.c0:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c0:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.c20.c20 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--outline button--dark button--activated"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="activated"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-destructive-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(201, 29, 29);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--destructive"
+  data-role="button"
+  data-type="icon"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0.c0 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--outline button--dark button--activated"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="activated"
+  disabled=""
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-with-rounded-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0.c0 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--outline button--dark button--activated"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="activated"
+  disabled=""
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0.c0 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--outline button--dark"
+  data-role="button"
+  data-type="icon"
+  disabled=""
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-with-rounded-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0.c0 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--outline button--dark"
+  data-role="button"
+  data-type="icon"
+  disabled=""
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  aria-label="test-title"
+  class="c0 button button--icon test-class-name"
+  data-role="button"
+  data-type="icon"
+  id="test-id"
+  style="color: red;"
+  title="test-title"
+  type="reset"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button-with-badge 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c8 {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: normal;
+  outline: transparent solid 1px;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+  height: 8px;
+  padding: 0px;
+  width: 8px;
+}
+
+.c4 {
+  display: inline-flex;
+  position: absolute;
+}
+
+.c4.badge-wrapper-exit-active .c7 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter .c7 {
+  transform: scale(0);
+}
+
+.c4.badge-wrapper-enter-active .c7 {
+  transform: scale(1);
+}
+
+.c5 {
+  right: calc(-4px);
+  top: calc(-4px);
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.c11.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19.c19 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c21 .c1 {
+  user-select: none;
+}
+
+.c21 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c3 {
+  top: 0px;
+  right: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+.c22 .c1 {
+  user-select: none;
+}
+
+.c22 .c1 {
+  color: inherit;
+}
+
+.c22 .c1 {
+  font-size: inherit;
+}
+
+.c22 .c3 {
+  top: 0px;
+  right: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
+  display: block;
+}
+
+.c23 .c1 {
+  user-select: none;
+}
+
+.c23 .c1 {
+  color: inherit;
+}
+
+.c23 .c1 {
+  font-size: inherit;
+}
+
+.c23 .c3 {
+  top: 0px;
+  right: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
+  display: block;
+}
+
+.c24 .c1 {
+  user-select: none;
+}
+
+.c24 .c1 {
+  color: inherit;
+}
+
+.c24 .c1 {
+  font-size: inherit;
+}
+
+.c24 .c3 {
+  top: 0px;
+  right: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
+  display: block;
+}
+
+.c25 .c1 {
+  user-select: none;
+}
+
+.c25 .c1 {
+  color: inherit;
+}
+
+.c25 .c1 {
+  font-size: inherit;
+}
+
+.c25 .c3 {
+  top: 0px;
+  right: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c25.c25 > .c1 {
+  display: block;
+}
+
+.c26 .c1 {
+  user-select: none;
+}
+
+.c26 .c1 {
+  color: inherit;
+}
+
+.c26 .c1 {
+  font-size: inherit;
+}
+
+.c26 .c3 {
+  top: 0px;
+  right: 0px;
+}
+
+.c26.c26 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 > .c1 {
+  display: block;
+}
+
+.c27 .c1 {
+  user-select: none;
+}
+
+.c27 .c1 {
+  color: inherit;
+}
+
+.c27 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c27.c27 > .c1 {
+  display: block;
+}
+
+.c28 .c1 {
+  user-select: none;
+}
+
+.c28 .c1 {
+  color: inherit;
+}
+
+.c28 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c28.c28 > .c1 {
+  display: block;
+}
+
+.c29 .c1 {
+  user-select: none;
+}
+
+.c29 .c1 {
+  color: inherit;
+}
+
+.c29 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c29.c29 > .c1 {
+  display: block;
+}
+
+.c30 .c1 {
+  user-select: none;
+}
+
+.c30 .c1 {
+  color: inherit;
+}
+
+.c30 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c30.c30 > .c1 {
+  display: block;
+}
+
+.c31 .c1 {
+  user-select: none;
+}
+
+.c31 .c1 {
+  color: inherit;
+}
+
+.c31 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c31.c31 > .c1 {
+  display: block;
+}
+
+.c32 .c1 {
+  user-select: none;
+}
+
+.c32 .c1 {
+  color: inherit;
+}
+
+.c32 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c32.c32 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  aria-label="10 unread notifications"
+  class="c0 button button--icon"
+  data-role="button"
+  data-type="icon"
+  style="position: relative;"
+  title="10 unread notifications, Info notifications available"
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+  <span
+    class="c3 c4 c5 badge-wrapper badge-wrapper--tiny"
+    data-role="badge"
+    title="Info notifications available"
+  >
+    <span
+      class="c6 -u-unseenButRead"
+      data-role="hidden-text"
+    >
+      , Info notifications available
+    </span>
+    <span
+      aria-hidden="true"
+      class="c7 c8 badge badge--info"
+      data-role="badge-content"
+      data-type="info-badge"
+    />
+  </span>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not([data-role^="quick-access-button"]) {
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c0:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--outline button--dark"
+  data-role="button"
+  data-type="icon"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-with-rounded-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not([data-role^="quick-access-button"]) {
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c0:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.c20.c20 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--outline button--dark"
+  data-role="button"
+  data-type="icon"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-active-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c21 .c1 {
+  user-select: none;
+}
+
+.c21 .c1 {
+  color: inherit;
+}
+
+.c21 .c1 {
+  font-size: inherit;
+}
+
+.c21.c21 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
+  display: block;
+}
+
+.c22 .c1 {
+  user-select: none;
+}
+
+.c22 .c1 {
+  color: inherit;
+}
+
+.c22 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(181, 76, 23);
+  color: rgb(255, 255, 255);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--primary button--activated"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="primary"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-destructive-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c21 .c1 {
+  user-select: none;
+}
+
+.c21 .c1 {
+  color: inherit;
+}
+
+.c21 .c1 {
+  font-size: inherit;
+}
+
+.c21.c21 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
+  display: block;
+}
+
+.c22 .c1 {
+  user-select: none;
+}
+
+.c22 .c1 {
+  color: inherit;
+}
+
+.c22 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
+  display: block;
+}
+
+.c23 .c1 {
+  user-select: none;
+}
+
+.c23 .c1 {
+  color: inherit;
+}
+
+.c23 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(201, 29, 29);
+  color: rgb(255, 255, 255);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--destructive button--primary"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="primary"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c21 .c1 {
+  user-select: none;
+}
+
+.c21 .c1 {
+  color: inherit;
+}
+
+.c21 .c1 {
+  font-size: inherit;
+}
+
+.c21.c21 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--primary"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="primary"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-progress-icon-button 1`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c5 {
+  animation: 0.2s ease 0s 1 normal none running k1;
+  background-color: rgba(22, 25, 29, 0.8);
+  height: 100%;
+  left: 0px;
+  outline: none;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  user-select: none;
+  visibility: hidden;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.c8.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16.c16 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c4 {
+  animation-name: k0;
+  background-color: rgb(255, 255, 255);
+  border-radius: inherit;
+  height: auto;
+  opacity: 0.9;
+  inset: -2px !important;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c21 .c1 {
+  user-select: none;
+}
+
+.c21 .c1 {
+  color: inherit;
+}
+
+.c21 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
+  display: block;
+}
+
+.c22 .c1 {
+  user-select: none;
+}
+
+.c22 .c1 {
+  color: inherit;
+}
+
+.c22 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
+  display: block;
+}
+
+.c23 .c1 {
+  user-select: none;
+}
+
+.c23 .c1 {
+  color: inherit;
+}
+
+.c23 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
+  display: block;
+}
+
+.c24 .c1 {
+  user-select: none;
+}
+
+.c24 .c1 {
+  color: inherit;
+}
+
+.c24 .c1 {
+  font-size: inherit;
+}
+
+.c24.c24 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
+  display: block;
+}
+
+.c25 .c1 {
+  user-select: none;
+}
+
+.c25 .c1 {
+  color: inherit;
+}
+
+.c25 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c25.c25 > .c1 {
+  display: block;
+}
+
+.c26 .c1 {
+  user-select: none;
+}
+
+.c26 .c1 {
+  color: inherit;
+}
+
+.c26 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 > .c1 {
+  display: block;
+}
+
+.c27 .c1 {
+  user-select: none;
+}
+
+.c27 .c1 {
+  color: inherit;
+}
+
+.c27 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c27.c27 > .c1 {
+  display: block;
+}
+
+.c28 .c1 {
+  user-select: none;
+}
+
+.c28 .c1 {
+  color: inherit;
+}
+
+.c28 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c28.c28 > .c1 {
+  display: block;
+}
+
+.c29 .c1 {
+  user-select: none;
+}
+
+.c29 .c1 {
+  color: inherit;
+}
+
+.c29 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c29.c29 > .c1 {
+  display: block;
+}
+
+.c30 .c1 {
+  user-select: none;
+}
+
+.c30 .c1 {
+  color: inherit;
+}
+
+.c30 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c30.c30 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  box-shadow: none;
+  pointer-events: none;
+  overflow: visible !important;
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c1 {
+  opacity: 0;
+}
+
+.c0 .c4 {
+  animation-name: k0;
+  background-color: rgb(255, 255, 255);
+  border-radius: inherit;
+  height: auto;
+  opacity: 0.9;
+  inset: -2px !important;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  aria-labelledby="loading-test-loading-hidden-label"
+  class="c0 button button--icon"
+  data-role="button"
+  data-type="icon"
+  disabled=""
+  id="loading-test"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      search
+    </span>
+  </i>
+  <span
+    class="c3 -u-unseenButRead"
+    data-role="hidden-text"
+    id="loading-test-loading-hidden-label"
+  >
+    Loading
+     
+  </span>
+  <span
+    class="c4 c5 loading__outerOverlay loading__outerOverlay--singleOverlay"
+    data-role="progress-indicator-outer-overlay"
+    id="loading-test-progress-indicator"
+    style="top: 0px; left: 0px;"
+  />
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-active-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c21 .c1 {
+  user-select: none;
+}
+
+.c21 .c1 {
+  color: inherit;
+}
+
+.c21 .c1 {
+  font-size: inherit;
+}
+
+.c21.c21 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
+  display: block;
+}
+
+.c22 .c1 {
+  user-select: none;
+}
+
+.c22 .c1 {
+  color: inherit;
+}
+
+.c22 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
+  display: block;
+}
+
+.c23 .c1 {
+  user-select: none;
+}
+
+.c23 .c1 {
+  color: inherit;
+}
+
+.c23 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
+  display: block;
+}
+
+.c24 .c1 {
+  user-select: none;
+}
+
+.c24 .c1 {
+  color: inherit;
+}
+
+.c24 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
+  display: block;
+}
+
+.c25 .c1 {
+  user-select: none;
+}
+
+.c25 .c1 {
+  color: inherit;
+}
+
+.c25 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c25.c25 > .c1 {
+  display: block;
+}
+
+.c26 .c1 {
+  user-select: none;
+}
+
+.c26 .c1 {
+  color: inherit;
+}
+
+.c26 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c26.c26 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border: 2px solid rgb(226, 230, 233);
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(255, 255, 255);
+  color: rgb(181, 76, 23);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--secondary button--activated"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="secondary"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-destructive-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c21 .c1 {
+  user-select: none;
+}
+
+.c21 .c1 {
+  color: inherit;
+}
+
+.c21 .c1 {
+  font-size: inherit;
+}
+
+.c21.c21 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
+  display: block;
+}
+
+.c22 .c1 {
+  user-select: none;
+}
+
+.c22 .c1 {
+  color: inherit;
+}
+
+.c22 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
+  display: block;
+}
+
+.c23 .c1 {
+  user-select: none;
+}
+
+.c23 .c1 {
+  color: inherit;
+}
+
+.c23 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
+  display: block;
+}
+
+.c24 .c1 {
+  user-select: none;
+}
+
+.c24 .c1 {
+  color: inherit;
+}
+
+.c24 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
+  display: block;
+}
+
+.c25 .c1 {
+  user-select: none;
+}
+
+.c25 .c1 {
+  color: inherit;
+}
+
+.c25 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c25.c25 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border: 2px solid rgb(226, 230, 233);
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(255, 255, 255);
+  color: rgb(201, 29, 29);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--destructive button--secondary"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="secondary"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;
+
+exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-icon-button 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c3 .c1 {
+  user-select: none;
+}
+
+.c3 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
+  display: block;
+}
+
+.c4 .c1 {
+  user-select: none;
+}
+
+.c4 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
+  display: block;
+}
+
+.c5 .c1 {
+  user-select: none;
+}
+
+.c5 .c1 {
+  color: inherit;
+}
+
+.c5.c5 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
+  display: block;
+}
+
+.c6 .c1 {
+  user-select: none;
+}
+
+.c6 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
+  display: block;
+}
+
+.c7 .c1 {
+  user-select: none;
+}
+
+.c7 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
+  display: block;
+}
+
+.c8 .c1 {
+  user-select: none;
+}
+
+.c8 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
+  display: block;
+}
+
+.c9 .c1 {
+  user-select: none;
+}
+
+.c9 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
+  display: block;
+}
+
+.c10 .c1 {
+  user-select: none;
+}
+
+.c10 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
+  display: block;
+}
+
+.c11 .c1 {
+  user-select: none;
+}
+
+.c11 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
+  display: block;
+}
+
+.c12 .c1 {
+  user-select: none;
+}
+
+.c12 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
+  display: block;
+}
+
+.c13 .c1 {
+  user-select: none;
+}
+
+.c13 .c1 {
+  color: inherit;
+}
+
+.c13.c13 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
+  display: block;
+}
+
+.c14 .c1 {
+  user-select: none;
+}
+
+.c14 .c1 {
+  color: inherit;
+}
+
+.c14 .c1 {
+  font-size: 1.5rem;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
+  display: block;
+}
+
+.c15 .c1 {
+  user-select: none;
+}
+
+.c15 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
+  display: block;
+}
+
+.c16 .c1 {
+  user-select: none;
+}
+
+.c16 .c1 {
+  color: inherit;
+}
+
+.c16 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
+  display: block;
+}
+
+.c17 .c1 {
+  user-select: none;
+}
+
+.c17 .c1 {
+  color: inherit;
+}
+
+.c17 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
+  display: block;
+}
+
+.c18 .c1 {
+  user-select: none;
+}
+
+.c18 .c1 {
+  color: inherit;
+}
+
+.c18 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
+  display: block;
+}
+
+.c19 .c1 {
+  user-select: none;
+}
+
+.c19 .c1 {
+  color: inherit;
+}
+
+.c19 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
+  display: block;
+}
+
+.c20 .c1 {
+  user-select: none;
+}
+
+.c20 .c1 {
+  color: inherit;
+}
+
+.c20 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
+  display: block;
+}
+
+.c21 .c1 {
+  user-select: none;
+}
+
+.c21 .c1 {
+  color: inherit;
+}
+
+.c21 .c1 {
+  font-size: inherit;
+}
+
+.c21.c21 .c1 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
+  display: block;
+}
+
+.c22 .c1 {
+  user-select: none;
+}
+
+.c22 .c1 {
+  color: inherit;
+}
+
+.c22 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
+  display: block;
+}
+
+.c23 .c1 {
+  user-select: none;
+}
+
+.c23 .c1 {
+  color: inherit;
+}
+
+.c23 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
+  display: block;
+}
+
+.c24 .c1 {
+  user-select: none;
+}
+
+.c24 .c1 {
+  color: inherit;
+}
+
+.c24 .c1 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
+  display: block;
+}
+
+.c0 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  border: 2px solid rgb(226, 230, 233);
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgb(255, 255, 255);
+  color: rgb(5, 104, 174);
+}
+
+.c0 .c1 {
+  user-select: none;
+}
+
+.c0 .c1 {
+  color: inherit;
+}
+
+.c0 .c1 {
+  font-size: inherit;
+}
+
+.c0:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+<button
+  class="c0 button button--icon button--secondary"
+  data-role="button"
+  data-type="icon"
+  data-variant-type="secondary"
+  title=""
+  type="button"
+>
+  <i
+    class="c1 c2 plasma-icon"
+    data-role="plasma-icon"
+  >
+    <span
+      aria-hidden="true"
+    >
+      close
+    </span>
+  </i>
+</button>
+`;

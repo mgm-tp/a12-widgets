@@ -1,0 +1,511 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render fit layout grid 1`] = `
+.c1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  flex: 1 0 30px;
+  gap: 16px 32px;
+  margin: 0px;
+  min-height: 30px;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px 32px;
+  max-height: 100%;
+  overflow: auto;
+  padding: 0px;
+  flex-basis: 8.33333%;
+  max-width: calc(8.33333% - 29.3333px);
+}
+
+.c2 > :not([data-role*="layout-grid"]) {
+  box-shadow: none;
+  display: flex;
+  overflow: auto;
+  margin-bottom: 16px;
+}
+
+.c0 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 16px 32px;
+  overflow: auto;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--lg layoutGrid--fit"
+  data-role="layout-grid"
+>
+  <div
+    class="c1 layoutGrid__row"
+    data-role="layout-grid-row"
+  >
+    <div
+      class="c2 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-1 layoutGrid__column--md-1 layoutGrid__column--lg-1"
+      data-role="layout-grid-column"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render layout grid 1`] = `
+.c1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  gap: 16px 32px;
+}
+
+.c2 {
+  display: block;
+  flex-basis: 8.33333%;
+  max-width: calc(8.33333% - 29.3333px);
+}
+
+.c0 {
+  width: 100%;
+}
+
+<div
+  class="c0 test-grid-class layoutGrid layoutGridSize--lg"
+  data-role="layout-grid"
+  id="test-grid-id"
+>
+  <div
+    class="c1 layoutGrid__row test-row-class"
+    data-role="layout-grid-row"
+    id="test-row-id"
+  >
+    <div
+      class="c2 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-1 layoutGrid__column--md-1 layoutGrid__column--lg-1 test-column-class"
+      data-role="layout-grid-column"
+      id="test-column-id"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render layout grid at different breakpoints 1`] = `
+.c0 {
+  width: 100%;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--xs"
+  data-role="layout-grid"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render layout grid at different breakpoints 2`] = `
+.c0 {
+  width: 100%;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--sm"
+  data-role="layout-grid"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render layout grid at different breakpoints 3`] = `
+.c0 {
+  width: 100%;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--md"
+  data-role="layout-grid"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render layout grid at different breakpoints 4`] = `
+.c0 {
+  width: 100%;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--lg"
+  data-role="layout-grid"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render layout grid with disabledNegativeMargin 1`] = `
+.c2 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  gap: 16px 32px;
+}
+
+.c3 {
+  display: block;
+  flex-basis: 8.33333%;
+  max-width: calc(8.33333% - 29.3333px);
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c0 {
+  height: 100%;
+  overflow: auto;
+  padding: 16px 16px 0px;
+}
+
+<div
+  class="c0 layoutGrid-container"
+>
+  <div
+    class="c1 layoutGrid layoutGridSize--lg"
+    data-role="layout-grid"
+  >
+    <div
+      class="c2 layoutGrid__row"
+      data-role="layout-grid-row"
+    >
+      <div
+        class="c3 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-1 layoutGrid__column--md-1 layoutGrid__column--lg-1"
+        data-role="layout-grid-column"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render layout grid with no gutter 1`] = `
+.c1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px;
+  padding: 0px;
+  gap: 0px;
+}
+
+.c2 {
+  display: block;
+  flex-basis: 8.33333%;
+  max-width: 8.33333%;
+  margin: 0px;
+  padding: 0px;
+  gap: 0px;
+}
+
+.c0 {
+  width: 100%;
+  gap: 0px;
+  padding: 0px;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--lg layoutGrid--noGutter"
+  data-role="layout-grid"
+>
+  <div
+    class="c1 layoutGrid__row layoutGrid__row--noGutter"
+    data-role="layout-grid-row"
+  >
+    <div
+      class="c2 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-1 layoutGrid__column--md-1 layoutGrid__column--lg-1 layoutGrid__column--noGutter"
+      data-role="layout-grid-column"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render nested layout grid 1`] = `
+.c4 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  gap: 16px 32px;
+}
+
+.c1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  flex: 1 0 30px;
+  gap: 16px 32px;
+  margin: 0px;
+  min-height: 30px;
+}
+
+.c5 {
+  display: block;
+  flex-basis: 8.33333%;
+  max-width: calc(8.33333% - 29.3333px);
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px 32px;
+  max-height: 100%;
+  overflow: auto;
+  padding: 0px;
+  flex-basis: 50%;
+  max-width: calc(50% - 16px);
+}
+
+.c2 > :not([data-role*="layout-grid"]) {
+  box-shadow: none;
+  display: flex;
+  overflow: auto;
+  margin-bottom: 16px;
+}
+
+.c3 {
+  width: 100%;
+}
+
+.c0 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 16px 32px;
+  overflow: auto;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--lg layoutGrid--fit"
+  data-role="layout-grid"
+>
+  <div
+    class="c1 layoutGrid__row"
+    data-role="layout-grid-row"
+  >
+    <div
+      class="c2 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-1 layoutGrid__column--md-6 layoutGrid__column--lg-6"
+      data-role="layout-grid-column"
+    >
+      <div
+        class="c3 layoutGrid layoutGridSize--lg"
+        data-role="layout-grid"
+      >
+        <div
+          class="c4 layoutGrid__row"
+          data-role="layout-grid-row"
+        >
+          <div
+            class="c5 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-1 layoutGrid__column--md-1 layoutGrid__column--lg-1"
+            data-role="layout-grid-column"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render row with custom offset 1`] = `
+.c0 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  margin: 0px -16px;
+}
+
+.c1 {
+  display: block;
+  margin-bottom: 16px;
+  padding: 0px 16px;
+}
+
+<div
+  class="c0 layoutGrid__row"
+  data-role="layout-grid-row"
+>
+  <div
+    class="layoutGrid__column--sm-0 layoutGrid__column--md-6 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+    data-role="layout-grid-column"
+  />
+  <div
+    class="c1 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-6 layoutGrid__column--md-6 layoutGrid__column--lg-3"
+    data-role="layout-grid-column"
+  />
+  <div
+    class="layoutGrid__column--sm-6 layoutGrid__column--md-0 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+    data-role="layout-grid-column"
+  />
+  <div
+    class="c1 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-12 layoutGrid__column--md-6 layoutGrid__column--lg-3"
+    data-role="layout-grid-column"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render row with custom span 1`] = `
+.c0 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  margin: 0px -16px;
+}
+
+.c1 {
+  display: block;
+  margin-bottom: 16px;
+  padding: 0px 16px;
+}
+
+<div
+  class="c0 layoutGrid__row"
+  data-role="layout-grid-row"
+>
+  <div
+    class="layoutGrid__column--sm-0 layoutGrid__column--md-0 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+    data-role="layout-grid-column"
+  />
+  <div
+    class="c1 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-12 layoutGrid__column--md-6 layoutGrid__column--lg-3"
+    data-role="layout-grid-column"
+  />
+  <div
+    class="layoutGrid__column--sm-0 layoutGrid__column--md-0 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+    data-role="layout-grid-column"
+  />
+  <div
+    class="c1 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-6 layoutGrid__column--md-6 layoutGrid__column--lg-6"
+    data-role="layout-grid-column"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render row with fallback layout config 1`] = `
+.c1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  margin: 0px -16px;
+}
+
+.c2 {
+  max-width: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.c3 {
+  display: block;
+  margin-bottom: 16px;
+  padding: 0px 16px;
+  flex-basis: 25%;
+  max-width: 25%;
+}
+
+.c4 {
+  display: block;
+  margin-bottom: 16px;
+  padding: 0px 16px;
+  flex-basis: 75%;
+  max-width: 75%;
+}
+
+.c0 {
+  width: 100%;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--lg"
+  data-role="layout-grid"
+>
+  <div
+    class="c1 layoutGrid__row"
+    data-role="layout-grid-row"
+  >
+    <div
+      class="c2 layoutGrid__column--sm-0 layoutGrid__column--md-0 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+      data-role="layout-grid-column"
+    />
+    <div
+      class="c3 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-6 layoutGrid__column--md-3 layoutGrid__column--lg-3"
+      data-role="layout-grid-column"
+    />
+    <div
+      class="c2 layoutGrid__column--sm-0 layoutGrid__column--md-0 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+      data-role="layout-grid-column"
+    />
+    <div
+      class="c4 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-6 layoutGrid__column--md-9 layoutGrid__column--lg-9"
+      data-role="layout-grid-column"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render row with layout config 1`] = `
+.c1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  margin: 0px -16px;
+}
+
+.c2 {
+  max-width: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.c3 {
+  display: block;
+  margin-bottom: 16px;
+  padding: 0px 16px;
+  flex-basis: 25%;
+  max-width: 25%;
+}
+
+.c0 {
+  width: 100%;
+}
+
+<div
+  class="c0 layoutGrid layoutGridSize--lg"
+  data-role="layout-grid"
+>
+  <div
+    class="c1 layoutGrid__row"
+    data-role="layout-grid-row"
+  >
+    <div
+      class="c2 layoutGrid__column--sm-0 layoutGrid__column--md-0 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+      data-role="layout-grid-column"
+    />
+    <div
+      class="c3 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-12 layoutGrid__column--md-6 layoutGrid__column--lg-3"
+      data-role="layout-grid-column"
+    />
+    <div
+      class="c2 layoutGrid__column--sm-0 layoutGrid__column--md-0 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+      data-role="layout-grid-column"
+    />
+    <div
+      class="c3 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-12 layoutGrid__column--md-6 layoutGrid__column--lg-3"
+      data-role="layout-grid-column"
+    />
+    <div
+      class="c2 layoutGrid__column--sm-0 layoutGrid__column--md-0 layoutGrid__column--lg-0 layoutGrid__column--spacer"
+      data-role="layout-grid-column"
+    />
+    <div
+      class="c3 layoutGrid__column layoutGrid__column--xs layoutGrid__column--sm-12 layoutGrid__column--md-6 layoutGrid__column--lg-3"
+      data-role="layout-grid-column"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout-grid > render spacer column 1`] = `
+<div
+  class="layoutGrid__column--sm-1 layoutGrid__column--md-1 layoutGrid__column--lg-1 layoutGrid__column--spacer"
+  data-role="layout-grid-column"
+/>
+`;

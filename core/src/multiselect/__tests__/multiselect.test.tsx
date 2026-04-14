@@ -1,0 +1,726 @@
+/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+import { fireEvent, getAllByDataRole, getByDataRole, queryByDataRole, render } from "test-utils";
+import { Key } from "ts-key-enum";
+import { describe, test, expect, vi, afterEach } from "vitest";
+import { getByText } from "@testing-library/dom";
+import { userEvent } from "vitest/browser";
+import type { ReactElement } from "react";
+
+import { noop, Key as CustomKey } from "../../common/main/utils.js";
+import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { navigateWithTab } from "../../common/test/user-event-utils.js";
+import { Icon } from "../../icon/index.js";
+
+import { Multiselect } from "../main/multiselect.view.js";
+import type { MultiselectProps } from "../main/multiselect.api.js";
+import * as multiselectInternal from "../main/multiselect.internal.js";
+
+vi.mock("../main/multiselect.internal.js", { spy: true });
+
+export const ITEMS: MultiselectProps.Item[] = [
+	{
+		id: "1",
+		label: "Java"
+	},
+	{
+		id: "2",
+		label: "Groovy"
+	},
+	{
+		id: "3",
+		label: "JavaScript"
+	},
+	{
+		id: "4",
+		label: "C++"
+	},
+	{
+		id: "5",
+		label: "C"
+	},
+	{
+		id: "6",
+		label: "Scala"
+	},
+	{
+		id: "7",
+		label: "Python"
+	},
+	{
+		id: "8",
+		label: "PHP"
+	},
+	{
+		id: "9",
+		label: "ActionScript"
+	},
+	{
+		id: "10",
+		label: "AppleScript"
+	},
+	{
+		id: "11",
+		label: "Asp"
+	},
+	{
+		id: "12",
+		label: "Clojure"
+	},
+	{
+		id: "13",
+		label: "COBOL"
+	},
+	{
+		id: "14",
+		label: "BASIC"
+	},
+	{
+		id: "15",
+		label: "ColdFusion"
+	},
+	{
+		id: "16",
+		label: "123"
+	},
+	{
+		id: "17",
+		label: "456"
+	}
+];
+
+export const properties = {
+	id: "test-id",
+	label: "Test Multiselect",
+	placeholder: "Test Placeholder",
+	tooltips: <HintTooltip text="hint tooltip" />,
+	errorMessage: "Error message",
+	warningMessage: "Warning message",
+	ariaDescribedby: "warning-tooltip",
+	helperText: "Helper text",
+	hintTemplate: "{count} of {total} options shown",
+	selectAllText: "All",
+	inputProps: { "aria-label": "Multiselect" }
+};
+
+describe("com.mgmtp.a12.widgets.multiselect", () => {
+	afterEach(() => {
+		vi.clearAllMocks();
+	});
+
+	test("render default multiselect", async () => {
+		const { container } = render(
+			<Multiselect
+				items={ITEMS}
+				label={properties.label}
+				id={properties.id}
+				helperText={properties.helperText}
+				hintTemplate={properties.hintTemplate}
+				placeholder={properties.placeholder}
+				ariaDescribedby={properties.ariaDescribedby}
+				onChange={noop}
+			/>
+		);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		expect(container).toMatchSnapshot();
+
+		fireEvent.click(input);
+		const portal = getByDataRole(container, DataRoles.AttachedPortal);
+		expect(portal).toBeTruthy();
+		expect(container).toMatchSnapshot();
+	});
+
+	test("render readonly multiselect", async () => {
+		const { container } = render(
+			<Multiselect
+				items={ITEMS}
+				label={properties.label}
+				id={properties.id}
+				helperText={properties.helperText}
+				placeholder={properties.placeholder}
+				readonly
+				onChange={noop}
+			/>
+		);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		expect(container.firstChild).toMatchSnapshot();
+
+		fireEvent.click(input);
+		const portal = queryByDataRole(container, DataRoles.AttachedPortal);
+		expect(portal).not.toBeInTheDocument();
+	});
+
+	test("render disabled multiselect", async () => {
+		const { container } = render(
+			<Multiselect
+				items={ITEMS}
+				label={properties.label}
+				id={properties.id}
+				helperText={properties.helperText}
+				placeholder={properties.placeholder}
+				disabled
+			/>
+		);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		expect(container.firstChild).toMatchSnapshot();
+
+		fireEvent.click(input);
+		const portal = queryByDataRole(container, DataRoles.AttachedPortal);
+		expect(portal).not.toBeInTheDocument();
+	});
+
+	test("render multiselect with error message", async () => {
+		const { container } = render(
+			<Multiselect
+				items={ITEMS}
+				label={properties.label}
+				id={properties.id}
+				helperText={properties.helperText}
+				placeholder={properties.placeholder}
+				errorMessage={properties.errorMessage}
+				onChange={noop}
+			/>
+		);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		expect(container.firstChild).toMatchSnapshot();
+
+		fireEvent.click(input);
+		const portal = getByDataRole(container, DataRoles.AttachedPortal);
+		expect(portal).toBeTruthy();
+		expect(container).toMatchSnapshot();
+	});
+
+	test("render multiselect with warning message", async () => {
+		const { container } = render(
+			<Multiselect
+				items={ITEMS}
+				label={properties.label}
+				id={properties.id}
+				helperText={properties.helperText}
+				placeholder={properties.placeholder}
+				warningMessage={properties.warningMessage}
+				onChange={noop}
+			/>
+		);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		expect(container.firstChild).toMatchSnapshot();
+
+		fireEvent.click(input);
+		const portal = getByDataRole(container, DataRoles.AttachedPortal);
+		expect(portal).toBeTruthy();
+		expect(container).toMatchSnapshot();
+	});
+
+	test("render multiselect with tooltip", () => {
+		const { container } = render(
+			<Multiselect
+				items={ITEMS}
+				label={properties.label}
+				id={properties.id}
+				helperText={properties.helperText}
+				placeholder={properties.placeholder}
+				tooltips={properties.tooltips}
+				onChange={noop}
+			/>
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("render multiselect with tooltip in new line", () => {
+		const { container } = render(
+			<Multiselect
+				items={ITEMS}
+				label={properties.label}
+				id={properties.id}
+				helperText={properties.helperText}
+				placeholder={properties.placeholder}
+				tooltips={properties.tooltips}
+				breakTooltipsToNewLine
+				onChange={noop}
+			/>
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("render mobile multiselect", async () => {
+		const { container } = render(
+			<Multiselect
+				items={ITEMS}
+				label={properties.label}
+				id={properties.id}
+				helperText={properties.helperText}
+				hintTemplate={properties.hintTemplate}
+				placeholder={properties.placeholder}
+				ariaDescribedby={properties.ariaDescribedby}
+				mobile
+				onChange={noop}
+			/>
+		);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		expect(container.firstChild).toMatchSnapshot();
+
+		fireEvent.click(input);
+		const portal = getByDataRole(container, DataRoles.Portal);
+		expect(portal).toBeTruthy();
+		expect(container).toMatchSnapshot();
+	});
+
+	test("focus input without opening the list", async () => {
+		const { container } = render(<Multiselect items={ITEMS} openOnFocus={false} onChange={noop} />);
+
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		fireEvent.focus(input);
+		expect(queryByDataRole(container, DataRoles.Dropdown)).toBeFalsy();
+
+		fireEvent.keyDown(input, { key: Key.Enter });
+		expect(queryByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
+	});
+
+	test("multiselect events", async () => {
+		const onItemCheckSpy = vi.fn();
+		const onItemClickSpy = vi.fn();
+		const onChangeSpy = vi.fn();
+
+		const { container } = render(
+			<Multiselect items={ITEMS} onItemCheck={onItemCheckSpy} onItemClick={onItemClickSpy} onChange={onChangeSpy} />
+		);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		fireEvent.click(input);
+		const portal = getByDataRole(container, DataRoles.AttachedPortal);
+		expect(portal).toBeTruthy();
+		const items = getAllByDataRole(container, DataRoles.Dropdown.Item);
+		fireEvent.click(items[1]);
+		expect(onItemClickSpy).toHaveBeenCalledTimes(1);
+		expect(onChangeSpy).toHaveBeenCalledTimes(1);
+
+		const secondItemCheckbox = getByDataRole(items[2], DataRoles.Checkbox.Input);
+		onChangeSpy.mockClear();
+		fireEvent.click(secondItemCheckbox, { currentTarget: { checked: true } });
+		expect(onItemCheckSpy).toHaveBeenCalledTimes(1);
+		expect(onChangeSpy).toHaveBeenCalledTimes(1);
+
+		//Open dropdown using click on input
+		onChangeSpy.mockClear();
+		fireEvent.click(input);
+		expect(getByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
+
+		//Select item using keyboard events
+		const dropdown = getByDataRole(container, DataRoles.Dropdown);
+		fireEvent.keyDown(dropdown, { key: Key.ArrowDown });
+		fireEvent.keyDown(dropdown, { key: CustomKey.Space });
+		expect(onChangeSpy).toHaveBeenCalledTimes(1);
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeTruthy();
+
+		//Open dropdown using arrow down key
+		fireEvent.keyDown(input, { key: Key.ArrowDown });
+		expect(getByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
+
+		//Close dropdown using escape key
+		fireEvent.keyDown(input, { key: Key.Escape });
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).not.toBeInTheDocument();
+
+		fireEvent.blur(input);
+		fireEvent.focus(input);
+
+		//Open dropdown using arrow up key
+		fireEvent.keyDown(input, { key: Key.ArrowUp });
+		expect(getByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
+	});
+
+	test("simulate handlers", () => {
+		const viewItems = ITEMS.map((item, index) => ({
+			...item,
+			selected: index === 0 || index === 1 || index === 2
+		}));
+		const selectedItems = viewItems.filter((item) => item.selected);
+		const unselectedItems = viewItems.filter((item) => !item.selected);
+
+		const groupingHandler = vi.fn().mockReturnValue({
+			selectedItems,
+			unselectedItems
+		});
+		const joiningHandler = vi.fn().mockReturnValue(
+			selectedItems
+				.map((item) => item.label)
+				.join(" --- ")
+				.trim()
+		);
+		const sortingHandler = vi.fn().mockReturnValue({
+			selectedItems,
+			unselectedItems
+		});
+		const filteringHandler = vi.fn().mockReturnValue({
+			selectedItems,
+			unselectedItems
+		});
+
+		const properties: Partial<MultiselectProps> = {
+			joiningHandler,
+			groupingHandler,
+			sortingHandler,
+			filteringHandler
+		};
+
+		const { container } = render(<Multiselect items={viewItems} {...properties} />);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		expect(groupingHandler).toHaveBeenCalledWith(viewItems, selectedItems);
+
+		expect(joiningHandler).toHaveBeenCalledWith(
+			selectedItems,
+			{
+				selectedItems,
+				unselectedItems
+			},
+			true
+		);
+
+		expect(sortingHandler).toHaveBeenCalledWith({ selectedItems, unselectedItems });
+
+		const searchText = "ja";
+		fireEvent.change(input, { target: { value: searchText } });
+		expect(filteringHandler).toHaveBeenCalledWith(searchText, viewItems);
+	});
+
+	test("The sort handler should be called when closing the dropdown by tab navigation", async () => {
+		const viewItems = ITEMS.map((item, index) => ({
+			...item,
+			selected: index === 0 || index === 1 || index === 2
+		}));
+		const selectedItems = viewItems.filter((item) => item.selected);
+
+		const { container } = render(<Multiselect items={viewItems} {...properties} />);
+
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const inputWrapper = getByDataRole(container, DataRoles.Textline.Input.Wrapper);
+
+		// The sort function is called the first time when the multiselect is mounted.
+		expect(multiselectInternal.defaultGroupingHandler).toHaveBeenLastCalledWith(viewItems, selectedItems);
+
+		// Tab to the input to open the dropdown.
+		await navigateWithTab(userEvent, () => document.activeElement === input);
+		let dropdown = queryByDataRole(container, DataRoles.Dropdown);
+		expect(dropdown).toBeTruthy();
+
+		// Tab out of the input wrapper to close the dropdown.
+		await navigateWithTab(userEvent, () => !inputWrapper.contains(document.activeElement));
+		dropdown = queryByDataRole(container, DataRoles.Dropdown);
+		expect(dropdown).not.toBeTruthy();
+
+		// The sort function is called the second time after the dropdown is closed
+		expect(multiselectInternal.defaultGroupingHandler).toHaveBeenCalledTimes(2);
+		expect(multiselectInternal.defaultGroupingHandler).toHaveBeenLastCalledWith(viewItems, selectedItems);
+	});
+
+	test("The sort handler should be called when closing the dropdown with the Escape key", async () => {
+		const viewItems = ITEMS.map((item, index) => ({
+			...item,
+			selected: index === 0 || index === 1 || index === 2
+		}));
+		const selectedItems = viewItems.filter((item) => item.selected);
+
+		const { container } = render(<Multiselect items={viewItems} {...properties} />);
+
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		// The sort is called the first time when the multiselect is mounted.
+		expect(multiselectInternal.defaultGroupingHandler).toHaveBeenLastCalledWith(viewItems, selectedItems);
+
+		// Tab to the input to open the dropdown.
+		await navigateWithTab(userEvent, () => document.activeElement === input);
+		let dropdown = queryByDataRole(container, DataRoles.Dropdown);
+		expect(dropdown).toBeTruthy();
+
+		// Press ESCAPE to close the dropdown.
+		await userEvent.keyboard("{Escape}");
+		dropdown = queryByDataRole(container, DataRoles.Dropdown);
+		expect(dropdown).not.toBeTruthy();
+
+		// The sort function is called the second time after the dropdown is closed.
+		expect(multiselectInternal.defaultGroupingHandler).toHaveBeenCalledTimes(2);
+		expect(multiselectInternal.defaultGroupingHandler).toHaveBeenLastCalledWith(viewItems, selectedItems);
+	});
+
+	test("Should close the dropdown when blur input", async () => {
+		const { container } = render(
+			<>
+				<Multiselect items={ITEMS} />
+				<button>button</button>
+			</>
+		);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const button = getByText(container, "button");
+
+		await userEvent.click(input);
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeTruthy();
+
+		// Should close the dropdown when blur input by click outside
+		await userEvent.click(document.body);
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
+
+		await userEvent.click(input);
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeTruthy();
+
+		// Should close the dropdown when blur input by tab navigation to another element
+		await navigateWithTab(userEvent, () => document.activeElement === button);
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
+	});
+
+	test("Should toggle the dropdown when click arrow icon", async () => {
+		const { container } = render(<Multiselect items={ITEMS} />);
+		const expandIcon = getByDataRole(container, DataRoles.SelectionSuffix);
+
+		await userEvent.click(expandIcon);
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeTruthy();
+
+		// Should close the dropdown when blur input by click outside
+		await userEvent.click(expandIcon);
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
+	});
+
+	test("onChange should be called only once when clicking select-all checkbox", async () => {
+		const onChangeSpy = vi.fn();
+		const { container, baseElement } = render(
+			<Multiselect items={ITEMS} selectAllText={properties.selectAllText} onChange={onChangeSpy} />
+		);
+
+		// Open dropdown
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		fireEvent.click(input);
+
+		// Wait for dropdown to appear
+		expect(getByDataRole(baseElement, DataRoles.AttachedPortal)).toBeTruthy();
+
+		// Find select-all checkbox and click it
+		const selectAllItem = getAllByDataRole(baseElement, DataRoles.Dropdown.Item)[0];
+		const selectAllCheckbox = getByDataRole(selectAllItem, DataRoles.Checkbox.Input);
+
+		fireEvent.click(selectAllCheckbox);
+
+		// Assert onChange called only once
+		expect(onChangeSpy).toHaveBeenCalledTimes(1);
+	});
+
+	test("Should render and handle interaction safely when a graphic in multiselect item contains React children", async () => {
+		const MultiselectContainer = (): ReactElement => {
+			const items: MultiselectProps.Item[] = [
+				{
+					id: "custom-item",
+					label: "Custom item",
+					graphic: <Icon>mail</Icon>
+				}
+			];
+
+			return <Multiselect items={items} />;
+		};
+
+		const { container } = render(<MultiselectContainer />);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		await userEvent.click(input);
+
+		const dropdownItemWithGraphic = getAllByDataRole(container, DataRoles.Dropdown.Item)[1];
+
+		expect(getByDataRole(dropdownItemWithGraphic, DataRoles.Icon)).toBeInTheDocument();
+
+		// Verify that clicking the dropdown item does not throw an error
+		expect(async () => {
+			await userEvent.click(dropdownItemWithGraphic);
+		}).not.toThrowError();
+	});
+
+	test("Should not show select all option when `enableSelectAllOption` is false and update items correctly while dropdown is open", async () => {
+		// Initial items with first 2 selected
+		const initialItems = ITEMS.map((item, index) => ({
+			...item,
+			selected: index < 2,
+			disabled: false
+		}));
+
+		const { container, baseElement, rerender } = render(
+			<Multiselect enableSelectAllOption={false} items={initialItems} />
+		);
+
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		await userEvent.click(input);
+
+		const dropdownPortal = getByDataRole(baseElement, DataRoles.AttachedPortal);
+		expect(dropdownPortal).toBeTruthy();
+
+		// Verify select all option is not present
+		const selectAllItem = queryByDataRole(dropdownPortal, DataRoles.Checkbox.Input.Indeterminate);
+		expect(selectAllItem).toBeNull();
+
+		// Simulate prop update with 3 selected items and remaining items disabled
+		const updatedItems = initialItems.map((item, index) => ({
+			...item,
+			selected: index < 3,
+			disabled: index >= 3
+		}));
+
+		// Re-render with updated items while dropdown is still open
+		rerender(<Multiselect enableSelectAllOption={false} items={updatedItems} />);
+
+		expect(dropdownPortal).toBeTruthy();
+
+		const updatedDropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
+
+		// Check that selected items are still enabled
+		for (let i = 0; i < 3; i++) {
+			const checkbox = getByDataRole(updatedDropdownItems[i], DataRoles.Checkbox.Input);
+			expect(checkbox).not.toBeDisabled();
+			expect(checkbox).toBeChecked();
+		}
+
+		// Check that unselected items are disabled
+		for (let i = 3; i < updatedDropdownItems.length; i++) {
+			const checkbox = getByDataRole(updatedDropdownItems[i], DataRoles.Checkbox.Input);
+			expect(checkbox).toBeDisabled();
+		}
+
+		// Verify select all option is still not present after update
+		const selectAllItemAfterUpdate = queryByDataRole(dropdownPortal, DataRoles.Checkbox.Input.Indeterminate);
+		expect(selectAllItemAfterUpdate).toBeNull();
+	});
+
+	test("Checkbox on disabled item should be disabled", async () => {
+		const itemsWithDisabled: MultiselectProps.Item[] = [
+			{ id: "1", label: "Enabled Item 1" },
+			{ id: "2", label: "Disabled Item", disabled: true },
+			{ id: "3", label: "Enabled Item 2" }
+		];
+
+		const { container, baseElement } = render(<Multiselect items={itemsWithDisabled} enableSelectAllOption={false} />);
+
+		// Open dropdown
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		await userEvent.click(input);
+
+		// Verify dropdown is open
+		const dropdownPortal = getByDataRole(baseElement, DataRoles.AttachedPortal);
+		expect(dropdownPortal).toBeTruthy();
+
+		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
+
+		// Verify the checkbox on disabled item (index 1) is disabled
+		const disabledCheckbox = getByDataRole(dropdownItems[1], DataRoles.Checkbox.Input);
+		expect(disabledCheckbox).toHaveProperty("disabled", true);
+
+		// Verify enabled items have enabled checkboxes
+		const firstEnabledCheckbox = getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input);
+		expect(firstEnabledCheckbox).not.toHaveAttribute("disabled");
+
+		const secondEnabledCheckbox = getByDataRole(dropdownItems[2], DataRoles.Checkbox.Input);
+		expect(secondEnabledCheckbox).not.toHaveAttribute("disabled");
+	});
+
+	test("Should skip disabled first item and select first non-disabled item when pressing ArrowDown", async () => {
+		const itemsWithFirstDisabled: MultiselectProps.Item[] = [
+			{ id: "1", label: "Disabled Item", disabled: true },
+			{ id: "2", label: "Enabled Item 1" },
+			{ id: "3", label: "Enabled Item 2" }
+		];
+
+		const { container, baseElement } = render(
+			<Multiselect items={itemsWithFirstDisabled} enableSelectAllOption={false} />
+		);
+
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		await userEvent.click(input);
+
+		// Open dropdown and navigate with ArrowDown
+		await userEvent.keyboard("{ArrowDown}");
+
+		// Verify dropdown is open
+		const dropdownPortal = getByDataRole(baseElement, DataRoles.AttachedPortal);
+		expect(dropdownPortal).toBeTruthy();
+
+		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
+
+		// Check the active element is the first element which is not disabled
+		expect(document.activeElement).toBe(dropdownItems[1]);
+
+		// Verify first item is disabled
+		const disabledCheckbox = getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input);
+		expect(disabledCheckbox).toHaveProperty("disabled", true);
+
+		// Verify second item is enabled
+		const enabledCheckbox = getByDataRole(dropdownItems[1], DataRoles.Checkbox.Input);
+		expect(enabledCheckbox).not.toHaveAttribute("disabled");
+	});
+
+	test("Should skip disabled first search result and focus first non-disabled item when pressing ArrowDown", async () => {
+		const itemsWithDisabled: MultiselectProps.Item[] = [
+			{ id: "1", label: "Apple", disabled: true },
+			{ id: "2", label: "Apricot" },
+			{ id: "3", label: "Banana" },
+			{ id: "4", label: "Cherry" }
+		];
+
+		const { container, baseElement } = render(<Multiselect items={itemsWithDisabled} enableSelectAllOption={false} />);
+
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		await userEvent.click(input);
+
+		// Search for "Ap" which should return "Apple" (disabled) and "Apricot" (enabled)
+		await userEvent.type(input, "Ap");
+
+		// Verify dropdown is open
+		const dropdownPortal = getByDataRole(baseElement, DataRoles.AttachedPortal);
+		expect(dropdownPortal).toBeTruthy();
+
+		// Press ArrowDown to navigate
+		await userEvent.keyboard("{ArrowDown}");
+
+		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
+
+		// Check the active element is the first non-disabled search result (Apricot)
+		expect(document.activeElement).toBe(dropdownItems[1]);
+
+		// Verify first search result (Apple) is disabled
+		const disabledCheckbox = getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input);
+		expect(disabledCheckbox).toHaveProperty("disabled", true);
+
+		// Verify second search result (Apricot) is enabled
+		const enabledCheckbox = getByDataRole(dropdownItems[1], DataRoles.Checkbox.Input);
+		expect(enabledCheckbox).not.toHaveAttribute("disabled");
+	});
+});

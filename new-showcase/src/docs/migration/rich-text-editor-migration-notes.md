@@ -1,0 +1,517 @@
+## Overview
+
+- The `Plugin Editor` widget, previously built on top of the `draft-js` library, has been **officially deprecated**. That's the reason to create a new Rich Text Editor to **replace** it using Lexical, a more modern, lightweight, and extensible framework. This new editor provides:
+  - Comparable feature support to the old editor
+  - Enhanced functionality and extensibility
+  - A more performant and modern architecture
+
+## Migration Details
+
+### Installation
+
+- In your project, install `Lexical` by the following command:
+  ```shell
+  npm i lexical
+  ```
+
+### DefaultRichTextEditor
+
+- The `DefaultRichTextEditor` is more accessible for beginners to work with because it's built on top of the `RichTextEditor` and takes care of the most essential nodes and plugins for you. Below is the steps to guide you how to migration from `DefaultEditor` to `DefaultRichTextEditor`:
+
+1. **Update import**
+
+   ```tsx
+   // BEFORE
+   import { BoldButton, ItalicButton } from "@com.mgmtp.a12.widgets/widgets-draft-js-editor";
+
+   // AFTER
+   import { BoldButton, ItalicButton } from "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/index.js";
+   ```
+
+2. **Update Configuration**
+
+   ```tsx
+   // BEFORE
+   import type { DefaultEditorProps, MarkTextButtonProps } from "@com.mgmtp.a12.widgets/widgets-draft-js-editor";
+
+   const toolbarPluginConfig: DefaultEditorProps.StaticToolbarPluginConfig = {
+   	structure: [BoldButton, ItalicButton]
+   };
+
+   // AFTER
+   const BUTTONS = [BoldButton, ItalicButton];
+   ```
+
+3. **Update Component Usage**
+
+- Replace all instances of `DefaultEditor` with `DefaultRichTextEditor`. Update the props to match the new component's API.
+- Key Prop Changes:
+  - `toolbarPluginConfig` → `staticToolbarButtons`
+  - `readOnly` → `readonly`
+
+  ```tsx
+   // BEFORE
+    <DefaultEditor
+      id="default-editor"
+      label="Default Editor with Toolbar"
+      toolbarPluginConfig={toolbarPluginConfig}
+      readOnly={selectedValue === "readonly"}
+      placeholder="Enter anything..."
+    />
+
+    // AFTER
+    <DefaultRichTextEditor
+      id="default-editor"
+      initialConfig={{ namespace: "Default Rich Text Editor" }}
+      label="Default Editor with Toolbar"
+      staticToolbarButtons={BUTTONS}
+      readonly={selectedValue === "readonly"}
+      placeholder="Enter anything..."
+    />
+
+  ```
+
+3. **CSS and Styling:**
+
+- To use the standard theme for Rich Text Editor, you need to import the CSS file:
+  ```tsx
+  import "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css";
+  ```
+
+### Plugin
+
+#### Mention Plugin
+
+1. **Update import**
+
+   ```tsx
+   // BEFORE
+   import { createMentionPlugin, Editor, Mention } from "@com.mgmtp.a12.widgets/widgets-core/lib/editor";
+
+   // AFTER
+   import {
+   	MentionNode,
+   	MentionPlugin,
+   	RichTextEditor
+   } from "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/index.js";
+   ```
+
+2. **Update component usage**
+
+   ```tsx
+   // BEFORE
+   const mentionPlugin = createMentionPlugin();
+   const { MentionSuggestions } = mentionPlugin;
+
+   return (
+   	<div>
+   		<Editor
+   			id="basic-editor"
+   			editorState={this.state.editorState}
+   			onChange={(editorState) => this.onChange(editorState)}
+   			plugins={[mentionPlugin]}
+   			placeholder="Enter @ character"
+   		/>
+   		<MentionSuggestions
+   			suggestions={[
+   				{ name: "A12W", value: "Widgets" },
+   				{ name: "A12P", value: "Plasma" },
+   				{ name: "mgm", value: "mgm-tp" }
+   			]}
+   			onSearchChange={this.onSearchChange}
+   		/>
+   	</div>
+   );
+
+   // AFTER
+   return (
+   	<RichTextEditor
+   		initialConfig={{
+   			namespace: "Mention Plugin",
+   			nodes: [MentionNode]
+   		}}
+   		id="mention-plugin-editor"
+   		labelGraphic={<Icon>info</Icon>}
+   		placeholder="Enter the @ character"
+   	>
+   		<MentionPlugin
+   			suggestions={[
+   				{ name: "A12W", value: "Widgets" },
+   				{ name: "A12P", value: "Plasma" },
+   				{ name: "mgm", value: "mgm-tp" }
+   			]}
+   		/>
+   	</RichTextEditor>
+   );
+   ```
+
+#### Link Plugin
+
+1. **Installation**
+
+- To use `Link Plugin`, you need to install `@lexical/link` by following this command:
+  ```shell
+  npm i @lexical/link
+  ```
+
+2. **Update import**
+
+   ```tsx
+   // BEFORE
+   import { createLinkPlugin, Editor } from "@com.mgmtp.a12.widgets/widgets-core/lib/editor";
+   import { EditorState, ContentState } from "draft-js";
+
+   // AFTER
+   import { $createParagraphNode, $createTextNode, $getRoot } from "lexical";
+   import { AutoLinkNode, LinkNode } from "@lexical/link";
+   import {
+   	AutoLinkPlugin,
+   	createFollowLinkPopupPlugin,
+   	RichTextEditor
+   } from "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/index.js";
+   ```
+
+3. **Update configuration**
+
+   ```tsx
+   // BEFORE
+   const linkPlugin = createLinkPlugin({
+   	target: "_blank",
+   	customTerms: [
+   		{
+   			regex: /\bA12W-\d+\b/g,
+   			getUrl: (text) => `https://example.com/${text}`
+   		}
+   	],
+   	popupDelayRender: 500
+   });
+
+   const { FollowLinkPopup } = linkPlugin;
+
+   // AFTER
+   const { FollowLinkPopupPlugin, FollowLinkPopup } = createFollowLinkPopupPlugin({
+   	render: (link) => {
+   		return (
+   			<Button
+   				label="Follow this link"
+   				onClick={(): void => {
+   					if (link.target === "_self") {
+   						window.location.href = link.href;
+   					} else if (link.target === "_blank") {
+   						window.open(link.href);
+   					}
+   				}}
+   			/>
+   		);
+   	}
+   });
+   ```
+
+4. **Component Usage**
+
+   ```tsx
+   // BEFORE
+   const LinkPlugin = () => {
+   	const [editorState, setEditorState] = useState(
+   		EditorState.createWithContent(ContentState.createFromText(initialContent))
+   	);
+
+   	const onChange = (newEditorState: EditorState): void => {
+   		setEditorState(newEditorState);
+   	};
+
+   	return (
+   		<div className="-u-width-full">
+   			<Editor
+   				editorState={editorState}
+   				onChange={onChange}
+   				plugins={[linkPlugin]}
+   				placeholder="Enter some link here"
+   			/>
+   			<FollowLinkPopup render={(link) => <Button label="Follow this link" onClick={} />} />
+   		</div>
+   	);
+   };
+
+   // AFTER
+   const LinkPlugin = () => {
+   	return (
+   		<div className="-u-width-full">
+   			<RichTextEditor
+   				initialConfig={{
+   					namespace: "Link Plugin",
+   					nodes: [AutoLinkNode, LinkNode]
+   				}}
+   				id="link-plugin-editor"
+   				labelGraphic={<Icon>info</Icon>}
+   				placeholder="Type anything..."
+   			>
+   				<AutoLinkPlugin
+   					customTerms={[
+   						{
+   							regex: /\bA12W-\d+\b/g,
+   							getUrl: (text: string) => `https://example.com/${text}`
+   						}
+   					]}
+   					target="_blank"
+   				/>
+   				<FollowLinkPopupPlugin>
+   					<FollowLinkPopup />
+   				</FollowLinkPopupPlugin>
+   			</RichTextEditor>
+   		</div>
+   	);
+   };
+   ```
+
+#### Spell Check
+
+1. **Update import**
+
+   ```tsx
+   // BEFORE
+   import { EditorState } from "draft-js";
+
+   import {
+   	createSpellCheckPlugin,
+   	Editor,
+   	SpellCheckPlugin,
+   	SpellCheckResult
+   } from "@com.mgmtp.a12.widgets/widgets-core/lib/editor";
+   import {
+   	StyledPopupMenuItem,
+   	StyledPopupMenuWrapper
+   } from "@com.mgmtp.a12.widgets/widgets-core/lib/pop-up-menu/main/popup-menu.styled";
+
+   // AFTER
+   import {
+   	createSpellCheckPlugin,
+   	RichTextEditor
+   } from "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/index.js";
+   ```
+
+2. **Update Component Usage**
+
+   ```tsx
+   const SpellCheckPluginEditor = () => {
+   	const [editorState, setEditorState] = useState(EditorState.createEmpty());
+   	const [dictionary, setDictionary] = useState<string[]>([]);
+
+   	// ref to store and access the plugin instance
+   	const spellCheckPluginRef = useRef<SpellCheckPlugin | null>(null);
+   	const closePopupHandlerRef = useRef<() => void>(() => {});
+
+   	const handleOnClick = (text: string) => {
+   		// Your logic here.
+   	};
+
+   	const { SpellCheckPopup } = spellCheckPluginRef.current;
+
+   	return (
+   		<div className="-u-width-full">
+   			<Editor
+   				editorState={editorState}
+   				onChange={setEditorState}
+   				plugins={[spellCheckPluginRef.current]}
+   				placeholder="Enter developr"
+   			/>
+   			<SpellCheckPopup
+   				close={(callback) => {
+   					closePopupHandlerRef.current = callback;
+   				}}
+   				render={(text) => (
+   					<StyledPopupMenuWrapper as="ul">
+   						<StyledPopupMenuItem>
+   							<Button label="Add to dictionary" onClick={handleOnClick} />
+   						</StyledPopupMenuItem>
+   					</StyledPopupMenuWrapper>
+   				)}
+   			/>
+   		</div>
+   	);
+   };
+
+   // AFTER
+   export const SpellCheckPluginEditor: FC = () => {
+   	const [dictionary, setDictionary] = useState<string[]>([]);
+
+   	const handleSpellCheck = (dictionary: string[]): TextMatcher[] => {
+   		// Your logic
+   	};
+
+   	const { SpellCheckPopup, SpellCheckPlugin } = createSpellCheckPlugin({
+   		spellCheck: handleSpellCheck(dictionary)
+   	});
+
+   	return (
+   		<div className="-u-width-full">
+   			<RichTextEditor
+   				initialConfig={{
+   					namespace: "Spell Check Plugin Editor"
+   				}}
+   				id="spell-check-plugin-editor"
+   				placeholder="Enter developr"
+   			>
+   				<SpellCheckPlugin>
+   					<SpellCheckPopup
+   						render={(text) => (
+   							<Button
+   								primary
+   								className="h_blueBG"
+   								label="Add to dictionary"
+   								onClick={(): void => setDictionary([...dictionary, text])}
+   							/>
+   						)}
+   					/>
+   				</SpellCheckPlugin>
+   			</RichTextEditor>
+   		</div>
+   	);
+   };
+   ```
+
+#### Tooltip Plugin
+
+1. **Update import**
+
+```tsx
+// BEFORE
+import { EditorState } from "draft-js";
+import { createTooltipPlugin, Editor } from "@com.mgmtp.a12.widgets/widgets-core/lib/editor";
+
+// AFTER
+import {
+	createTooltipPlugin,
+	RichTextEditor
+} from "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/index.js";
+```
+
+2. **Update configuration**
+
+```tsx
+// BEFORE
+const tooltipPlugin = createTooltipPlugin({
+	customTerms: [
+		{
+			regex: /\bexample\b/g,
+			render: () => (
+				<ExternalLink target="_blank" href="https://www.example.com/">
+					Go to the example homepage
+				</ExternalLink>
+			)
+		}
+	],
+	triggerMode: "focus"
+});
+
+// AFTER
+const { TooltipPopup, TooltipPlugin } = createTooltipPlugin({
+	customTerms: [
+		{
+			regex: /\bexample\b/g,
+			render: () => (
+				<ExternalLink target="_blank" href="https://www.example.com/">
+					Go to the example homepage
+				</ExternalLink>
+			)
+		}
+	],
+	triggerMode: "focus"
+});
+```
+
+3. **Update component usage**
+
+```tsx
+// BEFORE
+const TooltipPluginEditor = () => {
+	const [editorState, setEditorState] = useState(EditorState.createEmpty());
+
+	const { Tooltip } = tooltipPlugin;
+
+	return (
+		<div>
+			<Editor
+				editorState={editorState}
+				onChange={setEditorState}
+				plugins={[tooltipPlugin]}
+				placeholder="Enter 'mgm-tp'."
+			/>
+			<Tooltip />
+		</div>
+	);
+};
+
+// AFTER
+const TooltipPluginEditor = () => {
+	return (
+		<RichTextEditor
+			initialConfig={{
+				namespace: "Tooltip Plugin Editor"
+			}}
+			id="tooltip-plugin-editor"
+			placeholder="Enter 'mgm-tp'."
+		>
+			<TooltipPlugin>
+				<TooltipPopup />
+			</TooltipPlugin>
+		</RichTextEditor>
+	);
+};
+```
+
+### Plugin Creation
+
+1. **Installation**
+
+- If you want to create a custom plugin that modifies the editor's behavior (e.g., adding a custom node or handling specific commands), `useLexicalComposerContext` is essential for accessing the editor instance and performing these operations. To use this hook, you need to install `@lexical/react` package:
+  ```shell
+  npm i @lexical/react
+  ```
+
+2. **Usage**
+
+- This is the way to use `RichTextEditor` to build your own custom editor:
+
+  ```tsx
+  // BEFORE
+  import { EditorState, Modifier, SelectionState } from "draft-js";
+
+  import type { EditorPlugin, PluginFunctions } from "@com.mgmtp.a12.widgets/widgets-draft-js-editor";
+  import { Editor, EditorUtils, BlockUtils } from "@com.mgmtp.a12.widgets/widgets-draft-js-editor";
+
+  function createCustomPlugin(): EditorPlugin {
+  	// Your logic here
+  }
+
+  const customPlugin = createCustomPlugin();
+
+  export function EditorWithCreatedPlugin(): ReactElement {
+  	const [editorState, setEditorState] = useState(EditorState.createEmpty());
+
+  	return <Editor editorState={editorState} onChange={setEditorState} plugins={[customPlugin]} />;
+  }
+
+  // AFTER
+  import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+  import { $isTextNode } from "lexical";
+  import "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/main/themes/rich-text-editor.css";
+
+  import {
+  	InlineStyleTextNode,
+  	RichTextEditor
+  } from "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/index.js";
+
+  export const CustomPluginEditor = () => {
+  	return (
+  		<RichTextEditor
+  			initialConfig={{
+  				namespace: "Custom Plugin Editor"
+  			}}
+  			id="custom-plugin-editor"
+  		>
+  			<CustomPlugin />
+  		</RichTextEditor>
+  	);
+  };
+  ```

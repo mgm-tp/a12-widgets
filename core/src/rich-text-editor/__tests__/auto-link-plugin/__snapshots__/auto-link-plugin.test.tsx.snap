@@ -1,0 +1,2143 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Emails 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph ltr"
+    dir="ltr"
+  >
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:test."foo".bar@gmail.co.uk"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        test."foo".bar@gmail.co.uk
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      !
+"
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:test@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        test@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      "
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:name@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        name@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+&gt;&gt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:name@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        name@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       % markdown blockquote
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:name@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        mailto:name@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="MAILTO:NAME@EXAMPLE.COM"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        MAILTO:NAME@EXAMPLE.COM
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:foo_bar@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        mailto:foo_bar@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:foo+bar@gmail.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        foo+bar@gmail.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:192.168.1.1@gmail.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        192.168.1.1@gmail.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:foo@bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        mailto:foo@bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+            % explicit protocol make it valid
+(foobar 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:email@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        email@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      )
+(
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:email@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        email@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       foobar)
+(
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:email@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        email@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      )
+    </span>
+  </p>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Fuzzy links 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph ltr"
+    dir="ltr"
+  >
+    <span
+      data-lexical-text="true"
+    >
+      test.example@
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://vk.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://vk.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+text:
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://google.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        google.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://google.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        google.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      : // no port
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://s.l.o.w.io"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        s.l.o.w.io
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://a-b.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        a-b.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://GOOGLE.COM"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        GOOGLE.COM
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      .
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://google.xxx"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        google.xxx
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       // known tld
+    </span>
+  </p>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle International links 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph"
+  >
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://✪df.ws/123"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://✪df.ws/123
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://xn--df-oiy.ws/123"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://xn--df-oiy.ws/123
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://a.ws"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        a.ws
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://➡.ws/䨹"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        ➡.ws/䨹
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/䨹"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        example.com/䨹
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://президент.рф"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        президент.рф
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://www.bürgerentscheid-krankenhäuser.de"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://www.bürgerentscheid-krankenhäuser.de
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://www.xn--brgerentscheid-krankenhuser-xkc78d.de"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://www.xn--brgerentscheid-krankenhuser-xkc78d.de
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://ﻡﻮﻘﻋ.ﻭﺯﺍﺭﺓ-ﺍﻼﺘﺻﺍﻼﺗ.ﻢﺻﺭ/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://ﻡﻮﻘﻋ.ﻭﺯﺍﺭﺓ-ﺍﻼﺘﺻﺍﻼﺗ.ﻢﺻﺭ/
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/
+      </span>
+    </a>
+  </p>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Links surrounded by special characters 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph ltr"
+    dir="ltr"
+  >
+    <span
+      data-lexical-text="true"
+    >
+      (Scoped 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      )
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar_(wiki)"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar_(wiki)
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://foo.com/blah_blah_[other]"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://foo.com/blah_blah_[other]
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://foo.com/blah_blah_{I'm_king}"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://foo.com/blah_blah_{I'm_king}
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://foo.com/blah_blah_I'm_king"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://foo.com/blah_blah_I'm_king
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://www.kmart.com/bestway-10'-x-30inch-steel-pro-frame-pool/p-004W007538417001P"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://www.kmart.com/bestway-10'-x-30inch-steel-pro-frame-pool/p-004W007538417001P
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://foo.com/blah_blah_"doublequoted""
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://foo.com/blah_blah_"doublequoted"
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://foo.com/blah_blah_'singlequoted'"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://foo.com/blah_blah_'singlequoted'
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+(Scoped like 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      )
+[Scoped like 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      ]
+{Scoped like 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      }
+"Quoted like 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      "
+'Quoted like 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      '
+[
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar.jpg"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        example.com/foo_bar.jpg
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      )]
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar.jpg"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar.jpg
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      .
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar/
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      .
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      ,
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://index-of.es/Android/Professional.Android.2.Application.Development.(Wrox,.2010,.0470565527).pdf"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://index-of.es/Android/Professional.Android.2.Application.Development.(Wrox,.2010,.0470565527).pdf
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://github.com/markdown-it/linkify-it/compare/360b13a733f521a8d4903d3a5e1e46c357e9d3ce...f580766349525150a80a32987bb47c2d592efc33"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://github.com/markdown-it/linkify-it/compare/360b13a733f521a8d4903d3a5e1e46c357e9d3ce...f580766349525150a80a32987bb47c2d592efc33
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://www.google.com/search?sxsrf=ACYBGNTJFmX-GjNJ8fM-2LCkqyNyxGU1Ng%3A1575534146332&ei=Qr7oXf7rE4rRrgSEgrmoAw&q=clover&oq=clover&gs_l=psy-ab.3..0i67j0l9.2986.3947..4187...0.2..0.281.1366.1j0j5......0....1..gws-wiz.......0i71j35i39j0i131.qWp1nz4IJVA&ved=0ahUKEwj-lP6Iip7mAhWKqIsKHQRBDjUQ4dUDCAs&uact=5"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://www.google.com/search?sxsrf=ACYBGNTJFmX-GjNJ8fM-2LCkqyNyxGU1Ng%3A1575534146332&ei=Qr7oXf7rE4rRrgSEgrmoAw&q=clover&oq=clover&gs_l=psy-ab.3..0i67j0l9.2986.3947..4187...0.2..0.281.1366.1j0j5......0....1..gws-wiz.......0i71j35i39j0i131.qWp1nz4IJVA&ved=0ahUKEwj-lP6Iip7mAhWKqIsKHQRBDjUQ4dUDCAs&uact=5
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://ourworldindata.org/grapher/covid-deaths-days-since-per-million?zoomToSelection=true&time=9..&country=FRA+DEU+ITA+ESP+GBR+USA+CAN"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://ourworldindata.org/grapher/covid-deaths-days-since-per-million?zoomToSelection=true&time=9..&country=FRA+DEU+ITA+ESP+GBR+USA+CAN
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      ...
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://172.26.142.48/viewerjs/#../0529/slides.pdf"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://172.26.142.48/viewerjs/#../0529/slides.pdf
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      ..
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar?p=10"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar?p=10
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      .
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://www.google.ru/maps/@59.9393895,30.3165389,15z?hl=ru"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://www.google.ru/maps/@59.9393895,30.3165389,15z?hl=ru
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://www.google.com/maps/place/New+York,+NY,+USA/@40.702271,-73.9968471,11z/data=!4m2!3m1!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62?hl=en"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://www.google.com/maps/place/New+York,+NY,+USA/@40.702271,-73.9968471,11z/data=!4m2!3m1!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62?hl=en
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://www.google.com/analytics/web/?hl=ru&pli=1#report/visitors-overview/a26895874w20458057p96934174/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://www.google.com/analytics/web/?hl=ru&pli=1#report/visitors-overview/a26895874w20458057p96934174/
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://business.timesonline.co.uk/article/0,,9065-2473189,00.html"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://business.timesonline.co.uk/article/0,,9065-2473189,00.html
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://google.com/mail/u/0/#label/!!!Today/15c9b8193da01e65"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://google.com/mail/u/0/#label/!!!Today/15c9b8193da01e65
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/123"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/123
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      !
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/123"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/123
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      !!!
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo--bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo--bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+See 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/123"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/123
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      ; Example link.
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/123;123"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/123;123
+      </span>
+    </a>
+  </p>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Links with trailing dashes 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph"
+  >
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://www.bloomberg.com/news/articles/2015-06-26/from-deutsche-bank-to-siemens-what-s-troubling-germany-inc-"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://www.bloomberg.com/news/articles/2015-06-26/from-deutsche-bank-to-siemens-what-s-troubling-germany-inc-
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo-with-trailing-dash-dot-"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo-with-trailing-dash-dot-
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      .
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://domain.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://domain.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://domain.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://domain.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;.
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://domain.com/foo"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://domain.com/foo
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://domain.com/foo"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://domain.com/foo
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;.
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://domain.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        domain.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://domain.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        domain.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;.
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://domain.com/foo"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        domain.com/foo
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:user@domain.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        user@domain.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:user@domain.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        user@domain.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;.
+&lt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:user@domain.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        mailto:user@domain.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      &gt;
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://5b0ee223b312746c1659db3f--thelounge-chat.netlify.com/docs/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://5b0ee223b312746c1659db3f--thelounge-chat.netlify.com/docs/
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://www.a--b.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        www.a--b.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://www.c--u.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        www.c--u.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://a---b.com/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://a---b.com/
+      </span>
+    </a>
+  </p>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Not links 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph ltr"
+    dir="ltr"
+  >
+    <span
+      data-lexical-text="true"
+    >
+      example.invalid
+example.invalid/
+http://.example.com
+http://-example.com
+hppt://example.com
+example.coma
+-example.coma
+foo.123
+localhost           % only with protocol allowed
+localhost/
+///localhost        % 3 '/' not allowed
+///test.com
+//test              % Don't allow single level protocol-less domains to avoid false positives
+_http://example.com
+_//example.com
+_example.com
+http://example.com_
+@example.com
+node.js and io.js
+http://
+http://.
+http://..
+http://#
+http://##
+http://?
+http://??
+google.com:500000 // invalid port
+show image.jpg
+path:to:file.pm
+/path/to/file.pl
+foo@bar     % Should be at second level domain & with correct tld
+mailto:bar
+    </span>
+  </p>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Protocol links 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph ltr"
+    dir="ltr"
+  >
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="//localhost"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        //localhost
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="//test.123"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        //test.123
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://localhost:8000"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://localhost:8000
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      ?
+% Other protocols
+My ssl 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       site
+My 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="about:blank"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        ftp://example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       site
+% Neutral proto
+My ssl 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="//example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        //example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       site
+    </span>
+  </p>,
+]
+`;
+
+exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Regular links 1`] = `
+HTMLCollection [
+  <p
+    class="editor-paragraph ltr"
+    dir="ltr"
+  >
+    <span
+      data-lexical-text="true"
+    >
+      My 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       site
+My 
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       site
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/foo_bar/"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/foo_bar/
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://user:pass@example.com:8080"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://user:pass@example.com:8080
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://user@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://user@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://user@example.com:8080"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://user@example.com:8080
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://user:pass@example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://user:pass@example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+[https](
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="https://www.ibm.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        https://www.ibm.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      )[mailto](
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="mailto:someone@ibm.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        mailto:someone@ibm.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      ) % should not catch as auth (before @ in big link)
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com:8080"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com:8080
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/?foo=bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/?foo=bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com?foo=bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com?foo=bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com/#foo=bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com/#foo=bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com#foo=bar"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com#foo=bar
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://a.in"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://a.in
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="HTTP://GOOGLE.COM"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        HTTP://GOOGLE.COM
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+      
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.invalid"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.invalid
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       % don't restrict root domain when schema exists
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://inrgess2"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://inrgess2
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       % Allow local domains to end with digit
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://999"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://999
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+            % ..and start with digit, and have digits only
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://host-name"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://host-name
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       % local domain with dash
+&gt;&gt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       % markdown blockquote
+&gt;&gt;
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://example.com"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://example.com
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       % markdown blockquote
+
+    </span>
+    <a
+      class="editor-link ltr"
+      dir="ltr"
+      href="http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html"
+      target="_blank"
+    >
+      <span
+        data-lexical-text="true"
+      >
+        http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html
+      </span>
+    </a>
+    <span
+      data-lexical-text="true"
+    >
+       % With control character
+    </span>
+  </p>,
+]
+`;

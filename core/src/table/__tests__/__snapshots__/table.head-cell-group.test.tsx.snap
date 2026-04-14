@@ -1,0 +1,234 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.head-cell-group > column group 1`] = `
+.c0 {
+  display: flex;
+  flex-grow: 1;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c2 p:first-child {
+  margin-top: 0px;
+}
+
+.c2 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c7 {
+  display: flex;
+}
+
+.c7::before {
+  border-top: 1px solid rgb(255, 255, 255);
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.c7 > [data-role="table-header-cell"]:last-child:focus::before {
+  right: 2px;
+}
+
+.c1 {
+  flex-direction: column;
+  position: relative;
+}
+
+.c1 [data-role*="group-parent"],
+.c1 .c6 {
+  max-width: fit-content;
+  min-width: 100%;
+  position: relative;
+}
+
+.c1 [data-role*="group-parent"] {
+  flex-basis: auto;
+  flex-grow: 1;
+  width: auto;
+}
+
+.c1::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  display: block;
+  left: unset;
+  border-right: 2px solid rgb(255, 255, 255);
+}
+
+.c1:focus::after {
+  border-color: transparent;
+}
+
+.c5 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+  justify-content: center;
+  text-align: center;
+}
+
+.c8 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c3 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c4 .c3.c3 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__header-group"
+  data-role="table-header-cell-group"
+  style="flex-grow: 20; flex-shrink: 2;"
+>
+  <div
+    class="c2 c3 table__headerCell table__headerCell--align-center table__header-group-parent"
+    data-role="table-header-cell-group-parent"
+    role="columnheader"
+  >
+    <div
+      class="c4 c5 table__contentHeaderCell"
+      data-role="table-header-cell-content"
+    >
+      group test
+    </div>
+  </div>
+  <div
+    class="c6 c7 table__header-group-children"
+    data-role="table-header-cell-group-children"
+  >
+    <div
+      class="c2 c3 table__headerCell table__headerCell--10 table__header-group--unspanned"
+      data-role="table-header-cell"
+      role="columnheader"
+    >
+      <div
+        class="c4 c8 table__contentHeaderCell"
+        data-role="table-header-cell-content"
+      >
+        sub1 test
+      </div>
+    </div>
+    <div
+      class="c2 c3 table__headerCell table__headerCell--10 table__header-group--unspanned"
+      data-role="table-header-cell"
+      role="columnheader"
+    >
+      <div
+        class="c4 c8 table__contentHeaderCell"
+        data-role="table-header-cell-content"
+      >
+        sub2 test
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head-cell-group > single column 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 15 1.5 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 225px;
+  padding: 8px;
+  text-align: left;
+  width: 225px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 p:first-child {
+  margin-top: 0px;
+}
+
+.c0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  line-height: normal;
+  min-height: 22px;
+}
+
+.c1 {
+  align-items: center;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-height: 26px;
+  position: relative;
+  padding: 2px 8px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 .c1.c1 {
+  overflow: hidden;
+}
+
+<div
+  class="c0 c1 table__headerCell table__headerCell--15"
+  data-role="table-header-cell"
+  data-width="1.5"
+  role="columnheader"
+>
+  <div
+    class="c2 c3 table__contentHeaderCell"
+    data-role="table-header-cell-content"
+  />
+</div>
+`;

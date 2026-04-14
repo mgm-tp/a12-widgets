@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.file-upload > render accepted file-upload 1`] = `<div />`;
+
+exports[`com.mgmtp.a12.widgets.file-upload > render basic file-upload 1`] = `
+.c0 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c0:empty {
+  display: none;
+}
+
+<div>
+  <label
+    class="c0 label field__label"
+    data-role="file-upload-label"
+    id="test-id-label"
+  >
+    test-label
+  </label>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.file-upload > render disabled file-upload 1`] = `<div />`;
+
+exports[`com.mgmtp.a12.widgets.file-upload > render file-upload with action-item 1`] = `<div />`;
+
+exports[`com.mgmtp.a12.widgets.file-upload > render file-upload with helper-text 1`] = `<div />`;
+
+exports[`com.mgmtp.a12.widgets.file-upload > render file-upload with upload area size 1`] = `
+<div
+  style="width: 50px;"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.file-upload > render file-upload with upload icon on drag 1`] = `<div />`;
+
+exports[`com.mgmtp.a12.widgets.file-upload > render multiple file-upload 1`] = `<div />`;
+
+exports[`com.mgmtp.a12.widgets.file-upload > render readOnly file-upload 1`] = `<div />`;

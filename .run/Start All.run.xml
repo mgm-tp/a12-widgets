@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Start All" type="CompoundRunConfigurationType">
+    <toRun name="core" type="js.build_tools.npm" />
+    <toRun name="new-showcase" type="js.build_tools.npm" />
+    <toRun name="utils" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>

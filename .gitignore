@@ -1,0 +1,45 @@
+# Node
+node_modules
+.npm
+*.log
+npm-debug.log*
+
+# IDE (including symlinks)
+.vscode
+.idea
+.classpath
+.settings
+.metadata
+.gradle
+.swc
+.project
+*.iml
+*.launch
+
+# Other
+.DS_Store
+.envrc
+
+# Legal files copied into packages by copyLegalFiles task
+*/LICENSE
+*/NOTICE
+*/THIRD_PARTY_NOTICES
+*/licenses
+
+# Build artifact
+lib
+build
+dist
+target
+public-showcase
+json-api/core
+com.mgmtp.a12-*.tgz
+cyclonedx.json
+sbom.json
+core/pnpm-lock.yaml
+
+# Test artifact
+**/test-results/
+**/playwright-report/
+**/playwright/.cache/
+__screenshots__

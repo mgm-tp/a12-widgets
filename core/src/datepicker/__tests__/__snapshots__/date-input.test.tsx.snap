@@ -1,0 +1,4083 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date input 1`] = `
+.c16 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c13 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c13 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c32 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c32:empty {
+  display: none;
+}
+
+.c32 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c59 .c11 {
+  font-size: 1.25rem;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  min-height: 0px;
+  padding: 0px;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  height: 100%;
+  width: 100%;
+}
+
+.c10 .c11 {
+  user-select: none;
+}
+
+.c10 .c11 {
+  color: inherit;
+}
+
+.c10 .c11 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c11 {
+  display: block;
+}
+
+.c54 .c11 {
+  user-select: none;
+}
+
+.c54 .c11 {
+  color: inherit;
+}
+
+.c54 .c11 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c54.c54 > .c11 {
+  display: block;
+}
+
+.c55 .c11 {
+  user-select: none;
+}
+
+.c55 .c11 {
+  color: inherit;
+}
+
+.c55 .c11 {
+  font-size: inherit;
+}
+
+.c55.c55 .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c55.c55 > .c11 {
+  display: block;
+}
+
+.c56 .c11 {
+  user-select: none;
+}
+
+.c56 .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c56.c56 > .c11 {
+  display: block;
+}
+
+.c57 .c11 {
+  user-select: none;
+}
+
+.c57 .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c57.c57 > .c11 {
+  display: block;
+}
+
+.c22 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c22 .c11 {
+  user-select: none;
+}
+
+.c22 .c11 {
+  color: inherit;
+}
+
+.c22 .c11 {
+  font-size: inherit;
+}
+
+.c22:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c11 {
+  display: block;
+}
+
+.c8 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-right: -12px;
+  position: relative;
+}
+
+.c8:first-child {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c6 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c6 .c9 {
+  border-radius: 0px;
+}
+
+.c50 .c9 {
+  border-radius: 0px;
+}
+
+.c51 .c9 {
+  border-radius: 0px;
+}
+
+.c52 .c9 {
+  border-radius: 0px;
+}
+
+.c53 .c9 {
+  border-radius: 0px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c49 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c49[class*="h_"] .c5 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c49[class*="h_"] .c31 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c4 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c4 .c31 {
+  display: block;
+  width: fit-content;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c3 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c17 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c18 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  max-width: 756px;
+  width: 756px;
+}
+
+.c18 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c38 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c38.c38.c38 {
+  outline: transparent solid 1px;
+}
+
+.c38::selection {
+  background-color: transparent;
+}
+
+.c38::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c34 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c34:focus {
+  outline: none;
+}
+
+.c36 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c36:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c36 .c7 > .c11 {
+  color: inherit;
+  cursor: default;
+}
+
+.c42::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c40 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c40:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c27 .c31 {
+  display: block;
+  margin: 0px 0px 4px;
+}
+
+.c30 {
+  align-items: center;
+  display: flex;
+}
+
+.c23.c23 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c23.c23:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c44 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  justify-content: center;
+  line-height: normal;
+  margin: 0px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  height: 40px;
+  width: 40px;
+}
+
+.c44:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  border: 2px solid rgb(213, 0, 117);
+  background-color: rgb(255, 255, 255);
+}
+
+.c45 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  justify-content: center;
+  line-height: normal;
+  margin: 0px;
+  color: rgb(77, 77, 77);
+  background-color: rgb(226, 230, 233);
+  border-radius: 50%;
+  font-weight: 700;
+  height: 40px;
+  width: 40px;
+}
+
+.c45:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c46 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  height: auto;
+  min-height: 48px;
+  padding: 0px 16px;
+}
+
+.c48 {
+  flex: 1 1 0%;
+  text-align: center;
+}
+
+.c48:first-child {
+  text-align: left;
+}
+
+.c48:last-child {
+  text-align: right;
+}
+
+.c24 {
+  outline: transparent solid 1px;
+  -webkit-tap-highlight-color: transparent;
+  justify-content: center;
+  user-select: none;
+  margin: 0px auto;
+}
+
+.c24 .c29 {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.c24 * {
+  outline: none;
+}
+
+.c24 .DayPicker-Months {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c24 .DayPicker-Table {
+  padding: 0px 14px 24px;
+  border-spacing: 4px 0px;
+}
+
+.c24 .DayPicker-Body {
+  color: rgb(77, 77, 77);
+}
+
+.c24 .DayPicker-Month {
+  background-color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.c24 .DayPicker-Week .DayPicker-Day-Cell {
+  padding: 4px 0px 0px;
+}
+
+.c24 .DayPicker-Week .DayPicker-Day-Cell:first-child {
+  padding-left: 0px;
+}
+
+.c24 .DayPicker-Week .DayPicker-Day-Cell:last-child {
+  padding-right: 0px;
+}
+
+.c24 .DayPicker-Weekday {
+  color: rgb(77, 77, 77);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: normal;
+  padding: 24.5px 0px calc(12.5px);
+  text-align: center;
+  width: 32px;
+  text-decoration: underline dotted;
+  text-transform: lowercase;
+}
+
+.c24 .DayPicker-Weekday::first-letter {
+  text-transform: uppercase;
+}
+
+.c26 {
+  height: 32px;
+  width: 32px;
+}
+
+.c25 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.c58 .c37 {
+  background-color: rgb(89, 102, 115);
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  height: 32px;
+  padding: 0px 32px 0px 8px;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.c58 .c37:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c58 .c33 {
+  height: auto;
+}
+
+.c58 .c41::after {
+  content: "";
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+  width: 32px;
+}
+
+.c58 .c35 {
+  background-color: transparent;
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c58 .c35::before {
+  display: none;
+}
+
+.c58 .c35:focus-within {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c58 .c39 {
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c28 {
+  align-items: center;
+  display: flex;
+  font-weight: 700;
+  justify-content: space-around;
+  height: 48px;
+}
+
+.c28 .c37 {
+  height: 32px;
+  padding: 0px 32px 0px 8px;
+  background-color: rgb(255, 255, 255);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  color: rgb(77, 77, 77);
+  font-size: 1rem;
+}
+
+.c28 .c37:focus {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+}
+
+.c28 .c33 {
+  height: auto;
+}
+
+.c28 .c41::after {
+  content: "";
+  font-size: 1.25rem;
+  width: 32px;
+}
+
+.c28 .c35 {
+  background-color: transparent;
+  outline-offset: unset;
+}
+
+.c28 .c35:focus-within {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c28 .c39 {
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c43 {
+  height: 40px;
+  width: 40px;
+}
+
+.c19 {
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+}
+
+.c20 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  display: flex;
+  height: 48px;
+  justify-content: space-between;
+  padding: 0px 16px;
+}
+
+.c20 .c9 {
+  height: auto;
+}
+
+.c21 {
+  color: rgb(255, 255, 255);
+  flex: 1 1 0px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.c47 {
+  border-top-width: medium;
+  border-top-style: none;
+  border-top-color: currentcolor;
+  display: flex;
+  justify-content: center;
+}
+
+.c47:focus {
+  outline: none;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c22:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c22:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c22:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c18 {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c36:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c36:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c40:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c40:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c23.c23:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c23.c23:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c44:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c44:hover {
+    border: 2px solid rgb(213, 0, 117);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c45:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c45:hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c58 .c37:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c58 .c37:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c58 .c39:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c58 .c39:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c28 .c39:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c28 .c39:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<div>
+  <div
+    class="c0 field-wrapper field-wrapper--block "
+    data-role="textline"
+  >
+    <div
+      class="c1 c2 field__main"
+    >
+      <div
+        class="c3 c4 field"
+        data-role="textline-control"
+      >
+        <div
+          class="c5 c6 field__input"
+          data-role="textline-input-wrapper"
+        >
+          <div
+            class="c7 c8 field__prefix field__prefix--last"
+            data-role="textline-prefix-0"
+          >
+            <button
+              aria-label="Select a date"
+              aria-labelledby="test-date-input-trigger-button-title"
+              class="c9 c10 button button--icon button--block"
+              data-role="button"
+              data-type="icon"
+              id="test-date-input-trigger-button"
+              title="Select a date"
+              type="button"
+            >
+              <i
+                class="c11 c12 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  event
+                </span>
+              </i>
+              <span
+                class="c13 -u-unseenButRead"
+                data-role="hidden-text"
+                id="test-date-input-trigger-button-title"
+              >
+                , Select a date
+              </span>
+            </button>
+          </div>
+          <span
+            class="c14 supported-unseen-span"
+          />
+          <input
+            class="c15 field__text"
+            data-role="textline-input"
+            id="test-date-input-input"
+            type="text"
+            value=""
+          />
+          <span
+            class="c14 supported-unseen-span"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c16"
+    data-role="portal-placeholder"
+  >
+    <div
+      class="portal base"
+      data-role="portal"
+    >
+      <div>
+        <div
+          class="c17 modalOverlay--noGutter modalOverlay"
+          data-role="modal-overlay"
+        >
+          <div
+            aria-modal="true"
+            class="c18 modalOverlay__container"
+            data-role="modal-overlay-content"
+            role="dialog"
+            style="outline: transparent solid 1px;"
+            tabindex="-1"
+          >
+            <div
+              class="c19 DayPicker__container"
+              data-role="date-picker-dialog"
+              id="test-date-input"
+              tabindex="-1"
+            >
+              <div
+                class="c20 DayPicker__header"
+                data-role="date-picker-dialog-header"
+              >
+                <div
+                  class="c21 DayPicker__title"
+                  data-role="date-picker-dialog-title"
+                  id="test-date-input-header-title"
+                />
+                <button
+                  aria-label="Close"
+                  class="c9 c22 button button--icon c23"
+                  data-role="button"
+                  data-type="icon"
+                  title=""
+                  type="button"
+                >
+                  <i
+                    class="c11 c12 plasma-icon"
+                    data-role="plasma-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      close
+                    </span>
+                  </i>
+                </button>
+              </div>
+              <div
+                class="DayPicker c24 DayPicker--mobile"
+                data-mode="single"
+                data-required="false"
+                data-role="date-picker"
+              >
+                <div
+                  class="DayPicker-Months"
+                >
+                  <div
+                    class="DayPicker-Month"
+                  >
+                    <div
+                      class="c25"
+                      data-role="date-picker-nav-bar"
+                    >
+                      <button
+                        aria-label="Previous Month"
+                        class="c9 c22 button button--icon c26 DayPicker-NavButton DayPicker-NavButton--prev"
+                        data-role="date-picker-nav-bar-prev"
+                        data-type="icon"
+                        title="Previous Month"
+                        type="button"
+                      >
+                        <i
+                          class="c11 c12 plasma-icon plasma-icon--big"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            navigate_before
+                          </span>
+                        </i>
+                      </button>
+                      <div
+                        class="c27 year-month-selector c28 DayPicker-Caption"
+                        data-role="year-month-selector"
+                      >
+                        <div
+                          class="c29 c30 year-month-selector__inner"
+                          data-role="year-month-selector-control"
+                        >
+                          <div
+                            class="c3 c4 field field--block month-selector"
+                            data-role="month-selector"
+                          >
+                            <label
+                              class="c31 c32 label field__label -u-unseenButRead"
+                              data-role="month-selector-label"
+                            >
+                              Month
+                            </label>
+                            <div
+                              class="c33 c34 field__select"
+                              data-role="month-selector-control"
+                            >
+                              <div
+                                class="c35 c36 field__select-wrapper"
+                                data-role="month-selector-wrapper"
+                              >
+                                <select
+                                  class="c37 c38 field__selectTitle"
+                                  data-role="month-selector-input"
+                                >
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="0"
+                                  >
+                                    January
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="1"
+                                  >
+                                    February
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="2"
+                                  >
+                                    March
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="3"
+                                  >
+                                    April
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="4"
+                                  >
+                                    May
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="5"
+                                  >
+                                    June
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="6"
+                                  >
+                                    July
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="7"
+                                  >
+                                    August
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="8"
+                                  >
+                                    September
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="9"
+                                  >
+                                    October
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="10"
+                                  >
+                                    November
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="month-selector-option"
+                                    value="11"
+                                  >
+                                    December
+                                  </option>
+                                </select>
+                                <span
+                                  aria-hidden="true"
+                                  class="c41 c42 field__select-arrow"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="c3 c4 field field--block year-selector"
+                            data-role="year-selector"
+                          >
+                            <label
+                              class="c31 c32 label field__label -u-unseenButRead"
+                              data-role="year-selector-label"
+                            >
+                              Year
+                            </label>
+                            <div
+                              class="c33 c34 field__select"
+                              data-role="year-selector-control"
+                            >
+                              <div
+                                class="c35 c36 field__select-wrapper"
+                                data-role="year-selector-wrapper"
+                              >
+                                <select
+                                  class="c37 c38 field__selectTitle"
+                                  data-role="year-selector-input"
+                                >
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2016"
+                                  >
+                                    2016
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2017"
+                                  >
+                                    2017
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2018"
+                                  >
+                                    2018
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2019"
+                                  >
+                                    2019
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2020"
+                                  >
+                                    2020
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2021"
+                                  >
+                                    2021
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2022"
+                                  >
+                                    2022
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2023"
+                                  >
+                                    2023
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2024"
+                                  >
+                                    2024
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2025"
+                                  >
+                                    2025
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2026"
+                                  >
+                                    2026
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2027"
+                                  >
+                                    2027
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2028"
+                                  >
+                                    2028
+                                  </option>
+                                  <option
+                                    class="c39 c40 field__selectOption"
+                                    data-role="year-selector-option"
+                                    value="2029"
+                                  >
+                                    2029
+                                  </option>
+                                </select>
+                                <span
+                                  aria-hidden="true"
+                                  class="c41 c42 field__select-arrow"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        aria-label="Next Month"
+                        class="c9 c22 button button--icon c26 DayPicker-NavButton DayPicker-NavButton--next"
+                        data-role="date-picker-nav-bar-next"
+                        data-type="icon"
+                        title="Next Month"
+                        type="button"
+                      >
+                        <i
+                          class="c11 c12 plasma-icon plasma-icon--big"
+                          data-role="plasma-icon"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            navigate_next
+                          </span>
+                        </i>
+                      </button>
+                    </div>
+                    <table
+                      aria-label="March 2022"
+                      aria-multiselectable="false"
+                      class="DayPicker-Table"
+                      data-role="date-picker-month-grid"
+                      role="grid"
+                    >
+                      <thead
+                        aria-hidden="true"
+                      >
+                        <tr
+                          class="DayPicker-Weekdays"
+                        >
+                          <th
+                            aria-label="Sunday"
+                            class="DayPicker-Weekday"
+                            data-role="date-picker-week-day"
+                            scope="col"
+                          >
+                            Su
+                          </th>
+                          <th
+                            aria-label="Monday"
+                            class="DayPicker-Weekday"
+                            data-role="date-picker-week-day"
+                            scope="col"
+                          >
+                            Mo
+                          </th>
+                          <th
+                            aria-label="Tuesday"
+                            class="DayPicker-Weekday"
+                            data-role="date-picker-week-day"
+                            scope="col"
+                          >
+                            Tu
+                          </th>
+                          <th
+                            aria-label="Wednesday"
+                            class="DayPicker-Weekday"
+                            data-role="date-picker-week-day"
+                            scope="col"
+                          >
+                            We
+                          </th>
+                          <th
+                            aria-label="Thursday"
+                            class="DayPicker-Weekday"
+                            data-role="date-picker-week-day"
+                            scope="col"
+                          >
+                            Th
+                          </th>
+                          <th
+                            aria-label="Friday"
+                            class="DayPicker-Weekday"
+                            data-role="date-picker-week-day"
+                            scope="col"
+                          >
+                            Fr
+                          </th>
+                          <th
+                            aria-label="Saturday"
+                            class="DayPicker-Weekday"
+                            data-role="date-picker-week-day"
+                            scope="col"
+                          >
+                            Sa
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="DayPicker-Body"
+                      >
+                        <tr
+                          class="DayPicker-Week"
+                          data-role="date-picker-week"
+                        >
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-02-27"
+                            data-month="2022-02"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-02-28"
+                            data-month="2022-02"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-01"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Tuesday, March 1st, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              1
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-02"
+                            data-today="true"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Today, Wednesday, March 2nd, 2022"
+                              class="c45 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="0"
+                              type="button"
+                            >
+                              2
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-03"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Thursday, March 3rd, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              3
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-04"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Friday, March 4th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              4
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-05"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Saturday, March 5th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              5
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="DayPicker-Week"
+                          data-role="date-picker-week"
+                        >
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-06"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Sunday, March 6th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              6
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-07"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Monday, March 7th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              7
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-08"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Tuesday, March 8th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              8
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-09"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Wednesday, March 9th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              9
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-10"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Thursday, March 10th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              10
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-11"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Friday, March 11th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              11
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-12"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Saturday, March 12th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              12
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="DayPicker-Week"
+                          data-role="date-picker-week"
+                        >
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-13"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Sunday, March 13th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              13
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-14"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Monday, March 14th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              14
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-15"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Tuesday, March 15th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              15
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-16"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Wednesday, March 16th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              16
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-17"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Thursday, March 17th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              17
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-18"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Friday, March 18th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              18
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-19"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Saturday, March 19th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              19
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="DayPicker-Week"
+                          data-role="date-picker-week"
+                        >
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-20"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Sunday, March 20th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              20
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-21"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Monday, March 21st, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              21
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-22"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Tuesday, March 22nd, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              22
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-23"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Wednesday, March 23rd, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              23
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-24"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Thursday, March 24th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              24
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-25"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Friday, March 25th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              25
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-26"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Saturday, March 26th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              26
+                            </button>
+                          </td>
+                        </tr>
+                        <tr
+                          class="DayPicker-Week"
+                          data-role="date-picker-week"
+                        >
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-27"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Sunday, March 27th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              27
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-28"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Monday, March 28th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              28
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-29"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Tuesday, March 29th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              29
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-30"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Wednesday, March 30th, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              30
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell"
+                            data-day="2022-03-31"
+                            role="presentation"
+                          >
+                            <button
+                              aria-label="Thursday, March 31st, 2022"
+                              class="c44 DayPicker-Day"
+                              data-role="date-picker-day-button"
+                              role="gridcell"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              31
+                            </button>
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-01"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-02"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                        </tr>
+                        <tr
+                          class="DayPicker-Week"
+                          data-role="date-picker-week"
+                        >
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-03"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-04"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-05"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-06"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-07"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-08"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                          <td
+                            class="DayPicker-Day-Cell DayPicker-Day--outside"
+                            data-day="2022-04-09"
+                            data-month="2022-04"
+                            data-outside="true"
+                            role="presentation"
+                          >
+                            <div
+                              class="c43"
+                              role="gridcell"
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="c46 picker-footer c47 DayPicker-Actions"
+                data-role="picker-footer"
+              >
+                <div
+                  class="c48 picker-footer__action"
+                  data-role="picker-footer-action"
+                />
+                <div
+                  class="c48 picker-footer__action"
+                  data-role="picker-footer-action"
+                />
+                <div
+                  class="c48 picker-footer__action"
+                  data-role="picker-footer-action"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-sandbox-supporter"
+            data-role="tab-sandbox-supporter"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="c16"
+          data-role="portal-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder and label 1`] = `
+.c16 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c16 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  display: none;
+  margin: -1px !important;
+}
+
+.c7 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c15 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c15 > span {
+  display: inline-block;
+}
+
+.c15.c15 {
+  max-width: unset;
+}
+
+.c6 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c6:empty {
+  display: none;
+}
+
+.c13 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  min-height: 0px;
+  padding: 0px;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  height: 100%;
+  width: 100%;
+}
+
+.c13 .c14 {
+  user-select: none;
+}
+
+.c13 .c14 {
+  color: inherit;
+}
+
+.c13 .c14 {
+  font-size: inherit;
+}
+
+.c13:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c14 {
+  display: block;
+}
+
+.c22 .c14 {
+  user-select: none;
+}
+
+.c22 .c14 {
+  color: inherit;
+}
+
+.c22 .c14 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c22.c22 > .c14 {
+  display: block;
+}
+
+.c23 .c14 {
+  user-select: none;
+}
+
+.c23 .c14 {
+  color: inherit;
+}
+
+.c23 .c14 {
+  font-size: inherit;
+}
+
+.c23.c23 .c14 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c23.c23 > .c14 {
+  display: block;
+}
+
+.c11 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-right: -12px;
+  position: relative;
+}
+
+.c11:first-child {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.c18 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c18::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c9 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c9 .c12 {
+  border-radius: 0px;
+}
+
+.c20 .c12 {
+  border-radius: 0px;
+}
+
+.c21 .c12 {
+  border-radius: 0px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c19 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c19[class*="h_"] .c8 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c19[class*="h_"] .c5 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c4 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c4 .c5 {
+  display: block;
+  width: fit-content;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c3 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c17 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c25 .c10 > .c14 {
+  color: inherit;
+  cursor: default;
+}
+
+.c24 .c5 {
+  display: block;
+  margin: 0px 0px 4px;
+}
+
+@media (pointer: coarse) {
+  .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<div
+  class="c0 field-wrapper field-wrapper--block "
+  data-role="textline"
+>
+  <div
+    class="c1 c2 field__main"
+  >
+    <div
+      class="c3 c4 field"
+      data-role="textline-control"
+    >
+      <label
+        class="c5 c6 label field__label"
+        data-role="textline-label"
+        for="test-date-input-input"
+        id="test-date-input-input-label"
+      >
+        test label
+        <span
+          class="c7 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          , test placeholder
+        </span>
+      </label>
+      <div
+        class="c8 c9 field__input"
+        data-role="textline-input-wrapper"
+      >
+        <div
+          class="c10 c11 field__prefix field__prefix--last"
+          data-role="textline-prefix-0"
+        >
+          <button
+            aria-label="Select a date"
+            aria-labelledby="test-date-input-input-label test-date-input-trigger-button-title"
+            class="c12 c13 button button--icon button--block"
+            data-role="button"
+            data-type="icon"
+            id="test-date-input-trigger-button"
+            title="Select a date"
+            type="button"
+          >
+            <i
+              class="c14 c15 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                event
+              </span>
+            </i>
+            <span
+              class="c16 -u-unseenButRead"
+              data-role="hidden-text"
+              id="test-date-input-trigger-button-title"
+            >
+              , Select a date
+            </span>
+          </button>
+        </div>
+        <span
+          class="c17 supported-unseen-span"
+        />
+        <input
+          class="c18 field__text"
+          data-role="textline-input"
+          id="test-date-input-input"
+          placeholder="test placeholder"
+          type="text"
+          value=""
+        />
+        <span
+          class="c17 supported-unseen-span"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextLineStatelessProps 1`] = `
+.c9 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c9 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c8 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.c8 > * {
+  flex-shrink: 0;
+}
+
+.c10 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+.c15 {
+  align-items: center;
+  background-color: rgb(226, 230, 233);
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  color: inherit;
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 1;
+  font-size: 0.75rem;
+  height: 100%;
+  justify-content: center;
+  min-width: 32px;
+  padding: 0px 4px;
+}
+
+.c3 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 4px 0px 0px;
+  justify-content: center;
+}
+
+.c16 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c7 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-right: -12px;
+  position: relative;
+}
+
+.c7:first-child {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.c7 .c14 {
+  margin: 0px 12px 0px 0px;
+}
+
+.c13 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c13:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c13 .c14 {
+  margin: 0px 0px 0px 12px;
+}
+
+.c12 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: right;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c12::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c6 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c11 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<div
+  class="c0 field-wrapper field-wrapper--block required-classname"
+  data-role="textline"
+>
+  <div
+    class="c1 c2 field__main"
+  >
+    <div
+      class="c3 field-addon field-addon--before"
+      data-role="textline--addon-before-0"
+    >
+      addonBefore
+    </div>
+    <div
+      class="c4 c5 field"
+      data-role="textline-control"
+    >
+      <div
+        class="c6 field__input"
+        data-role="textline-input-wrapper"
+      >
+        <div
+          class="c7 field__prefix field__prefix--last"
+          data-role="textline-prefix-0"
+        >
+          <span
+            class="c8 counter"
+            data-role="counter"
+            id="counter"
+          >
+            <span
+              class="c9 -u-unseenButRead"
+              data-role="hidden-text"
+            >
+              9+ Entries
+            </span>
+            <span
+              aria-hidden="true"
+              class="c10 counter__item"
+              role="presentation"
+            >
+              9+
+            </span>
+          </span>
+        </div>
+        <span
+          class="c11 supported-unseen-span"
+        />
+        <input
+          class="c12 field__text field__text--align-right"
+          data-role="textline-input"
+          id="test-date-input-input"
+          type="text"
+          value=""
+        />
+        <span
+          class="c11 supported-unseen-span"
+        />
+        <div
+          class="c13 field__suffix field__suffix--first -u-background-transparent"
+          data-role="textline-suffix-0"
+        >
+          <div
+            class="c14 c15 field__affix-text"
+            data-role="textline-text-affix"
+            id="mmoll"
+            title="mmol/l"
+          >
+            <span>
+              mmol/l
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c16 field-addon field-addon--after"
+      data-role="textline--addon-after-0"
+    >
+      addonAfter
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
+.c11 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c11 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c10 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c10 > span {
+  display: inline-block;
+}
+
+.c10.c10 {
+  max-width: unset;
+}
+
+.c8 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  min-height: 0px;
+  padding: 0px;
+  background: transparent;
+  color: rgb(5, 104, 174);
+  height: 100%;
+  width: 100%;
+}
+
+.c8 .c9 {
+  user-select: none;
+}
+
+.c8 .c9 {
+  color: inherit;
+}
+
+.c8 .c9 {
+  font-size: inherit;
+}
+
+.c8:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c9 {
+  display: block;
+}
+
+.c6 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-right: -12px;
+  position: relative;
+}
+
+.c6:first-child {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.c13 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c13::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c5 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c5 .c7 {
+  border-radius: 0px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c3 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c12 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+@media (pointer: coarse) {
+  .c8:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<div
+  class="c0 field-wrapper field-wrapper--block "
+  data-role="textline"
+>
+  <div
+    class="c1 c2 field__main"
+  >
+    <div
+      class="c3 c4 field"
+      data-role="textline-control"
+    >
+      <div
+        class="c5 field__input"
+        data-role="textline-input-wrapper"
+      >
+        <div
+          class="c6 field__prefix field__prefix--last"
+          data-role="textline-prefix-0"
+        >
+          <button
+            aria-label="Select a date"
+            aria-labelledby="test-date-input-trigger-button-title"
+            class="c7 c8 button button--icon button--block"
+            data-role="button"
+            data-type="icon"
+            id="test-date-input-trigger-button"
+            title="Select a date"
+            type="button"
+          >
+            <i
+              class="c9 c10 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                event
+              </span>
+            </i>
+            <span
+              class="c11 -u-unseenButRead"
+              data-role="hidden-text"
+              id="test-date-input-trigger-button-title"
+            >
+              , Select a date
+            </span>
+          </button>
+        </div>
+        <span
+          class="c12 supported-unseen-span"
+        />
+        <input
+          class="c13 field__text"
+          data-role="textline-input"
+          id="test-date-input-input"
+          type="text"
+          value=""
+        />
+        <span
+          class="c12 supported-unseen-span"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
+.c13 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c13 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c18 .c11 {
+  user-select: none;
+}
+
+.c18 .c11 {
+  color: inherit;
+}
+
+.c18 .c11 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c11 {
+  display: block;
+}
+
+.c19 .c11 {
+  user-select: none;
+}
+
+.c19 .c11 {
+  color: inherit;
+}
+
+.c19 .c11 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c11 {
+  display: block;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  min-height: 0px;
+  padding: 0px;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  height: 100%;
+  width: 100%;
+}
+
+.c10 .c11 {
+  user-select: none;
+}
+
+.c10 .c11 {
+  color: inherit;
+}
+
+.c10 .c11 {
+  font-size: inherit;
+}
+
+.c10.c10 .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c11 {
+  display: block;
+}
+
+.c8 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-right: -12px;
+  position: relative;
+}
+
+.c8:first-child {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c17 .c9 {
+  border-radius: 0px;
+}
+
+.c6 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c6 .c9 {
+  border-radius: 0px;
+}
+
+.c16 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c0[class*="h_"] .c5 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c4 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c3 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c20 .c7 > .c11 {
+  color: inherit;
+  cursor: default;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<div
+  class="c0 field-wrapper field-wrapper--block "
+  data-role="textline"
+>
+  <div
+    class="c1 c2 field__main"
+  >
+    <div
+      class="c3 c4 field"
+      data-role="textline-control"
+    >
+      <div
+        class="c5 c6 field__input field__input--disabled"
+        data-disabled="true"
+        data-role="textline-input-wrapper"
+      >
+        <div
+          class="c7 c8 field__prefix field__prefix--last"
+          data-role="textline-prefix-0"
+        >
+          <button
+            aria-label="Select a date"
+            aria-labelledby="test-date-input-trigger-button-title"
+            class="c9 c10 button button--icon button--block"
+            data-role="button"
+            data-type="icon"
+            disabled=""
+            id="test-date-input-trigger-button"
+            title="Select a date"
+            type="button"
+          >
+            <i
+              class="c11 c12 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                event
+              </span>
+            </i>
+            <span
+              class="c13 -u-unseenButRead"
+              data-role="hidden-text"
+              id="test-date-input-trigger-button-title"
+            >
+              , Select a date
+            </span>
+          </button>
+        </div>
+        <span
+          class="c14 supported-unseen-span"
+        />
+        <input
+          class="c15 field__text"
+          data-role="textline-input"
+          disabled=""
+          id="test-date-input-input"
+          type="text"
+          value=""
+        />
+        <span
+          class="c14 supported-unseen-span"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
+.c13 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c13 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+.c19 .c11 {
+  user-select: none;
+}
+
+.c19 .c11 {
+  color: inherit;
+}
+
+.c19 .c11 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c11 {
+  display: block;
+}
+
+.c20 .c11 {
+  user-select: none;
+}
+
+.c20 .c11 {
+  color: inherit;
+}
+
+.c20 .c11 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c11 {
+  display: block;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  min-height: 0px;
+  padding: 0px;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  height: 100%;
+  width: 100%;
+}
+
+.c10 .c11 {
+  user-select: none;
+}
+
+.c10 .c11 {
+  color: inherit;
+}
+
+.c10 .c11 {
+  font-size: inherit;
+}
+
+.c10.c10 .c11 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c11 {
+  display: block;
+}
+
+.c8 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-right: -12px;
+  position: relative;
+}
+
+.c8:first-child {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c17 .c9 {
+  border-radius: 0px;
+}
+
+.c18 .c9 {
+  border-radius: 0px;
+}
+
+.c6 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c6 .c9 {
+  border-radius: 0px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c16 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c16[class*="h_"] .c5 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c4 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c3 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c21 .c7 > .c11 {
+  color: inherit;
+  cursor: default;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<div
+  class="c0 field-wrapper field-wrapper--block "
+  data-role="textline"
+>
+  <div
+    class="c1 c2 field__main"
+  >
+    <div
+      class="c3 c4 field"
+      data-role="textline-control"
+    >
+      <div
+        class="c5 c6 field__input field__input--readonly"
+        data-readonly="true"
+        data-role="textline-input-wrapper"
+      >
+        <div
+          class="c7 c8 field__prefix field__prefix--last"
+          data-role="textline-prefix-0"
+        >
+          <button
+            aria-label="Select a date"
+            aria-labelledby="test-date-input-trigger-button-title"
+            class="c9 c10 button button--icon button--block"
+            data-role="button"
+            data-type="icon"
+            disabled=""
+            id="test-date-input-trigger-button"
+            title="Select a date"
+            type="button"
+          >
+            <i
+              class="c11 c12 plasma-icon"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                event
+              </span>
+            </i>
+            <span
+              class="c13 -u-unseenButRead"
+              data-role="hidden-text"
+              id="test-date-input-trigger-button-title"
+            >
+              , Select a date
+            </span>
+          </button>
+        </div>
+        <span
+          class="c14 supported-unseen-span"
+        />
+        <input
+          class="c15 field__text"
+          data-role="textline-input"
+          id="test-date-input-input"
+          readonly=""
+          tabindex="-1"
+          type="text"
+          value=""
+        />
+        <span
+          class="c14 supported-unseen-span"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

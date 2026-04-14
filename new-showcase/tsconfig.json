@@ -1,0 +1,15 @@
+{
+	"extends": "@com.mgmtp.a12.devtools/tsconfig",
+	"exclude": ["node_modules"],
+	"include": ["./src", "./config"],
+	"files": ["./src/index.tsx", "./rsbuild.config.ts"],
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"noEmitOnError": false,
+		"incremental": true,
+		"declaration": false,
+		"declarationMap": false,
+		"outDir": "./lib",
+		"typeRoots": ["./node_modules/@types", "./src/@types"]
+	}
+}

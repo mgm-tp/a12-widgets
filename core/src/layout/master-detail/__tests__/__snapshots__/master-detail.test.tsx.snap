@@ -1,0 +1,805 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-body-with-1-visible 1`] = `
+.c2 {
+  height: 100%;
+  width: 100%;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 8px 8px;
+  overflow: hidden;
+  will-change: max-width, flex, width;
+}
+
+.c1.masterDetailLayoutPane--enter,
+.c1.masterDetailLayoutPane--exit {
+  min-width: initial;
+}
+
+.c1:not(:first-child) {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
+.c1:not(.masterDetailLayoutPane--enter):not(.masterDetailLayoutPane--exit) {
+  flex: 12 1 0%;
+}
+
+.c1.masterDetailLayoutPane--enter {
+  flex: 0 1 0%;
+  max-width: 0px;
+}
+
+.c1.masterDetailLayoutPane--enter-active {
+  flex: 12 1 0%;
+  transition: max-width 0.35s, order;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit {
+  flex: 12 1 0%;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit-active {
+  flex: 0 1 0%;
+  max-width: 0px;
+  transition: 0.35s, flex 0.35s ease-in, order;
+}
+
+.c1:first-child {
+  padding-left: 2px;
+}
+
+.c1:last-child {
+  padding-right: 2px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  margin: 0px;
+  overflow: auto;
+}
+
+<div
+  class="c0 masterDetailLayout__body"
+  data-role="master-detail-layout-body"
+>
+  <div
+    class="c1 masterDetailLayoutPane masterDetailLayoutPane--col-12"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c2"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible1
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-body-with-2-visibles 1`] = `
+.c2 {
+  height: 100%;
+  width: 100%;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 8px 8px;
+  overflow: hidden;
+  will-change: max-width, flex, width;
+}
+
+.c1.masterDetailLayoutPane--enter,
+.c1.masterDetailLayoutPane--exit {
+  min-width: initial;
+}
+
+.c1:not(:first-child) {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
+.c1:not(.masterDetailLayoutPane--enter):not(.masterDetailLayoutPane--exit) {
+  flex: 6 1 0%;
+}
+
+.c1.masterDetailLayoutPane--enter {
+  flex: 0 1 0%;
+  max-width: 0px;
+}
+
+.c1.masterDetailLayoutPane--enter-active {
+  flex: 6 1 0%;
+  transition: max-width 0.35s, order;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit {
+  flex: 12 1 0%;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit-active {
+  flex: 0 1 0%;
+  max-width: 0px;
+  transition: 0.35s, flex 0.35s ease-in, order;
+}
+
+.c1:first-child {
+  padding-left: 2px;
+}
+
+.c1:last-child {
+  padding-right: 2px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  margin: 0px;
+  overflow: auto;
+}
+
+<div
+  class="c0 masterDetailLayout__body"
+  data-role="master-detail-layout-body"
+>
+  <div
+    class="c1 masterDetailLayoutPane masterDetailLayoutPane--col-6"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c2"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible1
+      </p>
+    </div>
+  </div>
+  <div
+    class="c1 masterDetailLayoutPane masterDetailLayoutPane--col-6"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c2"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible2
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-header-empty 1`] = `
+.c0 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  padding: 16px 0px;
+}
+
+.c1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0px;
+  padding: 4px 0px;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+}
+
+<div
+  class="c0 masterDetailLayout__header"
+  data-role="master-detail-header"
+>
+  <p
+    class="c1 masterDetailLayout__title"
+    data-role="master-detail-layout-title"
+  >
+    Title
+  </p>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-single-body 1`] = `
+.c2 {
+  height: 100%;
+  width: 100%;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 8px 8px;
+  overflow: hidden;
+  will-change: max-width, flex, width;
+}
+
+.c1.masterDetailLayoutPane--enter,
+.c1.masterDetailLayoutPane--exit {
+  min-width: initial;
+}
+
+.c1:not(:first-child) {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
+.c1:not(.masterDetailLayoutPane--enter):not(.masterDetailLayoutPane--exit) {
+  flex: 12 1 0%;
+}
+
+.c1.masterDetailLayoutPane--enter {
+  flex: 0 1 0%;
+  max-width: 0px;
+}
+
+.c1.masterDetailLayoutPane--enter-active {
+  flex: 12 1 0%;
+  transition: max-width 0.35s, order;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit {
+  flex: 12 1 0%;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit-active {
+  flex: 0 1 0%;
+  max-width: 0px;
+  transition: 0.35s, flex 0.35s ease-in, order;
+}
+
+.c1:first-child {
+  padding-left: 2px;
+}
+
+.c1:last-child {
+  padding-right: 2px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  margin: 0px;
+  overflow: auto;
+}
+
+<div
+  class="c0 masterDetailLayout__body"
+  data-role="master-detail-layout-body"
+>
+  <div
+    class="c1 masterDetailLayoutPane masterDetailLayoutPane--col-12"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c2"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible1
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-two-visibles-body 1`] = `
+.c2 {
+  height: 100%;
+  width: 100%;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 8px 8px;
+  overflow: hidden;
+  will-change: max-width, flex, width;
+}
+
+.c1.masterDetailLayoutPane--enter,
+.c1.masterDetailLayoutPane--exit {
+  min-width: initial;
+}
+
+.c1:not(:first-child) {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
+.c1:not(.masterDetailLayoutPane--enter):not(.masterDetailLayoutPane--exit) {
+  flex: 6 1 0%;
+}
+
+.c1.masterDetailLayoutPane--enter {
+  flex: 0 1 0%;
+  max-width: 0px;
+}
+
+.c1.masterDetailLayoutPane--enter-active {
+  flex: 6 1 0%;
+  transition: max-width 0.35s, order;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit {
+  flex: 12 1 0%;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit-active {
+  flex: 0 1 0%;
+  max-width: 0px;
+  transition: 0.35s, flex 0.35s ease-in, order;
+}
+
+.c1:first-child {
+  padding-left: 2px;
+}
+
+.c1:last-child {
+  padding-right: 2px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  margin: 0px;
+  overflow: auto;
+}
+
+<div
+  class="c0 masterDetailLayout__body"
+  data-role="master-detail-layout-body"
+>
+  <div
+    class="c1 masterDetailLayoutPane masterDetailLayoutPane--col-6"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c2"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible1
+      </p>
+    </div>
+  </div>
+  <div
+    class="c1 masterDetailLayoutPane masterDetailLayoutPane--col-6"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c2"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible2
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-resizable-master-detail-for-the-first-view 1`] = `
+.c3 {
+  cursor: col-resize;
+  flex-shrink: 0;
+  position: absolute;
+  right: -16px;
+  top: 0px;
+  bottom: 0px;
+  width: 16px;
+  z-index: 1;
+  user-select: none;
+}
+
+.c3::before {
+  content: "";
+  inset: 0px 0px 0px 5px;
+  position: absolute;
+  width: 6px;
+}
+
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.c4 {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 8px 8px;
+  overflow: hidden;
+  will-change: max-width, flex, width;
+}
+
+.c4.masterDetailLayoutPane--enter,
+.c4.masterDetailLayoutPane--exit {
+  min-width: initial;
+}
+
+.c4:not(:first-child) {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
+.c4:not(.masterDetailLayoutPane--enter):not(.masterDetailLayoutPane--exit) {
+  flex: 6 1 0%;
+}
+
+.c4.masterDetailLayoutPane--enter {
+  flex: 0 1 0%;
+  max-width: 0px;
+}
+
+.c4.masterDetailLayoutPane--enter-active {
+  flex: 6 1 0%;
+  transition: max-width 0.35s, order;
+  max-width: 100%;
+}
+
+.c4.masterDetailLayoutPane--exit {
+  flex: 12 1 0%;
+  max-width: 100%;
+}
+
+.c4.masterDetailLayoutPane--exit-active {
+  flex: 0 1 0%;
+  max-width: 0px;
+  transition: 0.35s, flex 0.35s ease-in, order;
+}
+
+.c4:first-child {
+  padding-left: 2px;
+}
+
+.c4:last-child {
+  padding-right: 2px;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 8px 8px;
+  overflow: hidden;
+  will-change: max-width, flex, width;
+}
+
+.c1.masterDetailLayoutPane--enter,
+.c1.masterDetailLayoutPane--exit {
+  min-width: initial;
+}
+
+.c1:not(:first-child) {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
+.c1:not(.masterDetailLayoutPane--enter):not(.masterDetailLayoutPane--exit) {
+  flex: 6 1 0%;
+}
+
+.c1.masterDetailLayoutPane--enter {
+  flex: 0 1 0%;
+  max-width: 0px;
+}
+
+.c1.masterDetailLayoutPane--enter-active {
+  flex: 6 1 0%;
+  transition: max-width 0.35s, order;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit {
+  flex: 12 1 0%;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit-active {
+  flex: 0 1 0%;
+  max-width: 0px;
+  transition: 0.35s, flex 0.35s ease-in, order;
+}
+
+.c1:first-child {
+  padding-left: 2px;
+  overflow: visible;
+}
+
+.c1:last-child {
+  padding-right: 2px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  margin: 0px;
+  overflow: auto;
+}
+
+@media (pointer: fine) {
+  .c3:hover::before {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 masterDetailLayout__body"
+  data-role="master-detail-layout-body"
+>
+  <div
+    class="c1 masterDetailLayoutPane masterDetailLayoutPane--col-6"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c2"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible1
+      </p>
+      <div
+        class="c3"
+        data-role="resizable-handler"
+      />
+    </div>
+  </div>
+  <div
+    class="c4 masterDetailLayoutPane masterDetailLayoutPane--col-6"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c5"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible2
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-resizable-master-detail-for-the-second-view 1`] = `
+.c5 {
+  cursor: col-resize;
+  flex-shrink: 0;
+  position: absolute;
+  left: -16px;
+  top: 0px;
+  bottom: 0px;
+  width: 16px;
+  z-index: 1;
+  user-select: none;
+}
+
+.c5::before {
+  content: "";
+  inset: 0px 0px 0px 5px;
+  position: absolute;
+  width: 6px;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
+}
+
+.c4 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 8px 8px;
+  overflow: hidden;
+  will-change: max-width, flex, width;
+}
+
+.c1.masterDetailLayoutPane--enter,
+.c1.masterDetailLayoutPane--exit {
+  min-width: initial;
+}
+
+.c1:not(:first-child) {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
+.c1:not(.masterDetailLayoutPane--enter):not(.masterDetailLayoutPane--exit) {
+  flex: 6 1 0%;
+}
+
+.c1.masterDetailLayoutPane--enter {
+  flex: 0 1 0%;
+  max-width: 0px;
+}
+
+.c1.masterDetailLayoutPane--enter-active {
+  flex: 6 1 0%;
+  transition: max-width 0.35s, order;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit {
+  flex: 12 1 0%;
+  max-width: 100%;
+}
+
+.c1.masterDetailLayoutPane--exit-active {
+  flex: 0 1 0%;
+  max-width: 0px;
+  transition: 0.35s, flex 0.35s ease-in, order;
+}
+
+.c1:first-child {
+  padding-left: 2px;
+}
+
+.c1:last-child {
+  padding-right: 2px;
+}
+
+.c3 {
+  box-sizing: border-box;
+  display: flex;
+  padding: 2px 8px 8px;
+  overflow: hidden;
+  will-change: max-width, flex, width;
+}
+
+.c3.masterDetailLayoutPane--enter,
+.c3.masterDetailLayoutPane--exit {
+  min-width: initial;
+}
+
+.c3:not(:first-child) {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
+.c3:not(.masterDetailLayoutPane--enter):not(.masterDetailLayoutPane--exit) {
+  flex: 6 1 0%;
+}
+
+.c3.masterDetailLayoutPane--enter {
+  flex: 0 1 0%;
+  max-width: 0px;
+}
+
+.c3.masterDetailLayoutPane--enter-active {
+  flex: 6 1 0%;
+  transition: max-width 0.35s, order;
+  max-width: 100%;
+}
+
+.c3.masterDetailLayoutPane--exit {
+  flex: 12 1 0%;
+  max-width: 100%;
+}
+
+.c3.masterDetailLayoutPane--exit-active {
+  flex: 0 1 0%;
+  max-width: 0px;
+  transition: 0.35s, flex 0.35s ease-in, order;
+}
+
+.c3:first-child {
+  padding-left: 2px;
+  overflow: visible;
+}
+
+.c3:last-child {
+  padding-right: 2px;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  margin: 0px;
+  overflow: auto;
+}
+
+@media (pointer: fine) {
+  .c5:hover::before {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 masterDetailLayout__body"
+  data-role="master-detail-layout-body"
+>
+  <div
+    class="c1 masterDetailLayoutPane masterDetailLayoutPane--col-6"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c2"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible1
+      </p>
+    </div>
+  </div>
+  <div
+    class="c3 masterDetailLayoutPane masterDetailLayoutPane--col-6"
+    data-role="master-detail-layout-pane"
+  >
+    <div
+      class="c4"
+      data-role="resizable-handler-wrapper"
+    >
+      <p
+        data-role="visibile-view-test"
+      >
+        visible2
+      </p>
+      <div
+        class="c5"
+        data-role="resizable-handler"
+      />
+    </div>
+  </div>
+</div>
+`;

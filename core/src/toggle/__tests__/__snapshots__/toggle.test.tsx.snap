@@ -1,0 +1,1041 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.toggle > rendering-default-toggle 1`] = `
+.c0 {
+  display: inline-block;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  isolation: isolate;
+}
+
+<div
+  class="c0 field toggle"
+  data-role="toggle"
+>
+  <div
+    class="c1 toggle__wrapper"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toggle > rendering-disabled-toggle 1`] = `
+.c6 {
+  align-items: center;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  min-height: 30px;
+  padding: 0px 8px;
+}
+
+.c3 {
+  position: relative;
+  background-color: rgb(241, 242, 244);
+  border-width: 1px medium 1px 1px;
+  border-style: solid none solid solid;
+  border-color: rgb(22, 25, 29) currentcolor rgb(22, 25, 29) rgb(22, 25, 29);
+  border-image: initial;
+  color: rgb(5, 104, 174);
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+  min-height: 32px;
+  line-height: 1.45;
+}
+
+.c3::before {
+  inset: -1px;
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+}
+
+.c3:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c3:first-of-type .c5 {
+  padding-left: 8px;
+}
+
+.c3:last-child {
+  border-right: 1px solid rgb(22, 25, 29);
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.c3:last-child .c5 {
+  padding-right: 8px;
+}
+
+.c3[disabled] {
+  border-color: transparent;
+  cursor: default;
+}
+
+.c3:not(:disabled):focus {
+  outline: none;
+  text-decoration: underline;
+}
+
+.c8 + .c2 {
+  border-left: 0px;
+}
+
+.c8:not(:disabled):focus + .c2 {
+  border-left: 0px;
+}
+
+.c4:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c4:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
+.c4[disabled] {
+  background-color: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  box-shadow: none;
+}
+
+.c7:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c7:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c7:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
+.c7[disabled] {
+  background-color: rgb(241, 242, 244);
+  color: rgb(77, 77, 77);
+  box-shadow: none;
+}
+
+.c7[disabled] {
+  background-color: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  box-shadow: none;
+}
+
+.c0 {
+  display: inline-block;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  isolation: isolate;
+}
+
+@media (pointer: coarse) {
+  .c3:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: underline;
+  }
+}
+
+@media (pointer: fine) {
+  .c3:not(:disabled):hover {
+    text-decoration: underline;
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:not(:disabled):active + .c2 {
+    border-left: 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:not(:disabled):hover + .c2 {
+    border-left: 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c4:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c7:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c7:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+<div
+  class="c0 field toggle"
+  data-role="toggle"
+>
+  <div
+    class="c1 toggle__wrapper"
+  >
+    <button
+      aria-pressed="false"
+      class="c2 c3 c4 toggle__item toggle__item--disabled"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="1"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        1
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c2 c3 c4 toggle__item toggle__item--disabled"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="2"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        2
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c2 c3 c4 toggle__item toggle__item--disabled"
+      data-role="toggle-item"
+      disabled=""
+      id="12345"
+      type="button"
+      value="3"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        3
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c2 c3 c4 toggle__item toggle__item--disabled"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="4"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        disabled
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c2 c3 c7 toggle__item toggle__item--disabled toggle__item--readonly"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="5"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        readonly
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toggle > rendering-readonly-toggle 1`] = `
+.c6 {
+  align-items: center;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  min-height: 30px;
+  padding: 0px 8px;
+}
+
+.c3 {
+  position: relative;
+  background-color: rgb(241, 242, 244);
+  border-width: 1px medium 1px 1px;
+  border-style: solid none solid solid;
+  border-color: rgb(22, 25, 29) currentcolor rgb(22, 25, 29) rgb(22, 25, 29);
+  border-image: initial;
+  color: rgb(5, 104, 174);
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+  min-height: 32px;
+  line-height: 1.45;
+}
+
+.c3::before {
+  inset: -1px;
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+}
+
+.c3:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c3:first-of-type .c5 {
+  padding-left: 8px;
+}
+
+.c3:last-child {
+  border-right: 1px solid rgb(22, 25, 29);
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.c3:last-child .c5 {
+  padding-right: 8px;
+}
+
+.c3[disabled] {
+  border-color: transparent;
+  cursor: default;
+}
+
+.c3:not(:disabled):focus {
+  outline: none;
+  text-decoration: underline;
+}
+
+.c8 + .c2 {
+  border-left: 0px;
+}
+
+.c8:not(:disabled):focus + .c2 {
+  border-left: 0px;
+}
+
+.c4:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c4:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
+.c4[disabled] {
+  background-color: rgb(241, 242, 244);
+  color: rgb(77, 77, 77);
+  box-shadow: none;
+}
+
+.c7:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c7:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c7:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
+.c7[disabled] {
+  background-color: rgb(241, 242, 244);
+  color: rgb(77, 77, 77);
+  box-shadow: none;
+}
+
+.c7[disabled] {
+  background-color: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  box-shadow: none;
+}
+
+.c0 {
+  display: inline-block;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  isolation: isolate;
+}
+
+@media (pointer: coarse) {
+  .c3:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: underline;
+  }
+}
+
+@media (pointer: fine) {
+  .c3:not(:disabled):hover {
+    text-decoration: underline;
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:not(:disabled):active + .c2 {
+    border-left: 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:not(:disabled):hover + .c2 {
+    border-left: 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c4:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c4:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c7:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c7:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+<div
+  class="c0 field toggle"
+  data-role="toggle"
+>
+  <div
+    class="c1 toggle__wrapper"
+  >
+    <button
+      aria-pressed="false"
+      class="c2 c3 c4 toggle__item toggle__item--readonly"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="1"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        1
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c2 c3 c4 toggle__item toggle__item--readonly"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="2"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        2
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c2 c3 c4 toggle__item toggle__item--readonly"
+      data-role="toggle-item"
+      disabled=""
+      id="12345"
+      type="button"
+      value="3"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        3
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c2 c3 c7 toggle__item toggle__item--disabled toggle__item--readonly"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="4"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        disabled
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c2 c3 c4 toggle__item toggle__item--readonly"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="5"
+    >
+      <span
+        class="c5 c6 toggle__content"
+        data-role="toggle-item-content"
+      >
+        readonly
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toggle > rendering-toggle-with-children 1`] = `
+.c1 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c1:empty {
+  display: none;
+}
+
+.c7 {
+  align-items: center;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  min-height: 30px;
+  padding: 0px 8px;
+}
+
+.c4 {
+  position: relative;
+  background-color: rgb(241, 242, 244);
+  border-width: 1px medium 1px 1px;
+  border-style: solid none solid solid;
+  border-color: rgb(22, 25, 29) currentcolor rgb(22, 25, 29) rgb(22, 25, 29);
+  border-image: initial;
+  color: rgb(5, 104, 174);
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+  min-height: 32px;
+  line-height: 1.45;
+}
+
+.c4::before {
+  inset: -1px;
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+}
+
+.c4:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c4:first-of-type .c6 {
+  padding-left: 8px;
+}
+
+.c4:last-child {
+  border-right: 1px solid rgb(22, 25, 29);
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.c4:last-child .c6 {
+  padding-right: 8px;
+}
+
+.c4[disabled] {
+  border-color: transparent;
+  cursor: default;
+}
+
+.c4:not(:disabled):focus {
+  outline: none;
+  text-decoration: underline;
+}
+
+.c5 {
+  outline: transparent solid 2px;
+  z-index: 1;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+  box-shadow: none;
+  border-right: 1px solid rgb(5, 104, 174);
+  border-top-color: rgb(5, 104, 174);
+  border-bottom-color: rgb(5, 104, 174);
+  border-left-color: rgb(5, 104, 174);
+}
+
+.c5 + .c3 {
+  border-left: 0px;
+}
+
+.c5:not(:disabled):focus {
+  background-color: rgb(213, 0, 117);
+  color: rgb(255, 255, 255);
+  box-shadow: none;
+  border-right: 1px solid rgb(213, 0, 117);
+  border-top-color: rgb(213, 0, 117);
+  border-bottom-color: rgb(213, 0, 117);
+  border-left-color: rgb(213, 0, 117);
+}
+
+.c5:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c5:not(:disabled):focus + .c3 {
+  border-left: 0px;
+}
+
+.c5:last-child {
+  border-color: rgb(5, 104, 174);
+}
+
+.c8:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c8:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c8:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
+.c9:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c9:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c9:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
+.c9[disabled] {
+  background-color: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  box-shadow: none;
+}
+
+.c10:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c10:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c10:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
+.c10[disabled] {
+  background-color: rgb(241, 242, 244);
+  color: rgb(77, 77, 77);
+  box-shadow: none;
+}
+
+.c0 {
+  display: inline-block;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: flex;
+  isolation: isolate;
+}
+
+@media (pointer: coarse) {
+  .c4:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: underline;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:not(:disabled):hover {
+    text-decoration: underline;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+    border-right: 1px solid rgb(213, 0, 117);
+    border-top-color: rgb(213, 0, 117);
+    border-bottom-color: rgb(213, 0, 117);
+    border-left-color: rgb(213, 0, 117);
+  }
+
+  .c5:not(:disabled):active + .c3 {
+    border-left: 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+    border-right: 1px solid rgb(213, 0, 117);
+    border-top-color: rgb(213, 0, 117);
+    border-bottom-color: rgb(213, 0, 117);
+    border-left-color: rgb(213, 0, 117);
+  }
+
+  .c5:not(:disabled):hover + .c3 {
+    border-left: 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c8:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c8:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c9:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c9:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c10:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c10:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+<div
+  class="c0 field toggle"
+  data-role="toggle"
+>
+  <label
+    class="c1 label field__label"
+    data-role="toggle-label"
+  >
+    Toggles
+  </label>
+  <div
+    class="c2 toggle__wrapper"
+  >
+    <button
+      aria-pressed="true"
+      class="c3 c4 c5 toggle__item toggle__item--selected"
+      data-role="toggle-item"
+      id="1f9add37"
+      type="button"
+      value="1"
+    >
+      <span
+        class="c6 c7 toggle__content"
+        data-role="toggle-item-content"
+      >
+        1
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c3 c4 c8 toggle__item"
+      data-role="toggle-item"
+      id="1f9add37"
+      type="button"
+      value="2"
+    >
+      <span
+        class="c6 c7 toggle__content"
+        data-role="toggle-item-content"
+      >
+        2
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c3 c4 c8 toggle__item"
+      data-role="toggle-item"
+      id="12345"
+      type="button"
+      value="3"
+    >
+      <span
+        class="c6 c7 toggle__content"
+        data-role="toggle-item-content"
+      >
+        3
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c3 c4 c9 toggle__item toggle__item--disabled"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="4"
+    >
+      <span
+        class="c6 c7 toggle__content"
+        data-role="toggle-item-content"
+      >
+        disabled
+      </span>
+    </button>
+    <button
+      aria-pressed="false"
+      class="c3 c4 c10 toggle__item toggle__item--readonly"
+      data-role="toggle-item"
+      disabled=""
+      id="1f9add37"
+      type="button"
+      value="5"
+    >
+      <span
+        class="c6 c7 toggle__content"
+        data-role="toggle-item-content"
+      >
+        readonly
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toggle > rendering-toggle-with-label 1`] = `
+.c1 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c1:empty {
+  display: none;
+}
+
+.c0 {
+  display: inline-block;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: flex;
+  isolation: isolate;
+}
+
+<div
+  class="c0 field toggle"
+  data-role="toggle"
+>
+  <label
+    class="c1 label field__label"
+    data-role="toggle-label"
+  >
+    Toggles
+  </label>
+  <div
+    class="c2 toggle__wrapper"
+  />
+</div>
+`;

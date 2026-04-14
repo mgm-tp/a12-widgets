@@ -1,0 +1,183 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.application-header > rendering-application-header 1`] = `
+.c0 {
+  background-color: rgb(78, 89, 101);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 0px 24px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c4 {
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+  margin-right: 8px;
+}
+
+.c2 {
+  display: flex;
+  align-items: center;
+}
+
+.c5 {
+  display: flex;
+  align-items: center;
+}
+
+.c5 .c3 {
+  min-width: 0px;
+}
+
+.c5 .c3:last-child {
+  margin-right: 0px;
+}
+
+<div
+  class="c0 applicationHeader"
+  data-role="application-header"
+  role="banner"
+>
+  <div
+    class="c1 applicationHeader__content"
+    data-role="application-header-content"
+  >
+    <div
+      class="c2 applicationHeader__contentSlotWrapper applicationHeader__contentSlotWrapper--left"
+    >
+      <div
+        class="c3 c4 applicationHeader__contentSlot"
+        data-role="application-header-content-slot"
+      >
+        <span>
+          Logo
+        </span>
+      </div>
+      <div
+        class="c3 c4 applicationHeader__contentSlot"
+        data-role="application-header-content-slot"
+      >
+        <span>
+          Widgets Showcase
+        </span>
+      </div>
+    </div>
+    <div
+      class="c5 applicationHeader__contentSlotWrapper applicationHeader__contentSlotWrapper--right"
+    >
+      <div
+        class="c3 c4 applicationHeader__contentSlot"
+        data-role="application-header-content-slot"
+      >
+        <span>
+          Version: X.XX
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.application-header > rendering-application-header-props 1`] = `
+.c0 {
+  background-color: rgb(78, 89, 101);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 0px 24px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c4 {
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+  margin-right: 8px;
+}
+
+.c2 {
+  display: flex;
+  align-items: center;
+}
+
+.c5 {
+  display: flex;
+  align-items: center;
+}
+
+.c5 .c3 {
+  min-width: 0px;
+}
+
+.c5 .c3:last-child {
+  margin-right: 0px;
+}
+
+<div
+  class="c0 applicationHeader test-class"
+  data-role="application-header"
+  id="test-id"
+  role="banner"
+  style="color: red;"
+>
+  <div
+    class="c1 applicationHeader__content"
+    data-role="application-header-content"
+  >
+    <div
+      class="c2 applicationHeader__contentSlotWrapper applicationHeader__contentSlotWrapper--left"
+    >
+      <div
+        class="c3 c4 applicationHeader__contentSlot"
+        data-role="application-header-content-slot"
+      >
+        <span>
+          Logo
+        </span>
+      </div>
+      <div
+        class="c3 c4 applicationHeader__contentSlot"
+        data-role="application-header-content-slot"
+      >
+        <span>
+          Widgets Showcase
+        </span>
+      </div>
+    </div>
+    <div
+      class="c5 applicationHeader__contentSlotWrapper applicationHeader__contentSlotWrapper--right"
+    >
+      <div
+        class="c3 c4 applicationHeader__contentSlot"
+        data-role="application-header-content-slot"
+      >
+        <span>
+          Version: X.XX
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

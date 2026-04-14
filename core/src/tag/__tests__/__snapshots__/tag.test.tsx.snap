@@ -1,0 +1,1391 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.tag > Compact theme > render extended tag 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c12 .c2 {
+  user-select: none;
+}
+
+.c12 .c2 {
+  color: inherit;
+}
+
+.c12 .c2 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c2 {
+  display: block;
+}
+
+.c6--focus .c4 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c7 > .c4 {
+  padding-right: 28px;
+}
+
+.c7--focus .c4 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.6525rem;
+  display: inline-block;
+  min-height: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+.c0--focus .c4 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0.tag--exit {
+  border-color: transparent;
+  margin: 0px 0px 6px 2px;
+  transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
+  vertical-align: bottom;
+}
+
+.c0.tag--exit-animation {
+  animation: 0.2s ease 0s 1 normal both running k0;
+}
+
+.c10 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c10 + .c4 {
+  padding-left: 28px;
+}
+
+.c11 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c11 + .c4 {
+  padding-left: 28px;
+}
+
+.c1 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 0px 50% 50% 0px;
+  display: flex;
+  flex: 0 0 auto;
+  height: 22px;
+  width: 22px;
+  justify-content: center;
+  position: absolute;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 0.75rem;
+}
+
+.c1 + .c4 {
+  padding-left: 24px;
+}
+
+.c8 > .c2 {
+  vertical-align: top;
+}
+
+.c9 > .c2 {
+  vertical-align: top;
+}
+
+.c5 {
+  border: 1px solid rgb(169, 179, 188);
+  border-radius: inherit;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: table-cell;
+  flex: 0 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  min-height: 22px;
+  line-height: 1rem;
+  padding: 2px 6px;
+  vertical-align: middle;
+}
+
+.c5 a {
+  color: rgb(5, 104, 174);
+  text-decoration: none;
+}
+
+.c5 a:focus {
+  color: rgb(213, 0, 117);
+}
+
+.c5 > .c2 {
+  vertical-align: top;
+}
+
+@media (pointer: coarse) {
+  .c5 a:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5 a:hover {
+    color: rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+<div
+  class="c0 tag"
+  data-role="tag"
+  role="listitem"
+>
+  <div
+    class="c1 tag__icon"
+    data-role="tag-icon"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        label
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 c5 tag__content"
+    data-role="tag-content"
+  >
+    This is the tag content
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tag > Compact theme > render removable extended tag 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c17 .c3 {
+  user-select: none;
+}
+
+.c17 .c3 {
+  color: inherit;
+}
+
+.c17 .c3 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c3 {
+  display: block;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1rem;
+  height: 1.5rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 1.5rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c3 {
+  user-select: none;
+}
+
+.c7 .c3 {
+  color: inherit;
+}
+
+.c7 .c3 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c3 {
+  display: block;
+}
+
+.c10--focus .c5 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c10.tag--exit .c1,
+.c10.tag--exit .c5,
+.c10.tag--exit .c8 {
+  line-height: 0;
+  margin: 0px;
+  max-height: 24px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0px;
+  transition: padding 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 0px;
+}
+
+.c11 > .c5 {
+  padding-right: 28px;
+}
+
+.c11--focus .c5 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c11.tag--exit .c1,
+.c11.tag--exit .c5,
+.c11.tag--exit .c8 {
+  line-height: 0;
+  margin: 0px;
+  max-height: 24px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0px;
+  transition: padding 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 0px;
+}
+
+.c12--focus .c5 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c12.tag--exit .c1,
+.c12.tag--exit .c5,
+.c12.tag--exit .c8 {
+  line-height: 0;
+  margin: 0px;
+  max-height: 22px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0px;
+  transition: padding 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 0px;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.6525rem;
+  display: inline-block;
+  min-height: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+.c0 > .c5 {
+  padding-right: 24px;
+}
+
+.c0--focus .c5 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0.tag--exit {
+  border-color: transparent;
+  margin: 0px 0px 6px 2px;
+  transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
+  vertical-align: bottom;
+}
+
+.c0.tag--exit .c1,
+.c0.tag--exit .c5,
+.c0.tag--exit .c8 {
+  line-height: 0;
+  margin: 0px;
+  max-height: 22px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0px;
+  transition: padding 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 0px;
+}
+
+.c0.tag--exit-animation {
+  animation: 0.2s ease 0s 1 normal both running k0;
+}
+
+.c15 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c15 + .c5 {
+  padding-left: 28px;
+}
+
+.c16 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c16 + .c5 {
+  padding-left: 28px;
+}
+
+.c2 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 0px 50% 50% 0px;
+  display: flex;
+  flex: 0 0 auto;
+  height: 22px;
+  width: 22px;
+  justify-content: center;
+  position: absolute;
+}
+
+.c2 .c3 {
+  color: rgb(255, 255, 255);
+  font-size: 0.75rem;
+}
+
+.c2 + .c5 {
+  padding-left: 24px;
+}
+
+.c13 > .c3 {
+  vertical-align: top;
+}
+
+.c14 > .c3 {
+  vertical-align: top;
+}
+
+.c6 {
+  border: 1px solid rgb(169, 179, 188);
+  border-radius: inherit;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: table-cell;
+  flex: 0 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  min-height: 22px;
+  line-height: 1rem;
+  padding: 2px 6px;
+  vertical-align: middle;
+}
+
+.c6 a {
+  color: rgb(5, 104, 174);
+  text-decoration: none;
+}
+
+.c6 a:focus {
+  color: rgb(213, 0, 117);
+}
+
+.c6 > .c3 {
+  vertical-align: top;
+}
+
+.c9 {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  min-height: 0px;
+  height: 22px;
+  width: 22px;
+  padding: 0px 3px;
+}
+
+.c9:hover {
+  border-top-right-radius: inherit;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6 a:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c6 a:hover {
+    color: rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+<div
+  class="c0 tag tag--removable"
+  data-role="tag"
+  role="listitem"
+>
+  <div
+    class="c1 c2 tag__icon"
+    data-role="tag-icon"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        label
+      </span>
+    </i>
+  </div>
+  <div
+    class="c5 c6 tag__content"
+    data-role="tag-content"
+  >
+    This is the tag content
+  </div>
+  <button
+    aria-label="Remove tag"
+    class="c7 button button--icon c8 c9"
+    data-role="button"
+    data-type="icon"
+    title="Remove tag"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        close
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tag > Compact theme > render removable tag 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c15 .c5 {
+  user-select: none;
+}
+
+.c15 .c5 {
+  color: inherit;
+}
+
+.c15 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c5 {
+  display: block;
+}
+
+.c3 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1rem;
+  height: 1.5rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 1.5rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c3 .c5 {
+  user-select: none;
+}
+
+.c3 .c5 {
+  color: inherit;
+}
+
+.c3 .c5 {
+  font-size: inherit;
+}
+
+.c3:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c5 {
+  display: block;
+}
+
+.c7--focus .c1 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c8 > .c1 {
+  padding-right: 28px;
+}
+
+.c8--focus .c1 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c9--focus .c1 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.6525rem;
+  display: inline-block;
+  min-height: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+.c0 > .c1 {
+  padding-right: 24px;
+}
+
+.c0--focus .c1 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0.tag--exit {
+  border-color: transparent;
+  margin: 0px 0px 6px 2px;
+  transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
+  vertical-align: bottom;
+}
+
+.c0.tag--exit-animation {
+  animation: 0.2s ease 0s 1 normal both running k0;
+}
+
+.c12 .c5 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c12 + .c1 {
+  padding-left: 28px;
+}
+
+.c13 .c5 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c13 + .c1 {
+  padding-left: 28px;
+}
+
+.c14 .c5 {
+  color: rgb(255, 255, 255);
+  font-size: 0.75rem;
+}
+
+.c14 + .c1 {
+  padding-left: 24px;
+}
+
+.c10 > .c5 {
+  vertical-align: top;
+}
+
+.c11 > .c5 {
+  vertical-align: top;
+}
+
+.c2 {
+  border: 1px solid rgb(169, 179, 188);
+  border-radius: inherit;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: table-cell;
+  flex: 0 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  min-height: 22px;
+  line-height: 1rem;
+  padding: 2px 6px;
+  vertical-align: middle;
+}
+
+.c2 a {
+  color: rgb(5, 104, 174);
+  text-decoration: none;
+}
+
+.c2 a:focus {
+  color: rgb(213, 0, 117);
+}
+
+.c2 > .c5 {
+  vertical-align: top;
+}
+
+.c4 {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  min-height: 0px;
+  height: 22px;
+  width: 22px;
+  padding: 0px 3px;
+}
+
+.c4:hover {
+  border-top-right-radius: inherit;
+}
+
+@media (pointer: coarse) {
+  .c3:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2 a:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2 a:hover {
+    color: rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+<div
+  class="c0 tag tag--removable"
+  data-role="tag"
+  role="listitem"
+>
+  <div
+    class="c1 c2 tag__content"
+    data-role="tag-content"
+  >
+    This is the tag content
+  </div>
+  <button
+    aria-label="Remove tag"
+    class="c3 button button--icon c4"
+    data-role="button"
+    data-type="icon"
+    title="Remove tag"
+    type="button"
+  >
+    <i
+      class="c5 c6 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        close
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tag > render basic tag with some custom properties 1`] = `
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.75rem;
+  display: inline-block;
+  min-height: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.c0--focus .c1 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0.tag--exit {
+  border-color: transparent;
+  margin: 0px 0px 8px 2px;
+  transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
+  vertical-align: bottom;
+}
+
+.c0.tag--exit-animation {
+  animation: 0.2s ease 0s 1 normal both running k0;
+}
+
+.c2 {
+  border: 1px solid rgb(169, 179, 188);
+  border-radius: inherit;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: table-cell;
+  flex: 0 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  min-height: 24px;
+  line-height: 1rem;
+  padding: 3px 8px;
+  vertical-align: middle;
+}
+
+.c2 a {
+  color: rgb(5, 104, 174);
+  text-decoration: none;
+}
+
+.c2 a:focus {
+  color: rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c2 a:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2 a:hover {
+    color: rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+<div
+  class="c0 tag test-class"
+  data-role="tag"
+  id="test-id"
+  role="listitem"
+  style="background: red;"
+>
+  <div
+    class="c1 c2 tag__content"
+    data-role="tag-content"
+    id="test-id-content"
+  >
+    This is the tag content
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tag > render removable tag and simulate click event 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c3 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c3 .c5 {
+  user-select: none;
+}
+
+.c3 .c5 {
+  color: inherit;
+}
+
+.c3 .c5 {
+  font-size: inherit;
+}
+
+.c3:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 > .c5 {
+  display: block;
+}
+
+.c7--focus .c1 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.75rem;
+  display: inline-block;
+  min-height: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.c0 > .c1 {
+  padding-right: 28px;
+}
+
+.c0--focus .c1 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0.tag--exit {
+  border-color: transparent;
+  margin: 0px 0px 8px 2px;
+  transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
+  vertical-align: bottom;
+}
+
+.c0.tag--exit-animation {
+  animation: 0.2s ease 0s 1 normal both running k0;
+}
+
+.c9 .c5 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c9 + .c1 {
+  padding-left: 28px;
+}
+
+.c10 .c5 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c10 + .c1 {
+  padding-left: 28px;
+}
+
+.c2 {
+  border: 1px solid rgb(169, 179, 188);
+  border-radius: inherit;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: table-cell;
+  flex: 0 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  min-height: 24px;
+  line-height: 1rem;
+  padding: 3px 8px;
+  vertical-align: middle;
+}
+
+.c2 a {
+  color: rgb(5, 104, 174);
+  text-decoration: none;
+}
+
+.c2 a:focus {
+  color: rgb(213, 0, 117);
+}
+
+.c2 > .c5 {
+  vertical-align: top;
+}
+
+.c8 > .c5 {
+  vertical-align: top;
+}
+
+.c4 {
+  font-size: 0.875rem;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  min-height: 0px;
+  height: 24px;
+  width: 24px;
+  padding: 0px 4px;
+}
+
+.c4:hover {
+  border-top-right-radius: inherit;
+}
+
+@media (pointer: coarse) {
+  .c3:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2 a:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2 a:hover {
+    color: rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+<div
+  class="c0 tag tag--removable"
+  data-role="tag"
+  role="listitem"
+>
+  <div
+    class="c1 c2 tag__content"
+    data-role="tag-content"
+  >
+    This is the tag content
+  </div>
+  <button
+    aria-label="Remove tag"
+    class="c3 button button--icon c4"
+    data-role="button"
+    data-type="icon"
+    title="Remove tag"
+    type="button"
+  >
+    <i
+      class="c5 c6 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        close
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tag > render tag with icon 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.75rem;
+  display: inline-block;
+  min-height: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.c0--focus .c4 {
+  border-color: rgb(213, 0, 117);
+}
+
+.c0.tag--exit {
+  border-color: transparent;
+  margin: 0px 0px 8px 2px;
+  transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
+  vertical-align: bottom;
+}
+
+.c0.tag--exit-animation {
+  animation: 0.2s ease 0s 1 normal both running k0;
+}
+
+.c1 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 0px 50% 50% 0px;
+  display: flex;
+  flex: 0 0 auto;
+  height: 24px;
+  width: 24px;
+  justify-content: center;
+  position: absolute;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 0.875rem;
+}
+
+.c1 + .c4 {
+  padding-left: 28px;
+}
+
+.c5 {
+  border: 1px solid rgb(169, 179, 188);
+  border-radius: inherit;
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: table-cell;
+  flex: 0 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  min-height: 24px;
+  line-height: 1rem;
+  padding: 3px 8px;
+  vertical-align: middle;
+}
+
+.c5 a {
+  color: rgb(5, 104, 174);
+  text-decoration: none;
+}
+
+.c5 a:focus {
+  color: rgb(213, 0, 117);
+}
+
+.c5 > .c2 {
+  vertical-align: top;
+}
+
+@media (pointer: coarse) {
+  .c5 a:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5 a:hover {
+    color: rgb(213, 0, 117);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+<div
+  class="c0 tag"
+  data-role="tag"
+  role="listitem"
+>
+  <div
+    class="c1 tag__icon"
+    data-role="tag-icon"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        desktop_mac
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 c5 tag__content"
+    data-role="tag-content"
+  >
+    This is the tag content
+  </div>
+</div>
+`;

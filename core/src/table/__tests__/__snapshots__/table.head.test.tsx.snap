@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.head > cardView 1`] = `
+.c1 {
+  display: block;
+  position: relative;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c2 {
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: hidden;
+  display: none;
+  background-color: rgb(241, 242, 244);
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+}
+
+<div
+  class="c0 table__header"
+  data-role="table-header"
+>
+  <div
+    class="c1 c2 table__headerRow"
+    data-role="table-header-row"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.table.head > default header 1`] = `
+.c0 {
+  background-color: rgb(241, 242, 244);
+  border-left: 1px solid rgb(241, 242, 244);
+  border-right: 1px solid rgb(241, 242, 244);
+  flex: 0 0 auto;
+}
+
+<div
+  class="c0 table__header"
+  data-role="table-header"
+  role="grid"
+/>
+`;

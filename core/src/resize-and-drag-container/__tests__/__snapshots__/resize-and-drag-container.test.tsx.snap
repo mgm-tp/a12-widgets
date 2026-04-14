@@ -1,0 +1,898 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.resize-and-drag-container > customization-resizer-styles 1`] = `
+.c2 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c1 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c1:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c0 {
+  height: 100%;
+  outline: none;
+  cursor: move;
+  transform-origin: left top;
+}
+
+.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+  width: 100%;
+}
+
+.c0 > :only-child {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  height: 100%;
+  overflow: auto;
+}
+
+.c0 > :only-child > :only-child {
+  flex-grow: 1;
+}
+
+.c0 .handle {
+  cursor: move;
+}
+
+.c0 .handle > * {
+  cursor: move !important;
+}
+
+.c0 * {
+  cursor: move !important;
+}
+
+.c0.resize-and-drag-content-animate-enter {
+  background: rgb(255, 255, 255);
+  transform: scaleX(0) scaleY(0);
+}
+
+.c0.resize-and-drag-content-animate-enter > * {
+  opacity: 0;
+}
+
+.c0.resize-and-drag-content-animate-enter-active,
+.c0.resize-and-drag-content-animate-exit {
+  transform: scaleX(1) scaleY(1);
+}
+
+.c0.resize-and-drag-content-animate-enter-active > *,
+.c0.resize-and-drag-content-animate-exit > * {
+  transition: opacity ease-in-out;
+  opacity: 1;
+}
+
+.c0.resize-and-drag-content-animate-enter-active {
+  transition: transform cubic-bezier(0.17, 0.88, 0.33, 1.13);
+}
+
+.c0.resize-and-drag-content-animate-exit {
+  background: rgb(255, 255, 255);
+}
+
+.c0.resize-and-drag-content-animate-exit-active {
+  transform: scaleX(0) scaleY(0);
+  transition: transform cubic-bezier(0.17, 0.88, 0.33, 1);
+}
+
+.c0.resize-and-drag-content-animate-exit-active > * {
+  opacity: 0;
+  transition: opacity ease-in-out;
+}
+
+.c0.resize-and-drag-content-animate-exit-done {
+  opacity: 0;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c1:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="portal base"
+  data-role="portal"
+>
+  <div>
+    <div
+      class="react-draggable"
+      style="position: absolute; user-select: auto; width: auto; height: auto; display: inline-block; top: 0px; left: 0px; cursor: move; transform: translate(0px, 0px); max-width: 1280px; max-height: 720px; min-width: 200px; min-height: 200px; box-sizing: border-box; flex-shrink: 0;"
+    >
+      <div
+        class="c0 resize-and-drag-content-wrapper"
+        data-role="resize-and-drag-content"
+        role="dialog"
+        style="outline: transparent solid 1px;"
+        tabindex="-1"
+      >
+        <button
+          aria-label="Close"
+          class="c1 button button--secondary button--outline button--dark"
+          data-role="button"
+          title="Close"
+          type="button"
+        />
+      </div>
+      <div
+        class="tab-sandbox-supporter"
+        data-role="tab-sandbox-supporter"
+        tabindex="0"
+      />
+      <div>
+        <div
+          style="position: absolute; user-select: none; width: 100%; height: 5px; top: 0px; left: 0px; cursor: ns-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 20px; height: 100%; top: 0px; cursor: ns-resize; right: -5px;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 100%; height: 5px; left: 0px; cursor: ns-resize; bottom: 0px;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 100%; top: 0px; left: 0px; cursor: ew-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; right: 0px; top: 0px; cursor: nesw-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; right: 0px; bottom: 0px; cursor: nwse-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; left: 0px; bottom: 0px; cursor: nesw-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; left: 0px; top: 0px; cursor: nwse-resize;"
+        />
+      </div>
+    </div>
+    <div
+      class="c2"
+      data-role="portal-placeholder"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.resize-and-drag-container > draggable-container-with-draggable-button 1`] = `
+.c2 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c1 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c1:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c0 {
+  height: 100%;
+  outline: none;
+  cursor: move;
+  transform-origin: left top;
+}
+
+.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+  width: 100%;
+}
+
+.c0 > :only-child {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  height: 100%;
+  overflow: auto;
+}
+
+.c0 > :only-child > :only-child {
+  flex-grow: 1;
+}
+
+.c0 .handle {
+  cursor: move;
+}
+
+.c0 .handle > * {
+  cursor: move !important;
+}
+
+.c0 * {
+  cursor: move !important;
+}
+
+.c0.resize-and-drag-content-animate-enter {
+  background: rgb(255, 255, 255);
+  transform: scaleX(0) scaleY(0);
+}
+
+.c0.resize-and-drag-content-animate-enter > * {
+  opacity: 0;
+}
+
+.c0.resize-and-drag-content-animate-enter-active,
+.c0.resize-and-drag-content-animate-exit {
+  transform: scaleX(1) scaleY(1);
+}
+
+.c0.resize-and-drag-content-animate-enter-active > *,
+.c0.resize-and-drag-content-animate-exit > * {
+  transition: opacity ease-in-out;
+  opacity: 1;
+}
+
+.c0.resize-and-drag-content-animate-enter-active {
+  transition: transform cubic-bezier(0.17, 0.88, 0.33, 1.13);
+}
+
+.c0.resize-and-drag-content-animate-exit {
+  background: rgb(255, 255, 255);
+}
+
+.c0.resize-and-drag-content-animate-exit-active {
+  transform: scaleX(0) scaleY(0);
+  transition: transform cubic-bezier(0.17, 0.88, 0.33, 1);
+}
+
+.c0.resize-and-drag-content-animate-exit-active > * {
+  opacity: 0;
+  transition: opacity ease-in-out;
+}
+
+.c0.resize-and-drag-content-animate-exit-done {
+  opacity: 0;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c1:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="portal base"
+  data-role="portal"
+>
+  <div>
+    <div
+      class="react-draggable"
+      style="position: absolute; user-select: auto; width: auto; height: auto; display: inline-block; top: 0px; left: 0px; cursor: move; transform: translate(0px, 0px); max-width: 1280px; max-height: 720px; min-width: 200px; min-height: 200px; box-sizing: border-box; flex-shrink: 0;"
+    >
+      <div
+        class="c0 resize-and-drag-content-wrapper"
+        data-role="resize-and-drag-content"
+        role="dialog"
+        style="outline: transparent solid 1px;"
+        tabindex="-1"
+      >
+        <button
+          aria-label="Move"
+          class="c1 button button--secondary button--outline button--dark handle"
+          data-role="button"
+          title="Move"
+          type="button"
+        />
+      </div>
+      <div
+        class="tab-sandbox-supporter"
+        data-role="tab-sandbox-supporter"
+        tabindex="0"
+      />
+      <div />
+    </div>
+    <div
+      class="c2"
+      data-role="portal-placeholder"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.resize-and-drag-container > draggable-container-with-exception-of-button 1`] = `
+.c2 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c1 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-shadow: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c1::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.c1:not(:disabled):focus::before {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c0 {
+  height: 100%;
+  outline: none;
+  cursor: move;
+  transform-origin: left top;
+}
+
+.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+  width: 100%;
+}
+
+.c0 > :only-child {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  height: 100%;
+  overflow: auto;
+}
+
+.c0 > :only-child > :only-child {
+  flex-grow: 1;
+}
+
+.c0 .handle {
+  cursor: move;
+}
+
+.c0 .handle > * {
+  cursor: move !important;
+}
+
+.c0 * {
+  cursor: move !important;
+}
+
+.c0.resize-and-drag-content-animate-enter {
+  background: rgb(255, 255, 255);
+  transform: scaleX(0) scaleY(0);
+}
+
+.c0.resize-and-drag-content-animate-enter > * {
+  opacity: 0;
+}
+
+.c0.resize-and-drag-content-animate-enter-active,
+.c0.resize-and-drag-content-animate-exit {
+  transform: scaleX(1) scaleY(1);
+}
+
+.c0.resize-and-drag-content-animate-enter-active > *,
+.c0.resize-and-drag-content-animate-exit > * {
+  transition: opacity ease-in-out;
+  opacity: 1;
+}
+
+.c0.resize-and-drag-content-animate-enter-active {
+  transition: transform cubic-bezier(0.17, 0.88, 0.33, 1.13);
+}
+
+.c0.resize-and-drag-content-animate-exit {
+  background: rgb(255, 255, 255);
+}
+
+.c0.resize-and-drag-content-animate-exit-active {
+  transform: scaleX(0) scaleY(0);
+  transition: transform cubic-bezier(0.17, 0.88, 0.33, 1);
+}
+
+.c0.resize-and-drag-content-animate-exit-active > * {
+  opacity: 0;
+  transition: opacity ease-in-out;
+}
+
+.c0.resize-and-drag-content-animate-exit-done {
+  opacity: 0;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c1:not(:disabled):active::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .c1:not(:disabled):hover::before {
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="portal base"
+  data-role="portal"
+>
+  <div>
+    <div
+      class="react-draggable"
+      style="position: absolute; user-select: auto; width: auto; height: auto; display: inline-block; top: 0px; left: 0px; cursor: move; transform: translate(0px, 0px); max-width: 1280px; max-height: 720px; min-width: 200px; min-height: 200px; box-sizing: border-box; flex-shrink: 0;"
+    >
+      <div
+        class="c0 resize-and-drag-content-wrapper"
+        data-role="resize-and-drag-content"
+        role="dialog"
+        style="outline: transparent solid 1px;"
+        tabindex="-1"
+      >
+        <button
+          aria-label="Close"
+          class="c1 button button--secondary button--outline button--dark"
+          data-role="button"
+          title="Close"
+          type="button"
+        />
+      </div>
+      <div
+        class="tab-sandbox-supporter"
+        data-role="tab-sandbox-supporter"
+        tabindex="0"
+      />
+      <div />
+    </div>
+    <div
+      class="c2"
+      data-role="portal-placeholder"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.resize-and-drag-container > resize-container-with-animation 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  height: 100%;
+  outline: none;
+  transform-origin: left top;
+}
+
+.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+  width: 100%;
+}
+
+.c0 > :only-child {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  height: 100%;
+  overflow: auto;
+}
+
+.c0 > :only-child > :only-child {
+  flex-grow: 1;
+}
+
+.c0 .handle {
+  cursor: move;
+}
+
+.c0 .handle > * {
+  cursor: move !important;
+}
+
+.c0.resize-and-drag-content-animate-enter {
+  background: rgb(255, 255, 255);
+  transform: scaleX(0) scaleY(0);
+}
+
+.c0.resize-and-drag-content-animate-enter > * {
+  opacity: 0;
+}
+
+.c0.resize-and-drag-content-animate-enter-active,
+.c0.resize-and-drag-content-animate-exit {
+  transform: scaleX(1) scaleY(1);
+}
+
+.c0.resize-and-drag-content-animate-enter-active > *,
+.c0.resize-and-drag-content-animate-exit > * {
+  transition: opacity 100ms ease-in-out 200ms;
+  opacity: 1;
+}
+
+.c0.resize-and-drag-content-animate-enter-active {
+  transition: transform 600ms cubic-bezier(0.17, 0.88, 0.33, 1.13);
+}
+
+.c0.resize-and-drag-content-animate-exit {
+  background: rgb(255, 255, 255);
+}
+
+.c0.resize-and-drag-content-animate-exit-active {
+  transform: scaleX(0) scaleY(0);
+  transition: transform 600ms cubic-bezier(0.17, 0.88, 0.33, 1);
+}
+
+.c0.resize-and-drag-content-animate-exit-active > * {
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+}
+
+.c0.resize-and-drag-content-animate-exit-done {
+  opacity: 0;
+}
+
+<div
+  class="portal base"
+  data-role="portal"
+>
+  <div>
+    <div
+      class="react-draggable-disabled react-draggable"
+      style="position: absolute; user-select: auto; width: 300px; height: 400px; display: inline-block; top: 0px; left: 0px; cursor: auto; transform: translate(0px, 21px); max-width: 1280px; max-height: 720px; min-width: 200px; min-height: 200px; box-sizing: border-box; flex-shrink: 0;"
+    >
+      <div
+        class="c0 resize-and-drag-content-wrapper resize-and-drag-content-animate-enter-done"
+        data-role="resize-and-drag-content"
+        role="dialog"
+        style="outline: transparent solid 1px;"
+        tabindex="-1"
+      >
+        Something
+      </div>
+      <div
+        class="tab-sandbox-supporter"
+        data-role="tab-sandbox-supporter"
+        tabindex="0"
+      />
+      <div>
+        <div
+          style="position: absolute; user-select: none; width: 100%; height: 5px; top: 0px; left: 0px; cursor: ns-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 100%; top: 0px; cursor: ew-resize; right: 0px;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 100%; height: 5px; left: 0px; cursor: ns-resize; bottom: 0px;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 100%; top: 0px; left: 0px; cursor: ew-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; right: 0px; top: 0px; cursor: nesw-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; right: 0px; bottom: 0px; cursor: nwse-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; left: 0px; bottom: 0px; cursor: nesw-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; left: 0px; top: 0px; cursor: nwse-resize;"
+        />
+      </div>
+    </div>
+    <div
+      class="c1"
+      data-role="portal-placeholder"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.resize-and-drag-container > resize-container-with-initial-size 1`] = `
+.c1 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c0 {
+  height: 100%;
+  outline: none;
+  transform-origin: left top;
+}
+
+.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+  width: 100%;
+}
+
+.c0 > :only-child {
+  box-shadow: rgba(22, 25, 29, 0.3) 0px 0px 20px 0px;
+  height: 100%;
+  overflow: auto;
+}
+
+.c0 > :only-child > :only-child {
+  flex-grow: 1;
+}
+
+.c0 .handle {
+  cursor: move;
+}
+
+.c0 .handle > * {
+  cursor: move !important;
+}
+
+.c0.resize-and-drag-content-animate-enter {
+  background: rgb(255, 255, 255);
+  transform: scaleX(0) scaleY(0);
+}
+
+.c0.resize-and-drag-content-animate-enter > * {
+  opacity: 0;
+}
+
+.c0.resize-and-drag-content-animate-enter-active,
+.c0.resize-and-drag-content-animate-exit {
+  transform: scaleX(1) scaleY(1);
+}
+
+.c0.resize-and-drag-content-animate-enter-active > *,
+.c0.resize-and-drag-content-animate-exit > * {
+  transition: opacity ease-in-out;
+  opacity: 1;
+}
+
+.c0.resize-and-drag-content-animate-enter-active {
+  transition: transform cubic-bezier(0.17, 0.88, 0.33, 1.13);
+}
+
+.c0.resize-and-drag-content-animate-exit {
+  background: rgb(255, 255, 255);
+}
+
+.c0.resize-and-drag-content-animate-exit-active {
+  transform: scaleX(0) scaleY(0);
+  transition: transform cubic-bezier(0.17, 0.88, 0.33, 1);
+}
+
+.c0.resize-and-drag-content-animate-exit-active > * {
+  opacity: 0;
+  transition: opacity ease-in-out;
+}
+
+.c0.resize-and-drag-content-animate-exit-done {
+  opacity: 0;
+}
+
+<div
+  class="portal base"
+  data-role="portal"
+>
+  <div>
+    <div
+      class="react-draggable-disabled react-draggable"
+      style="position: absolute; user-select: auto; width: auto; height: auto; display: inline-block; top: 0px; left: 0px; cursor: auto; transform: translate(0px, 0px); max-width: 1280px; max-height: 720px; min-width: 200px; min-height: 200px; box-sizing: border-box; flex-shrink: 0;"
+    >
+      <div
+        class="c0 resize-and-drag-content-wrapper"
+        data-role="resize-and-drag-content"
+        role="dialog"
+        style="outline: transparent solid 1px;"
+        tabindex="-1"
+      >
+        Something
+      </div>
+      <div
+        class="tab-sandbox-supporter"
+        data-role="tab-sandbox-supporter"
+        tabindex="0"
+      />
+      <div>
+        <div
+          style="position: absolute; user-select: none; width: 100%; height: 5px; top: 0px; left: 0px; cursor: ns-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 100%; top: 0px; cursor: ew-resize; right: 0px;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 100%; height: 5px; left: 0px; cursor: ns-resize; bottom: 0px;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 100%; top: 0px; left: 0px; cursor: ew-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; right: 0px; top: 0px; cursor: nesw-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; right: 0px; bottom: 0px; cursor: nwse-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; left: 0px; bottom: 0px; cursor: nesw-resize;"
+        />
+        <div
+          style="position: absolute; user-select: none; width: 5px; height: 5px; z-index: 1; left: 0px; top: 0px; cursor: nwse-resize;"
+        />
+      </div>
+    </div>
+    <div
+      class="c1"
+      data-role="portal-placeholder"
+    />
+  </div>
+</div>
+`;

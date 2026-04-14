@@ -1,0 +1,1243 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.contentbox > embedded-contentbox 1`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c0 {
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  box-shadow: none;
+  background-color: transparent;
+  padding: 0px 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c2:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c2.c2 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c2.c2 {
+  padding: 16px;
+}
+
+<div
+  class="c0 contentbox contentbox--embedded"
+  data-role="contentbox"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div />
+  </div>
+  <div
+    class="c2 contentbox__content contentbox__content--initial-padding"
+    data-role="contentbox-content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentbox > other-elements-contentbox 1`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c3 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c3:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c3.c3 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c3.c3 {
+  padding: 16px;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 200px;
+  transition: max-height 0.6s ease-in-out;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+}
+
+<div
+  class="c0 contentbox"
+  data-role="contentbox"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div />
+    <div
+      class="c2 contentbox__wizard-bar"
+      data-role="contentbox-wizard-bar"
+    >
+      <div
+        id="wizard"
+      >
+        a
+      </div>
+    </div>
+    <div
+      id="test"
+    />
+    <div
+      id="sub-heading"
+    />
+  </div>
+  <div
+    class="c3 contentbox__content contentbox__content--initial-padding"
+    data-role="contentbox-content"
+    tabindex="0"
+  />
+  <div
+    id="footer"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentbox > padding-contentbox 1`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c2:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c2.c2 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c2.c2 {
+  padding: 16px;
+}
+
+<div
+  class="c0 contentbox"
+  data-role="contentbox"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div />
+  </div>
+  <div
+    class="c2 contentbox__content contentbox__content--initial-padding"
+    data-role="contentbox-content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentbox > padding-contentbox 2`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+}
+
+.c2:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+<div
+  class="c0 contentbox"
+  data-role="contentbox"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div />
+  </div>
+  <div
+    class="c2 contentbox__content"
+    data-role="contentbox-content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentbox > padding-contentbox 3`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c2:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+<div
+  class="c0 contentbox"
+  data-role="contentbox"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div />
+  </div>
+  <div
+    class="c2 contentbox__content"
+    data-role="contentbox-content"
+    style="padding: 24px;"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentbox > padding-contentbox 4`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c2:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+<div
+  class="c0 contentbox"
+  data-role="contentbox"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div />
+  </div>
+  <div
+    class="c2 contentbox__content"
+    data-role="contentbox-content"
+    style="padding: 24px;"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentbox > rendering-contentbox-with-provided-properties 1`] = `
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c2:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c2.c2 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c2.c2 {
+  padding: 16px;
+}
+
+<div
+  class="c0 contentbox test-class"
+  data-role="contentbox"
+  id="test-id"
+  style="background-color: red;"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div
+      id="test"
+    />
+  </div>
+  <div
+    class="c2 contentbox__content contentbox__content--initial-padding"
+    data-role="contentbox-content"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > back-button 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c1 .c3 {
+  user-select: none;
+}
+
+.c1 .c3 {
+  color: inherit;
+}
+
+.c1 .c3 {
+  font-size: inherit;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c3 {
+  display: block;
+}
+
+.c5 > .c5.c5 .c0:disabled {
+  border: 2px solid transparent;
+}
+
+.c5 > .c5.c5 .c0:not(:hover):not(:focus):not(:disabled) {
+  border: 2px solid transparent;
+}
+
+.c2.c2 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c2.c2:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2.c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c2.c2:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="contentbox__addon"
+  data-role="contentbox-addon"
+>
+  <button
+    aria-label="back-title"
+    class="c0 c1 button button--icon c2"
+    data-role="button"
+    data-type="icon"
+    title="back-title"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        chevron_left
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-action-bar-group-area 1`] = `
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  min-height: 48px;
+  padding: 2px 24px;
+}
+
+.c0 > :not(:empty) {
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: flex;
+}
+
+.c1:not(:only-child) {
+  margin-right: 16px;
+}
+
+.c2 {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+<div
+  class="c0 contentbox__subheadingActionBarGroupArea"
+  data-role="contentbox-group-action-bar"
+>
+  <div
+    class="c1 contentbox__subheadingActionBarGroupArea-left"
+    data-role="contentbox-action-bar-group-area-left"
+  >
+    <div
+      id="leftSlotElement"
+    />
+  </div>
+  <div
+    class="c2 contentbox__subheadingActionBarGroupArea-right"
+    data-role="contentbox-action-bar-group-area-right"
+  >
+    <div
+      id="rightSlotElement"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-ActionBar 1`] = `
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  min-height: 48px;
+  padding: 2px 24px;
+}
+
+.c0 > :not(:last-child):not(:only-child):not(.StyledGrid-sc-dOvSfP) {
+  margin: 0px 16px 0px 0px;
+}
+
+<div
+  class="c0 contentbox__subheadingActionBar test-class"
+  data-role="contentbox-action-bar"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    id="children"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-ActionBarGroup 1`] = `
+.c1 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c0 > .c0.c0 {
+  background-color: rgb(221, 221, 221);
+  border-radius: 2px;
+  height: auto;
+  margin: 0px -6px;
+  min-height: 0px;
+  padding: 4px 6px;
+}
+
+<div
+  class="c0 c1 test-class contentbox__subheadingActionBarGroup"
+  data-role="contentbox-action-bar-group"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    id="children"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-ActionBarGroupArea 1`] = `
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  min-height: 48px;
+  padding: 2px 24px;
+}
+
+.c0 > :not(:empty) {
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+<div
+  class="c0 test-class contentbox__subheadingActionBarGroupArea"
+  data-role="contentbox-group-action-bar"
+  id="test-id"
+  style="color: red;"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-ActionBarGroupDivider 1`] = `
+.c1 {
+  background-color: rgb(211, 214, 220);
+  flex-shrink: 0;
+  height: 16px;
+  margin: 0px 24px;
+  width: 1px;
+}
+
+.c2 > .c0 {
+  margin: 0px 8px;
+}
+
+.c2 > .c2.c2 > .c0 {
+  background-color: rgb(169, 179, 188);
+  border-radius: 50%;
+  height: 4px;
+  width: 4px;
+}
+
+<div
+  class="c0 c1 test-class contentbox__subheadingActionBarGroupDivider"
+  data-role="contentbox-action-bar-group-divider"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    id="children"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-Footer 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-radius: 0px;
+  border-top: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  min-height: 48px;
+  padding: 4px 24px;
+}
+
+<div
+  class="c0 contentbox__footer test-class"
+  data-role="contentbox-footer"
+  id="test-id"
+  style="color: red;"
+>
+  <span
+    aria-level="2"
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+    role="heading"
+  >
+    Action Section
+  </span>
+  <div
+    id="children"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-Heading 1`] = `
+.c0 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c0.c0 {
+  padding: 0px 24px;
+}
+
+.c1 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c1.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c1.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+<div
+  class="c0 contentbox__heading test-class"
+  data-role="contentbox-heading"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    class="c1"
+  >
+    <div
+      id="children"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-HeadingAddon 1`] = `
+<div
+  class="contentbox__addon test-class"
+  data-role="contentbox-addon"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    id="children"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-NotificationArea 1`] = `
+<div
+  class="contentbox__notification test-class"
+  data-role="contentbox-notification"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    id="children"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-SubActionBar 1`] = `
+.c0 {
+  background-color: rgb(241, 242, 244);
+  padding: 8px 24px;
+}
+
+<div
+  class="c0 contentbox__subheadingSubActionBar test-class"
+  data-role="contentbox-action-bar"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    id="children"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-SubHeading 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c0 > :not(:empty):not(.sc-bRKDuR) {
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+}
+
+<div
+  class="c0 contentbox__subheading test-class"
+  data-role="contentbox-subheading"
+  id="test-id"
+  style="color: red;"
+>
+  <div
+    id="children"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-Title 1`] = `
+.c0 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+<div
+  class="c0 contentbox__title test-class"
+  data-role="contentbox-title"
+  id="test-id"
+  role="heading"
+  style="color: red;"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-color-heading 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.c0.c0.c0 {
+  border-bottom-color: red;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c0.c0 {
+  padding: 0px 24px;
+}
+
+.c3.c3.c3 {
+  background-color: red;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c4 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c4.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c4.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+<div
+  class="c0 contentbox__heading"
+  data-role="contentbox-heading"
+>
+  <div
+    class="c1 contentbox__addon-prefix"
+    data-role="contentbox-addon-prefix"
+  >
+    <i
+      class="c2 plasma-icon c3 contentbox__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        reply
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-heading 1`] = `
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-itBzGI .c0.c0 {
+  padding: 0px 24px;
+}
+
+.c1 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c3 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-iBWYYD .c3.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-iBWYYD .c3.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+<div
+  class="c0 contentbox__heading"
+  data-role="contentbox-heading"
+>
+  <div
+    class="c1 contentbox__addon-prefix"
+    data-role="contentbox-addon-prefix"
+  >
+    <i
+      class="c2 plasma-icon contentbox__icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        reply
+      </span>
+    </i>
+    <div>
+      prefix
+    </div>
+  </div>
+  <div
+    class="c3"
+  />
+  <div
+    class="c1 contentbox__addon-suffix"
+    data-role="contentbox-addon-suffix"
+  >
+    <div>
+      suffix
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-title 1`] = `
+.c0 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+<div
+  aria-level="1"
+  class="c0 contentbox__title"
+  data-role="contentbox-title"
+  role="heading"
+>
+  text
+</div>
+`;

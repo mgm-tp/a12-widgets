@@ -1,0 +1,91 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.progress-bar > rendering element with progress bar  1`] = `
+.c0 {
+  background-color: inherit;
+  border-radius: inherit;
+  inset: 0px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.c0 > * {
+  inset: 0px;
+  position: absolute;
+}
+
+.c1 {
+  background-color: inherit;
+  outline: transparent solid 1px;
+  transition: width 1s ease-out;
+  width: 50%;
+  z-index: 1;
+}
+
+.c2 {
+  background-color: rgb(226, 230, 233);
+}
+
+<div
+  style="background-color: blue; cursor: default; position: relative;"
+>
+  <span
+    class="c0"
+    data-role="progress-bar"
+  >
+    <span
+      class="c1"
+      data-role="progress-bar-fill"
+    />
+    <span
+      class="c2"
+      data-role="progress-bar-buffer"
+    />
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.progress-bar > rendering progress bar 1`] = `
+.c0 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  inset: 0px;
+  isolation: isolate;
+  outline: transparent dotted 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.c0 > * {
+  inset: 0px;
+  position: absolute;
+}
+
+.c1 {
+  background-color: inherit;
+  outline: transparent solid 1px;
+  transition: width 1s ease-out;
+  width: 50%;
+  z-index: 1;
+}
+
+.c2 {
+  background-color: rgb(226, 230, 233);
+}
+
+<span
+  class="c0"
+  data-role="progress-bar"
+>
+  <span
+    class="c1"
+    data-role="progress-bar-fill"
+  />
+  <span
+    class="c2"
+    data-role="progress-bar-buffer"
+  />
+</span>
+`;

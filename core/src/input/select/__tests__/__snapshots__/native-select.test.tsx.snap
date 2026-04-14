@@ -1,0 +1,2251 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render base native select 1`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c2:empty {
+  display: none;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: block;
+  width: fit-content;
+}
+
+.c5 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c5.c5.c5 {
+  outline: transparent solid 1px;
+}
+
+.c5::selection {
+  background-color: transparent;
+}
+
+.c5::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c3 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c4:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c7::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c6 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c6:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block test-classname"
+  data-role="select"
+  style="background-color: red;"
+>
+  <label
+    class="c1 c2 label field__label"
+    data-role="select-label"
+    for="test-id"
+    id="test-id-label"
+  >
+    Test Label
+  </label>
+  <div
+    class="c3 field__select"
+    data-role="select-control"
+  >
+    <div
+      class="c4 field__select-wrapper"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c5 field__selectTitle"
+        data-role="select-input"
+        id="test-id"
+      >
+        <option
+          class="c6 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c6 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c7 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render disabled select 1`] = `
+.c1 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c4 {
+  appearance: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  background-color: inherit;
+  cursor: default;
+  opacity: 1;
+}
+
+.c4.c4.c4 {
+  outline: transparent solid 1px;
+}
+
+.c4::selection {
+  background-color: transparent;
+}
+
+.c4::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c0[class*="h_"] .c4.c4 {
+  background-color: inherit !important;
+}
+
+.c2 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c3 {
+  border-radius: inherit;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  background-color: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c6::after {
+  align-items: center;
+  color: rgb(169, 179, 188);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c5 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c5:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="select"
+>
+  <div
+    class="c2 field__select field__select--disabled"
+    data-disabled="true"
+    data-role="select-control"
+  >
+    <div
+      class="c3 field__select-wrapper"
+      data-disabled="true"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c4 field__selectTitle"
+        data-role="select-input"
+        disabled=""
+      >
+        <option
+          class="c5 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c5 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c6 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render error select 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c5.c5 {
+  color: rgb(201, 29, 29);
+}
+
+.c1 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c2 .c3 {
+  font-size: 1.25rem;
+}
+
+.c7 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c10 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c10.c10.c10 {
+  outline: transparent solid 1px;
+}
+
+.c10::selection {
+  background-color: transparent;
+}
+
+.c10::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c8 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c8:focus {
+  outline: none;
+}
+
+.c9 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c9:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c12::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c11 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c11:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="select"
+>
+  <div
+    class="c1 message message--error"
+    data-role="select-error-message"
+  >
+    <div
+      class="c2 messageIcon"
+    >
+      <i
+        class="c3 c4 c5 plasma-icon plasma-icon--error plasma-icon--custom"
+        data-role="plasma-icon"
+        title="Error"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Error
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 messageText"
+      data-role="error-text"
+    >
+      Test error message
+    </div>
+  </div>
+  <div
+    class="c8 field__select"
+    data-role="select-control"
+  >
+    <div
+      class="c9 field__select-wrapper field__select-wrapper--error"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c10 field__selectTitle field__selectTitle--error"
+        data-role="select-input"
+      >
+        <option
+          class="c11 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c11 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c12 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render info select 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c5.c5 {
+  color: rgb(5, 104, 174);
+}
+
+.c1 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c2 .c3 {
+  font-size: 1.25rem;
+}
+
+.c7 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c10 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c10.c10.c10 {
+  outline: transparent solid 1px;
+}
+
+.c10::selection {
+  background-color: transparent;
+}
+
+.c10::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c8 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c8:focus {
+  outline: none;
+}
+
+.c9 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
+}
+
+.c9:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c12::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c11 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c11:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="select"
+>
+  <div
+    class="c1"
+    data-role="select-info-message"
+  >
+    <div
+      class="c2"
+    >
+      <i
+        class="c3 c4 c5 plasma-icon plasma-icon--info"
+        data-role="plasma-icon"
+        title="Information"
+      >
+        <span
+          aria-hidden="true"
+        >
+          info
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Information
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7"
+      data-role="info-text"
+    >
+      Test info message
+    </div>
+  </div>
+  <div
+    class="c8 field__select"
+    data-role="select-control"
+  >
+    <div
+      class="c9 field__select-wrapper"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c10 field__selectTitle"
+        data-role="select-input"
+      >
+        <option
+          class="c11 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c11 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c12 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render readonly select 1`] = `
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c3 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  margin: 0px;
+  min-width: 5px;
+  cursor: default;
+  opacity: 1;
+}
+
+.c3.c3.c3 {
+  outline: transparent solid 1px;
+}
+
+.c3::selection {
+  background-color: transparent;
+}
+
+.c3::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c1 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+  cursor: default;
+  min-width: 5px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  border-radius: inherit;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  background-color: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c5::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: none;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c4 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c4:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="select"
+>
+  <div
+    class="c1 field__select field__select--readonly"
+    data-role="select-control"
+  >
+    <div
+      class="c2 field__select-wrapper"
+      data-readonly="true"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c3 field__selectTitle"
+        data-role="select-input"
+        disabled=""
+      >
+        <option
+          class="c4 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c5 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render select with helper text 1`] = `
+.c7 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c6 {
+  display: flex;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c3 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c3.c3.c3 {
+  outline: transparent solid 1px;
+}
+
+.c3::selection {
+  background-color: transparent;
+}
+
+.c3::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c1 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c2:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c5::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c4 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c4:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="select"
+>
+  <div
+    class="c1 field__select"
+    data-role="select-control"
+  >
+    <div
+      class="c2 field__select-wrapper"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c3 field__selectTitle"
+        data-role="select-input"
+      >
+        <option
+          class="c4 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c5 field__select-arrow"
+      />
+    </div>
+  </div>
+  <div
+    class="c6 field__helper"
+    data-role="select-helper-text"
+  >
+    <label
+      class="c7 field__helper-text"
+    >
+      Test Helper Text
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render select with hidden label 1`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2:empty {
+  display: none;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: block;
+  width: fit-content;
+}
+
+.c5 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c5.c5.c5 {
+  outline: transparent solid 1px;
+}
+
+.c5::selection {
+  background-color: transparent;
+}
+
+.c5::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c3 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c4:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c7::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c6 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c6:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="select"
+>
+  <label
+    class="c1 c2 label field__label -u-unseenButRead"
+    data-role="select-label"
+  >
+    Test Label
+  </label>
+  <div
+    class="c3 field__select"
+    data-role="select-control"
+  >
+    <div
+      class="c4 field__select-wrapper"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c5 field__selectTitle"
+        data-role="select-input"
+      >
+        <option
+          class="c6 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c6 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c7 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render select with isEmptyValue flag set to true 1`] = `
+.c0 {
+  appearance: none;
+  color: rgb(97, 111, 124);
+  font-style: italic;
+}
+
+<option
+  class="c0 field__selectOption"
+  data-role="select-option"
+  value="none"
+>
+  -- None --
+</option>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render select with tooltip 1`] = `
+.c1 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c4 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c4.c4.c4 {
+  outline: transparent solid 1px;
+}
+
+.c4::selection {
+  background-color: transparent;
+}
+
+.c4::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c0[class*="h_"] .c7.c7 {
+  background-color: inherit !important;
+}
+
+.c2 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c3 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c3:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c5 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c5:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 c1 field field--tooltips field--tooltips-1 field--block"
+  data-role="select"
+>
+  <div
+    class="c2 field__select"
+    data-role="select-control"
+  >
+    <div
+      class="c3 field__select-wrapper"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c4 field__selectTitle"
+        data-role="select-input"
+      >
+        <option
+          class="c5 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c5 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c6 field__select-arrow"
+      />
+    </div>
+    <div
+      class="test-tooltip"
+    >
+      Test tooltip
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render select with tooltip in new line 1`] = `
+.c1 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c4 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c4.c4.c4 {
+  outline: transparent solid 1px;
+}
+
+.c4::selection {
+  background-color: transparent;
+}
+
+.c4::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c0[class*="h_"] .c7.c7 {
+  background-color: inherit !important;
+}
+
+.c2 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c3 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c3:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c5 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c5:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 c1 field field--block"
+  data-role="select"
+>
+  <div
+    class="test-tooltip"
+  >
+    Test tooltip
+  </div>
+  <div
+    class="c2 field__select"
+    data-role="select-control"
+  >
+    <div
+      class="c3 field__select-wrapper"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c4 field__selectTitle"
+        data-role="select-input"
+      >
+        <option
+          class="c5 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c5 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c6 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.native.select > render warning select 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c5.c5 {
+  color: rgb(175, 121, 2);
+}
+
+.c1 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c2 .c3 {
+  font-size: 1.25rem;
+}
+
+.c7 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c10 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c10.c10.c10 {
+  outline: transparent solid 1px;
+}
+
+.c10::selection {
+  background-color: transparent;
+}
+
+.c10::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c8 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c8:focus {
+  outline: none;
+}
+
+.c9 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  box-shadow: rgb(175, 121, 2) 0px 1px 0px 0px;
+}
+
+.c9:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c12::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c11 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c11:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="select"
+>
+  <div
+    class="c1 message message--warning"
+    data-role="select-warning-message"
+  >
+    <div
+      class="c2 messageIcon"
+    >
+      <i
+        class="c3 c4 c5 plasma-icon plasma-icon--warning"
+        data-role="plasma-icon"
+        title="Warning"
+      >
+        <span
+          aria-hidden="true"
+        >
+          warning
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Warning
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 messageText"
+      data-role="warning-text"
+    >
+      Test warning message
+    </div>
+  </div>
+  <div
+    class="c8 field__select"
+    data-role="select-control"
+  >
+    <div
+      class="c9 field__select-wrapper field__select-wrapper--warning"
+      data-role="select-wrapper"
+    >
+      <select
+        class="c10 field__selectTitle field__selectTitle--warning"
+        data-role="select-input"
+      >
+        <option
+          class="c11 field__selectOption"
+          data-role="select-option"
+          value="1"
+        >
+          1
+        </option>
+        <option
+          class="c11 field__selectOption"
+          data-role="select-option"
+          value="2"
+        >
+          2
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c12 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,1144 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.counter > render counter 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter test-class"
+  data-role="counter"
+  id="test-id"
+  style="background: red;"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c2 counter__item"
+    >
+      3
+    </span>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render counter with addon 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c1 {
+  display: inline-flex;
+  margin-right: 2px;
+}
+
+.c1 > * {
+  flex-shrink: 0;
+}
+
+.c1 .c2 {
+  color: inherit;
+}
+
+.c6 {
+  display: inline-flex;
+  margin-left: 2px;
+}
+
+.c6 > * {
+  flex-shrink: 0;
+}
+
+.c6 .c2 {
+  color: inherit;
+}
+
+.c5 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter"
+  data-role="counter"
+>
+  <span
+    class="c1 counter__addon counter__addon--before"
+    data-role="counter-addon"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        done
+      </span>
+    </i>
+  </span>
+  <span
+    class="c4 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c5 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c5 counter__item"
+    >
+      3
+    </span>
+  </span>
+  <span
+    class="c6 counter__addon counter__addon--after"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        error
+      </span>
+    </i>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render counter with placeholder 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k2;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter"
+  data-role="counter"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    --- Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      ---
+    </span>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render interactive counter 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c0:focus {
+  background-color: rgb(213, 0, 117);
+  color: rgb(255, 255, 255);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@media (pointer: coarse) {
+  .c0:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c0:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter counter--interactive"
+  data-role="counter"
+  role="button"
+  tabindex="0"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c2 counter__item"
+    >
+      3
+    </span>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render overflowed counter 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter"
+  data-role="counter"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c2 counter__item"
+    >
+      3
+    </span>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render secondary counter 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  border-radius: 8px;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  vertical-align: middle;
+  background: transparent;
+  color: inherit;
+  padding: 0px;
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter counter--secondary"
+  data-role="counter"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c2 counter__item"
+    >
+      3
+    </span>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render variant counter 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter"
+  data-role="counter"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c2 counter__item"
+    >
+      3
+    </span>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render variant counter 2`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  border-radius: 8px;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+  background-color: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter counter--constructive"
+  data-role="counter"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c2 counter__item"
+    >
+      3
+    </span>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render variant counter 3`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  border-radius: 8px;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+  background-color: rgb(201, 29, 29);
+  color: rgb(255, 255, 255);
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter counter--destructive"
+  data-role="counter"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c2 counter__item"
+    >
+      3
+    </span>
+  </span>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.counter > render variant counter 4`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.c0 > * {
+  flex-shrink: 0;
+}
+
+.c2 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k2 {
+  0% {
+    transform: translate3d(0px, -3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+<span
+  class="c0 counter"
+  data-role="counter"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    23 Entries
+  </span>
+  <span
+    aria-hidden="true"
+    role="presentation"
+  >
+    <span
+      class="c2 counter__item"
+    >
+      2
+    </span>
+    <span
+      class="c2 counter__item"
+    >
+      3
+    </span>
+  </span>
+</span>
+`;

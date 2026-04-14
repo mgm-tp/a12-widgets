@@ -1,0 +1,1880 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.input.slider > rendering 1`] = `
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c2 {
+  box-sizing: border-box;
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  position: relative;
+  outline: none;
+  width: 100%;
+}
+
+.c2:focus {
+  cursor: pointer;
+}
+
+.c2:focus .c4 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c2:focus .c7 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c2:focus .c21 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  gap: 4px;
+}
+
+.c22 {
+  background-color: rgb(5, 104, 174);
+  border-radius: 50% 50% 18%;
+  height: 18px;
+  position: relative;
+  transform-origin: 79% -31%;
+  transform: rotate(45deg);
+  width: 18px;
+  left: 0%;
+}
+
+.c15 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 0%;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 20%;
+}
+
+.c17 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 40%;
+}
+
+.c18 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 60%;
+}
+
+.c19 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 80%;
+}
+
+.c20 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 100%;
+}
+
+.c8 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 0%;
+}
+
+.c10 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 20%;
+}
+
+.c11 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 40%;
+}
+
+.c12 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 60%;
+}
+
+.c13 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 80%;
+}
+
+.c14 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 100%;
+}
+
+.c9 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c3 {
+  position: relative;
+}
+
+.c5 {
+  background-color: rgb(226, 230, 233);
+  inset: 0px 0px 0px 0%;
+  height: 2px;
+  position: absolute;
+  width: 100%;
+}
+
+.c6 {
+  background-color: rgb(169, 179, 188);
+  left: 0px;
+  width: 0%;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+  }
+
+  .c2:active .c4 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c2:active .c7 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c2:active .c21 {
+    background-color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    cursor: pointer;
+  }
+
+  .c2:hover .c4 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c7 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c21 {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="field-slider"
+>
+  <div
+    class="c1 field__slider-wrapper"
+  >
+    <div
+      class="c2 field__slider"
+      data-role="field-slider-box"
+      tabindex="-1"
+    >
+      <div
+        class="c3 field__sliderBar"
+      >
+        <div
+          class="c4 c5 c6 field__sliderBarFill field__sliderBarFill--left"
+          data-role="field-slider-bar-fill-left"
+        />
+        <div
+          class="c5 field__sliderBarFill field__sliderBarFill--right"
+          data-role="field-slider-bar-fill-right"
+        />
+        <div
+          class="c7 c8 c9 field__sliderBarTick field__sliderBarTick--left"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c10 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c11 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c12 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c13 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c14 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c15 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          1
+        </div>
+        <div
+          class="c16 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          2
+        </div>
+        <div
+          class="c17 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          3
+        </div>
+        <div
+          class="c18 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          4
+        </div>
+        <div
+          class="c19 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          5
+        </div>
+        <div
+          class="c20 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          6
+        </div>
+      </div>
+      <div
+        class="c21 c22 field__sliderThumb"
+        data-role="field-slider-thumb"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c23:focus .c4 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c23:focus .c7 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c23:focus .c21 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c24:focus .c4 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c24:focus .c7 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c24:focus .c21 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c2 {
+  box-sizing: border-box;
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  position: relative;
+  outline: none;
+  width: 100%;
+  cursor: default;
+}
+
+.c1 {
+  display: flex;
+  gap: 4px;
+}
+
+.c22 {
+  border-radius: 50% 50% 18%;
+  height: 18px;
+  position: relative;
+  transform-origin: 79% -31%;
+  transform: rotate(45deg);
+  width: 18px;
+  left: 0%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c15 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 0%;
+  color: rgb(226, 230, 233);
+  cursor: not-allowed;
+}
+
+.c16 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 20%;
+  color: rgb(226, 230, 233);
+  cursor: not-allowed;
+}
+
+.c17 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 40%;
+  color: rgb(226, 230, 233);
+  cursor: not-allowed;
+}
+
+.c18 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 60%;
+  color: rgb(226, 230, 233);
+  cursor: not-allowed;
+}
+
+.c19 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 80%;
+  color: rgb(226, 230, 233);
+  cursor: not-allowed;
+}
+
+.c20 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 100%;
+  color: rgb(226, 230, 233);
+  cursor: not-allowed;
+}
+
+.c8 {
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 0%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c10 {
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 20%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c11 {
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 40%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c12 {
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 60%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c13 {
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 80%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c14 {
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 100%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c9 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c3 {
+  position: relative;
+}
+
+.c5 {
+  inset: 0px 0px 0px 0%;
+  height: 2px;
+  position: absolute;
+  width: 100%;
+  background-color: rgb(226, 230, 233);
+}
+
+.c6 {
+  left: 0px;
+  width: 0%;
+}
+
+@media (pointer: coarse) {
+  .c23:active .c4 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c23:active .c7 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c23:active .c21 {
+    background-color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c23:hover .c4 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c23:hover .c7 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c23:hover .c21 {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c24:active .c4 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c24:active .c7 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c24:active .c21 {
+    background-color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c24:hover .c4 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c24:hover .c7 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c24:hover .c21 {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="field-slider"
+>
+  <div
+    class="c1 field__slider-wrapper"
+  >
+    <div
+      class="c2 field__slider field__slider--disabled"
+      data-role="field-slider-box"
+      tabindex="-1"
+    >
+      <div
+        class="c3 field__sliderBar"
+      >
+        <div
+          class="c4 c5 c6 field__sliderBarFill field__sliderBarFill--left"
+          data-role="field-slider-bar-fill-left"
+        />
+        <div
+          class="c5 field__sliderBarFill field__sliderBarFill--right"
+          data-role="field-slider-bar-fill-right"
+        />
+        <div
+          class="c7 c8 c9 field__sliderBarTick field__sliderBarTick--left"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c10 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c11 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c12 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c13 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c14 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c15 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          1
+        </div>
+        <div
+          class="c16 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          2
+        </div>
+        <div
+          class="c17 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          3
+        </div>
+        <div
+          class="c18 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          4
+        </div>
+        <div
+          class="c19 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          5
+        </div>
+        <div
+          class="c20 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          6
+        </div>
+      </div>
+      <div
+        class="c21 c22 field__sliderThumb"
+        data-role="field-slider-thumb"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c23:focus .c4 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c23:focus .c7 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c23:focus .c21 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c24:focus .c4 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c24:focus .c7 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c24:focus .c21 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c2 {
+  box-sizing: border-box;
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  position: relative;
+  outline: none;
+  width: 100%;
+  cursor: default;
+}
+
+.c1 {
+  display: flex;
+  gap: 4px;
+}
+
+.c22 {
+  border-radius: 50% 50% 18%;
+  height: 18px;
+  position: relative;
+  transform-origin: 79% -31%;
+  transform: rotate(45deg);
+  width: 18px;
+  left: 0%;
+  background-color: rgb(169, 179, 188);
+}
+
+.c15 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 0%;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 20%;
+}
+
+.c17 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 40%;
+}
+
+.c18 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 60%;
+}
+
+.c19 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 80%;
+}
+
+.c20 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 100%;
+}
+
+.c8 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 0%;
+}
+
+.c10 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 20%;
+}
+
+.c11 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 40%;
+}
+
+.c12 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 60%;
+}
+
+.c13 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 80%;
+}
+
+.c14 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 100%;
+}
+
+.c9 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c3 {
+  position: relative;
+}
+
+.c5 {
+  background-color: rgb(226, 230, 233);
+  inset: 0px 0px 0px 0%;
+  height: 2px;
+  position: absolute;
+  width: 100%;
+}
+
+.c6 {
+  background-color: rgb(169, 179, 188);
+  left: 0px;
+  width: 0%;
+}
+
+@media (pointer: coarse) {
+  .c23:active .c4 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c23:active .c7 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c23:active .c21 {
+    background-color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c23:hover .c4 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c23:hover .c7 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c23:hover .c21 {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c24:active .c4 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c24:active .c7 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c24:active .c21 {
+    background-color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c24:hover .c4 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c24:hover .c7 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c24:hover .c21 {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="field-slider"
+>
+  <div
+    class="c1 field__slider-wrapper"
+  >
+    <div
+      class="c2 field__slider field__slider--readonly"
+      data-role="field-slider-box"
+      tabindex="-1"
+    >
+      <div
+        class="c3 field__sliderBar"
+      >
+        <div
+          class="c4 c5 c6 field__sliderBarFill field__sliderBarFill--left"
+          data-role="field-slider-bar-fill-left"
+        />
+        <div
+          class="c5 field__sliderBarFill field__sliderBarFill--right"
+          data-role="field-slider-bar-fill-right"
+        />
+        <div
+          class="c7 c8 c9 field__sliderBarTick field__sliderBarTick--left"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c10 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c11 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c12 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c13 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c14 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c15 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          1
+        </div>
+        <div
+          class="c16 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          2
+        </div>
+        <div
+          class="c17 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          3
+        </div>
+        <div
+          class="c18 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          4
+        </div>
+        <div
+          class="c19 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          5
+        </div>
+        <div
+          class="c20 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          6
+        </div>
+      </div>
+      <div
+        class="c21 c22 field__sliderThumb"
+        data-role="field-slider-thumb"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.slider > rendering-error-message 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c5.c5 {
+  color: rgb(201, 29, 29);
+}
+
+.c1 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c2 .c3 {
+  font-size: 1.25rem;
+}
+
+.c7 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c30:focus .c11 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c30:focus .c14 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c30:focus .c28 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c9 {
+  box-sizing: border-box;
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  position: relative;
+  outline: none;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.c9:focus {
+  cursor: pointer;
+}
+
+.c9:focus .c11 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c9:focus .c14 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c9:focus .c28 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c8 {
+  display: flex;
+  gap: 4px;
+}
+
+.c29 {
+  border-radius: 50% 50% 18%;
+  height: 18px;
+  position: relative;
+  transform-origin: 79% -31%;
+  transform: rotate(45deg);
+  width: 18px;
+  left: 0%;
+  background-color: rgb(201, 29, 29);
+}
+
+.c22 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 0%;
+}
+
+.c23 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 20%;
+}
+
+.c24 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 40%;
+}
+
+.c25 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 60%;
+}
+
+.c26 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 80%;
+}
+
+.c27 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 100%;
+}
+
+.c15 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 0%;
+}
+
+.c17 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 20%;
+}
+
+.c18 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 40%;
+}
+
+.c19 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 60%;
+}
+
+.c20 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 80%;
+}
+
+.c21 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 100%;
+}
+
+.c16 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c10 {
+  position: relative;
+}
+
+.c12 {
+  background-color: rgb(226, 230, 233);
+  inset: 0px 0px 0px 0%;
+  height: 2px;
+  position: absolute;
+  width: 100%;
+}
+
+.c13 {
+  background-color: rgb(169, 179, 188);
+  left: 0px;
+  width: 0%;
+}
+
+@media (pointer: coarse) {
+  .c30:active .c11 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c30:active .c14 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c30:active .c28 {
+    background-color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c30:hover .c11 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c30:hover .c14 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c30:hover .c28 {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+  }
+
+  .c9:active .c11 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c9:active .c14 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c9:active .c28 {
+    background-color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    cursor: pointer;
+  }
+
+  .c9:hover .c11 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c9:hover .c14 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c9:hover .c28 {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="field-slider"
+>
+  <div
+    class="c1 message message--error"
+    data-role="field-slider-error-message"
+  >
+    <div
+      class="c2 messageIcon"
+    >
+      <i
+        class="c3 c4 c5 plasma-icon plasma-icon--error plasma-icon--custom"
+        data-role="plasma-icon"
+        title="Error"
+      >
+        <span
+          aria-hidden="true"
+        >
+          
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Error
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 messageText"
+      data-role="error-text"
+    >
+      test
+    </div>
+  </div>
+  <div
+    class="c8 field__slider-wrapper"
+  >
+    <div
+      class="c9 field__slider field__slider--invalid"
+      data-role="field-slider-box"
+      tabindex="-1"
+    >
+      <div
+        class="c10 field__sliderBar"
+      >
+        <div
+          class="c11 c12 c13 field__sliderBarFill field__sliderBarFill--left"
+          data-role="field-slider-bar-fill-left"
+        />
+        <div
+          class="c12 field__sliderBarFill field__sliderBarFill--right"
+          data-role="field-slider-bar-fill-right"
+        />
+        <div
+          class="c14 c15 c16 field__sliderBarTick field__sliderBarTick--left"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c17 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c18 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c19 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c20 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c21 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c22 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          1
+        </div>
+        <div
+          class="c23 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          2
+        </div>
+        <div
+          class="c24 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          3
+        </div>
+        <div
+          class="c25 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          4
+        </div>
+        <div
+          class="c26 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          5
+        </div>
+        <div
+          class="c27 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          6
+        </div>
+      </div>
+      <div
+        class="c28 c29 field__sliderThumb"
+        data-role="field-slider-thumb"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.slider > rendering-with-custom-label-marks 1`] = `
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c2 {
+  box-sizing: border-box;
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  position: relative;
+  outline: none;
+  width: 100%;
+}
+
+.c2:focus {
+  cursor: pointer;
+}
+
+.c2:focus .c4 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c2:focus .c7 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c2:focus .c21 {
+  background-color: rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  gap: 4px;
+}
+
+.c22 {
+  background-color: rgb(5, 104, 174);
+  border-radius: 50% 50% 18%;
+  height: 18px;
+  position: relative;
+  transform-origin: 79% -31%;
+  transform: rotate(45deg);
+  width: 18px;
+  left: 0%;
+}
+
+.c15 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 0%;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 20%;
+}
+
+.c17 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 40%;
+}
+
+.c18 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 60%;
+}
+
+.c19 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 80%;
+}
+
+.c20 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 100%;
+}
+
+.c8 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 0%;
+}
+
+.c10 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 20%;
+}
+
+.c11 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 40%;
+}
+
+.c12 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 60%;
+}
+
+.c13 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 80%;
+}
+
+.c14 {
+  background-color: rgb(226, 230, 233);
+  border-radius: 1px;
+  height: 12px;
+  position: absolute;
+  top: -5px;
+  transform: translate(-50%, 0px);
+  width: 1px;
+  left: 100%;
+}
+
+.c9 {
+  background-color: rgb(169, 179, 188);
+}
+
+.c3 {
+  position: relative;
+}
+
+.c5 {
+  background-color: rgb(226, 230, 233);
+  inset: 0px 0px 0px 0%;
+  height: 2px;
+  position: absolute;
+  width: 100%;
+}
+
+.c6 {
+  background-color: rgb(169, 179, 188);
+  left: 0px;
+  width: 0%;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+  }
+
+  .c2:active .c4 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c2:active .c7 {
+    background-color: rgb(5, 104, 174);
+  }
+
+  .c2:active .c21 {
+    background-color: rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    cursor: pointer;
+  }
+
+  .c2:hover .c4 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c7 {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c2:hover .c21 {
+    background-color: rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 field field--block"
+  data-role="field-slider"
+>
+  <div
+    class="c1 field__slider-wrapper"
+  >
+    <div
+      class="c2 field__slider"
+      data-role="field-slider-box"
+      tabindex="-1"
+    >
+      <div
+        class="c3 field__sliderBar"
+      >
+        <div
+          class="c4 c5 c6 field__sliderBarFill field__sliderBarFill--left"
+          data-role="field-slider-bar-fill-left"
+        />
+        <div
+          class="c5 field__sliderBarFill field__sliderBarFill--right"
+          data-role="field-slider-bar-fill-right"
+        />
+        <div
+          class="c7 c8 c9 field__sliderBarTick field__sliderBarTick--left"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c10 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c11 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c12 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c13 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c14 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c15 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          One
+        </div>
+        <div
+          class="c16 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          Two
+        </div>
+        <div
+          class="c17 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          Three
+        </div>
+        <div
+          class="c18 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          Four
+        </div>
+        <div
+          class="c19 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          Five
+        </div>
+        <div
+          class="c20 field__sliderBarLabel"
+          data-role="field-slider-bar-label"
+        >
+          Six
+        </div>
+      </div>
+      <div
+        class="c21 c22 field__sliderThumb"
+        data-role="field-slider-thumb"
+      />
+    </div>
+  </div>
+</div>
+`;

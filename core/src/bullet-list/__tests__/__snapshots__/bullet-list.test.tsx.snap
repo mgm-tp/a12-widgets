@@ -1,0 +1,532 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.bullet-list.item > rendering-a-item-by-default 1`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  font-weight: normal;
+}
+
+.c1 {
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  color: rgb(97, 111, 124);
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0px 4px 2px 0px;
+}
+
+.c1:last-child {
+  padding-bottom: 0px;
+}
+
+.c3 > .c0 {
+  list-style-type: decimal;
+}
+
+.c4 > .c0 {
+  list-style-type: decimal-leading-zero;
+}
+
+.c5 > .c0 {
+  list-style-type: lower-roman;
+}
+
+.c6 > .c0 {
+  list-style-type: upper-roman;
+}
+
+.c7 > .c0 {
+  list-style-type: lower-alpha;
+}
+
+.c8 > .c0 {
+  list-style-type: decimal;
+}
+
+.c9 > .c0 {
+  list-style-type: disc;
+  color: rgb(127, 140, 155);
+}
+
+.c10 > .c0 {
+  list-style-type: circle;
+  color: rgb(127, 140, 155);
+}
+
+.c11 > .c0 {
+  list-style-type: square;
+  color: rgb(127, 140, 155);
+}
+
+.c12 > .c0 {
+  list-style-type: disc;
+  color: rgb(127, 140, 155);
+}
+
+<li
+  class="c0 c1 bullet-list__item"
+  data-role="bullet-list-item"
+>
+  <div
+    class="c2 bullet-list__content"
+  >
+    Lorem ipsum
+  </div>
+</li>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.item > rendering-item-by-adding-rest-of-property 1`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  font-weight: normal;
+}
+
+.c1 {
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  color: rgb(97, 111, 124);
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0px 4px 2px 0px;
+}
+
+.c1:last-child {
+  padding-bottom: 0px;
+}
+
+.c3 > .c0 {
+  list-style-type: decimal;
+}
+
+.c4 > .c0 {
+  list-style-type: decimal-leading-zero;
+}
+
+.c5 > .c0 {
+  list-style-type: lower-roman;
+}
+
+.c6 > .c0 {
+  list-style-type: upper-roman;
+}
+
+.c7 > .c0 {
+  list-style-type: lower-alpha;
+}
+
+.c8 > .c0 {
+  list-style-type: decimal;
+}
+
+.c9 > .c0 {
+  list-style-type: disc;
+  color: rgb(127, 140, 155);
+}
+
+.c10 > .c0 {
+  list-style-type: circle;
+  color: rgb(127, 140, 155);
+}
+
+.c11 > .c0 {
+  list-style-type: square;
+  color: rgb(127, 140, 155);
+}
+
+.c12 > .c0 {
+  list-style-type: disc;
+  color: rgb(127, 140, 155);
+}
+
+<li
+  class="c0 c1 bullet-list__item customClassName"
+  data-role="custom-item"
+  id="id"
+  style="background-color: rgb(255, 69, 0);"
+>
+  <div
+    class="c2 bullet-list__content"
+  >
+    Lorem ipsum
+  </div>
+</li>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.ordered-list > rendering-a-ordered-list-by-adding-children 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  font-weight: normal;
+}
+
+.c2 {
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  color: rgb(97, 111, 124);
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0px 4px 2px 0px;
+}
+
+.c2:last-child {
+  padding-bottom: 0px;
+}
+
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.c0 > .c1 {
+  list-style-type: decimal;
+}
+
+.c4 > .c1 {
+  list-style-type: decimal-leading-zero;
+}
+
+.c5 > .c1 {
+  list-style-type: lower-roman;
+}
+
+.c6 > .c1 {
+  list-style-type: upper-roman;
+}
+
+.c7 > .c1 {
+  list-style-type: lower-alpha;
+}
+
+.c8 > .c1 {
+  list-style-type: decimal;
+}
+
+<ol
+  class="c0 bullet-list bullet-list--decimal"
+  data-role="ordered-bullet-list"
+>
+  <li
+    class="c1 c2 bullet-list__item"
+    data-role="bullet-list-item"
+  >
+    <div
+      class="c3 bullet-list__content"
+    >
+      Banana
+    </div>
+  </li>
+  <li
+    class="c1 c2 bullet-list__item"
+    data-role="bullet-list-item"
+  >
+    <div
+      class="c3 bullet-list__content"
+    >
+      Apple
+    </div>
+  </li>
+  <li
+    class="c1 c2 bullet-list__item"
+    data-role="bullet-list-item"
+  >
+    <div
+      class="c3 bullet-list__content"
+    >
+      Orange
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.ordered-list > rendering-a-ordered-list-by-adding-rest-of-property 1`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ol
+  class="c0 bullet-list bullet-list--decimal className"
+  data-role="ordered-bullet-list"
+  id="id"
+  style="background-color: rgb(255, 69, 0);"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.ordered-list > rendering-a-ordered-list-by-adding-type 1`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ol
+  class="c0 bullet-list bullet-list--decimal-leading-zero"
+  data-role="ordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.ordered-list > rendering-a-ordered-list-by-adding-type 2`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ol
+  class="c0 bullet-list bullet-list--lower-roman"
+  data-role="ordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.ordered-list > rendering-a-ordered-list-by-adding-type 3`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ol
+  class="c0 bullet-list bullet-list--upper-roman"
+  data-role="ordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.ordered-list > rendering-a-ordered-list-by-adding-type 4`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ol
+  class="c0 bullet-list bullet-list--lower-alpha"
+  data-role="ordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.ordered-list > rendering-a-ordered-list-by-default 1`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ol
+  class="c0 bullet-list bullet-list--decimal"
+  data-role="ordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.ordered-list > rendering-an-inline-ordered-list 1`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+}
+
+<ol
+  class="c0 bullet-list bullet-list--inline bullet-list--decimal"
+  data-role="ordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.unordered-list > rendering-an-inline-and-no-indent-unordered-list 1`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+}
+
+.c0.c0 {
+  padding: 0px 0px 0px 16px;
+}
+
+<ul
+  class="c0 bullet-list bullet-list--inline bullet-list--no-indent bullet-list--disc"
+  data-role="unordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.unordered-list > rendering-an-unordered-list-by-adding-children 1`] = `
+.c3 {
+  color: rgb(77, 77, 77);
+  font-weight: normal;
+}
+
+.c2 {
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  color: rgb(97, 111, 124);
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0px 4px 2px 0px;
+}
+
+.c2:last-child {
+  padding-bottom: 0px;
+}
+
+.c4 > .c1 {
+  list-style-type: decimal;
+}
+
+.c5 > .c1 {
+  list-style-type: decimal-leading-zero;
+}
+
+.c6 > .c1 {
+  list-style-type: lower-roman;
+}
+
+.c7 > .c1 {
+  list-style-type: upper-roman;
+}
+
+.c8 > .c1 {
+  list-style-type: lower-alpha;
+}
+
+.c9 > .c1 {
+  list-style-type: decimal;
+}
+
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.c0 > .c1 {
+  list-style-type: disc;
+  color: rgb(127, 140, 155);
+}
+
+.c10 > .c1 {
+  list-style-type: circle;
+  color: rgb(127, 140, 155);
+}
+
+.c11 > .c1 {
+  list-style-type: square;
+  color: rgb(127, 140, 155);
+}
+
+.c12 > .c1 {
+  list-style-type: disc;
+  color: rgb(127, 140, 155);
+}
+
+<ul
+  class="c0 bullet-list bullet-list--disc"
+  data-role="unordered-bullet-list"
+>
+  <li
+    class="c1 c2 bullet-list__item"
+    data-role="bullet-list-item"
+  >
+    <div
+      class="c3 bullet-list__content"
+    >
+      Banana
+    </div>
+  </li>
+  <li
+    class="c1 c2 bullet-list__item"
+    data-role="bullet-list-item"
+  >
+    <div
+      class="c3 bullet-list__content"
+    >
+      Apple
+    </div>
+  </li>
+  <li
+    class="c1 c2 bullet-list__item"
+    data-role="bullet-list-item"
+  >
+    <div
+      class="c3 bullet-list__content"
+    >
+      Orange
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.unordered-list > rendering-an-unordered-list-by-adding-rest-of-property 1`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ul
+  class="c0 bullet-list bullet-list--disc customClassName"
+  data-role="unordered-bullet-list"
+  id="id"
+  style="background-color: rgb(255, 69, 0);"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.unordered-list > rendering-an-unordered-list-by-adding-type 1`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ul
+  class="c0 bullet-list bullet-list--disc"
+  data-role="unordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.unordered-list > rendering-an-unordered-list-by-adding-type 2`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ul
+  class="c0 bullet-list bullet-list--circle"
+  data-role="unordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.unordered-list > rendering-an-unordered-list-by-adding-type 3`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ul
+  class="c0 bullet-list bullet-list--square"
+  data-role="unordered-bullet-list"
+/>
+`;
+
+exports[`com.mgmtp.a12.widgets.bullet-list.unordered-list > rendering-an-unordered-list-by-default 1`] = `
+.c0 {
+  padding: 0px 0px 0px 32px;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+<ul
+  class="c0 bullet-list bullet-list--disc"
+  data-role="unordered-bullet-list"
+/>
+`;

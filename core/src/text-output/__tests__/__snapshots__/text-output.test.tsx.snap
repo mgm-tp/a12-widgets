@@ -1,0 +1,3499 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data 1`] = `
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.c5 {
+  display: flex;
+  overflow: hidden;
+}
+
+.c5 > p:first-child,
+.c5 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c3 {
+  justify-content: initial;
+}
+
+.c6 {
+  margin: 0px;
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 c4 text-output__content text-output__content--no-data"
+      data-role="text-output-content"
+    >
+      <div
+        class="c5 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c6"
+          data-role="text-output-paragraph"
+        >
+          – 
+          Content
+           –
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-addons 1`] = `
+.c15 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c15 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c11 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c16 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(249, 191, 48);
+}
+
+.c14 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c14 > span {
+  display: inline-block;
+}
+
+.c14.c14 {
+  max-width: unset;
+}
+
+.c10 .c14 {
+  color: inherit;
+}
+
+.c10 .c23 {
+  color: inherit;
+}
+
+.c19.c19 {
+  color: rgb(175, 121, 2);
+}
+
+.c12 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c13 {
+  user-select: none;
+}
+
+.c12 .c13 {
+  color: inherit;
+}
+
+.c12 .c13 {
+  font-size: inherit;
+}
+
+.c12:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c10 .c12.c12 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c10 .c12.c12:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c10 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
+  color: inherit;
+}
+
+.c10 .c12.c12:focus .c13 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c13 {
+  display: block;
+}
+
+.c17 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c17 .c13 {
+  user-select: none;
+}
+
+.c17 {
+  color: inherit;
+}
+
+.c17 .c13 {
+  font-size: inherit;
+}
+
+.c17:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c10 .c17.c17 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c10 .c17.c17:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c10 .c17.c17:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
+  color: inherit;
+}
+
+.c10 .c17.c17:focus .c13 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c13 {
+  display: block;
+}
+
+.c24 .c13 {
+  font-size: 1.25rem;
+}
+
+.c8 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.c22 > .c13,
+.c22 > span:first-child > .c13 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c5 {
+  display: flex;
+  overflow: hidden;
+}
+
+.c5 > p:first-child,
+.c5 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c5 > .c13,
+.c5 > span:first-child > .c13 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c7 {
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.c9 {
+  align-items: flex-start;
+  height: auto;
+}
+
+.c9 .c10 {
+  margin-top: -4px;
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c3 {
+  justify-content: initial;
+}
+
+.c6 {
+  margin: 0px;
+}
+
+.c6 > .c13,
+.c6 > span:first-child > .c13 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c20 > .c10 {
+  margin: 0px 0px 4px 4px;
+}
+
+.c2 {
+  width: 100%;
+}
+
+.c2 > .c10 {
+  margin: 0px 0px 4px 4px;
+}
+
+.c21 > .c10 {
+  margin: 0px 0px 4px 4px;
+}
+
+@media (pointer: coarse) {
+  .c12:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10 .c12.c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10 .c12.c12:active .c13 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c10 .c12.c12:hover .c13 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c17:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10 .c17.c17:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10 .c17.c17:active .c13 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c10 .c17.c17:hover .c13 {
+    color: inherit;
+  }
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block field-wrapper--addons-2"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 c4 text-output__content text-output__content--no-data"
+      data-role="text-output-content"
+    >
+      <div
+        class="c5 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c6"
+          data-role="text-output-paragraph"
+        >
+          – 
+          Content
+           –
+        </p>
+      </div>
+      <div
+        class="c7 text-output__addons"
+        data-role="text-output-addons"
+      >
+        <div
+          class="c8 c9 field-addon field-addon--text-output field-addon--after"
+        >
+          <span
+            class="c10 c11 tooltip tooltip--hint"
+            data-role="tooltip-hint"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c12 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c13 c14 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c15 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Hint: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+        <div
+          class="c8 c9 field-addon field-addon--text-output field-addon--after"
+        >
+          <span
+            class="c10 c16 tooltip tooltip--warning"
+            data-role="tooltip-warning"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c17 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c13 c18 c14 c19 plasma-icon plasma-icon--warning"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  warning
+                </span>
+                <span
+                  class="c15 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Warning: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-addons 1`] = `
+.c15 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c15 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c11 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c16 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(249, 191, 48);
+}
+
+.c14 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c14 > span {
+  display: inline-block;
+}
+
+.c14.c14 {
+  max-width: unset;
+}
+
+.c10 .c14 {
+  color: inherit;
+}
+
+.c10 .c21 {
+  color: inherit;
+}
+
+.c19.c19 {
+  color: rgb(175, 121, 2);
+}
+
+.c12 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c12 .c13 {
+  user-select: none;
+}
+
+.c12 .c13 {
+  color: inherit;
+}
+
+.c12 .c13 {
+  font-size: inherit;
+}
+
+.c12:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c10 .c12.c12 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c10 .c12.c12:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c10 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
+  color: inherit;
+}
+
+.c10 .c12.c12:focus .c13 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c13 {
+  display: block;
+}
+
+.c17 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c17 .c13 {
+  user-select: none;
+}
+
+.c17 {
+  color: inherit;
+}
+
+.c17 .c13 {
+  font-size: inherit;
+}
+
+.c17:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c10 .c17.c17 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c10 .c17.c17:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c10 .c17.c17:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
+  color: inherit;
+}
+
+.c10 .c17.c17:focus .c13 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c13 {
+  display: block;
+}
+
+.c22 .c13 {
+  font-size: 1.25rem;
+}
+
+.c8 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c5 {
+  overflow: hidden;
+}
+
+.c5 > p:first-child,
+.c5 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c5 > .c13,
+.c5 > span:first-child > .c13 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c7 {
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.c9 {
+  align-items: flex-start;
+  height: auto;
+}
+
+.c9 .c10 {
+  margin-top: -4px;
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c3 {
+  justify-content: initial;
+}
+
+.c6 {
+  margin: 0px;
+}
+
+.c6 > .c13,
+.c6 > span:first-child > .c13 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c20 > .c10 {
+  margin: 0px 0px 4px 4px;
+}
+
+.c2 {
+  width: 100%;
+}
+
+.c2 > .c10 {
+  margin: 0px 0px 4px 4px;
+}
+
+@media (pointer: coarse) {
+  .c12:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10 .c12.c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10 .c12.c12:active .c13 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c10 .c12.c12:hover .c13 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c17:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10 .c17.c17:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c10 .c17.c17:active .c13 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c10 .c17.c17:hover .c13 {
+    color: inherit;
+  }
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block field-wrapper--addons-2"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 c4 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c5 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c6"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+      <div
+        class="c7 text-output__addons"
+        data-role="text-output-addons"
+      >
+        <div
+          class="c8 c9 field-addon field-addon--text-output field-addon--after"
+        >
+          <span
+            class="c10 c11 tooltip tooltip--hint"
+            data-role="tooltip-hint"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c12 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c13 c14 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c15 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Hint: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+        <div
+          class="c8 c9 field-addon field-addon--text-output field-addon--after"
+        >
+          <span
+            class="c10 c16 tooltip tooltip--warning"
+            data-role="tooltip-warning"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c17 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c13 c18 c14 c19 plasma-icon plasma-icon--warning"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  warning
+                </span>
+                <span
+                  class="c15 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Warning: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-alignment 1`] = `
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c5 {
+  overflow: hidden;
+}
+
+.c5 > p:first-child,
+.c5 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c3 {
+  justify-content: initial;
+}
+
+.c6 {
+  margin: 0px;
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 c4 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c5 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c6"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-alignment 2`] = `
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c5 {
+  overflow: hidden;
+}
+
+.c5 > p:first-child,
+.c5 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c7 .c3 {
+  justify-content: initial;
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: right;
+}
+
+.c1 .c3 {
+  justify-content: flex-end;
+}
+
+.c6 {
+  margin: 0px;
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block text-output-wrapper--right"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 c4 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c5 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c6"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-alignment 3`] = `
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c5 {
+  overflow: hidden;
+}
+
+.c5 > p:first-child,
+.c5 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c7 .c3 {
+  justify-content: initial;
+}
+
+.c8 .c3 {
+  justify-content: flex-end;
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: center;
+}
+
+.c1 .c3 {
+  justify-content: center;
+}
+
+.c6 {
+  margin: 0px;
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block text-output-wrapper--center"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 c4 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c5 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c6"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-error-&-warning-message 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c12.c12 {
+  color: rgb(175, 121, 2);
+}
+
+.c7.c7 {
+  color: rgb(201, 29, 29);
+}
+
+.c17 .c5 {
+  user-select: none;
+}
+
+.c17 .c5 {
+  color: inherit;
+}
+
+.c17 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 > .c5 {
+  display: block;
+}
+
+.c18 .c5 {
+  user-select: none;
+}
+
+.c18 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c5 {
+  display: block;
+}
+
+.c3 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c10 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c4 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c4 .c5 {
+  font-size: 1.25rem;
+}
+
+.c9 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c14 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c15 {
+  overflow: hidden;
+}
+
+.c15 > p:first-child,
+.c15 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c15 > .c5,
+.c15 > span:first-child > .c5 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c13 {
+  justify-content: initial;
+}
+
+.c16 {
+  margin: 0px;
+}
+
+.c16 > .c5,
+.c16 > span:first-child > .c5 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 message message--error field__message"
+      data-role="error-message"
+    >
+      <div
+        class="c4 messageIcon"
+      >
+        <i
+          class="c5 c6 c7 plasma-icon plasma-icon--error plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Error"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Error
+          </span>
+        </i>
+      </div>
+      <div
+        class="c9 messageText"
+        data-role="error-text"
+      >
+        error
+      </div>
+    </div>
+    <div
+      class="c10 message message--warning field__message"
+      data-role="warning-message"
+    >
+      <div
+        class="c4 messageIcon"
+      >
+        <i
+          class="c5 c11 c12 plasma-icon plasma-icon--warning"
+          data-role="plasma-icon"
+          title="Warning"
+        >
+          <span
+            aria-hidden="true"
+          >
+            warning
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Warning
+          </span>
+        </i>
+      </div>
+      <div
+        class="c9 messageText"
+        data-role="warning-text"
+      >
+        warning
+      </div>
+    </div>
+    <div
+      class="c13 c14 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c15 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c16"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-error-message 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c7.c7 {
+  color: rgb(201, 29, 29);
+}
+
+.c14 .c5 {
+  user-select: none;
+}
+
+.c14 .c5 {
+  color: inherit;
+}
+
+.c14 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c5 {
+  display: block;
+}
+
+.c15 .c5 {
+  user-select: none;
+}
+
+.c15 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c5 {
+  display: block;
+}
+
+.c3 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c4 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c4 .c5 {
+  font-size: 1.25rem;
+}
+
+.c9 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c11 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c12 {
+  overflow: hidden;
+}
+
+.c12 > p:first-child,
+.c12 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c12 > .c5,
+.c12 > span:first-child > .c5 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c10 {
+  justify-content: initial;
+}
+
+.c13 {
+  margin: 0px;
+}
+
+.c13 > .c5,
+.c13 > span:first-child > .c5 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 message message--error field__message"
+      data-role="error-message"
+    >
+      <div
+        class="c4 messageIcon"
+      >
+        <i
+          class="c5 c6 c7 plasma-icon plasma-icon--error plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Error"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Error
+          </span>
+        </i>
+      </div>
+      <div
+        class="c9 messageText"
+        data-role="error-text"
+      >
+        error
+      </div>
+    </div>
+    <div
+      class="c10 c11 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c12 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c13"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-info-message 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c7.c7 {
+  color: rgb(5, 104, 174);
+}
+
+.c14 .c5 {
+  user-select: none;
+}
+
+.c14 .c5 {
+  color: inherit;
+}
+
+.c14 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c5 {
+  display: block;
+}
+
+.c15 .c5 {
+  user-select: none;
+}
+
+.c15 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c5 {
+  display: block;
+}
+
+.c3 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(230, 244, 254);
+  color: rgb(5, 104, 174);
+}
+
+.c4 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c4 .c5 {
+  font-size: 1.25rem;
+}
+
+.c9 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c11 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c12 {
+  overflow: hidden;
+}
+
+.c12 > p:first-child,
+.c12 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c12 > .c5,
+.c12 > span:first-child > .c5 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c10 {
+  justify-content: initial;
+}
+
+.c13 {
+  margin: 0px;
+}
+
+.c13 > .c5,
+.c13 > span:first-child > .c5 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 field__message"
+      data-role="info-message"
+    >
+      <div
+        class="c4"
+      >
+        <i
+          class="c5 c6 c7 plasma-icon plasma-icon--info"
+          data-role="plasma-icon"
+          title="Information"
+        >
+          <span
+            aria-hidden="true"
+          >
+            info
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Information
+          </span>
+        </i>
+      </div>
+      <div
+        class="c9"
+        data-role="info-text"
+      >
+        info
+      </div>
+    </div>
+    <div
+      class="c10 c11 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c12 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c13"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c9 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(249, 191, 48);
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c3 .c7 {
+  color: inherit;
+}
+
+.c12.c12 {
+  color: rgb(175, 121, 2);
+}
+
+.c5 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c5 .c6 {
+  user-select: none;
+}
+
+.c5 .c6 {
+  color: inherit;
+}
+
+.c5 .c6 {
+  font-size: inherit;
+}
+
+.c5:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 .c5.c5 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c3 .c5.c5:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c3 .c5.c5:not(:active):not(:hover):not(:focus) .c6:not(.c11) {
+  color: inherit;
+}
+
+.c3 .c5.c5:focus .c6 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c6 {
+  display: block;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c6 {
+  user-select: none;
+}
+
+.c10 {
+  color: inherit;
+}
+
+.c10 .c6 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 .c10.c10 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c3 .c10.c10:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c3 .c10.c10:not(:active):not(:hover):not(:focus) .c6:not(.c11) {
+  color: inherit;
+}
+
+.c3 .c10.c10:focus .c6 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c6 {
+  display: block;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c14 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c15 {
+  overflow: hidden;
+}
+
+.c15 > p:first-child,
+.c15 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c15 > .c6,
+.c15 > span:first-child > .c6 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c13 {
+  justify-content: initial;
+}
+
+.c16 {
+  margin: 0px;
+}
+
+.c16 > .c6,
+.c16 > span:first-child > .c6 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c2 {
+  width: 100%;
+}
+
+.c2 > .c3 {
+  margin: 0px 0px 4px 4px;
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c3 .c5.c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3 .c5.c5:active .c6 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c3 .c5.c5:hover .c6 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c3 .c10.c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3 .c10.c10:active .c6 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c3 .c10.c10:hover .c6 {
+    color: inherit;
+  }
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block field-wrapper--tooltips"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <span
+      class="c3 c4 tooltip tooltip--hint text-output__tooltip"
+      data-role="tooltip-hint"
+      role="tooltip"
+      title=""
+    >
+      <button
+        class="c5 button button--icon"
+        data-role="button"
+        data-type="icon"
+        title=""
+        type="button"
+      >
+        <i
+          class="c6 c7 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            info
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Hint: Tooltip
+          </span>
+        </i>
+      </button>
+    </span>
+    <span
+      class="c3 c9 tooltip tooltip--warning text-output__tooltip"
+      data-role="tooltip-warning"
+      role="tooltip"
+      title=""
+    >
+      <button
+        class="c10 button button--icon"
+        data-role="button"
+        data-type="icon"
+        title=""
+        type="button"
+      >
+        <i
+          class="c6 c11 c7 c12 plasma-icon plasma-icon--warning"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            warning
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Warning: Tooltip
+          </span>
+        </i>
+      </button>
+    </span>
+    <div
+      class="c13 c14 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c15 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c16"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips-messages-addons 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c9 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(249, 191, 48);
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c3 .c7 {
+  color: inherit;
+}
+
+.c16 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c16 > span {
+  display: inline-block;
+}
+
+.c16.c16 {
+  max-width: unset;
+}
+
+.c3 .c16 {
+  color: inherit;
+}
+
+.c12.c12 {
+  color: rgb(175, 121, 2);
+}
+
+.c17.c17 {
+  color: rgb(201, 29, 29);
+}
+
+.c5 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c5 .c6 {
+  user-select: none;
+}
+
+.c5 .c6 {
+  color: inherit;
+}
+
+.c5 .c6 {
+  font-size: inherit;
+}
+
+.c5:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 .c5.c5 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c3 .c5.c5:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c3 .c5.c5:not(:active):not(:hover):not(:focus) .c6:not(.c11) {
+  color: inherit;
+}
+
+.c3 .c5.c5:focus .c6 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c6 {
+  display: block;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c6 {
+  user-select: none;
+}
+
+.c10 {
+  color: inherit;
+}
+
+.c10 .c6 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3 .c10.c10 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c3 .c10.c10:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c3 .c10.c10:not(:active):not(:hover):not(:focus) .c6:not(.c11) {
+  color: inherit;
+}
+
+.c3 .c10.c10:focus .c6 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c6 {
+  display: block;
+}
+
+.c14 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c19 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c15 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c15 .c6 {
+  font-size: 1.25rem;
+}
+
+.c18 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c25 {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  margin: 0px 0px 0px 4px;
+  justify-content: center;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c21 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c22 {
+  overflow: hidden;
+}
+
+.c22 > p:first-child,
+.c22 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c22 > .c6,
+.c22 > span:first-child > .c6 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c24 {
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.c26 {
+  align-items: flex-start;
+  height: auto;
+}
+
+.c26 .c3 {
+  margin-top: -4px;
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c20 {
+  justify-content: initial;
+}
+
+.c23 {
+  margin: 0px;
+}
+
+.c23 > .c6,
+.c23 > span:first-child > .c6 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c27 > .c3 {
+  margin: 0px 0px 4px 4px;
+}
+
+.c28 > .c3 {
+  margin: 0px 0px 4px 4px;
+}
+
+.c28 > .c3:last-of-type,
+.c28 > .c13 {
+  margin-right: calc(56px);
+}
+
+.c2 {
+  width: 100%;
+}
+
+.c2 > .c3 {
+  margin: 0px 0px 4px 4px;
+}
+
+.c2 > .c3:last-of-type,
+.c2 > .c13 {
+  margin-right: calc(56px);
+}
+
+@media (pointer: coarse) {
+  .c5:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c3 .c5.c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3 .c5.c5:active .c6 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c3 .c5.c5:hover .c6 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c3 .c10.c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3 .c10.c10:active .c6 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c3 .c10.c10:hover .c6 {
+    color: inherit;
+  }
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block field-wrapper--addons-2 field-wrapper--tooltips"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <span
+      class="c3 c4 tooltip tooltip--hint text-output__tooltip"
+      data-role="tooltip-hint"
+      role="tooltip"
+      title=""
+    >
+      <button
+        class="c5 button button--icon"
+        data-role="button"
+        data-type="icon"
+        title=""
+        type="button"
+      >
+        <i
+          class="c6 c7 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            info
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Hint: Tooltip
+          </span>
+        </i>
+      </button>
+    </span>
+    <span
+      class="c3 c9 tooltip tooltip--warning text-output__tooltip"
+      data-role="tooltip-warning"
+      role="tooltip"
+      title=""
+    >
+      <button
+        class="c10 button button--icon"
+        data-role="button"
+        data-type="icon"
+        title=""
+        type="button"
+      >
+        <i
+          class="c6 c11 c7 c12 plasma-icon plasma-icon--warning"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            warning
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Warning: Tooltip
+          </span>
+        </i>
+      </button>
+    </span>
+    <div
+      class="c13 c14 message message--error field__message"
+      data-role="error-message"
+    >
+      <div
+        class="c15 messageIcon"
+      >
+        <i
+          class="c6 c11 c16 c17 plasma-icon plasma-icon--error plasma-icon--custom"
+          data-role="plasma-icon"
+          title="Error"
+        >
+          <span
+            aria-hidden="true"
+          >
+            
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Error
+          </span>
+        </i>
+      </div>
+      <div
+        class="c18 messageText"
+        data-role="error-text"
+      >
+        error
+      </div>
+    </div>
+    <div
+      class="c13 c19 message message--warning field__message"
+      data-role="warning-message"
+    >
+      <div
+        class="c15 messageIcon"
+      >
+        <i
+          class="c6 c11 c7 c12 plasma-icon plasma-icon--warning"
+          data-role="plasma-icon"
+          title="Warning"
+        >
+          <span
+            aria-hidden="true"
+          >
+            warning
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Warning
+          </span>
+        </i>
+      </div>
+      <div
+        class="c18 messageText"
+        data-role="warning-text"
+      >
+        warning
+      </div>
+    </div>
+    <div
+      class="c20 c21 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c22 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c23"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+      <div
+        class="c24 text-output__addons"
+        data-role="text-output-addons"
+      >
+        <div
+          class="c25 c26 field-addon field-addon--text-output field-addon--after"
+        >
+          <span
+            class="c3 c4 tooltip tooltip--hint"
+            data-role="tooltip-hint"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c5 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  info
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Hint: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+        <div
+          class="c25 c26 field-addon field-addon--text-output field-addon--after"
+        >
+          <span
+            class="c3 c9 tooltip tooltip--warning"
+            data-role="tooltip-warning"
+            role="tooltip"
+            title=""
+          >
+            <button
+              class="c10 button button--icon"
+              data-role="button"
+              data-type="icon"
+              title=""
+              type="button"
+            >
+              <i
+                class="c6 c11 c7 c12 plasma-icon plasma-icon--warning"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  warning
+                </span>
+                <span
+                  class="c8 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                  Warning: Tooltip
+                </span>
+              </i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-warning-message 1`] = `
+.c8 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c7.c7 {
+  color: rgb(175, 121, 2);
+}
+
+.c14 .c5 {
+  user-select: none;
+}
+
+.c14 .c5 {
+  color: inherit;
+}
+
+.c14 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c14.c14 > .c5 {
+  display: block;
+}
+
+.c15 .c5 {
+  user-select: none;
+}
+
+.c15 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c5 {
+  display: block;
+}
+
+.c3 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c4 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c4 .c5 {
+  font-size: 1.25rem;
+}
+
+.c9 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c11 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c12 {
+  overflow: hidden;
+}
+
+.c12 > p:first-child,
+.c12 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c12 > .c5,
+.c12 > span:first-child > .c5 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c10 {
+  justify-content: initial;
+}
+
+.c13 {
+  margin: 0px;
+}
+
+.c13 > .c5,
+.c13 > span:first-child > .c5 {
+  vertical-align: middle;
+  transform: translateY(-5%);
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 message message--warning field__message"
+      data-role="warning-message"
+    >
+      <div
+        class="c4 messageIcon"
+      >
+        <i
+          class="c5 c6 c7 plasma-icon plasma-icon--warning"
+          data-role="plasma-icon"
+          title="Warning"
+        >
+          <span
+            aria-hidden="true"
+          >
+            warning
+          </span>
+          <span
+            class="c8 -u-unseenButRead"
+            data-role="hidden-text"
+          >
+            Warning
+          </span>
+        </i>
+      </div>
+      <div
+        class="c9 messageText"
+        data-role="warning-text"
+      >
+        warning
+      </div>
+    </div>
+    <div
+      class="c10 c11 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c12 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c13"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.text-output > text-output-is-rendered 1`] = `
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
+
+.c5 {
+  overflow: hidden;
+}
+
+.c5 > p:first-child,
+.c5 > div:first-child > p:first-child {
+  margin-top: 0px;
+}
+
+.c1 {
+  flex-direction: row;
+  text-align: initial;
+}
+
+.c1 .c3 {
+  justify-content: initial;
+}
+
+.c6 {
+  margin: 0px;
+}
+
+.c2 {
+  width: 100%;
+}
+
+<div
+  class="c0 c1 field-wrapper field-wrapper--block"
+  data-role="text-output"
+>
+  <div
+    class="c2 text-output"
+  >
+    <div
+      class="c3 c4 text-output__content"
+      data-role="text-output-content"
+    >
+      <div
+        class="c5 text-output__text"
+        data-role="text-output-text"
+      >
+        <p
+          class="c6"
+          data-role="text-output-paragraph"
+        >
+          Content
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

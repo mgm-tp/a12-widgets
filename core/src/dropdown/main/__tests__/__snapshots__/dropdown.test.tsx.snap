@@ -1,0 +1,2226 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.dropdown > basic-dropdown 1`] = `
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c6 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+}
+
+.c2::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c2 .c4 {
+  color: inherit;
+}
+
+.c2:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c7::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c7:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c7[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c7[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c7[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c8 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.c8::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c8[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  height: 16px;
+  margin: 4px 8px 4px 0px;
+}
+
+.c3 .c4 {
+  color: inherit;
+}
+
+@media (pointer: coarse) {
+  .c2:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c2:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c2:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c7:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 dropdown"
+  data-role="dropdown"
+  role="presentation"
+  tabindex="0"
+>
+  <div
+    class="c1 dropdown__content"
+    data-role="dropdown-content"
+    role="listbox"
+  >
+    <div
+      aria-selected="true"
+      class="c2 dropdown__item dropdown__item--preselected custom-class-item"
+      data-preselect="true"
+      data-role="dropdown-item"
+      id="1"
+      role="option"
+      style="color: red;"
+      title="Armchair"
+    >
+      <div
+        class="c3 dropdown__graphic"
+        data-role="dropdown-graphic"
+      >
+        <i
+          class="c4 c5 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            edit
+          </span>
+        </i>
+      </div>
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Armchair
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c7 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="2"
+      role="option"
+      tabindex="-1"
+      title="Chair"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Chair
+      </div>
+    </div>
+    <div
+      aria-disabled="true"
+      aria-selected="false"
+      class="c8 dropdown__item dropdown__item--disabled"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="3"
+      role="option"
+      tabindex="-1"
+      title="Hammock"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Hammock
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c7 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="4"
+      role="option"
+      title="Rocking chair"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Rocking chair
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.dropdown > dropdown with \`isEmptyValue\` item 1`] = `
+.c1 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c0 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  color: rgb(97, 111, 124);
+  font-style: italic;
+}
+
+.c0::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c0:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c0[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c0[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c0[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+@media (pointer: coarse) {
+  .c0:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c0:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c0:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c0[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c0[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  aria-selected="false"
+  class="c0 dropdown__item"
+  data-preselect="false"
+  data-role="dropdown-item"
+  id="0"
+  role="option"
+  title="None"
+>
+  <div
+    class="c1 dropdown__text"
+    data-role="dropdown-text"
+  >
+    None
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c10 {
+  background-position: -10000% bottom;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) calc(0.1rem);
+  color: rgb(5, 104, 174);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.c10 .c4 {
+  color: inherit;
+  display: inline;
+  font-size: 0.75rem;
+  margin: 0px 1px;
+  vertical-align: -2px;
+}
+
+.c10:visited {
+  color: rgb(5, 104, 174);
+}
+
+.c10:focus {
+  background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+  background-position: left bottom;
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+  text-decoration: none;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c11 .c4 {
+  font-size: 1.125rem;
+}
+
+.c9 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(226, 230, 233);
+  display: flex;
+  justify-content: center;
+  min-height: 32px;
+  padding: 2px 8px;
+}
+
+.c1 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c6 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+}
+
+.c2::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c2 .c4 {
+  color: inherit;
+}
+
+.c2:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c7::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c7:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c7[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c7[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c7[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c8 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.c8::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c8[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c12 .c4 {
+  color: inherit;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  height: 16px;
+  margin: 4px 8px 4px 0px;
+}
+
+.c3 .c4 {
+  color: inherit;
+}
+
+.c13 .c4 {
+  color: inherit;
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    background-position: left bottom;
+    transition: background-position 0.3s;
+  }
+}
+
+@media (pointer: coarse) {
+  .c10:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+    color: rgb(213, 0, 117);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c2:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c2:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c7:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 dropdown"
+  data-role="dropdown"
+  role="presentation"
+  tabindex="0"
+>
+  <div
+    class="c1 dropdown__content"
+    data-role="dropdown-content"
+    role="listbox"
+  >
+    <div
+      aria-selected="true"
+      class="c2 dropdown__item dropdown__item--preselected custom-class-item"
+      data-preselect="true"
+      data-role="dropdown-item"
+      id="1"
+      role="option"
+      style="color: red;"
+      title="Armchair"
+    >
+      <div
+        class="c3 dropdown__graphic"
+        data-role="dropdown-graphic"
+      >
+        <i
+          class="c4 c5 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            edit
+          </span>
+        </i>
+      </div>
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Armchair
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c7 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="2"
+      role="option"
+      tabindex="-1"
+      title="Chair"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Chair
+      </div>
+    </div>
+    <div
+      aria-disabled="true"
+      aria-selected="false"
+      class="c8 dropdown__item dropdown__item--disabled"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="3"
+      role="option"
+      tabindex="-1"
+      title="Hammock"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Hammock
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c7 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="4"
+      role="option"
+      title="Rocking chair"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Rocking chair
+      </div>
+    </div>
+  </div>
+  <div
+    class="c9"
+  >
+    <a
+      class="c10 link"
+      data-role="link"
+      href="#"
+      tabindex="0"
+    >
+      Load More
+    </a>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c10 .c5 {
+  font-size: 1.125rem;
+}
+
+.c1 {
+  background-color: rgb(226, 230, 233);
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  height: auto;
+  min-height: 24px;
+  padding: 2px 8px;
+}
+
+.c2 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c7 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c3 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+}
+
+.c3::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c3 .c5 {
+  color: inherit;
+}
+
+.c3:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c3[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c3[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c3[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c8::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c8:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c8[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c9 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.c9::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c9[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c9[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c9[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c11 .c5 {
+  color: inherit;
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  height: 16px;
+  margin: 4px 8px 4px 0px;
+}
+
+.c4 .c5 {
+  color: inherit;
+}
+
+.c12 .c5 {
+  color: inherit;
+}
+
+@media (pointer: coarse) {
+  .c3:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c3:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c3:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c3:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c3[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c8:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c8:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c9[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 dropdown"
+  data-role="dropdown"
+  role="presentation"
+  tabindex="0"
+>
+  <div
+    class="c1 dropdown__hint"
+    data-role="dropdown-hint"
+  >
+    test dropdown hint
+  </div>
+  <div
+    class="c2 dropdown__content"
+    data-role="dropdown-content"
+    role="listbox"
+  >
+    <div
+      aria-selected="true"
+      class="c3 dropdown__item dropdown__item--preselected custom-class-item"
+      data-preselect="true"
+      data-role="dropdown-item"
+      id="1"
+      role="option"
+      style="color: red;"
+      title="Armchair"
+    >
+      <div
+        class="c4 dropdown__graphic"
+        data-role="dropdown-graphic"
+      >
+        <i
+          class="c5 c6 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            edit
+          </span>
+        </i>
+      </div>
+      <div
+        class="c7 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Armchair
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c8 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="2"
+      role="option"
+      tabindex="-1"
+      title="Chair"
+    >
+      <div
+        class="c7 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Chair
+      </div>
+    </div>
+    <div
+      aria-disabled="true"
+      aria-selected="false"
+      class="c9 dropdown__item dropdown__item--disabled"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="3"
+      role="option"
+      tabindex="-1"
+      title="Hammock"
+    >
+      <div
+        class="c7 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Hammock
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c8 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="4"
+      role="option"
+      title="Rocking chair"
+    >
+      <div
+        class="c7 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Rocking chair
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.dropdown > horizontal-dropdown 1`] = `
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c0 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c0 .c4 {
+  font-size: 1.125rem;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  max-height: 252px;
+  overflow-y: auto;
+  flex-flow: wrap;
+}
+
+.c6 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: 0.625rem;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.c9 .c4 {
+  color: inherit;
+}
+
+.c2 {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 4px;
+  color: rgb(77, 77, 77);
+  background-color: transparent;
+}
+
+.c2::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c2 .c4 {
+  color: inherit;
+}
+
+.c2:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 4px;
+}
+
+.c7::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c7:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c7[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c7[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c7[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c8 {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 4px;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.c8::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c8[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c10 .c4 {
+  color: inherit;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  height: 24px;
+  width: 24px;
+  justify-content: center;
+  margin: 0px;
+  background-color: rgb(5, 104, 174);
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+}
+
+.c3 .c4 {
+  color: inherit;
+}
+
+@media (pointer: coarse) {
+  .c2:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c2:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c2:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c7:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not([data-type="icon-selected"]):hover {
+    color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 dropdown dropdown--horizontal"
+  data-role="dropdown"
+  role="presentation"
+  tabindex="0"
+>
+  <div
+    class="c1 dropdown__content"
+    data-role="dropdown-content"
+    role="listbox"
+  >
+    <div
+      aria-selected="true"
+      class="c2 dropdown__item dropdown__item--preselected custom-class-item"
+      data-preselect="true"
+      data-role="dropdown-item"
+      id="1"
+      role="option"
+      style="color: red;"
+      title="Armchair"
+    >
+      <div
+        class="c3 dropdown__graphic"
+        data-role="dropdown-graphic"
+      >
+        <i
+          class="c4 c5 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            edit
+          </span>
+        </i>
+      </div>
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Armchair
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c7 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="2"
+      role="option"
+      tabindex="-1"
+      title="Chair"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Chair
+      </div>
+    </div>
+    <div
+      aria-disabled="true"
+      aria-selected="false"
+      class="c8 dropdown__item dropdown__item--disabled"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="3"
+      role="option"
+      tabindex="-1"
+      title="Hammock"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Hammock
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c7 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="4"
+      role="option"
+      title="Rocking chair"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Rocking chair
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.dropdown > light-background-dropdown 1`] = `
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c9 .c4 {
+  font-size: 1.125rem;
+}
+
+.c0 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c1 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c6 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+}
+
+.c2::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c2 .c4 {
+  color: inherit;
+}
+
+.c2:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c2[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c7::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c7:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c7[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c7[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c7[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c8 {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  color: rgb(169, 179, 188);
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.c8::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c8[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c8[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c10 .c4 {
+  color: inherit;
+}
+
+.c3 {
+  align-items: center;
+  display: flex;
+  height: 16px;
+  margin: 4px 8px 4px 0px;
+}
+
+.c3 .c4 {
+  color: inherit;
+}
+
+.c11 .c4 {
+  color: inherit;
+}
+
+@media (pointer: coarse) {
+  .c2:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c2:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(77, 77, 77);
+  }
+
+  .c2:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c7:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 dropdown dropdown--light-background"
+  data-role="dropdown"
+  role="presentation"
+  tabindex="0"
+>
+  <div
+    class="c1 dropdown__content"
+    data-role="dropdown-content"
+    role="listbox"
+  >
+    <div
+      aria-selected="true"
+      class="c2 dropdown__item dropdown__item--preselected custom-class-item"
+      data-preselect="true"
+      data-role="dropdown-item"
+      id="1"
+      role="option"
+      style="color: red;"
+      title="Armchair"
+    >
+      <div
+        class="c3 dropdown__graphic"
+        data-role="dropdown-graphic"
+      >
+        <i
+          class="c4 c5 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            edit
+          </span>
+        </i>
+      </div>
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Armchair
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c7 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="2"
+      role="option"
+      tabindex="-1"
+      title="Chair"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Chair
+      </div>
+    </div>
+    <div
+      aria-disabled="true"
+      aria-selected="false"
+      class="c8 dropdown__item dropdown__item--disabled"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="3"
+      role="option"
+      tabindex="-1"
+      title="Hammock"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Hammock
+      </div>
+    </div>
+    <div
+      aria-selected="false"
+      class="c7 dropdown__item"
+      data-preselect="false"
+      data-role="dropdown-item"
+      id="4"
+      role="option"
+      title="Rocking chair"
+    >
+      <div
+        class="c6 dropdown__text"
+        data-role="dropdown-text"
+      >
+        Rocking chair
+      </div>
+    </div>
+  </div>
+</div>
+`;

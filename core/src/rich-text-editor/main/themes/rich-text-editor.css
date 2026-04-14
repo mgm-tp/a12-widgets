@@ -1,0 +1,195 @@
+.editor-paragraph {
+	font-size: 0.75rem;
+}
+
+.editor-text-bold {
+	font-weight: bold;
+}
+
+.editor-text-italic {
+	font-style: italic;
+}
+
+.editor-text-underline {
+	text-decoration: underline;
+}
+
+.editor-text-strikethrough {
+	text-decoration: line-through;
+}
+
+.editor-text-underlineStrikethrough {
+	text-decoration: underline line-through;
+}
+
+.editor-text-code {
+	background-color: rgb(240, 242, 245);
+	padding: 1px 0.25rem;
+	font-family: Menlo, Consolas, Monaco, monospace;
+	font-size: 94%;
+}
+
+.editor-mention {
+	color: green;
+	font-weight: 700;
+}
+
+.editor-link {
+	background-position: -10000% bottom;
+	background-repeat: no-repeat;
+	background-size: calc(100% - 1px) calc(0.1rem);
+	color: rgb(0, 88, 159);
+	font-size: 0.75rem;
+	font-weight: 700;
+	outline: none;
+	text-decoration: none;
+}
+
+.editor-link:visited {
+	color: rgb(0, 88, 159);
+}
+
+.editor-link:active,
+.editor-link:hover {
+	background-position: left bottom;
+	transition: background-position 0.3s ease 0s;
+	background-image: linear-gradient(rgb(0, 88, 159), rgb(0, 88, 159));
+	color: rgb(0, 88, 159);
+	text-decoration: none;
+}
+
+.editor-link:hover {
+	cursor: pointer;
+}
+
+.editor-link:focus {
+	background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
+	background-position: left bottom;
+	color: rgb(213, 0, 117);
+	text-decoration: none;
+	outline: rgb(0, 88, 159) dotted 1px;
+}
+
+.editor-nested-listitem {
+	list-style-type: none;
+}
+
+.editor-list-ul,
+.editor-list-ol,
+.editor-list-ol1,
+.editor-list-ol2,
+.editor-list-ol3,
+.editor-list-ol4,
+.editor-list-ol5 {
+	margin: 0;
+	padding: 0;
+	padding-inline-start: 40px;
+	list-style-position: inside;
+}
+
+.editor-list-ol2 {
+	list-style-type: upper-alpha;
+}
+
+.editor-list-ol3 {
+	list-style-type: lower-alpha;
+}
+
+.editor-list-ol4 {
+	list-style-type: upper-roman;
+}
+
+.editor-list-ol5 {
+	list-style-type: lower-roman;
+}
+
+.editor-misspelled-word {
+	background-image: url("data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=");
+	background-repeat: repeat-x;
+	background-position-y: bottom;
+	background-position: 0 bottom;
+}
+
+.editor-misspelled-word:active,
+.editor-misspelled-word:hover {
+	background-color: rgba(198, 40, 40, 0.5);
+	transition: background-color 0.5s ease 0s;
+}
+
+.tree-view-output {
+	display: block;
+	background: #222;
+	color: #fff;
+	padding: 0;
+	font-size: 12px;
+	margin: 1px auto 10px auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.tree-view-output > pre {
+	line-height: 1.1;
+	background: #222;
+	color: #fff;
+	margin: 0;
+	padding: 10px;
+	font-size: 12px;
+	overflow: auto;
+	max-height: 400px;
+}
+
+.debug-treetype-button {
+	border: 0;
+	padding: 0;
+	font-size: 12px;
+	top: 10px;
+	right: 90px;
+	position: absolute;
+	background: none;
+	color: #fff;
+}
+
+.debug-treetype-button:hover {
+	text-decoration: underline;
+}
+
+.debug-timetravel-panel {
+	overflow: hidden;
+	padding: 0 0 10px 0;
+	margin: auto;
+	display: flex;
+}
+
+.debug-timetravel-button {
+	border: 0;
+	padding: 0;
+	font-size: 12px;
+	top: 10px;
+	right: 20px;
+	position: absolute;
+	background: none;
+	color: #fff;
+}
+
+.debug-timetravel-button:hover {
+	text-decoration: underline;
+}
+
+.debug-timetravel-panel-slider {
+	padding: 0;
+	flex: 8;
+	appearance: auto;
+}
+
+.debug-timetravel-panel-button {
+	padding: 0;
+	border: 0;
+	background: none;
+	flex: 1;
+	color: #fff;
+	font-size: 12px;
+}
+
+.debug-timetravel-panel-button:hover {
+	text-decoration: underline;
+}

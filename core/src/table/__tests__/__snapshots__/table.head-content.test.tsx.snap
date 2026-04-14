@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.table.head-content > default 1`] = `label test`;

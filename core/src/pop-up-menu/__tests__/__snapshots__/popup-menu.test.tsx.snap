@@ -1,0 +1,1969 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.popup-menu > desktop > Rendering button as children 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c9 .c5 {
+  user-select: none;
+}
+
+.c9 .c5 {
+  color: inherit;
+}
+
+.c9 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c5 {
+  display: block;
+}
+
+.c4 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c4 .c5 {
+  user-select: none;
+}
+
+.c4 .c5 {
+  color: inherit;
+}
+
+.c4:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c5 {
+  display: block;
+}
+
+.c10 .c5 {
+  user-select: none;
+}
+
+.c8 .c5 {
+  position: relative;
+}
+
+.c8 .c5::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c8 .c5:focus {
+  outline: none;
+}
+
+.c8 .c5:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c0 {
+  background: rgb(255, 255, 255);
+  max-width: 100%;
+  min-width: 168px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden auto;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+[data-role="tab-panel-sub-tab-list"] .c0.c0 {
+  min-width: 52px;
+}
+
+.c1 {
+  border-top: 1px solid rgb(226, 230, 233);
+  border-left: 1px solid rgb(226, 230, 233);
+  list-style: none;
+  margin: 0px;
+  max-height: 252px;
+  padding: 0px;
+}
+
+.c2 {
+  border-bottom: 1px solid rgb(226, 230, 233);
+  height: 52px;
+}
+
+.c2:last-child {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+.c2 .c3 {
+  background: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  color: rgb(77, 77, 77);
+  font-size: 1rem;
+  font-weight: 400;
+  height: 100%;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 16px 24px;
+  text-transform: none;
+}
+
+.c2 .c3 .c5 {
+  font-size: 1.25rem;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.c2 .c3:disabled {
+  background: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  cursor: auto;
+}
+
+.c7 {
+  border-bottom: 1px solid rgb(226, 230, 233);
+  height: 52px;
+}
+
+.c7:last-child {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+.c7 .c3 {
+  background: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  color: rgb(77, 77, 77);
+  font-size: 1rem;
+  font-weight: 400;
+  height: 100%;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 16px 24px 16px 48px;
+  text-transform: none;
+}
+
+.c7 .c3 .c5 {
+  font-size: 1.25rem;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.c7 .c3:disabled {
+  background: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  cursor: auto;
+}
+
+@media (pointer: coarse) {
+  .c4:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: rgb(241, 242, 244);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background: rgb(241, 242, 244);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: rgb(241, 242, 244);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    background: rgb(241, 242, 244);
+    box-shadow: none;
+  }
+}
+
+<ul
+  class="c0 c1 popup__menu"
+  data-role="popup-menu"
+  tabindex="0"
+>
+  <li
+    class="c2 popup__item"
+    data-role="popup-item"
+  >
+    <button
+      class="c3 c4 button button--secondary"
+      data-role="button"
+      title=""
+      type="button"
+    >
+      <i
+        class="c5 c6 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          edit
+        </span>
+      </i>
+      <span
+        data-role="button-label"
+      >
+        Button 1
+      </span>
+    </button>
+  </li>
+  <li
+    class="c7 popup__item popup__item--withPadding"
+    data-role="popup-item"
+  >
+    <button
+      class="c3 c4 button button--secondary"
+      data-role="button"
+      title=""
+      type="button"
+    >
+      <span
+        data-role="button-label"
+      >
+        Button 2
+      </span>
+    </button>
+  </li>
+  <li
+    class="c2 popup__item"
+    data-role="popup-item"
+  >
+    <button
+      class="c3 c4 button button--secondary"
+      data-role="button"
+      title=""
+      type="button"
+    >
+      <i
+        class="c5 c6 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          add
+        </span>
+      </i>
+      <span
+        data-role="button-label"
+      >
+        Button 3
+      </span>
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.popup-menu > desktop > Rendering button as children 2`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c8 .c5 {
+  user-select: none;
+}
+
+.c8 .c5 {
+  color: inherit;
+}
+
+.c8 .c5 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c5 {
+  display: block;
+}
+
+.c4 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c4 .c5 {
+  user-select: none;
+}
+
+.c4 .c5 {
+  color: inherit;
+}
+
+.c4:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c5 {
+  display: block;
+}
+
+.c9 .c5 {
+  user-select: none;
+}
+
+.c9 .c5 {
+  color: inherit;
+}
+
+.c9.c9 .c5 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c5 {
+  display: block;
+}
+
+.c10 .c5 {
+  user-select: none;
+}
+
+.c11 .c5 {
+  user-select: none;
+}
+
+.c7 .c5 {
+  position: relative;
+}
+
+.c7 .c5::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c7 .c5:focus {
+  outline: none;
+}
+
+.c7 .c5:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c0 {
+  background: rgb(255, 255, 255);
+  max-width: 100%;
+  min-width: 168px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden auto;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+[data-role="tab-panel-sub-tab-list"] .c0.c0 {
+  min-width: 52px;
+}
+
+.c1 {
+  border-top: 1px solid rgb(226, 230, 233);
+  border-left: 1px solid rgb(226, 230, 233);
+  list-style: none;
+  margin: 0px;
+  max-height: 252px;
+  padding: 0px;
+}
+
+.c2 {
+  border-bottom: 1px solid rgb(226, 230, 233);
+  height: 52px;
+}
+
+.c2:last-child {
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+}
+
+.c2 .c3 {
+  background: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  color: rgb(77, 77, 77);
+  font-size: 1rem;
+  font-weight: 400;
+  height: 100%;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 16px 24px;
+  text-transform: none;
+}
+
+.c2 .c3 .c5 {
+  font-size: 1.25rem;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.c2 .c3:disabled {
+  background: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  cursor: auto;
+}
+
+.c12 .c3 {
+  background: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  color: rgb(77, 77, 77);
+  font-size: 1rem;
+  font-weight: 400;
+  height: 100%;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 16px 24px 16px 48px;
+  text-transform: none;
+}
+
+.c12 .c3 .c5 {
+  font-size: 1.25rem;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.c12 .c3:disabled {
+  background: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  cursor: auto;
+}
+
+@media (pointer: coarse) {
+  .c4:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: rgb(241, 242, 244);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    background: rgb(241, 242, 244);
+    box-shadow: none;
+  }
+}
+
+<ul
+  class="c0 c1 popup__menu"
+  data-role="popup-menu"
+  tabindex="0"
+>
+  <li
+    class="c2 popup__item"
+    data-role="popup-item"
+  >
+    <button
+      class="c3 c4 button button--secondary"
+      data-role="button"
+      title=""
+      type="button"
+    >
+      <i
+        class="c5 c6 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          edit
+        </span>
+      </i>
+      <span
+        data-role="button-label"
+      >
+        Edit
+      </span>
+    </button>
+  </li>
+  <li
+    class="c2 popup__item"
+    data-role="popup-item"
+  >
+    <button
+      class="c3 c4 button button--secondary"
+      data-role="button"
+      title=""
+      type="button"
+    >
+      <i
+        class="c5 c6 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          content_copy
+        </span>
+      </i>
+      <span
+        data-role="button-label"
+      >
+        Copy
+      </span>
+    </button>
+  </li>
+  <li
+    class="c2 popup__item"
+    data-role="popup-item"
+  >
+    <button
+      class="c3 c4 button button--secondary"
+      data-role="button"
+      title=""
+      type="button"
+    >
+      <i
+        class="c5 c6 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          delete
+        </span>
+      </i>
+      <span
+        data-role="button-label"
+      >
+        Delete
+      </span>
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`com.mgmtp.a12.widgets.popup-menu > desktop > Rendering list as children 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c1 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c1 .c2 {
+  user-select: none;
+}
+
+.c1 .c2 {
+  color: inherit;
+}
+
+.c1 .c2 {
+  font-size: inherit;
+}
+
+.c1:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c1.c1 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-block;
+  font-size: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c0 .c2 {
+  position: relative;
+}
+
+.c0 .c2::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c0 .c2:focus {
+  outline: none;
+}
+
+.c0 .c2:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+@media (pointer: coarse) {
+  .c1:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 popup"
+  data-role="popup"
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="Open menu"
+    class="c1 button button--icon"
+    data-role="popup-trigger-element"
+    data-type="icon"
+    title="Open menu"
+    type="button"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        arrow_drop_up
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.popup-menu > desktop > Rendering list as children 2`] = `
+.c1 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c3 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c3::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c3:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c4 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c0 {
+  background: rgb(255, 255, 255);
+  max-width: 100%;
+  min-width: 168px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden auto;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+[data-role="tab-panel-sub-tab-list"] .c0.c0 {
+  min-width: 52px;
+}
+
+@media (pointer: coarse) {
+  .c3:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c3:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0 popup-menu"
+  data-role="popup-menu"
+  tabindex="0"
+>
+  <ul
+    class="c1 list"
+    data-role="list"
+  >
+    <li
+      class="c2 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c3 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c4 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+    <li
+      class="c2 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c3 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c4 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+    <li
+      class="c2 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c3 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c4 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.popup-menu > desktop > Should set position of the popup menu 1`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c2 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c4 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c4::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c4:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c5 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c1 {
+  background: rgb(255, 255, 255);
+  max-width: 100%;
+  min-width: 168px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden auto;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+[data-role="tab-panel-sub-tab-list"] .c1.c1 {
+  min-width: 52px;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c4:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+<div
+  class="c0 attached-portal h_top"
+  data-role="attached-portal"
+  style="top: 0px; left: 0px; visibility: visible; opacity: 1; max-height: 0px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    class="c1 popup-menu"
+    data-role="popup-menu"
+    tabindex="0"
+  >
+    <ul
+      class="c2 list"
+      data-role="list"
+    >
+      <li
+        class="c3 list-item"
+        data-role="list-item"
+      >
+        <div
+          aria-disabled="false"
+          class="c4 list-item__content"
+          data-role="list-item-content"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="c5 list-item__text"
+            data-role="list-item-text"
+          >
+            List item
+          </div>
+        </div>
+      </li>
+      <li
+        class="c3 list-item"
+        data-role="list-item"
+      >
+        <div
+          aria-disabled="false"
+          class="c4 list-item__content"
+          data-role="list-item-content"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="c5 list-item__text"
+            data-role="list-item-text"
+          >
+            List item
+          </div>
+        </div>
+      </li>
+      <li
+        class="c3 list-item"
+        data-role="list-item"
+      >
+        <div
+          aria-disabled="false"
+          class="c4 list-item__content"
+          data-role="list-item-content"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="c5 list-item__text"
+            data-role="list-item-text"
+          >
+            List item
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="tab-sandbox-supporter"
+    data-role="tab-sandbox-supporter"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.popup-menu > mobile > Should display header for popup menu on mobile 1`] = `
+.c6 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c6 > span {
+  display: inline-block;
+}
+
+.c6.c6 {
+  max-width: unset;
+}
+
+.c4 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c4 .c5 {
+  user-select: none;
+}
+
+.c4 .c5 {
+  color: inherit;
+}
+
+.c4 .c5 {
+  font-size: inherit;
+}
+
+.c4:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 > .c5 {
+  display: block;
+}
+
+.c12 .c5 {
+  user-select: none;
+}
+
+.c12 .c5 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c5 {
+  display: block;
+}
+
+.c13 .c5 {
+  user-select: none;
+}
+
+.c13 .c5 {
+  color: inherit;
+}
+
+.c13.c13 .c5 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c13.c13 > .c5 {
+  display: block;
+}
+
+.c17 .c5 {
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c7 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c9 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c9::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c9 .c5 {
+  user-select: none;
+}
+
+.c9:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c14 .c5 {
+  user-select: none;
+}
+
+.c10 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c11 .c5 {
+  position: relative;
+}
+
+.c11 .c5::before {
+  inset: 0px;
+  position: absolute;
+}
+
+.c11 .c5:focus {
+  outline: none;
+}
+
+.c11 .c5:focus::before {
+  content: "";
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1 {
+  background: rgb(255, 255, 255);
+  display: flex;
+  min-height: 48px;
+  padding: 2px 8px 2px 16px;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  align-items: center;
+}
+
+.c2 {
+  align-items: center;
+  font-weight: 700;
+  margin: 0px auto 0px 0px;
+}
+
+.c0 {
+  background: rgb(255, 255, 255);
+  max-width: 100%;
+  min-width: 168px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden auto;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 8px 8px 0px 0px;
+  bottom: 0px;
+  max-height: 90%;
+  position: fixed;
+  width: 100%;
+  animation-duration: 400ms;
+}
+
+[data-role="tab-panel-sub-tab-list"] .c0.c0 {
+  min-width: 52px;
+}
+
+.c0.popup-enter {
+  opacity: 0;
+}
+
+.c0.popup-enter-active {
+  opacity: 1;
+  animation-name: k1;
+}
+
+.c0.popup-exit {
+  opacity: 1;
+}
+
+.c0.popup-exit-active {
+  opacity: 0;
+  animation-name: k2;
+}
+
+.c15 .c3 {
+  background: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  color: rgb(77, 77, 77);
+  font-size: 1rem;
+  font-weight: 400;
+  height: 100%;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 16px 24px;
+  text-transform: none;
+}
+
+.c15 .c3 .c5 {
+  font-size: 1.25rem;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.c15 .c3:disabled {
+  background: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  cursor: auto;
+}
+
+.c16 .c3 {
+  background: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  color: rgb(77, 77, 77);
+  font-size: 1rem;
+  font-weight: 400;
+  height: 100%;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 16px 24px 16px 48px;
+  text-transform: none;
+}
+
+.c16 .c3 .c5 {
+  font-size: 1.25rem;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.c16 .c3:disabled {
+  background: rgb(226, 230, 233);
+  color: rgb(169, 179, 188);
+  cursor: auto;
+}
+
+@media (pointer: coarse) {
+  .c4:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c17 .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c17 .c5:hover {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c9:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c9:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    bottom: -100px;
+    opacity: 0;
+  }
+
+  100% {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes k2 {
+  0% {
+    bottom: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: -100px;
+    opacity: 0;
+  }
+}
+
+<div
+  class="c0 popup-menu"
+  data-role="popup-menu"
+>
+  <div
+    class="c1"
+    data-role="popup-header-wrapper"
+  >
+    <div
+      aria-level="1"
+      class="c2"
+      data-role="popup-header-title"
+      role="heading"
+    >
+      menu
+    </div>
+    <button
+      aria-label="Close menu"
+      class="c3 c4 button button--icon"
+      data-role="popup-close-button"
+      data-type="icon"
+      title="Close menu"
+      type="button"
+    >
+      <i
+        class="c5 c6 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+  <ul
+    class="c7 list"
+    data-role="list"
+  >
+    <li
+      class="c8 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c9 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c10 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+    <li
+      class="c8 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c9 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c10 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+    <li
+      class="c8 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c9 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c10 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.popup-menu > mobile > Should display popup menu on mobile without header 1`] = `
+.c1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c1 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c2 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c4 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c4::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c4:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c5 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c0 {
+  background: rgb(255, 255, 255);
+  max-width: 100%;
+  min-width: 168px;
+  isolation: isolate;
+  outline: transparent solid 1px;
+  overflow: hidden auto;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 8px 8px 0px 0px;
+  bottom: 0px;
+  max-height: 90%;
+  position: fixed;
+  width: 100%;
+  animation-duration: 400ms;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 2px 8px 2px;
+}
+
+[data-role="tab-panel-sub-tab-list"] .c0.c0 {
+  min-width: 52px;
+}
+
+.c0.popup-enter {
+  opacity: 0;
+}
+
+.c0.popup-enter-active {
+  opacity: 1;
+  animation-name: k1;
+}
+
+.c0.popup-exit {
+  opacity: 1;
+}
+
+.c0.popup-exit-active {
+  opacity: 0;
+  animation-name: k2;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+
+  .c4:hover > :not([data-role="list-item-graphic"]) {
+    text-decoration: none;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes k1 {
+  0% {
+    bottom: -100px;
+    opacity: 0;
+  }
+
+  100% {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes k2 {
+  0% {
+    bottom: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: -100px;
+    opacity: 0;
+  }
+}
+
+@keyframes k3 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+<div
+  class="c0 popup-menu"
+  data-role="popup-menu"
+>
+  <span
+    class="c1 -u-unseenButRead"
+    data-role="hidden-text"
+  >
+    Menu
+  </span>
+  <ul
+    class="c2 list"
+    data-role="list"
+  >
+    <li
+      class="c3 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c4 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c5 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+    <li
+      class="c3 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c4 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c5 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+    <li
+      class="c3 list-item"
+      data-role="list-item"
+    >
+      <div
+        aria-disabled="false"
+        class="c4 list-item__content"
+        data-role="list-item-content"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="c5 list-item__text"
+          data-role="list-item-text"
+        >
+          List item
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

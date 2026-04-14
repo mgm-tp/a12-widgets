@@ -1,0 +1,514 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c2 {
+  color: rgb(77, 77, 77);
+  cursor: default;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  position: relative;
+}
+
+.c2 > :last-child {
+  margin-right: 0px;
+}
+
+.c3 {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 16px;
+  left: -20px;
+  position: absolute;
+  width: 16px;
+}
+
+.c5 {
+  display: inline;
+  font-weight: 600;
+  margin: 0px 4px 0px 0px;
+}
+
+.c1 {
+  margin: 0px 0px 8px 24px;
+}
+
+.c6 {
+  margin: 4px 0px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden auto;
+  width: 100%;
+}
+
+<div
+  class="c0 new-comment"
+  data-role="new-comment"
+>
+  <div
+    class="c1 new-comment__meta-container"
+    data-role="new-comment-meta-container"
+  >
+    <div
+      class="c2 new-comment__meta"
+    >
+      <div
+        class="c3 new-comment__meta-avatar"
+        data-role="new-comment-avatar"
+      >
+        <i
+          class="c4 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          >
+            account_circle
+          </span>
+        </i>
+      </div>
+      <div
+        class="c5 new-comment__meta-author"
+        data-role="new-comment-author"
+      >
+        Livia Böhme
+      </div>
+    </div>
+  </div>
+  <div
+    class="c6 new-comment__content"
+    data-role="new-comment-content"
+  >
+    Some random string
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment-with-actions 1`] = `
+.c3 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(201, 29, 29);
+}
+
+.c3:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c3:not(:disabled):focus {
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c3.c3 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c4 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  padding: 0px 32px;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c4:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c4.c4 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c2 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.c1 {
+  margin: 4px 0px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden auto;
+  width: 100%;
+}
+
+@media (pointer: coarse) {
+  .c3:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c3:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c3:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c4:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 new-comment"
+  data-role="new-comment"
+>
+  <div
+    class="c1 new-comment__content"
+    data-role="new-comment-content"
+  >
+    Some random string
+  </div>
+  <div
+    class="new-comment__actions"
+  >
+    <div
+      class="c2 button-group -u-flex -u-justify-end"
+      data-role="button-group"
+    >
+      <button
+        class="c3 button button--destructive button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          Cancel
+        </span>
+      </button>
+      <button
+        class="c4 button button--primary"
+        data-role="button"
+        data-variant-type="primary"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          Send
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment-with-reply 1`] = `
+.c1 {
+  margin: 4px 0px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  overflow: hidden auto;
+  width: 100%;
+  background-color: rgb(241, 242, 244);
+  padding: 8px;
+}
+
+<div
+  class="c0 new-comment comment__replies-item"
+  data-role="new-comment"
+>
+  <div
+    class="c1 new-comment__content"
+    data-role="new-comment-content"
+  >
+     
+    Some random string
+     
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.new-comment.input > rendering-new-comment-input 1`] = `
+.c8 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c8::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c6 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c4 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c3 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c7 {
+  height: auto;
+}
+
+.c9 {
+  height: 100px;
+  padding: calc(16px - 0.54375rem) 12px;
+  resize: vertical;
+  max-height: 100px;
+  min-height: 32px;
+  min-width: 0px;
+}
+
+.c10 .c5 {
+  background-color: rgb(255, 255, 255);
+}
+
+@media (pointer: coarse) {
+  .c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c6:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+<div
+  class="c0 field-wrapper field-wrapper--block"
+  data-role="textarea"
+>
+  <div
+    class="c1 c2 field__main"
+  >
+    <div
+      class="c3 c4 field"
+      data-role="textarea-control"
+    >
+      <div
+        class="c5 c6 c7 field__input field__input--textarea"
+        data-isfocused="false"
+      >
+        <textarea
+          autocomplete="off"
+          class="c8 c9 field__text"
+          data-role="textarea-input"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

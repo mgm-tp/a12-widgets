@@ -1,0 +1,3703 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.pagination > render all disabled default pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c19 .c3 {
+  user-select: none;
+}
+
+.c19 .c3 {
+  color: inherit;
+}
+
+.c19 .c3 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c3 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2.c2 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+.c8 {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  color: rgb(169, 179, 188);
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c20 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c6 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c6[class*="h_"] .c7 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c14 {
+  appearance: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  background-color: inherit;
+  cursor: default;
+  opacity: 1;
+}
+
+.c14.c14.c14 {
+  outline: transparent solid 1px;
+}
+
+.c14::selection {
+  background-color: transparent;
+}
+
+.c14::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c5[class*="h_"] .c14.c14 {
+  background-color: inherit !important;
+}
+
+.c10 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c12 {
+  border-radius: inherit;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  background-color: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c17::after {
+  align-items: center;
+  color: rgb(169, 179, 188);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c15 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c15:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c18 .c1 {
+  font-size: 1.5rem;
+}
+
+.c18 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c18 .c5 .c9 {
+  height: auto;
+}
+
+.c18 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c18 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c18 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c18 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  font-size: 0px;
+}
+
+.c0 .c1 {
+  font-size: 1.5rem;
+}
+
+.c0 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c0 .c5 .c9 {
+  height: auto;
+}
+
+.c0 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c0 .c5 .c9 .c16::after {
+  color: rgb(169, 179, 188);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c0 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c0 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (forced-colors: active) {
+  .c18 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c18 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (forced-colors: active) {
+  .c0 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 pagination"
+  data-role="pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="true"
+    aria-label="First page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="First page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        first_page
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="true"
+    aria-label="Previous page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_before
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 c6 field field--block"
+    data-role="select"
+  >
+    <label
+      class="c7 c8 label field__label label--disabled -u-unseenButRead"
+      data-disabled="true"
+      data-role="select-label"
+    >
+      Page
+    </label>
+    <div
+      class="c9 c10 field__select field__select--disabled"
+      data-disabled="true"
+      data-role="select-control"
+    >
+      <div
+        class="c11 c12 field__select-wrapper"
+        data-disabled="true"
+        data-role="select-wrapper"
+      >
+        <select
+          class="c13 c14 field__selectTitle"
+          data-role="select-input"
+          disabled=""
+        >
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="1"
+          >
+            1/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="2"
+          >
+            2/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="3"
+          >
+            3/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="4"
+          >
+            4/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="5"
+          >
+            5/5
+          </option>
+        </select>
+        <span
+          aria-hidden="true"
+          class="c16 c17 field__select-arrow"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    aria-disabled="true"
+    aria-label="Next page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_next
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="true"
+    aria-label="Last page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Last page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        last_page
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c6 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c14 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c14.c14.c14 {
+  outline: transparent solid 1px;
+}
+
+.c14::selection {
+  background-color: transparent;
+}
+
+.c14::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c10 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c12 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c12:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c17::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c15 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c15:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  font-size: 0px;
+}
+
+.c0 .c1 {
+  font-size: 1.5rem;
+}
+
+.c0 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c0 .c5 .c9 {
+  height: auto;
+}
+
+.c0 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c0 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c0 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c0 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (forced-colors: active) {
+  .c0 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 pagination"
+  data-role="pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="false"
+    aria-label="First page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="First page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        first_page
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="false"
+    aria-label="Previous page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_before
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 c6 field field--block"
+    data-role="select"
+  >
+    <label
+      class="c7 c8 label field__label -u-unseenButRead"
+      data-role="select-label"
+    >
+      Page
+    </label>
+    <div
+      class="c9 c10 field__select"
+      data-role="select-control"
+    >
+      <div
+        class="c11 c12 field__select-wrapper"
+        data-role="select-wrapper"
+      >
+        <select
+          class="c13 c14 field__selectTitle"
+          data-role="select-input"
+        >
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="1"
+          >
+            1/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="2"
+          >
+            2/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="3"
+          >
+            3/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="4"
+          >
+            4/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="5"
+          >
+            5/5
+          </option>
+        </select>
+        <span
+          aria-hidden="true"
+          class="c16 c17 field__select-arrow"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    aria-disabled="false"
+    aria-label="Next page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_next
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="false"
+    aria-label="Last page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Last page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        last_page
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disabled navigation buttons when current page is first page 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c18 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c18 .c3 {
+  user-select: none;
+}
+
+.c18 .c3 {
+  color: inherit;
+}
+
+.c18 .c3 {
+  font-size: inherit;
+}
+
+.c18:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c3 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2.c2 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c6 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c20 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c20[class*="h_"] .c7 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c14 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c14.c14.c14 {
+  outline: transparent solid 1px;
+}
+
+.c14::selection {
+  background-color: transparent;
+}
+
+.c14::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c5[class*="h_"] .c21.c21 {
+  background-color: inherit !important;
+}
+
+.c10 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c12 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c12:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c17::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c15 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c15:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  font-size: 0px;
+}
+
+.c0 .c1 {
+  font-size: 1.5rem;
+}
+
+.c0 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c0 .c5 .c9 {
+  height: auto;
+}
+
+.c0 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c0 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c0 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c0 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c19 .c1 {
+  font-size: 1.5rem;
+}
+
+.c19 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c19 .c5 .c9 {
+  height: auto;
+}
+
+.c19 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c19 .c5 .c9 .c16::after {
+  color: rgb(169, 179, 188);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c19 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c19 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c18:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (forced-colors: active) {
+  .c0 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (forced-colors: active) {
+  .c19 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c19 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 pagination"
+  data-role="pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="true"
+    aria-label="First page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="First page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        first_page
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="true"
+    aria-label="Previous page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_before
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 c6 field field--block"
+    data-role="select"
+  >
+    <label
+      class="c7 c8 label field__label -u-unseenButRead"
+      data-role="select-label"
+    >
+      Page
+    </label>
+    <div
+      class="c9 c10 field__select"
+      data-role="select-control"
+    >
+      <div
+        class="c11 c12 field__select-wrapper"
+        data-role="select-wrapper"
+      >
+        <select
+          class="c13 c14 field__selectTitle"
+          data-role="select-input"
+        >
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="1"
+          >
+            1/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="2"
+          >
+            2/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="3"
+          >
+            3/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="4"
+          >
+            4/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="5"
+          >
+            5/5
+          </option>
+        </select>
+        <span
+          aria-hidden="true"
+          class="c16 c17 field__select-arrow"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    aria-disabled="false"
+    aria-label="Next page"
+    class="c1 c18 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_next
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="false"
+    aria-label="Last page"
+    class="c1 c18 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Last page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        last_page
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disabled navigation buttons when current page is last page 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+.c18 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c18 .c3 {
+  user-select: none;
+}
+
+.c18 .c3 {
+  color: inherit;
+}
+
+.c18 .c3 {
+  font-size: inherit;
+}
+
+.c18.c18 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c3 {
+  display: block;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c6 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c20 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c20[class*="h_"] .c7 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c14 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c14.c14.c14 {
+  outline: transparent solid 1px;
+}
+
+.c14::selection {
+  background-color: transparent;
+}
+
+.c14::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c5[class*="h_"] .c21.c21 {
+  background-color: inherit !important;
+}
+
+.c10 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c12 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c12:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c17::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c15 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c15:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  font-size: 0px;
+}
+
+.c0 .c1 {
+  font-size: 1.5rem;
+}
+
+.c0 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c0 .c5 .c9 {
+  height: auto;
+}
+
+.c0 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c0 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c0 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c0 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c19 .c1 {
+  font-size: 1.5rem;
+}
+
+.c19 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c19 .c5 .c9 {
+  height: auto;
+}
+
+.c19 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c19 .c5 .c9 .c16::after {
+  color: rgb(169, 179, 188);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c19 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c19 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (forced-colors: active) {
+  .c0 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (forced-colors: active) {
+  .c19 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c19 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 pagination"
+  data-role="pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="false"
+    aria-label="First page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="First page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        first_page
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="false"
+    aria-label="Previous page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_before
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 c6 field field--block"
+    data-role="select"
+  >
+    <label
+      class="c7 c8 label field__label -u-unseenButRead"
+      data-role="select-label"
+    >
+      Page
+    </label>
+    <div
+      class="c9 c10 field__select"
+      data-role="select-control"
+    >
+      <div
+        class="c11 c12 field__select-wrapper"
+        data-role="select-wrapper"
+      >
+        <select
+          class="c13 c14 field__selectTitle"
+          data-role="select-input"
+        >
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="1"
+          >
+            1/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="2"
+          >
+            2/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="3"
+          >
+            3/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="4"
+          >
+            4/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="5"
+          >
+            5/5
+          </option>
+        </select>
+        <span
+          aria-hidden="true"
+          class="c16 c17 field__select-arrow"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    aria-disabled="true"
+    aria-label="Next page"
+    class="c1 c18 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_next
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="true"
+    aria-label="Last page"
+    class="c1 c18 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="-1"
+    title="Last page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        last_page
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.pagination > render left aligned default pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+.c20 .c3 {
+  user-select: none;
+}
+
+.c20 .c3 {
+  color: inherit;
+}
+
+.c20 .c3 {
+  font-size: inherit;
+}
+
+.c20.c20 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c20.c20 > .c3 {
+  display: block;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c6 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c21 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c21[class*="h_"] .c7 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c14 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c14.c14.c14 {
+  outline: transparent solid 1px;
+}
+
+.c14::selection {
+  background-color: transparent;
+}
+
+.c14::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c5[class*="h_"] .c22.c22 {
+  background-color: inherit !important;
+}
+
+.c10 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c12 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c12:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c17::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c15 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c15:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c18 .c1 {
+  font-size: 1.5rem;
+}
+
+.c18 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c18 .c5 .c9 {
+  height: auto;
+}
+
+.c18 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c18 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c18 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c18 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c19 .c1 {
+  font-size: 1.5rem;
+}
+
+.c19 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c19 .c5 .c9 {
+  height: auto;
+}
+
+.c19 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c19 .c5 .c9 .c16::after {
+  color: rgb(169, 179, 188);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c19 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c19 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  float: left;
+  margin-right: auto;
+  order: 1;
+  display: flex;
+  font-size: 0px;
+}
+
+.c0 .c1 {
+  font-size: 1.5rem;
+}
+
+.c0 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c0 .c5 .c9 {
+  height: auto;
+}
+
+.c0 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c0 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c0 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c0 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (forced-colors: active) {
+  .c18 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c18 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (forced-colors: active) {
+  .c19 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c19 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (forced-colors: active) {
+  .c0 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 pagination"
+  data-role="pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="false"
+    aria-label="First page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="First page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        first_page
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="false"
+    aria-label="Previous page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_before
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 c6 field field--block"
+    data-role="select"
+  >
+    <label
+      class="c7 c8 label field__label -u-unseenButRead"
+      data-role="select-label"
+    >
+      Page
+    </label>
+    <div
+      class="c9 c10 field__select"
+      data-role="select-control"
+    >
+      <div
+        class="c11 c12 field__select-wrapper"
+        data-role="select-wrapper"
+      >
+        <select
+          class="c13 c14 field__selectTitle"
+          data-role="select-input"
+        >
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="1"
+          >
+            1/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="2"
+          >
+            2/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="3"
+          >
+            3/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="4"
+          >
+            4/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="5"
+          >
+            5/5
+          </option>
+        </select>
+        <span
+          aria-hidden="true"
+          class="c16 c17 field__select-arrow"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    aria-disabled="false"
+    aria-label="Next page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_next
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="false"
+    aria-label="Last page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Last page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        last_page
+      </span>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.pagination > render right aligned default pagination 1`] = `
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+.c21 .c3 {
+  user-select: none;
+}
+
+.c21 .c3 {
+  color: inherit;
+}
+
+.c21 .c3 {
+  font-size: inherit;
+}
+
+.c21.c21 .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c3 {
+  display: block;
+}
+
+.c8 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c8:empty {
+  display: none;
+}
+
+.c8 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c6 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c22 .c7 {
+  display: block;
+  width: fit-content;
+}
+
+.c22[class*="h_"] .c7 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c14 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c14.c14.c14 {
+  outline: transparent solid 1px;
+}
+
+.c14::selection {
+  background-color: transparent;
+}
+
+.c14::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c5[class*="h_"] .c23.c23 {
+  background-color: inherit !important;
+}
+
+.c10 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c12 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c12:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c17::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Icons";
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c15 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c15:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c18 .c1 {
+  font-size: 1.5rem;
+}
+
+.c18 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c18 .c5 .c9 {
+  height: auto;
+}
+
+.c18 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c18 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c18 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c18 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c19 .c1 {
+  font-size: 1.5rem;
+}
+
+.c19 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c19 .c5 .c9 {
+  height: auto;
+}
+
+.c19 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c19 .c5 .c9 .c16::after {
+  color: rgb(169, 179, 188);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c19 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c19 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c20 .c1 {
+  font-size: 1.5rem;
+}
+
+.c20 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c20 .c5 .c9 {
+  height: auto;
+}
+
+.c20 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c20 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c20 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c20 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 {
+  align-items: center;
+  cursor: default;
+  float: right;
+  margin-left: auto;
+  order: 1;
+  display: flex;
+  font-size: 0px;
+}
+
+.c0 .c1 {
+  font-size: 1.5rem;
+}
+
+.c0 .c5 {
+  display: block;
+  margin: 0px 3px 0px 5px;
+  position: relative;
+  width: calc(32px + 3.25rem);
+}
+
+.c0 .c5 .c9 {
+  height: auto;
+}
+
+.c0 .c5 .c9 .c11 {
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c0 .c5 .c9 .c16::after {
+  color: rgb(89, 102, 115);
+  content: "";
+  font-size: 1.5rem;
+  width: 24px;
+}
+
+.c0 .c5 .c9 .c13 {
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  height: calc(8px + 1rem);
+  padding: 0px 24px 0px 6px;
+}
+
+.c0 .c5 .c9 .c13:not(:disabled):focus {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (forced-colors: active) {
+  .c18 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c18 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (forced-colors: active) {
+  .c19 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c19 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c19 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (forced-colors: active) {
+  .c20 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c20 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c20 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (forced-colors: active) {
+  .c0 .c5 .c9 .c13 {
+    background-color: transparent;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c5 .c9 .c13:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(181, 76, 23);
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c5 .c9 .c13:not(:disabled):hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 pagination"
+  data-role="pagination"
+  role="navigation"
+>
+  <button
+    aria-disabled="false"
+    aria-label="First page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="First page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        first_page
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="false"
+    aria-label="Previous page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Previous page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_before
+      </span>
+    </i>
+  </button>
+  <div
+    class="c5 c6 field field--block"
+    data-role="select"
+  >
+    <label
+      class="c7 c8 label field__label -u-unseenButRead"
+      data-role="select-label"
+    >
+      Page
+    </label>
+    <div
+      class="c9 c10 field__select"
+      data-role="select-control"
+    >
+      <div
+        class="c11 c12 field__select-wrapper"
+        data-role="select-wrapper"
+      >
+        <select
+          class="c13 c14 field__selectTitle"
+          data-role="select-input"
+        >
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="1"
+          >
+            1/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="2"
+          >
+            2/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="3"
+          >
+            3/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="4"
+          >
+            4/5
+          </option>
+          <option
+            class="c15 field__selectOption"
+            data-role="select-option"
+            value="5"
+          >
+            5/5
+          </option>
+        </select>
+        <span
+          aria-hidden="true"
+          class="c16 c17 field__select-arrow"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    aria-disabled="false"
+    aria-label="Next page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Next page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        navigate_next
+      </span>
+    </i>
+  </button>
+  <button
+    aria-disabled="false"
+    aria-label="Last page"
+    class="c1 c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    tabindex="0"
+    title="Last page"
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        last_page
+      </span>
+    </i>
+  </button>
+</div>
+`;

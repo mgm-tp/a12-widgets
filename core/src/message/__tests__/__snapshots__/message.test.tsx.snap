@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.message > test rendering message 1`] = `
+.c0 {
+  color: rgb(97, 111, 124);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  font-weight: 600;
+  padding: 16px;
+}
+
+<div
+  class="c0 -m-message test-class"
+  data-role="message"
+  id="test-id"
+  style="color: red;"
+>
+  Message test
+</div>
+`;

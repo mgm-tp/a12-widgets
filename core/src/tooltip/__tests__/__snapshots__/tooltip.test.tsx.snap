@@ -1,0 +1,3090 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.tooltip > mobile > render desktop tooltip on mobile 1`] = `
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c3 {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(181, 76, 23);
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 1px 2px 2px 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  outline: none;
+  padding: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c3 ul,
+.c3 ol {
+  margin: 0px;
+}
+
+.c4 .c2,
+.c4::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c4 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c5 .c2,
+.c5::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c5 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c6 .c2,
+.c6::after {
+  border-color: rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+}
+
+.c6 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c7 .c2,
+.c7::after {
+  border-color: rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+}
+
+.c7 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c8 .c2,
+.c8::after {
+  border-color: rgb(41, 122, 36);
+  background-color: rgb(255, 255, 255);
+}
+
+.c8 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c9 .c2,
+.c9::after {
+  border-color: rgb(41, 122, 36);
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c10 .c2,
+.c10::after {
+  border-color: rgb(249, 191, 48);
+  background-color: rgb(254, 242, 218);
+}
+
+.c10 .c2 {
+  color: rgb(22, 25, 29);
+}
+
+.c11 .c2,
+.c11::after {
+  border-color: rgb(249, 191, 48);
+  background-color: rgb(254, 242, 218);
+}
+
+.c11 .c2 {
+  color: rgb(22, 25, 29);
+}
+
+.c1 {
+  max-width: 500px;
+  position: relative;
+  outline: none;
+  margin-top: 9px;
+  margin-left: 0px;
+}
+
+.c1 + span {
+  outline: none;
+}
+
+.c1::after {
+  background-color: rgb(255, 255, 255);
+  border-width: 1px medium medium 1px;
+  border-style: solid none none solid;
+  border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
+  border-image: initial;
+  content: "";
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 12px;
+  top: -6px;
+}
+
+.c1::after {
+  left: 13px;
+}
+
+<div
+  class="c0 attached-portal h_bottomStart"
+  data-role="attached-portal"
+  style="top: 24px; left: 0px; visibility: visible; opacity: 1; max-height: 686px; max-width: 1280px;"
+  tabindex="-1"
+>
+  <div
+    class="c1 tooltip__container"
+    data-role="tooltip"
+  >
+    <div
+      class="c2 c3 tooltip__content"
+      data-role="tooltip-content"
+      role="tooltip"
+      tabindex="-1"
+    >
+      test tooltip
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 1`] = `
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 .c4 {
+  color: inherit;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+<span
+  class="c0 c1 tooltip"
+  data-role="tooltip"
+  role="tooltip"
+  title=""
+>
+  <button
+    class="c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    title=""
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        warning
+      </span>
+    </i>
+  </button>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 2`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c2 {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(181, 76, 23);
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 1px 2px 2px 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  outline: none;
+  padding: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c2 ul,
+.c2 ol {
+  margin: 0px;
+}
+
+.c1 {
+  max-width: 500px;
+  position: relative;
+  outline: none;
+  margin-left: 9px;
+  margin-top: -10px;
+}
+
+.c1 + span {
+  outline: none;
+}
+
+.c1::after {
+  background-color: rgb(255, 255, 255);
+  border-width: medium medium 1px 1px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
+  border-image: initial;
+  content: "";
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 12px;
+  left: -6px;
+}
+
+.c1::after {
+  top: 13px;
+}
+
+<div
+  class="c0 attached-portal h_rightStart"
+  data-role="attached-portal"
+  style="top: 10px; left: 24px; visibility: visible; opacity: 1; max-height: 720px; max-width: 1256px;"
+  tabindex="-1"
+>
+  <div
+    class="c1 tooltip__container"
+    data-role="tooltip"
+  >
+    <div
+      class="c2 tooltip__content"
+      data-role="tooltip-content"
+      role="tooltip"
+      tabindex="-1"
+    >
+      test tooltip
+      <span
+        class="c3 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+         Press ESC to close tooltip
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render dark tooltip 1`] = `
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 .c4 {
+  color: inherit;
+}
+
+.c5.c5.c5,
+.c0 .c5.c5.c5 {
+  font-size: 1.5rem;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+<span
+  class="c0 c1 tooltip"
+  data-role="tooltip"
+  role="tooltip"
+  title=""
+>
+  <button
+    class="c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    title=""
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        warning
+      </span>
+    </i>
+  </button>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render disabled tooltip 1`] = `
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 .c4 {
+  color: inherit;
+}
+
+.c5.c5.c5,
+.c0 .c5.c5.c5 {
+  font-size: 1.5rem;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+<span
+  class="c0 c1 tooltip"
+  data-role="tooltip"
+  role="tooltip"
+  title=""
+>
+  <button
+    class="c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    title=""
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        warning
+      </span>
+    </i>
+  </button>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
+.c7 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c7 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(201, 29, 29);
+}
+
+.c0 .c9 {
+  color: inherit;
+}
+
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c0 .c5 {
+  color: inherit;
+}
+
+.c10.c10.c10,
+.c0 .c10.c10.c10 {
+  font-size: 1.5rem;
+}
+
+.c6.c6 {
+  color: rgb(201, 29, 29);
+}
+
+.c8 .c3 {
+  user-select: none;
+}
+
+.c8 .c3 {
+  color: inherit;
+}
+
+.c8 .c3 {
+  font-size: inherit;
+}
+
+.c0 .c8.c8 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c8.c8:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c8.c8:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
+  color: inherit;
+}
+
+.c0 .c8.c8:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c3 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0 .c8.c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c8.c8:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c8.c8:hover .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+<span
+  class="c0 c1 tooltip tooltip--error"
+  data-role="tooltip-error"
+  role="tooltip"
+  title=""
+>
+  <button
+    class="c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    title=""
+    type="button"
+  >
+    <i
+      class="c3 c4 c5 c6 plasma-icon plasma-icon--error plasma-icon--custom"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        
+      </span>
+      <span
+        class="c7 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Error: Tooltip
+      </span>
+    </i>
+  </button>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 2`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c3 {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(181, 76, 23);
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 1px 2px 2px 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  outline: none;
+  padding: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c3 ul,
+.c3 ol {
+  margin: 0px;
+}
+
+.c5 .c2,
+.c5::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c5 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c1 {
+  max-width: 500px;
+  position: relative;
+  outline: none;
+  margin-left: 9px;
+  margin-top: -10px;
+}
+
+.c1 + span {
+  outline: none;
+}
+
+.c1::after {
+  background-color: rgb(255, 255, 255);
+  border-width: medium medium 1px 1px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
+  border-image: initial;
+  content: "";
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 12px;
+  left: -6px;
+}
+
+.c1::after {
+  top: 13px;
+}
+
+.c1 .c2,
+.c1::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c1 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+<div
+  class="c0 attached-portal h_rightStart"
+  data-role="attached-portal"
+  style="top: 10px; left: 24px; visibility: visible; opacity: 1; max-height: 720px; max-width: 1256px;"
+  tabindex="-1"
+>
+  <div
+    class="c1 tooltip__container tooltip__container--error"
+    data-role="tooltip"
+  >
+    <div
+      class="c2 c3 tooltip__content"
+      data-role="tooltip-content"
+      role="tooltip"
+      tabindex="-1"
+    >
+      test tooltip
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+         Press ESC to close tooltip
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 1`] = `
+.c5 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c5 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 .c4 {
+  color: inherit;
+}
+
+.c0 .c7 {
+  color: inherit;
+}
+
+.c8.c8.c8,
+.c0 .c8.c8.c8 {
+  font-size: 1.5rem;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c9) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+.c6 .c3 {
+  user-select: none;
+}
+
+.c6 .c3 {
+  font-size: inherit;
+}
+
+.c0 .c6.c6 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c6.c6:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c6.c6:not(:active):not(:hover):not(:focus) .c3:not(.c9) {
+  color: inherit;
+}
+
+.c0 .c6.c6:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c6.c6 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c6.c6:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c6.c6:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c6.c6:hover .c3 {
+    color: inherit;
+  }
+}
+
+<span
+  class="c0 c1 tooltip tooltip--hint"
+  data-role="tooltip-hint"
+  role="tooltip"
+  title=""
+>
+  <button
+    class="c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    title=""
+    type="button"
+  >
+    <i
+      class="c3 c4 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+      <span
+        class="c5 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Hint: Tooltip
+      </span>
+    </i>
+  </button>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 2`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c3 {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(181, 76, 23);
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 1px 2px 2px 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  outline: none;
+  padding: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c3 ul,
+.c3 ol {
+  margin: 0px;
+}
+
+.c5 .c2,
+.c5::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c5 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c6 .c2,
+.c6::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c6 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c7 .c2,
+.c7::after {
+  border-color: rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+}
+
+.c7 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  max-width: 500px;
+  position: relative;
+  outline: none;
+  margin-left: 9px;
+  margin-top: -10px;
+}
+
+.c1 + span {
+  outline: none;
+}
+
+.c1::after {
+  background-color: rgb(255, 255, 255);
+  border-width: medium medium 1px 1px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
+  border-image: initial;
+  content: "";
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 12px;
+  left: -6px;
+}
+
+.c1::after {
+  top: 13px;
+}
+
+.c1 .c2,
+.c1::after {
+  border-color: rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+}
+
+.c1 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+<div
+  class="c0 attached-portal h_rightStart"
+  data-role="attached-portal"
+  style="top: 10px; left: 24px; visibility: visible; opacity: 1; max-height: 720px; max-width: 1256px;"
+  tabindex="-1"
+>
+  <div
+    class="c1 tooltip__container tooltip__container--hint"
+    data-role="tooltip"
+  >
+    <div
+      class="c2 c3 tooltip__content"
+      data-role="tooltip-content"
+      role="tooltip"
+      tabindex="-1"
+    >
+      test tooltip
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+         Press ESC to close tooltip
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
+.c7 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c7 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(41, 122, 36);
+}
+
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c0 .c5 {
+  color: inherit;
+}
+
+.c0 .c9 {
+  color: inherit;
+}
+
+.c10.c10.c10,
+.c0 .c10.c10.c10 {
+  font-size: 1.5rem;
+}
+
+.c6.c6 {
+  color: rgb(41, 122, 36);
+}
+
+.c8 .c3 {
+  user-select: none;
+}
+
+.c8 .c3 {
+  color: inherit;
+}
+
+.c8 .c3 {
+  font-size: inherit;
+}
+
+.c0 .c8.c8 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c8.c8:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c8.c8:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
+  color: inherit;
+}
+
+.c0 .c8.c8:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c3 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0 .c8.c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c8.c8:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c8.c8:hover .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+<span
+  class="c0 c1 tooltip tooltip--success"
+  data-role="tooltip-success"
+  role="tooltip"
+  title=""
+>
+  <button
+    class="c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    title=""
+    type="button"
+  >
+    <i
+      class="c3 c4 c5 c6 plasma-icon plasma-icon--success"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        check_circle
+      </span>
+      <span
+        class="c7 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Success: Tooltip
+      </span>
+    </i>
+  </button>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 2`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c3 {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(181, 76, 23);
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 1px 2px 2px 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  outline: none;
+  padding: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c3 ul,
+.c3 ol {
+  margin: 0px;
+}
+
+.c5 .c2,
+.c5::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c5 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c6 .c2,
+.c6::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c6 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c7 .c2,
+.c7::after {
+  border-color: rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+}
+
+.c7 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c8 .c2,
+.c8::after {
+  border-color: rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+}
+
+.c8 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c9 .c2,
+.c9::after {
+  border-color: rgb(41, 122, 36);
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c1 {
+  max-width: 500px;
+  position: relative;
+  outline: none;
+  margin-left: 9px;
+  margin-top: -10px;
+}
+
+.c1 + span {
+  outline: none;
+}
+
+.c1::after {
+  background-color: rgb(255, 255, 255);
+  border-width: medium medium 1px 1px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
+  border-image: initial;
+  content: "";
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 12px;
+  left: -6px;
+}
+
+.c1::after {
+  top: 13px;
+}
+
+.c1 .c2,
+.c1::after {
+  border-color: rgb(41, 122, 36);
+  background-color: rgb(255, 255, 255);
+}
+
+.c1 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+<div
+  class="c0 attached-portal h_rightStart"
+  data-role="attached-portal"
+  style="top: 10px; left: 24px; visibility: visible; opacity: 1; max-height: 720px; max-width: 1256px;"
+  tabindex="-1"
+>
+  <div
+    class="c1 tooltip__container tooltip__container--success"
+    data-role="tooltip"
+  >
+    <div
+      class="c2 c3 tooltip__content"
+      data-role="tooltip-content"
+      role="tooltip"
+      tabindex="-1"
+    >
+      test tooltip
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+         Press ESC to close tooltip
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 1`] = `
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 .c4 {
+  color: inherit;
+}
+
+.c5.c5.c5,
+.c0 .c5.c5.c5 {
+  font-size: 1.5rem;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+<span
+  class="c0 c1 tooltip"
+  data-role="tooltip"
+  role="tooltip"
+  title=""
+>
+  <button
+    class="c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    title=""
+    type="button"
+  >
+    <i
+      class="c3 c4 c5 plasma-icon plasma-icon--big"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        warning
+      </span>
+    </i>
+  </button>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 2`] = `
+.c3 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c3 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c2 {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(181, 76, 23);
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 1px 2px 2px 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  outline: none;
+  padding: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c2 ul,
+.c2 ol {
+  margin: 0px;
+}
+
+.c1 {
+  max-width: 500px;
+  position: relative;
+  outline: none;
+  margin-left: 9px;
+  margin-top: -10px;
+}
+
+.c1 + span {
+  outline: none;
+}
+
+.c1::after {
+  background-color: rgb(255, 255, 255);
+  border-width: medium medium 1px 1px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
+  border-image: initial;
+  content: "";
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 12px;
+  left: -6px;
+}
+
+.c1::after {
+  top: 13px;
+}
+
+<div
+  class="c0 attached-portal h_rightStart"
+  data-role="attached-portal"
+  style="top: 10px; left: 28px; visibility: visible; opacity: 1; max-height: 720px; max-width: 1252px;"
+  tabindex="-1"
+>
+  <div
+    class="c1 tooltip__container"
+    data-role="tooltip"
+  >
+    <div
+      class="c2 tooltip__content"
+      data-role="tooltip-content"
+      role="tooltip"
+      tabindex="-1"
+    >
+      test tooltip
+      <span
+        class="c3 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+         Press ESC to close tooltip
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has title attribute 1`] = `
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(5, 104, 174);
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+.c0 .c4 {
+  color: inherit;
+}
+
+.c0 .c6 {
+  color: inherit;
+}
+
+.c7.c7.c7,
+.c0 .c7.c7.c7 {
+  font-size: 1.5rem;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c8) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+.c5 .c3 {
+  user-select: none;
+}
+
+.c5 .c3 {
+  font-size: inherit;
+}
+
+.c0 .c5.c5 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c5.c5:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c5.c5:not(:active):not(:hover):not(:focus) .c3:not(.c8) {
+  color: inherit;
+}
+
+.c0 .c5.c5:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c5.c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c5.c5:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c5.c5:hover .c3 {
+    color: inherit;
+  }
+}
+
+<div
+  title="parent title"
+>
+  <span
+    class="c0 c1 tooltip"
+    data-role="tooltip"
+    role="tooltip"
+    title=""
+  >
+    <button
+      class="c2 button button--icon"
+      data-role="button"
+      data-type="icon"
+      title=""
+      type="button"
+    >
+      <i
+        class="c3 c4 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          warning
+        </span>
+      </i>
+    </button>
+  </span>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
+.c7 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c7 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  font-size: 0px;
+  vertical-align: middle;
+  color: rgb(249, 191, 48);
+}
+
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+.c0 .c5 {
+  color: inherit;
+}
+
+.c0 .c9 {
+  color: inherit;
+}
+
+.c10.c10.c10,
+.c0 .c10.c10.c10 {
+  font-size: 1.5rem;
+}
+
+.c6.c6 {
+  color: rgb(175, 121, 2);
+}
+
+.c8 .c3 {
+  user-select: none;
+}
+
+.c8 .c3 {
+  color: inherit;
+}
+
+.c8 .c3 {
+  font-size: inherit;
+}
+
+.c0 .c8.c8 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c8.c8:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c8.c8:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
+  color: inherit;
+}
+
+.c0 .c8.c8:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c3 {
+  display: block;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c0 .c2.c2 {
+  font-size: 1.25rem;
+  height: fit-content;
+  min-height: 0px;
+  padding: 0px;
+  width: fit-content;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
+  color: inherit;
+}
+
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
+  color: inherit;
+}
+
+.c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .c0 .c8.c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c8.c8:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c8.c8:hover .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: coarse) {
+  .c2:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c0 .c2.c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c0 .c2.c2:active .c3 {
+    color: inherit;
+  }
+}
+
+@media (pointer: fine) {
+  .c0 .c2.c2:hover .c3 {
+    color: inherit;
+  }
+}
+
+<span
+  class="c0 c1 tooltip tooltip--warning"
+  data-role="tooltip-warning"
+  role="tooltip"
+  title=""
+>
+  <button
+    class="c2 button button--icon"
+    data-role="button"
+    data-type="icon"
+    title=""
+    type="button"
+  >
+    <i
+      class="c3 c4 c5 c6 plasma-icon plasma-icon--warning"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        warning
+      </span>
+      <span
+        class="c7 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Warning: Tooltip
+      </span>
+    </i>
+  </button>
+</span>
+`;
+
+exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 2`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c0 > * {
+  max-height: inherit;
+}
+
+.c3 {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(181, 76, 23);
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 1px 2px 2px 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  outline: none;
+  padding: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c3 ul,
+.c3 ol {
+  margin: 0px;
+}
+
+.c5 .c2,
+.c5::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c5 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c6 .c2,
+.c6::after {
+  border-color: rgb(201, 29, 29);
+  background-color: rgb(252, 233, 233);
+}
+
+.c6 .c2 {
+  color: rgb(201, 29, 29);
+}
+
+.c7 .c2,
+.c7::after {
+  border-color: rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+}
+
+.c7 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c8 .c2,
+.c8::after {
+  border-color: rgb(5, 104, 174);
+  background-color: rgb(255, 255, 255);
+}
+
+.c8 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c9 .c2,
+.c9::after {
+  border-color: rgb(41, 122, 36);
+  background-color: rgb(255, 255, 255);
+}
+
+.c9 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c10 .c2,
+.c10::after {
+  border-color: rgb(41, 122, 36);
+  background-color: rgb(255, 255, 255);
+}
+
+.c10 .c2 {
+  color: rgb(77, 77, 77);
+}
+
+.c11 .c2,
+.c11::after {
+  border-color: rgb(249, 191, 48);
+  background-color: rgb(254, 242, 218);
+}
+
+.c11 .c2 {
+  color: rgb(22, 25, 29);
+}
+
+.c1 {
+  max-width: 500px;
+  position: relative;
+  outline: none;
+  margin-left: 9px;
+  margin-top: -10px;
+}
+
+.c1 + span {
+  outline: none;
+}
+
+.c1::after {
+  background-color: rgb(255, 255, 255);
+  border-width: medium medium 1px 1px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
+  border-image: initial;
+  content: "";
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 12px;
+  left: -6px;
+}
+
+.c1::after {
+  top: 13px;
+}
+
+.c1 .c2,
+.c1::after {
+  border-color: rgb(249, 191, 48);
+  background-color: rgb(254, 242, 218);
+}
+
+.c1 .c2 {
+  color: rgb(22, 25, 29);
+}
+
+<div
+  class="c0 attached-portal h_rightStart"
+  data-role="attached-portal"
+  style="top: 10px; left: 24px; visibility: visible; opacity: 1; max-height: 720px; max-width: 1256px;"
+  tabindex="-1"
+>
+  <div
+    class="c1 tooltip__container tooltip__container--warning"
+    data-role="tooltip"
+  >
+    <div
+      class="c2 c3 tooltip__content"
+      data-role="tooltip-content"
+      role="tooltip"
+      tabindex="-1"
+    >
+      test tooltip
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+         Press ESC to close tooltip
+      </span>
+    </div>
+  </div>
+</div>
+`;

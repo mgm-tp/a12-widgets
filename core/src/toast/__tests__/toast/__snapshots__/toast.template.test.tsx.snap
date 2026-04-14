@@ -1,0 +1,2966 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.toast.template > render basic toast template 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching with the variant 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching with the variant 2`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c9 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c1 {
+  background-color: rgb(41, 122, 36);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(41, 122, 36);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--success"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        check_circle
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching with the variant 3`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons Outlined";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c10 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c11 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c1 {
+  background-color: rgb(249, 191, 48);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(249, 191, 48);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--warning"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon plasma-icon--outlined"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        warning_amber
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c9 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching with the variant 4`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c10 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c11 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c12 .c2 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c1 {
+  background-color: rgb(201, 29, 29);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(201, 29, 29);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--error"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon plasma-icon--custom"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c9 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render toast template with custom id, className and fontSize 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info test-class"
+  data-role="toast"
+  id="test-id"
+  style="font-size: 10px; outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c11 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c12 .c2 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c13 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+.c9 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c10 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c9 toast__content"
+      data-role="toast-content"
+      style="height: 100px;"
+    >
+      <div
+        class="c10 toast__message"
+        data-role="toast-message"
+      >
+        Message
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render with custom icon 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c9 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 .c2 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c11 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        clear
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c11 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c12 .c2 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c13 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+.c9 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c10 {
+  padding: 8px 0px 0px;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c9 toast__content"
+      data-role="toast-content"
+    >
+      <div
+        class="c10 toast__collapse"
+        data-role="toast-collapse"
+      >
+        Collapse text
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render with the footer 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c11 .c2 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c12 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+.c9 {
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 0px 16px 16px;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c9 toast__footer"
+      data-role="toast-footer"
+    >
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render with the header 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c8 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c8 .c2 {
+  user-select: none;
+}
+
+.c8 .c2 {
+  color: inherit;
+}
+
+.c8 .c2 {
+  font-size: inherit;
+}
+
+.c8:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c10 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c11 .c2 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c12 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  color: rgb(77, 77, 77);
+  flex-grow: 1;
+  flex-shrink: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.45;
+  overflow: hidden;
+  padding: 16px 0px 16px 16px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c9 {
+  font-size: 1.5rem;
+}
+
+@media (pointer: coarse) {
+  .c8:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        aria-level="2"
+        class="c6 toast__title"
+        data-role="toast-title"
+        role="heading"
+      >
+        Header
+      </div>
+      <div
+        class="c7 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c8 button button--icon c9"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
+.c3 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c3 > span {
+  display: inline-block;
+}
+
+.c3.c3 {
+  max-width: unset;
+}
+
+.c7 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c7 .c2 {
+  user-select: none;
+}
+
+.c7 .c2 {
+  color: inherit;
+}
+
+.c7 .c2 {
+  font-size: inherit;
+}
+
+.c7:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+  display: block;
+}
+
+.c0 {
+  display: inline-flex;
+  outline: none;
+}
+
+.c1 {
+  background-color: rgb(5, 104, 174);
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  flex: 0 0 auto;
+  font-size: 0px;
+  min-height: 48px;
+  padding: 16px 0px 0px;
+  text-align: center;
+  width: 48px;
+}
+
+.c1 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c11 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c12 .c2 {
+  color: rgb(22, 25, 29);
+  font-size: 1.5rem;
+}
+
+.c13 .c2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px 1px 1px medium;
+  border-style: solid solid solid none;
+  border-color: transparent transparent transparent currentcolor;
+  border-image: initial;
+  box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  max-width: 432px;
+  min-width: 98px;
+}
+
+.c4.c4 {
+  border-color: rgb(5, 104, 174);
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.c6 {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 4px 8px;
+  text-align: center;
+  width: 48px;
+}
+
+.c8 {
+  font-size: 1.5rem;
+}
+
+.c9 {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  padding: 0px 16px 16px;
+}
+
+.c10 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+@media (pointer: coarse) {
+  .c7:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+<div
+  class="c0 toast toast--info"
+  data-role="toast"
+  style="outline: none;"
+  tabindex="-1"
+>
+  <div
+    class="c1 toast__left"
+    data-role="toast-left"
+  >
+    <i
+      class="c2 c3 plasma-icon"
+      data-role="plasma-icon"
+    >
+      <span
+        aria-hidden="true"
+      >
+        info
+      </span>
+    </i>
+  </div>
+  <div
+    class="c4 toast__right"
+    data-role="toast-right"
+  >
+    <div
+      class="c5 toast__header"
+      data-role="toast-header"
+    >
+      <div
+        class="c6 toast__actions"
+        data-role="toast-action"
+      >
+        <button
+          aria-label="Close"
+          class="c7 button button--icon c8"
+          data-role="button"
+          data-type="icon"
+          title="Close"
+          type="button"
+        >
+          <i
+            class="c2 c3 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              close
+            </span>
+          </i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="c9 toast__content"
+      data-role="toast-content"
+    >
+      <div
+        class="c10 toast__message"
+        data-role="toast-message"
+      >
+        Message
+      </div>
+    </div>
+  </div>
+</div>
+`;
