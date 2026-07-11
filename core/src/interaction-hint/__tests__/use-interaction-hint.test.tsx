@@ -36,7 +36,7 @@ import { createRef } from "react";
 import { describe, expect, test } from "vitest";
 
 import {
-	DEFAULT_CONTEXT_VALUE,
+	DEFAULT_INTERACTION_HINT_CONTEXT_VALUE,
 	type InteractionHintConfigContextProps,
 	InteractionHintConfigProvider
 } from "../main/interaction-hint-context.js";
@@ -51,7 +51,7 @@ function createTestConfig(
 	overrides: Partial<InteractionHintConfigContextProps> = {}
 ): DeepRequired<InteractionHintConfigContextProps> {
 	return {
-		...DEFAULT_CONTEXT_VALUE,
+		...DEFAULT_INTERACTION_HINT_CONTEXT_VALUE,
 		...overrides
 	} as DeepRequired<InteractionHintConfigContextProps>;
 }

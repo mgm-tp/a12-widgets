@@ -30,7 +30,4 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { TextLineStateless, TextAffix as TextLineAffix } from "../text-line/main/template/text-line.tpl.view.js";
-
-export const TextField = TextLineStateless;
-export const TextAffix = TextLineAffix;
+export * from "./main/template/text-field.tpl.view.js";

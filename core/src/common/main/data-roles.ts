@@ -168,7 +168,8 @@ const DATA_ROLES_TREE = {
 		Dialog: { Header: "", Title: "", Actions: "" },
 		Footer: {
 			Action: ""
-		}
+		},
+		YearErrorMessage: ""
 	},
 	DateTimePicker: {
 		Footer: {
@@ -253,7 +254,8 @@ const DATA_ROLES_TREE = {
 			List: {
 				Item: ""
 			}
-		}
+		},
+		Prefix: ""
 	},
 	Filterbar: {
 		Content: "",
@@ -414,20 +416,23 @@ const DATA_ROLES_TREE = {
 		Area: ""
 	},
 	Table: {
+		Viewport: "",
 		Header: {
 			Row: {
 				SegmentLeft: "-left",
 				SegmentRight: "-right",
 				SegmentScroll: "-scroll"
 			},
-			Cell: { Content: "", Group: { Children: "", Parent: "" } }
+			Cell: { Content: "", Group: { Children: "", Parent: "" } },
+			ResizeHandleRow: ""
 		},
 		Filter: {
 			Row: {
 				SegmentLeft: "-left",
 				SegmentRight: "-right",
 				SegmentScroll: "-scroll"
-			}
+			},
+			Cell: { Content: "" }
 		},
 		Body: {
 			Row: {
@@ -435,8 +440,9 @@ const DATA_ROLES_TREE = {
 				SegmentRight: "-right",
 				SegmentScroll: "-scroll"
 			},
-			Cell: { Group: "" },
-			Content: { Placeholder: "" }
+			Cell: { Group: "", CardLabel: "" },
+			Content: { Placeholder: "" },
+			VirtualizedContainer: ""
 		},
 		Footer: {
 			Row: {
@@ -447,7 +453,7 @@ const DATA_ROLES_TREE = {
 			Cell: ""
 		},
 		Row: {
-			Group: { Header: "" },
+			Group: { Header: "", HeaderToggle: "" },
 			Scroller: {
 				Scroll: "-scroll"
 			},
@@ -455,10 +461,23 @@ const DATA_ROLES_TREE = {
 		},
 		Expandable: { Row: { Body: "", Footer: "" }, Wrapper: "" },
 		Infinite: { Row: { Group: "" } },
-		Column: { ResizeHandler: "", RightResizeHandler: "", LeftResizeHandler: "" }
+		Column: { ResizeHandler: "", RightResizeHandler: "", LeftResizeHandler: "" },
+		DnDHint: "",
+		RowOverlay: "",
+		ContextMenu: "",
+		A11yLiveRegion: ""
 	},
 	TreeTable: {
-		Dnd: { Target: "" }
+		Dnd: { Target: "" },
+
+		/** Wrapper around the tree column's cell content (indent + expand control + label). */
+		Cell: "",
+
+		/** The leading icon slot in the tree column, populated via `getIcon`. */
+		Icon: "",
+
+		/** The synthetic "load more" row trailing a paginated parent's loaded children. */
+		LoadMore: ""
 	},
 	Tree: {
 		Dropdown: {
@@ -480,7 +499,7 @@ const DATA_ROLES_TREE = {
 	TabSandbox: {
 		Supporter: ""
 	},
-	Textline: {
+	TextField: {
 		Input: { Wrapper: "" },
 		Control: "",
 		ErrorMessage: "",
@@ -508,13 +527,14 @@ const DATA_ROLES_TREE = {
 		Addons: ""
 	},
 	Typography: {
-		Headline: { Label: "", Title: "", Graphic: "", Wrapper: "", Info: "", Divider: "" },
+		Headline: { Label: "", Title: "", Graphic: "", Wrapper: "", Info: "", Divider: "", HeaderActions: "" },
 		Body: "",
 		Section: "",
 		Addons: "",
 		Addon: ""
 	},
 	Tooltip: {
+		TriggerWrapper: "",
 		Content: ""
 	},
 	GroupTooltipHint: "",
@@ -528,7 +548,12 @@ const DATA_ROLES_TREE = {
 		TabList: "",
 		SubTabList: "",
 		Tab: "",
-		Content: ""
+		Content: "",
+		SubGroupLabel: "",
+		Group: {
+			TabList: "",
+			Divider: ""
+		}
 	},
 	Panel: "",
 	SelectionSuffix: "",
@@ -536,7 +561,15 @@ const DATA_ROLES_TREE = {
 		Prefix: "",
 		Option: "",
 		Wrapper: "",
-		Input: ""
+		Input: "",
+		Mobile: {
+			Wrapper: ""
+		},
+		RichLabel: {
+			Wrapper: {
+				Prefix: ""
+			}
+		}
 	},
 	Error: {
 		Message: "",
@@ -579,7 +612,9 @@ const DATA_ROLES_TREE = {
 		ErrorMessage: "",
 		InfoMessage: "",
 		UncheckedOption: "",
-		CheckedOption: ""
+		CheckedOption: "",
+		ThumbIcon: "",
+		InlineWrapper: ""
 	},
 	Calendar: {
 		WeekView: {
@@ -815,9 +850,11 @@ const DATA_ROLES_TREE = {
 
 /** @internal */
 export function initialize(obj: object, paths: string[] = []): object {
+	const stringify = (): string => paths.map(kebabCase).join("-");
+
 	return new Proxy(obj, {
-		get: (target: any, key: string): string | object => {
-			if (Object.keys(target).includes(key)) {
+		get: (target: any, key: string | symbol): string | object | undefined => {
+			if (typeof key === "string" && Object.keys(target).includes(key)) {
 				const value = target[key];
 
 				if (typeof value === "string") {
@@ -839,7 +876,14 @@ export function initialize(obj: object, paths: string[] = []): object {
 				throw new Error("Unexpected type");
 			}
 
-			return () => paths.map(kebabCase).join("-");
+			// "suggest" is a special key used by some type-checking tools; returning undefined prevents
+			// it from being treated as a data role and avoids unintended proxy recursion
+			if (key === "suggest") {
+				return undefined;
+			}
+
+			// fall back to returning the stringified path for unknown keys
+			return stringify;
 		}
 	});
 }

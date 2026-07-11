@@ -139,8 +139,8 @@ describe("com.mgmtp.a12.widgets.calendar.infinite-view", () => {
 	});
 
 	test("Should be able to scroll to minDate.", async () => {
-		const minDate = new Date(2025, 5, 1);
-		const date = new Date(2025, 11, 15);
+		const minDate = new Date(2025, 7, 1);
+		const date = new Date(2025, 10, 15);
 
 		vi.useFakeTimers();
 
@@ -187,8 +187,8 @@ describe("com.mgmtp.a12.widgets.calendar.infinite-view", () => {
 	});
 
 	test("Should be able to scroll to maxDate.", async () => {
-		const date = new Date(2025, 11, 15);
-		const maxDate = new Date(2026, 5, 12);
+		const date = new Date(2025, 1, 15);
+		const maxDate = new Date(2025, 3, 12);
 
 		vi.useFakeTimers();
 
@@ -365,7 +365,7 @@ describe("com.mgmtp.a12.widgets.calendar.infinite-view", () => {
 		) as HTMLElement;
 
 		await userEvent.click(dayCell);
-		expect(document.activeElement).toBe(dayCell);
+		expect(dayCell).toHaveFocus();
 
 		// Simulate data load: re-render with new calendarDateItems
 		rerender(
@@ -480,7 +480,7 @@ describe("com.mgmtp.a12.widgets.calendar.infinite-view", () => {
 
 		expect(dayToFocus).not.toBeNull();
 		dayToFocus.focus();
-		expect(document.activeElement).toBe(dayToFocus);
+		expect(dayToFocus).toHaveFocus();
 
 		// Switch to real timers so ResizeObserver and requestAnimationFrame fire naturally
 		vi.useRealTimers();
@@ -540,7 +540,7 @@ describe("com.mgmtp.a12.widgets.calendar.infinite-view", () => {
 
 			expect(dayToFocus).not.toBeNull();
 			dayToFocus.focus();
-			expect(document.activeElement).toBe(dayToFocus);
+			expect(dayToFocus).toHaveFocus();
 
 			vi.useRealTimers();
 
@@ -598,7 +598,7 @@ describe("com.mgmtp.a12.widgets.calendar.infinite-view", () => {
 
 			expect(dayToFocus).not.toBeNull();
 			dayToFocus.focus();
-			expect(document.activeElement).toBe(dayToFocus);
+			expect(dayToFocus).toHaveFocus();
 
 			// Simulate viewport height change (container shrinks) — this triggers capturePreResizeStartIndex,
 			// which will NOT record the focused day because restoreFocusOnHeightChange is false
@@ -618,7 +618,7 @@ describe("com.mgmtp.a12.widgets.calendar.infinite-view", () => {
 			vi.useFakeTimers();
 
 			await vi.advanceTimersByTimeAsync(500);
-			expect(document.activeElement).not.toBe(dayToFocus);
+			expect(dayToFocus).not.toHaveFocus();
 
 			vi.useRealTimers();
 		});

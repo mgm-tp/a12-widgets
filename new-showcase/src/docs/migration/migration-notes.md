@@ -1,6 +1,375 @@
+## 39.0.2
+
+No breaking changes in 39.0.2.
+
+## 39.0.1
+
+### `DataTable`, `DataTreeTable` & `TreeView` moved to `/experimental`
+
+The recently introduced `DataTable`, `DataTreeTable` and `TreeView` components (and their related types and helpers) are no longer exported from the package root. They now live on a dedicated entry point: `@com.mgmtp.a12.widgets/widgets-core/experimental`.
+
+This keeps `@atlaskit/pragmatic-drag-and-drop` — the drag-and-drop engine behind these components — out of the main module graph. Its package `exports` subpaths fail to resolve as directory imports under Node ESM in some consumer build environments (e.g. `Directory import '.../pragmatic-drag-and-drop/element/adapter' is not supported`). Importing the package root no longer pulls that dependency in.
+
+```tsx
+// Before
+import { DataTable, DataTreeTable, TreeView } from "@com.mgmtp.a12.widgets/widgets-core";
+
+// After
+import { DataTable, DataTreeTable, TreeView } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+```
+
+## 39.0.0
+
+### New `baseTheme` replaces `flat` / `flat-compact`
+
+`getBaseTheme()` provides a clean 3-layer theme (Application → Semantic → Widget) as the recommended A12 base theme, replacing `getFlatTheme()` and `getFlatCompactTheme()`. Its visual appearance matches the existing flat theme, so migrating from flat is a like-for-like swap.
+
+**`default` / `compact` themes are being retired.** `getDefaultTheme` / `defaultTheme` and `getCompactTheme` / `compactTheme` are deprecated and **will be removed in a future release with no replacement** — their visual style is not carried forward. `getBaseTheme()` adopts the flat look and does **not** reproduce the default/compact appearance. Projects still on those themes can adopt `getBaseTheme()` to stay supported, but should expect a visual change.
+
+#### Migrating from `flat` / `flat-compact`
+
+`getBaseTheme()` is the successor to the flat factories and `createTheme()`. It defaults to **12px** base spacing, so pass `spacing: { base: 16 }` to keep the previous non-compact density:
+
+| Deprecated                                   | Replacement                               |
+| -------------------------------------------- | ----------------------------------------- |
+| `getFlatTheme()` / `flatTheme`               | `getBaseTheme({ spacing: { base: 16 } })` |
+| `getFlatCompactTheme()` / `flatCompactTheme` | `getBaseTheme()`                          |
+| `createTheme({ ... })`                       | `getBaseTheme({ ... })`                   |
+
+```tsx
+// Before
+import { getFlatTheme } from "@com.mgmtp.a12.widgets/widgets-core";
+const theme = getFlatTheme();
+
+// After — base: 16 preserves the previous (non-compact) spacing
+import { getBaseTheme } from "@com.mgmtp.a12.widgets/widgets-core";
+const theme = getBaseTheme({ spacing: { base: 16 } });
+```
+
+`createTheme`'s options shape differs slightly. `getBaseTheme` exposes the override layers (`colors`, `semantic`, `spacing`, `typography`, `components`); see `core/src/theme/base-theme/schema.ts` for the full `BaseThemeOptions` type. The codemod does not silently drop unknown options — migrate anything outside that shape manually.
+
+For overriding colors, semantic tokens, spacing, fonts, and per-component configs, see the [Base Theme guide](#/basics/theme/base-theme/overview).
+
+#### New tokens
+
+All existing flat/legacy semantic token names are preserved and keep working — `colors.text.*`, `colors.background.*`, `colors.divider.color`, the `colors.interaction.*` states (`hover` / `active` / `selected` / `focus` / `disabled`), and `colors.variant.*` are unchanged. The base theme adds the following tokens for surfaces that were previously hardcoded:
+
+| New token                                    | Replaces                                      |
+| -------------------------------------------- | --------------------------------------------- |
+| `colors.text.titleColor`                     | hardcoded card / dialog heading               |
+| `colors.text.placeholderColor`               | hardcoded placeholder color                   |
+| `colors.background.navigationBackground`     | hardcoded sidebar background                  |
+| `colors.background.navigationAccent`         | hardcoded menu decoration                     |
+| `colors.background.overlayLight`             | hardcoded scrim / overlay light               |
+| `colors.divider.colorMuted`                  | hardcoded subtle divider                      |
+| `colors.interaction.color`, `colorDark`      | neutral interactive tint                      |
+| `colors.interaction.colorBG`, `colorBGLight` | —                                             |
+| `colors.interaction.hover.colorLight`        | —                                             |
+| `colors.interaction.touchOverlay`            | `rgba(0,0,0,0.2)` inverted button overlay     |
+| `colors.interaction.touchOverlayDark`        | `rgba(0,0,0,0.35)` activated inverted overlay |
+| `colors.shadow.overlayFaint`                 | `rgba(0,0,0,0.04)` glow                       |
+| `colors.shadow.overlaySoft`                  | `rgba(0,0,0,0.1)` card shadow                 |
+| `colors.shadow.overlayMid`                   | `rgba(0,0,0,0.2)` popover                     |
+| `colors.shadow.overlayDark`                  | `rgba(0,0,0,0.3)` modal scrim                 |
+| `colors.shadow.overlayDeep`                  | `rgba(0,0,0,0.5)` overlay                     |
+
+Top-level `border`, `motion`, `opacity`, and `hoverStyles` keys are also new. See `core/src/theme/base-theme/schema.ts` for the exact shape of `BaseThemeConfig`.
+
+#### Quick theming
+
+For applications that only need to recolor the theme (without overriding component configs), use `getQuickTheme()`:
+
+```tsx
+import { getQuickTheme } from "@com.mgmtp.a12.widgets/widgets-core";
+
+const theme = getQuickTheme({
+	palette: {
+		primary: "#005FAD",
+		surface: "#ffffff",
+		pageBackground: "#f7f8fa",
+		border: "#d9dde3",
+		textPrimary: "#1f2937",
+		success: "#1f9d55",
+		warning: "#d97706",
+		error: "#dc2626",
+		info: "#2563eb"
+	}
+});
+```
+
+Missing palette variants (`primaryHover`, `primaryActive`, `primaryLight`, `primaryTint`) are derived automatically. Pass `buildQuickThemeOptions(input)` instead when you want to combine the quick theme palette with further `getBaseTheme` overrides.
+
+#### Styled-components `DefaultTheme` augmentation
+
+This only matters if your **own** typed styled-components read base-theme-specific tokens through the `theme` prop (e.g. `theme.colors.shadow`, `theme.hoverStyles`). If they don't, your existing augmentation keeps compiling unchanged. To get autocomplete and type-checking for the new tokens, augment `DefaultTheme` with `BaseThemeConfig`:
+
+```ts
+// src/@types/styled-components.d.ts
+import "styled-components";
+import type { BaseThemeConfig } from "@com.mgmtp.a12.widgets/widgets-core";
+
+declare module "styled-components" {
+	export interface DefaultTheme extends BaseThemeConfig {}
+}
+```
+
+### New `DataTable`, `DataTreeTable` & `TreeView` (experimental)
+
+39.0.0 ships three new, **opt-in** components built on a shared headless model: `DataTable`, `DataTreeTable` and `TreeView`. They are **additive and `@experimental`** — nothing breaks, and no migration is required. The production `Table` / `TreeTable` are **not** deprecated; only the legacy `Tree` template and its behavior HOCs are.
+
+Because this is an opt-in adoption (not a forced change), the details — supported subset, the `componentRenderers` → `slots` mapping, the virtualization-engine swap, tree drag-and-drop — live on their own page: see [New Table & Tree Components](#/get-started/migration-instructions/new-table-and-tree-components).
+
+### Year Selector
+
+#### Changed default rendering mode
+
+Previously, `<YearSelector />` was always rendered as a native `<select>` element. Starting from version 39.0.0, a `variant` property (`textbox` | `select` | `autocomplete`) has been introduced to allow customization of how the selector is displayed.
+If the `variant` property is not explicitly provided, the component will resolve the variant based on the presence of `yearRange` property:
+
+| Condition            | Resolved variant                       |
+| -------------------- | -------------------------------------- |
+| `yearRange` provided | `autocomplete` (text input + dropdown) |
+| no `yearRange`       | `textbox` (plain numeric text input)   |
+
+The same applies to the embedded year selector in `<YearMonthSelector />` when `yearSelectorVariant` is not set.
+
+**Migration** — add an explicit `variant`/`yearSelectorVariant` to keep the old `<select>` behaviour:
+
+```tsx
+// Before (implicitly rendered as <select>)
+<YearSelector year={2024} yearRange={{ start: 2020, end: 2030 }} />
+<YearMonthSelector year={2024} month={3} yearRange={{ start: 2020, end: 2030 }} />
+
+// After (explicit, preserves previous behaviour)
+<YearSelector year={2024} yearRange={{ start: 2020, end: 2030 }} variant="select" />
+<YearMonthSelector year={2024} month={3} yearRange={{ start: 2020, end: 2030 }} yearSelectorVariant="select" />
+```
+
+#### YearRange fields are now optional
+
+`YearRange.start` and `YearRange.end` are now typed as `number | undefined` to support single-bound ranges. Code that reads either field without a null-check may encounter `undefined`.
+
+```typescript
+// Before — safe without a guard (fields were always numbers)
+const label = `${yearRange.start} – ${yearRange.end}`;
+
+// After — guard required
+const label = `${yearRange.start ?? ""} – ${yearRange.end ?? ""}`;
+```
+
+### Enforcement of top-level package exports
+
+**Automatic migration (required):** run the [`enforce-top-level-exports`](#/get-started/migration-instructions/codemod-instruction#recipe-enforce-top-level-exports) codemod — see the recipe for the full list of changes it applies.
+
+Starting with 39.0.0, `widgets-core` and `widgets-utils` enforce strict `exports` fields in their `package.json`. Deep imports through `lib/` paths are no longer allowed and will fail at build time. The codemod rewrites the deep `lib/` import paths and the CSS entry-point paths for you; the type-augmentation paths below are **not** handled by the codemod and must be updated by hand.
+
+#### Type augmentations
+
+Type augmentations (e.g. the styled-components `DefaultTheme` augmentation) are now exposed via `./types/*` subpath exports instead of deep `lib/@types/` paths. Update your `tsconfig.json` or reference directives:
+
+**Option 1: `tsconfig.json` types array**
+
+```json
+// Before
+{
+  "compilerOptions": {
+    "types": ["@com.mgmtp.a12.widgets/widgets-core/lib/@types/styled-components"]
+  }
+}
+
+// After
+{
+  "compilerOptions": {
+    "types": ["@com.mgmtp.a12.widgets/widgets-core/types/styled-components"]
+  }
+}
+```
+
+**Option 2: Triple-slash reference directive**
+
+```typescript
+// Before
+/// <reference path="../node_modules/@com.mgmtp.a12.widgets/widgets-core/lib/@types/styled-components/index.d.ts" />
+
+// After
+/// <reference types="@com.mgmtp.a12.widgets/widgets-core/types/styled-components" />
+```
+
+Available type augmentations: `styled-components`, `react`, `react-lines-ellipsis`, `assets`.
+
+### Renamed TextLine to TextField
+
+**Automatic migration (required):** run the [`enforce-top-level-exports`](#/get-started/migration-instructions/codemod-instruction#recipe-enforce-top-level-exports) codemod — see the recipe for the full list of changes it applies.
+
+The `TextLine` naming is dropped in favour of `TextField` across the public API — the component and its props, the `DataRoles` key, the `data-role` values, and the theme configuration. The codemod rewrites all of these for you.
+
+Note: the `data-role` change affects test selectors and CSS attribute selectors in your own code — update any that match the old `"textline-*"` values.
+
+### Removed deprecated APIs
+
+**Automatic migration (required):** run the [`enforce-top-level-exports`](#/get-started/migration-instructions/codemod-instruction#recipe-enforce-top-level-exports) codemod — see the recipe for the full list of changes it applies.
+
+The deprecated aliases introduced in 38.2.0 have been removed. They were originally created to avoid naming collisions when moving from deep `lib/` imports to the top-level barrel export; with the enforcement of top-level exports in 39.0.0 the old names are no longer needed and have been removed to keep the public API clean. The codemod renames each removed alias to its replacement automatically.
+
+### Migration from Material Icons to Material Symbols
+
+The icon system has been migrated from **Material Icons** (legacy static fonts) to **Material Symbols** (variable fonts).
+
+#### What changed
+
+- The font files have been replaced: the three static fonts (`Material Icons`, `Material Icons Outlined`, `Material Icons Round`) are replaced by two variable fonts (`Material Symbols Outlined`, `Material Symbols Rounded`). The variable fonts are optimized via axis pinning (unused axes GRAD, opsz, wght are fixed), resulting in a combined size of ~954 KB — comparable to the previous ~450 KB of static fonts, but with access to ~3840 icons and variable FILL support.
+- The `filled` theme now uses `Material Symbols Outlined` with `font-variation-settings: 'FILL' 1` instead of the separate `Material Icons` font.
+- The `outlined` theme uses `Material Symbols Outlined` with `FILL 0`.
+- The `rounded` theme uses `Material Symbols Rounded`.
+- The `MATERIAL_ICONS` data list has been expanded from ~1500 to ~3840 icons.
+
+#### What hasn't changed
+
+- The `IconTheme` type (`"filled" | "outlined" | "rounded" | "custom"`) is unchanged.
+- All existing icon ligature names (e.g., `close`, `check_circle`, `arrow_drop_down`) continue to work.
+- The `Icon` component API is fully backward-compatible.
+- Custom icons (`iconTheme="custom"`) are unaffected.
+
+#### Action required for consumers
+
+- **If you self-host fonts**: Replace the old Material Icons font files with the new Material Symbols variable font files from `basic.css`. The new `@font-face` declarations reference `fonts/materialsymbols/material-symbols-outlined.woff2` and `fonts/materialsymbols/material-symbols-rounded.woff2`.
+- **If you use `font-family: "Material Icons"` directly in your CSS**: Update to `font-family: "Material Symbols Outlined"` with `font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24`.
+- **If you use snapshot testing**: Snapshots that include icon styling will need to be updated due to the changed font-family values and new `font-variation-settings` property.
+
+### Removed useCustomView from NativeSelectProps and CustomSelectProps
+
+The redundant `useCustomView` property has been removed from **NativeSelectProps** and **CustomSelectProps**. Since the type itself already encodes which rendering mode is used.
+
+If you are passing `useCustomView` to a `CustomSelect` or `NativeSelect`, simply remove it:
+
+```typescript
+// Before
+<CustomSelect useCustomView={true} ... />
+<NativeSelect useCustomView={false} ... />
+
+// After
+<CustomSelect ... />
+<NativeSelect ... />
+```
+
+If you need to switch between rendering modes dynamically, use the top-level `Select` component and its `useCustomView` property from **SelectProps**:
+
+```typescript
+import { Select } from "@com.mgmtp.a12.widgets/widgets-core";
+import { useState } from "react";
+
+const [isUseCustomView, setIsUseCustomView] = useState(true);
+
+<Select useCustomView={isUseCustomView} ... />
+```
+
+### Tooltip: Wrapper Element Renamed and DataRoles Changed
+
+The `Tooltip` component has three main elements:
+
+- **Trigger Wrapper** — the element wrapping the trigger element of `Tooltip`, always in the DOM.
+- **Container** — the floating tooltip bubble, rendered in a portal and anchored to the trigger element when the tooltip is visible.
+- **Content** — the element inside the bubble that contains the actual tooltip text.
+
+Previously, the trigger wrapper was named `StyledTooltipWrapper`. That gave no hint about its purpose, making it easy to confuse with the tooltip bubble itself (`StyledTooltipContainer`).
+On top of that, both elements shared `data-role="tooltip"`, which made element selection by data-role ambiguous.
+
+To address this, the wrapper’s name and data-role has been updated.
+
+- Styled component rename
+
+  | Element                 | Before                   | After                         |
+  | ----------------------- | ------------------------ | ----------------------------- |
+  | Tooltip trigger wrapper | `StyledTooltipWrapper`   | `StyledTooltipTriggerWrapper` |
+  | Tooltip container       | `StyledTooltipContainer` | unchanged                     |
+  | Tooltip content         | `StyledTooltipContent`   | unchanged                     |
+
+- DataRoles changes
+
+  | Element                 | Before                      | After                              |
+  | ----------------------- | --------------------------- | ---------------------------------- |
+  | Tooltip trigger wrapper | `DataRoles.Tooltip`         | `DataRoles.Tooltip.TriggerWrapper` |
+  | Tooltip container       | `DataRoles.Tooltip`         | unchanged                          |
+  | Tooltip content         | `DataRoles.Tooltip.Content` | unchanged                          |
+
+This affects test selectors and CSS attribute selectors to the trigger wrapper element:
+
+```typescript
+// Before
+getByDataRole(container, "tooltip");
+
+// After
+getByDataRole(container, "tooltip-trigger-wrapper");
+```
+
+And also affects direct imports of the trigger wrapper's styled component:
+
+```typescript
+// Before
+import { StyledTooltipWrapper } from "@com.mgmtp.a12.widgets/widgets-core";
+
+// After
+import { StyledTooltipTriggerWrapper } from "@com.mgmtp.a12.widgets/widgets-core";
+```
+
+### Switch Thumb Icon Color Changes
+
+The switch thumb icon color theme configuration has been updated from `thumb.uncheckedBackground` to `thumb.checkedIconColor` and `thumb.uncheckedIconColor`.
+
+**NOTE:** For warning, error, disabled, and readonly variants, the **unchecked** thumb icon still matches the corresponding variant's color to maintain visual consistency with the state styling.
+
+| Checked State | Variant      | Previous Theme Key          | Current Theme Key                    |
+| ------------- | ------------ | --------------------------- | ------------------------------------ |
+| On            | All variants | `thumb.color`               | `thumb.checkedIconColor` (new key)   |
+| Off           | Default      | `thumb.uncheckedBackground` | `thumb.uncheckedIconColor` (new key) |
+| Off           | Warning      | `thumb.uncheckedBackground` | `thumb.warningColor`                 |
+| Off           | Error        | `thumb.uncheckedBackground` | `thumb.errorColor`                   |
+| Off           | Disabled     | `thumb.uncheckedBackground` | `thumb.disabled.color`               |
+| Off           | Readonly     | `thumb.uncheckedBackground` | `thumb.readonly.color`               |
+
+### Automatic migration
+
+The `enforce-top-level-exports` codemod is **required** for this release — deep `lib/` imports fail at build time. Run it against your source directory:
+
+```bash
+npx @com.mgmtp.a12.widgets/widgets-codemod enforce-top-level-exports <your-source-directory-containing-ts-config-json-file>
+```
+
+For the complete list of change categories this recipe applies — with before/after examples to verify a codemod diff against — see the [`enforce-top-level-exports` recipe](#/get-started/migration-instructions/codemod-instruction#recipe-enforce-top-level-exports).
+
+The type-augmentation path move (`lib/@types/*` → `types/*`) is **not** rewritten by the codemod and must be updated by hand — see "Enforcement of top-level package exports" above. All other breaking changes in this release not marked **Automatic migration (required)** are manual.
+
+## 38.3.4
+
+No breaking changes in 38.3.4.
+
+## 38.3.3
+
+No breaking changes in 38.3.3.
+
+## 38.3.2
+
+No breaking changes in 38.3.2.
+
+## 38.3.1
+
+No breaking changes in 38.3.1.
+
+## 38.3.0
+
+No breaking changes in 38.3.0.
+
+## 38.2.2
+
+No breaking changes in 38.2.2.
+
+## 38.2.1
+
+No breaking changes in 38.2.1.
+
 ## 38.2.0
 
-## Deprecation of nested imports
+### Deprecation of nested imports
 
 Nested imports are deprecated in favor of top-level imports to avoid unnecessary breaking changes caused
 by moving or renaming internal files. This makes the code more resilient to internal refactoring,
@@ -35,13 +404,12 @@ Some entities are deprecated to avoid duplicate export names in the top-level in
 | `BodyContent`         | `TreeTableBodyContent`             | `@com.mgmtp.a12.widgets/widgets-core/lib/tree-table/main/tree-table.view.js`                                |
 | `BodyCell`            | `TreeTableBodyCell`                | `@com.mgmtp.a12.widgets/widgets-core/lib/tree-table/main/tree-table.view.js`                                |
 | `walk`                | `walkTreeNode`                     | `@com.mgmtp.a12.widgets/widgets-core/lib/tree/main/behavior/tree.behavior.api.js`                           |
-| `DeepPartial`         | `DeepPartial` (from top level)     | `@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme.js`                                             |
 
-## Deprecation of Relation Node
+### Deprecation of Relation Node
 
 The entire `relation-node` module has been deprecated, including all its components and interfaces. This module should no longer be used in new projects and existing usages should be migrated to the newer `model-graph-diagram` module components.
 
-### Deprecated Components and Interfaces
+#### Deprecated Components and Interfaces
 
 All entities from the `relation-node` module are deprecated:
 
@@ -50,7 +418,7 @@ All entities from the `relation-node` module are deprecated:
 - `createPort` higher-order component (HOC)
 - `PortProps` interface
 
-### Migration Guide
+#### Migration Guide
 
 Use `DiagramNode` and `DiagramPort` from the `model-graph-diagram` module instead:
 
@@ -62,14 +430,14 @@ import { NodeTpl, createPort, PortProps } from "@com.mgmtp.a12.widgets/widgets-c
 import { DiagramNode, DiagramPort } from "@com.mgmtp.a12.widgets/widgets-core";
 ```
 
-### Component Migration Examples
+#### Component Migration Examples
 
 **Node Component:**
 
 ```typescript
 // Before
 <NodeTpl.Node>
-	<NodeTpl.NodeTitle>My Node</NodeTpl.NodeTitle>
+ <NodeTpl.NodeTitle>My Node</NodeTpl.NodeTitle>
 </NodeTpl.Node>
 
 // After
@@ -81,7 +449,7 @@ import { DiagramNode, DiagramPort } from "@com.mgmtp.a12.widgets/widgets-core";
 ```typescript
 // Before
 const MyPort = createPort<MyProps, MyPortProps>({
-	// port configuration
+ // port configuration
 });
 
 // After
@@ -150,15 +518,18 @@ Widgets now supports React 19. The upgrade includes the following changes:
 Breaking Change: `disableVendorPrefixes` removed.
 
 - In Styled Components v5, the `<StyleSheetManager>` component supported the `disableVendorPrefixes` property:
+
   ```tsx
   <StyleSheetManager disableVendorPrefixes>
   ```
+
 - In Styled Components v6:
   - `disableVendorPrefixes` has been removed.
   - Vendor prefixes are now disabled by default.
   - To enable vendor prefixes, set `enableVendorPrefixes` to true in the `StyleSheetManager`.
+
   ```tsx
-  	<StyleSheetManager enableVendorPrefixes={true}>
+   <StyleSheetManager enableVendorPrefixes={true}>
   ```
 
 New Requirement: Defining `shouldForwardProp`
@@ -174,12 +545,12 @@ New Requirement: Defining `shouldForwardProp`
   - Applying `shouldForwardProp` in `<StyleSheetManager>`
 
   ```tsx
-  	<StyleSheetManager shouldForwardProp={shouldForwardProp}>
+   <StyleSheetManager shouldForwardProp={shouldForwardProp}>
   ```
 
 All changes are documented in [the styled-components migration notes](https://styled-components.com/docs/faqs#what-do-i-need-to-do-to-migrate-to-v6).
 
-### Plugin Editor:
+### Plugin Editor
 
 Deprecated **draft-js** based text editor widgets is separated into their own package. The new package `@com.mgmtp.a12.widgets/widgets-draft-js-editor` is now available for use. As a result, the `@com.mgmtp.a12.widgets/widgets-core/lib/editor` folder is removed.
 Please update your import from `"@com.mgmtp.a12.widgets/widgets-core/lib/editor"` to the new package.
@@ -201,7 +572,7 @@ Migrating your own application to ESM is not required, but recommended. Consult 
 
 The javascript output of the npm artifacts was updated from `ES2020` to `ES2024` to be able to use latest language features. When using supported browsers, there is no change necessary. If support for older browsers is required, make sure to include necessary polyfills.
 
-### Other breaking changes:
+### Other breaking changes
 
 - **Master Detail:** Master detail view width is restricted from 1 to 12 columns. This should not have any impact on existing implementations, but is documented for reference purposes.
 - **Date Picker:**
@@ -431,12 +802,12 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
       };
 
       return createTheme({ components: { interactiveTile: interactiveTileConfig } });
-  	}
+   }
 
      <ThemeProvider theme={customTheme}>
        <InteractiveTile primary />
        <InteractiveTile secondary />
-  	 </ThemeProvider>
+    </ThemeProvider>
     ```
 
     ```tsx
@@ -460,7 +831,7 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
      <ThemeProvider theme={customTheme}>
        <InteractiveTile primary />
        <InteractiveTile secondary />
-  	 </ThemeProvider>
+    </ThemeProvider>
     ```
 
   ````
@@ -470,6 +841,7 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
 ### React 18 upgrade changes
 
 - To render a DOM element for calculating its children's size for responsive behavior such as **FlyoutMenu**, **ButtonGroupContainer**, the newest React 18's API `React.createRoot` is used as a replacement of `ReactDOM.render`. However, to facilitate the migration effort to React 18, Widgets still support React 16 & React 17 whereas `ReactDOM.render` is used in mentioned components. To enable the fallback behavior, setting `A12_ENABLE_REACT_18_SUPPORT` to `false` will ensure the compatibility. This environment variable can be configured via **webpack** like below:
+
   ```tsx
   plugins: [
   	webpack.DefinePlugin({
@@ -477,11 +849,15 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
   	})
   ];
   ```
+
 - **Portal** has been heavily refactored to be compatible with React 18 strict mode. One of the fundamental changes is that the portal now relies on React context to find the parent portal instead of using the DOM API. Each portal will render an additional placeholder DIV element to accommodate child portals. If you have DOM snapshot test, please be aware that the following markup may appear in the DOM where the portal is rendered:
+
   ```html
   <div data-role="portal-placeholder"></div>
   ```
+
   Besides, the `wrapper` property is no longer needed and is removed since Portal will automatically find its parent element.
+
 - `withSizeDetector` HOC is difficult to use, and because it combines the props needed for window resize detection as well as element resize detector, the resulting API is confusing. We also don't see the need for a component to combine those behaviors, except in the case of a component library like Widgets itself. It has now been removed in favor of new hooks: `useWindowSize` and `useElementSizeDetector`
   - The hooks return the current breakpoint directly, so there is no need to write a callback with additional state update.
   - There are also 2 React components to support class component: `WindowSizeDetector` and `ElementSizeDetector`.
@@ -532,6 +908,7 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
 - **Table, Tree Table:**
   - During drag and drop event, the dragging row rendered by the new preview layer is rendered as the direct child of the Table Body.
     - For example, assuming MyCustomBodyRow read values from `MyContextProvider`.
+
       ```tsx
       // BEFORE
       <TableBody>
@@ -542,7 +919,9 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
       	</MyContextProvider>
       </TableBody>
       ```
+
     - The context provider now should be moved up, preferably mounted as the parent of TableBody, which make sure the dragging row always have access to the context.
+
       ```tsx
       // AFTER
       <MyContextProvider value={myValue}>
@@ -552,15 +931,18 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
       	</TableBody>
       </MyContextProvider>
       ```
+
 - **TabSandbox:** `referenceElementContainer` is removed, since it has no use in the new refactoring.
 - **Menu:**
   - menu/main/template/menu.tpl.view.tsx: `MainMenu` component has been renamed to `MainMenuTpl`
 - **Popup Menu:**
   - To support accessibility, the popup menu now features a new design that includes a visible close button for improving navigation with screen readers on mobiles and tablets.
   - To revert to the previous design for all popup menus, wrap the application under the `PopupMenuConfigContext`. It is not recommended to wrap the context around a specific popup menu for consistency reasons, but it is possible.
+
     ```tsx
     <PopupMenuConfigContext.Provider value={{ enableA11YMobileDesign: false }}>...</PopupMenuConfigContext.Provider>
     ```
+
 - **Text Output:** By default, the **Text Output** content is now wrapped by paragraph tags for improved semantics. A `disableParagraphWrapping` property has also been introduced for situations where this default behavior may not be desired (such as when working with block level elements).
 - **Button:** A significant upgrade has been made to the `invert` **icon button** for a better look.
   - The `withBackground` property is no longer needed because the inverted icon button's appearance now varies depending on its type (**regular**, `primary`, `secondary`, and `active`). Therefore, the set of theme configurations `button.invertIcon.withBackground` is completely eliminated.
@@ -606,8 +988,8 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
     // BEFORE
     <CollapsiblePanel
       addons={
-      	<CollapsiblePanelElements.Addon>
-      	  <Button
+       <CollapsiblePanelElements.Addon>
+         <Button
               invert // inverted button in all themes
               icon={<Icon>get_app</Icon>}
             />
@@ -620,8 +1002,8 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
     // AFTER
     <CollapsiblePanel
       addons={
-      	<CollapsiblePanelElements.Addon>
-      	  <Button
+       <CollapsiblePanelElements.Addon>
+         <Button
               invert={isDefaultTheme} // inverted button only in the default theme. In flat theme, it is a normal button
               icon={<Icon>get_app</Icon>}
             />
@@ -720,503 +1102,4 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
   		Warning
   	</Status>
   </ThemeProvider>;
-  ```
-
-## 36.0.0
-
-- **Date Picker, Date Time Picker:**
-  - Some changes of `datePickerProps` (DatePicker) and `pickerProps` (DateTimePicker):
-    - Some properties have been renamed:
-      - `disabledDays` to `disabled`
-
-        ```tsx
-          import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-          // BEFORE
-          <DatePicker disabledDays={[{ daysOfWeek: [0, 6] }]} />
-
-          // AFTER
-          <DatePicker disabled={[{ dayOfWeek: [0, 6] }]} />
-        ```
-
-      - `selectedDays` to `selected`
-
-        ```tsx
-          import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-          // BEFORE
-          <DatePicker selectedDays={[new Date()]} />
-
-          // AFTER
-          <DatePicker selected={[new Date()]} />
-        ```
-
-      - `showWeekNumbers` to `showWeekNumber`
-
-        ```tsx
-          import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-          // BEFORE
-          <DatePicker showWeekNumbers={true} />
-
-          // AFTER
-          <DatePicker showWeekNumber={true} />
-        ```
-
-      - `firstDayOfWeek` to `weekStartsOn`
-
-        ```tsx
-          import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-          // BEFORE
-          <DatePicker firstDayOfWeek={0} />
-
-          // AFTER
-          <DatePicker weekStartsOn={0} />
-        ```
-
-      - `initialMonth` to `defaultMonth`
-
-        ```tsx
-          import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-          // BEFORE
-          <DatePicker initialMonth={new Date()} />
-
-          // AFTER
-          <DatePicker defaultMonth={new Date()} />
-        ```
-
-      - `onWeekClick` to `onWeekNumberClick`
-
-        ```tsx
-          import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-          const handleClick = (weekNumber: number, dates: Date[], e: React.MouseEvent): void => {
-            // Your logic here.
-          }
-
-          // BEFORE
-          <DatePicker onWeekClick={handleClick} />
-
-          // AFTER
-          <DatePicker onWeekNumberClick={handleClick} />
-        ```
-
-    - Some properties have been removed: `localeUtils`, `tabIndex`, `containerProps`, `onBlur`, `onFocus`, `onKeyDown`, `onTodayButtonClick`, `onCaptionClick`, `onDayMouseUp`, `onDayMouseDown`, `renderDay`, `renderWeek`, `enableOutsideDaysClick`, `todayButton`, `showWeekDays`, `weekdayElement`, `weekdaysLong`, `weekdaysShort`, `navbarElement`, `captionElement`, `canChangeMonth` (use `disableNavigation` instead)
-    - Types of the [labels](https://react-day-picker.js.org/api/type-aliases/Labels), [classNames](https://react-day-picker.js.org/api/type-aliases/ClassNames) properties have been changed
-    - Use the `components` property to customize built-in components. There are some useful hooks:
-      - `useDayPicker` - to get the props passed to Date Picker/Date Time Picker
-      - `useNavigation` - to navigate between months and years
-      - `useDayRender` - useful to render the day cell from a custom Day component
-      - `useFocusContext` - handle the focus between elements
-      - `useActiveModifiers` - to get the modifiers applied to a day
-    - `DatePickerModifier` is removed - use `Matcher` directly from **react-day-picker** instead. `daysOfWeek` Matcher has been renamed to `dayOfWeek`.
-
-      ```tsx
-        import { DateInput as DateInputWidget } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-        // BEFORE
-        <DateInput
-          datePickerProps={{
-            disabledDays: [{ daysOfWeek: [0, 6] }],
-          }}
-        />
-
-        // AFTER
-        <DateInput
-          datePickerProps={{
-            disabled: [{ dayOfWeek: [0, 6] }],
-          }}
-        />
-      ```
-
-  - `DateTimeUtils.isRangeModifier` is changed to `DateTimeUtils.isRangeMatcher`.
-
-    ```tsx
-    import { DateTimeUtils } from "@com.mgmtp.a12.widgets/widgets-core/lib/common/main/utils";
-
-    // BEFORE
-    DateTimeUtils.isRangeModifier(value);
-
-    // AFTER
-    DateTimeUtils.isRangeMatcher(value);
-    ```
-
-  - Some updates of styling:
-    - `datePicker.weekday.margin` is replaced by `datePicker.weekday.padding`
-    - `datePicker.weekday.size` is replaced by `datePicker.weekday.width`
-    - `datePicker.weekdaysRow.padding` is removed
-    - `datePicker.body.horizontalCellSpacing` and `datePicker.body.verticalCellSpacing` are added to support spacing configuration between day cells.
-    - `dateTimePicker.dateScreen.datePicker.weekdaysRow` is removed and replaced by `weekDay`
-  - When a modifier matches a specific day, its day cell will not receive the modifier's name as a CSS class anymore. Please use `modifiersClassNames` and `modifiersStyles` to change the className and the inline-style of the corresponding cells.
-
-    ```tsx
-      import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-      const bookedDays = (day: Date): boolean => {
-          return day.getDate() === 23;
-        };
-
-      // BEFORE
-      <DatePicker
-        modifiers={{ booked: bookedDays }}
-      />
-
-      // AFTER
-      <DatePicker
-        modifiers={{ booked: bookedDays }}
-        modifiersStyles={{ booked: { border: "2px solid currentColor" } }}
-        modifiersClassNames={{ booked: "booked-classname" }}
-      />
-    ```
-
-  - When using Tab with Date Picker/Date Time Picker, the focus of the day will be in order of priority: selected day => today => first day of the current month.
-  - **date-fns** library that is used by new `react-day-picker` is pretty heavy if the used locales are not cherry-picked. To only include the necessary locales, you can use Webpack ContextReplacementPlugin. Please refer to https://github.com/date-fns/date-fns/blob/main/docs/webpack.md for more information.
-
-- **Moment.js and Moment-Timezone have been replaced with Day.js**
-  - The `formatTimezoneDateTime` utils function now takes an object as an argument instead of 4 separate parameters. While before we may have written, `formatTimezoneDateTime(date, timezone, dateTimeFormat, locale)`, we would now write
-    `formatTimezoneDateTime({ date, timezone, dateTimeFormat, locale })`. This reduces issues caused from unintentional omissions and mis-orderings.
-  - While [Day.js](https://day.js.org/) is significantly lighter than **Moment.js**, using **Day.js** will often require you to extend the library with **Day.js** plugins to replicate functionalities that were previously immediately available via **Moment.js**. UTC support for example requires extending **Day.js** with `dayjs/plugin/utc`.
-
-### Deprecation
-
-- **Flyout Menu:** The `disableCondensing` property has been deprecated.
-
-## 35.0.0
-
-### Breaking Changes
-
-- **Button:** Styling config system has been refactored, introducing new config options for customizing interaction behavior for each variant of button.
-- **Master Detail:** remove Master Detail layout view navigation bar
-  - Remove `hideNavigationOptions`, `navigationElementId`, `viewSelectionPlaceholder`, `onSelectMinimizedView`, `minimized` properties.
-  - Remove `MinimizedView` interface.
-  - Remove variables styles `{panesMinimized: { margin: string; minWidth: string; respMargin: string; respPadding: string; width: string }}`
-
-  ```tsx
-    import { MasterDetail } from "@com.mgmtp.a12.widgets/widgets-core/lib/layout/master-detail";
-
-    // BEFORE
-    <MasterDetail
-      title="Master Detail Layout"
-      minimized={minimizedViews}
-      visibleViews={visibleViews}
-      animation={{
-      enabled: this.state.enableAnimation,
-      animateSingleItem
-      }}
-      navigationElementId="navigation"
-      onSelectMinimizedView={(view): void => {
-      this.gotoView((view as any).view);
-      }}
-      viewSelectionPlaceholder="SELECT COMPONENT TO SHOW"
-      onSizeChange={this.handleWindowSizeChanged}
-    />
-
-    // AFTER
-    <MasterDetail
-      title="Master Detail Layout"
-      visibleViews={visibleViews}
-      animation={{
-        enabled: this.state.enableAnimation,
-        animateSingleItem
-      }}
-      onSizeChange={this.handleWindowSizeChanged}
-    />
-  ```
-
-- Switch to a forked version of react-virtualized (new name: **@com.mgmtp.a12.widgets/react-virtualized-fork@10.0.0**) to allow installing with newer npm version without error.
-- **Time Picker:** `onValidationError(value)` has been removed, introducing new `onValidate({value, valid})` property with these params.
-  - `value`: value after typing
-  - `valid`: result of that value is valid or not
-
-  ```tsx
-  import { useCallback } from "react";
-
-  import { TimePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/time-picker";
-
-  // BEFORE
-  const onValidationError = useCallback((value: string): void => {
-  	// Your logic here.
-  }, []);
-
-  <TimePicker onValidationError={onValidationError} />;
-
-  // AFTER
-  const onValidate: TimePickerProps["onValidate"] = useCallback(({ value, valid }) => {
-  	// Your logic here.
-  }, []);
-
-  <TimePicker onValidate={onValidate} />;
-  ```
-
-- **Native Select:** remove `onSelect` property
-- **Link:** make the distinction between the `Link` and HTML attributes by introducing the new properties
-  - `linkAttributes` contains and allows access to the HTML attributes
-  - `href` the linked document, resource, or location
-  - `title` title of the link
-  - `target` where to open the linked document
-  - `onClick` handle event when clicking on the link
-
-  ```tsx
-    import { Link } from "@com.mgmtp.a12.widgets/widgets-core/lib/link/main/link/link.view";
-
-    // BEFORE
-    <Link disabled={true} />
-
-    // AFTER
-    <Link linkAttributes={{ "aria-disabled": "true" }} />
-  ```
-
-- **File Upload:** Type of property `onUploadAreaClick` in `FileUploadProps` and `DefaultFileUploadProps` is changed from `boolean | undefined` to `boolean | void`.
-
-  ```tsx
-  import { Checkbox } from "@com.mgmtp.a12.widgets/widgets-core/lib/input/checkbox";
-  import { DefaultFileUpload } from "@com.mgmtp.a12.widgets/widgets-core/lib/file-upload";
-
-  // BEFORE
-  const onUploadAreaClick = (): boolean | undefined => {
-  	// Your logic here.
-  };
-
-  <DefaultFileUpload id="click-event" label="With Click event" onUploadAreaClick={onUploadAreaClick} />;
-
-  // AFTER
-  const onUploadAreaClick = (): boolean | void => {
-  	// Your logic here
-  };
-
-  <DefaultFileUpload id="click-event" label="With Click event" onUploadAreaClick={onUploadAreaClick} />;
-  ```
-
-## 34.0.0
-
-### Breaking Changes
-
-- **styled-component replaced Stylus as A12 styling solution**
-
-  This is the biggest breaking change in the release, and therefore deserved its own chapter. Please have a look at this [link](#/get-started/migration-instructions/migration-to-styled-components)
-  for more details.
-
-- **Button:** The different properties used to create a button on a dark background (invert, outline, light, dark) is now unified to `invert`.
-  - Previously the `light` and `dark` properties were used to create an inverted icon button with a rounded background or a square shape respectively. This doesn't make sense with different theme we have. Now, use `invert` to make the button standout from the background. It will have the square shape by default. Use withBackground to add the rounded background that was included previously with the light button.
-
-  ```tsx
-    import { Button } from "@com.mgmtp.a12.widgets/widgets-core/lib/button";
-
-    // BEFORE
-      // Dark button
-      <Button
-        icon={<Icon>get_app</Icon>}
-        title="Download"
-        dark
-      />
-
-      // Light button
-      <Button
-        icon={<Icon>close</Icon>}
-        title="Close"
-        light
-      />
-
-    // AFTER
-      // Dark button
-      <Button
-        icon={<Icon>get_app</Icon>}
-        title="Download"
-        invert
-      />
-
-      // Light button
-      <Button
-        icon={<Icon>close</Icon>}
-        title="Close"
-        invert
-        withBackground
-      />
-  ```
-
-  - The outline secondary button has been change to `invert secondary`.
-
-  ```tsx
-    import { Button } from "@com.mgmtp.a12.widgets/widgets-core/lib/button";
-
-    // BEFORE
-    <Button
-      icon={<Icon>close</Icon>}
-      title="Close"
-      outline
-      secondary
-    />
-
-    // AFTER
-    <Button
-      icon={<Icon>close</Icon>}
-      title="Close"
-      invert
-      secondary
-    />
-  ```
-
-  - The invert primary button stay unchanged.
-
-- **ContentBox:**
-  - `ContentBoxElements.Breadcrumb` has been removed.
-  - `BackButtonProps` and `CloseButtonProps` has been moved from `contentbox.tpl.view` to `contentbox.tpl.api`.
-
-- **Date Picker:**
-  - `Datepicker` has been renamed into `DatePicker`.
-  - Due to [issue with specificity](https://styled-components.com/docs/advanced#issues-with-specificity), modifying the styles would require to bump up the specificity.
-
-  ```tsx
-  // BEFORE
-  import { Datepicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-
-  // AFTER
-  import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core/lib/datepicker";
-  ```
-
-- **Layout Grid:** `LayoutGridContextType` has been moved into `LayoutGridProps`. Usage: `LayoutGridProps.GridContextType`.
-
-  ```tsx
-  import { useContext } from "react";
-
-  import { LayoutGrid, LayoutGridProps } from "@com.mgmtp.a12.widgets/widgets-core/lib/layout/layout-grid";
-
-  // BEFORE
-  const oldLayoutGridContext = useContext<LayoutGrid.LayoutGridContextType>();
-
-  // AFTER
-  const newLayoutGridContext = useContext<LayoutGridProps.LayoutGridContextType>();
-  ```
-
-- **List:** `List.Divider` component has been removed, please use the new `divider` prop of the `List.Item` component instead.
-
-  ```tsx
-  import { List } from "@com.mgmtp.a12.widgets/widgets-core/lib/list";
-
-  // BEFORE
-  return (
-  	<List>
-  		<List.Item text="List Item" />
-  		<List.Item text="List Item 1" selected />
-  		<List.Item text="List Item 2" />
-  		<List.Divider />
-  		<List.Item text="List Item 3" />
-  	</List>
-  );
-
-  // AFTER
-  return (
-  	<List>
-  		<List.Item text="List Item" />
-  		<List.Item text="List Item 1" selected />
-  		<List.Item text="List Item 2" divider />
-  		<List.Item text="List Item 3" />
-  	</List>
-  );
-  ```
-
-- **Menu:** `mainMenu` has been removed, introducing new `useAs` property.
-  `useAs` has now replaced the `mainMenu` property and allows to customize the `Menu` with `mainMenu` styles or `tabNavigation` styles.
-
-  ```tsx
-  import { FlyoutMenu } from "@com.mgmtp.a12.widgets/widgets-core/lib/menu";
-
-  // BEFORE
-  return <FlyoutMenu type="horizontal" items={items} className="-u-width-full" mainMenu />;
-
-  // AFTER
-  // Display the main menu
-  return <FlyoutMenu type="horizontal" items={items} className="-u-width-full" useAs="main" />;
-
-  // In case you want the menu to be displayed as Tab Navigation
-  return <FlyoutMenu type="horizontal" items={items} className="-u-width-full" useAs="tabNavigation" />;
-  ```
-
-- **Mobile Validation Bar:** `hasBackground` for Graphic has been removed.
-
-- **Modal Overlay:** `gutter` has been removed, introducing new `noGutter` property.
-
-  `ModalOverlay`, except for the ones with `fullscreen`, has been having gutter styles even with `gutter` passed in or not.
-
-  Now all of them will have gutter styles by default, and could have the gutter removed by using `noGutter`.
-
-- **ResizeAndDragContainer:** `[key: string]: any` from `ResizeAndDragContainerProps` that allow passing properties with wrong key has been removed.
-
-- **Table:** `Column.Width` type becomes **number** instead of the union of numbers from **0.1** to **4.0**. It accepts any positive number up to 01 decimal place.
-
-  ```ts
-  // BEFORE
-  type Width =
-  	| 0.1
-  	| 0.2
-  	| 0.3
-  	| 0.4
-  	| 0.5
-  	| 0.6
-  	| 0.7
-  	| 0.8
-  	| 0.9
-  	| 1
-  	| 1.1
-  	| 1.2
-  	| 1.3
-  	| 1.4
-  	| 1.5
-  	| 1.6
-  	| 1.7
-  	| 1.8
-  	| 1.9
-  	| 2
-  	| 2.1
-  	| 2.2
-  	| 2.3
-  	| 2.4
-  	| 2.5
-  	| 2.6
-  	| 2.7
-  	| 2.8
-  	| 2.9
-  	| 3
-  	| 3.1
-  	| 3.2
-  	| 3.3
-  	| 3.4
-  	| 3.5
-  	| 3.6
-  	| 3.7
-  	| 3.8
-  	| 3.9
-  	| 4;
-
-  // AFTER
-  type Width = number;
-  ```
-
-- **Text Line Tpl:** `selection` property used to add an arrow icon suffix has been removed, please use the new `SelectionSuffix` component instead.
-
-  ```tsx
-  import { TextLineStateless } from "@com.mgmtp.a12.widgets/widgets-core/lib/input/text-line";
-  import { SelectionSuffix } from "@com.mgmtp.a12.widgets/widgets-core/lib/input/base/template/base.tpl.view";
-
-  // BEFORE
-  return <TextLineStateless selection />;
-
-  // AFTER
-  return <TextLineStateless suffixes={<SelectionSuffix />} />;
-  ```
-
-### Deprecation
-
-- **ContentBox:** `tile` property has been deprecated. Please use `Tile` widget instead.
-
-  ```tsx
-  import { ContentBox, Tile } from "@com.mgmtp.a12.widgets/widgets-core/lib/contentbox";
-
-  // BEFORE
-  return <ContentBox tile>{props.children}</ContentBox>;
-
-  // AFTER
-  return <Tile>{props.children}</Tile>;
   ```

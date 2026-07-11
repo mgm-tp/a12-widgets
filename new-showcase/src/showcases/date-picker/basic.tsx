@@ -30,10 +30,28 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
+import type { ReactElement, FocusEvent } from "react";
+import { useState } from "react";
+
+import { validateYearOnBlur } from "../inputs/year-selector/year-selector-validation.utils.js";
 
 import { DatePickerInput } from "./date-picker-input.js";
 
 export function BasicDatePickerShowcase(): ReactElement {
-	return <DatePickerInput id="basic-date-picker" label="Date Picker" />;
+	const [yearErrorMessage, setYearErrorMessage] = useState<string | undefined>();
+
+	const handleYearBlur = (ev: FocusEvent<HTMLInputElement>): void => {
+		setYearErrorMessage(validateYearOnBlur(ev, { min: 1900, max: new Date().getFullYear() }));
+	};
+
+	return (
+		<DatePickerInput
+			id="basic-date-picker"
+			label="Date Picker"
+			datePickerProps={{
+				onYearSelectorBlur: handleYearBlur,
+				yearErrorMessage
+			}}
+		/>
+	);
 }

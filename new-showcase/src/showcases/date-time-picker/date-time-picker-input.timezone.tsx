@@ -30,10 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
+import type { FC, FocusEvent } from "react";
 import { useState, useEffect, useCallback } from "react";
 
 import { DateTimePickerInput, DateTimePickerTimeInput, DateTimeUtils } from "@com.mgmtp.a12.widgets/widgets-core";
+
+import { validateYearOnBlur } from "../inputs/year-selector/year-selector-validation.utils.js";
 
 const PickerWithTimeInput = DateTimePickerInput(DateTimePickerTimeInput);
 const negativeOffsetTimezone = "America/New_York";
@@ -58,6 +60,9 @@ export const DateTimePickerInputWithTimezone: FC = () => {
 		DateTimeUtils.toISOString(negativeTimezoneDateTime) ?? ""
 	);
 
+	const [yearErrorPositive, setYearErrorPositive] = useState<string | undefined>();
+	const [yearErrorNegative, setYearErrorNegative] = useState<string | undefined>();
+
 	useEffect(() => {
 		if (positiveTimezoneDateTime || positiveTimezoneValue.trim() === "") {
 			setInvalidPositiveTimezoneValue("");
@@ -78,6 +83,14 @@ export const DateTimePickerInputWithTimezone: FC = () => {
 		}
 	}, []);
 
+	const handleYearBlurPositive = useCallback((ev: FocusEvent<HTMLInputElement>): void => {
+		setYearErrorPositive(validateYearOnBlur(ev, { min: 1900, max: new Date().getFullYear() }));
+	}, []);
+
+	const handleYearBlurNegative = useCallback((ev: FocusEvent<HTMLInputElement>): void => {
+		setYearErrorNegative(validateYearOnBlur(ev, { min: 1900, max: new Date().getFullYear() }));
+	}, []);
+
 	const getHelperText = useCallback((timezone: string, isValid: boolean, value?: Date) => {
 		return isValid
 			? `Chosen date time: ${DateTimeUtils.toISOString(value, timezone)}`
@@ -85,7 +98,7 @@ export const DateTimePickerInputWithTimezone: FC = () => {
 	}, []);
 
 	return (
-		<div className="-u-flex -u-flex-col -u-width-full" style={{ gap: "20px" }}>
+		<div className="-u-flex -u-flex-col -u-width-full" style={{ gap: "1rem" }}>
 			<PickerWithTimeInput
 				inputLabel={`Timezone ${negativeOffsetTimezone}`}
 				pickerProps={{
@@ -93,7 +106,9 @@ export const DateTimePickerInputWithTimezone: FC = () => {
 					value: negativeTimezoneDateTime,
 					invalidInputMessage: "Invalid value",
 					onAccept: setNegativeTimezoneDateTime,
-					timezone: negativeOffsetTimezone
+					timezone: negativeOffsetTimezone,
+					onYearSelectorBlur: handleYearBlurNegative,
+					yearErrorMessage: yearErrorNegative
 				}}
 				inputErrorMessage={invalidNegativeTimezoneValue && `Invalid value: ${invalidNegativeTimezoneValue}`}
 				onInputChange={setNegativeTimezoneValue}
@@ -112,7 +127,9 @@ export const DateTimePickerInputWithTimezone: FC = () => {
 					value: positiveTimezoneDateTime,
 					invalidInputMessage: "Invalid value",
 					onAccept: setPositiveTimezoneDateTime,
-					timezone: positiveOffsetTimezone
+					timezone: positiveOffsetTimezone,
+					onYearSelectorBlur: handleYearBlurPositive,
+					yearErrorMessage: yearErrorPositive
 				}}
 				inputErrorMessage={invalidPositiveTimezoneValue && `Invalid value: ${invalidPositiveTimezoneValue}`}
 				onInputChange={setPositiveTimezoneValue}

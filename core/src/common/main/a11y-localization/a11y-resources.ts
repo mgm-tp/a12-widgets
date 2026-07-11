@@ -197,7 +197,12 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 			tableLabel: "Tabelle",
 			virtualizedBodyLabel: "Tabelleninhalt",
 			interactiveTableLabel: "Zeilenfunktionen können mit der Eingabetaste in einer Zelle aktiviert werden.",
-			footerLabel: "Tabellenfuß"
+			footerLabel: "Tabellenfuß",
+			sortAscendingAnnouncement: "Aufsteigend sortiert",
+			sortDescendingAnnouncement: "Absteigend sortiert",
+			sortClearedAnnouncement: "Sortierung aufgehoben",
+			emptyStateLabel: "Keine Daten",
+			actionColumnDefaultLabel: "Aktionen"
 		},
 		headerTriggerTitles: {
 			headerTriggerText: "Gewählt ",
@@ -231,8 +236,8 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 		},
 		iconPicker: {
 			viewListMaterialIconsTitle:
-				"Suche in der kompletten Material Icons Bibliothek nach einem passenden Icon." +
-				" Die Material Icons Website ermöglicht einer erleichterte Suche, aber bitte benutze keine neuen Icons," +
+				"Suche in der kompletten Material Symbols Bibliothek nach einem passenden Icon." +
+				" Die Material Symbols Website ermöglicht einer erleichterte Suche, aber bitte benutze keine neuen Icons," +
 				" die noch nicht im Icon Picker verfügbar sind.",
 			clearTextButton: "Eingabe löschen"
 		},
@@ -477,7 +482,12 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 			tableLabel: "Table",
 			virtualizedBodyLabel: "Table body",
 			interactiveTableLabel: "You can trigger the row action with Enter on a cell.",
-			footerLabel: "Footer"
+			footerLabel: "Footer",
+			sortAscendingAnnouncement: "Sorted ascending",
+			sortDescendingAnnouncement: "Sorted descending",
+			sortClearedAnnouncement: "Sort cleared",
+			emptyStateLabel: "No data",
+			actionColumnDefaultLabel: "Actions"
 		},
 		headerTriggerTitles: {
 			headerTriggerText: "Selected ",
@@ -511,7 +521,7 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 		},
 		iconPicker: {
 			viewListMaterialIconsTitle:
-				"Explore the Material Icons website to find an icon you like." +
+				"Explore the Material Symbols website to find an icon you like." +
 				" The website can be used for easier searching but if there is an icon which is new and not found in our picker," +
 				" please don't use it.",
 			clearTextButton: "Clear text"

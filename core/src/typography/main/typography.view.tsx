@@ -58,7 +58,8 @@ import {
 	StyledTypographyTitle,
 	StyledTypographyAddon,
 	StyledTypographyBody,
-	StyledTypographySection
+	StyledTypographySection,
+	StyledTypographyHeaderActions
 } from "./typography.styled.js";
 
 const baseClassName = addPrefix("typography");
@@ -78,8 +79,6 @@ export namespace Typography {
 			</StyledTypographySection>
 		);
 	}
-
-	Section.displayName = "Typography.Section";
 
 	export function Headline(props: HeadlineProps): ReactElement<HeadlineProps> {
 		const context = useContext(A11YLanguageContext);
@@ -108,6 +107,8 @@ export namespace Typography {
 			titleProps,
 			swapAddonsPosition,
 			iconVerticalAlignment = "top",
+			compact,
+			headerActions,
 			...rest
 		} = props;
 
@@ -229,12 +230,13 @@ export namespace Typography {
 						data-role={DataRoles.Typography.Headline.Graphic}
 						$level={level}
 						$iconVerticalAlignment={iconVerticalAlignment}
+						$hasHeaderActions={!!headerActions}
 					>
 						{graphicIcon}
 					</StyledTypographyGraphic>
 				)
 			);
-		}, [iconVerticalAlignment, collapseIcon, collapsed, collapsible, expandIcon, level]);
+		}, [collapsed, collapseIcon, expandIcon, collapsible, level, iconVerticalAlignment, headerActions]);
 
 		const addonsRenderer = useMemo(() => {
 			return (
@@ -267,6 +269,19 @@ export namespace Typography {
 			);
 		}, [addons, iconVerticalAlignment, handleAddonFocus, handleHoverOrTouchAddon, level, swapAddonsPosition]);
 
+		const headerActionsRenderer = useMemo(() => {
+			return (
+				headerActions && (
+					<StyledTypographyHeaderActions
+						className={`${baseClassName}-header-actions`}
+						data-role={DataRoles.Typography.Headline.HeaderActions}
+					>
+						{headerActions}
+					</StyledTypographyHeaderActions>
+				)
+			);
+		}, [headerActions]);
+
 		return (
 			<StyledTypographyHeadline
 				{...rest}
@@ -284,11 +299,13 @@ export namespace Typography {
 				$noFocus={isAddonHoveredOrTouched || isAddonFocused}
 				$noEffect={isAddonHoveredOrTouched}
 				$typographyColor={color}
+				$compact={compact}
 			>
 				<StyledTypographyWrapper
 					className={`${baseClassName}-headline__wrapper`}
 					data-role={DataRoles.Typography.Headline.Wrapper}
 					$level={level}
+					$compact={compact}
 				>
 					{swapAddonsPosition && addonsRenderer}
 					<StyledTypographyTitle
@@ -319,11 +336,12 @@ export namespace Typography {
 								</StyledTypographyInfo>
 							)}
 						</StyledTypographyContent>
+						{headerActionsRenderer}
 						{swapAddonsPosition && graphicIconRenderer}
 						{provider.isPhone() && collapsibleHeadlineTitle && <HiddenText> {collapsibleHeadlineTitle}</HiddenText>}
 					</StyledTypographyTitle>
 					{!swapAddonsPosition && addonsRenderer}
-					{divider && (
+					{divider && !compact && (
 						<StyledTypographyDivider
 							className={`${baseClassName}-headline__divider`}
 							data-role={DataRoles.Typography.Headline.Divider}
@@ -334,8 +352,6 @@ export namespace Typography {
 			</StyledTypographyHeadline>
 		);
 	}
-
-	Headline.displayName = "Typography.Headline";
 
 	export function Body(props: BodyProps): ReactElement<BodyProps> {
 		const { style, className, children, color, ...rest } = props;
@@ -354,6 +370,4 @@ export namespace Typography {
 			</StyledTypographyBody>
 		);
 	}
-
-	Body.displayName = "Typography.Body";
 }

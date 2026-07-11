@@ -37,14 +37,13 @@ import { defineConfig } from "@rsbuild/core";
 import { ProvidePlugin } from "@rspack/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginStyledComponents } from "@rsbuild/plugin-styled-components";
-import { pluginTypeCheck } from "@rsbuild/plugin-type-check";
 
 import packageJson from "./package.json" with { type: "json" };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default defineConfig(({ env }) => {
+const config: ReturnType<typeof defineConfig> = defineConfig(({ env }) => {
 	const version = packageJson.version;
 
 	return {
@@ -65,16 +64,22 @@ export default defineConfig(({ env }) => {
 		html: {
 			template: "public/index.html"
 		},
-		plugins: [pluginReact(), pluginStyledComponents({ fileName: false }), pluginTypeCheck()],
+		plugins: [pluginReact(), pluginStyledComponents({ fileName: false })],
 		resolve: {
-			dedupe: ["immer", "react", "react-dnd", "react-dom", "styled-components"],
+			dedupe: [
+				"immer",
+				"react",
+				"react-dnd",
+				"react-dom",
+				"styled-components",
+				"lexical",
+				"@lexical/react",
+				"@lexical/link",
+				"@lexical/list",
+				"@lexical/utils"
+			],
 			alias: {
-				public: path.resolve(__dirname, "public"),
-				lexical: path.join(path.resolve(__dirname, "node_modules"), "lexical"),
-				"@lexical/react": path.join(path.resolve(__dirname, "node_modules"), "@lexical/react"),
-				"@lexical/link": path.join(path.resolve(__dirname, "node_modules"), "@lexical/link"),
-				"@lexical/list": path.join(path.resolve(__dirname, "node_modules"), "@lexical/list"),
-				"@lexical/utils": path.join(path.resolve(__dirname, "node_modules"), "@lexical/utils")
+				public: path.resolve(__dirname, "public")
 			}
 		},
 		tools: {
@@ -110,3 +115,5 @@ export default defineConfig(({ env }) => {
 		}
 	};
 });
+
+export default config;

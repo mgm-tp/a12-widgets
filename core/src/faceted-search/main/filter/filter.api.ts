@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode, MouseEvent, RefCallback } from "react";
+import type { ReactNode, MouseEvent, FocusEvent, RefCallback } from "react";
 
 import type { Identifiable, Styleable } from "../../../common/main/base-props.js";
 
@@ -61,6 +61,16 @@ export interface FilterProps extends Styleable, Identifiable {
 	 */
 	separator?: ReactNode;
 
+	/** Prefix element displayed before the filter name */
+	prefix?: ReactNode;
+
+	/**
+	 * If true, when options are present, only the options will be displayed.
+	 * The filter name will be moved to an interaction hint (tooltip).
+	 * When no options are present, the filter name is always shown.
+	 */
+	compact?: boolean;
+
 	/**
 	 * If this property is set to true, the Filter will not have the close button.
 	 */
@@ -85,6 +95,11 @@ export interface FilterProps extends Styleable, Identifiable {
 	 * The function that will be fired when clicking the Filter.
 	 */
 	onClick?(event: MouseEvent<HTMLElement>): void;
+
+	/**
+	 * The function that will be fired when the Filter receives focus.
+	 */
+	onFocus?(event: FocusEvent<HTMLElement>): void;
 
 	/**
 	 * The reference of the Filter's wrapper.

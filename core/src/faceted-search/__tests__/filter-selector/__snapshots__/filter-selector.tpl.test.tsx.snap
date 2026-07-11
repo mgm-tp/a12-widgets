@@ -94,7 +94,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content 1`] = `
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c5.c5 {
+.StyledMasterDetailLayoutView-fvsTKU .c5.c5 {
   padding: 0px 24px;
 }
 
@@ -152,7 +152,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content 1`] = `
   flex-direction: column;
 }
 
-.c9 > :not(:empty):not(.sc-bRKDuR) {
+.c9 > :not(:empty):not(.sc-hKgHXU) {
   border-bottom: 1px solid rgba(22, 25, 29, 0.22);
   border-top: 1px solid transparent;
 }
@@ -169,8 +169,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content 1`] = `
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c7.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c7.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c7.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c7.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -180,7 +180,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content 1`] = `
   padding: 0px;
 }
 
-.c12 .c8 > :not(:empty):not(.sc-bRKDuR) {
+.c12 .c8 > :not(:empty):not(.sc-hKgHXU) {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -289,7 +289,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content-with-header 1
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c5.c5 {
+.StyledMasterDetailLayoutView-fvsTKU .c5.c5 {
   padding: 0px 24px;
 }
 
@@ -348,8 +348,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content-with-header 1
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c6.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c6.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c6.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c6.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -607,7 +607,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -634,7 +635,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons Outlined";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -912,7 +914,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
 
 <div
   class="c0 field-wrapper field-wrapper--block filter-selector__search testClass"
-  data-role="textline"
+  data-role="text-field"
   style="background-color: red;"
 >
   <div
@@ -920,11 +922,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   >
     <div
       class="c3 c4 field"
-      data-role="textline-control"
+      data-role="text-field-control"
     >
       <label
         class="c5 c6 label field__label -u-unseenButRead"
-        data-role="textline-label"
+        data-role="text-field-label"
         for="testId"
         id="testId-label"
       >
@@ -937,14 +939,14 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
       </label>
       <div
         class="c8 field__input"
-        data-role="textline-input-wrapper"
+        data-role="text-field-input-wrapper"
       >
         <span
           class="c9 supported-unseen-span"
         />
         <input
           class="c10 field__text"
-          data-role="textline-input"
+          data-role="text-field-input"
           id="testId"
           placeholder="placeholder"
           type="text"
@@ -955,7 +957,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
         />
         <div
           class="c11 field__suffix field__suffix--first"
-          data-role="textline-suffix-0"
+          data-role="text-field-suffix-0"
         >
           <button
             class="c12 c13 button button--icon"
@@ -978,7 +980,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
         </div>
         <div
           class="c16 field__suffix"
-          data-role="textline-suffix-1"
+          data-role="text-field-suffix-1"
         >
           <i
             class="c14 c17 plasma-icon plasma-icon--outlined"

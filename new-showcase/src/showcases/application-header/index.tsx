@@ -51,7 +51,7 @@ const showcases: Showcase[] = [
 				description: (
 					<>
 						<p>
-							The <strong>Application Header</strong> Widget provides two customizable properties:
+							The <strong>Application Header</strong> Widget provides three customizable properties:
 						</p>
 						<ul>
 							<li>
@@ -59,6 +59,10 @@ const showcases: Showcase[] = [
 							</li>
 							<li>
 								<code>rightSlots</code>: Elements that will be placed on the right of the Application Header.
+							</li>
+							<li>
+								<code>role</code>: Specifies the ARIA role applied to the Application Header. By default, it is set to{" "}
+								<code>"banner"</code>. In this example, it is customized to <code>"none"</code>.
 							</li>
 						</ul>
 					</>

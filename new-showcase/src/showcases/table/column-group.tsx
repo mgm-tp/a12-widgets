@@ -42,80 +42,15 @@ import type {
 	SortState,
 	SortOrder
 } from "@com.mgmtp.a12.widgets/widgets-core";
-import {
-	provider,
-	DefaultTableComponentRenderers,
-	Table,
-	ExternalLink,
-	MailtoLink
-} from "@com.mgmtp.a12.widgets/widgets-core";
+import { DefaultTableComponentRenderers, Table, ExternalLink, MailtoLink } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { ContextualCard } from "../../helpers/definitions.js";
 
 import { Utils } from "./utils.js";
+import { COLUMNS } from "./data.js";
 
 type RowType = ContextualCard;
 type ColumnType = BaseColumnType<RowType>;
-
-const COLUMNS: ColumnType[] = [
-	{
-		label: "Name",
-		dataKey: "name",
-		pinning: "left",
-		width: 0.7,
-		sortable: true
-	},
-	{
-		label: "Profile",
-		subColumns: [
-			{
-				label: "Username",
-				dataKey: "username",
-				sortable: true
-			},
-			{ label: "Phone", dataKey: "phone", sortable: true }
-		]
-	},
-	{
-		label: "Date of Birth",
-		dataKey: "dob"
-	},
-	{
-		label: "Address",
-		subColumns: [
-			{
-				label: "E-address",
-				subColumns: [
-					{ label: "Email", dataKey: "email", width: 2 },
-					{ label: "Website", dataKey: "website" }
-				]
-			},
-			{
-				label: "Home Address",
-				subColumns: [
-					{
-						label: "Street",
-						dataKey: "address.street",
-						sortable: true
-					},
-					{
-						label: "City",
-						dataKey: "address.city",
-						sortable: true
-					}
-				]
-			}
-		]
-	},
-	{
-		label: "Company",
-		pinning: !provider.isDesktop() ? undefined : "right",
-		subColumns: [
-			{ label: "Name", dataKey: "company.name", sortable: true, width: 0.7 },
-			{ label: "Business", dataKey: "company.bs", sortable: true }
-		]
-	}
-];
 
 export function ColumnGroupTableShowcase(): ReactElement {
 	const data = useMemo(() => Utils.generateContextualCardData(5), []);

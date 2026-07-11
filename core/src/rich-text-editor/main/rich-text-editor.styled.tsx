@@ -256,7 +256,12 @@ export const StyledEditorButtonGroupTrigger = styled(Button).withConfig({
 			content: "\\e5c5";
 			cursor: default;
 			direction: rtl;
-			font-family: "Material Icons";
+			font-family: "Material Symbols Outlined";
+			font-variation-settings:
+				"FILL" 1,
+				"wght" 400,
+				"GRAD" 0,
+				"opsz" 24;
 			font-size: ${toolbar.item.dropdownIcon.fontSize};
 			margin-right: 2px;
 			overflow-wrap: normal;

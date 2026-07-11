@@ -109,9 +109,7 @@ const showcases: Showcase[] = [
 					<BulletList.Item>
 						To use the standard theme for Rich Text Editor, you need to import the CSS file:
 						<p>
-							<code>
-								import "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css";
-							</code>
+							<code>import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";</code>
 						</p>
 					</BulletList.Item>
 					<BulletList.Item>
@@ -381,11 +379,14 @@ const showcases: Showcase[] = [
 								</>
 							),
 							note: (
-								<p>
-									If you want to display a tooltip for a specific text node, add the{" "}
-									<code>editorThemeClasses.withDefaultTooltip</code> class to the node and provide{" "}
-									<code>customTerms</code> without the regex.
-								</p>
+								<>
+									<p>
+										If you want to display a tooltip for a specific text node, add the{" "}
+										<code>editorThemeClasses.withDefaultTooltip</code> class to the node and provide{" "}
+										<code>customTerms</code> without the regex.
+									</p>
+									<p>This plugin does not fully support accessibility.</p>
+								</>
 							)
 						},
 						content: <TooltipPluginEditor />,
@@ -521,9 +522,7 @@ export default {
 					The <strong>Rich Text Editor</strong> has build-in styles for editor content, for getting these styles apply
 					to the editor, you need to import build in css file to your application by adding this line of code:
 					<p>
-						<code>
-							import "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css";
-						</code>
+						<code>import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";</code>
 					</p>
 				</p>
 				<p>

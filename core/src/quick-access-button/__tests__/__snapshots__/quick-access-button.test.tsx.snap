@@ -6,7 +6,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > quick-access-b
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -784,7 +785,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-defa
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1083,7 +1085,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-dest
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1868,7 +1871,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-disa
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2582,7 +2586,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-prim
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3037,7 +3042,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-prim
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3409,7 +3415,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-seco
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4174,7 +4181,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > desktop > rendering-seco
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4768,7 +4776,8 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > mobile > should have def
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -5118,7 +5127,7 @@ exports[`com.mgmtp.a12.widgets.quick-access-menu.view > mobile > should have def
   font-size: 1.5rem;
 }
 
-.c20 .c8:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c20 .c8:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 

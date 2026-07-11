@@ -38,6 +38,7 @@ export const FlatCompactColorsConfig = {
 	 */
 	divider: {
 		color: GeneralColorsConfig.grey,
+		colorBorder: GeneralColorsConfig.grey,
 		colorDark: GeneralColorsConfig.grey,
 		colorLight: GeneralColorsConfig.grey,
 		colorSubtle: GeneralColorsConfig.grey

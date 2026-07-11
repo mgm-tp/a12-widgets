@@ -1089,6 +1089,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering-error-message 1`] = `
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;

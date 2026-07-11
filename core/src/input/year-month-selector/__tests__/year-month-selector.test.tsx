@@ -33,12 +33,12 @@
 import { fireEvent, getAllByDataRole, getByDataRole, render } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
+
 import type { YearMonthSelectorProps } from "../year-month-selector.api.js";
 import { YearMonthSelector } from "../year-month-selector.view.js";
 
 describe("com.mgmtp.a12.widgets.input.year-month-selector", () => {
-	const monthDataRole = "month-selector";
-	const yearDataRole = "year-selector";
 	const properties: Partial<YearMonthSelectorProps> = {
 		id: "year-month-selector",
 		className: "year-month-selector-class",
@@ -134,10 +134,15 @@ describe("com.mgmtp.a12.widgets.input.year-month-selector", () => {
 
 	test("rendering year month selector with custom year selection range", () => {
 		const { container } = render(
-			<YearMonthSelector year={1994} month={properties.month} yearRange={{ start: 1994, end: 2014 }} />
+			<YearMonthSelector
+				year={1994}
+				month={properties.month}
+				yearRange={{ start: 1994, end: 2014 }}
+				yearSelectorVariant="select"
+			/>
 		);
 
-		const options = getAllByDataRole(container, `${yearDataRole}-option`);
+		const options = getAllByDataRole(container, DataRoles.Year.Selector.Option);
 		expect(options[0].getAttribute("value")).toEqual("1994");
 		expect(options[options.length - 1].getAttribute("value")).toEqual("2014");
 	});
@@ -203,6 +208,7 @@ describe("com.mgmtp.a12.widgets.input.year-month-selector", () => {
 			<YearMonthSelector
 				month={1}
 				year={2008}
+				yearSelectorVariant="select"
 				monthSelectRef={monthSelectRefFn}
 				yearSelectRef={yearSelectRefFn}
 				onValueChange={onValueChangeFn}
@@ -212,10 +218,51 @@ describe("com.mgmtp.a12.widgets.input.year-month-selector", () => {
 		expect(monthSelectRefFn).toHaveBeenCalledTimes(1);
 		expect(yearSelectRefFn).toHaveBeenCalledTimes(1);
 
-		const monthInput = getByDataRole(container, `${monthDataRole}-input`);
-		const yearInput = getByDataRole(container, `${yearDataRole}-input`);
+		const monthInput = getByDataRole(container, DataRoles.Month.Selector.Input);
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input);
 		fireEvent.change(monthInput, { currentTarget: { value: "2" } });
 		fireEvent.change(yearInput, { currentTarget: { value: "1994" } });
 		expect(onValueChangeFn).toHaveBeenCalledTimes(2);
+	});
+
+	test("YearMonthSelector defaults to textbox variant when no yearRange is given", () => {
+		const { container } = render(<YearMonthSelector year={2020} month={5} />);
+		expect(getByDataRole(container, DataRoles.Month.Selector.Input).tagName).toEqual("SELECT");
+		expect(getByDataRole(container, DataRoles.Year.Selector.Input).tagName).toEqual("INPUT");
+	});
+
+	test("YearMonthSelector defaults to autocomplete variant when yearRange is given", () => {
+		const { container } = render(<YearMonthSelector year={2020} month={5} yearRange={{ start: 2015, end: 2025 }} />);
+		expect(getByDataRole(container, DataRoles.Month.Selector.Input).tagName).toEqual("SELECT");
+		expect(getByDataRole(container, DataRoles.Year.Selector.Input).tagName).toEqual("INPUT");
+	});
+
+	test("YearMonthSelector uses select variant when yearSelectorVariant='select'", () => {
+		const { container } = render(<YearMonthSelector year={2020} month={5} yearSelectorVariant="select" />);
+		expect(getByDataRole(container, DataRoles.Month.Selector.Input).tagName).toEqual("SELECT");
+		expect(getByDataRole(container, DataRoles.Year.Selector.Input).tagName).toEqual("SELECT");
+	});
+
+	test("YearMonthSelector uses autocomplete for year when yearSelectorVariant='autocomplete'", () => {
+		const { container } = render(<YearMonthSelector year={2020} month={5} yearSelectorVariant="autocomplete" />);
+		expect(getByDataRole(container, DataRoles.Month.Selector.Input).tagName).toEqual("SELECT");
+		expect(getByDataRole(container, DataRoles.Year.Selector.Input).tagName).toEqual("INPUT");
+	});
+
+	test("YearMonthSelector passes yearPlaceholder to YearSelector", () => {
+		const { container } = render(
+			<YearMonthSelector year={undefined} month={5} yearSelectorVariant="select" yearPlaceholder="Year" />
+		);
+		const yearSelect = getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLSelectElement;
+		// NativeSelect renders placeholder as <option disabled label="…"> — use .label, not .text
+		expect(yearSelect.options[0].label).toEqual("Year");
+	});
+
+	test("YearMonthSelector fires onYearSelectorBlur when year input loses focus", () => {
+		const onBlurFn = vi.fn();
+		const { container } = render(<YearMonthSelector year={2020} month={5} onYearSelectorBlur={onBlurFn} />);
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input);
+		fireEvent.blur(yearInput);
+		expect(onBlurFn).toHaveBeenCalledTimes(1);
 	});
 });

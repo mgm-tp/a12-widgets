@@ -34,13 +34,7 @@ import type { ChangeEvent } from "react";
 import { useState, useEffect } from "react";
 import { useTheme } from "styled-components";
 
-import {
-	LayoutGrid,
-	TextLineStateless,
-	TextAffix,
-	HintTooltip,
-	SpacingConfig
-} from "@com.mgmtp.a12.widgets/widgets-core";
+import { LayoutGrid, TextField, TextAffix, HintTooltip, SpacingConfig } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ConfigurationView } from "../../helpers/configuration-view.js";
 
@@ -62,7 +56,7 @@ export function SpacingShowcase() {
 		<ConfigurationView
 			reportLabel="spacing"
 			configuration={
-				<TextLineStateless
+				<TextField
 					fitToParent={false}
 					label={<code>BaseSpacingConfig.BASE</code>}
 					value={`${baseSpacing}`}

@@ -30,5 +30,4 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-export * from "./text-field.api.js";
-export * from "./text-field.view.js";
+export * from "./main/index.js";

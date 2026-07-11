@@ -176,8 +176,6 @@ export namespace Accordion {
 		);
 	}
 
-	Container.displayName = "Accordion.Container";
-
 	export function Section(props: AccordionProps.SectionProps): ReactElement<AccordionProps.SectionProps> {
 		const context = useContext(AccordionContext);
 		const [expanded, setExpanded] = useState(!!props.expanded);
@@ -233,8 +231,6 @@ export namespace Accordion {
 			</AccordionContext.Provider>
 		);
 	}
-
-	Section.displayName = "Accordion.Section";
 
 	export function Summary(props: AccordionProps.SummaryProps): ReactElement<AccordionProps.SummaryProps> {
 		const { collapseIcon, expandIcon, expanded, selected, hasDetails, onSummaryClick } = useContext(AccordionContext);
@@ -310,8 +306,6 @@ export namespace Accordion {
 		);
 	}
 
-	Summary.displayName = "Accordion.Summary";
-
 	export function Details(props: AccordionProps.DetailsProps): ReactElement<AccordionProps.DetailsProps> {
 		const classNames = joinClassNames(`${baseClassName}__details`, props.className);
 		const { expanded } = useContext(AccordionContext);
@@ -331,6 +325,4 @@ export namespace Accordion {
 			<></>
 		);
 	}
-
-	Details.displayName = "Accordion.Details";
 }

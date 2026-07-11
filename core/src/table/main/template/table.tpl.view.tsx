@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { MutableRefObject, ContextType, HTMLProps, KeyboardEvent, ReactElement } from "react";
+import type { ContextType, HTMLProps, KeyboardEvent, ReactElement, RefObject } from "react";
 import { createRef, Component } from "react";
 import { Key } from "ts-key-enum";
 import { styled, css } from "styled-components";
@@ -46,12 +46,12 @@ import {
 } from "../../../common/main/utils.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-import { countActionColumns, flattenAllColumns } from "../../new-api/table.utils.js";
-import type { BaseColumnType, Column } from "../../new-api/column.api.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
 import { activeAndHover } from "../../../theme/base/mixins/_interaction.js";
 import { WidgetsResizeDetector } from "../../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
 
+import type { BaseColumnType, Column } from "../column.api.js";
+import { countActionColumns, flattenAllColumns } from "../table.utils.js";
 import { BASE_TABLE_CLASSNAME, ColumnWidthSync, RowScrollManager } from "../table.internal.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
 
@@ -272,11 +272,10 @@ export class TableTpl extends Component<TableTemplateProps.TableElementProps, Ta
 		this.rowScrollerElement,
 		DataRoles.Table.Row.Group.Header
 	];
-
 	private readonly rowScrollManager: RowScrollManager;
 	private tableWrapperRef: HTMLDivElement | null = null;
 	private footerScrollRef: HTMLDivElement | null = null;
-	private containerWrapperRef: MutableRefObject<HTMLDivElement | null> = createRef();
+	private containerWrapperRef: RefObject<HTMLDivElement | null> = createRef();
 
 	private sameHorizontalScrollPosition = false;
 
@@ -379,7 +378,9 @@ export class TableTpl extends Component<TableTemplateProps.TableElementProps, Ta
 
 	private syncColumns({ forceResetScrollCell = false, resetOnly = false }): void {
 		if (this.tableWrapperRef) {
-			const scrollLeft = this.footerScrollRef?.scrollLeft;
+			// Use rowScrollManager.getScrollLeft() to get scroll position from any scrolled element
+			// This handles cases where footerScrollRef may not be the one actually scrolling (e.g., enableColumnGroupA11y mode)
+			const scrollLeft = this.rowScrollManager.getScrollLeft() || this.footerScrollRef?.scrollLeft;
 			const onDone = () => {
 				this.registerOnFooterRowScroll();
 
@@ -399,7 +400,8 @@ export class TableTpl extends Component<TableTemplateProps.TableElementProps, Ta
 							? countActionColumns(flattenAllColumns(this.props.columns))
 							: undefined,
 						forceResetScrollCell,
-						resetOnly
+						resetOnly,
+						enableColumnGroupA11y: this.props.enableColumnGroupA11y
 					});
 				}
 			}, 50);

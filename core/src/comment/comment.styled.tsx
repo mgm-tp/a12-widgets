@@ -219,6 +219,11 @@ export const StyledCommentWrapper = styled.div.withConfig({ displayName: "Styled
 			background-color: ${comment.replyComment.background};
 			padding: ${comment.replyComment.padding};
 
+			// To keep action buttons right aligned in nested replies from level 2
+			& & & {
+				padding-right: 0;
+			}
+
 			${StyledTextAreaInputWrapper} {
 				background-color: ${comment.replyComment.inputBG};
 			}

@@ -40,7 +40,7 @@ import {
 	ButtonGroup,
 	Counter,
 	Select,
-	TextLineStateless,
+	TextField,
 	Toast,
 	ToastGroup
 } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -192,7 +192,7 @@ export const MultiselectTableWithValuesInActionBar: FC = () => {
 						/>
 					)}
 					{selectAction === "change-company" && (
-						<TextLineStateless
+						<TextField
 							className="-u-margin-r-xs"
 							disabled={!hasCheckRow}
 							value={changeCompanyData}

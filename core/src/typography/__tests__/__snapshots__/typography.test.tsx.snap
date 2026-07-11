@@ -6,7 +6,8 @@ exports[`com.mgmtp.a12.widgets.typography > align addons and graphic icon to bot
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -36,6 +37,26 @@ exports[`com.mgmtp.a12.widgets.typography > align addons and graphic icon to bot
   outline: none;
   padding: 2px 0px;
   position: relative;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"],
+.c2:focus-within [class*="StyledTypographyHeaderActions"] {
+  opacity: 1;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"],
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] {
+  border-radius: 4px;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"] .c6,
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] .c6 {
+  color: inherit;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6,
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6 {
+  color: inherit;
 }
 
 .c12 .c6 {
@@ -260,7 +281,8 @@ exports[`com.mgmtp.a12.widgets.typography > rendering collapsible typography 1`]
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -290,6 +312,26 @@ exports[`com.mgmtp.a12.widgets.typography > rendering collapsible typography 1`]
   outline: none;
   padding: 2px 0px;
   position: relative;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"],
+.c2:focus-within [class*="StyledTypographyHeaderActions"] {
+  opacity: 1;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"],
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] {
+  border-radius: 4px;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"] .c6,
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] .c6 {
+  color: inherit;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6,
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6 {
+  color: inherit;
 }
 
 .c5 {
@@ -448,6 +490,16 @@ exports[`com.mgmtp.a12.widgets.typography > rendering typography 1`] = `
   position: relative;
 }
 
+.c1:hover [class*="StyledTypographyHeaderActions"],
+.c1:focus-within [class*="StyledTypographyHeaderActions"] {
+  opacity: 1;
+}
+
+.c1:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"],
+.c1:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] {
+  border-radius: 4px;
+}
+
 .c4 {
   border-top: 2px solid rgb(226, 230, 233);
   bottom: -1px;
@@ -563,7 +615,8 @@ exports[`com.mgmtp.a12.widgets.typography > swap position of graphic icon and ad
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -593,6 +646,26 @@ exports[`com.mgmtp.a12.widgets.typography > swap position of graphic icon and ad
   outline: none;
   padding: 2px 0px;
   position: relative;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"],
+.c2:focus-within [class*="StyledTypographyHeaderActions"] {
+  opacity: 1;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"],
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] {
+  border-radius: 4px;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"] .c6,
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] .c6 {
+  color: inherit;
+}
+
+.c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6,
+.c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6 {
+  color: inherit;
 }
 
 .c12 .c6 {

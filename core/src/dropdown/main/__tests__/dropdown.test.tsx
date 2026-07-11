@@ -34,6 +34,7 @@ import { render, getByDataRole, getAllByDataRole, fireEvent } from "test-utils";
 import { Key } from "ts-key-enum";
 import { describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
+import type { ReactNode } from "react";
 
 import { Icon } from "../../../icon/main/icon.view.js";
 import { Link } from "../../../link/main/link/link.view.js";
@@ -189,5 +190,29 @@ describe("com.mgmtp.a12.widgets.dropdown", () => {
 		const dropdownItems = getAllByDataRole(DataRoles.Dropdown.Item);
 
 		expect(dropdownItems[0]).toMatchSnapshot();
+	});
+
+	test("dropdown with `labelRenderer` rendering custom label content", () => {
+		const richLabelRenderer = (item: DropDownItem): ReactNode => (
+			<div className="rich-dropdown-label">
+				<span className="label-text">{item.label}</span>
+				{item.disabled ? (
+					<span className="label-unavailable">Unavailable</span>
+				) : (
+					<span className="label-available">Available</span>
+				)}
+			</div>
+		);
+
+		const { container } = render(<DropDown items={items} labelRenderer={richLabelRenderer} />);
+
+		// Verify rich label structure is rendered for all items
+		const richLabels = container.querySelectorAll(".rich-dropdown-label");
+		expect(richLabels).toHaveLength(items.length);
+
+		// Verify the structure contains expected elements
+		expect(container.querySelector(".label-text")).toBeTruthy();
+		expect(container.querySelector(".label-available")).toBeTruthy();
+		expect(container.querySelector(".label-unavailable")).toBeTruthy();
 	});
 });

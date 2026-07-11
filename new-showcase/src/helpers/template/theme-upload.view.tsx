@@ -34,7 +34,7 @@ import type { ChangeEvent, ReactElement } from "react";
 import { useContext, useState, createRef, useRef, useCallback } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import { ConnectedToast, HeaderTrigger, createTheme, getDefaultTheme } from "@com.mgmtp.a12.widgets/widgets-core";
+import { ConnectedToast, HeaderTrigger, createTheme, getBaseTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { CustomThemeContext, ThemeContext } from "../theme-selector.js";
 import { setLocalStorage } from "../utils.js";
@@ -75,7 +75,7 @@ export function ThemeUpload(): ReactElement {
 							const result = JSON.parse(onLoadEvent.target?.result);
 							const customTheme = createTheme(result);
 
-							if (customTheme !== getDefaultTheme()) {
+							if (customTheme !== getBaseTheme({ spacing: { base: 16 } })) {
 								setLocalStorage("custom-theme", JSON.stringify(customTheme));
 								setCustomTheme(customTheme);
 								setTheme("custom");

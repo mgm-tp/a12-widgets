@@ -33,7 +33,7 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { TextLineStateless } from "../../../../input/text-line/main/template/text-line.tpl.view.js";
+import { TextField } from "../../../../input/text-field/main/template/text-field.tpl.view.js";
 import { Button } from "../../../../button/main/button.view.js";
 import { Icon } from "../../../../icon/main/icon.view.js";
 import { ContentBoxElements } from "../../../../contentbox/main/template/contentbox.tpl.view.js";
@@ -135,8 +135,6 @@ export namespace FilterSelectorTemplate {
 		);
 	}
 
-	List.displayName = "List";
-
 	export function Item(
 		props: FilterSelectorTemplateProps.ItemProps
 	): ReactElement<FilterSelectorTemplateProps.ItemProps> {
@@ -149,8 +147,6 @@ export namespace FilterSelectorTemplate {
 			/>
 		);
 	}
-
-	Item.displayName = "Item";
 
 	export function Section(
 		props: FilterSelectorTemplateProps.SectionProps
@@ -170,8 +166,6 @@ export namespace FilterSelectorTemplate {
 		);
 	}
 
-	Section.displayName = "Section";
-
 	export function Content(
 		props: FilterSelectorTemplateProps.ContentProps
 	): ReactElement<FilterSelectorTemplateProps.ContentProps> {
@@ -183,8 +177,6 @@ export namespace FilterSelectorTemplate {
 			</StyledFilterSelectorContainer>
 		);
 	}
-
-	Content.displayName = "Content";
 
 	export function ActionBar(
 		props: FilterSelectorTemplateProps.ActionBarProps
@@ -199,8 +191,6 @@ export namespace FilterSelectorTemplate {
 			/>
 		);
 	}
-
-	ActionBar.displayName = "ActionBar";
 
 	export function SearchInput(
 		props: FilterSelectorTemplateProps.SearchInputProps
@@ -223,7 +213,7 @@ export namespace FilterSelectorTemplate {
 		const searchIcon = searchButton || <Icon>search</Icon>;
 
 		return (
-			<TextLineStateless
+			<TextField
 				className={joinClassNames(`${baseClassName}__search`, className)}
 				suffixes={[clearButtonElement, searchIcon]}
 				value={value}
@@ -231,8 +221,6 @@ export namespace FilterSelectorTemplate {
 			/>
 		);
 	}
-
-	SearchInput.displayName = "SearchInput";
 
 	export function ActionElement(
 		props: FilterSelectorTemplateProps.ActionElementProps
@@ -247,6 +235,4 @@ export namespace FilterSelectorTemplate {
 			/>
 		);
 	}
-
-	ActionElement.displayName = "ActionElement";
 }

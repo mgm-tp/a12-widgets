@@ -201,7 +201,4 @@ export const TooltipPlugin: FC<TooltipPluginProps> = ({ openedDelay = 500, close
 	) : null;
 };
 
-/** @deprecated since version 38.2.0. Use {@link TooltipPlugin} instead. */
-export const Tooltip = TooltipPlugin;
-
 TooltipPlugin.displayName = "TooltipPlugin";

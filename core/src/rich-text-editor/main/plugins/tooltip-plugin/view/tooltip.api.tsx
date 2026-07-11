@@ -34,10 +34,6 @@ import type { ReactNode, MouseEvent } from "react";
 
 import type { Container, Identifiable, Ref, Styleable } from "../../../../../common/main/base-props.js";
 
-/**
- * @deprecated since version 38.2.0. Use {@link TooltipPluginProps} instead.
- */
-export type TooltipProps = TooltipPluginProps;
 export interface TooltipPluginProps extends Styleable, Identifiable {
 	/**
 	 * Open the tooltip after a certain amount of time.
@@ -75,16 +71,6 @@ export interface TooltipPluginProps extends Styleable, Identifiable {
 	changePosition?(handler?: TooltipPluginProps.ChangePositionHandler): void;
 }
 
-/**
- * @deprecated since version 38.2.0. Use {@link TooltipPluginProps} instead.
- */
-export namespace TooltipProps {
-	export type ChangeVisibleHandler = TooltipPluginProps.ChangePositionHandler;
-	export type ChangePositionHandler = TooltipPluginProps.ChangePositionHandler;
-	export type Render = TooltipPluginProps.Render;
-	export type TriggerMode = TooltipPluginProps.TriggerMode;
-}
-
 export namespace TooltipPluginProps {
 	export type ChangeVisibleHandler = (visible: boolean, render?: Render) => void;
 
@@ -95,10 +81,6 @@ export namespace TooltipPluginProps {
 	export type TriggerMode = "focus" | "hover";
 }
 
-/**
- * @deprecated since version 38.2.0. Use {@link TooltipPluginWrapperProps} instead.
- */
-export type TooltipWrapperProps = TooltipPluginWrapperProps;
 export interface TooltipPluginWrapperProps extends Styleable, Identifiable, Container, Ref {
 	/**
 	 * The event trigger when move mouse over the tooltip wrapper.

@@ -49,7 +49,8 @@ import type {
 	Ref,
 	Styleable
 } from "../../../common/main/base-props.js";
-import type { BaseColumnType, Column, SortOrder } from "../../new-api/column.api.js";
+
+import type { BaseColumnType, Column, SortOrder } from "../column.api.js";
 
 export namespace TableTemplateProps {
 	export interface TableDataAttribute extends DataRole {
@@ -137,6 +138,12 @@ export namespace TableTemplateProps {
 		 * @internal
 		 */
 		virtualScroll?: boolean;
+
+		/**
+		 * Enable enhanced accessibility features for the table.
+		 * @internal
+		 */
+		enableColumnGroupA11y?: boolean;
 	}
 
 	export interface CellProps extends BaseProps {
@@ -192,8 +199,19 @@ export namespace TableTemplateProps {
 
 	export type RowSegmentType = "left" | "scroll" | "right";
 
+	export type GridRowDataProps = {
+		gridRow: number;
+		gridColumn: number;
+		gridRowSpan: number;
+		gridColumnSpan: number;
+		isHidden?: boolean;
+		leftOffset?: number;
+		rightOffset?: number;
+	};
+
 	export interface RowSegmentProps extends BaseProps {
 		type: RowSegmentType;
+		gridRowData?: GridRowDataProps;
 	}
 
 	export interface RowGroupHeaderProps extends BaseProps, Ref<HTMLDivElement> {}
@@ -255,6 +273,24 @@ export namespace TableTemplateProps {
 
 		/**
 		 * @internal
+		 * The number of columns this header cell spans. Used for accessibility.
+		 */
+		ariaColSpan?: number;
+
+		/**
+		 * @internal
+		 * The number of rows this header cell spans. Used for accessibility.
+		 */
+		ariaRowSpan?: number;
+
+		/**
+		 * @internal
+		 * The scope attribute value for this header cell. Used for accessibility (e.g. "colgroup" for column group headers).
+		 */
+		scope?: "col" | "colgroup" | "row" | "rowgroup";
+
+		/**
+		 * @internal
 		 * resizeHandler will be placed at the right of the head cell
 		 */
 		rightResizeHandler?: ReactNode;
@@ -302,6 +338,7 @@ export namespace TableTemplateProps {
 		onKeyDown?: KeyboardEventHandler<HTMLElement>;
 		ariaSelected?: boolean;
 		ariaLevel?: number;
+		ariaRowIndex?: number;
 		onRendered?(): void;
 		onContextMenu?: MouseEventHandler<HTMLElement>;
 	}

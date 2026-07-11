@@ -139,7 +139,7 @@ exports[`com.mgmtp.a12.widgets.application-header > rendering-application-header
   class="c0 applicationHeader test-class"
   data-role="application-header"
   id="test-id"
-  role="banner"
+  role="none"
   style="color: red;"
 >
   <div

@@ -51,6 +51,7 @@ export function SPLSecondaryPane(props: SupportingPanesLayoutProps.SecondaryPane
 		wrapperRef,
 		onToggleCollapsed,
 		htmlAttributes,
+		customAnimation,
 		...rest
 	} = props;
 
@@ -142,20 +143,35 @@ export function SPLSecondaryPane(props: SupportingPanesLayoutProps.SecondaryPane
 	}, [isMounted, collapsedProp, paneWidth]);
 
 	const resizeHandleRenderer = useCallback(
-		(position: SupportingPanesLayoutProps.SecondaryPanePosition) => (
-			<ResizeHandle
-				targetPosition={position}
-				targetRef={paneRef}
-				minWidth={resizeMinWidth}
-				maxWidth={resizeMaxWidth}
-				collapsedWidth={collapsedWidth}
-				onResizeEnd={handleEndResize}
-				onResize={onResize}
-				onResizeStart={onResizeStart}
-				onDoubleClick={handleDoubleClick}
-			/>
-		),
-		[collapsedWidth, handleDoubleClick, handleEndResize, onResize, onResizeStart, resizeMaxWidth, resizeMinWidth]
+		(position: SupportingPanesLayoutProps.SecondaryPanePosition) => {
+			if (!resizeOptions) {
+				return;
+			}
+
+			return (
+				<ResizeHandle
+					targetPosition={position}
+					targetRef={paneRef}
+					minWidth={resizeMinWidth}
+					maxWidth={resizeMaxWidth}
+					collapsedWidth={collapsedWidth}
+					onResizeEnd={handleEndResize}
+					onResize={onResize}
+					onResizeStart={onResizeStart}
+					onDoubleClick={handleDoubleClick}
+				/>
+			);
+		},
+		[
+			resizeOptions,
+			collapsedWidth,
+			handleDoubleClick,
+			handleEndResize,
+			onResize,
+			onResizeStart,
+			resizeMaxWidth,
+			resizeMinWidth
+		]
 	);
 
 	return (
@@ -170,6 +186,7 @@ export function SPLSecondaryPane(props: SupportingPanesLayoutProps.SecondaryPane
 			ref={handlePaneRef}
 			resizeHandleRenderer={resizeHandleRenderer}
 			htmlAttributes={htmlAttributes}
+			customAnimation={customAnimation}
 		>
 			{children}
 		</SecondaryPaneAnimation>

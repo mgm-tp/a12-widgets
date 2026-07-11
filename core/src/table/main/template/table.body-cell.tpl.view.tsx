@@ -41,16 +41,16 @@ import { useSelectedText } from "../../../common/main/hooks.js";
 import { activeAndHover, darkFocus } from "../../../theme/base/mixins/_interaction.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { useTableContext } from "../../new-api/table.context.js";
-import type { Column } from "../../new-api/column.api.js";
 import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
 import { StyledCheckbox } from "../../../input/checkbox/main/checkbox.styled.js";
 import { StyledTreeNodeArrow, StyledTreeNodeIcon } from "../../../tree/main/tpl/tree-elements.styled.js";
-import { StyledTableDnDBody } from "../../new-api/table.dnd.view.js";
 import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
+import { StyledTableDnDBody } from "../table.dnd.view.js";
+import type { Column } from "../column.api.js";
+import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
 
@@ -70,6 +70,15 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 	$verticalHeader?: boolean;
 	$cellHighlighting?: boolean;
 	$firstCell?: boolean;
+	$rowSelected?: boolean;
+	$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+	$rowHighlighted?: boolean;
+	$rowDisabled?: boolean;
+	$rowSubInfo?: boolean;
+	$rowInteractive?: boolean;
+	$rowNoEffect?: boolean;
+	$crossTabulation?: boolean;
+	$rowSegmentType?: TableTemplateProps.RowSegmentType;
 }>(
 	({
 		theme,
@@ -81,17 +90,16 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 		cardView,
 		$verticalHeader,
 		$cellHighlighting,
-		$firstCell
+		$firstCell,
+		$rowSelected: rowSelected,
+		$rowHighlightVariant: rowHighlightVariant,
+		$rowHighlighted: rowHighlighted,
+		$rowDisabled: rowDisabled,
+		$rowSubInfo: rowSubInfo,
+		$rowInteractive: rowInteractive,
+		$rowNoEffect: rowNoEffect
 	}) => {
 		const { bodyRow, bodyCell } = theme.components.table;
-
-		const rowSelected = useStyledTableContext((context) => !!context.row?.selected);
-		const rowHighlightVariant = useStyledTableContext((context) => context.row?.highlightVariant);
-		const rowHighlighted = useStyledTableContext((context) => !!context.row?.highlighted);
-		const rowDisabled = useStyledTableContext((context) => !!context.row?.disabled);
-		const rowSubInfo = useStyledTableContext((context) => !!context.row?.subInfo);
-		const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
-		const rowNoEffect = useStyledTableContext((context) => !!context.row?.noEffect);
 
 		const background = rowDisabled
 			? bodyRow.disabled.background
@@ -392,71 +400,79 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 
 export const StyledTableBodyCellGroupTpl = styled(StyledTableBodyCell).withConfig({
 	displayName: "StyledTableBodyCellGroupTpl-sc-"
-})(({ theme, resizable, $cellHighlighting }) => {
-	const { headCellGroup, bodyRow } = theme.components.table;
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
-	const isCellHighlightingForRegularTable = !crossTabulation && $cellHighlighting;
+})<{
+	$crossTabulation?: boolean;
+	$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}>(
+	({
+		theme,
+		resizable,
+		$cellHighlighting,
+		$crossTabulation: crossTabulation,
+		$rowSegmentType: rowSegmentType,
+		$rowInteractive: rowInteractive
+	}) => {
+		const { headCellGroup, bodyRow } = theme.components.table;
+		const isCellHighlightingForRegularTable = !crossTabulation && $cellHighlighting;
 
-	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
-	const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
-
-	return css`
-		${isCellHighlightingForRegularTable &&
-		css`
-			${StyledTableMixins.setRowBG({
-				background: bodyRow.nonInteractive.hoverBG,
-				theme,
-				state: "hover"
-			})}
-		`};
-		position: relative;
-		${StyledTableBodyRowSegment} > && {
-			${createPseudoElement(
-				":after",
-				css`
-					display: block;
-					left: unset;
-					border-right: ${headCellGroup.borderRight};
-				`
-			)}
-		}
-		${((crossTabulation && rowSegmentType === "left") || rowSegmentType === "right") &&
-		css`
+		return css`
+			${isCellHighlightingForRegularTable &&
+			css`
+				${StyledTableMixins.setRowBG({
+					background: bodyRow.nonInteractive.hoverBG,
+					theme,
+					state: "hover"
+				})}
+			`};
+			position: relative;
 			${StyledTableBodyRowSegment} > && {
-				&:last-child:after {
-					border-right-color: transparent;
+				${createPseudoElement(
+					":after",
+					css`
+						display: block;
+						left: unset;
+						border-right: ${headCellGroup.borderRight};
+					`
+				)}
+			}
+			${((crossTabulation && rowSegmentType === "left") || rowSegmentType === "right") &&
+			css`
+				${StyledTableBodyRowSegment} > && {
+					&:last-child:after {
+						border-right-color: transparent;
+					}
 				}
-			}
-		`}
+			`}
 
-		${resizable &&
-		css`
-			[data-role="${DataRoles.Table.Body.Cell.Group}"]:last-child &&:last-child {
-				flex: 1;
-			}
-		`}
+			${resizable &&
+			css`
+				[data-role="${DataRoles.Table.Body.Cell.Group}"]:last-child &&:last-child {
+					flex: 1;
+				}
+			`}
 
 	        // Make sure when hover/focus, column's border not overlap with content row's border
 	        ${rowInteractive &&
-		css`
-			${activeAndHover(
-				css`
+			css`
+				${activeAndHover(
+					css`
+						&:after {
+							top: 3px;
+							bottom: 3px;
+						}
+					`,
+					StyledTableBodyRow
+				)}
+				${StyledTableBodyRow}:focus & {
 					&:after {
 						top: 3px;
 						bottom: 3px;
 					}
-				`,
-				StyledTableBodyRow
-			)}
-			${StyledTableBodyRow}:focus & {
-				&:after {
-					top: 3px;
-					bottom: 3px;
 				}
-			}
-		`}
-	`;
-});
+			`}
+		`;
+	}
+);
 
 const StyledTableBodyCellLabel = styled.div.withConfig({ displayName: "StyledTableBodyCellLabel-sc-" })<{
 	cardView?: boolean;
@@ -487,8 +503,16 @@ export const BodyCellTpl = memo(function BodyCellTpl(
 	const resizable = useTableContext((context) => context.resizable);
 	const hasColumnGroup = useTableContext((context) => context.hasColumnGroup);
 	const cellHighlighting = useTableContext((context) => !!context.cellHighlighting);
+	const crossTabulation = useTableContext((context) => !!context.crossTabulation);
+	const enableColumnGroupA11y = useTableContext((context) => !!context.enableColumnGroupA11y);
+	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
+	const rowSelected = useStyledTableContext((context) => !!context.row?.selected);
 	const rowHighlightVariant = useStyledTableContext((context) => context.row?.highlightVariant);
+	const rowHighlighted = useStyledTableContext((context) => !!context.row?.highlighted);
 	const rowDisabled = useStyledTableContext((context) => !!context.row?.disabled);
+	const rowSubInfo = useStyledTableContext((context) => !!context.row?.subInfo);
+	const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
+	const rowNoEffect = useStyledTableContext((context) => !!context.row?.noEffect);
 
 	const rowInfo = rowHighlightVariant === "info";
 	const rowSuccess = rowHighlightVariant === "success";
@@ -615,6 +639,16 @@ export const BodyCellTpl = memo(function BodyCellTpl(
 			tabIndex={cellHighlighting ? -1 : undefined}
 			$cellHighlighting={cellHighlighting}
 			$firstCell={props.firstCell}
+			$rowSelected={rowSelected}
+			$rowHighlightVariant={rowHighlightVariant}
+			$rowHighlighted={rowHighlighted}
+			$rowDisabled={rowDisabled}
+			$rowSubInfo={rowSubInfo}
+			$rowInteractive={rowInteractive}
+			$rowNoEffect={rowNoEffect}
+			$crossTabulation={crossTabulation}
+			$rowSegmentType={rowSegmentType}
+			$enableColumnGroupA11y={enableColumnGroupA11y}
 			data-width={props.relativeWidth}
 			data-type={props.actionCell && TableDataAttributes.Table.ActionCell}
 		>

@@ -73,4 +73,27 @@ describe("DataRoles", () => {
 	test("DataRoles Snapshots", () => {
 		expect(flattenDataRoles(DataRoles)).toMatchSnapshot();
 	});
+
+	test("should return undefined for `suggest` on a subtree proxy", () => {
+		const proxy: any = initialize({
+			MasterDetail: { Layout: { Pane: { Content: "" } } }
+		});
+
+		const pane = proxy.MasterDetail.Layout.Pane;
+
+		expect(pane.Content).toBe("master-detail-layout-pane-content");
+		expect(pane.suggest).toBeUndefined();
+	});
+
+	test("subtree proxies stringify to their kebab-cased path", () => {
+		const proxy: any = initialize({
+			MasterDetail: { Layout: { Pane: { Content: "" } } }
+		});
+
+		const pane = proxy.MasterDetail.Layout.Pane;
+
+		expect(`${pane}`).toBe("master-detail-layout-pane");
+		expect(String(pane)).toBe("master-detail-layout-pane");
+		expect(pane.toString()).toBe("master-detail-layout-pane");
+	});
 });

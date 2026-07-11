@@ -297,6 +297,4 @@ export namespace Checkbox {
 			</Wrapper>
 		);
 	}
-
-	Indeterminate.displayName = "IndeterminateCheckbox";
 }

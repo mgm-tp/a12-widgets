@@ -38,7 +38,7 @@ import { Button } from "../../../button/main/button.view.js";
 import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { breakWord } from "../../../theme/base/mixins/_break-word.js";
 import { StyledCounter } from "../../../counter/main/counter.view.js";
-import { StyledTooltipWrapper } from "../../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../../tooltip/main/tooltip.styled.js";
 import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
@@ -348,7 +348,7 @@ export const StyledTreeNodeIcon = styled.div.withConfig({ displayName: "StyledTr
 		& > * {
 			display: flex;
 			justify-content: center;
-			&:not(${StyledCounter}):not(${StyledTooltipWrapper}) {
+			&:not(${StyledCounter}):not(${StyledTooltipTriggerWrapper}) {
 				font-size: ${nodeIcon.fontSize};
 				max-height: ${nodeIcon.maxHeight};
 				width: ${nodeIcon.width};

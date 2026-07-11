@@ -100,7 +100,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -128,6 +129,7 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -827,7 +829,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test custom icons for all sections 1`
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1101,7 +1104,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test passed in properties 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1279,7 +1283,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test selected Section 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1511,7 +1516,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test structure and base properties 1`
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;

@@ -55,4 +55,5 @@ export interface ContentBoxWrapperProps {
 		filtersInFilterBar?: FilterInFilterBarData[]
 	): void;
 	onShowFilterBarOnMobile?(showFilterBarOnMobile: boolean): void;
+	mode?: "overlay" | "docked";
 }

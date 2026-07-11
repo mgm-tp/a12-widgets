@@ -123,7 +123,7 @@ export interface DateTimePickerInputProps<T extends DateTimePickerProps> extends
 
 	/**
 	 * The props of DatePicker extends from DayPickerProps of react-day-picker library
-	 * @see https://react-day-picker.js.org/api/interfaces/DayPickerBase
+	 * @see https://daypicker.dev/v9/api/type-aliases/DayPickerProps
 	 */
 	pickerProps?: T;
 

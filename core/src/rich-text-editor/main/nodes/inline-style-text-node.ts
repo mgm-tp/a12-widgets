@@ -31,6 +31,7 @@
  */
 
 import type {
+	DOMConversionMap,
 	DOMExportOutput,
 	EditorConfig,
 	LexicalEditor,
@@ -91,6 +92,17 @@ export class InlineStyleTextNode extends TextNode {
 		this.__unmergeable = false;
 	}
 
+	private shouldUseSTag(): boolean {
+		const strikethroughClassName = editorThemeClasses.text?.strikethrough;
+
+		return (
+			!!strikethroughClassName &&
+			this.__selectedClassName.includes(strikethroughClassName) &&
+			!this.hasFormat("bold") &&
+			!this.hasFormat("italic")
+		);
+	}
+
 	private updateDOMStyle(dom: HTMLElement): HTMLElement {
 		const getSelectedStyleName = this.getSelectedStyleName();
 		const strikethroughClass = editorThemeClasses.text?.strikethrough;
@@ -122,16 +134,36 @@ export class InlineStyleTextNode extends TextNode {
 	}
 
 	createDOM(config: EditorConfig): HTMLElement {
-		const element = super.createDOM(config);
+		const span = super.createDOM(config);
 
-		return this.updateDOMStyle(element);
+		if (this.shouldUseSTag()) {
+			const s = document.createElement("s");
+
+			for (const attr of Array.from(span.attributes)) {
+				s.setAttribute(attr.name, attr.value);
+			}
+
+			s.textContent = span.textContent;
+
+			return this.updateDOMStyle(s);
+		}
+
+		return this.updateDOMStyle(span);
 	}
 
 	updateDOM(prevNode: this, dom: HTMLElement, config: EditorConfig): boolean {
+		if (prevNode.shouldUseSTag() !== this.shouldUseSTag()) {
+			return true;
+		}
+
 		const isUpdated = super.updateDOM(prevNode, dom, config);
 		this.updateDOMStyle(dom);
 
 		return isUpdated;
+	}
+
+	static importDOM(): DOMConversionMap | null {
+		return TextNode.importDOM();
 	}
 
 	exportDOM(editor: LexicalEditor): DOMExportOutput {
@@ -185,6 +217,7 @@ export class InlineStyleTextNode extends TextNode {
 		const self = this.getWritable();
 		const newSelectedClassName = new Set([...this.getSelectedStyleName(), ...classNames]);
 		self.__selectedClassName = [...newSelectedClassName];
+		self.setLexicalUnmergeable();
 
 		return self;
 	}

@@ -30,31 +30,31 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode, ReactElement } from "react";
+import type { ReactElement, ReactNode } from "react";
 import {
-	useRef,
-	useState,
-	useContext,
-	useMemo,
-	isValidElement,
+	Children,
 	cloneElement,
 	Fragment,
-	Children,
+	isValidElement,
 	useCallback,
-	useEffect
+	useContext,
+	useEffect,
+	useMemo,
+	useRef,
+	useState
 } from "react";
 
-import { Icon } from "../../../icon/main/icon.view.js";
 import { Button } from "../../../button/main/button.view.js";
-import { provider as DeviceDetector } from "../../../common/main/device-detector.js";
-import { addPrefix, getHorizontalPadding, getVerticalPadding, joinClassNames } from "../../../common/main/utils.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { ProgressIndicator } from "../../../progress-indicator/main/progress-indicator.view.js";
-import { TextOutput } from "../../../text-output/main/text-output.view.js";
 import type { Identifiable } from "../../../common/main/base-props.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { provider as DeviceDetector } from "../../../common/main/device-detector.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { addPrefix, getHorizontalPadding, getVerticalPadding, joinClassNames } from "../../../common/main/utils.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import { ProgressIndicator } from "../../../progress-indicator/main/progress-indicator.view.js";
+import { TextOutput } from "../../../text-output/main/text-output.view.js";
 
 import { StyledFileUpload } from "../file-upload.styled.js";
 import { FileUpload } from "../file-upload.view.js";
@@ -114,12 +114,9 @@ function getPreviewIcon(
  */
 export function DefaultFileUpload(props: DefaultFileUploadProps): ReactElement<DefaultFileUploadProps> {
 	const wrapperRef = useRef<HTMLElement | null>(null);
-	// Calculate initial fit states based on uploadAreaSize configuration
-	const hasCompleteSize = props.uploadAreaSize?.width && props.uploadAreaSize?.height;
-	const [horizFit, setHorizFit] = useState(!hasCompleteSize);
+	const [horizFit, setHorizFit] = useState(!props.uploadAreaSize);
 	const focusOnUploadArea = useRef<boolean>(false);
-	const [vertFit, setVertFit] = useState(!hasCompleteSize);
-	const [fileUploadSize, setFileUploadSize] = useState<{ width: string; height: string }>();
+	const [vertFit, setVertFit] = useState(!props.uploadAreaSize);
 	const languageContext = useContext<A11yDefinition>(A11YLanguageContext);
 	const a11yTitles = languageContext.fileUploadTitles;
 
@@ -429,60 +426,24 @@ export function DefaultFileUpload(props: DefaultFileUploadProps): ReactElement<D
 
 	useEffect(() => {
 		const parent = wrapperRef.current?.parentElement;
-		const { width, height, maxWidth, maxHeight } = props.uploadAreaSize || {};
+		const fileUploadSize = props.uploadAreaSize;
 
-		const calculateDynamicDimensions = (): void => {
-			if (!parent) {
-				return;
-			}
-
-			const parentRect = parent.getBoundingClientRect();
-			const parentWidth = parentRect.width;
-
-			if (!props.uploadAreaSize) {
-				setHorizFit(true);
-				setVertFit(true);
-
-				const wrapper = wrapperRef.current;
-
-				if (wrapper && parentWidth > 0) {
-					setFileUploadSize({ width: `${Math.floor(parentWidth)}px`, height: "auto" });
-				}
-			} else if (props.uploadAreaSize) {
-				const plainParentWidth = Number(parentWidth) - Number(getHorizontalPadding(parent));
-				const plainParentHeight = Number(parentRect.height) - Number(getVerticalPadding(parent));
-
-				if (width || height) {
-					setHorizFit(!width && (!maxWidth || Number(maxWidth) > plainParentWidth));
-					setVertFit(!height && (!maxHeight || Number(maxHeight) > plainParentHeight));
-				} else if (maxWidth && maxHeight) {
-					setHorizFit(true);
-					setVertFit(true);
-					const appliedWidth = Math.min(Number(maxWidth), plainParentWidth);
-					setFileUploadSize({ width: `${Math.floor(appliedWidth)}px`, height: "auto" });
-				} else {
-					setHorizFit(true);
-					setVertFit(true);
-				}
-			}
-		};
-
-		setHorizFit(!hasCompleteSize);
-		setVertFit(!hasCompleteSize);
-
-		let resizeObserver: ResizeObserver | null = null;
-
-		if (typeof ResizeObserver !== "undefined" && parent) {
-			resizeObserver = new ResizeObserver(calculateDynamicDimensions);
-			resizeObserver.observe(parent);
+		if (fileUploadSize?.width && fileUploadSize?.height) {
+			return;
 		}
 
-		return (): void => {
-			if (resizeObserver) {
-				resizeObserver.disconnect();
-			}
-		};
-	}, [props.uploadAreaSize, compact, props.image, fileOptions, hasCompleteSize]);
+		if (fileUploadSize && parent) {
+			const parentRect = parent.getBoundingClientRect();
+			const plainParentWidth = Number(parentRect.width) - Number(getHorizontalPadding(parent));
+			const plainParentHeight = Number(parentRect.height) - Number(getVerticalPadding(parent));
+			setHorizFit(
+				!fileUploadSize.width && (!fileUploadSize.maxWidth || Number(fileUploadSize.maxWidth) >= plainParentWidth)
+			);
+			setVertFit(
+				!fileUploadSize.height && (!fileUploadSize.maxHeight || Number(fileUploadSize.maxHeight) >= plainParentHeight)
+			);
+		}
+	}, [props.uploadAreaSize]);
 
 	return (
 		<StyledFileUpload.StyledFieldUploadWrapper
@@ -497,7 +458,6 @@ export function DefaultFileUpload(props: DefaultFileUploadProps): ReactElement<D
 			$horizFit={horizFit || compact}
 			$vertFit={vertFit || compact}
 			$compact={compact}
-			$fileUploadSize={fileUploadSize}
 		>
 			{renderedFileUpload}
 		</StyledFileUpload.StyledFieldUploadWrapper>

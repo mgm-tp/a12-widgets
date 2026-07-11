@@ -1,0 +1,31 @@
+{
+    "maptz.regionfolder": {
+        "[javascript]": {
+            "foldDefinitions": [
+                {
+                    "isFoldedByDefault": true,
+                    "foldStartRegex": "\\s\\*\\sSPDX-License-Identifier:",
+                    "foldEndRegex": "\\*/"
+                }
+            ]
+        },
+        "[typescript]": {
+            "foldDefinitions": [
+                {
+                    "isFoldedByDefault": true,
+                    "foldStartRegex": "\\s\\*\\sSPDX-License-Identifier:",
+                    "foldEndRegex": "\\*/"
+                }
+            ]
+        },
+        "[typescriptreact]": {
+            "foldDefinitions": [
+                {
+                    "isFoldedByDefault": true,
+                    "foldStartRegex": "\\s\\*\\sSPDX-License-Identifier:",
+                    "foldEndRegex": "\\*/"
+                }
+            ]
+        }
+    }
+}

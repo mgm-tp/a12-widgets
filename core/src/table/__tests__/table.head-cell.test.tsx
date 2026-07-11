@@ -42,10 +42,10 @@ import { Switch } from "../../input/switch/main/switch.view.js";
 import { Status } from "../../status/main/status.view.js";
 import { Tag } from "../../tag/main/tag/tag.view.js";
 
-import type { BaseColumnType, Column } from "../new-api/column.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { TableInternalUtils } from "../new-api/table.utils.js";
-import { HeadCell } from "../new-api/table.head-cell.view.js";
+import type { BaseColumnType, Column } from "../main/column.api.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { TableInternalUtils } from "../main/table.utils.js";
+import { HeadCell } from "../main/table.head-cell.view.js";
 
 describe("com.mgmtp.a12.widgets.table.head-cell", () => {
 	type ColumnType = BaseColumnType;

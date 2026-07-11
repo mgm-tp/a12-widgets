@@ -157,7 +157,7 @@ export interface DateTimePickerProps extends Omit<DatePickerProps, "onChange" | 
 	/**
 	 * Additional HTML attributes to be applied to the mobile date time picker.
 	 *
-	 * **Note:** When using **DateTimePickerInput** to display the picker, this property will be passed to the Modal Overlay's container element.
+	 * *Note:* When using *DateTimePickerInput* to display the picker, this property will be passed to the Modal Overlay's container element.
 	 */
 	mobilePickerAttributes?: HTMLAttributes<HTMLDivElement>;
 }

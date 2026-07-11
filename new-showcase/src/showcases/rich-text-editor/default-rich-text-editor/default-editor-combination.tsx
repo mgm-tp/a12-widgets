@@ -33,7 +33,7 @@
 import type { FC, ReactNode } from "react";
 import { useMemo, useState } from "react";
 import DOMPurify from "dompurify";
-import "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 import { debounce } from "lodash-es";
 
 import type {

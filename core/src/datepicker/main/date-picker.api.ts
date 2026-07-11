@@ -36,11 +36,11 @@
  * @module
  */
 
-import type { MouseEvent as ReactMouseEvent, ReactNode } from "react";
+import type { MouseEvent as ReactMouseEvent, ReactNode, FocusEvent } from "react";
 import type { DayPickerProps, Matcher } from "react-day-picker";
 
 import type { Ref, Container, Identifiable, Styleable } from "../../common/main/base-props.js";
-import type { YearRange } from "../../input/year-month-selector/year-selector.api.js";
+import type { YearRange, YearSelectorVariant } from "../../input/year-month-selector/year-selector.api.js";
 
 import type { DateRange } from "./date-range.api.js";
 
@@ -48,7 +48,7 @@ export type { Matcher } from "react-day-picker";
 
 /**
  * The props of DatePicker extends from DayPickerProps of react-day-picker library
- * @see https://react-day-picker.js.org/api/interfaces/DayPickerBase
+ * @see https://daypicker.dev/v9/api/type-aliases/DayPickerProps
  */
 export interface DatePickerProps extends Omit<DayPickerProps, "footer" | "locale" | "timeZone">, Identifiable, Ref {
 	/**
@@ -70,6 +70,24 @@ export interface DatePickerProps extends Omit<DayPickerProps, "footer" | "locale
 	 * Override the year selection range.
 	 */
 	yearRange?: YearRange;
+
+	/**
+	 * Controls the rendering mode of the year selector in the date picker header.
+	 * When omitted, the mode is auto-detected: `"autocomplete"` if {@link yearRange} is provided, `"textbox"` otherwise.
+	 */
+	yearSelectorVariant?: YearSelectorVariant;
+
+	/**
+	 * Callback fired when the year text-box inside the picker header loses focus.
+	 * Only relevant when `yearSelectorVariant="textbox"` (or auto-detected as textbox).
+	 */
+	onYearSelectorBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+
+	/**
+	 * Error message shown below the year text-box inside the picker header.
+	 * Only relevant when `yearSelectorVariant="textbox"` (or auto-detected as textbox).
+	 */
+	yearErrorMessage?: string;
 
 	/**
 	 * If it's a date-range picker which means the range `{from, to}` in {@link selected} or {@link onDateRangeChange} is defined, a default footer

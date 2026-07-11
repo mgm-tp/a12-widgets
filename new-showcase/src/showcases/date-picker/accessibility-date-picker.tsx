@@ -42,7 +42,8 @@ export function AccessibilityDatePickerShowcase(): ReactElement {
 				label="Accessible Date Picker"
 				helperText="Open the calendar to see accessibility attributes in action"
 				datePickerProps={{
-					"aria-label": "Desktop Accessible Date Picker"
+					"aria-label": "Desktop Accessible Date Picker",
+					yearSelectorVariant: "select"
 				}}
 				datePickerDialogProps={{ htmlAttributes: { "aria-label": "Mobile Accessible Date Picker" } }}
 			/>

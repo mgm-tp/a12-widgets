@@ -324,3 +324,67 @@ export const itemWithVariants: MenuItem[] = [
 	{ label: "Warning", variant: "warning" },
 	{ label: "Done", variant: "done" }
 ];
+export const scrollTestItems = [
+	{
+		label: "1",
+		className: "additional-class",
+		items: [
+			{ label: "1.1", className: "additional-class", icon: <Icon>cake</Icon> },
+			{ label: "1.2", icon: <Icon>card_giftcard</Icon> },
+			{ label: "1.3", icon: <Icon>local_florist</Icon>, disabled: true }
+		],
+		icon: <Icon>dvr</Icon>
+	},
+	{ label: "2" },
+	{ label: "3", disabled: true },
+	{
+		label: "4 with very long label that will not fit in there",
+		items: [
+			{
+				label: "First",
+				items: [
+					{ label: "1st Menu" },
+					{ label: "2nd Menu" },
+					{ label: "3rd Menu" },
+					{ label: "4th Menu" },
+					{ label: "5th Menu" },
+					{ label: "6th Menu" },
+					{ label: "7th Menu" }
+				]
+			},
+			{ label: "Second", disabled: true },
+			{
+				label: "Third",
+				items: [
+					{ label: "3.1st Menu", selected: true },
+					{ label: "3.2nd Menu" },
+					{ label: "3.3rd Menu" },
+					{ label: "3.4th Menu" },
+					{ label: "3.5th Menu" },
+					{ label: "3.6th Menu" }
+				]
+			},
+			{
+				label: "K Menu",
+				items: [
+					{ label: "A Menu" },
+					{ label: "B Menu" },
+					{ label: "C Menu" },
+					{ label: "D Menu" },
+					{ label: "E Menu" },
+					{ label: "F Menu" }
+				]
+			}
+		]
+	},
+	{ label: "5" },
+	{ label: "6" },
+	{ label: "Settings", icon: <Icon>settings</Icon>, title: "Settings", labelHidden: true },
+	{ label: "X Menu" },
+	{ label: "Y Menu" },
+	{
+		label: "Z Menu",
+		icon: <Icon>screen_lock_portrait</Icon>,
+		items: [{ label: "Z.1 Menu" }, { label: "Z.2 Menu", disabled: true }, { label: "Z.3 Menu", disabled: true }]
+	}
+];

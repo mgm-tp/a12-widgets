@@ -30,15 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { MutableRefObject, RefObject, SetStateAction } from "react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import type { RefObject, SetStateAction } from "react";
+import { useCallback, useEffect, useEffectEvent, useRef, useState } from "react";
 import { Key } from "ts-key-enum";
 
 import type { GenericCallback } from "./utils.js";
 import { Key as CustomKey } from "./utils.js";
 
 export const useSelectedText = (
-	textWrapElement: MutableRefObject<HTMLElement | null>,
+	textWrapElement: RefObject<HTMLElement | null>,
 	isInteractive = true
 ): { isSelectedText: boolean } => {
 	const mouseDownPositionRef = useRef({
@@ -92,10 +92,10 @@ export const useStateWithCallback = <T>(
 		callbackRef.current?.(state);
 	}, [state]);
 
-	const setCallbackState = (newValue: SetStateAction<T>, callback?: GenericCallback<[T]>): void => {
+	const setCallbackState = useCallback((newValue: SetStateAction<T>, callback?: GenericCallback<[T]>): void => {
 		callbackRef.current = callback;
 		setState(newValue);
-	};
+	}, []);
 
 	return [state, setCallbackState];
 };
@@ -136,7 +136,7 @@ export const useArrowKeyNavigation = ({
 	allowAllDirections = false,
 	allowTabNavigation = false
 }: {
-	elementRef: MutableRefObject<HTMLElement | null>;
+	elementRef: RefObject<HTMLElement | null>;
 	selector?: string;
 	orientation?: "vertical" | "horizontal";
 	allowAllDirections?: boolean;
@@ -331,6 +331,25 @@ export function useLastInteractionType(): InteractionType {
 
 	return lastType;
 }
+
+/** A hook similar to useEffect but skips running the effect for the first time. */
+export const useUpdateEffect: typeof useEffect = (effect, deps) => {
+	const isMounted = useRef(false);
+	// Avoids stale closure — effect always sees latest values without being added to deps.
+	const effectCallback = useEffectEvent(effect);
+
+	useEffect(
+		() => {
+			if (!isMounted.current) {
+				isMounted.current = true;
+			} else {
+				return effectCallback();
+			}
+		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		deps
+	);
+};
 
 export const useEffectWithDebounce = (effect: () => void | (() => void), deps: unknown[], delay: number): void => {
 	const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);

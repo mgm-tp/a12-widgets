@@ -36,16 +36,23 @@ import { useState } from "react";
 import { YearSelector } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export const CustomYearRangeSelectorExample: FC = () => {
-	const [year, setYear] = useState(2023);
+	const [year, setYear] = useState<number | undefined>(2023);
+
+	const handleYearChange = (newYear: number | undefined): void => {
+		setYear(newYear);
+	};
 
 	return (
 		<div className="-u-width-full">
 			<YearSelector
 				id="custom-year-range-selector"
 				label="Custom year selection range"
+				variant="autocomplete"
 				yearRange={{ start: 1994, end: 2030 }}
 				year={year}
-				onYearChange={setYear}
+				onYearChange={handleYearChange}
+				placeholder="Select a year"
+				autocompleteHintTemplate="{count} of {total} options shown"
 			/>
 		</div>
 	);

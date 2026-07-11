@@ -42,7 +42,7 @@ import type { IconProps } from "../../icon/main/icon.api.js";
 import { StyledIconWrapper, StyledVariantIconWrapper } from "../../icon/main/icon.view.js";
 import { StyledProgressBar } from "../../progress-bar/main/progress-bar.view.js";
 import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
-import { StyledTooltipWrapper } from "../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 import { StyledTinyBadgeWrapper } from "../../badge/main/badge.view.js";
 import {
 	StyledLoadingCircle,
@@ -357,7 +357,7 @@ export const StyledButton = styled.button.withConfig({ displayName: "StyledButto
 				css`
 					${transparentOutlineOnHover}
 
-					${StyledTooltipWrapper} && {
+					${StyledTooltipTriggerWrapper} && {
 						font-size: ${tooltip.iconFontSize};
 						height: fit-content;
 						min-height: 0;
@@ -509,10 +509,10 @@ export const StyledButton = styled.button.withConfig({ displayName: "StyledButto
 				&& ${StyledIconWrapper} {
 					color: inherit;
 				}
-				${StyledTooltipWrapper} & ${StyledIconWrapper} {
+				${StyledTooltipTriggerWrapper} & ${StyledIconWrapper} {
 					font-size: ${tooltip.iconFontSize};
 				}
-				${StyledTooltipWrapper} && {
+				${StyledTooltipTriggerWrapper} && {
 					color: ${button.iconButton.disabled.color};
 					width: auto;
 					height: auto;

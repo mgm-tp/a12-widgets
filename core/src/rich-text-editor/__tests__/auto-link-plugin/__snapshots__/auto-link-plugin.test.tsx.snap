@@ -3,12 +3,11 @@
 exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Emails 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:test."foo".bar@gmail.co.uk"
       target="_blank"
     >
@@ -25,8 +24,7 @@ HTMLCollection [
 "
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:test@example.com"
       target="_blank"
     >
@@ -43,8 +41,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:name@example.com"
       target="_blank"
     >
@@ -61,8 +58,7 @@ HTMLCollection [
 &gt;&gt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:name@example.com"
       target="_blank"
     >
@@ -79,8 +75,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:name@example.com"
       target="_blank"
     >
@@ -97,8 +92,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="MAILTO:NAME@EXAMPLE.COM"
       target="_blank"
     >
@@ -115,8 +109,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:foo_bar@example.com"
       target="_blank"
     >
@@ -133,8 +126,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:foo+bar@gmail.com"
       target="_blank"
     >
@@ -151,8 +143,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:192.168.1.1@gmail.com"
       target="_blank"
     >
@@ -169,8 +160,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:foo@bar"
       target="_blank"
     >
@@ -187,8 +177,7 @@ HTMLCollection [
 (foobar 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:email@example.com"
       target="_blank"
     >
@@ -205,8 +194,7 @@ HTMLCollection [
 (
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:email@example.com"
       target="_blank"
     >
@@ -223,8 +211,7 @@ HTMLCollection [
 (
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:email@example.com"
       target="_blank"
     >
@@ -246,8 +233,8 @@ HTMLCollection [
 exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Fuzzy links 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <span
       data-lexical-text="true"
@@ -255,8 +242,7 @@ HTMLCollection [
       test.example@
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://vk.com"
       target="_blank"
     >
@@ -273,8 +259,7 @@ HTMLCollection [
 text:
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/"
       target="_blank"
     >
@@ -291,8 +276,7 @@ text:
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://google.com"
       target="_blank"
     >
@@ -309,8 +293,7 @@ text:
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://google.com"
       target="_blank"
     >
@@ -327,8 +310,7 @@ text:
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://s.l.o.w.io"
       target="_blank"
     >
@@ -345,8 +327,7 @@ text:
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://a-b.com"
       target="_blank"
     >
@@ -363,8 +344,7 @@ text:
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://GOOGLE.COM"
       target="_blank"
     >
@@ -381,8 +361,7 @@ text:
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://google.xxx"
       target="_blank"
     >
@@ -405,10 +384,10 @@ exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle
 HTMLCollection [
   <p
     class="editor-paragraph"
+    dir="auto"
   >
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://✪df.ws/123"
       target="_blank"
     >
@@ -425,8 +404,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://xn--df-oiy.ws/123"
       target="_blank"
     >
@@ -443,8 +421,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://a.ws"
       target="_blank"
     >
@@ -461,8 +438,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://➡.ws/䨹"
       target="_blank"
     >
@@ -479,8 +455,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/䨹"
       target="_blank"
     >
@@ -497,8 +472,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://президент.рф"
       target="_blank"
     >
@@ -515,8 +489,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://www.bürgerentscheid-krankenhäuser.de"
       target="_blank"
     >
@@ -533,8 +506,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://www.xn--brgerentscheid-krankenhuser-xkc78d.de"
       target="_blank"
     >
@@ -551,8 +523,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg"
       target="_blank"
     >
@@ -569,8 +540,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg"
       target="_blank"
     >
@@ -587,8 +557,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://ﻡﻮﻘﻋ.ﻭﺯﺍﺭﺓ-ﺍﻼﺘﺻﺍﻼﺗ.ﻢﺻﺭ/"
       target="_blank"
     >
@@ -605,8 +574,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/"
       target="_blank"
     >
@@ -623,8 +591,8 @@ HTMLCollection [
 exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Links surrounded by special characters 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <span
       data-lexical-text="true"
@@ -632,8 +600,7 @@ HTMLCollection [
       (Scoped 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -650,8 +617,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar_(wiki)"
       target="_blank"
     >
@@ -668,8 +634,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://foo.com/blah_blah_[other]"
       target="_blank"
     >
@@ -686,8 +651,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://foo.com/blah_blah_{I'm_king}"
       target="_blank"
     >
@@ -704,8 +668,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://foo.com/blah_blah_I'm_king"
       target="_blank"
     >
@@ -722,8 +685,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://www.kmart.com/bestway-10'-x-30inch-steel-pro-frame-pool/p-004W007538417001P"
       target="_blank"
     >
@@ -740,8 +702,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://foo.com/blah_blah_"doublequoted""
       target="_blank"
     >
@@ -758,8 +719,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://foo.com/blah_blah_'singlequoted'"
       target="_blank"
     >
@@ -776,8 +736,7 @@ HTMLCollection [
 (Scoped like 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -794,8 +753,7 @@ HTMLCollection [
 [Scoped like 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -812,8 +770,7 @@ HTMLCollection [
 {Scoped like 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -830,8 +787,7 @@ HTMLCollection [
 "Quoted like 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -848,8 +804,7 @@ HTMLCollection [
 'Quoted like 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -866,8 +821,7 @@ HTMLCollection [
 [
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar.jpg"
       target="_blank"
     >
@@ -884,8 +838,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar.jpg"
       target="_blank"
     >
@@ -902,8 +855,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar/"
       target="_blank"
     >
@@ -920,8 +872,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -938,8 +889,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://index-of.es/Android/Professional.Android.2.Application.Development.(Wrox,.2010,.0470565527).pdf"
       target="_blank"
     >
@@ -956,8 +906,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://github.com/markdown-it/linkify-it/compare/360b13a733f521a8d4903d3a5e1e46c357e9d3ce...f580766349525150a80a32987bb47c2d592efc33"
       target="_blank"
     >
@@ -974,8 +923,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://www.google.com/search?sxsrf=ACYBGNTJFmX-GjNJ8fM-2LCkqyNyxGU1Ng%3A1575534146332&ei=Qr7oXf7rE4rRrgSEgrmoAw&q=clover&oq=clover&gs_l=psy-ab.3..0i67j0l9.2986.3947..4187...0.2..0.281.1366.1j0j5......0....1..gws-wiz.......0i71j35i39j0i131.qWp1nz4IJVA&ved=0ahUKEwj-lP6Iip7mAhWKqIsKHQRBDjUQ4dUDCAs&uact=5"
       target="_blank"
     >
@@ -992,8 +940,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://ourworldindata.org/grapher/covid-deaths-days-since-per-million?zoomToSelection=true&time=9..&country=FRA+DEU+ITA+ESP+GBR+USA+CAN"
       target="_blank"
     >
@@ -1010,8 +957,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -1028,8 +974,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://172.26.142.48/viewerjs/#../0529/slides.pdf"
       target="_blank"
     >
@@ -1046,8 +991,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar"
       target="_blank"
     >
@@ -1064,8 +1008,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar?p=10"
       target="_blank"
     >
@@ -1082,8 +1025,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://www.google.ru/maps/@59.9393895,30.3165389,15z?hl=ru"
       target="_blank"
     >
@@ -1100,8 +1042,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://www.google.com/maps/place/New+York,+NY,+USA/@40.702271,-73.9968471,11z/data=!4m2!3m1!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62?hl=en"
       target="_blank"
     >
@@ -1118,8 +1059,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://www.google.com/analytics/web/?hl=ru&pli=1#report/visitors-overview/a26895874w20458057p96934174/"
       target="_blank"
     >
@@ -1136,8 +1076,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://business.timesonline.co.uk/article/0,,9065-2473189,00.html"
       target="_blank"
     >
@@ -1154,8 +1093,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://google.com/mail/u/0/#label/!!!Today/15c9b8193da01e65"
       target="_blank"
     >
@@ -1172,8 +1110,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/123"
       target="_blank"
     >
@@ -1190,8 +1127,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/123"
       target="_blank"
     >
@@ -1208,8 +1144,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo--bar"
       target="_blank"
     >
@@ -1226,8 +1161,7 @@ HTMLCollection [
 See 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/123"
       target="_blank"
     >
@@ -1244,8 +1178,7 @@ See
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/123;123"
       target="_blank"
     >
@@ -1263,10 +1196,10 @@ exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle
 HTMLCollection [
   <p
     class="editor-paragraph"
+    dir="auto"
   >
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://www.bloomberg.com/news/articles/2015-06-26/from-deutsche-bank-to-siemens-what-s-troubling-germany-inc-"
       target="_blank"
     >
@@ -1283,8 +1216,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo-with-trailing-dash-dot-"
       target="_blank"
     >
@@ -1301,8 +1233,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://domain.com"
       target="_blank"
     >
@@ -1319,8 +1250,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://domain.com"
       target="_blank"
     >
@@ -1337,8 +1267,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://domain.com/foo"
       target="_blank"
     >
@@ -1355,8 +1284,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://domain.com/foo"
       target="_blank"
     >
@@ -1373,8 +1301,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://domain.com"
       target="_blank"
     >
@@ -1391,8 +1318,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://domain.com"
       target="_blank"
     >
@@ -1409,8 +1335,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://domain.com/foo"
       target="_blank"
     >
@@ -1427,8 +1352,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:user@domain.com"
       target="_blank"
     >
@@ -1445,8 +1369,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:user@domain.com"
       target="_blank"
     >
@@ -1463,8 +1386,7 @@ HTMLCollection [
 &lt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:user@domain.com"
       target="_blank"
     >
@@ -1481,8 +1403,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://5b0ee223b312746c1659db3f--thelounge-chat.netlify.com/docs/"
       target="_blank"
     >
@@ -1499,8 +1420,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://www.a--b.com"
       target="_blank"
     >
@@ -1517,8 +1437,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://www.c--u.com"
       target="_blank"
     >
@@ -1535,8 +1454,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://a---b.com/"
       target="_blank"
     >
@@ -1553,8 +1471,8 @@ HTMLCollection [
 exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Not links 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <span
       data-lexical-text="true"
@@ -1599,12 +1517,11 @@ mailto:bar
 exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Protocol links 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="//localhost"
       target="_blank"
     >
@@ -1621,8 +1538,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="//test.123"
       target="_blank"
     >
@@ -1639,8 +1555,7 @@ HTMLCollection [
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://localhost:8000"
       target="_blank"
     >
@@ -1658,8 +1573,7 @@ HTMLCollection [
 My ssl 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://example.com"
       target="_blank"
     >
@@ -1676,8 +1590,7 @@ My ssl
 My 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="about:blank"
       target="_blank"
     >
@@ -1695,8 +1608,7 @@ My
 My ssl 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="//example.com"
       target="_blank"
     >
@@ -1718,8 +1630,8 @@ My ssl
 exports[`com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin > Should handle Regular links 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <span
       data-lexical-text="true"
@@ -1727,8 +1639,7 @@ HTMLCollection [
       My 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com"
       target="_blank"
     >
@@ -1745,8 +1656,7 @@ HTMLCollection [
 My 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/"
       target="_blank"
     >
@@ -1763,8 +1673,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/foo_bar/"
       target="_blank"
     >
@@ -1781,8 +1690,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://user:pass@example.com:8080"
       target="_blank"
     >
@@ -1799,8 +1707,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://user@example.com"
       target="_blank"
     >
@@ -1817,8 +1724,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://user@example.com:8080"
       target="_blank"
     >
@@ -1835,8 +1741,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://user:pass@example.com"
       target="_blank"
     >
@@ -1853,8 +1758,7 @@ My
 [https](
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="https://www.ibm.com"
       target="_blank"
     >
@@ -1870,8 +1774,7 @@ My
       )[mailto](
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="mailto:someone@ibm.com"
       target="_blank"
     >
@@ -1888,8 +1791,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com:8080"
       target="_blank"
     >
@@ -1906,8 +1808,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/?foo=bar"
       target="_blank"
     >
@@ -1924,8 +1825,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com?foo=bar"
       target="_blank"
     >
@@ -1942,8 +1842,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com/#foo=bar"
       target="_blank"
     >
@@ -1960,8 +1859,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com#foo=bar"
       target="_blank"
     >
@@ -1978,8 +1876,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://a.in"
       target="_blank"
     >
@@ -1996,8 +1893,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="HTTP://GOOGLE.COM"
       target="_blank"
     >
@@ -2014,8 +1910,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.invalid"
       target="_blank"
     >
@@ -2032,8 +1927,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://inrgess2"
       target="_blank"
     >
@@ -2050,8 +1944,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://999"
       target="_blank"
     >
@@ -2068,8 +1961,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://host-name"
       target="_blank"
     >
@@ -2086,8 +1978,7 @@ My
 &gt;&gt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com"
       target="_blank"
     >
@@ -2104,8 +1995,7 @@ My
 &gt;&gt;
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://example.com"
       target="_blank"
     >
@@ -2122,8 +2012,7 @@ My
 
     </span>
     <a
-      class="editor-link ltr"
-      dir="ltr"
+      class="editor-link"
       href="http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html"
       target="_blank"
     >

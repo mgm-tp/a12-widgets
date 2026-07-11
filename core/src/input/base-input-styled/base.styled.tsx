@@ -34,7 +34,7 @@ import { styled, css } from "styled-components";
 
 import { breakWord } from "../../theme/base/mixins/_break-word.js";
 import { active, hover, inputDarkFocus } from "../../theme/base/mixins/_interaction.js";
-import { StyledTooltipWrapper } from "../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 import { StyledContentBoxFooter } from "../../contentbox/main/template/contentbox.tpl.styled.js";
 import { SubHeadingElements } from "../../contentbox/main/template/elements/sub-heading.tpl.view.js";
 import { StyledButton } from "../../button/main/button.styled.js";
@@ -70,7 +70,7 @@ export namespace StyledBaseInput {
 	export const StyledFieldAffixText = styled.div.withConfig({ displayName: "StyledFieldAffixText-sc-" })<{
 		$truncated?: boolean;
 	}>(({ theme, $truncated }) => {
-		const { textSuffix } = theme.components.textLine;
+		const { textSuffix } = theme.components.textField;
 		const { input } = theme.applicationStyles;
 
 		return css`
@@ -177,7 +177,8 @@ export namespace StyledBaseInput {
 
 	export const StyledFieldSuffixWrapper = styled.div.withConfig({ displayName: "StyledFieldSuffixWrapper-sc-" })<{
 		$first?: boolean;
-	}>(({ theme, $first }) => {
+		$negativeMargin?: boolean;
+	}>(({ theme, $first, $negativeMargin = true }) => {
 		const { baseInput } = theme.components;
 		const { input } = theme.applicationStyles;
 
@@ -195,12 +196,17 @@ export namespace StyledBaseInput {
 			}
 
 			${$first &&
+			$negativeMargin &&
 			css`
 				margin-left: -${baseInput.input.horizontalSpacing};
 			`}
-			${StyledFieldAffixText} {
-				margin: 0 0 0 ${baseInput.input.horizontalSpacing};
-			}
+
+			${!($first && !$negativeMargin) &&
+			css`
+				${StyledFieldAffixText} {
+					margin: 0 0 0 ${baseInput.input.horizontalSpacing};
+				}
+			`}
 		`;
 	});
 
@@ -358,7 +364,7 @@ export namespace StyledBaseInput {
 		$phone?: boolean;
 		$disabled?: boolean;
 	}>(({ theme, $block, $phone, $disabled }) => {
-		const { textLine } = theme.components;
+		const { textField } = theme.components;
 
 		return css`
 			display: inline-flex;
@@ -370,8 +376,8 @@ export namespace StyledBaseInput {
 			css`
 				${StyledFieldMain} ${StyledFieldTextInput} {
 					// Increase font-size on phone to avoid zooming on focus
-					font-size: ${textLine.mobile?.fontSize};
-					height: ${textLine.mobile?.height};
+					font-size: ${textField.mobile?.fontSize};
+					height: ${textField.mobile?.height};
 				}
 			`}
 
@@ -419,7 +425,7 @@ export namespace StyledBaseInput {
 				flex-grow: 1;
 				width: 100%;
 			`}
-			> ${StyledTooltipWrapper} {
+			> ${StyledTooltipTriggerWrapper} {
 				margin: ${!$hasTooltips && input.tooltipInNewLineMargin};
 			}
 
@@ -433,7 +439,7 @@ export namespace StyledBaseInput {
 
 			${$hasTooltips &&
 			css`
-				${StyledTooltipWrapper} {
+				${StyledTooltipTriggerWrapper} {
 					align-self: center;
 					flex-shrink: 0;
 					text-align: right;
@@ -447,7 +453,7 @@ export namespace StyledBaseInput {
 						max-width: 100%;
 						vertical-align: middle;
 
-						~ ${StyledTooltipWrapper} {
+						~ ${StyledTooltipTriggerWrapper} {
 							margin: ${tooltip.nextToLabelMargin};
 						}
 					}

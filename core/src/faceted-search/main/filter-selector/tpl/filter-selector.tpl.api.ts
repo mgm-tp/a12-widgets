@@ -35,10 +35,10 @@ import type {
 	RefCallback,
 	KeyboardEvent,
 	MouseEvent,
-	ChangeEvent,
 	FocusEvent,
 	HTMLAttributes,
-	DetailedHTMLProps
+	DetailedHTMLProps,
+	InputEventHandler
 } from "react";
 
 import type { Container, Identifiable, Ref, Styleable } from "../../../../common/main/base-props.js";
@@ -137,7 +137,7 @@ export namespace FilterSelectorTemplateProps {
 		/**
 		 * A callback will be triggered when the Search Input receives a onChange event.
 		 */
-		onInput?(event: ChangeEvent<HTMLInputElement>): void;
+		onInput?: InputEventHandler<HTMLInputElement>;
 	}
 
 	export interface ListProps extends Container, Styleable, Identifiable, Ref<HTMLUListElement> {}

@@ -39,7 +39,7 @@ import { active, hover } from "../../../theme/base/mixins/_interaction.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { StyledFilterSelectorWrapper } from "../../../faceted-search/main/filter-selector/filter.selector.styled.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-import { StyledTooltipWrapper } from "../../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../../tooltip/main/tooltip.styled.js";
 import { getVerticalSpace } from "../../../common/main/utils.js";
 import type { DefaultThemeType } from "../../../theme/schema.js";
 import { createBorder } from "../../../theme/base/mixins/_borderEffects.js";
@@ -958,7 +958,7 @@ export const StyleMenuGroupWrapper = styled.li.withConfig({ displayName: "StyleM
 	return css`
 		display: flex;
 
-		${StyledTooltipWrapper} {
+		${StyledTooltipTriggerWrapper} {
 			height: 100%;
 			margin: auto;
 			padding-top: ${getVerticalSpace("top", link.padding)};

@@ -1,0 +1,387 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FilterSelector – new items-based list mode > renders items in list mode when listMode prop is provided 1`] = `
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+.c6 {
+  box-sizing: border-box;
+  background-color: transparent;
+  display: flex;
+  min-height: 32px;
+  outline: none;
+  padding: 2px 12px;
+  position: relative;
+}
+
+.c6:hover [class*="StyledTypographyHeaderActions"],
+.c6:focus-within [class*="StyledTypographyHeaderActions"] {
+  opacity: 1;
+}
+
+.c6:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"],
+.c6:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] {
+  border-radius: 4px;
+}
+
+.c6:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"] .c10,
+.c6:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"] .c10 {
+  color: inherit;
+}
+
+.c6:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c10,
+.c6:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c10 {
+  color: inherit;
+}
+
+.c9 {
+  align-items: center;
+  display: flex;
+  height: 22px;
+  margin: 0px 4px 0px 0px;
+  align-self: flex-start;
+}
+
+.c9 .c10 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  border-radius: 50%;
+  color: inherit;
+  display: flex;
+  font-size: 1.125rem;
+  height: 1.5rem;
+  justify-content: center;
+  width: 1.5rem;
+}
+
+.c4 {
+  color: rgb(77, 87, 102);
+  font-family: "Open Sans", sans-serif;
+  font-size: calc(0.75rem);
+  font-weight: 700;
+  margin: 8px 0px 0px;
+  outline: none;
+  padding: 0px 0px 8px;
+  text-transform: unset;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c4 .c10 {
+  background-color: transparent;
+}
+
+.c4:has(.StyledTypographyHeaderActions-sc-jjfBq:hover) .c5 {
+  box-shadow: none;
+}
+
+.c4:focus-within .c5 {
+  background-color: transparent;
+  box-shadow: rgb(5, 104, 174) 0px 0px 0px 2px inset;
+}
+
+.c4:has(.StyledTypographyHeaderActions-sc-jjfBq:focus-within) .c5 {
+  box-shadow: none;
+}
+
+.c7 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  align-items: center;
+  align-self: center;
+  color: inherit;
+  display: flex;
+  flex-flow: row;
+  flex: 1 1 0%;
+  outline: none;
+  padding: 0px 8px 0px 0px;
+  position: relative;
+  justify-content: space-between;
+}
+
+.c8 > * {
+  display: inline;
+}
+
+.c12 {
+  color: rgb(77, 77, 77);
+  margin: 0px 0px 16px;
+  padding: 0px;
+}
+
+.c2 {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.c1 {
+  flex: 1 1 0%;
+  overflow-y: auto;
+}
+
+.c3 [data-role="typography-body"] {
+  padding: 0px 12px;
+}
+
+.c3 [data-role="typography-body"],
+.c3 [data-role="typography-headline"] {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.c13 {
+  border-bottom: 1px solid rgb(226, 230, 233);
+  margin: 20px 12px 12px;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c4:active .c5 {
+    background-color: transparent;
+    box-shadow: rgb(5, 104, 174) 0px 0px 0px 2px inset;
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover .c5 {
+    background-color: transparent;
+    box-shadow: rgb(5, 104, 174) 0px 0px 0px 2px inset;
+  }
+}
+
+<div
+  class="c0"
+  tabindex="-1"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class=""
+    >
+      <div
+        class="c2 typography-section c3"
+        data-role="typography-section"
+      >
+        <div
+          aria-level="5"
+          class="c4 typography-headline typography-headline--5 typography-headline--collapsible"
+          data-role="typography-headline"
+          role="heading"
+        >
+          <div
+            class="c5 c6 typography-headline__wrapper"
+            data-role="typography-headline-wrapper"
+          >
+            <div
+              class="c7 typography-headline__title"
+              data-role="typography-headline-title"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="c8"
+              >
+                <div
+                  class="typography-headline__label"
+                  data-role="typography-headline-label"
+                >
+                  Language
+                </div>
+              </div>
+              <div
+                class="c9 typography-headline__graphic"
+                data-role="typography-headline-graphic"
+              >
+                <i
+                  class="c10 c11 plasma-icon"
+                  data-role="plasma-icon"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    keyboard_arrow_down
+                  </span>
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c12 typography-body"
+          data-role="typography-body"
+        >
+          <div
+            data-testid="language-content"
+          >
+            Language filter content
+          </div>
+        </div>
+        <div
+          class="c13"
+        />
+      </div>
+      <div
+        class="c2 typography-section c3"
+        data-role="typography-section"
+      >
+        <div
+          aria-level="5"
+          class="c4 typography-headline typography-headline--5 typography-headline--collapsible"
+          data-role="typography-headline"
+          role="heading"
+        >
+          <div
+            class="c5 c6 typography-headline__wrapper"
+            data-role="typography-headline-wrapper"
+          >
+            <div
+              class="c7 typography-headline__title"
+              data-role="typography-headline-title"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="c8"
+              >
+                <div
+                  class="typography-headline__label"
+                  data-role="typography-headline-label"
+                >
+                  Price
+                </div>
+              </div>
+              <div
+                class="c9 typography-headline__graphic"
+                data-role="typography-headline-graphic"
+              >
+                <i
+                  class="c10 c11 plasma-icon"
+                  data-role="plasma-icon"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    keyboard_arrow_down
+                  </span>
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c12 typography-body"
+          data-role="typography-body"
+        >
+          <div
+            data-testid="price-content"
+          >
+            Price filter content
+          </div>
+        </div>
+        <div
+          class="c13"
+        />
+      </div>
+      <div
+        class="c2 typography-section c3"
+        data-role="typography-section"
+      >
+        <div
+          aria-level="5"
+          class="c4 typography-headline typography-headline--5 typography-headline--collapsible"
+          data-role="typography-headline"
+          role="heading"
+        >
+          <div
+            class="c5 c6 typography-headline__wrapper"
+            data-role="typography-headline-wrapper"
+          >
+            <div
+              class="c7 typography-headline__title"
+              data-role="typography-headline-title"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="c8"
+              >
+                <div
+                  class="typography-headline__label"
+                  data-role="typography-headline-label"
+                >
+                  Format
+                </div>
+              </div>
+              <div
+                class="c9 typography-headline__graphic"
+                data-role="typography-headline-graphic"
+              >
+                <i
+                  class="c10 c11 plasma-icon"
+                  data-role="plasma-icon"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    keyboard_arrow_down
+                  </span>
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c12 typography-body"
+          data-role="typography-body"
+        >
+          <div
+            data-testid="format-content"
+          >
+            Format filter content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -44,7 +44,7 @@ export function Basic(): ReactElement {
 
 	return (
 		<TextField
-			id="basic-text-line"
+			id="basic-text-field"
 			value={inputValue}
 			onChange={handleInputChange}
 			label="Basic Text Field"

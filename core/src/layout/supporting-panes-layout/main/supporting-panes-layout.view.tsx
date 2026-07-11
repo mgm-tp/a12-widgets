@@ -55,8 +55,6 @@ export namespace SupportingPanesLayoutComponents {
 		);
 	};
 
-	SupportingPanesLayout.displayName = "SupportingPanesLayout";
-
 	export const PrimaryPane = SPLPrimaryPane;
 	export const SecondaryPane = SPLSecondaryPane;
 }

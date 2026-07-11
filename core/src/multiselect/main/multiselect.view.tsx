@@ -33,7 +33,6 @@
 import type { ContextType, FocusEvent, MouseEvent, ChangeEvent, KeyboardEvent, ReactNode } from "react";
 import { Component } from "react";
 import { Key } from "ts-key-enum";
-import { cloneDeep } from "lodash-es";
 
 import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
 import {
@@ -53,6 +52,7 @@ import type { DropDown } from "../../dropdown/main/template/dropdown.tpl.view.js
 import type { MultiselectProps } from "./multiselect.api.js";
 import { MultiselectTemplate } from "./multiselect.tpl.view.js";
 import {
+	cloneItems,
 	getFlattenItems,
 	defaultGroupingHandler,
 	defaultFilteringHandler,
@@ -101,7 +101,7 @@ export class Multiselect extends Component<MultiselectProps, MultiselectState> {
 
 	constructor(props: MultiselectProps) {
 		super(props);
-		const clonedItems = cloneDeep(props.items);
+		const clonedItems = cloneItems(props.items);
 		const flattenItems = getFlattenItems(clonedItems);
 		const selectedItems = flattenItems.filter((item) => item.selected);
 
@@ -382,7 +382,7 @@ export class Multiselect extends Component<MultiselectProps, MultiselectState> {
 		const filteringHandler = this.props.filteringHandler || defaultFilteringHandler;
 
 		if (searchText !== "" && !this.prevViewItems) {
-			this.prevViewItems = cloneDeep(this.state.viewItems);
+			this.prevViewItems = cloneItems(this.state.viewItems);
 		}
 
 		// Combine items from props.items and state.selectedItems to make sure this filter func will work correctly
@@ -717,7 +717,7 @@ export class Multiselect extends Component<MultiselectProps, MultiselectState> {
 		this.setState((state) => {
 			const { groupingHandler = defaultGroupingHandler, sortingHandler, items } = this.props;
 
-			const flattenedItems = getFlattenItems(cloneDeep(items));
+			const flattenedItems = getFlattenItems(cloneItems(items));
 			const initiallySelectedItems = flattenedItems.filter((item) => item.selected);
 
 			// Apply grouping + sorting (used when dropdown is closed)
@@ -770,7 +770,7 @@ export class Multiselect extends Component<MultiselectProps, MultiselectState> {
 	componentDidUpdate(prevProps: Readonly<MultiselectProps>, prevState: Readonly<MultiselectState>): void {
 		this.updateElementPosition?.();
 
-		const itemsChanged = getFlattenItems(prevProps.items) !== getFlattenItems(this.props.items);
+		const itemsChanged = prevProps.items !== this.props.items;
 		const dropdownStateChanged = prevState.showDropdown !== this.state.showDropdown;
 
 		if (itemsChanged || (!this.state.showDropdown && dropdownStateChanged)) {

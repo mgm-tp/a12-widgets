@@ -147,8 +147,6 @@ export namespace NewComment {
 			/>
 		);
 	}
-
-	Input.displayName = "NewComment.Input";
 }
 
 function isNewCommentMeta(object: NewCommentMeta | ReactNode): object is NewCommentMeta {

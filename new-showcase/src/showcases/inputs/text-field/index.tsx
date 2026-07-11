@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import TextLineAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/text-line/main/template/text-line.tpl.api.json" with { type: "json" };
+import TextFieldAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/text-field/main/template/text-field.tpl.api.json" with { type: "json" };
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../../helpers/definitions.js";
@@ -165,7 +165,7 @@ export default {
 	label: "Text Field",
 	structure: showcases,
 	widgetInfo: {
-		typedoc: [{ declaration: TextLineAPI }],
-		themingConfiguration: "textLine"
+		typedoc: [{ declaration: TextFieldAPI }],
+		themingConfiguration: "textField"
 	}
 };

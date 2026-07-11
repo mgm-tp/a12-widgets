@@ -124,6 +124,4 @@ export namespace Breadcrumb {
 			</StyledBreadcrumbItem>
 		);
 	}
-
-	Item.displayName = "Breadcrumb.Item";
 }

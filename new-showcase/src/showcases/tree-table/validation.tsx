@@ -394,7 +394,7 @@ const TREE: ValidationFileNode = {
 					id: "validation-38",
 					data: {
 						released: "< 21.0.0",
-						cells: ["TextLine", ...createTableData()],
+						cells: ["TextField", ...createTableData()],
 						variant: "warning"
 					}
 				},

@@ -52,18 +52,20 @@ export interface InteractionHintConfigContextProps extends InteractionHintBehavi
 }
 
 /** @internal */
-export const DEFAULT_CONTEXT_VALUE: InteractionHintConfigContextProps = {
+export const DEFAULT_INTERACTION_HINT_CONTEXT_VALUE: InteractionHintConfigContextProps = {
 	enableInteractionHint: false,
 	followCursor: false,
 	hideArrow: false
 };
 
-export const InteractionHintConfigContext = createContext<InteractionHintConfigContextProps>(DEFAULT_CONTEXT_VALUE);
+export const InteractionHintConfigContext = createContext<InteractionHintConfigContextProps>(
+	DEFAULT_INTERACTION_HINT_CONTEXT_VALUE
+);
 
 export const InteractionHintConfigProvider = (props: InteractionHintConfigContextProps & Container): ReactNode => {
 	const { children, ...config } = props;
 
-	const contextValue = useMemo(() => merge(DEFAULT_CONTEXT_VALUE, config), [config]);
+	const contextValue = useMemo(() => merge(DEFAULT_INTERACTION_HINT_CONTEXT_VALUE, config), [config]);
 
 	return <InteractionHintConfigContext.Provider value={contextValue}>{children}</InteractionHintConfigContext.Provider>;
 };

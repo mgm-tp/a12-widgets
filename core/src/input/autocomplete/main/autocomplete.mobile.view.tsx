@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ContextType, MouseEvent, KeyboardEvent, ChangeEvent, FocusEvent, ReactNode } from "react";
+import type { ContextType, MouseEvent, KeyboardEvent, InputEvent, FocusEvent, ReactNode } from "react";
 import { isValidElement, cloneElement, Component } from "react";
 import { Key } from "ts-key-enum";
 
@@ -324,7 +324,9 @@ export class MobileAutocomplete extends Component<AutocompleteProps, MobileAutoc
 		this.setState({ preselectedItem });
 	}
 
-	private handleInputChange({ target: { value } }: ChangeEvent<HTMLInputElement>): void {
+	private handleInputChange(event: InputEvent<HTMLInputElement>): void {
+		const value = (event.target as HTMLInputElement).value;
+
 		if (this.props.onSearch) {
 			this.setState({
 				inputText: value,

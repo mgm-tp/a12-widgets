@@ -141,7 +141,7 @@ export function ApplicationHeader(props: ApplicationHeaderProps) {
 		<StyledApplicationHeaderWrapper
 			className={joinClassNames(baseClassName, props.className)}
 			id={props.id}
-			role="banner"
+			role={props.role ?? "banner"}
 			style={props.style}
 			data-role={DataRoles.ApplicationHeader}
 		>

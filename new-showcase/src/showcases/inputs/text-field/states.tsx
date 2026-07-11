@@ -44,15 +44,21 @@ export function States(): ReactElement {
 
 	return (
 		<div className="-u-width-full">
-			<TextField id="text-line-info" value={inputValue} onChange={handleInputChange} label="Info state" info />
+			<TextField id="text-field-info" value={inputValue} onChange={handleInputChange} label="Info state" info />
 			<br />
-			<TextField id="text-line-warning" value={inputValue} onChange={handleInputChange} label="Warning state" warning />
+			<TextField
+				id="text-field-warning"
+				value={inputValue}
+				onChange={handleInputChange}
+				label="Warning state"
+				warning
+			/>
 			<br />
-			<TextField id="text-line-error" value={inputValue} onChange={handleInputChange} label="Error state" error />
+			<TextField id="text-field-error" value={inputValue} onChange={handleInputChange} label="Error state" error />
 			<br />
 			<br />
 			<TextField
-				id="text-line-info-message"
+				id="text-field-info-message"
 				value={inputValue}
 				onChange={handleInputChange}
 				label="Info Message"
@@ -60,7 +66,7 @@ export function States(): ReactElement {
 			/>
 			<br />
 			<TextField
-				id="text-line-warning-message"
+				id="text-field-warning-message"
 				value={inputValue}
 				onChange={handleInputChange}
 				label="Warning Message"
@@ -68,7 +74,7 @@ export function States(): ReactElement {
 			/>
 			<br />
 			<TextField
-				id="text-line-error-message"
+				id="text-field-error-message"
 				value={inputValue}
 				onChange={handleInputChange}
 				label="Error Message"
@@ -76,9 +82,9 @@ export function States(): ReactElement {
 			/>
 			<br />
 			<br />
-			<TextField id="text-line-readonly-value" value="example" label="Readonly with value" readonly />
+			<TextField id="text-field-readonly-value" value="example" label="Readonly with value" readonly />
 			<br />
-			<TextField id="text-line-disabled-value" value="example" label="Disabled with value" disabled />
+			<TextField id="text-field-disabled-value" value="example" label="Disabled with value" disabled />
 		</div>
 	);
 }

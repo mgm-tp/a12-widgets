@@ -130,8 +130,6 @@ export namespace BulletList {
 		);
 	}
 
-	Ordered.displayName = "BulletList.Ordered";
-
 	export function Unordered({
 		children,
 		className,
@@ -165,8 +163,6 @@ export namespace BulletList {
 		);
 	}
 
-	Unordered.displayName = "BulletList.Unordered";
-
 	export function Item(props: BulletListProps.ItemProps): ReactElement<BulletListProps.ItemProps> {
 		const { children, className, ...rest } = props;
 
@@ -180,6 +176,4 @@ export namespace BulletList {
 			</StyledBulletListItem>
 		);
 	}
-
-	Item.displayName = "BulletList.Item";
 }

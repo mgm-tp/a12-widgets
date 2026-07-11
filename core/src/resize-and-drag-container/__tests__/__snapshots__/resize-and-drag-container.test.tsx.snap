@@ -66,7 +66,7 @@ exports[`com.mgmtp.a12.widgets.resize-and-drag-container > customization-resizer
   transform-origin: left top;
 }
 
-.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+.c0 > :not(.StyledCalloutWrapper-sc-kSnJvc) {
   width: 100%;
 }
 
@@ -291,7 +291,7 @@ exports[`com.mgmtp.a12.widgets.resize-and-drag-container > draggable-container-w
   transform-origin: left top;
 }
 
-.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+.c0 > :not(.StyledCalloutWrapper-sc-kSnJvc) {
   width: 100%;
 }
 
@@ -491,7 +491,7 @@ exports[`com.mgmtp.a12.widgets.resize-and-drag-container > draggable-container-w
   transform-origin: left top;
 }
 
-.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+.c0 > :not(.StyledCalloutWrapper-sc-kSnJvc) {
   width: 100%;
 }
 
@@ -639,7 +639,7 @@ exports[`com.mgmtp.a12.widgets.resize-and-drag-container > resize-container-with
   transform-origin: left top;
 }
 
-.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+.c0 > :not(.StyledCalloutWrapper-sc-kSnJvc) {
   width: 100%;
 }
 
@@ -775,7 +775,7 @@ exports[`com.mgmtp.a12.widgets.resize-and-drag-container > resize-container-with
   transform-origin: left top;
 }
 
-.c0 > :not(.StyledCalloutWrapper-sc-iHTlaA) {
+.c0 > :not(.StyledCalloutWrapper-sc-kSnJvc) {
   width: 100%;
 }
 

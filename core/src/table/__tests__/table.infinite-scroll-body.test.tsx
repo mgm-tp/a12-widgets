@@ -36,8 +36,8 @@ import { describe, vi, expect, test } from "vitest";
 import { Range } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { InfiniteScrollBody } from "../new-api/table.infinite-scroll-body.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { InfiniteScrollBody } from "../main/table.infinite-scroll-body.view.js";
 
 describe("com.mgmtp.a12.widgets.table.infinite-scroll-body", () => {
 	const COLUMN_COUNT = 4;
@@ -153,66 +153,10 @@ describe("com.mgmtp.a12.widgets.table.infinite-scroll-body", () => {
 			</TableContextProvider>
 		);
 
-		const mainBodyRows = getAllByDataRole(container, DataRoles.Table.Body.Row).filter(
-			(el) => !el.closest("[aria-hidden='true']")
-		);
+		const mainBodyRows = getAllByDataRole(container, DataRoles.Table.Body.Row);
 		expect(mainBodyRows.length).toEqual(sparseData.length);
 
-		const mainPlaceholders = getAllByDataRole(container, DataRoles.Table.Body.Content.Placeholder).filter(
-			(el) => !el.closest("[aria-hidden='true']")
-		);
+		const mainPlaceholders = getAllByDataRole(container, DataRoles.Table.Body.Content.Placeholder);
 		expect(mainPlaceholders.length).toEqual(2);
-	});
-
-	test("renders an aria-hidden placeholder background layer to prevent blank during fast scrolling", () => {
-		const { container } = render(
-			<TableContextProvider
-				value={{
-					componentRenderers: DefaultTableComponentRenderers,
-					columns: [{ label: "Col" }]
-				}}
-			>
-				<InfiniteScrollBody
-					data={data}
-					infiniteScrollOptions={{
-						rowHeight: ROW_HEIGHT,
-						rowCount: ROW_COUNT,
-						rowLoadingStatus: () => "loaded",
-						loadData
-					}}
-				/>
-			</TableContextProvider>
-		);
-
-		const bgLayer = container.querySelector("[aria-hidden='true']");
-		expect(bgLayer).not.toBeNull();
-		expect(bgLayer?.tagName.toLowerCase()).toBe("div");
-	});
-
-	test("placeholder background layer fills viewport with Math.ceil(height / rowHeight) skeleton rows", () => {
-		const { container } = render(
-			<TableContextProvider
-				value={{
-					componentRenderers: DefaultTableComponentRenderers,
-					columns: [{ label: "Col" }]
-				}}
-			>
-				<InfiniteScrollBody
-					data={data}
-					infiniteScrollOptions={{
-						rowHeight: ROW_HEIGHT,
-						rowCount: ROW_COUNT,
-						rowLoadingStatus: () => "loaded",
-						loadData
-					}}
-				/>
-			</TableContextProvider>
-		);
-
-		const bgLayer = container.querySelector("[aria-hidden='true']") as HTMLElement;
-		const bgLayerHeight = bgLayer.offsetHeight;
-		const bgSkeletonRows = bgLayer.querySelectorAll(`[data-role='${DataRoles.Table.Body.Content.Placeholder}']`);
-
-		expect(bgSkeletonRows.length).toBe(Math.ceil(bgLayerHeight / ROW_HEIGHT));
 	});
 });

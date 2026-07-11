@@ -31,5 +31,5 @@
  */
 
 export * from "./tooltip-wrapper.view.js";
-export type { TooltipPluginProps, TooltipPluginWrapperProps } from "./tooltip.api.js";
-export { TooltipPlugin } from "./tooltip.view.js";
+export * from "./tooltip.api.js";
+export * from "./tooltip.view.js";

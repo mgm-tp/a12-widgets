@@ -33,7 +33,8 @@
 import { styled, css } from "styled-components";
 
 import { addPrefix } from "../../common/main/utils.js";
-import { StyledTooltipWrapper } from "../../tooltip/main/tooltip.styled.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 
 import {
 	StyledFieldLabel,
@@ -47,6 +48,8 @@ export const StyledMonthSelector = styled(NativeSelect).withConfig({ displayName
 
 export const StyledYearSelector = styled(NativeSelect).withConfig({ displayName: "StyledYearSelector-sc-" })``;
 
+export const StyledYearSelectorWrapper = styled.div.withConfig({ displayName: "StyledYearSelectorWrapper-sc-" })``;
+
 export const StyledYearMonthSelector = styled.div.withConfig({ displayName: "StyledYearMonthSelector-sc-" })<{
 	$numberOfTooltips?: number;
 }>(({ theme, $numberOfTooltips }) => {
@@ -59,13 +62,17 @@ export const StyledYearMonthSelector = styled.div.withConfig({ displayName: "Sty
 				min-width: ${yearMonthSelector.month.minWidth};
 			}
 
-			${StyledYearSelector} {
+			[data-role="${DataRoles.Year.Selector}"] {
 				flex: 1 1 35%;
 				margin: ${yearMonthSelector.year.margin};
 				min-width: ${yearMonthSelector.year.minWidth};
 			}
 
-			> ${StyledTooltipWrapper} {
+			[data-role="${DataRoles.Year.Selector}"]:not(${StyledYearSelector}) > * {
+				width: 100%;
+			}
+
+			> ${StyledTooltipTriggerWrapper} {
 				margin: ${baseInput.input.tooltipInNewLineMargin};
 				&:first-of-type {
 					width: auto;

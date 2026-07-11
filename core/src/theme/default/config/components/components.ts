@@ -90,8 +90,8 @@ import type { TypographyConfigType } from "./typography.config.js";
 import { typographyConfig } from "./typography.config.js";
 import type { BaseInputConfigType } from "./base-input.config.js";
 import { baseInputConfig } from "./base-input.config.js";
-import type { TextLineConfigType } from "./text-line.config.js";
-import { textLineConfig } from "./text-line.config.js";
+import type { TextFieldConfigType } from "./text-field.config.js";
+import { textFieldConfig } from "./text-field.config.js";
 import type { BreadcrumbConfigType } from "./breadcrumb.config.js";
 import { breadcrumbConfig } from "./breadcrumb.config.js";
 import type { DropdownConfigType } from "./dropdown.config.js";
@@ -265,7 +265,7 @@ export type DefaultComponentsType = {
 	tag: TagConfigType;
 	tagInput: TagInputConfigType;
 	textArea: TextAreaConfigType;
-	textLine: TextLineConfigType;
+	textField: TextFieldConfigType;
 	textOutput: TextOutputConfigType;
 	timePicker: TimePickerConfigType;
 	toast: ToastConfigType;
@@ -351,7 +351,7 @@ export const DefaultComponentsConfigs = (theme: BaseThemeType): DefaultComponent
 		tag: tagConfig(theme),
 		tagInput: tagInputConfig(theme),
 		textArea: textAreaConfig(theme),
-		textLine: textLineConfig(theme),
+		textField: textFieldConfig(theme),
 		textOutput: textOutputConfig(theme),
 		timePicker: timePickerConfig(theme),
 		toast: toastConfig(theme),

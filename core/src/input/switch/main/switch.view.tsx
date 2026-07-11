@@ -48,13 +48,17 @@ import {
 	StyledSwitchControl,
 	StyledSwitchInput,
 	StyledSwitchOption,
-	StyledSwitchThumbIcon
+	StyledSwitchThumbIcon,
+	StyledSwitchLabel,
+	StyledSwitchField,
+	StyledSwitchInlineWrapper
 } from "./switch.styled.js";
 
 export function Switch({
 	addonAfter: addonAfterProp,
 	ariaDescribedby,
 	checked,
+	checkedIcon,
 	checkedOption,
 	className,
 	disabled,
@@ -69,12 +73,14 @@ export function Switch({
 	inputProps,
 	label,
 	labelGraphic,
+	labelPosition = "top",
 	onBlur,
 	onChange,
 	onFocus,
 	readonly,
 	style,
 	tooltips: tooltipsProp,
+	uncheckedIcon,
 	uncheckedOption,
 	warning,
 	warningMessage
@@ -167,22 +173,68 @@ export function Switch({
 		}
 	};
 
+	const labelElement = (
+		<StyledSwitchLabel
+			id={id}
+			label={label}
+			graphic={labelGraphic}
+			hide={hideLabel}
+			disabled={disabled}
+			htmlFor={id}
+			dataRole={DataRoles.Switch.Label}
+			$labelPosition={labelPosition}
+			$isInteractive={!disabled && !readonly}
+		/>
+	);
+
+	const switchControl = (
+		<StyledSwitchControl className={switchClass} ref={switchRef} data-role={DataRoles.Switch.Control}>
+			{renderOption(uncheckedOption, DataRoles.Switch.UncheckedOption)}
+			<StyledSwitchInteractive
+				className={switchInteractiveClasses}
+				$warning={!!(warning || warningMessage)}
+				$error={!!(error || errorMessage)}
+				$readonly={readonly}
+				$disabled={disabled}
+				$checked={checked}
+				$focused={focused}
+				data-role={DataRoles.Switch.Interactive}
+			>
+				<StyledSwitchTrack className={switchClass + "__track"} />
+				<StyledSwitchThumb className={switchClass + "__thumb"}>
+					<StyledSwitchThumbIcon data-role={DataRoles.Switch.ThumbIcon}>
+						{checked ? (checkedIcon ?? <Icon>check</Icon>) : (uncheckedIcon ?? <Icon>remove</Icon>)}
+					</StyledSwitchThumbIcon>
+				</StyledSwitchThumb>
+				<StyledSwitchInput
+					{...inputProps}
+					as={undefined}
+					id={id}
+					className={switchClass + "__input"}
+					data-role={DataRoles.Switch.Input}
+					type="checkbox"
+					disabled={disabled || readonly}
+					checked={checked}
+					aria-checked={checked}
+					onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.currentTarget.checked, event)}
+					onFocus={onInputFocus}
+					onBlur={onInputBlur}
+					aria-describedby={joinClassNames(
+						{ [`${id}-warning`]: id && warningMessage },
+						{ [`${id}-error`]: id && errorMessage },
+						{ [`${id}-helperText`]: id && helperText },
+						ariaDescribedby
+					)}
+				/>
+			</StyledSwitchInteractive>
+			{renderOption(checkedOption, DataRoles.Switch.CheckedOption)}
+			{addonAfter}
+		</StyledSwitchControl>
+	);
+
 	return (
-		<StyledBaseInput.StyledField
-			$block={fitToParent}
-			className={wrapperClasses}
-			data-role={DataRoles.Switch}
-			style={style}
-		>
-			<InputElements.Label
-				id={id}
-				label={label}
-				graphic={labelGraphic}
-				hide={hideLabel}
-				disabled={disabled}
-				htmlFor={id}
-				dataRole={DataRoles.Switch.Label}
-			/>
+		<StyledSwitchField $block={fitToParent} className={wrapperClasses} data-role={DataRoles.Switch} style={style}>
+			{labelPosition === "top" && labelElement}
 			{tooltips}
 			{errorMessage && (
 				<InputElements.Error id={id} errorMessage={errorMessage} dataRole={DataRoles.Switch.ErrorMessage} />
@@ -191,46 +243,16 @@ export function Switch({
 				<InputElements.Warning id={id} warningMessage={warningMessage} dataRole={DataRoles.Switch.WarningMessage} />
 			)}
 			{infoMessage && <InputElements.Info id={id} infoMessage={infoMessage} dataRole={DataRoles.Switch.InfoMessage} />}
-			<StyledSwitchControl className={switchClass} ref={switchRef} data-role={DataRoles.Switch.Control}>
-				{renderOption(uncheckedOption, DataRoles.Switch.UncheckedOption)}
-				<StyledSwitchInteractive
-					className={switchInteractiveClasses}
-					$warning={!!(warning || warningMessage)}
-					$error={!!(error || errorMessage)}
-					$readonly={readonly}
-					$disabled={disabled}
-					$checked={checked}
-					$focused={focused}
-					data-role={DataRoles.Switch.Interactive}
-				>
-					<StyledSwitchTrack className={switchClass + "__track"} />
-					<StyledSwitchThumb className={switchClass + "__thumb"}>
-						<StyledSwitchThumbIcon>{checked ? <Icon>check</Icon> : <Icon>remove</Icon>}</StyledSwitchThumbIcon>
-					</StyledSwitchThumb>
-					<StyledSwitchInput
-						{...inputProps}
-						as={undefined}
-						id={id}
-						className={switchClass + "__input"}
-						data-role={DataRoles.Switch.Input}
-						type="checkbox"
-						disabled={disabled || readonly}
-						checked={checked}
-						aria-checked={checked}
-						onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.currentTarget.checked, event)}
-						onFocus={onInputFocus}
-						onBlur={onInputBlur}
-						aria-describedby={joinClassNames(
-							{ [`${id}-warning`]: id && warningMessage },
-							{ [`${id}-error`]: id && errorMessage },
-							{ [`${id}-helperText`]: id && helperText },
-							ariaDescribedby
-						)}
-					/>
-				</StyledSwitchInteractive>
-				{renderOption(checkedOption, DataRoles.Switch.CheckedOption)}
-				{addonAfter}
-			</StyledSwitchControl>
+			{labelPosition === "left" || labelPosition === "right" ? (
+				<StyledSwitchInlineWrapper data-role={DataRoles.Switch.InlineWrapper}>
+					{labelPosition === "left" && labelElement}
+					{switchControl}
+					{labelPosition === "right" && labelElement}
+				</StyledSwitchInlineWrapper>
+			) : (
+				switchControl
+			)}
+			{labelPosition === "bottom" && labelElement}
 			{helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper
 					className={`${baseFieldClassName}__helper`}
@@ -246,7 +268,7 @@ export function Switch({
 					</StyledBaseInput.StyledFieldHelperText>
 				</StyledBaseInput.StyledFieldHelperWrapper>
 			)}
-		</StyledBaseInput.StyledField>
+		</StyledSwitchField>
 	);
 }
 

@@ -41,15 +41,11 @@ import { TableDataAttributes } from "./table.data-attributes.js";
 export const BASE_TABLE_CLASSNAME = addPrefix("table");
 
 export namespace ColumnWidthSync {
-	const setElementWidth = (element: HTMLElement, width: number | string, scrollLeft?: number): void => {
+	const setElementWidth = (element: HTMLElement, width: number | string): void => {
 		const widthStr = typeof width === "number" ? `${width}px` : width;
 		element.style.width = widthStr;
 		element.style.minWidth = widthStr;
 		element.style.maxWidth = widthStr;
-
-		if (scrollLeft) {
-			element.scrollLeft = scrollLeft;
-		}
 	};
 
 	const resetWidth = (elements: NodeListOf<HTMLElement>): void => {
@@ -66,13 +62,28 @@ export namespace ColumnWidthSync {
 		}
 	};
 
+	const syncScrollLeft = (elements: NodeListOf<HTMLElement> | HTMLElement[], scrollLeft: number): void => {
+		for (let i = 0; i < elements.length; i++) {
+			elements[i].scrollLeft = scrollLeft;
+		}
+	};
+
 	const synchronizeElementsWidth = (
 		elements: NodeListOf<HTMLElement> | HTMLElement[],
 		dependOnMaxWidth: boolean,
 		isForced: boolean,
-		scrollLeft?: number
+		scrollLeft?: number,
+		enableColumnGroupA11y = false
 	): void => {
 		if (elements.length <= 1) {
+			return;
+		}
+
+		if (scrollLeft) {
+			syncScrollLeft(elements, scrollLeft);
+		}
+
+		if (enableColumnGroupA11y) {
 			return;
 		}
 
@@ -98,7 +109,8 @@ export namespace ColumnWidthSync {
 		}
 
 		for (let i = 0; i < elements.length; i++) {
-			setElementWidth(elements[i], syncWidth, scrollLeft);
+			const element = elements[i];
+			setElementWidth(element, syncWidth);
 		}
 	};
 
@@ -132,6 +144,36 @@ export namespace ColumnWidthSync {
 		}
 	};
 
+	const synchronizeHeadGridColumns = (tableRef: HTMLElement): void => {
+		const headGrid = tableRef.querySelector<HTMLElement>(`[data-role="${DataRoles.Table.Row.Group.Header}"]`);
+
+		if (!headGrid) {
+			return;
+		}
+
+		const bodyCells: HTMLElement[] = [];
+
+		for (const segmentDataRole of [
+			DataRoles.Table.Body.Row.SegmentLeft,
+			DataRoles.Table.Body.Row.SegmentScroll,
+			DataRoles.Table.Body.Row.SegmentRight
+		]) {
+			const segment = tableRef.querySelector<HTMLElement>(`[data-role="${segmentDataRole}"]`);
+
+			if (segment) {
+				bodyCells.push(
+					...Array.from(segment.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Table.Body.Cell}"]`))
+				);
+			}
+		}
+
+		if (!bodyCells.length) {
+			return;
+		}
+
+		headGrid.style.gridTemplateColumns = bodyCells.map((cell) => `${cell.offsetWidth}px`).join(" ");
+	};
+
 	const getNumberActionColumns = (
 		tableRef: HTMLElement,
 		actionCellsCount: number,
@@ -162,9 +204,10 @@ export namespace ColumnWidthSync {
 			numberActionColumns?: number;
 			forceResetScrollCell?: boolean;
 			resetOnly?: boolean;
+			enableColumnGroupA11y?: boolean;
 		}
 	): void {
-		const { onDone, scrollLeft, numberActionColumns, forceResetScrollCell, resetOnly } = options;
+		const { onDone, scrollLeft, numberActionColumns, forceResetScrollCell, resetOnly, enableColumnGroupA11y } = options;
 		const cellSelector = '[data-role$="cell"]';
 		const actionCellSelector = `[data-type="${TableDataAttributes.Table.ActionCell}"]:not([data-width])`;
 		const expandableWrapperSelector = `[data-role="${DataRoles.Table.Expandable.Wrapper}"]`;
@@ -206,7 +249,11 @@ export namespace ColumnWidthSync {
 				actionCells,
 				numberActionColumns ?? getNumberActionColumns(tableRef, actionCells.length, isExpandableTable)
 			);
-			synchronizeElementsWidth(scrollCells, false, actionCells.length > 0, scrollLeft);
+			synchronizeElementsWidth(scrollCells, false, actionCells.length > 0, scrollLeft, enableColumnGroupA11y);
+
+			if (enableColumnGroupA11y) {
+				synchronizeHeadGridColumns(tableRef);
+			}
 
 			onDone?.();
 		});
@@ -240,6 +287,16 @@ export class RowScrollManager {
 		return !!row && row.scrollWidth > row.clientWidth;
 	}
 
+	public getScrollLeft(): number {
+		for (const element of this.elements) {
+			if (element.scrollLeft > 0) {
+				return element.scrollLeft;
+			}
+		}
+
+		return this.elements[0]?.scrollLeft ?? 0;
+	}
+
 	public handleTriggerRowScroll(): void {
 		const triggerRow = this.getTriggerRow();
 
@@ -251,12 +308,16 @@ export class RowScrollManager {
 
 		if (!isRowHorizontallyScrollable) {
 			this.onRowScroll(null);
-		} else if (Math.round(triggerRow.scrollLeft) === 0) {
-			this.onRowScroll("left");
-		} else if (Math.ceil(triggerRow.scrollLeft + triggerRow.clientWidth) < Math.round(triggerRow.scrollWidth)) {
-			this.onRowScroll("middle");
 		} else {
-			this.onRowScroll("right");
+			const scrollLeft = this.getScrollLeft();
+
+			if (Math.round(scrollLeft) === 0) {
+				this.onRowScroll("left");
+			} else if (Math.ceil(scrollLeft + triggerRow.clientWidth) < Math.round(triggerRow.scrollWidth)) {
+				this.onRowScroll("middle");
+			} else {
+				this.onRowScroll("right");
+			}
 		}
 	}
 

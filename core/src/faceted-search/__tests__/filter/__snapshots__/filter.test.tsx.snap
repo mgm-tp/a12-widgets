@@ -25,7 +25,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-disabled-filter 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -126,6 +127,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-disabled-filter 1`] = `
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -340,7 +342,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -429,6 +432,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter 1`] = `
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -715,7 +719,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter 2`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -766,6 +771,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter 2`] = `
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -984,7 +990,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-active 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1074,6 +1081,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-active 1`] = `
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -1339,6 +1347,733 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-active 1`] = `
 </div>
 `;
 
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-compact-mode-with-prefix-and-options 1`] = `
+.c4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c4 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c7 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c7 > span {
+  display: inline-block;
+}
+
+.c7.c7 {
+  max-width: unset;
+}
+
+.c9 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c9 .c6 {
+  user-select: none;
+}
+
+.c9 .c6 {
+  color: inherit;
+}
+
+.c9 .c6 {
+  font-size: inherit;
+}
+
+.c9:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 > .c6 {
+  display: block;
+}
+
+.c11 .c6 {
+  user-select: none;
+}
+
+.c11 .c6 {
+  color: inherit;
+}
+
+.c11 .c6 {
+  font-size: inherit;
+}
+
+.c11.c11 .c6 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 > .c6 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c3 {
+  place-content: center;
+  align-items: center;
+  display: flex;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c5 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  flex: 1 1 0%;
+  min-width: 0px;
+}
+
+.c1 {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c8 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c8::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c10 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.c2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: rgb(241, 242, 244);
+  color: rgb(77, 77, 77);
+  margin-right: 8px;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.c2 [data-role="plasma-icon"] {
+  color: rgb(77, 77, 77);
+}
+
+.c2 svg,
+.c2 img {
+  display: block;
+  max-width: 70%;
+  max-height: 70%;
+}
+
+@media (pointer: coarse) {
+  .c9:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c9:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+    title="Category"
+  >
+    <div
+      class="c2"
+      data-role="filter-prefix"
+    >
+      <span>
+        F
+      </span>
+    </div>
+    <span
+      class="c3 filter__content-inner"
+    >
+      <span
+        class="c4 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Selected option 
+      </span>
+      <span
+        class="c5 filter__options"
+        data-role="filter-options"
+      >
+        Blue
+        , 
+        Green
+      </span>
+      <i
+        class="c6 c7 plasma-icon filter__name-arrow"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          keyboard_arrow_down
+        </span>
+      </i>
+    </span>
+  </button>
+  <div
+    class="c8 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c9 button button--icon c10 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c6 c7 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-compact-mode-with-prefix-without-options 1`] = `
+.c5 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c5 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c8 > span {
+  display: inline-block;
+}
+
+.c8.c8 {
+  max-width: unset;
+}
+
+.c10 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c10 .c7 {
+  user-select: none;
+}
+
+.c10 .c7 {
+  color: inherit;
+}
+
+.c10 .c7 {
+  font-size: inherit;
+}
+
+.c10:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 > .c7 {
+  display: block;
+}
+
+.c12 .c7 {
+  user-select: none;
+}
+
+.c12 .c7 {
+  color: inherit;
+}
+
+.c12 .c7 {
+  font-size: inherit;
+}
+
+.c12.c12 .c7 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c12.c12 > .c7 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c3 {
+  place-content: center;
+  align-items: center;
+  display: flex;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c1 {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c4 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c6 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c9::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c11 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.c2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: rgb(241, 242, 244);
+  color: rgb(77, 77, 77);
+  margin-right: 8px;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.c2 [data-role="plasma-icon"] {
+  color: rgb(77, 77, 77);
+}
+
+.c2 svg,
+.c2 img {
+  display: block;
+  max-width: 70%;
+  max-height: 70%;
+}
+
+@media (pointer: coarse) {
+  .c10:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c10:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+    title="Category"
+  >
+    <div
+      class="c2"
+      data-role="filter-prefix"
+    >
+      <span>
+        F
+      </span>
+    </div>
+    <span
+      class="c3 filter__content-inner"
+    >
+      <span
+        class="c4 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c5 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c6 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+      </span>
+      <i
+        class="c7 c8 plasma-icon filter__name-arrow"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          keyboard_arrow_down
+        </span>
+      </i>
+    </span>
+  </button>
+  <div
+    class="c9 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c10 button button--icon c11 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c7 c8 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`com.mgmtp.a12.widgets.filter > rendering-filter-custom-action 1`] = `
 .c4 {
   border: 0px;
@@ -1364,7 +2099,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-custom-action 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1435,6 +2171,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-custom-action 1`] = `
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -1644,7 +2381,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-an-element-option 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1733,6 +2471,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-an-element-option 
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -2017,7 +2756,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-custom-separator 1
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2126,6 +2866,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-custom-separator 1
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -2420,6 +3161,499 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-custom-separator 1
 </div>
 `;
 
+exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-prefix 1`] = `
+.c5 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c5 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c15 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c15 .c8 {
+  user-select: none;
+}
+
+.c15 .c8 {
+  color: inherit;
+}
+
+.c15 .c8 {
+  font-size: inherit;
+}
+
+.c15:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 > .c8 {
+  display: block;
+}
+
+.c19 .c8 {
+  user-select: none;
+}
+
+.c19 .c8 {
+  color: inherit;
+}
+
+.c19 .c8 {
+  font-size: inherit;
+}
+
+.c19.c19 .c8 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c19.c19 > .c8 {
+  display: block;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 40px;
+  margin: 6px 8px 0px 0px;
+  max-width: calc(100% - 8px);
+  width: auto;
+  cursor: pointer;
+}
+
+.c3 {
+  place-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 281px;
+  min-width: 56px;
+}
+
+.c13 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 16px;
+  margin-top: -2px;
+  overflow: hidden;
+  padding: 0px 2px 0px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c17:focus .c6,
+.c17:focus .c12 {
+  color: rgb(213, 0, 117);
+}
+
+.c17:focus .c10 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c18:focus .c6,
+.c18:focus .c12 {
+  color: rgb(213, 0, 117);
+}
+
+.c18:focus .c10 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1 {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px 8px;
+  position: relative;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c1.c1 {
+  overflow: hidden;
+}
+
+.c1::before {
+  content: "";
+  display: block;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  inset: 0px;
+}
+
+.c1:only-child::before {
+  border-radius: 4px;
+}
+
+.c1:not(:disabled) {
+  cursor: pointer;
+}
+
+.c1:focus {
+  color: rgb(213, 0, 117);
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c1:focus .c6,
+.c1:focus .c12 {
+  color: rgb(213, 0, 117);
+}
+
+.c1:focus .c10 {
+  border-bottom-color: rgb(213, 0, 117);
+}
+
+.c1:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c4 {
+  align-items: center;
+  color: rgb(97, 111, 124);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  line-height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c7 {
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c11 {
+  border-bottom: 3px solid rgb(127, 140, 155);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: default;
+  display: inline-block;
+  height: 3px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  width: 3px;
+}
+
+.c14 {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.c14::before {
+  border-left: 1px solid rgb(226, 230, 233);
+  content: "";
+  margin: 2px 0px;
+}
+
+.c16 {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.c2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: rgb(241, 242, 244);
+  color: rgb(77, 77, 77);
+  margin-right: 8px;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.c2 [data-role="plasma-icon"] {
+  color: rgb(77, 77, 77);
+}
+
+.c2 svg,
+.c2 img {
+  display: block;
+  max-width: 70%;
+  max-height: 70%;
+}
+
+@media (pointer: coarse) {
+  .c15:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c17:active .c6,
+  .c17:active .c12 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c17:active .c10 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover .c6,
+  .c17:hover .c12 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c17:hover .c10 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c18:active .c6,
+  .c18:active .c12 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:active .c10 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover .c6,
+  .c18:hover .c12 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c18:hover .c10 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c1:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c1:active .c6,
+  .c1:active .c12 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:active .c10 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:active::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c1:hover .c6,
+  .c1:hover .c12 {
+    color: rgb(213, 0, 117);
+  }
+
+  .c1:hover .c10 {
+    border-bottom-color: rgb(213, 0, 117);
+  }
+
+  .c1:hover::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 filter"
+  data-role="filter"
+>
+  <button
+    class="c1 filter__content"
+    data-role="filter-content"
+  >
+    <div
+      class="c2"
+      data-role="filter-prefix"
+    >
+      <span>
+        F
+      </span>
+    </div>
+    <span
+      class="c3 filter__content-inner"
+    >
+      <span
+        class="c4 filter__name"
+        data-role="filter-name"
+      >
+        <span
+          class="c5 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Filter name 
+        </span>
+        <span
+          class="c6 c7 filter__name-text"
+          data-role="filter-name-text"
+        >
+          Category
+        </span>
+        <i
+          class="c8 c9 plasma-icon c10 c11 filter__name-arrow"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+          />
+        </i>
+      </span>
+      <span
+        class="c5 -u-unseenButRead"
+        data-role="hidden-text"
+      >
+        Selected option 
+      </span>
+      <span
+        class="c12 c13 filter__options"
+        data-role="filter-options"
+      >
+        Blue
+        , 
+        Green
+      </span>
+    </span>
+  </button>
+  <div
+    class="c14 filter__action"
+    data-role="filter-action"
+  >
+    <button
+      aria-label="Delete"
+      class="c15 button button--icon c16 filter__action-button"
+      data-role="button"
+      data-type="icon"
+      title="Delete"
+      type="button"
+    >
+      <i
+        class="c8 c9 plasma-icon"
+        data-role="plasma-icon"
+      >
+        <span
+          aria-hidden="true"
+        >
+          close
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-valid-classes 1`] = `
 .c4 {
   border: 0px;
@@ -2445,7 +3679,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-valid-classes 1`] 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2534,6 +3769,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-with-valid-classes 1`] 
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -2786,7 +4022,8 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-without-options 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2875,6 +4112,7 @@ exports[`com.mgmtp.a12.widgets.filter > rendering-filter-without-options 1`] = `
 
 .c2 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;

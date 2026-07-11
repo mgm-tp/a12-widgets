@@ -34,9 +34,9 @@ import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { BASE_TABLE_CLASSNAME } from "../main/table.internal.js";
-import type { BaseColumnType } from "../new-api/column.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { HeadCellGroup } from "../new-api/table.head-cell-group.view.js";
+import type { BaseColumnType } from "../main/column.api.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { HeadCellGroup } from "../main/table.head-cell-group.view.js";
 
 describe("com.mgmtp.a12.widgets.table.head-cell-group", () => {
 	type ColumnType = BaseColumnType;

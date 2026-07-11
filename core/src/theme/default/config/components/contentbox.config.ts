@@ -33,6 +33,8 @@
 import { rgba } from "polished";
 
 import type { BaseThemeType } from "../../../schema/base-theme.js";
+import { GeneralFlatColorsConfig } from "../../../flat/config/base/colors.config.js";
+import type { Duration } from "../../../../common/main/type-utilities.js";
 
 import { commonButtonConfigs } from "./button.config.js";
 
@@ -168,6 +170,16 @@ export type ContentboxConfigType = {
 	subTitle: { fontSize: string };
 	transitionActionBarItem: { background: string; borderBottom: string; borderTop: string; padding: string };
 	wizardBar: { borderBottom: string };
+	sidePanels: {
+		minWidth: number;
+		maxWidth: number;
+		transitionDuration: Duration;
+		contentTransitionDuration: Duration;
+		border?: string;
+		overlay?: {
+			boxShadow?: string;
+		};
+	};
 };
 
 export const contentBoxConfig = (theme: BaseThemeType): ContentboxConfigType => {
@@ -380,6 +392,16 @@ export const contentBoxConfig = (theme: BaseThemeType): ContentboxConfigType => 
 					background: colors.background.secondaryBackground,
 					borderTop: `1px solid ${colors.divider.colorDark}`
 				}
+			}
+		},
+		sidePanels: {
+			border: `1px solid ${GeneralFlatColorsConfig.grey78}`,
+			minWidth: 360,
+			maxWidth: 420,
+			transitionDuration: "0.24s",
+			contentTransitionDuration: "0.04s",
+			overlay: {
+				boxShadow: `-4px 0 8px ${rgba(colors.boxShadowBackground, 0.2)}`
 			}
 		}
 	};

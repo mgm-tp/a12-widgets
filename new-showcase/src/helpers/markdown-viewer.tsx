@@ -38,7 +38,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import { joinClassNames, Typography, provider as DeviceDetector } from "@com.mgmtp.a12.widgets/widgets-core";
-import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils/lib/code-example/index.js";
+import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 import { toLink } from "./utils.js";
 import { StyledShowcaseLink } from "./showcase-styles.js";

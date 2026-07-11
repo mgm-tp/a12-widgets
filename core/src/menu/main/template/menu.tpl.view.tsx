@@ -39,6 +39,7 @@ import type {
 	RefObject,
 	SyntheticEvent,
 	KeyboardEvent as ReactKeyboardEvent,
+	FocusEvent as ReactFocusEvent,
 	FC,
 	ReactNode,
 	RefCallback,
@@ -67,12 +68,14 @@ import { getBadgeTitle } from "../../../badge/main/badge-utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import type { BadgeProps } from "../../../badge/main/badge.api.js";
 import { useInteractionHint } from "../../../interaction-hint/main/use-interaction-hint.js";
+import type { KeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation.api.js";
 
 import type { MenuItem, MenuItemVariant } from "../menu.api.js";
 import { MenuUtils } from "../menu.internal.js";
 
 import type { FlattenedMenuItemType, MainMenuProps, MenuContainerProps } from "./menu.tpl.api.js";
 import { MenuTplUtils } from "./menu.tpl.internal.js";
+import { handleMenuItemKeyDown, handleSubMenuKeyDown } from "./menu.tpl.keyboard.js";
 import {
 	StyledMenuContainer,
 	StyledMenuGroupTitle,
@@ -136,6 +139,7 @@ interface MainMenuInternalProps {
 	sliding?: boolean;
 	subMenuAttributes?: HTMLAttributes<HTMLUListElement>;
 	useAs?: MainMenuProps.UseAs;
+	keyboardNavMode?: KeyboardNavigationMode;
 }
 
 export const MainMenuTpl: FC<MainMenuProps & MainMenuInternalProps> = (props) => {
@@ -245,6 +249,8 @@ export const MainMenuTpl: FC<MainMenuProps & MainMenuInternalProps> = (props) =>
 								useAs={props.useAs}
 								nonCondensedItemCount={props.nonCondensedItemCount}
 								hideSubMenuGroupTitle={hideSubMenuGroupTitle}
+								keyboardNavMode={props.keyboardNavMode}
+								onCloseAllSubMenus={props.onCloseAllSubMenus}
 							/>
 						</Fragment>
 					);
@@ -270,6 +276,7 @@ export namespace MainMenu {
 		$disabled?: boolean;
 		nonCondensedItemCount?: number;
 		isSelected?: boolean;
+		keyboardNavMode?: KeyboardNavigationMode;
 	}
 
 	interface ItemWithHintProps extends ItemInternalProps {
@@ -317,7 +324,9 @@ export namespace MainMenu {
 
 		private clickOnItem = false;
 		private mouseOverVerticalMenu = false;
+		private keyboardOpenedSubMenu = false;
 		static clickedOnMainMenu = false;
+		static pendingSubmenuOpenElement: HTMLElement | null = null;
 		static defaultProps = {
 			focusOnOpen: true
 		};
@@ -333,6 +342,18 @@ export namespace MainMenu {
 
 		private handleSubLayerRef(ref: HTMLUListElement | null): void {
 			this.subLayerRef = ref;
+
+			if (ref && this.keyboardOpenedSubMenu) {
+				this.keyboardOpenedSubMenu = false;
+				this.focusFirstSubMenuItem(ref);
+			} else if (!ref) {
+				this.keyboardOpenedSubMenu = false;
+			}
+		}
+
+		private focusFirstSubMenuItem(subLayer: HTMLElement): void {
+			const firstItem = subLayer.querySelector<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"][tabindex="0"]`);
+			(firstItem ?? this.portalRef)?.focus();
 		}
 
 		private handlePortalRef(ref: HTMLElement | null): void {
@@ -394,33 +415,58 @@ export namespace MainMenu {
 			}
 		}
 
-		private handleItemKeyDown(event: ReactKeyboardEvent<HTMLElement>): void {
-			this.mouseOverVerticalMenu = false;
+		private handleItemFocus(event: ReactFocusEvent<HTMLElement>): void {
+			if (Item.pendingSubmenuOpenElement === this.liElement.current) {
+				Item.pendingSubmenuOpenElement = null;
 
-			if (event.key === Key.Enter && !this.props.item.disabled) {
-				const subMenuItems = this.getSubmenuItems();
-
-				if (subMenuItems === undefined || this.props.sliding) {
-					this.handleItemClick(event);
-
-					if (subMenuItems === undefined) {
-						return;
-					}
-				}
-
-				if (this.props.onMouseOver) {
+				if (this.props.onMouseOver && !this.props.item.disabled) {
 					this.props.onMouseOver(this.props.item, event);
 					this.setState({ showCurrentSubMenu: true });
 				}
-			} else if (event.key === Key.Escape && this.state.showCurrentSubMenu) {
-				this.handleOnEsc(event);
 			}
+		}
+
+		private handleItemKeyDown(event: ReactKeyboardEvent<HTMLElement>): void {
+			handleMenuItemKeyDown(event, {
+				item: this.props.item,
+				type: this.props.type,
+				sliding: this.props.sliding,
+				liElement: this.liElement.current,
+				showCurrentSubMenu: this.state.showCurrentSubMenu,
+				subMenuItems: this.getSubmenuItems(),
+				onItemClick: this.handleItemClick,
+				openSubMenu: (event) => {
+					if (this.props.onMouseOver) {
+						this.keyboardOpenedSubMenu = true;
+						this.props.onMouseOver(this.props.item, event);
+						this.setState({ showCurrentSubMenu: true });
+					}
+				},
+				onEsc: this.handleOnEsc,
+				setMouseOverVertical: (value) => {
+					this.mouseOverVerticalMenu = value;
+				}
+			});
 		}
 
 		private handleOnEsc(event: SyntheticEvent<HTMLElement>): void {
 			event.stopPropagation();
 			this.liElement.current?.focus();
 			this.closeCurrentSubMenu();
+		}
+
+		private handleSubmenuKeyDown(event: ReactKeyboardEvent<HTMLElement>): void {
+			handleSubMenuKeyDown(event, {
+				type: this.props.type,
+				subMenuItem: this.props.subMenuItem,
+				liElement: this.liElement.current,
+				onCloseAllSubMenus: this.props.onCloseAllSubMenus,
+				closeCurrentSubMenu: this.closeCurrentSubMenu,
+				setPendingSubmenuElement: (el) => {
+					Item.pendingSubmenuOpenElement = el;
+				},
+				keyboardNavMode: this.props.keyboardNavMode
+			});
 		}
 
 		private handleItemMouseOut(event: ReactMouseEvent<HTMLElement>): void {
@@ -476,6 +522,7 @@ export namespace MainMenu {
 		}
 
 		private closeCurrentSubMenu(): void {
+			this.keyboardOpenedSubMenu = false;
 			this.setState({ showCurrentSubMenu: false }, this.closeParentSubMenu);
 		}
 
@@ -494,9 +541,22 @@ export namespace MainMenu {
 
 		private handleOnVisibilityChange(showCurrentSubMenu: boolean): void {
 			this.setState({ showCurrentSubMenu }, () => {
+				// Keyboard-driven opens focus the first item synchronously from handleSubLayerRef
+				// as soon as the sublayer DOM attaches. The setTimeout below stays for hover opens
+				// (aligned with hoverDelay).
+				if (this.keyboardOpenedSubMenu) {
+					return;
+				}
+
 				if (!this.mouseOverVerticalMenu) {
 					setTimeout(() => {
-						this.portalRef?.focus();
+						const subLayer = this.subLayerRef;
+
+						if (subLayer) {
+							this.focusFirstSubMenuItem(subLayer);
+						} else {
+							this.portalRef?.focus();
+						}
 					}, 100); // Timeout has to be the same with hoverDelay
 				}
 			});
@@ -664,9 +724,41 @@ export namespace MainMenu {
 		}
 
 		private handleVerticalMenuEsc(event: KeyboardEvent): void {
-			if (event.key === Key.Escape && this.state.showCurrentSubMenu) {
-				this.closeCurrentSubMenu();
+			const isEscape = event.key === Key.Escape;
+			const isArrowLeft = event.key === Key.ArrowLeft;
+
+			if (!isEscape && !isArrowLeft) {
+				return;
 			}
+
+			if (!this.state.showCurrentSubMenu || !this.portalRef) {
+				return;
+			}
+
+			// Only handle for the deepest open submenu level.
+			// If a nested submenu is open (aria-expanded="true" exists in our portal),
+			// defer to that submenu's own window listener.
+			const hasOpenNestedSubMenu = !!this.portalRef.querySelector("[aria-expanded='true']");
+
+			if (hasOpenNestedSubMenu) {
+				return;
+			}
+
+			// For ArrowLeft, only handle when focus is inside our portal (or on our own li).
+			// Escape is handled regardless since it has global semantics for closing the deepest submenu.
+			if (isArrowLeft) {
+				const active = document.activeElement;
+				const focusInPortal = !!active && (this.portalRef.contains(active) || active === this.liElement.current);
+
+				if (!focusInPortal) {
+					return;
+				}
+			}
+
+			event.preventDefault();
+			event.stopPropagation();
+			this.liElement.current?.focus();
+			this.closeCurrentSubMenu();
 		}
 
 		componentDidMount(): void {
@@ -765,6 +857,7 @@ export namespace MainMenu {
 					onMouseOut={this.handleItemMouseOut}
 					onClick={item.disabled ? undefined : this.handleItemClick}
 					onKeyDown={item.disabled ? undefined : this.handleItemKeyDown}
+					onFocus={this.handleItemFocus}
 					$useAs={useAs}
 					$disabled={item.disabled}
 					$selected={item.selected}
@@ -832,81 +925,83 @@ export namespace MainMenu {
 							closeOnOutsideClick
 							focusOnOpen={false}
 						>
-							{a11yTitles?.subMenuTitle && <HiddenText tabIndex={-1}>{a11yTitles.subMenuTitle}</HiddenText>}
-							<TabSandbox skipWrapperFocus>
-								<StyledMenuWrapper
-									className={joinClassNames(`${baseClassName}__wrapper`, baseClassName, wrapperClass)}
-									$menuType={this.props.type}
-									$sliding={this.props.sliding}
-								>
-									<StyledMenuSubLayer
-										data-role={DataRoles.SubMenu.Content}
-										{...subMenuAttributes}
-										className={joinClassNames(`${baseClassName}__subLayer`, subMenuAttributes?.className)}
-										id={subMenuId}
-										ref={this.handleSubLayerRef}
-										style={{
-											...(this.state.subLayerMaxHeight
-												? {
-														maxHeight: this.state.subLayerMaxHeight,
-														overflowY: "auto"
-													}
-												: undefined),
-											...subMenuAttributes?.style
-										}}
-										$useAs={useAs}
+							<div onKeyDown={this.handleSubmenuKeyDown}>
+								{a11yTitles?.subMenuTitle && <HiddenText tabIndex={-1}>{a11yTitles.subMenuTitle}</HiddenText>}
+								<TabSandbox skipWrapperFocus disableTabTrapping={this.props.keyboardNavMode === "arrow-only"}>
+									<StyledMenuWrapper
+										className={joinClassNames(`${baseClassName}__wrapper`, baseClassName, wrapperClass)}
 										$menuType={this.props.type}
-										$parentMenuType={this.props.parentMenuType ?? this.props.type}
+										$sliding={this.props.sliding}
 									>
-										{subMenuItems.map((child, index) => {
-											const wrapper = itemWrapper && (itemWrapper.items || itemWrapper.children)[index];
+										<StyledMenuSubLayer
+											data-role={DataRoles.SubMenu.Content}
+											{...subMenuAttributes}
+											className={joinClassNames(`${baseClassName}__subLayer`, subMenuAttributes?.className)}
+											id={subMenuId}
+											ref={this.handleSubLayerRef}
+											style={{
+												...(this.state.subLayerMaxHeight
+													? {
+															maxHeight: this.state.subLayerMaxHeight,
+															overflowY: "auto"
+														}
+													: undefined),
+												...subMenuAttributes?.style
+											}}
+											$useAs={useAs}
+											$menuType={this.props.type}
+											$parentMenuType={this.props.parentMenuType ?? this.props.type}
+										>
+											{subMenuItems.map((child, index) => {
+												const wrapper = itemWrapper && (itemWrapper.items || itemWrapper.children)[index];
 
-											/**
-											 * Show the group title in the submenu only when the next item belongs to a different group.
-											 */
-											const showGroupTitle =
-												(!this.props.hideSubMenuGroupTitle || index !== 0) &&
-												subMenuItems &&
-												child.group?.label &&
-												child.group.label !== subMenuItems[index - 1]?.group?.label;
+												/**
+												 * Show the group title in the submenu only when the next item belongs to a different group.
+												 */
+												const showGroupTitle =
+													(!this.props.hideSubMenuGroupTitle || index !== 0) &&
+													subMenuItems &&
+													child.group?.label &&
+													child.group.label !== subMenuItems[index - 1]?.group?.label;
 
-											if (wrapper) {
-												wrapper.id = subMenuId ? `${subMenuId}_${child.id || index}` : generateUid();
-												wrapper.parent = itemWrapper;
+												if (wrapper) {
+													wrapper.id = subMenuId ? `${subMenuId}_${child.id || index}` : generateUid();
+													wrapper.parent = itemWrapper;
 
-												if (wrapper.parent) {
-													wrapper.parent.id = id || generateUid();
+													if (wrapper.parent) {
+														wrapper.parent.id = id || generateUid();
+													}
 												}
-											}
 
-											return (
-												<Fragment key={child.id}>
-													{showGroupTitle && <StyledSubMenuGroupTitle>{child.group?.label}</StyledSubMenuGroupTitle>}
-													<ItemWrapper
-														parentInstance={this}
-														subMenuItem
-														useAs={useAs}
-														item={child as MenuItem}
-														itemWrapper={wrapper}
-														type="vertical"
-														onClick={this.props.onClick}
-														closeCurrentSubMenu={this.closeCurrentSubMenu}
-														onMouseOver={this.props.onMouseOver}
-														onMouseOut={this.props.onMouseOut}
-														id={wrapper ? wrapper.id : generateUid()}
-														rootId={rootId}
-														className={this.props.className}
-														wrapperClass={this.props.wrapperClass}
-														wrapperRef={this.props.wrapperRef}
-														style={this.props.style}
-														parentMenuType={this.props.parentMenuType ?? this.props.type}
-													/>
-												</Fragment>
-											);
-										})}
-									</StyledMenuSubLayer>
-								</StyledMenuWrapper>
-							</TabSandbox>
+												return (
+													<Fragment key={child.id}>
+														{showGroupTitle && <StyledSubMenuGroupTitle>{child.group?.label}</StyledSubMenuGroupTitle>}
+														<ItemWrapper
+															parentInstance={this}
+															subMenuItem
+															useAs={useAs}
+															item={child as MenuItem}
+															itemWrapper={wrapper}
+															type="vertical"
+															onClick={this.props.onClick}
+															closeCurrentSubMenu={this.closeCurrentSubMenu}
+															onMouseOver={this.props.onMouseOver}
+															onMouseOut={this.props.onMouseOut}
+															id={wrapper ? wrapper.id : generateUid()}
+															rootId={rootId}
+															className={this.props.className}
+															wrapperClass={this.props.wrapperClass}
+															wrapperRef={this.props.wrapperRef}
+															style={this.props.style}
+															parentMenuType={this.props.parentMenuType ?? this.props.type}
+														/>
+													</Fragment>
+												);
+											})}
+										</StyledMenuSubLayer>
+									</StyledMenuWrapper>
+								</TabSandbox>
+							</div>
 						</AttachedPortal>
 					)}
 				</StyledMenuItem>
@@ -964,6 +1059,4 @@ export namespace MainMenu {
 			/>
 		);
 	};
-
-	ItemWrapper.displayName = "MenuItemWrapper";
 }

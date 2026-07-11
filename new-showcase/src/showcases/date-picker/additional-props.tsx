@@ -60,7 +60,8 @@ export function AdditionalProps(): ReactElement {
 					modifiers: { highlightedDay, booked: bookedDays },
 					modifiersStyles: { booked: bookedStyle, highlightedDay: highlightedDayStyle },
 					modifiersClassNames: { booked: "booked-classname" },
-					yearRange: { start: 1990, end: 2025 }
+					yearRange: { start: 1990, end: 2025 },
+					yearSelectorVariant: "select"
 				}}
 			/>
 		</DateTimeContext.Provider>

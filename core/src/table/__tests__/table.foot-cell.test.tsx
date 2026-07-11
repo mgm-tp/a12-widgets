@@ -33,9 +33,9 @@
 import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import type { BaseColumnType, Column } from "../new-api/column.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { FootCell } from "../new-api/table.foot-cell.view.js";
+import type { BaseColumnType, Column } from "../main/column.api.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { FootCell } from "../main/table.foot-cell.view.js";
 
 describe("com.mgmtp.a12.widgets.table.foot-cell", () => {
 	type ColumnType = BaseColumnType;

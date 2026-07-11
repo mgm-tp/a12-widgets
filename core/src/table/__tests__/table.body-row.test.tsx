@@ -37,9 +37,9 @@ import { describe, vi, expect, test } from "vitest";
 import { Range } from "../../common/main/utils.js";
 
 import type { TableTemplateProps } from "../main/template/table.tpl.api.js";
-import type { TableRenderPropsType } from "../new-api/table-renderer.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { BodyRow } from "../new-api/table.body-row.view.js";
+import type { TableRenderPropsType } from "../main/table-renderer.api.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { BodyRow } from "../main/table.body-row.view.js";
 
 describe("com.mgmtp.a12.widgets.table.body-row", () => {
 	const COLUMN_COUNT = 4;

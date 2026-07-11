@@ -100,8 +100,6 @@ export namespace SubHeadingElements {
 		);
 	}
 
-	SubHeading.displayName = "SubHeading";
-
 	const StyledActionBar = styled.div.withConfig({ displayName: "StyledActionBar-sc-" })(({ theme }) => {
 		const { actionBar } = theme.components.contentBox;
 
@@ -136,8 +134,6 @@ export namespace SubHeadingElements {
 		);
 	}
 
-	ActionBar.displayName = "ActionBar";
-
 	const StyledSubActionBar = styled.div.withConfig({ displayName: "StyledSubActionBar-sc-" })(({ theme }) => {
 		const { subActionBar } = theme.components.contentBox;
 
@@ -161,8 +157,6 @@ export namespace SubHeadingElements {
 			</StyledSubActionBar>
 		);
 	}
-
-	SubActionBar.displayName = "SubActionBar";
 
 	const StyledActionBarGroupArea = styled.div.withConfig({ displayName: "StyledActionBarGroupArea-sc-" })(
 		({ theme }) => {
@@ -225,8 +219,6 @@ export namespace SubHeadingElements {
 		);
 	});
 
-	ActionBarGroupAreaSlot.displayName = "ActionBarGroupAreaSlot";
-
 	export function ActionBarGroupArea(
 		props: ContentBoxProps.ActionBarGroupAreaTplProps
 	): ReactElement<ContentBoxProps.ActionBarGroupAreaTplProps> {
@@ -247,8 +239,6 @@ export namespace SubHeadingElements {
 			</StyledActionBarGroupArea>
 		);
 	}
-
-	ActionBarGroupArea.displayName = "ActionBarGroupArea";
 
 	const StyledActionBarGroupDivider = styled.div.withConfig({ displayName: "StyledActionBarGroupDivider-sc-" })(
 		({ theme }) => {
@@ -277,8 +267,6 @@ export namespace SubHeadingElements {
 			</StyledActionBarGroupDivider>
 		);
 	}
-
-	ActionBarGroupDivider.displayName = "ActionBarGroupDivider";
 
 	const StyledActionBarGroup = styled.div.withConfig({ displayName: "StyledActionBarGroup-sc-" })(({ theme }) => {
 		const { actionBarGroup } = theme.components.contentBox;
@@ -330,6 +318,4 @@ export namespace SubHeadingElements {
 			</StyledActionBarGroup>
 		);
 	}
-
-	ActionBarGroup.displayName = "ActionBarGroup";
 }

@@ -40,6 +40,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -70,7 +71,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -695,18 +697,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
   >
     <div
       class="c1 field-wrapper field-wrapper--block"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id"
             id="test-id-label"
           >
@@ -720,7 +722,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
           </label>
           <div
             class="c9 message message--error field__message"
-            data-role="textline-error-message"
+            data-role="text-field-error-message"
             id="test-id-error"
           >
             <div
@@ -753,7 +755,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
           </div>
           <div
             class="c16 message message--warning field__message"
-            data-role="textline-warning-message"
+            data-role="text-field-warning-message"
             id="test-id-warning"
           >
             <div
@@ -786,7 +788,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
           </div>
           <div
             class="c19 field__message"
-            data-role="textline-info-message"
+            data-role="text-field-info-message"
             id="test-id-info"
           >
             <div
@@ -820,7 +822,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
           <div
             class="c21 c22 field__input field__input--warning field__input--error"
             data-isfocused="true"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <span
               class="c23 supported-unseen-span"
@@ -834,7 +836,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
               aria-required="true"
               autocomplete="off"
               class="c24 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id"
               placeholder="Autocomplete placeholder"
               role="combobox"
@@ -847,7 +849,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
             />
             <div
               class="c25 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <button
                 class="c26 c27 button button--icon"
@@ -870,7 +872,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
             </div>
             <div
               class="c28 field__suffix"
-              data-role="textline-suffix-1"
+              data-role="text-field-suffix-1"
             >
               <i
                 aria-hidden="true"
@@ -888,7 +890,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
         </div>
         <div
           class="c31 c32 field-addon field-addon--after"
-          data-role="textline--addon-after-0"
+          data-role="text-field--addon-after-0"
         >
           <span
             class="c33 c34 tooltip tooltip--hint"
@@ -928,7 +930,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > autocomplete loading state
       >
         <label
           class="c36 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id"
         >
           Helper text
@@ -1417,6 +1419,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1447,7 +1450,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1871,18 +1875,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id"
           id="test-id-label"
         >
@@ -1896,7 +1900,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
         </label>
         <div
           class="c9 message message--error field__message"
-          data-role="textline-error-message"
+          data-role="text-field-error-message"
           id="test-id-error"
         >
           <div
@@ -1929,7 +1933,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
         </div>
         <div
           class="c16 message message--warning field__message"
-          data-role="textline-warning-message"
+          data-role="text-field-warning-message"
           id="test-id-warning"
         >
           <div
@@ -1962,7 +1966,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
         </div>
         <div
           class="c19 field__message"
-          data-role="textline-info-message"
+          data-role="text-field-info-message"
           id="test-id-info"
         >
           <div
@@ -1995,7 +1999,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
         </div>
         <div
           class="c21 field__input field__input--warning field__input--error"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c22 supported-unseen-span"
@@ -2009,7 +2013,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
             aria-required="true"
             autocomplete="off"
             class="c23 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id"
             placeholder="Autocomplete placeholder"
             role="combobox"
@@ -2022,7 +2026,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
           />
           <div
             class="c24 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <button
               class="c25 c26 button button--icon"
@@ -2045,7 +2049,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
           </div>
           <div
             class="c27 field__suffix"
-            data-role="textline-suffix-1"
+            data-role="text-field-suffix-1"
           >
             <i
               aria-hidden="true"
@@ -2063,7 +2067,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
       </div>
       <div
         class="c30 c31 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c32 c33 tooltip tooltip--hint"
@@ -2103,7 +2107,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
     >
       <label
         class="c35 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id"
       >
         Helper text
@@ -2188,6 +2192,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2218,7 +2223,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2782,18 +2788,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
   >
     <div
       class="c1 field-wrapper field-wrapper--block"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id"
             id="test-id-label"
           >
@@ -2807,7 +2813,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
           </label>
           <div
             class="c9 message message--error field__message"
-            data-role="textline-error-message"
+            data-role="text-field-error-message"
             id="test-id-error"
           >
             <div
@@ -2840,7 +2846,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
           </div>
           <div
             class="c16 message message--warning field__message"
-            data-role="textline-warning-message"
+            data-role="text-field-warning-message"
             id="test-id-warning"
           >
             <div
@@ -2873,7 +2879,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
           </div>
           <div
             class="c19 field__message"
-            data-role="textline-info-message"
+            data-role="text-field-info-message"
             id="test-id-info"
           >
             <div
@@ -2907,7 +2913,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
           <div
             class="c21 field__input field__input--warning field__input--error"
             data-isfocused="true"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <span
               class="c22 supported-unseen-span"
@@ -2921,7 +2927,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
               aria-required="true"
               autocomplete="off"
               class="c23 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id"
               placeholder="Autocomplete placeholder"
               role="combobox"
@@ -2934,7 +2940,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
             />
             <div
               class="c24 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <button
                 class="c25 c26 button button--icon"
@@ -2957,7 +2963,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
             </div>
             <div
               class="c27 field__suffix"
-              data-role="textline-suffix-1"
+              data-role="text-field-suffix-1"
             >
               <i
                 aria-hidden="true"
@@ -2975,7 +2981,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
         </div>
         <div
           class="c30 c31 field-addon field-addon--after"
-          data-role="textline--addon-after-0"
+          data-role="text-field--addon-after-0"
         >
           <span
             class="c32 c33 tooltip tooltip--hint"
@@ -3015,7 +3021,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render default autocomplet
       >
         <label
           class="c35 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id"
         >
           Helper text
@@ -3496,6 +3502,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3526,7 +3533,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3959,19 +3967,19 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label label--disabled"
           data-disabled="true"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id"
           id="test-id-label"
         >
@@ -3985,7 +3993,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
         </label>
         <div
           class="c9 message message--error field__message"
-          data-role="textline-error-message"
+          data-role="text-field-error-message"
           id="test-id-error"
         >
           <div
@@ -4018,7 +4026,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
         </div>
         <div
           class="c16 message message--warning field__message"
-          data-role="textline-warning-message"
+          data-role="text-field-warning-message"
           id="test-id-warning"
         >
           <div
@@ -4051,7 +4059,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
         </div>
         <div
           class="c19 field__message"
-          data-role="textline-info-message"
+          data-role="text-field-info-message"
           id="test-id-info"
         >
           <div
@@ -4085,7 +4093,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
         <div
           class="c21 c22 field__input field__input--disabled field__input--warning field__input--error"
           data-disabled="true"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c23 supported-unseen-span"
@@ -4096,7 +4104,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
             aria-required="true"
             autocomplete="off"
             class="c24 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             disabled=""
             id="test-id"
             placeholder="Autocomplete placeholder"
@@ -4109,7 +4117,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
           />
           <div
             class="c25 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <button
               class="c26 c27 button button--icon"
@@ -4132,7 +4140,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
           </div>
           <div
             class="c28 field__suffix"
-            data-role="textline-suffix-1"
+            data-role="text-field-suffix-1"
           >
             <i
               aria-hidden="true"
@@ -4150,7 +4158,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
       </div>
       <div
         class="c31 c32 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c33 c34 tooltip tooltip--hint"
@@ -4190,7 +4198,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render disabled autocomple
     >
       <label
         class="c36 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id"
       >
         Helper text
@@ -4268,6 +4276,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4298,7 +4307,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4684,18 +4694,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id"
           id="test-id-label"
         >
@@ -4709,7 +4719,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
         </label>
         <div
           class="c9 message message--error field__message"
-          data-role="textline-error-message"
+          data-role="text-field-error-message"
           id="test-id-error"
         >
           <div
@@ -4742,7 +4752,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
         </div>
         <div
           class="c16 message message--warning field__message"
-          data-role="textline-warning-message"
+          data-role="text-field-warning-message"
           id="test-id-warning"
         >
           <div
@@ -4775,7 +4785,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
         </div>
         <div
           class="c19 field__message"
-          data-role="textline-info-message"
+          data-role="text-field-info-message"
           id="test-id-info"
         >
           <div
@@ -4809,7 +4819,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
         <div
           class="c21 field__input field__input--readonly field__input--warning field__input--error"
           data-readonly="true"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c22 supported-unseen-span"
@@ -4820,7 +4830,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
             aria-required="true"
             autocomplete="off"
             class="c23 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id"
             placeholder="Autocomplete placeholder"
             readonly=""
@@ -4834,7 +4844,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
           />
           <div
             class="c24 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <button
               class="c25 c26 button button--icon"
@@ -4859,7 +4869,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
       </div>
       <div
         class="c27 c28 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c29 c30 tooltip tooltip--hint"
@@ -4899,7 +4909,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.default > render readonly autocomple
     >
       <label
         class="c32 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id"
       >
         Helper text

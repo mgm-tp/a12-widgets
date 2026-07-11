@@ -30,11 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
-import { useCallback } from "react";
+import type { FC, FocusEvent } from "react";
+import { useCallback, useState } from "react";
 import { de } from "date-fns/locale/de";
 
 import { DateTimeContext, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
+
+import { validateYearOnBlur } from "../inputs/year-selector/year-selector-validation.utils.js";
 
 import { DateTimePickerInputWithTimeInput } from "./date-time-picker-input.time-input.js";
 
@@ -42,12 +44,18 @@ const highlightedDayStyle = { backgroundColor: "rgb(255, 181, 128)" };
 const bookedStyle = { border: "2px solid currentColor" };
 
 export const DateTimePickerInputWithAdditionalProps: FC = () => {
+	const [yearErrorMessage, setYearErrorMessage] = useState<string | undefined>();
+
 	const highlightedDay = useCallback((day: Date): boolean => {
 		return day.getDate() === 20;
 	}, []);
 
 	const bookedDays = useCallback((day: Date): boolean => {
 		return day.getDate() === 23;
+	}, []);
+
+	const handleYearBlur = useCallback((ev: FocusEvent<HTMLInputElement>): void => {
+		setYearErrorMessage(validateYearOnBlur(ev, { min: 1990, max: 2025 }));
 	}, []);
 
 	return (
@@ -61,7 +69,9 @@ export const DateTimePickerInputWithAdditionalProps: FC = () => {
 					modifiers: { highlightedDay, booked: bookedDays },
 					modifiersStyles: { booked: bookedStyle, highlightedDay: highlightedDayStyle },
 					modifiersClassNames: { booked: "booked-classname" },
-					yearRange: { start: 1990, end: 2025 }
+					yearRange: { start: 1990, end: 2025 },
+					onYearSelectorBlur: handleYearBlur,
+					yearErrorMessage
 				}}
 			/>
 		</DateTimeContext.Provider>

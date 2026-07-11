@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import TableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/new-api/table.api.json" with { type: "json" };
-import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/new-api/column.api.json" with { type: "json" };
-import TableRowsGroupAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/new-api/table-rows-group/table-row-group.api.json" with { type: "json" };
-import TableRendererAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/new-api/table-renderer.api.json" with { type: "json" };
+import TableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table.api.json" with { type: "json" };
+import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/column.api.json" with { type: "json" };
+import TableRowsGroupAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table-rows-group/table-row-group.api.json" with { type: "json" };
+import TableRendererAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table-renderer.api.json" with { type: "json" };
 import { BulletList, ExternalLink, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../helpers/definitions.js";
@@ -44,19 +44,23 @@ import { ExpandableTableShowcase } from "./expandable-table.js";
 import { ColumnGroupTableShowcase } from "./column-group.js";
 import { RowGroupTableShowcase } from "./row-group.js";
 import { ResizableTableShowcase } from "./advanced/resizable-column.js";
+import { ResizableTableFlatShowcase } from "./advanced/resizable-column-flat.js";
 import { CrossTabulationShowcase } from "./cross-tabulation.js";
 import { CustomizationTableShowcase } from "./customization.js";
 import { DnDTableShowcase } from "./advanced/dnd.js";
 import { ContextMenuTableShowcase } from "./advanced/context-menu.js";
 import { VirtualizedTableShowcase } from "./advanced/virtualized.js";
 import { ScrollToNodeTableShowcase } from "./scroll-to-node.js";
+import { ColumnGroupAccessibility } from "./column-group-accessibility.js";
 import { Accessibility } from "./accessibility.js";
 
 import basicCode from "!./basic-table.tsx?raw";
 import expandableCode from "!./expandable-table.tsx?raw";
 import columnGroupCode from "!./column-group.tsx?raw";
+import columnGroupAccessibilityCode from "!./column-group-accessibility.tsx?raw";
 import rowGroupCode from "!./row-group.tsx?raw";
 import resizableCode from "!././advanced/resizable-column.tsx?raw";
+import resizableFlatCode from "!./advanced/resizable-column-flat.tsx?raw";
 import crossTabulationCode from "!./cross-tabulation.tsx?raw";
 import customizationCode from "!./customization.tsx?raw";
 import dnDCode from "!./advanced/dnd.tsx?raw";
@@ -65,6 +69,7 @@ import virtualizedCode from "!./advanced/virtualized.tsx?raw";
 import scrollToNodeCode from "!./scroll-to-node.tsx?raw";
 import utilsCode from "!./utils.ts?raw";
 import accessibilityCode from "!./accessibility.tsx?raw";
+import dataCode from "!./data.ts?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -258,9 +263,6 @@ const showcases: Showcase[] = [
 										The <code>pinning</code> only works for the <strong>first-level</strong> column-span.
 									</BulletList.Item>
 								</BulletList.Unordered>
-								<strong>Accessibility reminder:</strong> Because of the complicated HTML structure of grouped columns,
-								the screen readers will not be able to provide an accurate mapping for the contents of the Table's
-								headers and cells. We DO NOT recommend using Table with spanned Columns for accessibility usage.
 								<p>
 									In this example, besides of the multi-columns, additional features have also been added to make it
 									more alive:
@@ -276,7 +278,65 @@ const showcases: Showcase[] = [
 						fullSize: true,
 						code: [
 							{ name: "column-group.tsx", code: columnGroupCode },
-							{ name: "utils.ts", code: utilsCode }
+							{ name: "utils.ts", code: utilsCode },
+							{ name: "data.ts", code: dataCode }
+						]
+					},
+					{
+						label: "Column Grouping Accessibility",
+						content: <ColumnGroupAccessibility />,
+						description: (
+							<>
+								<p>
+									This example demonstrates how to use the Table widget with column grouping and{" "}
+									<code>enableColumnGroupA11y</code> enabled. When <code>enableColumnGroupA11y</code> is set to{" "}
+									<code>true</code>, the table uses proper ARIA attributes and semantic HTML structure to provide better
+									support for screen readers.
+								</p>
+								<p>
+									With <code>enableColumnGroupA11y</code> enabled, the table will:
+								</p>
+								<BulletList.Unordered>
+									<BulletList.Item>
+										Use <code>role="grid"</code> for the table container
+									</BulletList.Item>
+									<BulletList.Item>
+										Use <code>role="rowgroup"</code> for header and body sections
+									</BulletList.Item>
+									<BulletList.Item>
+										Use <code>role="row"</code> for each row
+									</BulletList.Item>
+									<BulletList.Item>
+										Use <code>role="columnheader"</code> for header cells with appropriate <code>aria-colspan</code> and{" "}
+										<code>aria-rowspan</code> attributes
+									</BulletList.Item>
+									<BulletList.Item>
+										Use <code>role="cell"</code> for body cells
+									</BulletList.Item>
+									<BulletList.Item>
+										Provide proper <code>aria-rowindex</code> and <code>aria-colindex</code> for better navigation
+									</BulletList.Item>
+								</BulletList.Unordered>
+								<p>
+									This enhanced accessibility mode ensures that screen readers can accurately announce the table
+									structure, making it easier for users with visual impairments to navigate and understand the grouped
+									columns.
+								</p>
+								<p>Additional features included in this example:</p>
+								<BulletList.Unordered>
+									<BulletList.Item>Column grouping with sub-columns</BulletList.Item>
+									<BulletList.Item>Sortable columns</BulletList.Item>
+									<BulletList.Item>Row selection</BulletList.Item>
+									<BulletList.Item>Interactive elements (email links)</BulletList.Item>
+								</BulletList.Unordered>
+							</>
+						),
+						fitToSection: true,
+						fullSize: true,
+						code: [
+							{ name: "column-group-accessibility.tsx", code: columnGroupAccessibilityCode },
+							{ name: "utils.ts", code: utilsCode },
+							{ name: "data.ts", code: dataCode }
 						]
 					},
 					{
@@ -443,6 +503,25 @@ const showcases: Showcase[] = [
 						fullSize: true,
 						code: [
 							{ name: "resizable-column.tsx", code: resizableCode },
+							{ name: "utils.ts", code: utilsCode }
+						]
+					},
+					{
+						label: "Resizable Columns (Flat)",
+						content: <ResizableTableFlatShowcase />,
+						description: (
+							<>
+								<p>
+									Same as the previous example but with a flat list of columns (no nested <code>subColumns</code>/column
+									groups). Useful when every column is a leaf and you want to verify resizing behavior in the simpler
+									single-row header case.
+								</p>
+							</>
+						),
+						fitToSection: true,
+						fullSize: true,
+						code: [
+							{ name: "resizable-column-flat.tsx", code: resizableFlatCode },
 							{ name: "utils.ts", code: utilsCode }
 						]
 					},

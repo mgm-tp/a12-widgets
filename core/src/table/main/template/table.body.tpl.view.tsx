@@ -35,8 +35,8 @@ import { useMemo } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
-import { useTableContext } from "../../new-api/table.context.js";
 
+import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import { CollapsingWrapper } from "./table.collapsing-wrapper.tpl.view.js";

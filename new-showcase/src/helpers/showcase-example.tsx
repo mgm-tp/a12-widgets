@@ -33,7 +33,7 @@
 import type { ReactNode, ReactElement } from "react";
 import { useContext, useCallback, useEffect, isValidElement, useState, useRef, useMemo } from "react";
 import type { Options } from "react-element-to-jsx-string";
-import reactElementToJSXString from "react-element-to-jsx-string";
+import reactElementToJSXStringImport from "react-element-to-jsx-string";
 import { styled } from "styled-components";
 
 import type { Container } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -46,6 +46,17 @@ import { ShowcaseDescription } from "./showcase-description.js";
 import { ShowcaseExampleContent } from "./showcase-example-content.js";
 import { ShowcaseExampleToolbar } from "./showcase-example-toolbar.js";
 import { ShowcaseExampleContext } from "./showcase-example-context.js";
+
+/*
+ * `react-element-to-jsx-string` ships both CJS and ESM builds. Depending on which entry the bundler
+ * resolves and how it applies CJS/ESM interop, the default import can arrive either as the function itself
+ * or wrapped one level deep under `.default` (observed as `import_cjs$1.default is not a function` in
+ * production builds). Normalise to the callable so it works regardless of resolution.
+ */
+const reactElementToJSXString: typeof reactElementToJSXStringImport =
+	typeof reactElementToJSXStringImport === "function"
+		? reactElementToJSXStringImport
+		: (reactElementToJSXStringImport as { default: typeof reactElementToJSXStringImport }).default;
 
 export const StyledWrapper = styled.div`
 	box-sizing: border-box;

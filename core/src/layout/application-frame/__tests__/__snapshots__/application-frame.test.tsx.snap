@@ -93,7 +93,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > disable collapsing sub
     flex-direction: column;
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }
@@ -115,13 +115,13 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > disable collapsing sub
 }
 
 @media only screen and (min-width: 768px) {
-  .dVrOwu .c4 {
+  .jtInTr .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .hZxYuJ .c4 {
+  .ixQEHg .c4 {
     position: unset;
   }
 }
@@ -202,7 +202,8 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > maximized sidebar 1`] 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -431,37 +432,37 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > maximized sidebar 1`] 
     flex-direction: column;
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .dVrOwu .c4 {
+  .jtInTr .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .hZxYuJ .c4 {
+  .ixQEHg .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .gRONIr .c4 {
+  .kWEUjm .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .kOCEWv .c4 {
+  .zUZQe .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .efkqUQ .c4 {
+  .kuYjCR .c4 {
     position: unset;
   }
 }
@@ -623,7 +624,8 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > minimized sidebar 1`] 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -867,7 +869,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > minimized sidebar 1`] 
     flex-direction: column;
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }
@@ -889,25 +891,25 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > minimized sidebar 1`] 
 }
 
 @media only screen and (min-width: 768px) {
-  .dVrOwu .c4 {
+  .jtInTr .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .hZxYuJ .c4 {
+  .ixQEHg .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .gRONIr .c4 {
+  .kWEUjm .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .kOCEWv .c4 {
+  .zUZQe .c4 {
     position: unset;
   }
 }
@@ -1080,7 +1082,8 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render Application Fra
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1322,7 +1325,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render Application Fra
     flex-direction: column;
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }
@@ -1344,7 +1347,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render Application Fra
 }
 
 @media only screen and (min-width: 768px) {
-  .dVrOwu .c4 {
+  .jtInTr .c4 {
     position: unset;
   }
 }
@@ -1371,37 +1374,37 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render Application Fra
 }
 
 @media only screen and (min-width: 768px) {
-  .gRONIr .c4 {
+  .kWEUjm .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .kOCEWv .c4 {
+  .zUZQe .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .efkqUQ .c4 {
+  .kuYjCR .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .fJaJsq .c4 {
+  .ibCYab .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .eCmjCi .c4 {
+  .jGQZBv .c4 {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .ftXBPo .c4 {
+  .dfgKnx .c4 {
     position: unset;
   }
 }
@@ -1620,7 +1623,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render base structure 
     flex-direction: column;
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }
@@ -1679,7 +1682,8 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render content with fu
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1905,7 +1909,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render content with fu
     flex-direction: column;
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }
@@ -2154,7 +2158,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render footer 1`] = `
     flex-direction: column;
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }
@@ -2220,7 +2224,8 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render toggle button w
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2488,7 +2493,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render toggle button w
     flex-direction: column;
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }
@@ -2510,7 +2515,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render toggle button w
 }
 
 @media only screen and (min-width: 768px) {
-  .dVrOwu .c4 {
+  .jtInTr .c4 {
     position: unset;
   }
 }
@@ -2768,7 +2773,8 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render toggle button w
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3009,7 +3015,7 @@ exports[`com.mgmtp.a12.widgets.layout.application-frame > render toggle button w
     height: calc(100% - 48px);
   }
 
-  .c2:has(.StyledContentBox-sc-TBvej) {
+  .c2:has(.StyledContentBox-sc-kokwpj) {
     min-height: 0px;
   }
 }

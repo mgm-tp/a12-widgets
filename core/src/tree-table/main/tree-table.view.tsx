@@ -42,19 +42,19 @@ import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { useKeepEditableCursorInDraggable } from "../../common/main/hooks.js";
 import type { DOMProps } from "../../common/main/base-props.js";
 import { TableTemplate } from "../../table/main/template/index.js";
-import type { TableContextType } from "../../table/new-api/table.api.js";
-import type { TableRenderPropsType } from "../../table/new-api/table-renderer.api.js";
+import type { TableContextType } from "../../table/main/table.api.js";
+import type { TableRenderPropsType } from "../../table/main/table-renderer.api.js";
 import {
 	DefaultTableComponentRenderers,
 	DnDTable,
 	StyledTableDnDBody,
 	TableContextProvider
-} from "../../table/new-api/table.view.js";
-import { flattenAllColumns, getRowKey, hasColumnGroup, TableInternalUtils } from "../../table/new-api/table.utils.js";
+} from "../../table/main/table.view.js";
+import { flattenAllColumns, getRowKey, hasColumnGroup, TableInternalUtils } from "../../table/main/table.utils.js";
 import { TreeNode } from "../../tree/main/tpl/tree-elements.tpl.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { TableRowScroller } from "../../table/new-api/table.row-scroller.js";
+import { TableRowScroller } from "../../table/main/table.row-scroller.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
 import type {
@@ -212,9 +212,6 @@ export const TreeTableBodyContent = memo(function BodyContent(
 
 TreeTableBodyContent.displayName = "BodyContent";
 
-/** @deprecated since version 38.2.0. Use {@link TreeTableBodyContent} instead. */
-export const BodyContent = TreeTableBodyContent;
-
 const HierarchicalBodyContent = memo(function HierarchicalBodyContent(
 	props: TreeTableRenderPropsType.HierarchicalBodyContentProps
 ) {
@@ -275,9 +272,6 @@ export const TreeTableBodyCell = memo(function BodyCell(props: TableRenderPropsT
 		</>
 	);
 });
-
-/** @deprecated since version 38.2.0. Use {@link TreeTableBodyCell} instead. */
-export const BodyCell = TreeTableBodyCell;
 
 TreeTableBodyCell.displayName = "TreeTableBodyCell";
 
@@ -376,8 +370,6 @@ export namespace DndTreeTable {
 		);
 	}
 
-	DndContainer.displayName = "DndContainer";
-
 	export const DndBodyRow = memo(function DndBodyRow(
 		props: TableRenderPropsType.DndBodyRowProps<FlattenTreeTableNode>
 	): ReactElement {
@@ -422,8 +414,6 @@ export namespace DndTreeTable {
 			</StyledTableDnDBody>
 		);
 	});
-
-	DndBodyRow.displayName = "DndBodyRow";
 
 	export const DragSource = memo(function DragSource(
 		props: TableRenderPropsType.DragSourceProps<FlattenTreeTableNode>
@@ -574,8 +564,6 @@ export namespace DndTreeTable {
 		);
 	});
 
-	DragSource.displayName = "DragSource";
-
 	export const DropTarget = memo(function DropTarget(
 		props: TreeTableRenderPropsType.DropTargetProps<FlattenTreeTableNode>
 	): ReactElement | null {
@@ -656,8 +644,6 @@ export namespace DndTreeTable {
 			/>
 		);
 	});
-
-	DropTarget.displayName = "DropTarget";
 }
 
 export const DefaultTreeTableComponentRenderers: TreeTableComponentRenderers<any> = {
@@ -824,6 +810,7 @@ function TreeTableContainer<
 						virtualScroll={!!props.virtualScrollOptions}
 						ariaLabelledby={StringUtils.join({ [`${id}-hidden-text`]: shouldShowHiddenText }, ariaLabelledby)}
 						disableArrowNavigation={disableArrowNavigation}
+						enableColumnGroupA11y={props.enableColumnGroupA11y}
 					>
 						{componentRenderers.headRenderer()}
 						{virtualScrollOptions

@@ -40,11 +40,15 @@ import { YearMonthSelectorExample } from "./year-month-selector.js";
 import { YearMonthSelectorWithDifferentLocale } from "./with-different-locale.js";
 import { YearMonthSelectorWithCustomMonths } from "./year-month-selector-with-custom-months.js";
 import { YearMonthSelectorWithOptionalValue } from "./optional-value.js";
+import { YearMonthSelectorAutocompleteYear } from "./variant-autocomplete-year.js";
+import { YearMonthSelectorSelectYear } from "./variant-select-year.js";
 
 import basicCode from "!./year-month-selector.tsx?raw";
 import withDifferentLocale from "!./with-different-locale.tsx?raw";
 import withCustomMonths from "!./year-month-selector-with-custom-months.tsx?raw";
 import withOptionalValue from "!./optional-value.tsx?raw";
+import withAutocompleteYear from "!./variant-autocomplete-year.tsx?raw";
+import withSelectYear from "!./variant-select-year.tsx?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -113,6 +117,34 @@ const showcases: Showcase[] = [
 				),
 				content: <YearMonthSelectorWithOptionalValue />,
 				code: { name: "optional-value.tsx", code: withOptionalValue }
+			},
+			{
+				label: "Autocomplete Year",
+				description: (
+					<>
+						<p>
+							Set <code>yearSelectorVariant="autocomplete"</code> together with a <code>yearRange</code> to replace the
+							native year <code>&lt;select&gt;</code> with a text input backed by a dropdown. This is ideal when the
+							range of valid years is bounded but typing is preferred over scrolling.
+						</p>
+						<p>
+							Use the <code>onYearSelectorBlur</code> callback to run validation when the user leaves the year field.
+						</p>
+					</>
+				),
+				content: <YearMonthSelectorAutocompleteYear />,
+				code: { name: "variant-autocomplete-year.tsx", code: withAutocompleteYear }
+			},
+			{
+				label: "Select Year",
+				description: (
+					<p>
+						Set <code>yearSelectorVariant="select"</code> to use the native <code>&lt;select&gt;</code> element for the
+						year. This is the classic behaviour and is recommended when the year range is small and predictable.
+					</p>
+				),
+				content: <YearMonthSelectorSelectYear />,
+				code: { name: "variant-select-year.tsx", code: withSelectYear }
 			}
 		]
 	}

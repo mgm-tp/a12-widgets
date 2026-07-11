@@ -33,6 +33,7 @@
 import type { ReactNode, RefCallback, HTMLAttributes } from "react";
 
 import type { Identifiable, Styleable } from "../../common/main/base-props.js";
+import type { TimeFormat, TimeUnit } from "../../common/main/date-time/time-types.js";
 
 import type { TimeInputBaseProps } from "./time-picker-input.api.js";
 
@@ -155,8 +156,8 @@ export interface TimePickerProps extends TimePickerBaseProps, TimeInputBaseProps
 }
 
 export namespace TimePickerProps {
-	export type ClockMode = "12h" | "24h";
-	export type Screen = "hour" | "minute";
+	export type ClockMode = TimeFormat;
+	export type Screen = TimeUnit;
 	export type Renderer = (time?: Date, closeHandler?: () => void) => ReactNode;
 	export type TimeFormatter = (time: Date | undefined) => string;
 	export type TimeConverter = (timeString: string) => Date | undefined;

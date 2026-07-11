@@ -70,6 +70,13 @@ export namespace TabPanelTemplateProps {
 		title?: string;
 
 		/**
+		 * Label for the tab.
+		 *
+		 * *Note:* Only shown on mobile's sub-tablist, next to the tab's icon.
+		 */
+		label?: ReactNode;
+
+		/**
 		 * @deprecated since 34.6.0, use {@link ariaLabelledby} instead
 		 *
 		 * Value of ariaDescribedby should be id of additional elements inside a Tab.
@@ -90,6 +97,13 @@ export namespace TabPanelTemplateProps {
 		tabIndex?: number;
 
 		/**
+		 * When true, renders the item with a left-aligned icon + label row layout.
+		 * Used in the mobile sub-tablist when the tab carries a visible label.
+		 * @internal
+		 */
+		mobileSubListLayout?: boolean;
+
+		/**
 		 * The orientation of a tab.
 		 * @default "vertical"
 		 */
@@ -99,6 +113,25 @@ export namespace TabPanelTemplateProps {
 		 * Handle event when a tab is selected by mouse.
 		 */
 		onClick?(event: SyntheticEvent<HTMLElement>): void;
+	}
+
+	export interface GroupTabProps extends BaseProps {
+		/**
+		 * Specifies the label of a group.
+		 *
+		 * *Note:* Only shown in mobile's sub-tablist popup menu.
+		 */
+		groupLabel: string;
+
+		/**
+		 * The tab items belonging to this group.
+		 */
+		tabs: TabProps[];
+
+		/**
+		 * Specifies the aria-label attribute for the group.
+		 */
+		ariaLabel?: string;
 	}
 
 	export interface PanelHeaderProps extends BaseProps {

@@ -32,10 +32,10 @@
 
 import type { IconTheme } from "../../../icon/main/icon.api.js";
 import type { DropDownItem } from "../../../dropdown/main/template/dropdown.tpl.api.js";
-import type { TextLineStatelessProps } from "../../text-line/main/template/text-line.tpl.api.js";
+import type { TextFieldProps } from "../../text-field/main/template/text-field.tpl.api.js";
 import type { InputDOMProps } from "../../base/template/base.tpl.api.js";
 
-export interface IconPickerProps extends Omit<TextLineStatelessProps, "onChange">, InputDOMProps {
+export interface IconPickerProps extends Omit<TextFieldProps, "onChange">, InputDOMProps {
 	/**
 	 * The template for the hint text.
 	 * You need to provide placeholders for number of icons shown and number of icons in total.

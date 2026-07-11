@@ -37,7 +37,8 @@ import {
 	queryAllByDataRole,
 	queryByDataRole,
 	render,
-	setupDevice
+	setupDevice,
+	waitFor
 } from "test-utils";
 import { describe, vi, expect, test, beforeAll, afterEach } from "vitest";
 import { page } from "vitest/browser";
@@ -293,6 +294,118 @@ describe("com.mgmtp.a12.widgets.layout.application-frame.events", () => {
 
 			fireEvent.mouseDown(document.body);
 			expect(onExpansionChangeFn).toHaveBeenCalledTimes(0);
+		});
+	});
+
+	describe("Resizing", () => {
+		async function moveResize(handler: HTMLElement, options: { x?: number; steps?: number }): Promise<void> {
+			const { x = 0, steps = 1 } = options;
+			const rect = handler.getBoundingClientRect();
+			const startX = rect.left;
+			const startY = rect.top;
+
+			handler.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, clientX: startX, clientY: startY }));
+
+			for (let i = 1; i <= steps; i++) {
+				document.dispatchEvent(
+					new MouseEvent("mousemove", { bubbles: true, clientX: startX + x * (i / steps), clientY: startY })
+				);
+			}
+
+			document.dispatchEvent(new MouseEvent("mouseup", { bubbles: true, clientX: startX + x, clientY: startY }));
+		}
+
+		test("Should resize the component and verify the new width matches the expected value", async () => {
+			const { container } = render(
+				<ApplicationFrame
+					main={<div>main</div>}
+					sub={{ content: <div>sub</div>, style: { width: 500 } }}
+					content={<div>content</div>}
+					subResizableOptions={{ minWidth: 300, maxWidth: "70%" }}
+					subExpanded={true}
+					subExpandedState="minimized"
+				/>
+			);
+
+			const resizeHandler = getByDataRole(container, DataRoles.ResizableHandler) as HTMLElement;
+			const sidebar = getByDataRole(container, DataRoles.ApplicationFrame.Sidebar.Wrapper) as HTMLElement;
+
+			const initialWidth = sidebar.getBoundingClientRect().width;
+			const newWidth = 500;
+
+			await moveResize(resizeHandler, { x: newWidth - initialWidth });
+
+			await waitFor(
+				() => {
+					expect(sidebar.getBoundingClientRect().width).toBe(newWidth);
+				},
+				{ timeout: 2000 }
+			);
+		});
+
+		test("Should not change width after reaching minWidth or maxWidth", async () => {
+			const minWidth = 300;
+			const maxWidth = 0.7 * document.documentElement.clientWidth;
+
+			const { container } = render(
+				<ApplicationFrame
+					main={<div>main</div>}
+					sub={{ content: <div>sub</div>, style: { width: 500 } }}
+					content={<div>content</div>}
+					subResizableOptions={{ minWidth, maxWidth: "70%" }}
+					subExpanded={true}
+					subExpandedState="minimized"
+				/>
+			);
+
+			const resizeHandler = getByDataRole(container, DataRoles.ResizableHandler) as HTMLElement;
+			const sidebar = getByDataRole(container, DataRoles.ApplicationFrame.Sidebar.Wrapper) as HTMLElement;
+
+			const initialWidth = sidebar.getBoundingClientRect().width;
+
+			// Resize to minWidth
+			await moveResize(resizeHandler, { x: minWidth - initialWidth, steps: 3 });
+			await waitFor(() => expect(sidebar.getBoundingClientRect().width).toBe(minWidth), { timeout: 2000 });
+
+			// Attempt to resize below minWidth
+			await moveResize(resizeHandler, { x: -100 });
+			await waitFor(() => expect(sidebar.getBoundingClientRect().width).toBe(minWidth), { timeout: 2000 });
+
+			// Resize to maxWidth
+			const widthAtMin = sidebar.getBoundingClientRect().width;
+			await moveResize(resizeHandler, { x: maxWidth - widthAtMin, steps: 3 });
+			await waitFor(
+				() => {
+					expect(sidebar.getBoundingClientRect().width).toBe(maxWidth);
+				},
+				{ timeout: 2000 }
+			);
+
+			// Attempt to resize beyond maxWidth
+			await moveResize(resizeHandler, { x: 100 });
+			await waitFor(() => expect(sidebar.getBoundingClientRect().width).toBe(maxWidth), { timeout: 2000 });
+		});
+
+		test("The sidebar's width should not exceed maxWidth from beginning", async () => {
+			const { container } = render(
+				<ApplicationFrame
+					main={<div>main</div>}
+					sub={<div>sub</div>}
+					content={<div>content</div>}
+					subResizableOptions={{ minWidth: 200, maxWidth: 400 }}
+					subExpanded={true}
+					subExpandedState="minimized"
+				/>
+			);
+
+			const sidebar = getByDataRole(container, DataRoles.ApplicationFrame.Sidebar.Wrapper) as HTMLElement;
+
+			await waitFor(
+				() => {
+					expect(sidebar.getBoundingClientRect().width).toBeLessThanOrEqual(400);
+				},
+				{ timeout: 2000 }
+			);
 		});
 	});
 

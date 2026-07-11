@@ -50,7 +50,7 @@ import {
 	StringUtils
 } from "../../../common/main/utils.js";
 import { provider } from "../../../common/main/device-detector.js";
-import { TextLineStateless } from "../../text-line/main/template/text-line.tpl.view.js";
+import { TextField } from "../../text-field/main/template/text-field.tpl.view.js";
 import { SelectionSuffix } from "../../base/template/base.tpl.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
@@ -87,6 +87,7 @@ export class IconPicker extends Component<IconPickerProps, IconPickerState> {
 	private clearButtonRef: HTMLElement | null = null;
 	private viewListButtonRef: HTMLElement | null = null;
 	private justClickOnItem = false;
+	private updatePortalPosition?: () => void;
 
 	constructor(props: IconPickerProps) {
 		super(props);
@@ -132,6 +133,10 @@ export class IconPicker extends Component<IconPickerProps, IconPickerState> {
 		this.dropdownInstance = instance;
 	}
 
+	private getUpdatePortalPositionHandler(handler: () => void): void {
+		this.updatePortalPosition = handler;
+	}
+
 	private handleInputWrapperClick(): void {
 		this.justClickOnItem = false;
 		this.showIconPicker();
@@ -154,7 +159,7 @@ export class IconPicker extends Component<IconPickerProps, IconPickerState> {
 	}
 
 	private handleViewButtonClick(): void {
-		window.open("https://fonts.google.com/icons?icon.set=Material+Icons");
+		window.open("https://fonts.google.com/icons");
 	}
 
 	private handleSelectedItemChange(icon: IconPickerProps.Icon): void {
@@ -321,7 +326,7 @@ export class IconPicker extends Component<IconPickerProps, IconPickerState> {
 		);
 	}
 
-	componentDidUpdate(prevProps: IconPickerProps): void {
+	componentDidUpdate(prevProps: IconPickerProps, prevState: IconPickerState): void {
 		if (this.inputWrapperRef && this.dropdownRef) {
 			const width = this.inputWrapperRef.getBoundingClientRect().width;
 
@@ -334,6 +339,11 @@ export class IconPicker extends Component<IconPickerProps, IconPickerState> {
 			this.setState(() => ({
 				inputValue: IconPickerUtils.getIconLabel(this.props.selectedIcon)
 			}));
+		}
+
+		// Recalculate portal position before paint to avoid wrong position and flicker when dropdown height changes on search.
+		if (this.state.searchText !== prevState.searchText && this.state.showIconPicker) {
+			this.updatePortalPosition?.();
 		}
 	}
 
@@ -410,13 +420,13 @@ export class IconPicker extends Component<IconPickerProps, IconPickerState> {
 				data-role={DataRoles.IconPicker}
 				$disabled={disabled}
 			>
-				<TextLineStateless
+				<TextField
 					{...rest}
 					disabled={disabled}
 					readonly={readonly}
 					textAlignment={textAlignment}
 					showHiddenText
-					id={id && `${id}-textline`}
+					id={id && `${id}-text-field`}
 					placeholder={selectedIcon ? undefined : placeholder}
 					value={inputValue}
 					onChange={this.handleInputValueChange}
@@ -445,11 +455,11 @@ export class IconPicker extends Component<IconPickerProps, IconPickerState> {
 					inputProps={{
 						...this.props.inputProps,
 						role: unavailableInput ? undefined : "combobox",
-						[`aria-haspopup`]: unavailableInput ? "false" : "listbox",
-						[`aria-expanded`]: unavailableInput ? undefined : !!showIconPicker,
-						[`aria-autocomplete`]: unavailableInput ? undefined : "list",
-						[`aria-owns`]: showIconPicker && id ? `${id}--dropdown` : undefined,
-						[`aria-activedescendant`]:
+						"aria-haspopup": unavailableInput ? "false" : "listbox",
+						"aria-expanded": unavailableInput ? undefined : !!showIconPicker,
+						"aria-autocomplete": unavailableInput ? undefined : "list",
+						"aria-owns": showIconPicker && id ? `${id}--dropdown` : undefined,
+						"aria-activedescendant":
 							showIconPicker && preSelectedIcon
 								? preSelectedIcon.id || `${preSelectedIcon.label}-${preSelectedIcon.theme}`
 								: undefined
@@ -467,6 +477,7 @@ export class IconPicker extends Component<IconPickerProps, IconPickerState> {
 						fixedOrientation
 						selfSizing
 						focusOnOpen={false}
+						updateElementPosition={this.getUpdatePortalPositionHandler}
 					>
 						<StyledIconPickerDropdown
 							id={id ? `${id}--dropdown` : undefined}

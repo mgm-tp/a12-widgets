@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import ChangeLogMD from "@com.mgmtp.a12.widgets/widgets-core/CHANGELOG.md?raw";
+
 import { MarkdownViewer } from "../helpers/markdown-viewer.js";
 import type { Showcase } from "../helpers/definitions.js";
-
-import ChangeLogMD from "!@com.mgmtp.a12.widgets/widgets-core/CHANGELOG.md?raw";
 
 const showcases: Showcase[] = [
 	{ label: "Change Log", description: <MarkdownViewer source={ChangeLogMD} />, sections: [] }

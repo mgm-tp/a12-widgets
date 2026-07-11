@@ -32,7 +32,7 @@
 
 import type { MouseEvent, FC } from "react";
 import { useEffect } from "react";
-import "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 import type { LexicalEditor } from "lexical";
 import { $getSelection, $isNodeSelection, $isRangeSelection, COMMAND_PRIORITY_EDITOR, createCommand } from "lexical";
 import { mergeRegister } from "@lexical/utils";

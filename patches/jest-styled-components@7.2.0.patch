@@ -1,0 +1,16 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+deleted file mode 100644
+index a36c7e72aa5a991d0dab6d867f6cd2cc3fa073d8..0000000000000000000000000000000000000000
+diff --git a/src/styleSheetSerializer.js b/src/styleSheetSerializer.js
+index 3714bfb1bc80bcb66e90637f76d7332297cf7693..172c12beca0a6663d44a8d603795b04d5327153d 100644
+--- a/src/styleSheetSerializer.js
++++ b/src/styleSheetSerializer.js
+@@ -74,7 +74,7 @@ const getStyle = (classNames, config = {}) => {
+   const ast = getCSS();
+   const filter = filterRules(classNames);
+   const rules = ast.stylesheet.rules.filter(filter);
+-  const atRules = getAtRules(ast, filter);
++  const atRules = getAtRules(ast, filter).filter(entry => entry.rules.length > 0);
+ 
+   ast.stylesheet.rules = rules.concat(atRules);
+ 

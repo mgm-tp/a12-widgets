@@ -31,7 +31,7 @@
  */
 
 import { createReferenceElement, getAllByDataRole, getByDataRole, removeReferenceElement, render } from "test-utils";
-import { describe, test, expect, vi } from "vitest";
+import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 import { Button } from "../../button/main/button.view.js";
@@ -131,19 +131,23 @@ describe("com.mgmtp.a12.widgets.callout.template", () => {
 });
 
 describe("com.mgmtp.a12.widgets.callout", () => {
+	let referenceElement: HTMLElement;
+	beforeEach(() => {
+		referenceElement = createReferenceElement();
+	});
+	afterEach(() => {
+		removeReferenceElement(referenceElement);
+	});
 	test("rendering-default-callout", async () => {
-		const referenceElement = createReferenceElement();
 		const { container } = render(
 			<Callout referenceElement={referenceElement} closeOnOutsideClick closeOnEsc orientationList={["bottom", "top"]}>
 				<p>body</p>
 			</Callout>
 		);
 		expect(getByDataRole(container, DataRoles.Portal)).toMatchSnapshot();
-		removeReferenceElement(referenceElement);
 	});
 
 	test("rendering-callout-with-resizeAndDrag", async () => {
-		const referenceElement = createReferenceElement();
 		const { container } = render(
 			<Callout
 				referenceElement={referenceElement}
@@ -159,11 +163,9 @@ describe("com.mgmtp.a12.widgets.callout", () => {
 		);
 
 		expect(getByDataRole(container, DataRoles.Portal)).toMatchSnapshot();
-		removeReferenceElement(referenceElement);
 	});
 
 	test("Callout with `htmlAttributes` property", async () => {
-		const referenceElement = createReferenceElement();
 		const ariaLabel = "Test Custom Label";
 		const { getByDataRole } = render(
 			<Callout
@@ -180,7 +182,5 @@ describe("com.mgmtp.a12.widgets.callout", () => {
 		const calloutElement = getByDataRole(DataRoles.Callout);
 		expect(calloutElement).toBeTruthy();
 		expect(calloutElement.getAttribute("aria-label")).toBe(ariaLabel);
-
-		removeReferenceElement(referenceElement);
 	});
 });

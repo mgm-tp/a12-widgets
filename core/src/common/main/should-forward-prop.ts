@@ -31,9 +31,8 @@
  */
 
 import isPropValid from "@emotion/is-prop-valid";
-import { type Runtime, type StyledTarget } from "styled-components/dist/types.js";
 
-export function shouldForwardProp<R extends Runtime>(prop: string, elementToBeCreated: StyledTarget<R>): boolean {
+export function shouldForwardProp(prop: string, elementToBeCreated: string | React.ComponentType<any>): boolean {
 	if (typeof elementToBeCreated === "string") {
 		// For HTML elements, forward the prop if it is a valid HTML attribute
 		return isPropValid(prop);

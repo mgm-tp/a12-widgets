@@ -49,6 +49,10 @@ import type { InsertableTreeProps } from "./insertable-tree.api.js";
 
 const baseClassName = addPrefix("treeWidget");
 
+/**
+ * @deprecated since 39.0.0. Prefer `TreeView` for new trees. There is no direct `TreeView` equivalent of
+ * the insertion affordances yet; compose them with `TreeView`'s `getActions` / `dragDrop`.
+ */
 export function InsertableTree(props: InsertableTreeProps): ReactElement<InsertableTreeProps> {
 	const { root, hideRoot, ...rest } = props;
 
@@ -103,8 +107,6 @@ export namespace InsertableTree {
 			/>
 		);
 	}
-
-	InsertHint.displayName = "InsertableTree.InsertHint";
 
 	export interface TreeNodeTemplateRecursiveState {
 		hoveringPosition: InsertableTreeProps.InsertPosition | null;

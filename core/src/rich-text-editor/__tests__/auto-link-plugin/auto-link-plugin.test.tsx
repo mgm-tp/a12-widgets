@@ -32,10 +32,13 @@
 
 import { describe, expect, test } from "vitest";
 import { findByDataRole, render } from "test-utils";
-import { userEvent } from "@vitest/browser/context";
+import { userEvent } from "vitest/browser";
 
 import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
+import type { SpellCheckPluginConfig } from "../../main/wrapper/default-rich-text-editor.api.js";
+import type { TooltipPluginConfig } from "../../main/plugins/tooltip-plugin/tooltip-plugin.api.js";
 import { AutoLinkPlugin, BoldButton, type ButtonType, createInlineButton } from "../../main/plugins/index.js";
+import type { TextMatcher, TextMatcherResult } from "../../main/plugins/plugin.internal.api.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { prepopulatedRichText } from "../../main/utils/common.js";
 import { editorThemeClasses } from "../../main/themes/themes.js";
@@ -192,6 +195,94 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.auto-link-plugin", () => {
 				buttons: [BoldButton, StrikethroughButton],
 				styleClassNames: [editorThemeClasses.text!.bold!, "editor-text-strikethrough"]
 			});
+		});
+	});
+
+	describe("Auto-link with other plugins should not crash", () => {
+		const linkPluginConfig = {
+			target: "_blank",
+			popupRenderer: () => undefined,
+			customTerms: [
+				{
+					regex: /\bA12W-\d+\b/g,
+					getUrl: (text: string): string => `https://example.com/${text}`
+				}
+			]
+		};
+
+		test("Should not crash when misspelled word precedes auto-link pattern with a dot", async () => {
+			const handleSpellCheck = (): TextMatcher[] => {
+				return [
+					(text: string): TextMatcherResult | null => {
+						const position = text.indexOf("developr");
+
+						if (position === -1) {
+							return null;
+						}
+
+						return { index: position, length: "developr".length, text: "developr" };
+					}
+				];
+			};
+
+			const spellCheckPluginConfig: SpellCheckPluginConfig = {
+				spellCheck: handleSpellCheck(),
+				render: () => undefined
+			};
+
+			const { findByDataRole } = render(
+				<DefaultRichTextEditor
+					initialConfig={{
+						editorState: prepopulatedRichText("developr.A12W-123"),
+						namespace: "Spell Check Auto Link"
+					}}
+					linkPluginConfig={linkPluginConfig}
+					spellCheckPluginConfig={spellCheckPluginConfig}
+				/>
+			);
+
+			const editorInput = await findByDataRole(DataRoles.RichTextEditor.Input);
+
+			const linkElement = editorInput.querySelector(`.${editorThemeClasses.link}`);
+			expect(linkElement).not.toBeNull();
+			expect(linkElement!.textContent).toBe("A12W-123");
+
+			const misspelledElement = editorInput.querySelector(`.${editorThemeClasses.misspelledWord}`);
+			expect(misspelledElement).not.toBeNull();
+			expect(misspelledElement!.textContent).toBe("developr");
+		});
+
+		test("Should not crash when tooltip word precedes auto-link pattern with a dot", async () => {
+			const tooltipPluginConfig: TooltipPluginConfig = {
+				triggerMode: "focus",
+				customTerms: [
+					{
+						regex: /\bexample\b/,
+						render: () => <>Tooltip</>
+					}
+				]
+			};
+
+			const { findByDataRole } = render(
+				<DefaultRichTextEditor
+					initialConfig={{
+						editorState: prepopulatedRichText("example.A12W-123"),
+						namespace: "Tooltip Auto Link"
+					}}
+					linkPluginConfig={linkPluginConfig}
+					tooltipPluginConfig={tooltipPluginConfig}
+				/>
+			);
+
+			const editorInput = await findByDataRole(DataRoles.RichTextEditor.Input);
+
+			const linkElement = editorInput.querySelector(`.${editorThemeClasses.link}`);
+			expect(linkElement).not.toBeNull();
+			expect(linkElement!.textContent).toBe("A12W-123");
+
+			const tooltipElement = editorInput.querySelector(`.${editorThemeClasses.withTooltipWord}`);
+			expect(tooltipElement).not.toBeNull();
+			expect(tooltipElement!.textContent).toBe("example");
 		});
 	});
 });

@@ -31,19 +31,41 @@
  */
 
 import { render, getByDataRole, fireEvent } from "test-utils";
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi, beforeEach } from "vitest";
 
 import { Filter } from "../../main/filter/filter.view.js";
 import { FilterBar } from "../../main/filter-bar/filter-bar.view.js";
 import { FilterBarMobile } from "../../main/filter-bar/filter-bar.mobile.view.js";
 
 describe("com.mgmtp.a12.widgets.filter-bar", () => {
+	beforeEach(() => {
+		global.ResizeObserver = vi.fn().mockImplementation(function (callback) {
+			callback(
+				[
+					{
+						target: document.body,
+						contentRect: { width: 1024, height: 768 },
+						borderBoxSize: [{ inlineSize: 1024, blockSize: 768 }],
+						contentBoxSize: [{ inlineSize: 1024, blockSize: 768 }],
+						devicePixelContentBoxSize: [{ inlineSize: 1024, blockSize: 768 }]
+					}
+				],
+				{} as ResizeObserver
+			);
+
+			return {
+				observe: vi.fn(),
+				unobserve: vi.fn(),
+				disconnect: vi.fn()
+			};
+		});
+	});
+
 	test("rendering-filter-bar-with-valid-classes", () => {
 		const { container } = render(
 			<FilterBar id="test-id" className="test-class" style={{ color: "red" }}>
 				<Filter name="Category" options={["Blue", "Green", "White"]} />
 				<Filter name="Food" options={["Fish", "Meat"]} />
-				<Filter name="Category" options={["Blue", "Green", "White"]} />
 			</FilterBar>
 		);
 		expect(container.firstChild).toMatchSnapshot();
@@ -78,6 +100,43 @@ describe("com.mgmtp.a12.widgets.filter-bar", () => {
 		const button = getByDataRole(action, "button");
 		fireEvent.click(button);
 		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("compact-mode-no-collapse-button", () => {
+		const { container } = render(
+			<FilterBar compact>
+				<Filter name="Category" options={["Blue", "Green", "White"]} />
+				<Filter name="Food" options={["Fish", "Meat"]} />
+			</FilterBar>
+		);
+
+		const actionButton = container.querySelector('[data-role="filterbar-action"]');
+		expect(actionButton).toBeInTheDocument();
+	});
+
+	test("compact-mode-calls-onHiddenFiltersChange", async () => {
+		const onHiddenFiltersChange = vi.fn();
+
+		render(
+			<FilterBar compact onHiddenFiltersChange={onHiddenFiltersChange}>
+				<Filter name="Category" options={["Blue", "Green", "White"]} />
+				<Filter name="Food" options={["Fish", "Meat"]} />
+			</FilterBar>
+		);
+
+		expect(onHiddenFiltersChange).toHaveBeenCalledTimes(0);
+	});
+
+	test("compact-mode-with-actions", () => {
+		const actions = <button data-testid="custom-action">Apply</button>;
+		const { container } = render(
+			<FilterBar compact actions={actions}>
+				<Filter name="Category" options={["Blue", "Green", "White"]} />
+			</FilterBar>
+		);
+
+		const actionButton = container.querySelector('[data-testid="custom-action"]');
+		expect(actionButton).toBeInTheDocument();
 	});
 });
 

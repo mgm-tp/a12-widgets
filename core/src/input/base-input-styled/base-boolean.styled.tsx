@@ -32,7 +32,7 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledTooltipWrapper } from "../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 import { active, activeAndHover, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 
@@ -202,7 +202,7 @@ export namespace StyledBaseBoolean {
 
 			${$hasTooltips &&
 			css`
-				${StyledFieldLabel} ~ ${StyledTooltipWrapper} {
+				${StyledFieldLabel} ~ ${StyledTooltipTriggerWrapper} {
 					align-items: center;
 					display: inline-flex;
 					justify-content: flex-end;

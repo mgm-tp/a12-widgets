@@ -36,7 +36,7 @@ import { useTheme } from "styled-components";
 
 import type { DefaultComponentsType } from "@com.mgmtp.a12.widgets/widgets-core";
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
-import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils/lib/code-example/index.js";
+import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 import { ShowcaseTypographyHeadline } from "./showcase-typography-headline.js";
 import { StyledCodeName, TypedocAPIComponent } from "./template/typedoc-api.view.js";

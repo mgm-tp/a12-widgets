@@ -33,6 +33,7 @@
 import type { ReactNode, ReactElement } from "react";
 import { useRef, useContext, useState, useCallback, Children, isValidElement, cloneElement, useEffect } from "react";
 import { useResizeDetector } from "react-resize-detector";
+import { isEmpty, isEqual } from "lodash-es";
 
 import { Icon } from "../../../icon/main/icon.view.js";
 import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
@@ -49,176 +50,178 @@ import {
 } from "./filter-bar.styled.js";
 import type { FilterBarProps } from "./filter-bar.api.js";
 import { FilterContext } from "./filter-context.js";
+import { getContentBoxWidth, handleCollapseMode, handleCompactMode } from "./filter-bar.utils.js";
 
 const baseClassName = addPrefix("filter-bar");
 const hiddenClass = addPrefix("h_hidden");
 
-export function FilterBar(props: FilterBarProps): ReactElement<FilterBarProps> {
-	const filterContentElement = useRef<HTMLElement | null>(null);
-	const actionElement = useRef<HTMLElement | null>(null);
-	const actionElementWidth = useRef(0);
+export function FilterBar({
+	initialCollapsed,
+	disabled,
+	children,
+	id,
+	className,
+	style,
+	compact = false,
+	actions,
+	onHiddenFiltersChange
+}: FilterBarProps): ReactElement<FilterBarProps> {
+	const filterContentElementRef = useRef<HTMLElement>(null);
+	const parentContainerRef = useRef<HTMLDivElement>(null);
+	const actionElementRef = useRef<HTMLDivElement>(null);
+	const prevHiddenIndicesRef = useRef<number[]>([]);
+
 	const context = useContext(A11YLanguageContext);
-	const [collapsed, setcollapsed] = useState(props.initialCollapsed);
+	const [collapsed, setCollapsed] = useState(compact || initialCollapsed);
 
-	const getAvailableWidthOfElement = (element: HTMLElement): number => {
-		return (
-			element.getBoundingClientRect().width -
-			parseFloat(window.getComputedStyle(element).paddingLeft || "0") -
-			parseFloat(window.getComputedStyle(element).paddingRight || "0")
-		);
-	};
+	const { ref: contentResizeRef, width: contentWidth = 0 } = useResizeDetector({
+		refreshMode: "debounce",
+		refreshRate: 0
+	});
 
-	const getFilterWidth = (filter: Element): number => {
-		const filterMarginLeft = parseFloat(window.getComputedStyle(filter).marginLeft || "0");
-		const filterMarginRight = parseFloat(window.getComputedStyle(filter).marginRight || "0");
+	const setContentElementRef = useCallback((ref: HTMLElement | null) => {
+		filterContentElementRef.current = ref;
+	}, []);
 
-		return filter.getBoundingClientRect().width + filterMarginLeft + filterMarginRight;
-	};
+	const setParentContainerRef = useCallback(
+		(ref: HTMLDivElement | null) => {
+			parentContainerRef.current = ref;
+			contentResizeRef(ref);
+		},
+		[contentResizeRef]
+	);
 
-	const updateCollapseButtonVisibility = useCallback((): void => {
-		if (!filterContentElement.current || !actionElement.current) {
+	const getValidatedFilters = useCallback((): Element[] => {
+		if (!filterContentElementRef.current) {
+			return [];
+		}
+
+		const filters = Array.from(filterContentElementRef.current.querySelectorAll("[data-role=filter]"));
+		const childCount = Children.toArray(children).length;
+
+		return filters.length === childCount ? filters : [];
+	}, [children]);
+
+	const updateVisibility = useCallback((): void => {
+		const filters = getValidatedFilters();
+
+		if (isEmpty(filters) || !filterContentElementRef.current) {
 			return;
 		}
 
-		actionElementWidth.current = actionElement.current?.getBoundingClientRect().width;
+		filters.forEach((filter) => filter.classList.remove(hiddenClass));
 
-		const filters = Array.from(filterContentElement.current.querySelectorAll("[data-role=filter]"));
+		if (compact) {
+			const parentWidth = parentContainerRef.current
+				? contentWidth === 0
+					? getContentBoxWidth(parentContainerRef.current)
+					: contentWidth
+				: 0;
 
-		if (!filters.length || filters.length !== Children.toArray(props.children).length) {
+			const actionWidth = actionElementRef.current ? actionElementRef.current.getBoundingClientRect().width : 0;
+			const availableWidth = Math.max(0, parentWidth - actionWidth);
+
+			const hiddenIndices = handleCompactMode(filters, hiddenClass, availableWidth);
+
+			if (!isEqual(hiddenIndices, prevHiddenIndicesRef.current)) {
+				prevHiddenIndicesRef.current = hiddenIndices;
+				onHiddenFiltersChange?.(hiddenIndices);
+			}
+
 			return;
 		}
 
-		// Show all filters to calculate available space
-		for (const filter of filters) {
-			filter.classList.remove(hiddenClass);
+		if (!actionElementRef.current || !parentContainerRef.current) {
+			return;
 		}
 
-		actionElement.current.classList.add(hiddenClass);
-
-		const availableWidth = Math.round(getAvailableWidthOfElement(filterContentElement.current));
-		let sumOfElementsWidth = 0;
-
-		for (const filter of filters) {
-			sumOfElementsWidth += getFilterWidth(filter);
-
-			if (collapsed && Math.round(sumOfElementsWidth) > availableWidth - actionElementWidth.current) {
-				filter.classList.add(hiddenClass);
-			}
-		}
-
-		sumOfElementsWidth = Math.round(sumOfElementsWidth);
-
-		if (sumOfElementsWidth > availableWidth) {
-			actionElement.current.classList.remove(hiddenClass);
-
-			if (!collapsed) {
-				return;
-			}
-
-			const firstFilter = filters[0];
-			firstFilter.classList.remove(hiddenClass);
-
-			const filterWidth = Math.round(getFilterWidth(firstFilter));
-
-			if (filterWidth > availableWidth - actionElementWidth.current) {
-				firstFilter.classList.add(hiddenClass);
-			}
-		}
-
-		if (collapsed && sumOfElementsWidth <= availableWidth) {
-			filters[filters.length - 1].classList.remove(hiddenClass);
-		}
-	}, [collapsed, props.children]);
+		handleCollapseMode({
+			filters,
+			hiddenClass,
+			contentElement: parentContainerRef.current,
+			actionElement: actionElementRef.current,
+			collapsed
+		});
+	}, [getValidatedFilters, compact, collapsed, contentWidth, onHiddenFiltersChange]);
 
 	const handleCollapsing = (): void => {
-		setcollapsed((collapsed) => !collapsed);
+		setCollapsed((prev) => !prev);
 	};
 
 	const getChildren = (): ReactNode => {
-		const children = Children.toArray(props.children);
-
-		return Children.map(children, (child, index) => {
-			if (isValidElement<FilterProps>(child)) {
-				const originalOnCloseEvent = child.props.onClose;
-
-				return cloneElement(child, {
-					key: index,
-					onClose: async () => {
-						if (originalOnCloseEvent) {
-							await Promise.resolve(originalOnCloseEvent());
-						}
-
-						updateCollapseButtonVisibility();
-					}
-				});
+		return Children.map(Children.toArray(children), (child, index) => {
+			if (!isValidElement<FilterProps>(child)) {
+				return null;
 			}
 
-			return null;
+			const originalOnClose = child.props.onClose;
+
+			return cloneElement(child, {
+				key: index,
+				onClose: async () => {
+					if (originalOnClose) {
+						await Promise.resolve(originalOnClose());
+					}
+
+					updateVisibility();
+				}
+			});
 		});
 	};
 
-	const setContentElementRef = (ref: HTMLElement | null): void => {
-		filterContentElement.current = ref;
-	};
-
-	const setActionElementRef = (ref: HTMLElement | null): void => {
-		actionElement.current = ref;
-	};
-
-	const className = joinClassNames(
+	const combinedClassName = joinClassNames(
 		baseClassName,
-		{ [`${baseClassName}--disabled`]: props.disabled },
+		{ [`${baseClassName}--disabled`]: disabled },
 		{ [`${baseClassName}--collapsed`]: collapsed },
-		props.className
+		className
 	);
 
 	const filterBarA11yTitles = context.filterBarTitles;
 
 	useEffect(() => {
-		updateCollapseButtonVisibility();
-	}, [updateCollapseButtonVisibility, collapsed]);
-
-	const { ref: resizeRef } = useResizeDetector({
-		onResize: updateCollapseButtonVisibility,
-		refreshMode: "debounce",
-		refreshRate: 0
-	});
+		updateVisibility();
+	}, [updateVisibility]);
 
 	return (
 		<StyledFilterBarWrapper
-			id={props.id}
-			className={className}
-			style={props.style}
+			id={id}
+			className={combinedClassName}
+			style={style}
 			role="region"
-			aria-label={context.filterBarTitles && context.filterBarTitles.ariaLabel}
+			aria-label={filterBarA11yTitles?.ariaLabel}
 			data-role={DataRoles.Filterbar}
-			ref={resizeRef}
+			ref={setParentContainerRef}
+			$compact={compact}
 		>
 			<StyledFilterBarContent
-				collapsed={collapsed}
+				$compact={compact}
 				className={`${baseClassName}__content`}
 				ref={setContentElementRef}
 				data-role={DataRoles.Filterbar.Content}
 			>
-				<FilterContext value={{ disabled: props.disabled }}>{getChildren()}</FilterContext>
+				<FilterContext value={{ disabled }}>{getChildren()}</FilterContext>
 			</StyledFilterBarContent>
 			<StyledFilterBarAction
 				className={`${baseClassName}__action`}
-				ref={setActionElementRef}
+				ref={actionElementRef}
 				data-role={DataRoles.Filterbar.Action}
+				$hasCustomActions={!!actions}
 			>
-				<StyledFilterBarActionButton
-					collapsed={collapsed}
-					className={`${baseClassName}__action-button`}
-					icon={<Icon>{`keyboard_arrow_${collapsed ? "down" : "up"}`}</Icon>}
-					title={
-						(collapsed ? filterBarA11yTitles?.expandButton : filterBarA11yTitles?.collapseButton) ??
-						filterBarA11yTitles?.actionButton
-					}
-					disabled={props.disabled}
-					buttonAttributes={{ "aria-expanded": !collapsed }}
-					onClick={props.disabled ? undefined : handleCollapsing}
-				/>
+				{!compact && (
+					<StyledFilterBarActionButton
+						collapsed={collapsed}
+						className={`${baseClassName}__action-button`}
+						icon={<Icon>{`keyboard_arrow_${collapsed ? "down" : "up"}`}</Icon>}
+						title={
+							(collapsed ? filterBarA11yTitles?.expandButton : filterBarA11yTitles?.collapseButton) ??
+							filterBarA11yTitles?.actionButton
+						}
+						disabled={disabled}
+						buttonAttributes={{ "aria-expanded": !collapsed }}
+						onClick={disabled ? undefined : handleCollapsing}
+					/>
+				)}
+				{actions}
 			</StyledFilterBarAction>
 		</StyledFilterBarWrapper>
 	);

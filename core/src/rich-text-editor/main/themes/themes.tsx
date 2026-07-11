@@ -33,8 +33,6 @@
 import type { EditorThemeClasses } from "lexical";
 
 export const editorThemeClasses: EditorThemeClasses = {
-	ltr: "ltr",
-	rtl: "rtl",
 	placeholder: "editor-placeholder",
 	paragraph: "editor-paragraph",
 	quote: "editor-quote",

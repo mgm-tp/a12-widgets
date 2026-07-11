@@ -35,30 +35,37 @@ import { styled, css } from "styled-components";
 import { Button } from "../../../button/main/button.view.js";
 import { active as activeFn, hover } from "../../../theme/base/mixins/_interaction.js";
 
-export const StyledFilterBarWrapper = styled.div.withConfig({ displayName: "StyledFilterBarWrapper-sc-" })(
-	({ theme }) => {
-		const { filterBar } = theme.components;
+export const StyledFilterBarWrapper = styled.div.withConfig({ displayName: "StyledFilterBarWrapper-sc-" })<{
+	$compact?: boolean;
+}>(({ theme, $compact }) => {
+	const { filterBar } = theme.components;
 
-		return css`
-			background-color: ${filterBar.background};
-			display: flex;
-			overflow-x: hidden;
-			overflow-y: auto;
-			padding: ${filterBar.padding};
-		`;
-	}
-);
+	return css`
+		background-color: ${filterBar.background};
+		display: flex;
+		overflow-x: hidden;
+		overflow-y: auto;
+		padding: ${filterBar.padding};
+		${$compact &&
+		css`
+			align-items: center;
+		`}
+	`;
+});
 
 export const StyledFilterBarContent = styled.div.withConfig({ displayName: "StyledFilterBarContent-sc-" })<{
-	mobile?: boolean;
-	collapsed?: boolean;
-}>(({ theme, mobile }) => {
+	$mobile?: boolean;
+	$compact?: boolean;
+}>(({ theme, $mobile, $compact }) => {
 	const { content } = theme.components.filterBar;
 
 	return css`
 		align-items: center;
 		display: flex;
-		flex-grow: 1;
+		${!$compact &&
+		css`
+			flex-grow: 1;
+		`}
 		flex-wrap: wrap;
 		max-height: ${content.maxHeight};
 		min-width: 0;
@@ -67,7 +74,8 @@ export const StyledFilterBarContent = styled.div.withConfig({ displayName: "Styl
 			display: none;
 		}
 
-		${!mobile &&
+		${!$mobile &&
+		!$compact &&
 		css`
 			padding-bottom: 0;
 			&:after {
@@ -76,25 +84,35 @@ export const StyledFilterBarContent = styled.div.withConfig({ displayName: "Styl
 				width: 100%;
 			}
 		`}
+
+		${$compact &&
+		css`
+			overflow: hidden;
+			flex-wrap: nowrap;
+			padding-bottom: ${content.spacingBottom};
+		`}
 	`;
 });
 
-export const StyledFilterBarAction = styled.div.withConfig({ displayName: "StyledFilterBarAction-sc-" })(
-	({ theme }) => {
-		const { action } = theme.components.filterBar;
+export const StyledFilterBarAction = styled.div.withConfig({ displayName: "StyledFilterBarAction-sc-" })<{
+	$hasCustomActions?: boolean;
+}>(({ theme, $hasCustomActions }) => {
+	const { action } = theme.components.filterBar;
 
-		return css`
-			display: flex;
-			flex: none;
-			justify-content: center;
-			min-height: ${action.minHeight};
-			padding: ${action.padding};
-			position: sticky;
-			top: 0;
+	return css`
+		display: flex;
+		flex: none;
+		justify-content: center;
+		min-height: ${action.minHeight};
+		padding: ${action.padding};
+		position: sticky;
+		top: 0;
+		${!$hasCustomActions &&
+		css`
 			width: ${action.width};
-		`;
-	}
-);
+		`};
+	`;
+});
 
 export const StyledFilterBarActionButton = styled(Button).withConfig({
 	displayName: "StyledFilterBarActionButton-sc-"

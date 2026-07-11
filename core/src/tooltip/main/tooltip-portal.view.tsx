@@ -45,7 +45,6 @@ import type { TooltipPortalProps } from "./tooltip-portal.api.js";
  * This component handles all show/hide logic internally
  * and only requires a reference to the element to attach to.
  *
- * @internal
  * This is an internal component used by css-ellipsis and other widgets.
  */
 export function TooltipPortal({

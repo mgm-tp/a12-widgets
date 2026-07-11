@@ -30,146 +30,152 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ComponentType } from "react";
-import type { RouteComponentProps } from "react-router";
-
 import type { MenuItem } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import MigrationNotes from "./get-started/migration-instructions/migration-notes.js";
-import StyledComponentMigration from "./get-started/migration-instructions/styled-component-migration.js";
-import PatchInstruction from "./get-started/migration-instructions/patch-instruction.js";
-import CodemodInstruction from "./get-started/migration-instructions/codemod-instruction.js";
-import ContentSecurityPolicies from "./get-started/content-security-policies.js";
-import ShowcaseRedesign from "./get-started/showcase-redesign.js";
-import StyledComponents from "./get-started/styled-components.js";
-import ConfigurePlasmaShowcase from "./get-started/plasma-config.js";
-import AboutTouchDetection from "./get-started/touch-detection.js";
-import QuickStart from "./get-started/quick-start.js";
-import ChangeLog from "./get-started/change-log.js";
 import type { Showcase as ShowcaseData } from "./helpers/definitions.js";
-import ButtonShowcase from "./showcases/button/index.js";
-import ButtonGroupShowcase from "./showcases/button-group/index.js";
-import IconShowcase from "./showcases/icon/index.js";
-import LinkShowcase from "./showcases/link/index.js";
-import PopupShowcase from "./showcases/pop-up-menu/index.js";
-import ButtonGroupContainerShowcase from "./showcases/button-group-container/index.js";
-import ToggleButtonShowcase from "./showcases/toggle/index.js";
-import QuickAccessButtonShowcase from "./showcases/quick-access-button/index.js";
-import TableShowcase from "./showcases/table/index.js";
-import AccordionShowcase from "./showcases/accordion/index.js";
-import AutocompleteShowcase from "./showcases/inputs/autocomplete/index.js";
-import CheckboxShowcase from "./showcases/inputs/checkboxes/index.js";
-import IconPickerShowcase from "./showcases/inputs/icon-picker/index.js";
-import CollapsiblePanelShowcase from "./showcases/collapsible-panel/index.js";
-import ContentBoxShowCase from "./showcases/contentbox/index.js";
-import GlobalMessageBoxShowcase from "./showcases/global-message-box/index.js";
-import ModalNotificationShowcase from "./showcases/modal-notification/index.js";
-import ApplicationFrameShowcase from "./showcases/application-frame/application-frame.js";
-import ApplicationHeaderShowcase from "./showcases/application-header/index.js";
-import BreadcrumbShowcase from "./showcases/breadcrumb/index.js";
-import DropdownShowcase from "./showcases/dropdown/index.js";
-import TabPanelShowcase from "./showcases/tab-panel/index.js";
-import CalloutShowcase from "./showcases/callout/index.js";
-import CssEllipsisShowcase from "./showcases/css-ellipsis/index.js";
-import LinesEllipsisShowcase from "./showcases/lines-ellipsis/index.js";
-import MessageShowcase from "./showcases/message/index.js";
-import TypographyShowcase from "./showcases/typography/index.js";
-import LayoutGridTemplateShowcase from "./showcases/layout-grid/template/index.js";
-import DashboardShowcase from "./showcases/layout-grid/dashboard/index.js";
-import ResponsiveImageContainerShowcase from "./showcases/responsive-image-container/index.js";
-import FlyoutMenuShowcase from "./showcases/menu/flyout-menu/index.js";
-import SlidingMenuShowcase from "./showcases/menu/sliding-menu/index.js";
-import ModalOverlayShowcase from "./showcases/modal-overlay/index.js";
-import ResizeAndDragContainerShowcase from "./showcases/resize-and-drag-container/index.js";
-import RadioShowcase from "./showcases/radio/index.js";
-import MultiselectShowcase from "./showcases/multiselect/index.js";
-import SelectShowcase from "./showcases/select/index.js";
-import SwitchShowcase from "./showcases/inputs/switch/index.js";
-import TagInputShowcase from "./showcases/inputs/tag-input/index.js";
 import type { SearchItem } from "./helpers/global-search/search-component.js";
 import { SearchComponent } from "./helpers/global-search/search-component.js";
 import { isGroupSection, toLink } from "./helpers/utils.js";
-import MasterDetailShowcase from "./showcases/master-detail/index.js";
-import SplitViewShowcase from "./showcases/split-view/index.js";
-import ResizeHandlerShowcase from "./showcases/resize-handler/index.js";
-import SupportingPanesLayoutShowcase from "./experimental/supporting-panes-layout/index.js";
-import Calendar from "./experimental/calendar/index.js";
-import MasterDetailExample from "./showcases/examples/master-detail/index.js";
-import MultilingualFieldExample from "./showcases/examples/multilingual-field/index.js";
-import PasswordExample from "./showcases/examples/password/index.js";
-import SidebarWithTabPanel from "./showcases/examples/sidebar-with-tab-panel/index.js";
-import StylingInTree from "./showcases/examples/styling-in-tree/index.js";
+import GetStartedBreakingChangesManagement from "./get-started/breaking-changes-management.js";
+import GetStartedChangeLog from "./get-started/change-log.js";
+import GetStartedInteractionHintInstruction from "./get-started/interaction-hint-instruction.js";
+import GetStartedKeyboardNavigationInstruction from "./get-started/keyboard-navigation-instruction.js";
+import GetStartedMigrationInstructionsMigrationNotes from "./get-started/migration-instructions/migration-notes.js";
+import GetStartedMigrationInstructionsPatchInstruction from "./get-started/migration-instructions/patch-instruction.js";
+import GetStartedMigrationInstructionsCodemodInstruction from "./get-started/migration-instructions/codemod-instruction.js";
+import GetStartedMigrationInstructionsRichTextEditorMigration from "./get-started/migration-instructions/rich-text-editor-migration.js";
+import GetStartedMigrationInstructionsNewTableAndTreeComponents from "./get-started/migration-instructions/new-table-and-tree-components.js";
+import GetStartedMigrationInstructionsChartWidgetsToRechartsMigrationOverview from "./get-started/migration-instructions/chart-widgets-to-recharts/migration-overview.js";
+import GetStartedMigrationInstructionsChartWidgetsToRechartsBarChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/bar-chart-migration.js";
+import GetStartedMigrationInstructionsChartWidgetsToRechartsLineChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/line-chart-migration.js";
+import GetStartedMigrationInstructionsChartWidgetsToRechartsPieChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/pie-chart-migration.js";
+import GetStartedShowcaseRedesign from "./get-started/showcase-redesign.js";
+import GetStartedStyledComponents from "./get-started/styled-components.js";
+import GetStartedQuickStart from "./get-started/quick-start.js";
+import GetStartedTouchDetection from "./get-started/touch-detection.js";
+import GetStartedPlasmaConfig from "./get-started/plasma-config.js";
+import ShowcasesAccessibilityAccessibility from "./showcases/accessibility/accessibility.js";
+import ShowcasesBasicTheme from "./showcases/basic-theme/index.js";
+import ShowcasesBaseThemeOverview from "./showcases/base-theme/index.js";
+import ShowcasesBaseThemeQuickStart from "./showcases/base-theme/quick-start.js";
+import ShowcasesBaseThemeCustomization from "./showcases/base-theme/customization.js";
+import ShowcasesBasicColors from "./showcases/basic-colors/index.js";
+import ShowcasesFont from "./showcases/font/index.js";
+import ShowcasesSpacing from "./showcases/spacing/index.js";
+import ShowcasesHelperClasses from "./showcases/helper-classes/index.js";
+import ShowcasesUtilClasses from "./showcases/util-classes/index.js";
+import ShowcasesButton from "./showcases/button/index.js";
+import ShowcasesButtonGroup from "./showcases/button-group/index.js";
+import ShowcasesButtonGroupContainer from "./showcases/button-group-container/index.js";
+import ShowcasesToggle from "./showcases/toggle/index.js";
+import ShowcasesQuickAccessButton from "./showcases/quick-access-button/index.js";
+import ShowcasesIcon from "./showcases/icon/index.js";
+import ShowcasesLink from "./showcases/link/index.js";
+import ShowcasesPopUpMenu from "./showcases/pop-up-menu/index.js";
+import ShowcasesApplicationFrameApplicationFrame from "./showcases/application-frame/application-frame.js";
+import ShowcasesCallout from "./showcases/callout/index.js";
+import ShowcasesModalOverlay from "./showcases/modal-overlay/index.js";
+import ShowcasesResponsiveImageContainer from "./showcases/responsive-image-container/index.js";
+import ShowcasesResizeAndDragContainer from "./showcases/resize-and-drag-container/index.js";
+import ShowcasesResizeHandler from "./showcases/resize-handler/index.js";
+import ShowcasesCollapsiblePanel from "./showcases/collapsible-panel/index.js";
+import ShowcasesContentbox from "./showcases/contentbox/index.js";
+import ShowcasesMasterDetail from "./showcases/master-detail/index.js";
+import ShowcasesLayoutGridTemplate from "./showcases/layout-grid/template/index.js";
+import ShowcasesLayoutGridDashboard from "./showcases/layout-grid/dashboard/index.js";
+import ShowcasesSplitView from "./showcases/split-view/index.js";
+import ShowcasesAccordion from "./showcases/accordion/index.js";
+import ShowcasesApplicationHeader from "./showcases/application-header/index.js";
+import ShowcasesBreadcrumb from "./showcases/breadcrumb/index.js";
+import ShowcasesDropdown from "./showcases/dropdown/index.js";
+import ShowcasesMenuFlyoutMenu from "./showcases/menu/flyout-menu/index.js";
+import ShowcasesMenuSlidingMenu from "./showcases/menu/sliding-menu/index.js";
+import ShowcasesTabPanel from "./showcases/tab-panel/index.js";
+import ShowcasesInputsAutocomplete from "./showcases/inputs/autocomplete/index.js";
+import ShowcasesInputsCheckboxes from "./showcases/inputs/checkboxes/index.js";
+import ShowcasesFileUpload from "./showcases/file-upload/index.js";
+import ShowcasesInputsIconPicker from "./showcases/inputs/icon-picker/index.js";
+import ShowcasesMultiselect from "./showcases/multiselect/index.js";
+import ShowcasesRichTextEditor from "./showcases/rich-text-editor/index.js";
+import ShowcasesRadio from "./showcases/radio/index.js";
+import ShowcasesSelect from "./showcases/select/index.js";
+import ShowcasesInputsSwitch from "./showcases/inputs/switch/index.js";
+import ShowcasesInputsTagInput from "./showcases/inputs/tag-input/index.js";
+import ShowcasesInputsTextField from "./showcases/inputs/text-field/index.js";
+import ShowcasesInputsTextArea from "./showcases/inputs/text-area/index.js";
+import ShowcasesDatePicker from "./showcases/date-picker/index.js";
+import ShowcasesTimePicker from "./showcases/time-picker/index.js";
+import ShowcasesDateTimePicker from "./showcases/date-time-picker/index.js";
+import ShowcasesInputsMonthSelector from "./showcases/inputs/month-selector/index.js";
+import ShowcasesInputsYearSelector from "./showcases/inputs/year-selector/index.js";
+import ShowcasesInputsYearMonthSelector from "./showcases/inputs/year-month-selector/index.js";
+import ShowcasesNotificationBadge from "./showcases/notification/badge/index.js";
+import ShowcasesBulletListOrderedList from "./showcases/bullet-list/ordered-list/index.js";
+import ShowcasesBulletListUnorderedList from "./showcases/bullet-list/unordered-list/index.js";
+import ShowcasesBulletListNestedList from "./showcases/bullet-list/nested-list/index.js";
+import ShowcasesCard from "./showcases/card/index.js";
+import ShowcasesChartBarChart from "./showcases/chart/bar-chart/index.js";
+import ShowcasesChartLineChart from "./showcases/chart/line-chart/index.js";
+import ShowcasesChartPieChart from "./showcases/chart/pie-chart/index.js";
+import ShowcasesCounter from "./showcases/counter/index.js";
+import ShowcasesInteractiveTile from "./showcases/interactive-tile/index.js";
+import ShowcasesInteractionHint from "./showcases/interaction-hint/index.js";
+import ShowcasesList from "./showcases/list/index.js";
+import ShowcasesPagination from "./showcases/pagination/index.js";
+import ShowcasesStatus from "./showcases/status/index.js";
+import ShowcasesDataTable from "./showcases/data-table/index.js";
+import ShowcasesDataTreeTable from "./showcases/data-tree-table/index.js";
+import ShowcasesTable from "./showcases/table/index.js";
+import ShowcasesTag from "./showcases/tag/index.js";
+import ShowcasesTextOutput from "./showcases/text-output/index.js";
+import ShowcasesTooltip from "./showcases/tooltip/index.js";
+import ShowcasesTree from "./showcases/tree/index.js";
+import ShowcasesTreeView from "./showcases/tree-view/index.js";
+import ShowcasesTreeTable from "./showcases/tree-table/index.js";
+import ShowcasesGlobalMessageBox from "./showcases/global-message-box/index.js";
+import ShowcasesModalNotification from "./showcases/modal-notification/index.js";
+import ShowcasesNotificationToastsToast from "./showcases/notification/toasts/toast/index.js";
+import ShowcasesNotificationToastsConnectedToast from "./showcases/notification/toasts/connected-toast/index.js";
+import ShowcasesNotificationToastsToastGroup from "./showcases/notification/toasts/toast-group/index.js";
+import ShowcasesProgressBar from "./showcases/progress-bar/index.js";
+import ShowcasesProgressIndicator from "./showcases/progress-indicator/index.js";
+import ShowcasesCssEllipsis from "./showcases/css-ellipsis/index.js";
+import ShowcasesLinesEllipsis from "./showcases/lines-ellipsis/index.js";
+import ShowcasesMessage from "./showcases/message/index.js";
+import ShowcasesAttachedPortal from "./showcases/attached-portal/index.js";
+import ShowcasesPortal from "./showcases/portal/index.js";
+import ShowcasesTypography from "./showcases/typography/index.js";
+import ShowcasesResizeDetector from "./showcases/resize-detector/index.js";
+import ShowcasesChat from "./showcases/chat/index.js";
+import ShowcasesCommentComment from "./showcases/comment/comment/index.js";
+import ShowcasesCommentCommentContainer from "./showcases/comment/comment-container/index.js";
+import ShowcasesLoginLayout from "./showcases/login-layout/index.js";
+import ShowcasesFacetedSearchFilterBar from "./showcases/faceted-search/filter-bar/index.js";
+import ShowcasesFacetedSearchFilterSelector from "./showcases/faceted-search/filter-selector/index.js";
+import ShowcasesMessageBox from "./showcases/message-box/index.js";
+import ShowcasesValidationBar from "./showcases/validation-bar/index.js";
+import ShowcasesWizard from "./showcases/wizard/index.js";
+import ExperimentalSlider from "./experimental/slider/index.js";
+import ExperimentalDiagramShapes from "./experimental/diagram-shapes/index.js";
+import ExperimentalInfiniteScrollTable from "./experimental/infinite-scroll-table/index.js";
+import ExperimentalCalendar from "./experimental/calendar/index.js";
+import ShowcasesExamplesCollapsibleSidebar from "./showcases/examples/collapsible-sidebar/index.js";
+import ShowcasesExamplesDetermineLocation from "./showcases/examples/determine-location/index.js";
+import ShowcasesExamplesDragAndDrop from "./showcases/examples/drag-and-drop/index.js";
+import ShowcasesExamplesDualPaneLayout from "./showcases/examples/dual-pane-layout/index.js";
+import ShowcasesExamplesFilterSelectorNew from "./showcases/examples/filter-selector-new/index.js";
+import ShowcasesExamplesGallery from "./showcases/examples/gallery/index.js";
+import ShowcasesExamplesMasterDetail from "./showcases/examples/master-detail/index.js";
+import ShowcasesExamplesMultilingualField from "./showcases/examples/multilingual-field/index.js";
 import {
 	BasicMultiselectTableExample,
 	AdvancedMultiselectTableExample
 } from "./showcases/examples/multiselect-table/index.js";
-import BadgeShowcase from "./showcases/notification/badge/index.js";
-import CardShowcase from "./showcases/card/index.js";
-import OrderedListShowcase from "./showcases/bullet-list/ordered-list/index.js";
-import UnorderedListShowcase from "./showcases/bullet-list/unordered-list/index.js";
-import NestedListShowcase from "./showcases/bullet-list/nested-list/index.js";
-import TagsShowcase from "./showcases/tag/index.js";
-import TooltipShowcase from "./showcases/tooltip/index.js";
-import InteractionHintShowcase from "./showcases/interaction-hint/index.js";
-import TextFieldShowcase from "./showcases/inputs/text-field/index.js";
-import TextAreaShowcase from "./showcases/inputs/text-area/index.js";
-import TextOutputShowcase from "./showcases/text-output/index.js";
-import ListShowcase from "./showcases/list/index.js";
-import CounterShowcase from "./showcases/counter/index.js";
-import PaginationShowcase from "./showcases/pagination/index.js";
-import StatusShowcase from "./showcases/status/index.js";
-import ChatShowcase from "./showcases/chat/index.js";
-import FilterBarShowcase from "./showcases/faceted-search/filter-bar/index.js";
-import FilterSelectorShowcase from "./showcases/faceted-search/filter-selector/index.js";
-import SliderShowcase from "./experimental/slider/index.js";
-import DiagramShowcase from "./experimental/diagram-shapes/index.js";
-import InfiniteScrollTableShowcase from "./experimental/infinite-scroll-table/index.js";
-import BarChartShowcase from "./showcases/chart/bar-chart/index.js";
-import LineChartShowcase from "./showcases/chart/line-chart/index.js";
-import PieChartsShowcase from "./showcases/chart/pie-chart/index.js";
-import FileUploadShowcase from "./showcases/file-upload/index.js";
-import WizardShowcase from "./showcases/wizard/index.js";
-import AttachedPortalShowcase from "./showcases/attached-portal/index.js";
-import PortalShowcase from "./showcases/portal/index.js";
-import MessageBoxShowcase from "./showcases/message-box/index.js";
-import DatePickerShowcase from "./showcases/date-picker/index.js";
-import TimePickerShowcase from "./showcases/time-picker/index.js";
-import ValidationBarShowcase from "./showcases/validation-bar/index.js";
-import DualPaneLayoutExample from "./showcases/examples/dual-pane-layout/index.js";
-import LoginLayoutShowcase from "./showcases/login-layout/index.js";
-import YearMonthSelectorShowcase from "./showcases/inputs/year-month-selector/index.js";
-import YearSelectorShowcase from "./showcases/inputs/year-selector/index.js";
-import MonthSelectorShowcase from "./showcases/inputs/month-selector/index.js";
-import TreeShowcase from "./showcases/tree/index.js";
-import TreeTableShowcase from "./showcases/tree-table/index.js";
-import DetermineLocationShowcase from "./showcases/examples/determine-location/index.js";
-import GalleryShowcase from "./showcases/examples/gallery/index.js";
-import DragAndDropExample from "./showcases/examples/drag-and-drop/index.js";
-import CommentShowcase from "./showcases/comment/comment/index.js";
-import CommentContainerShowcase from "./showcases/comment/comment-container/index.js";
-import DateTimePickerShowcase from "./showcases/date-time-picker/index.js";
-import ProgressBarShowcase from "./showcases/progress-bar/index.js";
-import ProgressIndicatorShowcase from "./showcases/progress-indicator/index.js";
-import ConnectedToastShowcase from "./showcases/notification/toasts/connected-toast/index.js";
-import ToastShowcase from "./showcases/notification/toasts/toast/index.js";
-import ToastGroupShowcase from "./showcases/notification/toasts/toast-group/index.js";
-import AccessibilityShowcase from "./showcases/accessibility/accessibility.js";
-import BasicColorsShowcase from "./showcases/basic-colors/index.js";
-import FontsShowcase from "./showcases/font/index.js";
-import HelperClassesShowcase from "./showcases/helper-classes/index.js";
-import SpacingShowcase from "./showcases/spacing/index.js";
-import UtilityClassesShowcase from "./showcases/util-classes/index.js";
-import ResizeDetectorShowcase from "./showcases/resize-detector/index.js";
-import ThemingShowcase from "./showcases/basic-theme/index.js";
-import CollapsibleSidebar from "./showcases/examples/collapsible-sidebar/index.js";
-import RichTextEditorShowcase from "./showcases/rich-text-editor/index.js";
-import InteractiveTileShowcase from "./showcases/interactive-tile/index.js";
-import RichTextEditorMigration from "./get-started/migration-instructions/rich-text-editor-migration.js";
-import InteractionHintInstruction from "./get-started/interaction-hint-instruction.js";
-import ChartWidgetsToRechartsOverview from "./get-started/migration-instructions/chart-widgets-to-recharts/migration-overview.js";
-import BarChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/bar-chart-migration.js";
-import LineChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/line-chart-migration.js";
-import PieChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/pie-chart-migration.js";
+import ShowcasesExamplesPassword from "./showcases/examples/password/index.js";
+import ShowcasesExamplesSidebarWithTabPanel from "./showcases/examples/sidebar-with-tab-panel/index.js";
+import ShowcasesExamplesStylingInTree from "./showcases/examples/styling-in-tree/index.js";
+import GetStartedContentSecurityPolicies from "./get-started/content-security-policies.js";
+import ShowcasesSupportingPanesLayout from "./showcases/supporting-panes-layout/index.js";
 
 /*
  * *********************************************************************************************************************
@@ -182,71 +188,91 @@ const Index: IndexMenuItem.Section[] = [
 		label: "Get Started",
 		children: [
 			{
-				label: "News",
-				children: [
-					{
-						label: "Showcase Redesign",
-						component: ShowcaseRedesign
-					},
-					{
-						label: "Styled Components",
-						component: StyledComponents
-					}
-				]
+				label: "Breaking Changes Management",
+				component: GetStartedBreakingChangesManagement
+			},
+			{
+				label: "Change Log",
+				component: GetStartedChangeLog
+			},
+			{
+				label: "Interaction Hint Usage Instructions",
+				component: GetStartedInteractionHintInstruction
+			},
+			{
+				label: "Keyboard Navigation Usage Instructions",
+				component: GetStartedKeyboardNavigationInstruction
 			},
 			{
 				label: "Migration Instructions",
 				children: [
 					{
 						label: "Migration Notes",
-						component: MigrationNotes
+						component: GetStartedMigrationInstructionsMigrationNotes
 					},
 					{
 						label: "Patch Instruction",
-						component: PatchInstruction
+						component: GetStartedMigrationInstructionsPatchInstruction
 					},
 					{
 						label: "Codemod Instruction",
-						component: CodemodInstruction
-					},
-					{
-						label: "Migration to styled-components",
-						component: StyledComponentMigration
+						component: GetStartedMigrationInstructionsCodemodInstruction
 					},
 					{
 						label: "Draft-js to Lexical Editor",
-						component: RichTextEditorMigration
+						component: GetStartedMigrationInstructionsRichTextEditorMigration
+					},
+					{
+						label: "New Table and Tree Components",
+						component: GetStartedMigrationInstructionsNewTableAndTreeComponents
 					},
 					{
 						label: "Chart Widgets to Recharts",
 						children: [
-							{ label: "Overview", component: ChartWidgetsToRechartsOverview },
-							{ label: "Bar Chart Migration", component: BarChartMigration },
-							{ label: "Line Chart Migration", component: LineChartMigration },
-							{ label: "Pie Chart Migration", component: PieChartMigration }
+							{
+								label: "Overview",
+								component: GetStartedMigrationInstructionsChartWidgetsToRechartsMigrationOverview
+							},
+							{
+								label: "Bar Chart Migration",
+								component: GetStartedMigrationInstructionsChartWidgetsToRechartsBarChartMigration
+							},
+							{
+								label: "Line Chart Migration",
+								component: GetStartedMigrationInstructionsChartWidgetsToRechartsLineChartMigration
+							},
+							{
+								label: "Pie Chart Migration",
+								component: GetStartedMigrationInstructionsChartWidgetsToRechartsPieChartMigration
+							}
 						]
 					}
 				]
 			},
 			{
-				label: "Interaction Hint Usage Instructions",
-				component: InteractionHintInstruction
-			},
-			{
-				label: "Use And Configure Widgets Style",
-				component: ConfigurePlasmaShowcase
-			},
-			{
-				label: "Touch Detection",
-				component: AboutTouchDetection
+				label: "News",
+				children: [
+					{
+						label: "Showcase Redesign",
+						component: GetStartedShowcaseRedesign
+					},
+					{
+						label: "Styled Components",
+						component: GetStartedStyledComponents
+					}
+				]
 			},
 			{
 				label: "Quick Start",
-				component: QuickStart
+				component: GetStartedQuickStart
 			},
 			{
-				label: "Change Log",
-				component: ChangeLog
+				label: "Touch Detection",
+				component: GetStartedTouchDetection
+			},
+			{
+				label: "Use And Configure Widgets Style",
+				component: GetStartedPlasmaConfig
 			}
 		]
 	},
@@ -255,36 +281,53 @@ const Index: IndexMenuItem.Section[] = [
 		children: [
 			{
 				label: "Accessibility",
-				component: AccessibilityShowcase
+				component: ShowcasesAccessibilityAccessibility
 			},
 			{
 				label: "Theme",
 				children: [
 					{
 						label: "Theming",
-						component: ThemingShowcase
+						component: ShowcasesBasicTheme
+					},
+					{
+						label: "Base Theme",
+						children: [
+							{
+								label: "Overview",
+								component: ShowcasesBaseThemeOverview
+							},
+							{
+								label: "Quick Start",
+								component: ShowcasesBaseThemeQuickStart
+							},
+							{
+								label: "Customization",
+								component: ShowcasesBaseThemeCustomization
+							}
+						]
 					},
 					{
 						label: "Colors",
-						component: BasicColorsShowcase
+						component: ShowcasesBasicColors
 					},
 					{
 						label: "Fonts",
-						component: FontsShowcase
+						component: ShowcasesFont
 					},
 					{
 						label: "Spacing",
-						component: SpacingShowcase
+						component: ShowcasesSpacing
 					}
 				]
 			},
 			{
 				label: "Helper Classes",
-				component: HelperClassesShowcase
+				component: ShowcasesHelperClasses
 			},
 			{
 				label: "Utility Classes",
-				component: UtilityClassesShowcase
+				component: ShowcasesUtilClasses
 			}
 		]
 	},
@@ -299,110 +342,114 @@ const Index: IndexMenuItem.Section[] = [
 						children: [
 							{
 								label: "Button",
-								component: ButtonShowcase
+								component: ShowcasesButton
 							},
 							{
 								label: "Button Group",
-								component: ButtonGroupShowcase
+								component: ShowcasesButtonGroup
 							},
 							{
 								label: "Button Group Container",
-								component: ButtonGroupContainerShowcase
+								component: ShowcasesButtonGroupContainer
 							},
 							{
 								label: "Toggle Button",
-								component: ToggleButtonShowcase
+								component: ShowcasesToggle
 							},
 							{
 								label: "Quick Access Button",
-								component: QuickAccessButtonShowcase
+								component: ShowcasesQuickAccessButton
 							}
 						]
 					},
 					{
 						label: "Icon",
-						component: IconShowcase
+						component: ShowcasesIcon
 					},
 					{
 						label: "Link",
-						component: LinkShowcase
+						component: ShowcasesLink
 					},
 					{
 						label: "Popup Menu",
-						component: PopupShowcase
+						component: ShowcasesPopUpMenu
 					}
 				]
 			},
 			{
 				label: "Layout",
 				children: [
-					{ label: "Application Frame", component: ApplicationFrameShowcase },
-					{ label: "Callout", component: CalloutShowcase },
-					{ label: "Modal Overlay", component: ModalOverlayShowcase },
+					{ label: "Application Frame", component: ShowcasesApplicationFrameApplicationFrame },
+					{ label: "Callout", component: ShowcasesCallout },
+					{ label: "Modal Overlay", component: ShowcasesModalOverlay },
 					{
 						label: "Responsive Image Container",
-						component: ResponsiveImageContainerShowcase
+						component: ShowcasesResponsiveImageContainer
 					},
 					{
 						label: "Resize and Drag Container",
-						component: ResizeAndDragContainerShowcase
+						component: ShowcasesResizeAndDragContainer
 					},
 					{
 						label: "Resize Handler",
-						component: ResizeHandlerShowcase
+						component: ShowcasesResizeHandler
 					},
 					{
 						label: "Collapsible Panel",
-						component: CollapsiblePanelShowcase
+						component: ShowcasesCollapsiblePanel
 					},
 					{
 						label: "Content Box",
-						component: ContentBoxShowCase
+						component: ShowcasesContentbox
 					},
 					{
 						label: "Master Detail",
-						component: MasterDetailShowcase
+						component: ShowcasesMasterDetail
 					},
 					{
 						label: "Layout Grid",
 						children: [
 							{
 								label: "Template",
-								component: LayoutGridTemplateShowcase
+								component: ShowcasesLayoutGridTemplate
 							},
 							{
 								label: "Dashboard",
-								component: DashboardShowcase
+								component: ShowcasesLayoutGridDashboard
 							}
 						]
 					},
 					{
 						label: "Split View",
-						component: SplitViewShowcase
+						component: ShowcasesSplitView
+					},
+					{
+						label: "Supporting Panes Layout",
+						component: ShowcasesSupportingPanesLayout
 					}
 				]
 			},
 			{
 				label: "Navigation",
 				children: [
-					{ label: "Accordion", component: AccordionShowcase },
-					{ label: "Application Header", component: ApplicationHeaderShowcase },
-					{ label: "Breadcrumb", component: BreadcrumbShowcase },
-					{ label: "Dropdown", component: DropdownShowcase },
+					{ label: "Accordion", component: ShowcasesAccordion },
+					{ label: "Application Header", component: ShowcasesApplicationHeader },
+					{ label: "Breadcrumb", component: ShowcasesBreadcrumb },
+					{ label: "Dropdown", component: ShowcasesDropdown },
 					{
 						label: "Menu",
 						children: [
 							{
 								label: "Flyout Menu",
-								component: FlyoutMenuShowcase
+								component: ShowcasesMenuFlyoutMenu
 							},
 							{
 								label: "Sliding Menu",
-								component: SlidingMenuShowcase
+								component: ShowcasesMenuSlidingMenu
 							}
 						]
 					},
-					{ label: "Tab Panel", component: TabPanelShowcase }
+					{ label: "Tab Panel", component: ShowcasesTabPanel }
 				]
 			},
 			{
@@ -410,68 +457,68 @@ const Index: IndexMenuItem.Section[] = [
 				children: [
 					{
 						label: "Autocomplete",
-						component: AutocompleteShowcase
+						component: ShowcasesInputsAutocomplete
 					},
 					{
 						label: "Checkbox",
-						component: CheckboxShowcase
+						component: ShowcasesInputsCheckboxes
 					},
 					{
 						label: "File Upload",
-						component: FileUploadShowcase,
+						component: ShowcasesFileUpload,
 						hint: ["Attachment"]
 					},
 					{
 						label: "Icon Picker",
-						component: IconPickerShowcase
+						component: ShowcasesInputsIconPicker
 					},
 					{
 						label: "Multiselect",
-						component: MultiselectShowcase
+						component: ShowcasesMultiselect
 					},
 					{
 						label: "Rich Text Editor",
-						component: RichTextEditorShowcase,
+						component: ShowcasesRichTextEditor,
 						hint: ["Rich Text"]
 					},
 					{
 						label: "Radio",
-						component: RadioShowcase
+						component: ShowcasesRadio
 					},
 					{
 						label: "Select",
-						component: SelectShowcase
+						component: ShowcasesSelect
 					},
 					{
 						label: "Switch",
-						component: SwitchShowcase
+						component: ShowcasesInputsSwitch
 					},
 					{
 						label: "Tag Input",
-						component: TagInputShowcase
+						component: ShowcasesInputsTagInput
 					},
 					{
 						label: "Text Field",
-						component: TextFieldShowcase
+						component: ShowcasesInputsTextField
 					},
 					{
 						label: "Text Area",
-						component: TextAreaShowcase
+						component: ShowcasesInputsTextArea
 					},
 					{
 						label: "Pickers",
 						children: [
 							{
 								label: "Date Picker",
-								component: DatePickerShowcase
+								component: ShowcasesDatePicker
 							},
 							{
 								label: "Time Picker",
-								component: TimePickerShowcase
+								component: ShowcasesTimePicker
 							},
 							{
 								label: "Date Time Picker",
-								component: DateTimePickerShowcase
+								component: ShowcasesDateTimePicker
 							}
 						]
 					},
@@ -480,15 +527,15 @@ const Index: IndexMenuItem.Section[] = [
 						children: [
 							{
 								label: "Month Selector",
-								component: MonthSelectorShowcase
+								component: ShowcasesInputsMonthSelector
 							},
 							{
 								label: "Year Selector",
-								component: YearSelectorShowcase
+								component: ShowcasesInputsYearSelector
 							},
 							{
 								label: "Year and Month Selector",
-								component: YearMonthSelectorShowcase
+								component: ShowcasesInputsYearMonthSelector
 							}
 						]
 					}
@@ -499,76 +546,76 @@ const Index: IndexMenuItem.Section[] = [
 				children: [
 					{
 						label: "Badge",
-						component: BadgeShowcase
+						component: ShowcasesNotificationBadge
 					},
 					{
 						label: "Bullet List",
 						children: [
 							{
 								label: "Ordered List",
-								component: OrderedListShowcase,
+								component: ShowcasesBulletListOrderedList,
 								hint: ["Bullet List"]
 							},
 							{
 								label: "Unordered List",
-								component: UnorderedListShowcase,
+								component: ShowcasesBulletListUnorderedList,
 								hint: ["Bullet List"]
 							},
 							{
 								label: "Nested List",
-								component: NestedListShowcase,
+								component: ShowcasesBulletListNestedList,
 								hint: ["Bullet List"]
 							}
 						]
 					},
 					{
 						label: "Card",
-						component: CardShowcase
+						component: ShowcasesCard
 					},
 					{
 						label: "Deprecated Charts",
 						children: [
 							{
 								label: "Deprecated Bar Chart",
-								component: BarChartShowcase
+								component: ShowcasesChartBarChart
 							},
 							{
 								label: "Deprecated Line Chart",
-								component: LineChartShowcase
+								component: ShowcasesChartLineChart
 							},
 							{
 								label: "Deprecated Pie Chart",
-								component: PieChartsShowcase
+								component: ShowcasesChartPieChart
 							}
 						]
 					},
-					{ label: "Counter", component: CounterShowcase },
+					{ label: "Counter", component: ShowcasesCounter },
 					{
 						label: "Interactive Tile",
-						component: InteractiveTileShowcase
+						component: ShowcasesInteractiveTile
 					},
 					{
 						label: "Interaction Hint",
-						component: InteractionHintShowcase
+						component: ShowcasesInteractionHint
 					},
-					{ label: "List", component: ListShowcase },
-					{ label: "Pagination", component: PaginationShowcase },
-					{ label: "Status", component: StatusShowcase },
-					{ label: "Table", component: TableShowcase },
+					{ label: "List", component: ShowcasesList },
+					{ label: "Pagination", component: ShowcasesPagination },
+					{ label: "Status", component: ShowcasesStatus },
+					{ label: "Table", component: ShowcasesTable },
 					{
 						label: "Tag",
-						component: TagsShowcase
+						component: ShowcasesTag
 					},
-					{ label: "Text Output", component: TextOutputShowcase },
+					{ label: "Text Output", component: ShowcasesTextOutput },
 					{
 						label: "Tooltip",
-						component: TooltipShowcase
+						component: ShowcasesTooltip
 					},
 
-					{ label: "Tree", component: TreeShowcase },
+					{ label: "Tree", component: ShowcasesTree },
 					{
 						label: "Tree Table",
-						component: TreeTableShowcase
+						component: ShowcasesTreeTable
 					}
 				]
 			},
@@ -577,36 +624,36 @@ const Index: IndexMenuItem.Section[] = [
 				children: [
 					{
 						label: "Global Message Box",
-						component: GlobalMessageBoxShowcase
+						component: ShowcasesGlobalMessageBox
 					},
 					{
 						label: "Modal Notification",
-						component: ModalNotificationShowcase
+						component: ShowcasesModalNotification
 					},
 					{
 						label: "Toasts",
 						children: [
 							{
 								label: "Toast",
-								component: ToastShowcase
+								component: ShowcasesNotificationToastsToast
 							},
 							{
 								label: "Connected Toast",
-								component: ConnectedToastShowcase
+								component: ShowcasesNotificationToastsConnectedToast
 							},
 							{
 								label: "Toast Group",
-								component: ToastGroupShowcase
+								component: ShowcasesNotificationToastsToastGroup
 							}
 						]
 					},
 					{
 						label: "Progress Bar",
-						component: ProgressBarShowcase
+						component: ShowcasesProgressBar
 					},
 					{
 						label: "Progress Indicator",
-						component: ProgressIndicatorShowcase
+						component: ShowcasesProgressIndicator
 					}
 				]
 			},
@@ -615,37 +662,37 @@ const Index: IndexMenuItem.Section[] = [
 				children: [
 					{
 						label: "CSS Ellipsis",
-						component: CssEllipsisShowcase
+						component: ShowcasesCssEllipsis
 					},
 					{
 						label: "Lines Ellipsis",
-						component: LinesEllipsisShowcase
+						component: ShowcasesLinesEllipsis
 					},
 					{
 						label: "Message",
-						component: MessageShowcase
+						component: ShowcasesMessage
 					},
 					{
 						label: "Portals",
 						children: [
 							{
 								label: "Attached Portal",
-								component: AttachedPortalShowcase
+								component: ShowcasesAttachedPortal
 							},
 							{
 								label: "Portal",
-								component: PortalShowcase
+								component: ShowcasesPortal
 							}
 						]
 					},
 					{
 						label: "Typography",
-						component: TypographyShowcase,
+						component: ShowcasesTypography,
 						hint: ["Headline"]
 					},
 					{
 						label: "Resize Detector",
-						component: ResizeDetectorShowcase
+						component: ShowcasesResizeDetector
 					}
 				]
 			},
@@ -654,43 +701,46 @@ const Index: IndexMenuItem.Section[] = [
 				children: [
 					{
 						label: "Chat",
-						component: ChatShowcase
+						component: ShowcasesChat
 					},
 					{
 						label: "Comment",
 						children: [
 							{
 								label: "Comment Template",
-								component: CommentShowcase
+								component: ShowcasesCommentComment
 							},
 							{
 								label: "Comment Container",
-								component: CommentContainerShowcase
+								component: ShowcasesCommentCommentContainer
 							}
 						]
 					},
 					{
 						label: "Login Layout",
-						component: LoginLayoutShowcase
+						component: ShowcasesLoginLayout
 					},
 					{
 						label: "Faceted Search",
 						children: [
-							{ label: "Filter Bar", component: FilterBarShowcase },
-							{ label: "Filter Selector", component: FilterSelectorShowcase }
+							{ label: "Filter Bar", component: ShowcasesFacetedSearchFilterBar },
+							{
+								label: "Filter Selector",
+								component: ShowcasesFacetedSearchFilterSelector
+							}
 						]
 					},
 					{
 						label: "Message Box",
-						component: MessageBoxShowcase
+						component: ShowcasesMessageBox
 					},
 					{
 						label: "Validation Bar",
-						component: ValidationBarShowcase
+						component: ShowcasesValidationBar
 					},
 					{
 						label: "Wizard",
-						component: WizardShowcase
+						component: ShowcasesWizard
 					}
 				]
 			}
@@ -699,25 +749,24 @@ const Index: IndexMenuItem.Section[] = [
 	{
 		label: "Experimental",
 		children: [
+			{ label: "DataTable", component: ShowcasesDataTable },
+			{ label: "DataTreeTable", component: ShowcasesDataTreeTable },
+			{ label: "TreeView", component: ShowcasesTreeView },
 			{
 				label: "Slider",
-				component: SliderShowcase
+				component: ExperimentalSlider
 			},
 			{
 				label: "Diagram Shapes",
-				component: DiagramShowcase
+				component: ExperimentalDiagramShapes
 			},
 			{
 				label: "Infinite Scroll Table",
-				component: InfiniteScrollTableShowcase
-			},
-			{
-				label: "Supporting Panes Layout",
-				component: SupportingPanesLayoutShowcase
+				component: ExperimentalInfiniteScrollTable
 			},
 			{
 				label: "Calendar",
-				component: Calendar
+				component: ExperimentalCalendar
 			}
 		]
 	},
@@ -726,31 +775,35 @@ const Index: IndexMenuItem.Section[] = [
 		children: [
 			{
 				label: "Collapsible Sidebar",
-				component: CollapsibleSidebar
+				component: ShowcasesExamplesCollapsibleSidebar
 			},
 			{
 				label: "Determine Location",
-				component: DetermineLocationShowcase
+				component: ShowcasesExamplesDetermineLocation
 			},
 			{
 				label: "Drag And Drop",
-				component: DragAndDropExample
+				component: ShowcasesExamplesDragAndDrop
 			},
 			{
 				label: "Dual Pane Layout",
-				component: DualPaneLayoutExample
+				component: ShowcasesExamplesDualPaneLayout
+			},
+			{
+				label: "Filter Selector",
+				component: ShowcasesExamplesFilterSelectorNew
 			},
 			{
 				label: "Gallery",
-				component: GalleryShowcase
+				component: ShowcasesExamplesGallery
 			},
 			{
 				label: "Master Detail",
-				component: MasterDetailExample
+				component: ShowcasesExamplesMasterDetail
 			},
 			{
 				label: "Multilingual Field",
-				component: MultilingualFieldExample
+				component: ShowcasesExamplesMultilingualField
 			},
 			{
 				label: "Multiselect Table",
@@ -767,15 +820,15 @@ const Index: IndexMenuItem.Section[] = [
 			},
 			{
 				label: "Password",
-				component: PasswordExample
+				component: ShowcasesExamplesPassword
 			},
 			{
 				label: "Sidebar with Tab Panel",
-				component: SidebarWithTabPanel
+				component: ShowcasesExamplesSidebarWithTabPanel
 			},
 			{
 				label: "Styling in Tree",
-				component: StylingInTree
+				component: ShowcasesExamplesStylingInTree
 			}
 		]
 	},
@@ -784,7 +837,7 @@ const Index: IndexMenuItem.Section[] = [
 		children: [
 			{
 				label: "Content Security Policies (CSPs)",
-				component: ContentSecurityPolicies
+				component: GetStartedContentSecurityPolicies
 			}
 		]
 	}
@@ -805,14 +858,20 @@ export namespace IndexMenuItem {
 		fullScreen?: boolean;
 	}
 
+	export interface ShowcaseModule {
+		label: string;
+		hint?: string[];
+		structure: ShowcaseData[];
+		// widgetInfo's TypeDoc declarations don't strictly satisfy JSONOutput.DeclarationReflection at compile time;
+		// LayoutShowcaseContentBox treats it as opaque, so we keep it loose here and cast at the render boundary.
+		widgetInfo?: unknown;
+		useFullPageLayout?: boolean;
+		useLargeView?: boolean;
+		useFullLayoutWithoutRightNav?: boolean;
+	}
+
 	export interface Showcase extends MenuItem {
-		component:
-			| ComponentType<RouteComponentProps<object>>
-			| {
-					label: string;
-					hint?: string[];
-					structure: ShowcaseData[];
-			  };
+		component: ShowcaseModule;
 
 		/* Leafs must not have any children */
 		children?: undefined;
@@ -824,23 +883,11 @@ export namespace IndexMenuItem {
 
 export namespace Utils {
 	export function isSection<T extends IndexMenuItem>(item: T): item is T & IndexMenuItem.Section {
-		if (Object.prototype.hasOwnProperty.call(item, "component") && item.children === undefined) {
-			return false;
-		} else if (!Object.prototype.hasOwnProperty.call(item, "component") && item.children !== undefined) {
-			return true;
-		} else {
-			throw new Error("item is nether Section nor Showcase");
-		}
+		return "children" in item && item.children !== undefined;
 	}
 
 	export function isShowcase<T extends IndexMenuItem>(item: T): item is T & IndexMenuItem.Showcase {
-		if (Object.prototype.hasOwnProperty.call(item, "component") && item.children === undefined) {
-			return true;
-		} else if (!Object.prototype.hasOwnProperty.call(item, "component") && item.children !== undefined) {
-			return false;
-		} else {
-			throw new Error("item is nether Section nor Showcase");
-		}
+		return !isSection(item);
 	}
 }
 
@@ -876,51 +923,9 @@ export namespace SiteMapMenuItem {
 			}
 		});
 	}
-
-	export function createListOfPaths(
-		items: IndexMenuItem[],
-		path = "",
-		currentResult?: { [path: string]: IndexMenuItem }
-	): { [path: string]: IndexMenuItem } {
-		const result: { [path: string]: IndexMenuItem } = currentResult ?? {};
-		function isObject(value: [Section]): boolean {
-			return typeof value === "object" && value !== null && !Array.isArray(value);
-		}
-
-		items.forEach((item) => {
-			const newPath = `${path}/${toLink(item.label)}`;
-			result[newPath] = item;
-
-			const sections = (item as any)?.component?.structure[0]?.sections;
-
-			if (isObject(sections)) {
-				const sectionKeys = Object.keys(sections);
-
-				for (let i = 0; i <= sectionKeys.length; i++) {
-					if (i === sectionKeys.length) {
-						const sectionPath = `${newPath}/api`;
-						result[sectionPath] = item;
-						break;
-					}
-
-					const sectionKey = sectionKeys[i];
-					const sectionPath = `${newPath}/${toLink(sections[sectionKey]["label"] || sectionKey)}`;
-					result[sectionPath] = item;
-				}
-			}
-
-			if (!Utils.isShowcase(item)) {
-				createListOfPaths(item.children, newPath, result);
-			}
-		});
-
-		return result;
-	}
 }
 
 export const SiteMap = SiteMapMenuItem.createFromIndexMenuItems(Index);
-
-export const ListOfPathsArray = Object.keys(SiteMapMenuItem.createListOfPaths(Index));
 
 function toProperCase(text: string): string {
 	return text.replace(/\w\S*/g, (sub) => sub.charAt(0).toUpperCase() + sub.substring(1).toLowerCase());

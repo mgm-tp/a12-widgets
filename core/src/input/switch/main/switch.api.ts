@@ -35,6 +35,8 @@ import type { ReactNode, ChangeEvent } from "react";
 import type { Container } from "../../../common/main/base-props.js";
 import type { BaseInputEventHandler, BaseInputProps, InputDOMProps } from "../../base/template/base.tpl.api.js";
 
+export type SwitchLabelPosition = "top" | "left" | "right" | "bottom";
+
 export interface SwitchProps
 	extends
 		Omit<BaseInputProps, "breakTooltipsToNewLine">,
@@ -72,4 +74,25 @@ export interface SwitchProps
 	 * Handler function when the switch is changed.
 	 */
 	onChange(value: boolean, event: ChangeEvent<HTMLInputElement>): void;
+
+	/**
+	 * Specifies the position of the label relative to the switch control.
+	 *
+	 * @default "top"
+	 */
+	labelPosition?: SwitchLabelPosition;
+
+	/**
+	 * Specifies the icon displayed inside the thumb when the switch is checked.
+	 *
+	 * @default <Icon>check</Icon>
+	 */
+	checkedIcon?: ReactNode;
+
+	/**
+	 * Specifies the icon displayed inside the thumb when the switch is unchecked.
+	 *
+	 * @default <Icon>remove</Icon>
+	 */
+	uncheckedIcon?: ReactNode;
 }

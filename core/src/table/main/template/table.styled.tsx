@@ -37,8 +37,6 @@ import { darken } from "polished";
 import { breakWord } from "../../../theme/base/mixins/_break-word.js";
 import type { DefaultThemeType } from "../../../theme/schema.js";
 import { active, hover } from "../../../theme/base/mixins/_interaction.js";
-import { useTableContext } from "../../new-api/table.context.js";
-import type { Column } from "../../new-api/column.api.js";
 import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
 import { StyledTagInputFieldWrapper } from "../../../tag-input/main/tag-input.styled.js";
 import { StyledTagGroup } from "../../../tag/main/tag-group.view.js";
@@ -48,11 +46,11 @@ import { getHorizontalSpace } from "../../../common/main/utils.js";
 import { StyledListItemWrapper } from "../../../list/main/list.styled.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
+import type { Column } from "../column.api.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
 
 import { CollapsingWrapper } from "./table.collapsing-wrapper.tpl.view.js";
 import type { TableTemplateProps } from "./table.tpl.api.js";
-import { useStyledTableContext } from "./table.context.styled.js";
 
 export namespace StyledBaseTable {
 	export const Row = styled.div.withConfig({ displayName: "StyledTableRow-sc-" })<{ cardView?: boolean }>(
@@ -86,141 +84,168 @@ export namespace StyledBaseTable {
 		hasColumnGroup?: boolean;
 		resizable?: boolean;
 		$hasActionCellWidth?: boolean;
-	}>(({ theme, fixedWidth, subInfo, actionCell, relativeWidth, cardView, resizable, $hasActionCellWidth }) => {
-		const { table } = theme.components;
-		const { bodyCell, headCell } = table;
+		$crossTabulation?: boolean;
+		$rowSegmentType?: TableTemplateProps.RowSegmentType;
+		$enableColumnGroupA11y?: boolean;
+	}>(
+		({
+			theme,
+			fixedWidth,
+			subInfo,
+			actionCell,
+			relativeWidth,
+			cardView,
+			resizable,
+			$hasActionCellWidth,
+			$crossTabulation: crossTabulation,
+			$rowSegmentType: rowSegmentType,
+			$enableColumnGroupA11y: enableColumnGroupA11y
+		}) => {
+			const { table } = theme.components;
+			const { bodyCell, headCell } = table;
 
-		const padding = subInfo ? bodyCell.subInfo.padding : actionCell ? table.actionCell.padding : bodyCell.padding;
-		const crossTabulation = useTableContext((context) => context.crossTabulation);
-		const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
+			const padding = subInfo ? bodyCell.subInfo.padding : actionCell ? table.actionCell.padding : bodyCell.padding;
 
-		const width =
-			actionCell && !$hasActionCellWidth
-				? "unset"
-				: relativeWidth
-					? `${Math.round(bodyCell.width * relativeWidth)}px`
-					: `${bodyCell.width}px`;
-		const flex =
-			fixedWidth || (actionCell && !$hasActionCellWidth)
-				? "0 0 auto"
-				: relativeWidth
-					? `${relativeWidth * 10} ${relativeWidth} auto`
-					: "1 1 0%";
+			const width =
+				actionCell && !$hasActionCellWidth
+					? "unset"
+					: relativeWidth
+						? `${Math.round(bodyCell.width * relativeWidth)}px`
+						: `${bodyCell.width}px`;
+			const flex =
+				fixedWidth || (actionCell && !$hasActionCellWidth)
+					? "0 0 auto"
+					: relativeWidth
+						? `${relativeWidth * 10} ${relativeWidth} auto`
+						: "1 1 0%";
 
-		const firstColumnStyle = css`
-			&:first-child {
-				${StyledTableMixins.setFirstCellSpacing({
-					subInfo,
-					actionCell,
-					theme,
-					relativeWidth,
-					$hasActionCellWidth
-				})}
-			}
-		`;
+			const firstCellSpacing = StyledTableMixins.setFirstCellSpacing({
+				subInfo,
+				actionCell,
+				theme,
+				relativeWidth,
+				$hasActionCellWidth
+			});
 
-		const resetColumnStyle = css`
-			padding-left: ${getHorizontalSpace("left", padding)};
-			min-width: ${width};
-			width: ${width};
-		`;
+			const firstColumnStyle = enableColumnGroupA11y
+				? css`
+						&:first-child:not([data-role="${DataRoles.Table.Header.Cell}"]) {
+							${firstCellSpacing}
+						}
+						[data-role="${DataRoles.Table.Header.Cell.Group.Children}"] > &:first-child {
+							${firstCellSpacing}
+						}
+					`
+				: css`
+						&:first-child {
+							${firstCellSpacing}
+						}
+					`;
 
-		return css`
-			box-sizing: border-box;
-			display: flex;
-			flex: ${flex};
-			font-family: ${bodyCell.fontFamily};
-			font-size: ${bodyCell.fontSize};
-			font-weight: ${bodyCell.fontWeight};
-			min-width: ${width};
-			padding: ${padding};
-			text-align: left;
-			width: ${width};
+			const resetColumnStyle = css`
+				padding-left: ${getHorizontalSpace("left", padding)};
+				min-width: ${width};
+				width: ${width};
+			`;
 
-			// Remove the default margin of p tag to not increase the Cell's height unexpectedly, which leads to the row's visual issue.
-			p {
-				&:first-child {
-					margin-top: 0;
+			return css`
+				box-sizing: border-box;
+				display: flex;
+				flex: ${flex};
+				font-family: ${bodyCell.fontFamily};
+				font-size: ${bodyCell.fontSize};
+				font-weight: ${bodyCell.fontWeight};
+				min-width: ${width};
+				padding: ${padding};
+				text-align: left;
+				width: ${width};
+
+				// Remove the default margin of p tag to not increase the Cell's height unexpectedly, which leads to the row's visual issue.
+				p {
+					&:first-child {
+						margin-top: 0;
+					}
+					&:last-child {
+						margin-bottom: 0;
+					}
 				}
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
 
-			${breakWord}
+				${breakWord}
 
-			${subInfo &&
-			css`
-				color: ${bodyCell.subInfo.color};
-				& > * {
+				${subInfo &&
+				css`
 					color: ${bodyCell.subInfo.color};
-				}
-			`}
+					& > * {
+						color: ${bodyCell.subInfo.color};
+					}
+				`}
 
 			${actionCell &&
-			css`
-				height: 100%;
-			`}
+				css`
+					height: 100%;
+				`}
 
-            // Style for cell of first column
+
 			${!cardView &&
-			css`
-				${rowSegmentType === "left" &&
 				css`
-					${firstColumnStyle}
-					${Group}:not(:first-child) &&:first-child {
-						${resetColumnStyle}
-					}
-				`}
-
-				${rowSegmentType === "scroll" &&
-				css`
-					${Segment}:first-child && {
+					${rowSegmentType === "left" &&
+					css`
 						${firstColumnStyle}
-					}
-					${Segment}:first-child ${Group}:not(:first-child) &&:first-child {
-						${resetColumnStyle}
-					}
+
+						${Group}:not(:first-child) &&:first-child {
+							${resetColumnStyle}
+						}
+					`}
+
+					${rowSegmentType === "scroll" &&
+					css`
+						${Segment}:first-child && {
+							${firstColumnStyle}
+						}
+						${Segment}:first-child ${Group}:not(:first-child) &&:first-child {
+							${resetColumnStyle}
+						}
+					`}
 				`}
-			`}
 
 		  	${cardView &&
-			css`
-				position: relative;
-				padding-top: 24px;
-				font-size: ${table.cardView.bodyCell.fontSize};
-				width: 100%;
-			`}
+				css`
+					position: relative;
+					padding-top: 24px;
+					font-size: ${table.cardView.bodyCell.fontSize};
+					width: 100%;
+				`}
 
 
 		  	${resizable &&
-			css`
-				[${TableDataAttributes.Data.Head.CellResizing}="true"] div {
-					background-color: transparent;
-				}
-				${rowSegmentType === "scroll" &&
 				css`
-					${Segment} > &&:last-child {
-						flex: 1;
+					[${TableDataAttributes.Data.Head.CellResizing}="true"] div {
+						background-color: transparent;
 					}
+					${rowSegmentType === "scroll" &&
+					css`
+						${Segment} > &&:last-child {
+							flex: 1;
+						}
+					`}
 				`}
-			`}
 		  	${crossTabulation &&
-			rowSegmentType === "left" &&
-			css`
-				color: ${headCell.color};
-				font-size: ${headCell.fontSize};
-				font-weight: ${headCell.fontWeight};
-			`}
-		`;
-	});
+				rowSegmentType === "left" &&
+				css`
+					color: ${headCell.color};
+					font-size: ${headCell.fontSize};
+					font-weight: ${headCell.fontWeight};
+				`}
+			`;
+		}
+	);
 
 	export const Segment = styled(CollapsingWrapper)<{
 		rowSegmentType?: TableTemplateProps.RowSegmentType;
 		cardView?: boolean;
-	}>(({ rowSegmentType, theme, cardView }) => {
+		$crossTabulation?: boolean;
+	}>(({ rowSegmentType, theme, cardView, $crossTabulation: crossTabulation }) => {
 		const { header, headRow } = theme.components.table;
-		const crossTabulation = useTableContext((context) => context.crossTabulation);
 
 		return css`
 			display: ${cardView ? "block" : "flex"};

@@ -31,7 +31,7 @@
  */
 
 import type { FC, KeyboardEvent, MouseEvent, ReactElement, SyntheticEvent } from "react";
-import { useCallback, useContext, useEffect, useRef } from "react";
+import { Fragment, useCallback, useContext, useEffect, useMemo, useRef } from "react";
 import { Key } from "ts-key-enum";
 
 import { joinClassNames } from "../../common/main/utils.js";
@@ -50,14 +50,19 @@ import type { TabPanelTemplateProps } from "./template/tab-panel.tpl.api.js";
 import { BaseTabPanelContent } from "./template/tab-panel.tpl.styled.js";
 import {
 	StyledCondensedTab,
+	StyledGroupDivider,
+	StyledSubGroupLabel,
 	StyledSubMenuPopup,
 	StyledSubTabListTriggerButton,
 	StyledSubTabPanelTabs,
+	StyledTabGroup,
+	StyledTabGroupList,
 	StyledTabPanelPanel,
 	StyledTabPanelTabs,
 	StyledTabPanelWrapper
 } from "./tab-panel.styled.js";
 import { useAdaptTabPanelResponsive, useSubMenuKeyPressHandle } from "./tab-panel.hook.js";
+import { filterGroupedTabs, flattenTabs, isGroupedTabList } from "./tab-panel.utils.js";
 
 const tabSelector = `[data-role="${DataRoles.TabPanel.Tab}"]`;
 
@@ -91,10 +96,12 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 	const mainTabListShadowRef = useRef<HTMLUListElement | null>(null);
 	const condensedTabShadowRef = useRef<HTMLLIElement | null>(null);
 
-	const openSubPanelRafIdRef = useRef<number | null>(null);
-
 	const isHorizontalMenu = orientation === "horizontal";
 	const shouldFocusOnPanel = focusOnPanelAfterSelect && children;
+
+	const groupedTabs = isGroupedTabList(tabs) ? tabs : null;
+	const isGrouped = groupedTabs !== null;
+	const flatTabs: TabPanelTemplateProps.TabProps[] = useMemo(() => flattenTabs(tabs), [tabs]);
 
 	const { hintRenderer } = useInteractionHint({
 		title: tabPanelTitles?.condensedTabTitle,
@@ -102,12 +109,12 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 		referenceElementRef: tabPanelAnchorRef
 	});
 
-	const selectedTab = tabs.find((tab) => (value ? tab.value === value : tab.selected));
+	const selectedTab = flatTabs.find((tab) => (value ? tab.value === value : tab.selected));
 
 	const [showSubPanel, setShowSubPanel] = useStateWithCallback(false);
 
 	const { mainTabs, subTabs, isCounting } = useAdaptTabPanelResponsive({
-		tabs,
+		tabs: flatTabs,
 		tabRef: tabListRef,
 		shadowTabRef: mainTabListShadowRef,
 		shadowTabAnchorRef: condensedTabShadowRef,
@@ -140,12 +147,13 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 	useArrowKeyNavigation({
 		elementRef: tabListRef,
 		selector: tabSelector,
-		orientation: orientation
+		orientation
 	});
 
 	useSubMenuKeyPressHandle({
 		elementRef: subTabListRef,
-		allowAllDirections: isHorizontalMenu
+		allowAllDirections: isHorizontalMenu,
+		navigationKey: "tabPanelSubTablist"
 	});
 
 	/**
@@ -177,44 +185,13 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 	};
 
 	/**
-	 * Scrolls the selected sub-tab into view when the sub-panel opens.
-	 */
-	const scrollSelectedSubTabIntoView = useCallback((): void => {
-		const subTabSelectedElement = subTabListRef.current?.querySelector<HTMLElement>(
-			`[aria-selected='true']${tabSelector}`
-		);
-
-		if (subTabSelectedElement) {
-			openSubPanelRafIdRef.current = requestAnimationFrame(() => {
-				subTabSelectedElement.scrollIntoView(true);
-			});
-		}
-	}, []);
-
-	/**
-	 * Cleans up animation frame when closing the sub-menu.
-	 */
-	const cleanupSubMenuAnimation = useCallback((): void => {
-		if (openSubPanelRafIdRef.current) {
-			cancelAnimationFrame(openSubPanelRafIdRef.current);
-			openSubPanelRafIdRef.current = null;
-		}
-	}, []);
-
-	/**
 	 * Handles the visibility change of the sub menu.
 	 */
 	const handleSubMenuVisibilityChange = useCallback(
 		(isVisible: boolean): void => {
-			setShowSubPanel(isVisible, (isSubPanelVisible) => {
-				if (isSubPanelVisible) {
-					scrollSelectedSubTabIntoView();
-				} else {
-					cleanupSubMenuAnimation();
-				}
-			});
+			setShowSubPanel(isVisible);
 		},
-		[setShowSubPanel, scrollSelectedSubTabIntoView, cleanupSubMenuAnimation]
+		[setShowSubPanel]
 	);
 
 	/**
@@ -259,6 +236,102 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 	}, [shouldFocusOnPanel]);
 
 	const isCondensedTabSelected = !!subTabs.find((el) => el.value === selectedTab?.value);
+	const interactiveSubTab = subTabs.find((t) => !t.disabled);
+
+	const renderCondensedTab = (isEntryPoint = false): ReactElement => {
+		const condensedTab = (
+			<StyledCondensedTab
+				value=""
+				id={id && `${id}-condensed-tab`}
+				selected={isCondensedTabSelected}
+				wrapperRef={getSubMenuTriggerElementWrapperRef}
+				tabIndex={isCondensedTabSelected || isEntryPoint ? 0 : -1}
+				onClick={handleCondensedTabClick}
+				orientation={orientation}
+			>
+				{renderSubTabList()}
+			</StyledCondensedTab>
+		);
+
+		return (
+			<Fragment key="condensed-tab">
+				{isGrouped ? (
+					<StyledTabGroup role="presentation" data-role={DataRoles.TabPanel.Group} $orientation={orientation}>
+						<StyledTabGroupList role="tablist" aria-orientation={orientation} $orientation={orientation}>
+							{condensedTab}
+						</StyledTabGroupList>
+					</StyledTabGroup>
+				) : (
+					condensedTab
+				)}
+				{!showSubPanel && hintRenderer?.()}
+			</Fragment>
+		);
+	};
+
+	const renderSubTab = (tab: TabPanelTemplateProps.TabProps, isMobile: boolean): ReactElement => (
+		<TabPanelTemplate.Tab
+			{...tab}
+			mobileSubListLayout={isMobile && isGrouped}
+			selected={tab.value === selectedTab?.value}
+			onClick={(event: SyntheticEvent<HTMLElement>): void => handleTabClick(event, tab, false)}
+			key={tab.value}
+			ariaControls={id ? `${id}-panel` : undefined}
+			tabIndex={tab === interactiveSubTab ? 0 : -1}
+			orientation="vertical"
+		>
+			{isMobile && tab.label ? tab.label : tab.children}
+		</TabPanelTemplate.Tab>
+	);
+
+	const renderSubTabListContent = (): ReactElement[] => {
+		const isMobile = DeviceDetector.isPhone();
+
+		if (!isGrouped) {
+			return subTabs.map((tab: TabPanelTemplateProps.TabProps) => renderSubTab(tab, isMobile));
+		}
+
+		const subGroups = filterGroupedTabs(subTabs, groupedTabs!);
+		const firstSubTab = subTabs[0];
+
+		// A sub-group is "new" (not split across main/sub lists) when none of its tabs appear in the main tab list.
+		// In that case a leading divider must be rendered before it in the sub list.
+		const groupOfFirstSubTab =
+			firstSubTab !== undefined
+				? groupedTabs.find((g) => g.tabs.some((t) => t.value === firstSubTab.value))
+				: undefined;
+		const firstSubGroupIsNew =
+			groupOfFirstSubTab !== undefined &&
+			!mainTabs.some((mainTab) => groupOfFirstSubTab.tabs.some((t) => t.value === mainTab.value));
+
+		return subGroups.map((group, i) => (
+			<Fragment key={group.id ?? `sub-group-${i}`}>
+				{!isMobile && (i > 0 || firstSubGroupIsNew) && (
+					<StyledGroupDivider
+						role="separator"
+						aria-orientation="horizontal"
+						data-role={DataRoles.TabPanel.Group.Divider}
+					/>
+				)}
+				<StyledTabGroup role="presentation" data-role={DataRoles.TabPanel.Group} $orientation="vertical">
+					{isMobile && (
+						<StyledSubGroupLabel role="heading" aria-level={2} data-role={DataRoles.TabPanel.SubGroupLabel}>
+							{group.groupLabel}
+						</StyledSubGroupLabel>
+					)}
+					<StyledTabGroupList
+						role="tablist"
+						aria-label={group.ariaLabel ?? group.groupLabel}
+						aria-orientation="vertical"
+						data-role={DataRoles.TabPanel.Group.TabList}
+						$orientation="vertical"
+					>
+						{group.tabs.map((tab) => renderSubTab(tab, isMobile))}
+					</StyledTabGroupList>
+				</StyledTabGroup>
+			</Fragment>
+		));
+	};
 
 	const renderSubTabList = (): ReactElement => {
 		return (
@@ -278,27 +351,87 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 					orientation="right-end"
 					popupListAttributes={{ "data-role": DataRoles.TabPanel.SubTabList }}
 				>
-					<StyledSubTabPanelTabs role="tablist" data-role={DataRoles.TabPanel.SubTabList} wrapperRef={getSubTabListRef}>
-						{subTabs.map((tab) => {
-							return (
-								<TabPanelTemplate.Tab
-									{...tab}
-									selected={tab.value === selectedTab?.value}
-									onClick={(event: SyntheticEvent<HTMLElement>): void => handleTabClick(event, tab, false)}
-									key={tab.value}
-									ariaControls={id ? `${id}-panel` : undefined}
-									tabIndex={-1}
-									orientation="vertical" // Sub tab's style is always a vertical menu
-								/>
-							);
-						})}
+					<StyledSubTabPanelTabs
+						role={isGrouped ? "none" : "tablist"}
+						data-role={DataRoles.TabPanel.SubTabList}
+						wrapperRef={getSubTabListRef}
+					>
+						{renderSubTabListContent()}
 					</StyledSubTabPanelTabs>
 				</StyledSubMenuPopup>
 			</PopupMenuConfigContext.Provider>
 		);
 	};
 
+	const renderGroupedMainTabList = (): ReactElement => {
+		const visibleGroups = filterGroupedTabs(mainTabs, groupedTabs!);
+		const selectedMainTab = mainTabs.find((t) => t.value === selectedTab?.value);
+		const noTabSelected = !selectedMainTab && !isCondensedTabSelected;
+		const firstEnabledTab = visibleGroups.flatMap((g) => g.tabs).find((t) => !t.disabled);
+		// If all visible main tabs are disabled and nothing is selected, the condensed tab becomes the entry point
+		const isCondensedTabEntryPoint = firstEnabledTab === undefined && noTabSelected && subTabs.length > 0;
+
+		const entryTabValue = selectedMainTab?.value ?? (noTabSelected ? firstEnabledTab?.value : undefined);
+
+		return (
+			<StyledTabPanelTabs
+				ref={tabListRef}
+				role="group"
+				className={`${TAB_PANEL_CLASS_NAME}__tabs`}
+				data-role={DataRoles.TabPanel.TabList}
+				aria-label={tabListAriaLabel ?? tabPanelTitles?.tabListAriaLabel}
+				$orientation={orientation}
+			>
+				{visibleGroups.map((group, i) => {
+					return (
+						<Fragment key={group.id ?? `group-${i}`}>
+							{i > 0 && (
+								<StyledGroupDivider
+									data-role={DataRoles.TabPanel.Group.Divider}
+									role="separator"
+									aria-orientation={orientation === "horizontal" ? "vertical" : "horizontal"}
+									$orientation={orientation}
+								/>
+							)}
+							<StyledTabGroup role="presentation" data-role={DataRoles.TabPanel.Group} $orientation={orientation}>
+								<StyledTabGroupList
+									role="tablist"
+									aria-label={group.ariaLabel ?? group.groupLabel}
+									aria-orientation={orientation}
+									data-role={DataRoles.TabPanel.Group.TabList}
+									$orientation={orientation}
+								>
+									{group.tabs.map((tab) => (
+										<TabPanelTemplate.Tab
+											{...tab}
+											selected={tab.value === selectedTab?.value}
+											onClick={(event: SyntheticEvent<HTMLElement>): void => handleTabClick(event, tab)}
+											key={tab.value}
+											ariaControls={id ? `${id}-panel` : undefined}
+											tabIndex={tab.value === entryTabValue ? 0 : -1}
+											orientation={orientation}
+										/>
+									))}
+								</StyledTabGroupList>
+							</StyledTabGroup>
+						</Fragment>
+					);
+				})}
+				{subTabs.length > 0 && renderCondensedTab(isCondensedTabEntryPoint)}
+			</StyledTabPanelTabs>
+		);
+	};
+
 	const renderMainTabList = (): ReactElement => {
+		if (isGrouped) {
+			return renderGroupedMainTabList();
+		}
+
+		const noTabSelected = mainTabs.every((tab) => tab.value !== selectedTab?.value) && !isCondensedTabSelected;
+		const firstEnabledIndex = mainTabs.findIndex((t) => !t.disabled);
+		// When all main tabs are disabled and nothing is selected, the condensed tab becomes the entry point
+		const isCondensedTabEntryPoint = firstEnabledIndex === -1 && noTabSelected && subTabs.length > 0;
+
 		return (
 			<StyledTabPanelTabs
 				ref={tabListRef}
@@ -311,8 +444,7 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 			>
 				{mainTabs.map((tab, index) => {
 					const isTabSelected = tab.value === selectedTab?.value;
-					const noTabSelected = mainTabs.every((tab) => tab.value !== selectedTab?.value) && !isCondensedTabSelected;
-					const isFirstElementAllowTab = index === 0 && noTabSelected;
+					const isFirstEnabledElementAllowTab = index === firstEnabledIndex && noTabSelected;
 
 					return (
 						<TabPanelTemplate.Tab
@@ -321,27 +453,12 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 							onClick={(event): void => handleTabClick(event, tab)}
 							key={tab.value}
 							ariaControls={id ? `${id}-panel` : undefined}
-							tabIndex={isTabSelected || isFirstElementAllowTab ? 0 : -1}
+							tabIndex={isTabSelected || isFirstEnabledElementAllowTab ? 0 : -1}
 							orientation={orientation}
 						/>
 					);
 				})}
-				{subTabs.length > 0 && (
-					<>
-						<StyledCondensedTab
-							value=""
-							id={id && `${id}-condensed-tab`}
-							selected={isCondensedTabSelected}
-							wrapperRef={getSubMenuTriggerElementWrapperRef}
-							tabIndex={isCondensedTabSelected ? 0 : -1}
-							onClick={handleCondensedTabClick}
-							orientation={orientation}
-						>
-							{renderSubTabList()}
-						</StyledCondensedTab>
-						{!showSubPanel && hintRenderer?.()}
-					</>
-				)}
+				{subTabs.length > 0 && renderCondensedTab(isCondensedTabEntryPoint)}
 			</StyledTabPanelTabs>
 		);
 	};
@@ -352,20 +469,45 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 
 	// The MainTabListShadow is used to store the size of the tab panel when rendering all items in the main tab and will be hidden from the UI
 	const renderMainTabListShadow = (): ReactElement => {
+		if (isGrouped) {
+			return (
+				<StyledTabPanelTabs aria-hidden={true} $isShadow={true} ref={mainTabListShadowRef} $orientation={orientation}>
+					{groupedTabs.map((group, i) => (
+						<Fragment key={group.id ?? `shadow-group-${i}`}>
+							{i > 0 && <StyledGroupDivider $orientation={orientation} />}
+							<StyledTabGroup $orientation={orientation}>
+								<StyledTabGroupList $orientation={orientation}>
+									{group.tabs.map((tab) => (
+										<TabPanelTemplate.Tab
+											{...tab}
+											key={tab.value}
+											orientation={orientation}
+											aria-hidden={true}
+											title={undefined}
+											id={undefined}
+										/>
+									))}
+								</StyledTabGroupList>
+							</StyledTabGroup>
+						</Fragment>
+					))}
+					<StyledCondensedTab value="" wrapperRef={getCondensedTabShadowRef} orientation={orientation} />
+				</StyledTabPanelTabs>
+			);
+		}
+
 		return (
-			<StyledTabPanelTabs $isShadow={true} ref={mainTabListShadowRef} $orientation={orientation}>
-				{tabs.map((tab) => {
-					return (
-						<TabPanelTemplate.Tab
-							{...tab}
-							key={tab.value}
-							orientation={orientation}
-							aria-hidden={true}
-							title={undefined}
-							id={undefined}
-						/>
-					);
-				})}
+			<StyledTabPanelTabs aria-hidden={true} $isShadow={true} ref={mainTabListShadowRef} $orientation={orientation}>
+				{flatTabs.map((tab) => (
+					<TabPanelTemplate.Tab
+						{...tab}
+						key={tab.value}
+						orientation={orientation}
+						aria-hidden={true}
+						title={undefined}
+						id={undefined}
+					/>
+				))}
 				<StyledCondensedTab value="" wrapperRef={getCondensedTabShadowRef} orientation={orientation} />
 			</StyledTabPanelTabs>
 		);

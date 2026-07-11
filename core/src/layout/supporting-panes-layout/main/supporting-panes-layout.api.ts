@@ -30,7 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { Variants } from "framer-motion";
+
 import type { Styleable, Identifiable, Container, Ref, HTMLAttributes } from "../../../common/main/base-props.js";
+
+export interface CustomAnimationConfig {
+	/**
+	 * Animation variants for the pane container.
+	 */
+	paneVariants: Variants;
+
+	/**
+	 * Animation variants for the pane content.
+	 */
+	contentVariants: Variants;
+}
 
 export namespace SupportingPanesLayoutProps {
 	export interface LayoutProps extends Styleable, Identifiable, Container, Ref, HTMLAttributes {}
@@ -133,5 +147,11 @@ export namespace SupportingPanesLayoutProps {
 		 * Whether the pane should be hidden or not.
 		 */
 		hide?: boolean;
+
+		/**
+		 * Custom animation configuration for the pane.
+		 * If provided, this will override the default SPL animation.
+		 */
+		customAnimation?: CustomAnimationConfig;
 	}
 }

@@ -38,6 +38,7 @@ import type { DefaultThemeType, FlatCompactThemeType, FlatThemeType } from "./sc
 import { FontConfig } from "./default/config/base/fonts.config.js";
 import { FontSizeConfig } from "./default/config/application/font_size.config.js";
 import { FontWeightConfig } from "./default/config/application/font_weight.config.js";
+import { LineHeightConfig } from "./base-theme/config/application/line-height.config.js";
 import {
 	HorizontalSpacingConfig,
 	SpacingConfig,
@@ -66,11 +67,10 @@ import { ApplicationFlatStyles } from "./flat/config/application/application_sty
 import { FocusFlatStyles } from "./flat/config/application/focus.config.js";
 import { FlatDivisionLineStyles } from "./flat/config/application/division-line.config.js";
 
-/** @deprecated since version 38.2.0. Use `DeepPartial` from top level import */
-export type DeepPartial<T> = UtilsDeepPartial<T>;
-
+/** @deprecated since v39.0.0. Use {@link getBaseTheme} instead. */
 export type ThemeType = "default" | "compact" | "flat" | "flat-compact";
 
+/** @deprecated since v39.0.0. Use {@link getBaseTheme} instead. */
 export const createTheme = (
 	params?: UtilsDeepPartial<DefaultThemeType & { baseTheme: ThemeType }>
 ): DefaultThemeType => {
@@ -96,7 +96,8 @@ export const createTheme = (
 	const defaultTypography = {
 		font: baseFont,
 		fontSize: FontSizeConfig(baseFont),
-		fontWeight: FontWeightConfig
+		fontWeight: FontWeightConfig,
+		lineHeight: LineHeightConfig
 	};
 
 	const themeSpacing = {

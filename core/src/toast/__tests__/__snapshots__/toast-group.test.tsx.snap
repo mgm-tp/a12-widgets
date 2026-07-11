@@ -13,7 +13,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -253,16 +254,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -272,6 +263,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -552,7 +553,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1028,16 +1030,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -1047,6 +1039,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -1217,7 +1219,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1693,16 +1696,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -1712,6 +1705,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -1882,7 +1885,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2134,16 +2138,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -2153,6 +2147,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -2423,7 +2427,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2675,16 +2680,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -2694,6 +2689,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -2964,7 +2969,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3216,16 +3222,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -3235,6 +3231,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -3505,7 +3511,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3757,16 +3764,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -3776,6 +3773,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -4046,7 +4053,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4298,16 +4306,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -4317,6 +4315,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -4587,7 +4595,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4839,16 +4848,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -4858,6 +4857,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -5129,7 +5138,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -5381,16 +5391,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     max-height: 9999px;
@@ -5400,6 +5400,16 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   100% {
     max-height: 0px;
     opacity: 0;
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 

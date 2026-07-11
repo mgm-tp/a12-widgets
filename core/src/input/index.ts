@@ -41,6 +41,5 @@ export * from "./radio/index.js";
 export * from "./select/index.js";
 export * from "./switch/index.js";
 export * from "./text-area/index.js";
-export { type TextFieldProps, TextField } from "./text-field/index.js";
-export * from "./text-line/index.js";
+export * from "./text-field/index.js";
 export * from "./year-month-selector/index.js";

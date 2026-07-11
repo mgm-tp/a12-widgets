@@ -47,7 +47,7 @@ import { StyledTextOutputText } from "../../text-output/main/text-output.view.js
 import { active, activeAndHover, hover, inputDarkFocus } from "../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 import { unseenButRead } from "../../theme/base/mixins/_unseenButRead.js";
-import { StyledTooltipWrapper } from "../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 import type { DefaultThemeType } from "../../theme/schema.js";
 import { createBorder } from "../../theme/base/mixins/_borderEffects.js";
 import { DataRoles } from "../../common/main/data-roles.js";
@@ -263,10 +263,6 @@ export namespace StyledFileUpload {
 				left: 50%;
 				transform: translate(-50%, -50%);
 				pointer-events: none;
-
-				& + svg {
-					width: 9999px;
-				}
 			`}
 		`;
 	});
@@ -596,10 +592,6 @@ export namespace StyledFileUpload {
 							opacity: 0.3;
 						}
 
-						${StyledUploadSvgIcon}[data-role="${DataRoles.FileUpload.PreviewIcon}"] {
-							width: 9999px; // fix bug in A12W-7445
-						}
-
 						${StyledLink} {
 							pointer-events: none;
 						}
@@ -708,6 +700,8 @@ export namespace StyledFileUpload {
 		$horizFit?: boolean;
 		$vertFit?: boolean;
 		$compact?: boolean;
+
+		/** @deprecated since 39.0.0. No longer in used. */
 		$fileUploadSize?: { width: string; height: string };
 	}>(({ theme, $horizFit, $vertFit, $compact, $fileUploadSize }) => {
 		return css`
@@ -730,14 +724,14 @@ export namespace StyledFileUpload {
 			css`
 				width: 100%;
 			`}
-			
+
 			${$fileUploadSize &&
 			css`
 				width: ${$fileUploadSize.width};
 				height: ${$fileUploadSize.height};
 			`}
 			
-			${StyledTooltipWrapper} {
+			${StyledTooltipTriggerWrapper} {
 				margin: ${theme.components.baseInput.input.tooltipInNewLineMargin};
 			}
 		`;
@@ -784,7 +778,7 @@ export namespace StyledFileUpload {
 			flex: 1;
 		}
 
-		> ${StyledTooltipWrapper} {
+		> ${StyledTooltipTriggerWrapper} {
 			margin: 0;
 		}
 	`;

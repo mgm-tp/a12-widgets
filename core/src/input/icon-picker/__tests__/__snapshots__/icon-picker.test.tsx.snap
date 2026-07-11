@@ -13,7 +13,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -100,7 +101,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 1`] = `
   color: inherit;
 }
 
-.c18 .c21.c21:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c18 .c21.c21:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -351,38 +352,38 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 1`] = `
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c9 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c10 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             role="combobox"
             type="text"
             value=""
@@ -392,7 +393,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 1`] = `
           />
           <div
             class="c11 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -410,11 +411,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 1`] = `
       </div>
       <div
         class="c16 c17 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c18 c19 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -444,8 +445,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 1`] = `
     >
       <label
         class="c23 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -454,7 +455,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 1`] = `
       >
         <span
           class="c18 c19 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -514,7 +515,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 2`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -546,6 +548,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 2`] = `
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -632,7 +635,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 2`] = `
   color: inherit;
 }
 
-.c18 .c21.c21:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c18 .c21.c21:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1034,40 +1037,40 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 2`] = `
   >
     <div
       class="c1 field-wrapper field-wrapper--block"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
-            for="icon-picker-textline"
-            id="icon-picker-textline-label"
+            data-role="text-field-label"
+            for="icon-picker-text-field"
+            id="icon-picker-text-field-label"
           >
             Basic Icon Picker
           </label>
           <div
             class="c8 field__input"
             data-isfocused="true"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <span
               class="c9 supported-unseen-span"
             />
             <input
               aria-autocomplete="list"
-              aria-describedby="warning-tooltip icon-picker-textline-label"
+              aria-describedby="warning-tooltip icon-picker-text-field-label"
               aria-expanded="true"
               aria-haspopup="listbox"
               aria-owns="icon-picker--dropdown"
               class="c10 field__text"
-              data-role="textline-input"
-              id="icon-picker-textline"
+              data-role="text-field-input"
+              id="icon-picker-text-field"
               role="combobox"
               type="text"
               value=""
@@ -1077,7 +1080,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 2`] = `
             />
             <div
               class="c11 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -1095,11 +1098,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 2`] = `
         </div>
         <div
           class="c16 c17 field-addon field-addon--after"
-          data-role="textline--addon-after-0"
+          data-role="text-field--addon-after-0"
         >
           <span
             class="c18 c19 tooltip"
-            data-role="tooltip"
+            data-role="tooltip-trigger-wrapper"
             role="tooltip"
             title=""
           >
@@ -1129,8 +1132,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 2`] = `
       >
         <label
           class="c23 field__helper-text"
-          data-role="textline-helper-text"
-          for="icon-picker-textline"
+          data-role="text-field-helper-text"
+          for="icon-picker-text-field"
         >
           Helper text
         </label>
@@ -1139,7 +1142,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker 2`] = `
         >
           <span
             class="c18 c19 tooltip"
-            data-role="tooltip"
+            data-role="tooltip-trigger-wrapper"
             role="tooltip"
             title=""
           >
@@ -1934,7 +1937,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2025,7 +2029,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
   color: inherit;
 }
 
-.c22 .c24.c24:not(:active):not(:hover):not(:focus) .c10:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c22 .c24.c24:not(:active):not(:hover):not(:focus) .c10:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -2106,7 +2110,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
   color: inherit;
 }
 
-.c22 .c16.c16:not(:active):not(:hover):not(:focus) .c10:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c22 .c16.c16:not(:active):not(:hover):not(:focus) .c10:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -2459,30 +2463,30 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c9 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <i
               class="c10 c11 plasma-icon icon-picker__preview-icon"
@@ -2500,12 +2504,12 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c13 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             role="combobox"
             type="text"
             value="edit"
@@ -2515,7 +2519,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
           />
           <div
             class="c14 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <button
               aria-label="Clear text"
@@ -2539,7 +2543,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
           </div>
           <div
             class="c17 field__suffix"
-            data-role="textline-suffix-1"
+            data-role="text-field-suffix-1"
           >
             <i
               aria-hidden="true"
@@ -2557,11 +2561,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
       </div>
       <div
         class="c20 c21 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c22 c23 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -2591,8 +2595,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
     >
       <label
         class="c26 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -2601,7 +2605,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
       >
         <span
           class="c22 c23 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -2661,7 +2665,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2693,6 +2698,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2779,7 +2785,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
   color: inherit;
 }
 
-.c22 .c24.c24:not(:active):not(:hover):not(:focus) .c10:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c22 .c24.c24:not(:active):not(:hover):not(:focus) .c10:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -2860,7 +2866,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
   color: inherit;
 }
 
-.c22 .c16.c16:not(:active):not(:hover):not(:focus) .c10:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c22 .c16.c16:not(:active):not(:hover):not(:focus) .c10:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -3458,31 +3464,31 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
   >
     <div
       class="c1 field-wrapper field-wrapper--block"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
-            for="icon-picker-textline"
-            id="icon-picker-textline-label"
+            data-role="text-field-label"
+            for="icon-picker-text-field"
+            id="icon-picker-text-field-label"
           >
             Basic Icon Picker
           </label>
           <div
             class="c8 field__input"
             data-isfocused="true"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <div
               class="c9 field__prefix field__prefix--last"
-              data-role="textline-prefix-0"
+              data-role="text-field-prefix-0"
             >
               <i
                 class="c10 c11 plasma-icon icon-picker__preview-icon"
@@ -3500,13 +3506,13 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
             />
             <input
               aria-autocomplete="list"
-              aria-describedby="warning-tooltip icon-picker-textline-label"
+              aria-describedby="warning-tooltip icon-picker-text-field-label"
               aria-expanded="true"
               aria-haspopup="listbox"
               aria-owns="icon-picker--dropdown"
               class="c13 field__text"
-              data-role="textline-input"
-              id="icon-picker-textline"
+              data-role="text-field-input"
+              id="icon-picker-text-field"
               role="combobox"
               type="text"
               value="edit"
@@ -3516,7 +3522,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
             />
             <div
               class="c14 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <button
                 aria-label="Clear text"
@@ -3540,7 +3546,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
             </div>
             <div
               class="c17 field__suffix"
-              data-role="textline-suffix-1"
+              data-role="text-field-suffix-1"
             >
               <i
                 aria-hidden="true"
@@ -3558,11 +3564,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
         </div>
         <div
           class="c20 c21 field-addon field-addon--after"
-          data-role="textline--addon-after-0"
+          data-role="text-field--addon-after-0"
         >
           <span
             class="c22 c23 tooltip"
-            data-role="tooltip"
+            data-role="tooltip-trigger-wrapper"
             role="tooltip"
             title=""
           >
@@ -3592,8 +3598,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
       >
         <label
           class="c26 field__helper-text"
-          data-role="textline-helper-text"
-          for="icon-picker-textline"
+          data-role="text-field-helper-text"
+          for="icon-picker-text-field"
         >
           Helper text
         </label>
@@ -3602,7 +3608,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render basic icon-picker with selec
         >
           <span
             class="c22 c23 tooltip"
-            data-role="tooltip"
+            data-role="tooltip-trigger-wrapper"
             role="tooltip"
             title=""
           >
@@ -4429,7 +4435,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render disabled icon-picker 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4488,7 +4495,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render disabled icon-picker 1`] = `
   color: inherit;
 }
 
-.c19 .c30.c30:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c30.c30:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -4524,7 +4531,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render disabled icon-picker 1`] = `
   color: inherit;
 }
 
-.c19 .c31.c31:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c31.c31:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -4851,39 +4858,39 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render disabled icon-picker 1`] = `
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label label--disabled"
           data-disabled="true"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 c9 field__input field__input--disabled"
           data-disabled="true"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c10 supported-unseen-span"
           />
           <input
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-haspopup="false"
             class="c11 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             disabled=""
-            id="icon-picker-textline"
+            id="icon-picker-text-field"
             type="text"
             value=""
           />
@@ -4892,7 +4899,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render disabled icon-picker 1`] = `
           />
           <div
             class="c12 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -4910,11 +4917,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render disabled icon-picker 1`] = `
       </div>
       <div
         class="c17 c18 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -4945,8 +4952,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render disabled icon-picker 1`] = `
     >
       <label
         class="c24 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -4955,7 +4962,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render disabled icon-picker 1`] = `
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -4998,7 +5005,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render error icon-picker 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -5089,7 +5097,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render error icon-picker 1`] = `
   color: inherit;
 }
 
-.c19 .c22.c22:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c22.c22:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -5131,7 +5139,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render error icon-picker 1`] = `
   color: inherit;
 }
 
-.c19 .c31.c31:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c31.c31:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -5482,38 +5490,38 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render error icon-picker 1`] = `
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 c9 field__input field__input--error"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c10 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c11 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             role="combobox"
             type="text"
             value=""
@@ -5523,7 +5531,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render error icon-picker 1`] = `
           />
           <div
             class="c12 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -5541,11 +5549,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render error icon-picker 1`] = `
       </div>
       <div
         class="c17 c18 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -5575,8 +5583,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render error icon-picker 1`] = `
     >
       <label
         class="c24 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -5585,7 +5593,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render error icon-picker 1`] = `
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -5646,7 +5654,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -5737,7 +5746,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
   color: inherit;
 }
 
-.c19 .c22.c22:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c22.c22:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -5779,7 +5788,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
   color: inherit;
 }
 
-.c19 .c27.c27:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c27.c27:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -6060,20 +6069,20 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
           <span
@@ -6085,19 +6094,19 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
         </label>
         <div
           class="c9 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c10 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c11 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             placeholder="Icon Picker Placeholder"
             role="combobox"
             type="text"
@@ -6108,7 +6117,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
           />
           <div
             class="c12 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -6126,11 +6135,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
       </div>
       <div
         class="c17 c18 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -6156,7 +6165,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
       </div>
       <div
         class="c17 c18 field-addon field-addon--after"
-        data-role="textline--addon-after-1"
+        data-role="text-field--addon-after-1"
       >
         <span
           class="c19 c20 tooltip tooltip--hint"
@@ -6196,8 +6205,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
     >
       <label
         class="c24 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -6206,7 +6215,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with addonAfter 
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -6302,7 +6311,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with error messa
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -6334,6 +6344,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with error messa
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -6846,27 +6857,27 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with error messa
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 message message--error field__message"
-          data-role="textline-error-message"
-          id="icon-picker-textline-error"
+          data-role="text-field-error-message"
+          id="icon-picker-text-field-error"
         >
           <div
             class="c9 messageIcon"
@@ -6898,19 +6909,19 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with error messa
         </div>
         <div
           class="c16 c17 field__input field__input--error"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c18 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="icon-picker-textline-error warning-tooltip icon-picker-textline-label"
+            aria-describedby="icon-picker-text-field-error warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c19 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             role="combobox"
             type="text"
             value=""
@@ -6920,7 +6931,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with error messa
           />
           <div
             class="c20 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -6938,11 +6949,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with error messa
       </div>
       <div
         class="c24 c25 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c26 c27 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -6972,8 +6983,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with error messa
     >
       <label
         class="c31 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -6982,7 +6993,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with error messa
       >
         <span
           class="c26 c27 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -7043,7 +7054,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -7134,7 +7146,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
   color: inherit;
 }
 
-.c19 .c22.c22:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c22.c22:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -7176,7 +7188,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
   color: inherit;
 }
 
-.c19 .c27.c27:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c27.c27:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -7457,20 +7469,20 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
           <span
@@ -7482,19 +7494,19 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
         </label>
         <div
           class="c9 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c10 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c11 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             placeholder="Icon Picker Placeholder"
             role="combobox"
             type="text"
@@ -7505,7 +7517,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
           />
           <div
             class="c12 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -7523,11 +7535,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
       </div>
       <div
         class="c17 c18 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -7557,8 +7569,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
     >
       <label
         class="c24 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -7567,7 +7579,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with placeholder
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -7628,7 +7640,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -7719,7 +7732,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
   color: inherit;
 }
 
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c9 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -7761,7 +7774,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
   color: inherit;
 }
 
-.c9 .c27.c27:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c9 .c27.c27:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -8042,20 +8055,20 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
           <span
@@ -8098,19 +8111,19 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
         </span>
         <div
           class="c15 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c16 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c17 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             placeholder="Icon Picker Placeholder"
             role="combobox"
             type="text"
@@ -8121,7 +8134,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
           />
           <div
             class="c18 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -8139,11 +8152,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
       </div>
       <div
         class="c21 c22 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c9 c10 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -8173,8 +8186,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
     >
       <label
         class="c24 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -8183,7 +8196,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with tooltips 1`
       >
         <span
           class="c9 c10 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -8244,7 +8257,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with warning mes
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -8761,27 +8775,27 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with warning mes
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 message message--warning field__message"
-          data-role="textline-warning-message"
-          id="icon-picker-textline-warning"
+          data-role="text-field-warning-message"
+          id="icon-picker-text-field-warning"
         >
           <div
             class="c9 messageIcon"
@@ -8813,19 +8827,19 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with warning mes
         </div>
         <div
           class="c16 c17 field__input field__input--warning"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c18 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="icon-picker-textline-warning warning-tooltip icon-picker-textline-label"
+            aria-describedby="icon-picker-text-field-warning warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c19 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             role="combobox"
             type="text"
             value=""
@@ -8835,7 +8849,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with warning mes
           />
           <div
             class="c20 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -8853,11 +8867,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with warning mes
       </div>
       <div
         class="c23 c24 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c25 c26 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -8887,8 +8901,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with warning mes
     >
       <label
         class="c30 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -8897,7 +8911,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render icon-picker with warning mes
       >
         <span
           class="c25 c26 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -8939,7 +8953,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render readonly icon-picker 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -8998,7 +9013,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render readonly icon-picker 1`] = `
   color: inherit;
 }
 
-.c13 .c25.c25:not(:active):not(:hover):not(:focus) .c17:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c13 .c25.c25:not(:active):not(:hover):not(:focus) .c17:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -9034,7 +9049,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render readonly icon-picker 1`] = `
   color: inherit;
 }
 
-.c13 .c26.c26:not(:active):not(:hover):not(:focus) .c17:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c13 .c26.c26:not(:active):not(:hover):not(:focus) .c17:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -9322,37 +9337,37 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render readonly icon-picker 1`] = `
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 field__input field__input--readonly"
           data-readonly="true"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c9 supported-unseen-span"
           />
           <input
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-haspopup="false"
             class="c10 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             readonly=""
             tabindex="-1"
             type="text"
@@ -9365,11 +9380,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render readonly icon-picker 1`] = `
       </div>
       <div
         class="c11 c12 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c13 c14 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -9400,8 +9415,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render readonly icon-picker 1`] = `
     >
       <label
         class="c20 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -9410,7 +9425,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render readonly icon-picker 1`] = `
       >
         <span
           class="c13 c14 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -9453,7 +9468,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -9544,7 +9560,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
   color: inherit;
 }
 
-.c18 .c21.c21:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c18 .c21.c21:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -9586,7 +9602,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
   color: inherit;
 }
 
-.c18 .c26.c26:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c18 .c26.c26:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -9867,38 +9883,38 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c9 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c10 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             role="combobox"
             type="text"
             value=""
@@ -9908,7 +9924,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
           />
           <div
             class="c11 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -9926,11 +9942,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
       </div>
       <div
         class="c16 c17 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c18 c19 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -9960,8 +9976,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
     >
       <label
         class="c23 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -9970,7 +9986,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
       >
         <span
           class="c18 c19 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -10049,7 +10065,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -10081,6 +10098,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -10167,7 +10185,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
   color: inherit;
 }
 
-.c18 .c21.c21:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c18 .c21.c21:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -10209,7 +10227,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
   color: inherit;
 }
 
-.c18 .c36.c36:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c18 .c36.c36:not(:active):not(:hover):not(:focus) .c12:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -10632,40 +10650,40 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
   >
     <div
       class="c1 field-wrapper field-wrapper--block"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
-            for="icon-picker-textline"
-            id="icon-picker-textline-label"
+            data-role="text-field-label"
+            for="icon-picker-text-field"
+            id="icon-picker-text-field-label"
           >
             Basic Icon Picker
           </label>
           <div
             class="c8 field__input"
             data-isfocused="true"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <span
               class="c9 supported-unseen-span"
             />
             <input
               aria-autocomplete="list"
-              aria-describedby="warning-tooltip icon-picker-textline-label"
+              aria-describedby="warning-tooltip icon-picker-text-field-label"
               aria-expanded="true"
               aria-haspopup="listbox"
               aria-owns="icon-picker--dropdown"
               class="c10 field__text"
-              data-role="textline-input"
-              id="icon-picker-textline"
+              data-role="text-field-input"
+              id="icon-picker-text-field"
               role="combobox"
               type="text"
               value=""
@@ -10675,7 +10693,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
             />
             <div
               class="c11 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -10693,11 +10711,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
         </div>
         <div
           class="c16 c17 field-addon field-addon--after"
-          data-role="textline--addon-after-0"
+          data-role="text-field--addon-after-0"
         >
           <span
             class="c18 c19 tooltip"
-            data-role="tooltip"
+            data-role="tooltip-trigger-wrapper"
             role="tooltip"
             title=""
           >
@@ -10727,8 +10745,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
       >
         <label
           class="c23 field__helper-text"
-          data-role="textline-helper-text"
-          for="icon-picker-textline"
+          data-role="text-field-helper-text"
+          for="icon-picker-text-field"
         >
           Helper text
         </label>
@@ -10737,7 +10755,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render saving-space-mode icon-picke
         >
           <span
             class="c18 c19 tooltip"
-            data-role="tooltip"
+            data-role="tooltip-trigger-wrapper"
             role="tooltip"
             title=""
           >
@@ -11532,7 +11550,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render warning icon-picker 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -11623,7 +11642,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render warning icon-picker 1`] = `
   color: inherit;
 }
 
-.c19 .c22.c22:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c22.c22:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -11665,7 +11684,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render warning icon-picker 1`] = `
   color: inherit;
 }
 
-.c19 .c32.c32:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 .c32.c32:not(:active):not(:hover):not(:focus) .c13:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -12020,38 +12039,38 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render warning icon-picker 1`] = `
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="icon-picker-textline"
-          id="icon-picker-textline-label"
+          data-role="text-field-label"
+          for="icon-picker-text-field"
+          id="icon-picker-text-field-label"
         >
           Basic Icon Picker
         </label>
         <div
           class="c8 c9 field__input field__input--warning"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <span
             class="c10 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
-            aria-describedby="warning-tooltip icon-picker-textline-label"
+            aria-describedby="warning-tooltip icon-picker-text-field-label"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c11 field__text"
-            data-role="textline-input"
-            id="icon-picker-textline"
+            data-role="text-field-input"
+            id="icon-picker-text-field"
             role="combobox"
             type="text"
             value=""
@@ -12061,7 +12080,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render warning icon-picker 1`] = `
           />
           <div
             class="c12 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -12079,11 +12098,11 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render warning icon-picker 1`] = `
       </div>
       <div
         class="c17 c18 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >
@@ -12113,8 +12132,8 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render warning icon-picker 1`] = `
     >
       <label
         class="c24 field__helper-text"
-        data-role="textline-helper-text"
-        for="icon-picker-textline"
+        data-role="text-field-helper-text"
+        for="icon-picker-text-field"
       >
         Helper text
       </label>
@@ -12123,7 +12142,7 @@ exports[`com.mgmtp.a12.widgets.icon-picker > render warning icon-picker 1`] = `
       >
         <span
           class="c19 c20 tooltip"
-          data-role="tooltip"
+          data-role="tooltip-trigger-wrapper"
           role="tooltip"
           title=""
         >

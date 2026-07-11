@@ -50,6 +50,4 @@ export namespace CollapsiblePanelElements {
 			</div>
 		);
 	}
-
-	Addon.displayName = "CollapsiblePanel.Addon";
 }

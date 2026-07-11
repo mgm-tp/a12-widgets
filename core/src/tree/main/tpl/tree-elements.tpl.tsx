@@ -48,8 +48,6 @@ import {
 	generateUid,
 	getParentElement,
 	joinClassNames,
-	moveItemFocusBack,
-	moveItemFocusNext,
 	addPrefix,
 	isVisibleOnScreen,
 	getRole
@@ -57,7 +55,9 @@ import {
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { useKeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation-context.js";
 
+import { useTreeKeyboardNavigation } from "./use-tree-keyboard.js";
 import type {
 	TreeContainerProps,
 	TreeNodeProps,
@@ -112,19 +112,7 @@ export function TreeContainer(props: TreeContainerProps): ReactElement<TreeConta
 		scrollToNode?.(scrollToNodeHandler);
 	}, [scrollToNode, scrollToNodeHandler]);
 
-	const handleOnKeyDown = (event: KeyboardEvent<HTMLElement>): void => {
-		const currentRow = (event.target as HTMLElement).classList.contains(`${baseClassName}__nodeContent`)
-			? (event.target as HTMLElement)
-			: undefined;
-
-		if ((event.key === Key.ArrowUp || event.key === Key.ArrowDown) && currentRow) {
-			if (event.key === Key.ArrowUp) {
-				moveItemFocusBack(rootRef.current, currentRow, `.${baseClassName}__nodeContent[tabIndex]`, true);
-			} else {
-				moveItemFocusNext(rootRef.current, currentRow, `.${baseClassName}__nodeContent[tabIndex]`, true);
-			}
-		}
-	};
+	const { handleOnKeyDown } = useTreeKeyboardNavigation(rootRef);
 
 	return (
 		<StyledTreeContainer
@@ -185,10 +173,12 @@ export const TreeNode: FC<TreeNodeProps> = memo(function TreeNode({
 }) {
 	const languageContext = useContext<A11yDefinition>(A11YLanguageContext);
 	const treeContext = useContext(StyledTreeContext);
+	const keyboardNavMode = useKeyboardNavigationMode("tree");
 	const hasChildren = Children.count(children) > 0 && Children.toArray(children).some(Boolean);
 	const id = idProp || generateUid();
 	const interactive = !!interactiveProp || !!onTitleClick;
 	const isArrowButtonDisabled = !onArrowClick;
+	const expanderTabIndex = keyboardNavMode === "arrow-only" ? -1 : undefined;
 	const successHighlighted = highlightVariant === "success";
 	const [noEffect, setNoEffect] = useState(false);
 	const [focusNoBorder, setFocusNoBorder] = useState(false);
@@ -320,6 +310,7 @@ export const TreeNode: FC<TreeNodeProps> = memo(function TreeNode({
 							onFocus={addFocusNoBorderClass}
 							onBlur={removeFocusNoBorderClass}
 							disabled={isArrowButtonDisabled}
+							tabIndex={expanderTabIndex}
 							htmlAttributes={{
 								"aria-labelledby": `tree-node-name-${id}`
 							}}
@@ -432,7 +423,7 @@ export const NodeContent = memo(function NodeContent(props: NodeContentProps): R
 
 	const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
 		if (event.key === Key.Enter && event.target === nodeContentRef.current) {
-			props.onClick?.(event as any);
+			props.onClick?.(event as unknown as MouseEvent<HTMLElement>);
 		}
 
 		props.onKeyDown?.(event);
@@ -473,6 +464,7 @@ export const NodeContent = memo(function NodeContent(props: NodeContentProps): R
 			style={props.style}
 			id={props.id}
 			data-role={DataRoles.Tree.Node.Content}
+			aria-selected={!props.disabled && props.selected ? true : undefined}
 			onClick={props.onClick && !props.disabled ? onClick : undefined}
 			onKeyDown={props.disabled ? undefined : onKeyDown}
 			$level={props.level}
@@ -526,6 +518,8 @@ export const ArrowButton = memo(function ArrowButton(props: ArrowButtonProps): R
 					}
 				}}
 				disabled={props.disabled}
+				loading={props.loading}
+				tabIndex={props.tabIndex}
 				$active={!props.disabled && props.expanded}
 			/>
 		</StyledTreeNodeArrow>

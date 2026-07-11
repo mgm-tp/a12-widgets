@@ -265,11 +265,4 @@ export namespace NodeTpl {
 			</>
 		);
 	}
-
-	Node.displayName = "NodeTpl.Node";
-	NodeTitle.displayName = "NodeTpl.NodeTitle";
-	TitleText.displayName = "NodeTpl.TitleText";
-	NodeIcon.displayName = "NodeTpl.NodeIcon";
-	Role.displayName = "NodeTpl.Role";
-	RoleContent.displayName = "NodeTpl.RoleContent";
 }

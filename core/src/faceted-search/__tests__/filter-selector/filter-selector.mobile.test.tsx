@@ -108,7 +108,7 @@ describe("com.mgmtp.a12.widgets.filter-selector.mobile", () => {
 		const { container } = setupTest({
 			onSearchChange: onSearchChangeSpy
 		});
-		const searchInput = getByDataRole(container, DataRoles.Textline.Input);
+		const searchInput = getByDataRole(container, DataRoles.TextField.Input);
 		await userEvent.fill(searchInput, filterData[0].label as string);
 		expect(onSearchChangeSpy).toHaveBeenCalledWith(filterData[0].label);
 	});

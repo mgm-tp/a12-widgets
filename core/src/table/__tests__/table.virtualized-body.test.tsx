@@ -35,8 +35,8 @@ import { describe, vi, expect, test } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
 
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { VirtualizedBody } from "../new-api/table.virtualized-body.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { VirtualizedBody } from "../main/table.virtualized-body.view.js";
 
 describe("com.mgmtp.a12.widgets.table.virtualized-body", () => {
 	const COLUMN_COUNT = 4;

@@ -1,0 +1,162 @@
+/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
+
+import { InteractiveTile, Icon, InteractionHintConfigProvider } from "@com.mgmtp.a12.widgets/widgets-core";
+
+const meta: Meta<typeof InteractiveTile> = {
+	title: "Data Display/InteractiveTile",
+	component: InteractiveTile,
+	parameters: {
+		layout: "centered"
+	},
+	tags: ["autodocs"],
+	argTypes: {
+		title: {
+			control: "text",
+			description: "Title text for the tile"
+		},
+		selected: {
+			control: "boolean",
+			description: "Whether the tile is selected"
+		},
+		disabled: {
+			control: "boolean",
+			description: "Whether the tile is disabled"
+		}
+	}
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+	render: () => (
+		<InteractiveTile title="Interactive Tile">
+			<Icon>dashboard</Icon>
+		</InteractiveTile>
+	)
+};
+
+export const WithIcon: Story = {
+	render: () => (
+		<InteractiveTile title="Tile with Icon">
+			<Icon>dashboard</Icon>
+			<div>Content</div>
+		</InteractiveTile>
+	)
+};
+
+export const Selected: Story = {
+	render: () => (
+		<InteractiveTile title="Selected Tile" selected>
+			<Icon>check_circle</Icon>
+			<div>Selected</div>
+		</InteractiveTile>
+	)
+};
+
+export const Disabled: Story = {
+	render: () => (
+		<InteractiveTile title="Disabled Tile" disabled>
+			<Icon>block</Icon>
+			<div>Disabled</div>
+		</InteractiveTile>
+	)
+};
+
+export const WithMetaInfo: Story = {
+	render: () => (
+		<InteractiveTile title="Tile with Meta">
+			<Icon>check_circle</Icon>
+			<div>Meta Info</div>
+		</InteractiveTile>
+	)
+};
+
+export const Interactive: Story = {
+	render: () => {
+		const InteractiveTileDemo = () => {
+			const [selectedId, setSelectedId] = useState<string | undefined>("1");
+
+			return (
+				<div style={{ display: "flex", gap: "16px" }}>
+					<InteractiveTile id="1" title="Option 1" selected={selectedId === "1"} onClick={() => setSelectedId("1")}>
+						<Icon>home</Icon>
+						<div>Option 1</div>
+					</InteractiveTile>
+					<InteractiveTile id="2" title="Option 2" selected={selectedId === "2"} onClick={() => setSelectedId("2")}>
+						<Icon>settings</Icon>
+						<div>Option 2</div>
+					</InteractiveTile>
+					<InteractiveTile id="3" title="Option 3" selected={selectedId === "3"} onClick={() => setSelectedId("3")}>
+						<Icon>help</Icon>
+						<div>Option 3</div>
+					</InteractiveTile>
+				</div>
+			);
+		};
+
+		return <InteractiveTileDemo />;
+	}
+};
+
+export const WithInteractionHint: Story = {
+	render: () => (
+		<InteractionHintConfigProvider componentConfigs={{ interactiveTile: true }}>
+			<div style={{ display: "flex", gap: "16px", padding: "20px" }}>
+				<InteractiveTile title="Dashboard Overview">
+					<Icon>dashboard</Icon>
+					<div>Dashboard</div>
+				</InteractiveTile>
+				<InteractiveTile title="Settings Panel">
+					<Icon>settings</Icon>
+					<div>Settings</div>
+				</InteractiveTile>
+				<InteractiveTile title="Help Center">
+					<Icon>help</Icon>
+					<div>Help</div>
+				</InteractiveTile>
+			</div>
+		</InteractionHintConfigProvider>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Interactive tiles with interaction hints enabled. Hover over or focus the tiles to see helpful tooltips."
+			}
+		}
+	}
+};

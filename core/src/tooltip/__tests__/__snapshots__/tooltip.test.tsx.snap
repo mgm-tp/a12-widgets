@@ -179,7 +179,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -261,7 +262,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 1`] = `
   color: inherit;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -322,7 +323,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 1`] = `
 
 <span
   class="c0 c1 tooltip"
-  data-role="tooltip"
+  data-role="tooltip-trigger-wrapper"
   role="tooltip"
   title=""
 >
@@ -471,7 +472,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render dark tooltip 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -558,7 +560,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render dark tooltip 1`] = `
   color: inherit;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -619,7 +621,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render dark tooltip 1`] = `
 
 <span
   class="c0 c1 tooltip"
-  data-role="tooltip"
+  data-role="tooltip-trigger-wrapper"
   role="tooltip"
   title=""
 >
@@ -657,7 +659,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render disabled tooltip 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -744,7 +747,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render disabled tooltip 1`] = `
   color: inherit;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -805,7 +808,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render disabled tooltip 1`] = `
 
 <span
   class="c0 c1 tooltip"
-  data-role="tooltip"
+  data-role="tooltip-trigger-wrapper"
   role="tooltip"
   title=""
 >
@@ -867,6 +870,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1264,7 +1268,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1678,7 +1683,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2101,7 +2107,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2188,7 +2195,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 1`] = `
   color: inherit;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -2249,7 +2256,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 1`] = `
 
 <span
   class="c0 c1 tooltip"
-  data-role="tooltip"
+  data-role="tooltip-trigger-wrapper"
   role="tooltip"
   title=""
 >
@@ -2398,7 +2405,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has t
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2601,7 +2609,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has t
 >
   <span
     class="c0 c1 tooltip"
-    data-role="tooltip"
+    data-role="tooltip-trigger-wrapper"
     role="tooltip"
     title=""
   >
@@ -2659,7 +2667,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;

@@ -3,8 +3,8 @@
 exports[`com.mgmtp.a12.widgets.rich-text-editor.tooltip-plugin > Tooltip plugin basic 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <span
       class="editor-with-tooltip-word"

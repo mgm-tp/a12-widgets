@@ -414,8 +414,6 @@ export namespace Chat {
 		);
 	}
 
-	Message.displayName = "Chat.Message";
-
 	export function SecondaryContent(
 		props: ChatProps.SecondaryContentProps
 	): ReactElement<ChatProps.SecondaryContentProps> {
@@ -431,8 +429,6 @@ export namespace Chat {
 			</StyledSecondaryContent>
 		);
 	}
-
-	SecondaryContent.displayName = "Chat.SecondaryContent";
 
 	export function UserInfo({
 		className,
@@ -475,8 +471,6 @@ export namespace Chat {
 		);
 	}
 
-	UserInfo.displayName = "Chat.UserInfo";
-
 	export function Avatar(props: ChatProps.AvatarProps): ReactElement<ChatProps.AvatarProps> {
 		const { id, style, imageUrl, className, alt } = props;
 
@@ -491,8 +485,6 @@ export namespace Chat {
 			/>
 		);
 	}
-
-	Avatar.displayName = "Chat.Avatar";
 
 	export function DateMarker(props: ChatProps.DateMarkerProps): ReactElement<ChatProps.DateMarkerProps> {
 		const { id, style, children, className } = props;
@@ -509,8 +501,6 @@ export namespace Chat {
 			</StyledDateMarker>
 		);
 	}
-
-	DateMarker.displayName = "Chat.DateMarker";
 
 	export function Notification({
 		children,
@@ -564,8 +554,6 @@ export namespace Chat {
 		);
 	}
 
-	Notification.displayName = "Chat.Notification";
-
 	export function TypingMarker(props: ChatProps.TypingMarkerProps): ReactElement<ChatProps.TypingMarkerProps> {
 		const { id, style, children, className } = props;
 
@@ -580,8 +568,6 @@ export namespace Chat {
 			</StyledTypingMaker>
 		);
 	}
-
-	TypingMarker.displayName = "Chat.TypingMarker";
 
 	export function MessageGroup({
 		children,
@@ -620,6 +606,4 @@ export namespace Chat {
 			</StyledMessageGroup>
 		);
 	}
-
-	MessageGroup.displayName = "Chat.MessageGroup";
 }

@@ -5,7 +5,9 @@ node_modules
 npm-debug.log*
 
 # IDE (including symlinks)
-.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 .idea
 .classpath
 .settings
@@ -32,14 +34,19 @@ build
 dist
 target
 public-showcase
+storybook-static
 json-api/core
 com.mgmtp.a12-*.tgz
 cyclonedx.json
 sbom.json
 core/pnpm-lock.yaml
+**/generated
+tsconfig.tsbuildinfo
 
 # Test artifact
 **/test-results/
 **/playwright-report/
 **/playwright/.cache/
 __screenshots__
+.worktrees
+.vitest-attachments

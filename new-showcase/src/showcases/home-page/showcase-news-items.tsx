@@ -34,7 +34,7 @@ import type { ReactElement } from "react";
 import { styled, css } from "styled-components";
 
 import { Link, ResponsiveImageContainer, Icon, Typography } from "@com.mgmtp.a12.widgets/widgets-core";
-import { NewsBox } from "@com.mgmtp.a12.widgets/widgets-utils/lib/news-box/index.js";
+import { NewsBox } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 interface NewsFooterProps {
 	anchorText?: string;
@@ -62,6 +62,17 @@ function NewsFooter(props: NewsFooterProps): ReactElement<string> {
 export function NewsItems(): ReactElement {
 	return (
 		<>
+			<NewsBox
+				image={<ResponsiveImageContainer src="images/news-sample.jpg" alt="Base Theme" title="Base Theme" />}
+				header={
+					<Typography.Headline level={3} ariaLevel={3}>
+						Base Theme
+					</Typography.Headline>
+				}
+				content="The new Base Theme introduces a clean three-layer architecture — Application, Semantic, and Widget — that makes theming straightforward with minimal token changes. Override a single color, spacing unit, or border scale and watch it propagate automatically to every widget."
+				footer={<NewsFooter href="#/basics/theme/base-theme" anchorText="Learn More" />}
+				info={<div>08.06.2026</div>}
+			/>
 			<NewsBox
 				image={<ResponsiveImageContainer src="images/news-sample-landscape.jpg" alt="Calendar" title="Calendar" />}
 				header={

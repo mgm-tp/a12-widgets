@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import "@com.mgmtp.a12.widgets/widgets-core/lib/theme/basic.css";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/basic.css";
 import "./roboto.css";
 
-import { useState, useMemo, StrictMode } from "react";
+import { useState, StrictMode, Suspense } from "react";
 import { DndProvider } from "react-dnd";
-import { Redirect, Route, Switch } from "react-router";
-import { HashRouter } from "react-router-dom";
+import type { RouteObject } from "react-router";
+import { createHashRouter, Navigate, RouterProvider, useLocation } from "react-router";
 import { StyleSheetManager, ThemeProvider as ShowcaseThemeProvider } from "styled-components";
 
 import {
@@ -45,7 +45,7 @@ import {
 	WidgetsRoot,
 	shouldForwardProp,
 	createTheme,
-	getDefaultTheme
+	getBaseTheme
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { App } from "./app.js";
@@ -53,48 +53,106 @@ import { Home } from "./showcases/home-page/home.js";
 import type { ThemeType } from "./helpers/theme-selector.js";
 import { CustomThemeContext, getCurrentTheme, ThemeContext, ThemeSelector } from "./helpers/theme-selector.js";
 import { ShowcaseStyles } from "./helpers/showcase-styles.js";
+import type { WidgetInfo } from "./helpers/definitions.js";
 import { LayoutShowcaseContentBox } from "./helpers/view.js";
 import { NotFound } from "./helpers/not-found.js";
-import type { SiteMapMenuItem } from "./routes.js";
-import { ListOfPathsArray, SiteMap, Utils } from "./routes.js";
+import { ShowcaseErrorBoundary } from "./helpers/showcase-error-boundary.js";
+import type { IndexMenuItem, SiteMapMenuItem } from "./routes.js";
+import { SiteMap, Utils } from "./routes.js";
 import { getLocalStorage, setLocalStorage } from "./helpers/utils.js";
 import { showcaseTheme } from "./helpers/showcase-theme.js";
 
-function buildRoute(item: SiteMapMenuItem, basePath = "", redirectToFirstChild = false) {
-	const path = basePath + item.path;
-
-	if (Utils.isSection(item)) {
-		return (
-			<Route path={path} key={path}>
-				<Switch>
-					{redirectToFirstChild ? (
-						<Route exact key="redirect" path={path} render={() => <Redirect to={basePath + item.children[0].path} />} />
-					) : undefined}
-					{item.children.map((child) => buildRoute(child, basePath, redirectToFirstChild))}
-				</Switch>
-			</Route>
-		);
-	} else {
-		let Component = item.component;
-
-		if (typeof Component === "object") {
-			const data: any = item.component;
-			Component = (props: any) => (
-				<LayoutShowcaseContentBox
-					label={data.label}
-					showcases={data.structure}
-					route={props}
-					widgetInfo={data.widgetInfo}
-					useFullPageLayout={data.useFullPageLayout}
-					useLargeView={data.useLargeView}
-					useFullLayoutWithoutRightNav={data.useFullLayoutWithoutRightNav}
-				/>
-			);
-		}
-
-		return <Route path={path} component={Component} key={path} />;
-	}
+function renderShowcase(module: IndexMenuItem.ShowcaseModule, basePath: string) {
+	return (
+		<LayoutShowcaseContentBox
+			label={module.label}
+			showcases={module.structure}
+			basePath={basePath}
+			widgetInfo={module.widgetInfo as WidgetInfo | undefined}
+			useFullPageLayout={module.useFullPageLayout}
+			useLargeView={module.useLargeView ?? false}
+			useFullLayoutWithoutRightNav={module.useFullLayoutWithoutRightNav ?? false}
+		/>
+	);
 }
+
+function getFirstLeafPath(item: SiteMapMenuItem): string {
+	return Utils.isSection(item) ? getFirstLeafPath(item.children[0]) : item.path;
+}
+
+function buildRouteObjects(items: SiteMapMenuItem[]): RouteObject[] {
+	const routes: RouteObject[] = [];
+
+	for (const item of items) {
+		if (Utils.isSection(item)) {
+			routes.push({
+				path: item.path,
+				element: <Navigate to={getFirstLeafPath(item.children[0])} replace />
+			});
+			routes.push(...buildRouteObjects(item.children));
+		} else {
+			const basePath = item.path;
+
+			routes.push({
+				path: `${basePath}/*`,
+				element: renderShowcase(item.component, basePath),
+				ErrorBoundary: ShowcaseErrorBoundary
+			});
+		}
+	}
+
+	return routes;
+}
+
+function collectLeavesByPath(items: SiteMapMenuItem[]): Map<string, SiteMapMenuItem.Showcase> {
+	const map = new Map<string, SiteMapMenuItem.Showcase>();
+	const walk = (list: SiteMapMenuItem[]): void => {
+		for (const item of list) {
+			if (Utils.isSection(item)) {
+				walk(item.children);
+			} else {
+				map.set(item.path, item);
+			}
+		}
+	};
+
+	walk(items);
+
+	return map;
+}
+
+const leafByPath = collectLeavesByPath(SiteMap);
+
+function Fullscreen() {
+	const { pathname } = useLocation();
+	const rest = pathname.replace(/^\/fullscreen/, "");
+	const leaf = leafByPath.get(rest);
+
+	if (!leaf) {
+		return <NotFound />;
+	}
+
+	return renderShowcase(leaf.component, leaf.path);
+}
+
+function ComponentWidgetsRedirect() {
+	const location = useLocation();
+	const newPath = location.pathname.replace("component-widgets", "widgets");
+
+	return <Navigate to={newPath} replace />;
+}
+
+const showcaseRoutes = buildRouteObjects(SiteMap);
+
+const router = createHashRouter([
+	{ path: "/fullscreen/*", element: <Fullscreen /> },
+	{ path: "/component-widgets/*", element: <ComponentWidgetsRedirect /> },
+	{
+		path: "/",
+		element: <App />,
+		children: [{ index: true, element: <Home /> }, ...showcaseRoutes, { path: "*", element: <NotFound /> }]
+	}
+]);
 
 export function Root() {
 	const [theme, setTheme] = useState<ThemeType>(getCurrentTheme());
@@ -105,15 +163,13 @@ export function Root() {
 			return createTheme(JSON.parse(custom));
 		}
 
-		return getDefaultTheme();
+		return getBaseTheme({ spacing: { base: 16 } });
 	});
 
 	const setLocalTheme = (theme: ThemeType): void => {
 		setLocalStorage("theme", theme);
 		setTheme(theme);
 	};
-
-	const normalRoutes = useMemo(() => SiteMap.map((item) => buildRoute(item, "", true)), []);
 
 	return (
 		<StrictMode>
@@ -130,34 +186,9 @@ export function Root() {
 									backend={DragAndDropUtils.DefaultDndBackend}
 									options={DragAndDropUtils.DefaultDndBackendOptions}
 								>
-									<HashRouter>
-										<Switch>
-											<Route path="/fullscreen" render={() => <div>Hello</div>} />
-											<Route
-												path="/"
-												render={(props) => {
-													if (props.location.pathname.includes("component-widgets")) {
-														window.location.replace(
-															`#${props.location.pathname.replace("component-widgets", "widgets")}`
-														);
-
-														return;
-													}
-
-													const _renderRoute =
-														props.location.pathname === "/" ? (
-															<Route component={Home} />
-														) : ListOfPathsArray.includes(props.location.pathname) ? (
-															normalRoutes
-														) : (
-															<Route component={NotFound} />
-														);
-
-													return <App {...props}>{_renderRoute}</App>;
-												}}
-											/>
-										</Switch>
-									</HashRouter>
+									<Suspense fallback={null}>
+										<RouterProvider router={router} />
+									</Suspense>
 								</DndProvider>
 							</WidgetsRoot>
 						</ShowcaseThemeProvider>

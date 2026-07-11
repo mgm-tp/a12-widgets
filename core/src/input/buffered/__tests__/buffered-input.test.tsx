@@ -118,7 +118,7 @@ describe("com.mgmtp.a12.widgets.input.buffered-input", () => {
 		const BufferedStringInput = BufferedInput(HTMLInputAdapter(TextField));
 
 		const bufferedElement = render(<BufferedStringInput onValueSubmit={noop} />);
-		const bufferedElementInput = getByDataRole(bufferedElement.container, DataRoles.Textline.Input);
+		const bufferedElementInput = getByDataRole(bufferedElement.container, DataRoles.TextField.Input);
 
 		await userEvent.click(bufferedElementInput);
 		await userEvent.type(bufferedElementInput, "test value");

@@ -49,7 +49,7 @@ import {
 	Selectable,
 	Tree,
 	TreeAdapter,
-	walk
+	walkTreeNode
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { Icons } from "./common.js";
@@ -79,7 +79,7 @@ export function BasicTree(): ReactElement {
 	);
 
 	const addToggleCallbackToNode = useCallback(() => {
-		walk(TREE, (node) => {
+		walkTreeNode(TREE, (node) => {
 			if (node.children) {
 				node.onToggleExpansion = () => {
 					onNodeToggleExpansion(node.id);
@@ -227,7 +227,7 @@ const TREE: FileNode = {
 const getNodeIDs = (): string[] => {
 	const nodes: string[] = [];
 
-	walk(TREE, (node) => {
+	walkTreeNode(TREE, (node) => {
 		if (node.children) {
 			nodes.push(node.id);
 		}

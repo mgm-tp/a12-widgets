@@ -31,7 +31,7 @@
  */
 
 import { useState } from "react";
-import type { RouterProps } from "react-router";
+import { useNavigate } from "react-router";
 import { styled, css } from "styled-components";
 
 import type { SizeDetectorProps } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -96,10 +96,9 @@ const StyledExampleWidgetsImageContainer = styled(ResponsiveImageContainer)(({ t
 	`;
 });
 
-export function Home(props: RouterProps) {
+export function Home() {
 	const [breakpoint, setBreakpoint] = useState<SizeDetectorProps.BreakPoint | undefined>(undefined);
-
-	const { history } = props;
+	const navigate = useNavigate();
 	const isSmallOrExtraSmallBreakpoint = breakpoint?.size === "sm" || breakpoint?.size === "xs";
 
 	const firstSectionInfoColumn = (
@@ -115,7 +114,13 @@ export function Home(props: RouterProps) {
 					accessible user experience.
 				</Column>
 				<StyledSectionColumn size={{ sm: 12, md: 12, lg: 12 }}>
-					<Button primary label="EXPLORE WIDGETS" onClick={(): void => history.push("/widgets")} />
+					<Button
+						primary
+						label="EXPLORE WIDGETS"
+						onClick={() => {
+							navigate("/widgets");
+						}}
+					/>
 				</StyledSectionColumn>
 				<StyledSectionColumn size={{ sm: 12, md: 12, lg: 12 }}>
 					<Link href="https://www.mgm-tp.com/en/solutions/a12/" target="_blank">
@@ -194,7 +199,13 @@ export function Home(props: RouterProps) {
 									you're looking to add to your app.
 								</Column>
 								<Column size={{ sm: 12, md: 12, lg: 12 }}>
-									<Button primary label="TAKE A LOOK" onClick={(): void => history.push("/examples")} />
+									<Button
+										primary
+										label="TAKE A LOOK"
+										onClick={() => {
+											navigate("/examples");
+										}}
+									/>
 								</Column>
 							</StyledInnerWrapperShowcase>
 						</StyledSectionColumn>

@@ -30,10 +30,4 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type {
-	TextLineStatelessProps,
-	TextAffixProps as TextLineAffixProps
-} from "../text-line/main/template/text-line.tpl.api.js";
-
-export type TextFieldProps = TextLineStatelessProps;
-export type TextAffixProps = TextLineAffixProps;
+export * from "./main/template/text-field.tpl.api.js";

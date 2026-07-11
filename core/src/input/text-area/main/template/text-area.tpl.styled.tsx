@@ -66,7 +66,7 @@ export const StyledTextAreaAddon = styled(StyledBaseInput.StyledFieldAddon).with
 export const StyledTextAreaInput = styled(StyledBaseInput.StyledFieldTextInput).withConfig({
 	displayName: "StyledTextAreaInput-sc-"
 })<{ autoExpand?: boolean }>(({ theme, autoExpand }) => {
-	const { textArea, textLine } = theme.components;
+	const { textArea, textField } = theme.components;
 
 	return css`
 		height: ${autoExpand ? textArea.autoExpand.height : textArea.height};
@@ -82,8 +82,8 @@ export const StyledTextAreaInput = styled(StyledBaseInput.StyledFieldTextInput).
 		}
 
 		${StyledBaseInput.StyledFieldWrapper} ${StyledBaseInput.StyledFieldMobile} ${StyledBaseInput.StyledFieldMain} & {
-			font-size: ${textLine.mobile?.fontSize};
-			height: ${textLine.mobile?.height};
+			font-size: ${textField.mobile?.fontSize};
+			height: ${textField.mobile?.height};
 		}
 	`;
 });

@@ -46,11 +46,44 @@ import type {
 	KeyboardEvent,
 	MouseEvent,
 	HTMLAttributes as ReactHTMLAttributes,
-	DetailedHTMLProps
+	DetailedHTMLProps,
+	RefObject
 } from "react";
 
 import type { Ref, Container, Identifiable, Styleable, HTMLAttributes } from "../../../common/main/base-props.js";
 import type { ButtonProps } from "../../../button/main/button.api.js";
+
+export type ContentBoxSidePanelMode = "overlay" | "docked";
+
+export interface ContentBoxSidePanels {
+	/** Content of the side panel. */
+	content?: ReactNode;
+
+	/** Specifies whether to hide the side panel. */
+	hide?: boolean;
+
+	/**
+	 * Layout mode:
+	 * - `overlay`: panel floats above content (no space reserved).
+	 * - `docked`: panel sits beside content and reserves space.
+	 *
+	 * Responsive behavior:
+	 * - When either the window width is `md` or smaller (≤ 991px) or the content box width reaches its minimum, `overlay` mode is enforced, even if `docked` is configured.
+	 * - When either the window width is `sm` or smaller (≤ 767px) or the content box width reaches its minimum, the overlay expands to full screen (100% width), covering the entire content box.
+	 */
+	mode?: ContentBoxSidePanelMode;
+
+	/** Width of the side panel. */
+	width?: number | string;
+
+	/**
+	 * Handle close panel when the user clicks outside the panel while it is in overlay mode.
+	 */
+	onClose?: () => void;
+
+	/** Reference of the element that trigger open the side pane. Required when {@link onClose} is provided. */
+	triggerReference?: RefObject<HTMLElement | null>;
+}
 
 export interface ContentBoxBaseProps extends Container, Styleable, Identifiable, Ref<HTMLDivElement> {
 	/**
@@ -130,6 +163,15 @@ export interface ContentBoxBaseProps extends Container, Styleable, Identifiable,
 	 * @param event – HTML key event.
 	 */
 	onKeyDown?(event: KeyboardEvent<HTMLElement>): void;
+
+	/** Side panels configuration for the content box. */
+	sidePanels?: {
+		/** Left side panel configuration. */
+		left?: ContentBoxSidePanels;
+
+		/** Right side panel configuration. */
+		right?: ContentBoxSidePanels;
+	};
 }
 
 export interface ContentBoxProps extends ContentBoxBaseProps {

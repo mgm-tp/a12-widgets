@@ -30,9 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactElement } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { render, setupDevice, waitFor } from "test-utils";
 import { beforeAll, describe, expect, test, vi } from "vitest";
 
+import { ActionContentbox } from "../../../contentbox/main/action-contentbox/action-contentbox.view.js";
+import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
+import { Button } from "../../../button/main/button.view.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import type { SizeDetectorProps } from "../../size-detector/main/size-detector.api.js";
+
+import type { Layoutable, VisibleView } from "../main/master-detail.api.js";
+import { FocusLastLayout } from "../main/master-detail.default-model.js";
 import { MasterDetail } from "../main/master-detail.view.js";
 import { Body, Header } from "../main/master-detail.internal.js";
 import { TransitionProvider } from "../main/master-detail.context.js";
@@ -490,5 +500,153 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 			const visibleView = container.querySelector(`[data-role=${visibleViewDataRole}]`);
 			expect(visibleView?.textContent).toEqual("visible1");
 		});
+	});
+});
+
+type LayoutIdentifier = "OverView" | "Detail";
+type LayoutIdentifierGeneralType = LayoutIdentifier & Layoutable;
+
+function MasterDetailResizeExample({
+	resizeOptions
+}: {
+	resizeOptions: { minWidth: string | number; maxWidth: string | number };
+}): ReactElement {
+	const [openDetailView, setOpenDetailView] = useState(false);
+
+	const layoutManager = useMemo(() => {
+		const mgr = new FocusLastLayout<LayoutIdentifierGeneralType>(["OverView", "Detail"]);
+		mgr.columnCount = 2;
+
+		return mgr;
+	}, []);
+
+	layoutManager.goto(openDetailView ? "Detail" : "OverView");
+
+	const overView = useCallback(
+		(): VisibleView => ({
+			key: "OverView",
+			element: (
+				<ActionContentbox
+					padding
+					headingElements={<ContentBoxElements.Title text="OverView" />}
+					role="form"
+					ariaLabel="Overview"
+					tabIndex={-1}
+				>
+					<Button onClick={() => setOpenDetailView(true)} id="open-detail-test">
+						Click to open Detail View
+					</Button>
+				</ActionContentbox>
+			),
+			resizableOptions: resizeOptions
+		}),
+		[resizeOptions]
+	);
+
+	const detailView = useCallback(
+		(): VisibleView => ({
+			key: "Detail",
+			element: (
+				<ActionContentbox
+					padding
+					headingElements={<ContentBoxElements.Title text="Detail" />}
+					headingButtons={
+						<ContentBoxElements.CloseButton id="close-button-test" onClick={() => setOpenDetailView(false)} />
+					}
+					role="form"
+					ariaLabel="Detail form"
+					tabIndex={-1}
+				>
+					Detail view
+				</ActionContentbox>
+			)
+		}),
+		[]
+	);
+
+	const handleWindowSizeChanged = useCallback((_breakPoint: SizeDetectorProps.BreakPoint): void => {}, []);
+
+	const visibleViews = useCallback((): VisibleView[] => {
+		const views: VisibleView[] = [overView()];
+
+		if (openDetailView) {
+			views.push(detailView());
+		}
+
+		return views;
+	}, [detailView, openDetailView, overView]);
+
+	return (
+		<div style={{ width: "100%" }}>
+			<MasterDetail visibleViews={visibleViews()} onSizeChange={handleWindowSizeChanged} listenToWindowSize={false} />
+		</div>
+	);
+}
+
+describe("com.mgmtp.a12.widgets.layout.masterdetail.resize", () => {
+	async function moveResize(handler: HTMLElement, options: { x?: number; steps?: number }): Promise<void> {
+		const { x = 0, steps = 1 } = options;
+		const rect = handler.getBoundingClientRect();
+		const startX = rect.left;
+		const startY = rect.top;
+
+		handler.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, clientX: startX, clientY: startY }));
+
+		for (let i = 1; i <= steps; i++) {
+			document.dispatchEvent(
+				new MouseEvent("mousemove", { bubbles: true, clientX: startX + x * (i / steps), clientY: startY })
+			);
+		}
+
+		document.dispatchEvent(new MouseEvent("mouseup", { bubbles: true, clientX: startX + x, clientY: startY }));
+	}
+
+	test("Should not go under minWidth when resizing", async () => {
+		const minWidth = 300;
+		const { container } = render(<MasterDetailResizeExample resizeOptions={{ maxWidth: "70%", minWidth }} />);
+
+		const openButton = container.querySelector("#open-detail-test") as HTMLElement;
+		openButton.click();
+
+		await waitFor(
+			() => expect(container.querySelectorAll(`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`).length).toBe(2),
+			{ timeout: 2000 }
+		);
+
+		const resizeHandler = container.querySelector(`[data-role="${DataRoles.ResizableHandler}"]`) as HTMLElement;
+		const firstPane = container.querySelectorAll(
+			`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`
+		)[0] as HTMLElement;
+
+		const initialWidth = firstPane.getBoundingClientRect().width;
+
+		await moveResize(resizeHandler, { x: 200 - initialWidth, steps: 3 });
+
+		await waitFor(
+			() => {
+				const width = firstPane.getBoundingClientRect().width;
+				expect(width).toBeGreaterThanOrEqual(minWidth);
+				expect(width).toBeLessThan(initialWidth);
+			},
+			{ timeout: 2000 }
+		);
+	});
+
+	test("The view's width should not exceed maxWidth from beginning", async () => {
+		const { container } = render(<MasterDetailResizeExample resizeOptions={{ maxWidth: 400, minWidth: 200 }} />);
+
+		const openButton = container.querySelector("#open-detail-test") as HTMLElement;
+		openButton.click();
+
+		await waitFor(
+			() => expect(container.querySelectorAll(`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`).length).toBe(2),
+			{ timeout: 2000 }
+		);
+
+		const firstPane = container.querySelectorAll(
+			`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`
+		)[0] as HTMLElement;
+
+		await waitFor(() => expect(firstPane.getBoundingClientRect().width).toBe(400), { timeout: 2000 });
 	});
 });

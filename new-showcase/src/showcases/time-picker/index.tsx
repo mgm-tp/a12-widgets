@@ -36,12 +36,14 @@ import { BulletList, ExternalLink, Link } from "@com.mgmtp.a12.widgets/widgets-c
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { BasicShowcase } from "./basic.js";
+import { ContextTimeModeShowcase } from "./context-time-mode.js";
 import { CustomHeader } from "./custom-header.js";
 import { TimezoneShowcase } from "./timezone.js";
 import { CustomFormatShowcase } from "./custom-format.js";
 import { AccessibilityShowcase } from "./accessibility-time-picker.js";
 
 import basicCode from "!./basic.tsx?raw";
+import contextTimeModeCode from "!./context-time-mode.tsx?raw";
 import customHeaderCode from "!./custom-header.tsx?raw";
 import timezoneCode from "!./timezone.tsx?raw";
 import customFormatCode from "!./custom-format.tsx?raw";
@@ -88,6 +90,18 @@ const showcases: Showcase[] = [
 				),
 				content: <BasicShowcase />,
 				code: [{ name: "basic.tsx", code: basicCode }, timePickerPropsCode]
+			},
+			{
+				label: "Context Time Mode",
+				description: (
+					<p>
+						Instead of passing the <code>mode</code> property to each <strong>Time Picker</strong> individually, you can
+						set the time mode globally using <code>DateTimeContext.Provider</code>. All time-related components within
+						the provider will use this mode unless overridden by their own <code>mode</code> property.
+					</p>
+				),
+				content: <ContextTimeModeShowcase />,
+				code: [{ name: "context-time-mode.tsx", code: contextTimeModeCode }, timePickerPropsCode]
 			},
 			{
 				label: "Custom Header",
@@ -143,8 +157,8 @@ const showcases: Showcase[] = [
 			{
 				label: "Accessibility",
 				description: (
-					<p>
-						To ensure proper accessibility for screen readers, you can use:
+					<>
+						<p>To ensure proper accessibility for screen readers, you can use:</p>
 						<BulletList.Unordered>
 							<BulletList.Item>
 								On desktop: <code>desktopPickerAttributes</code> property. This will apply attributes to{" "}
@@ -155,7 +169,7 @@ const showcases: Showcase[] = [
 								modal overlay container element.
 							</BulletList.Item>
 						</BulletList.Unordered>
-					</p>
+					</>
 				),
 				content: <AccessibilityShowcase />,
 				code: [{ name: "accessibility-time-picker.tsx", code: accessibilityCode }, timePickerPropsCode]

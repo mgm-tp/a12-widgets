@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { ExternalLink } from "@com.mgmtp.a12.widgets/widgets-core";
+import { ExternalLink, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import IconAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/icon/main/icon.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
@@ -41,6 +41,7 @@ import { IconWithVariant } from "./variant.js";
 import { IconWithTheme } from "./theme.js";
 import { CustomIcons } from "./custom-icons.js";
 import { IconWithMappingContext } from "./mapping-context.js";
+import { AccessibilityIconShowcase } from "./accessibility.js";
 
 import basicCode from "!./basic.tsx?raw";
 import bigCode from "!./big-icon.tsx?raw";
@@ -48,6 +49,7 @@ import variantCode from "!./variant.tsx?raw";
 import themeCode from "!./theme.tsx?raw";
 import customIconsCode from "!./custom-icons.tsx?raw";
 import mappingContextCode from "!./mapping-context.tsx?raw";
+import accessibilityCode from "!./accessibility.tsx?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -65,12 +67,11 @@ const showcases: Showcase[] = [
 					<div>
 						<p>
 							To use the <strong>Icon</strong> Widget, you can pass the name of an icon from{" "}
-							<ExternalLink href="https://fonts.google.com/icons?icon.set=Material+Icons">Material Icons</ExternalLink>{" "}
-							as the <code>children</code> property.
+							<ExternalLink href="https://fonts.google.com/icons">Material Symbols</ExternalLink> as the{" "}
+							<code>children</code> property.
 						</p>
 						<p>
-							The value of <code>title</code> property will display as a tooltip of icon. And for better support A11y,
-							the icon will also get this value as a hidden text.
+							The value of <code>title</code> property will display as a tooltip of icon.
 						</p>
 					</div>
 				),
@@ -108,7 +109,7 @@ const showcases: Showcase[] = [
 						</p>
 						<p>
 							The <code>filled</code>, <code>outlined</code> and <code>rounded</code> themes are using filled, outlined
-							and rounded <ExternalLink href="https://material.io/resources/icons">Material Icons</ExternalLink>.
+							and rounded <ExternalLink href="https://fonts.google.com/icons">Material Symbols</ExternalLink>.
 						</p>
 					</>
 				),
@@ -143,6 +144,31 @@ const showcases: Showcase[] = [
 				),
 				content: <IconWithMappingContext />,
 				code: { name: "mapping-context.tsx", code: mappingContextCode }
+			},
+			{
+				label: "Accessibility",
+				description: (
+					<>
+						<p>
+							By default, the <strong>Icon</strong> uses the <code>title</code> value as the value of hidden text, which
+							is read by screen readers. However, you can explicitly define this using the <code>hiddenText</code>{" "}
+							property.
+						</p>
+						<BulletList.Unordered>
+							<BulletList.Item>
+								<strong>Not set (default)</strong>: The <code>title</code> value is used as the hidden text.
+							</BulletList.Item>
+							<BulletList.Item>
+								<strong>Custom value</strong>: The provided string is used as the hidden text.
+							</BulletList.Item>
+							<BulletList.Item>
+								<strong>Empty string</strong>: No hidden text is rendered.
+							</BulletList.Item>
+						</BulletList.Unordered>
+					</>
+				),
+				content: <AccessibilityIconShowcase />,
+				code: { name: "accessibility.tsx", code: accessibilityCode }
 			}
 		]
 	}

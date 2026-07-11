@@ -121,7 +121,7 @@ export interface TreeNodeModel {
 	level?: number;
 }
 
-/** Callback for {@link walk} */
+/** Callback for {@link walkTreeNode} */
 export interface TreeVisitor<T extends TreeNodeModel = TreeNodeModel> {
 	(node: T): boolean | void;
 }
@@ -137,11 +137,6 @@ export function walkTreeNode<T extends TreeNodeModel>(node: T, visitor: TreeVisi
 	}
 }
 
-/**
- * @deprecated since version 38.2.0. Use {@link walkTreeNode} instead.
- */
-export const walk = walkTreeNode;
-
 /** Search the given node with the given id. Throws if the node could not be found. */
 export function findById<T extends TreeNodeModel>(root: T, id: any): T {
 	const result = find(root, (node) => node.id === id);
@@ -156,7 +151,7 @@ export function findById<T extends TreeNodeModel>(root: T, id: any): T {
 /** Search the given tree for a node that matches the given predicate. */
 export function find<T extends TreeNodeModel>(root: T, predicate: (node: T) => boolean): T | undefined {
 	let result: T | undefined;
-	walk(root, (node) => {
+	walkTreeNode(root, (node) => {
 		if (predicate(node)) {
 			result = node;
 
@@ -172,7 +167,7 @@ export function find<T extends TreeNodeModel>(root: T, predicate: (node: T) => b
 /** Apply IDs to all nodes in depth-first order starting with 1. */
 export function applyId<T extends TreeNodeModel>(root: T): void {
 	let id = 0;
-	walk(root, (node) => {
+	walkTreeNode(root, (node) => {
 		node.id = ++id;
 	});
 }

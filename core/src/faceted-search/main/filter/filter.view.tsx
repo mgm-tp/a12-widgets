@@ -31,14 +31,15 @@
  */
 
 import type { ReactNode, ReactElement } from "react";
-import { useContext, useCallback, Children, Fragment } from "react";
+import { useContext, useCallback, Children, Fragment, useRef } from "react";
 
 import { Icon } from "../../../icon/main/icon.view.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-import { DataRoles } from "../../../common/index.js";
+import { useInteractionHint } from "../../../interaction-hint/main/use-interaction-hint.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 
 import { FilterContext } from "../filter-bar/filter-context.js";
 
@@ -51,6 +52,7 @@ import {
 	StyledFilterNameText,
 	StyledFilterAction,
 	StyledFilterActionButton,
+	StyledFilterPrefix,
 	StyledFilterNameArrow
 } from "./filter.styled.js";
 import type { FilterProps } from "./filter.api.js";
@@ -58,7 +60,7 @@ import type { FilterProps } from "./filter.api.js";
 const baseClassName = addPrefix("filter");
 
 export function Filter(props: FilterProps): ReactElement<FilterProps> {
-	const { active, disabled: disabledProp } = props;
+	const { active, disabled: disabledProp, onFocus, onClick } = props;
 	const { disabled: disabledContext } = useContext(FilterContext);
 	const disabled = disabledContext ?? disabledProp;
 
@@ -71,6 +73,8 @@ export function Filter(props: FilterProps): ReactElement<FilterProps> {
 
 	const filterTitles = useContext<A11yDefinition>(A11YLanguageContext).filterTitles;
 
+	const filterContentRef = useRef<HTMLButtonElement | null>(null);
+
 	const ids = props.id
 		? {
 				filterNameText: `${props.id}-name-text`,
@@ -79,6 +83,15 @@ export function Filter(props: FilterProps): ReactElement<FilterProps> {
 		: undefined;
 
 	const actionButtonLinkedTexts = ids && `${ids.actionButtonHiddenText} ${ids.filterNameText}`;
+
+	const isCompact = props.compact;
+
+	const { title: resolvedTitle, hintRenderer } = useInteractionHint({
+		title: isCompact ? String(props.name) : undefined,
+		componentKey: "filter",
+		referenceElementRef: filterContentRef,
+		focusable: !disabled
+	});
 
 	const renderOptions = useCallback((): ReactNode => {
 		if (!props.options) {
@@ -95,6 +108,7 @@ export function Filter(props: FilterProps): ReactElement<FilterProps> {
 					data-role={DataRoles.Filter.Options}
 					$active={active}
 					$disabled={disabled}
+					$compact={isCompact}
 				>
 					{options.map((option, index) => (
 						<Fragment key={index}>
@@ -103,9 +117,19 @@ export function Filter(props: FilterProps): ReactElement<FilterProps> {
 						</Fragment>
 					))}
 				</StyledFilterOptions>
+				{isCompact && !!hintRenderer && <HiddenText>{props.name}</HiddenText>}
 			</>
 		);
-	}, [props.options, props.separator, filterTitles?.selectedOption, active, disabled]);
+	}, [
+		props.options,
+		props.name,
+		props.separator,
+		filterTitles?.selectedOption,
+		active,
+		disabled,
+		isCompact,
+		hintRenderer
+	]);
 
 	return (
 		<StyledFilterWrapper
@@ -118,27 +142,40 @@ export function Filter(props: FilterProps): ReactElement<FilterProps> {
 			$disabled={disabled}
 		>
 			<StyledFilterContent
+				ref={filterContentRef}
 				className={`${baseClassName}__content`}
-				onClick={disabled ? undefined : props.onClick}
+				title={resolvedTitle}
+				onClick={disabled ? undefined : onClick}
+				onFocus={disabled ? undefined : onFocus}
 				aria-expanded={props.ariaExpanded}
 				data-role={DataRoles.Filter.Content}
 				disabled={disabled}
 				$active={active}
 				$disabled={disabled}
+				$hasPrefix={!!props.prefix}
 			>
-				<StyledFilterContentInner className={`${baseClassName}__content-inner`}>
-					<StyledFilterName className={`${baseClassName}__name`} data-role={DataRoles.Filter.Name} $disabled={disabled}>
-						{filterTitles?.filterName && <HiddenText>{filterTitles.filterName}</HiddenText>}
-						<StyledFilterNameText
-							id={ids?.filterNameText}
-							className={`${baseClassName}__name-text`}
-							data-role={DataRoles.Filter.Name.Text}
+				{props.prefix && <StyledFilterPrefix data-role={DataRoles.Filter.Prefix}>{props.prefix}</StyledFilterPrefix>}
+				<StyledFilterContentInner className={`${baseClassName}__content-inner`} $compact={isCompact}>
+					{((isCompact && !props.options) || !isCompact) && (
+						<StyledFilterName
+							className={`${baseClassName}__name`}
+							data-role={DataRoles.Filter.Name}
+							$disabled={disabled}
+							$compact={isCompact}
 						>
-							{props.name}
-						</StyledFilterNameText>
-						<StyledFilterNameArrow $disabled={disabled} className={`${baseClassName}__name-arrow`} />
-					</StyledFilterName>
+							{filterTitles?.filterName && <HiddenText>{filterTitles.filterName}</HiddenText>}
+							<StyledFilterNameText
+								id={ids?.filterNameText}
+								className={`${baseClassName}__name-text`}
+								data-role={DataRoles.Filter.Name.Text}
+							>
+								{props.name}
+							</StyledFilterNameText>
+							{!isCompact && <StyledFilterNameArrow $disabled={disabled} className={`${baseClassName}__name-arrow`} />}
+						</StyledFilterName>
+					)}
 					{renderOptions()}
+					{isCompact && <Icon className={`${baseClassName}__name-arrow`}>keyboard_arrow_down</Icon>}
 				</StyledFilterContentInner>
 			</StyledFilterContent>
 			{!props.nonRemovable && (
@@ -159,6 +196,7 @@ export function Filter(props: FilterProps): ReactElement<FilterProps> {
 					)}
 				</StyledFilterAction>
 			)}
+			{hintRenderer?.()}
 		</StyledFilterWrapper>
 	);
 }

@@ -45,13 +45,13 @@ export function Timezone(): ReactElement {
 				id="negative-timezone-date-picker"
 				label={`Timezone ${negativeOffsetTimeZone}`}
 				defaultValue={TZDate.tz(negativeOffsetTimeZone)}
-				datePickerProps={{ timezone: negativeOffsetTimeZone }}
+				datePickerProps={{ timezone: negativeOffsetTimeZone, yearSelectorVariant: "select" }}
 			/>
 			<DatePickerInput
 				id="positive-timezone-date-picker"
 				label={`Timezone ${positiveOffsetTimezone}`}
 				defaultValue={TZDate.tz(positiveOffsetTimezone)}
-				datePickerProps={{ timezone: positiveOffsetTimezone }}
+				datePickerProps={{ timezone: positiveOffsetTimezone, yearSelectorVariant: "select" }}
 			/>
 		</div>
 	);

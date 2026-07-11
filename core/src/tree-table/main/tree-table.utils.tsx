@@ -32,8 +32,8 @@
 
 import type { ReactNode } from "react";
 
-import type { BaseColumnType } from "../../table/new-api/column.api.js";
-import { getDataByKey, TableInternalUtils } from "../../table/new-api/table.utils.js";
+import type { BaseColumnType } from "../../table/main/column.api.js";
+import { getDataByKey, TableInternalUtils } from "../../table/main/table.utils.js";
 import { provider } from "../../common/main/device-detector.js";
 
 import type { BaseTreeTableColumnType, BaseTreeTableNode, FlattenTreeTableNode } from "./tree-table.api.js";

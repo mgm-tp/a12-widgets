@@ -35,8 +35,8 @@ import { describe, vi, expect, test } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import type { BaseColumnType, Column } from "../new-api/column.api.js";
-import { Table } from "../new-api/table.view.js";
+import type { BaseColumnType, Column } from "../main/column.api.js";
+import { Table } from "../main/table.view.js";
 
 describe("com.mgmtp.a12.widgets.table.resize-column", () => {
 	const TARGET = "TARGET";

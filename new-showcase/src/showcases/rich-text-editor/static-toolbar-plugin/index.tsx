@@ -32,7 +32,7 @@
 
 import type { FC } from "react";
 
-import "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 import { ListPlugin, RichTextEditor, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { EditorStyle } from "../style/inline-styled-editor-wrapper.styled.js";

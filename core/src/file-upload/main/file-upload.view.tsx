@@ -425,8 +425,9 @@ class FileUploadInternal extends Component<FileUploadProps & FileUploadInternalP
 
 	componentDidUpdate(prevProps: Readonly<FileUploadInternalProps>): void {
 		if (
-			(prevProps.loading !== this.props.loading && !this.props.loading && this.shouldFocus) ||
-			this.props.focusOnUploadArea
+			!this.props.disableFocusRestore &&
+			((prevProps.loading !== this.props.loading && !this.props.loading && this.shouldFocus) ||
+				this.props.focusOnUploadArea)
 		) {
 			this.focusOnUploadArea();
 		}

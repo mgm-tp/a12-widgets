@@ -9,8 +9,8 @@
 	</head>
 	<body>
 		<div id="root" class="base"></div>
-		<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-		<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+		<% for (var chunk in htmlPlugin.files.chunks) { %>
+		<script src="<%= htmlPlugin.files.chunks[chunk].entry %>"></script>
 		<% } %>
 	</body>
 </html>

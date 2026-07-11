@@ -43,7 +43,7 @@ export const EditorNodes: InitialConfigType["nodes"] = [
 	{
 		replace: LexicalListItemNode,
 		with: (node: LexicalListItemNode): ListItemNode => {
-			return $createListItemNode(node.__checked);
+			return $createListItemNode(node.getChecked());
 		},
 		withKlass: ListItemNode
 	},
@@ -51,7 +51,7 @@ export const EditorNodes: InitialConfigType["nodes"] = [
 	{
 		replace: TextNode,
 		with: (node: TextNode): InlineStyleTextNode => {
-			return $createInlineStyleTextNode(node.__text, []);
+			return $createInlineStyleTextNode(node.getTextContent(), []);
 		},
 		withKlass: InlineStyleTextNode
 	}

@@ -39,11 +39,10 @@ interface CustomProps {
 	id: string;
 	defaultValue?: Date;
 	timezone?: string;
-	timeMode?: TimePickerProps.ClockMode;
 }
 
 export function useTimePickerProps(props?: CustomProps): TimePickerProps {
-	const { defaultValue, timezone, id, timeMode = "12h" } = props ?? {};
+	const { defaultValue, timezone, id } = props ?? {};
 	const [value, setValue] = useState<Date | undefined>(defaultValue);
 	const [errorValue, setErrorValue] = useState<string | undefined>(undefined);
 	const prevValue = useRef(defaultValue);
@@ -80,7 +79,6 @@ export function useTimePickerProps(props?: CustomProps): TimePickerProps {
 	return useMemo(
 		() => ({
 			id: id ?? "time-picker",
-			placeholder: timeMode === "24h" ? "HH:mm" : "hh:mm A",
 			value,
 			errorValue,
 			helperText,
@@ -88,6 +86,6 @@ export function useTimePickerProps(props?: CustomProps): TimePickerProps {
 			errorMessage,
 			onValidate
 		}),
-		[timeMode, errorMessage, errorValue, helperText, id, onChange, onValidate, value]
+		[errorMessage, errorValue, helperText, id, onChange, onValidate, value]
 	);
 }

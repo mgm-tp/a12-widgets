@@ -33,7 +33,7 @@ This is a practical example of how to migrate from the legacy Pie Chart Widget.
 - **Before:** Single component with properties
 
   ```tsx
-  import { ResponsiveChartContainer, PieChart } from "@com.mgmtp.a12.widgets/widgets-core/lib/chart/index.js";
+  import { ResponsiveChartContainer, PieChart } from "@com.mgmtp.a12.widgets/widgets-core";
 
   const DATA = [
   	{ name: "Europe", value: 54, color: "#9c1616" },

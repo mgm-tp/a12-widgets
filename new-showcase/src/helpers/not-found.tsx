@@ -32,7 +32,7 @@
 
 import { useState, useContext } from "react";
 import { styled, css } from "styled-components";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 import type { SizeDetectorProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
@@ -226,14 +226,19 @@ const StyledMainContentColumn = styled(Column)(({ theme }) => {
 export function NotFound() {
 	const [breakpoint, setBreakpoint] = useState<SizeDetectorProps.BreakPoint | undefined>(undefined);
 	const { showModal } = useContext(GlobalSearchContext);
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const MainContentColumn = (
 		<StyledMainContentColumn size={{ sm: 12, md: 7, lg: 7 }}>
 			<StyledTypographyHeadlineOne level={1} ariaLevel={1}>
 				Oops! It looks like that page doesn't exist - Please check the url and try again
 			</StyledTypographyHeadlineOne>
-			<StyledHomeButton primary onClick={(): void => history.push("/")}>
+			<StyledHomeButton
+				primary
+				onClick={() => {
+					navigate("/");
+				}}
+			>
 				Explore our site
 			</StyledHomeButton>
 			<div className="-u-width-full">

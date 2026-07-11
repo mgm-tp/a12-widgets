@@ -48,7 +48,7 @@ import { inputProps } from "./data.js";
 describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 	test("render default autocomplete", () => {
 		const { container } = render(<DefaultAutocomplete {...inputProps} />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
@@ -60,7 +60,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 
 	test("render readonly autocomplete", () => {
 		const { container } = render(<DefaultAutocomplete {...inputProps} readonly />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
@@ -70,7 +70,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 
 	test("render disabled autocomplete", async () => {
 		const { container } = render(<DefaultAutocomplete {...inputProps} disabled />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
@@ -80,7 +80,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 
 	test("autocomplete loading state", () => {
 		const { container } = render(<DefaultAutocomplete {...inputProps} loading />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		fireEvent.click(input);
 		const portal = getByDataRole(container, DataRoles.AttachedPortal);
@@ -90,7 +90,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 
 	test("focus input without opening the list", () => {
 		const { container } = render(<DefaultAutocomplete {...inputProps} openOnFocus={false} />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		fireEvent.focus(input);
 		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
 
@@ -105,7 +105,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 		const { container } = render(
 			<DefaultAutocomplete {...inputProps} onSearch={onSearchSpy} onValueChange={onValueChange} value="a" />
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		fireEvent.click(input);
 
@@ -126,7 +126,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 		const { container } = render(<DefaultAutocomplete {...inputProps} onValueChange={onValueChange} value="" />);
 
 		const getDropdownItems = () => {
-			const input = getByDataRole(container, DataRoles.Textline.Input);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
 			fireEvent.click(input);
 
 			return getAllByDataRole(container, DataRoles.Dropdown.Item);
@@ -157,7 +157,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 			/>
 		);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		const openDropdown = async () => {
 			await userEvent.click(input);
 
@@ -203,7 +203,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 
 		// Start with autocomplete component that has already had selectedValue
 		const { container, rerender } = render(<DefaultAutocomplete {...inputProps} value={selectedValue} />);
-		const inputEl = getByDataRole(container, DataRoles.Textline.Input) as HTMLInputElement;
+		const inputEl = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
 
 		// Cursor position is at the end of selectedValue
 		expect(inputEl.selectionStart).toEqual(selectedValue.length);
@@ -230,7 +230,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 
 		// Start with autocomplete component that has already had selectedValue
 		const { container, rerender } = render(<DefaultAutocomplete {...inputProps} value={selectedValue} items={[]} />);
-		const inputEl = getByDataRole(container, DataRoles.Textline.Input) as HTMLInputElement;
+		const inputEl = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
 
 		// Cursor position is at the end of selectedValue
 		expect(inputEl.selectionStart).toEqual(selectedValue.length);
@@ -274,7 +274,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 		};
 
 		const { getByDataRole } = render(<AutocompleteContainer />);
-		const input = getByDataRole(DataRoles.Textline.Input);
+		const input = getByDataRole(DataRoles.TextField.Input);
 
 		await userEvent.click(input);
 
@@ -304,7 +304,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 				/>
 			);
 
-			const input = getByDataRole(container, DataRoles.Textline.Input);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
 			fireEvent.click(input);
 
 			expect(queryAllByDataRole(container, DataRoles.Dropdown.Item)).toHaveLength(0);
@@ -330,7 +330,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 				/>
 			);
 
-			const input = getByDataRole(container, DataRoles.Textline.Input);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
 			fireEvent.click(input);
 
 			expect(queryAllByDataRole(container, DataRoles.Dropdown.Item)).toHaveLength(0);
@@ -346,7 +346,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.default", () => {
 			const { container } = render(<DefaultAutocomplete {...inputProps} onDropdownClose={onDropdownClose} value="" />);
 
 			const openDropdown = async () => {
-				const input = getByDataRole(container, DataRoles.Textline.Input);
+				const input = getByDataRole(container, DataRoles.TextField.Input);
 				await userEvent.click(input);
 
 				return getAllByDataRole(container, DataRoles.Dropdown.Item);

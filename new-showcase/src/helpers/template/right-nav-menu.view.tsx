@@ -171,7 +171,7 @@ export function useSectionObserver(sectionIds: string[]): { activeSectionId?: st
 	}, [activeSectionId, sectionIds]);
 
 	useEffect(() => {
-		if (activeSectionId && !sectionIds.includes(activeSectionId) && !sectionIds[0].includes("api")) {
+		if (activeSectionId && !sectionIds.includes(activeSectionId) && !sectionIds[0]?.includes("api")) {
 			setActiveSectionId(sectionIds[0]);
 		}
 

@@ -110,7 +110,12 @@ export const DefaultColorsConfig: BaseThemeColorsType = {
 		/**
 		 * The group background is used to support elements that group other elements.
 		 */
-		groupBackground: "#DDDDDD"
+		groupBackground: "#DDDDDD",
+
+		/**
+		 * Used for accent elements.
+		 */
+		accentBackground: GeneralColorsConfig.yellowLight
 	},
 
 	/**
@@ -118,6 +123,7 @@ export const DefaultColorsConfig: BaseThemeColorsType = {
 	 */
 	divider: {
 		color: GeneralColorsConfig.grey,
+		colorBorder: GeneralColorsConfig.greyDark,
 		colorDark: GeneralColorsConfig.greyDark,
 		colorLight: GeneralColorsConfig.white,
 		colorSubtle: "#D3D6DC"

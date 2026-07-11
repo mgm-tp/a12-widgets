@@ -37,6 +37,7 @@ export function ApplicationHeaderShowCase() {
 		<ApplicationHeader
 			leftSlots={[<span>Logo</span>, <span>Widgets Showcase</span>]}
 			rightSlots={[<span>Version: X.XX</span>]}
+			role="none"
 			className="-u-width-full"
 		/>
 	);

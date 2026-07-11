@@ -94,7 +94,7 @@ export interface WizardBarProps {
 	setSelectedIndex(index: number): void;
 }
 
-function WizardBar(props: WizardBarProps & InteractiveState): ReactElement<WizardBarProps & InteractiveState> {
+export function WizardBar(props: WizardBarProps & InteractiveState): ReactElement<WizardBarProps & InteractiveState> {
 	const { handlePrevious, handleNext, selectedIndex, setSelectedIndex, steps } = props;
 
 	return (

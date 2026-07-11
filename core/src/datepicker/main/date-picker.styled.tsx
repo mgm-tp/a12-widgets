@@ -35,6 +35,7 @@ import { DayButton, DayPicker } from "react-day-picker";
 import { styled, css } from "styled-components";
 
 import { addPrefix, getHorizontalSpace, getVerticalSpace } from "../../common/main/utils.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { BufferedInput, HTMLInputAdapter } from "../../input/buffered/main/buffered.view.js";
 import { YearMonthSelector } from "../../input/year-month-selector/year-month-selector.view.js";
 import { StyledNativeSelect, StyledSelectTemplate } from "../../input/select/main/select.styled.js";
@@ -486,8 +487,30 @@ export namespace StyledDatePicker {
 				margin: 0;
 				width: auto;
 			}
+
+			[data-role="${DataRoles.Year.Selector}"] {
+				display: inline-block;
+				flex-shrink: 0;
+				margin: 0;
+				width: calc(${caption.selectInput.height} * 2.25);
+			}
 		`;
 	});
+
+	export const StyledYearErrorMessage = styled.div.withConfig({ displayName: "StyledYearErrorMessage-sc-" })(
+		({ theme }) => {
+			const { baseInput } = theme.components;
+
+			return css`
+				background-color: ${baseInput.message.error.background};
+				color: ${baseInput.message.error.color};
+				font-size: 0.75rem;
+				padding: ${baseInput.message.padding};
+				text-align: center;
+				word-break: break-word;
+			`;
+		}
+	);
 
 	export const StyledGridCell = styled.div.withConfig({ displayName: "StyledGridCell-sc-" })<{ $mobile?: boolean }>(
 		({ theme, $mobile }) => {

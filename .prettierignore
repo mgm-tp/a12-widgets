@@ -3,4 +3,4 @@ index.api.md
 storybook-static
 lib
 dist
-target
+.*

@@ -33,10 +33,12 @@
 import { render, getByDataRole, getAllByDataRole, setupDevice, getByRole } from "test-utils";
 import { describe, test, expect, vi, beforeAll } from "vitest";
 import { userEvent } from "vitest/browser";
+import { enUS } from "date-fns/locale";
 
 import { Icon } from "../../icon/main/icon.view.js";
 import { Button } from "../../button/main/button.view.js";
 import { TimeUtils } from "../../common/main/date-time/time-utils.js";
+import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
 import { DataRoles } from "../../common/index.js";
 
@@ -120,7 +122,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 	});
 
 	test("rendering-a-time-picker-dialog-with-custom-header-element", async () => {
-		const date = new Date(Date.UTC(2017, 12, 25, 14, 0));
+		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
 		const { container } = render(
 			<TimePicker
 				value={date}
@@ -141,7 +143,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 	});
 
 	test("rendering-a-time-picker-dialog-with-value", async () => {
-		const date = new Date(Date.UTC(2017, 12, 25, 14, 0));
+		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
 		const { container } = render(<TimePicker value={date} />);
 		const timePickerTrigger = getByDataRole(container, "button");
 
@@ -153,7 +155,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 	});
 
 	test("rendering-a-time-picker-dialog-with-24h-mode", async () => {
-		const date = new Date(Date.UTC(2017, 12, 25, 14, 0));
+		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
 		const { container } = render(<TimePicker value={date} mode="24h" />);
 		const timePickerTrigger = getByDataRole(container, "button");
 
@@ -165,10 +167,10 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 	});
 
 	test("rendering-a-time-picker-dialog-with-typed-time", async () => {
-		const date = new Date(Date.UTC(2017, 12, 25, 14, 0));
+		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
 		const { container } = render(<TimePicker value={date} />);
 		const timePickerTrigger = getByDataRole(container, "button");
-		const timeInput = getByDataRole(container, "textline-input");
+		const timeInput = getByDataRole(container, "text-field-input");
 
 		await userEvent.click(timeInput);
 		await userEvent.fill(timeInput, "13:17");
@@ -185,7 +187,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 		const onChangeSpy = vi.fn();
 
 		const { container } = render(<TimePicker value={date} timezone={timezone} onChange={onChangeSpy} />);
-		const timeInput = getByDataRole(container, "textline-input") as HTMLInputElement;
+		const timeInput = getByDataRole(container, "text-field-input") as HTMLInputElement;
 
 		expect(timeInput.value).toBe("09:00 AM");
 
@@ -199,7 +201,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 	test("calling-onValidate", async () => {
 		const onValidateFn = vi.fn();
 		const { container } = render(<TimePicker onValidate={onValidateFn} />);
-		const timeInput = getByDataRole(container, "textline-input") as HTMLInputElement;
+		const timeInput = getByDataRole(container, "text-field-input") as HTMLInputElement;
 
 		await userEvent.click(timeInput);
 		await userEvent.fill(timeInput, "invalid value");
@@ -215,7 +217,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 	test("calling-onChange-with-typed-value", async () => {
 		const onChangeSpy = vi.fn();
 		const { container } = render(<TimePicker onChange={onChangeSpy} />);
-		const timeInput = getByDataRole(container, "textline-input") as HTMLInputElement;
+		const timeInput = getByDataRole(container, "text-field-input") as HTMLInputElement;
 
 		await userEvent.click(timeInput);
 		await userEvent.fill(timeInput, "13:17");
@@ -231,7 +233,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 
 		const date: Date = new Date(Date.UTC(2017, 12, 25, 14, 0));
 		const { container } = render(<TimePicker value={date} timeFormatter={formatter} />);
-		const timeInput = getByDataRole(container, "textline-input") as HTMLInputElement;
+		const timeInput = getByDataRole(container, "text-field-input") as HTMLInputElement;
 
 		expect(timeInput.value).toBe("2:00:00 PM");
 	});
@@ -243,7 +245,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 
 		const date: Date = new Date(Date.UTC(2017, 12, 25, 14, 0));
 		const { container } = render(<TimePicker value={date} timeFormatter={timeFormatter} timezone={timezone} />);
-		const timeInput = getByDataRole(container, "textline-input") as HTMLInputElement;
+		const timeInput = getByDataRole(container, "text-field-input") as HTMLInputElement;
 
 		expect(timeInput.value).toBe("9:00:00 AM");
 	});
@@ -260,7 +262,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 		const { container } = render(
 			<TimePicker timeConverter={timeConverter} timezone={timezone} onChange={onChangeSpy} />
 		);
-		const timeInput = getByDataRole(container, "textline-input") as HTMLInputElement;
+		const timeInput = getByDataRole(container, "text-field-input") as HTMLInputElement;
 
 		await userEvent.click(timeInput);
 		await userEvent.fill(timeInput, "67");
@@ -278,7 +280,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 
 		const onChangeSpy = vi.fn();
 		const { container } = render(<TimePicker timeConverter={timeConverter} onChange={onChangeSpy} />);
-		const timeInput = getByDataRole(container, "textline-input") as HTMLInputElement;
+		const timeInput = getByDataRole(container, "text-field-input") as HTMLInputElement;
 
 		await userEvent.click(timeInput);
 		await userEvent.fill(timeInput, "67");
@@ -290,7 +292,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 	test("rendering-a-time-picker-with-onInputChange", async () => {
 		const onChangeSpy = vi.fn();
 		const { container } = render(<TimePicker onInputChange={onChangeSpy} />);
-		const timeInput = getByDataRole(container, "textline-input") as HTMLInputElement;
+		const timeInput = getByDataRole(container, "text-field-input") as HTMLInputElement;
 
 		await userEvent.click(timeInput);
 		await userEvent.fill(timeInput, "abcdef");
@@ -303,7 +305,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 		const date = new Date(Date.UTC(0, 0, 0, 0, 0, 0));
 		const onChangeSpy = vi.fn();
 		const { container } = render(<TimePicker onChange={onChangeSpy} value={date} />);
-		const timeInput = getByDataRole(container, "textline-input");
+		const timeInput = getByDataRole(container, "text-field-input");
 
 		await userEvent.click(timeInput);
 		await userEvent.fill(timeInput, "12:00 AM");
@@ -316,7 +318,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 		const date = new Date(Date.UTC(0, 0, 0, 0, 0, 0));
 		const onChangeSpy = vi.fn();
 		const { container } = render(<TimePicker onChange={onChangeSpy} />);
-		const timeInput = getByDataRole(container, "textline-input");
+		const timeInput = getByDataRole(container, "text-field-input");
 
 		await userEvent.click(timeInput);
 		await userEvent.fill(timeInput, "12:00 AM");
@@ -336,7 +338,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 		const clearBtn = getByRole(portal, "button", { name: "clear" });
 		await userEvent.click(clearBtn);
 		const timePicker = getByDataRole(container, "time-picker");
-		expect(document.activeElement).toBe(timePicker);
+		expect(timePicker).toHaveFocus();
 	});
 
 	test("Time Picker with `desktopPickerAttributes` property", async () => {
@@ -365,7 +367,7 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-mobile", () => {
 	});
 
 	test("rendering-a-time-picker-dialog", async () => {
-		const date = new Date(Date.UTC(2017, 12, 25, 14, 0));
+		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
 		const { container } = render(<TimePicker id="test-id" value={date} />);
 		const timePickerTrigger = getByDataRole(container, "button");
 		await userEvent.click(timePickerTrigger);
@@ -391,5 +393,48 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-mobile", () => {
 
 		const modalContent = getByDataRole(DataRoles.Modal.OverlayContent);
 		expect(modalContent.getAttribute("aria-label")).toBe(ariaLabel);
+	});
+});
+
+describe("com.mgmtp.a12.widgets.time-picker.context-time-mode", () => {
+	test("uses 24h mode from DateTimeContext when no mode prop is set", async () => {
+		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
+		const { container } = render(
+			<DateTimeContext.Provider value={{ locale: enUS, timeMode: "24h" }}>
+				<TimePicker id="context-24h" value={date} />
+			</DateTimeContext.Provider>
+		);
+		const timePickerTrigger = getByDataRole(container, "button");
+		await userEvent.click(timePickerTrigger);
+
+		// In 24h mode, there should be no AM/PM selectors
+		const amElements = document.querySelectorAll(`[data-role="${DataRoles.TimePicker.Am}"]`);
+		expect(amElements).toHaveLength(0);
+	});
+
+	test("mode prop overrides DateTimeContext timeMode", async () => {
+		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
+		const { container } = render(
+			<DateTimeContext.Provider value={{ locale: enUS, timeMode: "24h" }}>
+				<TimePicker id="prop-override" value={date} mode="12h" />
+			</DateTimeContext.Provider>
+		);
+		const timePickerTrigger = getByDataRole(container, "button");
+		await userEvent.click(timePickerTrigger);
+
+		// With 12h mode prop override, AM/PM selectors should be present
+		const amElements = document.querySelectorAll(`[data-role="${DataRoles.TimePicker.Am}"]`);
+		expect(amElements).toHaveLength(1);
+	});
+
+	test("defaults to 12h mode when neither prop nor context is set", async () => {
+		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
+		const { container } = render(<TimePicker id="default-mode" value={date} />);
+		const timePickerTrigger = getByDataRole(container, "button");
+		await userEvent.click(timePickerTrigger);
+
+		// Default mode is 12h, AM/PM selectors should be present
+		const amElements = document.querySelectorAll(`[data-role="${DataRoles.TimePicker.Am}"]`);
+		expect(amElements).toHaveLength(1);
 	});
 });

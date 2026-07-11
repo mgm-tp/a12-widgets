@@ -32,7 +32,7 @@
 
 import { render, getByDataRole, setupDevice, findByDataRole, queryByDataRole, waitFor } from "test-utils";
 import { beforeAll, describe, expect, test } from "vitest";
-import { userEvent } from "vitest/browser";
+import { page, userEvent } from "vitest/browser";
 
 import { Button } from "../../button/main/button.view.js";
 import { Icon } from "../../icon/main/icon.view.js";
@@ -248,74 +248,67 @@ describe("com.mgmtp.a12.widgets.tooltip", () => {
 
 	test("tooltip position consistency", async () => {
 		// Simulate a scrolled page with element near the top and narrow viewport (700px width)
-		const originalInnerWidth = window.innerWidth;
-		Object.defineProperty(window, "innerWidth", {
-			writable: true,
-			configurable: true,
-			value: 700
-		});
+		const originalViewport = { width: window.innerWidth, height: window.innerHeight };
+		await page.viewport(700, originalViewport.height);
 
-		const { container } = render(
-			<div style={{ height: "2000px", paddingTop: "50px", width: "700px" }}>
-				<Tooltip text="test tooltip near top">
-					<Button icon={<Icon>warning</Icon>} />
-				</Tooltip>
-			</div>
-		);
+		try {
+			const { container } = render(
+				<div style={{ height: "2000px", paddingTop: "50px", width: "700px" }}>
+					<Tooltip text="test tooltip near top">
+						<Button icon={<Icon>warning</Icon>} />
+					</Tooltip>
+				</div>
+			);
 
-		const tooltipTrigger = getByDataRole(container, DataRoles.Button);
+			const tooltipTrigger = getByDataRole(container, DataRoles.Button);
 
-		// Scroll the trigger element to near the top of viewport
-		tooltipTrigger.scrollIntoView({ block: "start" });
+			// Scroll the trigger element to near the top of viewport
+			tooltipTrigger.scrollIntoView({ block: "start" });
 
-		await userEvent.hover(tooltipTrigger);
-		const firstAttachedPortal = await findByDataRole(container, DataRoles.AttachedPortal);
-		const firstTooltip = getByDataRole(firstAttachedPortal, DataRoles.Tooltip);
+			await userEvent.hover(tooltipTrigger);
+			const firstAttachedPortal = await findByDataRole(container, DataRoles.AttachedPortal);
+			const firstTooltip = getByDataRole(firstAttachedPortal, DataRoles.Tooltip);
 
-		const firstPortalStyle = {
-			top: firstAttachedPortal.style.top,
-			left: firstAttachedPortal.style.left
-		};
-		const firstTooltipStyle = {
-			top: firstTooltip.style.top,
-			left: firstTooltip.style.left,
-			transform: firstTooltip.style.transform
-		};
-		const firstOrientation = firstTooltip.className;
+			const firstPortalStyle = {
+				top: firstAttachedPortal.style.top,
+				left: firstAttachedPortal.style.left
+			};
+			const firstTooltipStyle = {
+				top: firstTooltip.style.top,
+				left: firstTooltip.style.left,
+				transform: firstTooltip.style.transform
+			};
+			const firstOrientation = firstTooltip.className;
 
-		await userEvent.unhover(tooltipTrigger);
-		await waitFor(() => {
-			expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
-		});
+			await userEvent.unhover(tooltipTrigger);
+			await waitFor(() => {
+				expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
+			});
 
-		await userEvent.hover(tooltipTrigger);
-		const secondAttachedPortal = await findByDataRole(container, DataRoles.AttachedPortal);
-		const secondTooltip = getByDataRole(secondAttachedPortal, DataRoles.Tooltip);
+			await userEvent.hover(tooltipTrigger);
+			const secondAttachedPortal = await findByDataRole(container, DataRoles.AttachedPortal);
+			const secondTooltip = getByDataRole(secondAttachedPortal, DataRoles.Tooltip);
 
-		const secondPortalStyle = {
-			top: secondAttachedPortal.style.top,
-			left: secondAttachedPortal.style.left
-		};
-		const secondTooltipStyle = {
-			top: secondTooltip.style.top,
-			left: secondTooltip.style.left,
-			transform: secondTooltip.style.transform
-		};
-		const secondOrientation = secondTooltip.className;
+			const secondPortalStyle = {
+				top: secondAttachedPortal.style.top,
+				left: secondAttachedPortal.style.left
+			};
+			const secondTooltipStyle = {
+				top: secondTooltip.style.top,
+				left: secondTooltip.style.left,
+				transform: secondTooltip.style.transform
+			};
+			const secondOrientation = secondTooltip.className;
 
-		expect(secondPortalStyle.top).toBe(firstPortalStyle.top);
-		expect(secondPortalStyle.left).toBe(firstPortalStyle.left);
-		expect(secondTooltipStyle.top).toBe(firstTooltipStyle.top);
-		expect(secondTooltipStyle.left).toBe(firstTooltipStyle.left);
-		expect(secondTooltipStyle.transform).toBe(firstTooltipStyle.transform);
-		expect(secondOrientation).toBe(firstOrientation);
-
-		// Restore original window width
-		Object.defineProperty(window, "innerWidth", {
-			writable: true,
-			configurable: true,
-			value: originalInnerWidth
-		});
+			expect(secondPortalStyle.top).toBe(firstPortalStyle.top);
+			expect(secondPortalStyle.left).toBe(firstPortalStyle.left);
+			expect(secondTooltipStyle.top).toBe(firstTooltipStyle.top);
+			expect(secondTooltipStyle.left).toBe(firstTooltipStyle.left);
+			expect(secondTooltipStyle.transform).toBe(firstTooltipStyle.transform);
+			expect(secondOrientation).toBe(firstOrientation);
+		} finally {
+			await page.viewport(originalViewport.width, originalViewport.height);
+		}
 	});
 
 	test("tooltip maintains position and orientation when hovering between trigger and tooltip content", async () => {
@@ -409,83 +402,66 @@ describe("com.mgmtp.a12.widgets.tooltip", () => {
 		});
 
 		test("tooltip orientation consistency after scroll", async () => {
-			const originalInnerWidth = window.innerWidth;
-			const originalInnerHeight = window.innerHeight;
-			Object.defineProperty(window, "innerWidth", {
-				writable: true,
-				configurable: true,
-				value: 375 // Mobile width
-			});
-			Object.defineProperty(window, "innerHeight", {
-				writable: true,
-				configurable: true,
-				value: 667 // Mobile height
-			});
+			const originalViewport = { width: window.innerWidth, height: window.innerHeight };
+			await page.viewport(375, 667);
 
-			const { container } = render(
-				<div style={{ height: "3000px", width: "375px", margin: 0, padding: 0 }}>
-					<Tooltip useDesktopView text="test tooltip after scroll">
-						<Button icon={<Icon>warning</Icon>} />
-					</Tooltip>
-				</div>
-			);
+			try {
+				const { container } = render(
+					<div style={{ height: "3000px", width: "375px", margin: 0, padding: 0 }}>
+						<Tooltip useDesktopView text="test tooltip after scroll">
+							<Button icon={<Icon>warning</Icon>} />
+						</Tooltip>
+					</div>
+				);
 
-			const tooltipTrigger = getByDataRole(container, DataRoles.Button);
+				const tooltipTrigger = getByDataRole(container, DataRoles.Button);
 
-			// Scroll to end to ensure tooltip orientation is bottom-start
-			tooltipTrigger.scrollIntoView({ block: "end" });
+				// Scroll to end to ensure tooltip orientation is bottom-start
+				tooltipTrigger.scrollIntoView({ block: "end" });
 
-			// First open after scroll
-			await userEvent.click(tooltipTrigger);
-			const firstAttachedPortal = await findByDataRole(container, DataRoles.AttachedPortal);
-			const firstTooltip = getByDataRole(firstAttachedPortal, DataRoles.Tooltip);
+				// First open after scroll
+				await userEvent.click(tooltipTrigger);
+				const firstAttachedPortal = await findByDataRole(container, DataRoles.AttachedPortal);
+				const firstTooltip = getByDataRole(firstAttachedPortal, DataRoles.Tooltip);
 
-			const firstPortalStyle = {
-				top: firstAttachedPortal.style.top,
-				left: firstAttachedPortal.style.left
-			};
-			const firstTooltipStyle = {
-				top: firstTooltip.style.top,
-				left: firstTooltip.style.left,
-				transform: firstTooltip.style.transform
-			};
+				const firstPortalStyle = {
+					top: firstAttachedPortal.style.top,
+					left: firstAttachedPortal.style.left
+				};
+				const firstTooltipStyle = {
+					top: firstTooltip.style.top,
+					left: firstTooltip.style.left,
+					transform: firstTooltip.style.transform
+				};
 
-			await userEvent.keyboard("{Escape}");
-			await waitFor(() => {
-				expect(queryByDataRole(container, DataRoles.AttachedPortal)).not.toBeInTheDocument();
-			});
+				await userEvent.keyboard("{Escape}");
+				await waitFor(() => {
+					expect(queryByDataRole(container, DataRoles.AttachedPortal)).not.toBeInTheDocument();
+				});
 
-			// Second open after scroll - should have same orientation and position as first open
-			await userEvent.click(tooltipTrigger);
-			const secondAttachedPortal = await findByDataRole(container, DataRoles.AttachedPortal);
-			const secondTooltip = getByDataRole(secondAttachedPortal, DataRoles.Tooltip);
+				// Second open after scroll - should have same orientation and position as first open
+				await userEvent.click(tooltipTrigger);
+				const secondAttachedPortal = await findByDataRole(container, DataRoles.AttachedPortal);
+				const secondTooltip = getByDataRole(secondAttachedPortal, DataRoles.Tooltip);
 
-			const secondPortalStyle = {
-				top: secondAttachedPortal.style.top,
-				left: secondAttachedPortal.style.left
-			};
-			const secondTooltipStyle = {
-				top: secondTooltip.style.top,
-				left: secondTooltip.style.left,
-				transform: secondTooltip.style.transform
-			};
+				const secondPortalStyle = {
+					top: secondAttachedPortal.style.top,
+					left: secondAttachedPortal.style.left
+				};
+				const secondTooltipStyle = {
+					top: secondTooltip.style.top,
+					left: secondTooltip.style.left,
+					transform: secondTooltip.style.transform
+				};
 
-			expect(secondPortalStyle.top).toBe(firstPortalStyle.top);
-			expect(secondPortalStyle.left).toBe(firstPortalStyle.left);
-			expect(secondTooltipStyle.top).toBe(firstTooltipStyle.top);
-			expect(secondTooltipStyle.left).toBe(firstTooltipStyle.left);
-			expect(secondTooltipStyle.transform).toBe(firstTooltipStyle.transform);
-
-			Object.defineProperty(window, "innerWidth", {
-				writable: true,
-				configurable: true,
-				value: originalInnerWidth
-			});
-			Object.defineProperty(window, "innerHeight", {
-				writable: true,
-				configurable: true,
-				value: originalInnerHeight
-			});
+				expect(secondPortalStyle.top).toBe(firstPortalStyle.top);
+				expect(secondPortalStyle.left).toBe(firstPortalStyle.left);
+				expect(secondTooltipStyle.top).toBe(firstTooltipStyle.top);
+				expect(secondTooltipStyle.left).toBe(firstTooltipStyle.left);
+				expect(secondTooltipStyle.transform).toBe(firstTooltipStyle.transform);
+			} finally {
+				await page.viewport(originalViewport.width, originalViewport.height);
+			}
 		});
 	});
 });

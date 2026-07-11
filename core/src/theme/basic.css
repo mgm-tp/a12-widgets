@@ -3,22 +3,14 @@
 	src: url("./fonts/customicons/custom-icons.woff") format("woff");
 }
 @font-face {
-	font-family: "Material Icons";
-	src:
-		url("./fonts/materialicons/materialicons-regular.woff2") format("woff2"),
-		url("./fonts/materialicons/materialicons-regular.woff") format("woff");
+	font-family: "Material Symbols Outlined";
+	font-style: normal;
+	src: url("./fonts/materialsymbols/material-symbols-outlined.woff2") format("woff2");
 }
 @font-face {
-	font-family: "Material Icons Outlined";
-	src:
-		url("./fonts/materialiconsoutlined/materialicons-outlined-regular.woff2") format("woff2"),
-		url("./fonts/materialiconsoutlined/materialicons-outlined-regular.woff") format("woff");
-}
-@font-face {
-	font-family: "Material Icons Round";
-	src:
-		url("./fonts/materialiconsrounded/materialicons-rounded-regular.woff2") format("woff2"),
-		url("./fonts/materialiconsrounded/materialicons-rounded-regular.woff") format("woff");
+	font-family: "Material Symbols Rounded";
+	font-style: normal;
+	src: url("./fonts/materialsymbols/material-symbols-rounded.woff2") format("woff2");
 }
 @font-face {
 	font-family: "Open Sans";

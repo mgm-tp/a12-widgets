@@ -43,7 +43,7 @@ import { StyledButton } from "../../button/main/button.styled.js";
 import type { TableTemplateProps } from "../../table/main/template/table.tpl.api.js";
 import { StyledTableTemplate, TableTemplate } from "../../table/main/template/index.js";
 import { activeAndHover, hover } from "../../theme/base/mixins/_interaction.js";
-import { StyledTableDnDBody } from "../../table/new-api/table.dnd.view.js";
+import { StyledTableDnDBody } from "../../table/main/table.dnd.view.js";
 
 export namespace StyledTreeTable {
 	export const StyledTreeContainer = styled(TreeContainer).withConfig({ displayName: "StyledTreeContainer-sc-" })(

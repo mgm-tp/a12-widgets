@@ -57,9 +57,8 @@ const showcases: Showcase[] = [
 		label: "Content Box",
 		description: (
 			<p>
-				The <strong>Content Box</strong> Widget is a template component used to organize content and actions in a
-				consistent way. It consists of the following areas: Header (heading, notification, subheading), Content and
-				Footer.
+				The <b>Content Box</b> Widget is a template component used to organize content and actions in a consistent way.
+				It consists of the following areas: Header (heading, notification, subheading), Content and Footer.
 			</p>
 		),
 		sections: [
@@ -89,9 +88,9 @@ const showcases: Showcase[] = [
 				code: { name: "navigation-contentbox.tsx", code: navigationContentboxCode },
 				description: (
 					<p>
-						When the <code>listenToNavigationContext</code> property is enabled, the <strong>Content Box</strong> will
-						look for the <code>onBackButtonClicked</code> and the <code>onCloseButtonClicked</code> handlers in the
-						context then render a back button and a close button respectively if they are present.
+						When the <code>listenToNavigationContext</code> property is enabled, the <b>Content Box</b> will look for{" "}
+						the <code>onBackButtonClicked</code> and the <code>onCloseButtonClicked</code> handlers in the context then
+						render a back button and a close button respectively if they are present.
 					</p>
 				)
 			},
@@ -99,9 +98,8 @@ const showcases: Showcase[] = [
 				label: "SubActionBar",
 				description: (
 					<p>
-						The <strong>Content Box</strong> provides a <code>SubActionBarTpl</code> wrapper that could help you to
-						optimize the display of the <strong>Action Bar</strong> on small devices with additional animation when
-						toggling its visibility.
+						The <b>Content Box</b> provides a <code>SubActionBarTpl</code> wrapper that could help you to optimize the
+						display of the <b>Action Bar</b> on small devices with additional animation when toggling its visibility.
 					</p>
 				),
 				content: <SubActionBarWithAnimationShowcase />,
@@ -119,8 +117,8 @@ const showcases: Showcase[] = [
 				description: (
 					<div>
 						<p>
-							You can customize the padding of the content in <strong>Content Box</strong> by using the{" "}
-							<code>padding</code> property. The value of the padding is set to:
+							You can customize the padding of the content in <b>Content Box</b> by using the <code>padding</code>{" "}
+							property. The value of the padding is set to:
 						</p>
 						<ul>
 							<li>
@@ -147,8 +145,8 @@ const showcases: Showcase[] = [
 				content: <CombinationContentbox />,
 				description: (
 					<p>
-						This example shows how the <strong>Content Box</strong> widget works with a combination of Widgets,
-						including Wizard, Message Box, Flyout Menu, and Breadcrumb.
+						This example shows how the <b>Content Box</b> widget works with a combination of Widgets, including Wizard,
+						Message Box, Flyout Menu, and Breadcrumb.
 					</p>
 				),
 				useDarkBackground: true,
@@ -159,7 +157,7 @@ const showcases: Showcase[] = [
 				description: (
 					<>
 						<p>
-							To improve Accessibility, the <strong>Content Box</strong> provides some titles based on the locale for:
+							To improve Accessibility, the <b>Content Box</b> provides some titles based on the locale for:
 						</p>
 						<BulletList.Unordered>
 							<BulletList.Item>
@@ -173,10 +171,10 @@ const showcases: Showcase[] = [
 								By default, it would be:
 								<BulletList.Unordered type="circle">
 									<BulletList.Item>
-										English: <em>"Action Section"</em>
+										English: <i>"Action Section"</i>
 									</BulletList.Item>
 									<BulletList.Item>
-										German: <em>"Aktionsbereich"</em>
+										German: <i>"Aktionsbereich"</i>
 									</BulletList.Item>
 								</BulletList.Unordered>
 								<p>
@@ -188,10 +186,10 @@ const showcases: Showcase[] = [
 								the heading and before the title. This button has a localized title:
 								<BulletList.Unordered type="circle">
 									<BulletList.Item>
-										English: <em>"Back"</em>
+										English: <i>"Back"</i>
 									</BulletList.Item>
 									<BulletList.Item>
-										German: <em>"Zurück"</em>
+										German: <i>"Zurück"</i>
 									</BulletList.Item>
 								</BulletList.Unordered>
 								<p>

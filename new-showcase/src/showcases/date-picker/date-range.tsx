@@ -97,7 +97,8 @@ export function DateRangePicker(): ReactElement {
 				dateConverter={dateRangeConverter}
 				datePickerProps={{
 					disabled: [{ dayOfWeek: disabled }],
-					footer: { acceptLabel: "OK", clearLabel: "Clear", onAccept: setRange }
+					footer: { acceptLabel: "OK", clearLabel: "Clear", onAccept: setRange },
+					yearSelectorVariant: "select"
 				}}
 				datePickerDialogProps={{ okLabel: "OK", clearLabel: "Clear", title: "Set a range" }}
 				errorMessage={errorMessage}

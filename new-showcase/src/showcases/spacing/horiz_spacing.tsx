@@ -36,7 +36,7 @@ import { useTheme } from "styled-components";
 
 import {
 	LayoutGrid,
-	TextLineStateless,
+	TextField,
 	TextAffix,
 	HintTooltip,
 	HorizontalSpacingConfig
@@ -62,7 +62,7 @@ export const HorizontalSpacingShowcase = () => {
 		<ConfigurationView
 			reportLabel="horizontal-spacing"
 			configuration={
-				<TextLineStateless
+				<TextField
 					fitToParent={false}
 					label={<code>BaseSpacingConfig.BASE_HORIZONTAL_WHITE_SPACING</code>}
 					value={`${baseHorizontalSpacing}`}

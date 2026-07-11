@@ -33,7 +33,7 @@
 import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
-import { HeadContent } from "../new-api/table.head-content.view.js";
+import { HeadContent } from "../main/table.head-content.view.js";
 
 describe("com.mgmtp.a12.widgets.table.head-content", () => {
 	test("default", () => {

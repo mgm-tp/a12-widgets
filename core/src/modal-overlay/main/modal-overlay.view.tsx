@@ -32,11 +32,11 @@
 
 import { Key } from "ts-key-enum";
 import { styled, css } from "styled-components";
-import type { TouchEvent as ReactTouchEvent, MouseEvent, KeyboardEvent, FC } from "react";
+import type { TouchEvent as ReactTouchEvent, MouseEvent, KeyboardEvent as ReactKeyboardEvent, FC } from "react";
 import { useRef, useLayoutEffect, useEffect, useMemo } from "react";
 
 import { Portal } from "../../portal/main/portal.view.js";
-import { provider } from "../../common/main/device-detector.js";
+import { getMobileOperatingSystem, provider } from "../../common/main/device-detector.js";
 import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
 import { joinClassNames, addPrefix, handleAriaHiddenOfWrapper, getParentElement } from "../../common/main/utils.js";
 import {
@@ -47,8 +47,9 @@ import {
 import { DataRoles } from "../../common/main/data-roles.js";
 
 import type { ModalOverlayProps } from "./modal-overlay.api.js";
+import { getTopActiveModalOverlay, modalOverlayClassName } from "./modal-overlay.utils.js";
+import { useModalTabTrap } from "./modal-overlay.hooks.js";
 
-const modalOverlayClassName = addPrefix("modalOverlay");
 const modalOverlayContainerClassName = `${modalOverlayClassName}__container`;
 const portalClassName = addPrefix("portal");
 const attachedPortalClassName = addPrefix("attached-portal");
@@ -162,6 +163,14 @@ export const StyledModalOverlayContainer = styled.div.withConfig({ displayName: 
 	`;
 });
 
+const hasActiveTextSelection = (element: HTMLElement): boolean => {
+	if (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) {
+		return element.selectionStart !== element.selectionEnd;
+	}
+
+	return false;
+};
+
 export const ModalOverlay: FC<ModalOverlayProps> = ({
 	focusBack = true,
 	closeOnEsc = true,
@@ -243,7 +252,7 @@ To resolve this, we manually trigger the blur event.*/
 		}
 	};
 
-	const handleOuterKeyDown = (event: KeyboardEvent): void => {
+	const handleOuterKeyDown = (event: ReactKeyboardEvent): void => {
 		if (event.key === Key.Enter) {
 			event.stopPropagation();
 		}
@@ -285,6 +294,12 @@ To resolve this, we manually trigger the blur event.*/
 				}
 
 				let element = event.target as HTMLElement;
+
+				// iOS only: prevent freezing the text cursor during selection drag.
+				// Android is unaffected because its cursor handles operate at the native OS level.
+				if (getMobileOperatingSystem() === "iOS" && hasActiveTextSelection(element)) {
+					return;
+				}
 
 				while (element !== ref.parentElement && element.parentElement !== null) {
 					const hasHorizontalScroll = element.scrollWidth > element.clientWidth;
@@ -356,6 +371,8 @@ To resolve this, we manually trigger the blur event.*/
 		}
 	}, [onOpen]);
 
+	useModalTabTrap({ outerRef, innerRef, parentRef: parent, fitToParent: !!fitToParent });
+
 	useEffect(() => {
 		const MODAL_OVERLAY_SELECTOR = `[data-role=${DataRoles.Modal.Overlay}]`;
 		const modalOverlays = document.querySelectorAll(MODAL_OVERLAY_SELECTOR);
@@ -387,6 +404,19 @@ To resolve this, we manually trigger the blur event.*/
 			}
 		};
 	}, [fitToParent]);
+
+	useEffect(() => {
+		// The `!parent.current` guard implicitly limits this effect to fitToParent overlays:
+		// `parent.current` is only assigned inside the fitToParent branch of the layout effect above,
+		// so it is always null for regular (non-fitToParent) overlays.
+		if (!focusOnOpen || !parent.current || !outerRef.current) {
+			return;
+		}
+
+		if (getTopActiveModalOverlay() === outerRef.current) {
+			innerRef.current?.focus();
+		}
+	}, [focusOnOpen]);
 
 	const className = joinClassNames(
 		{ [`${modalOverlayClassName}--fullscreen`]: fullscreen && !fitToParent },

@@ -44,6 +44,14 @@ export const tabPanelFlatConfig = (theme: FlatThemeType) => {
 		tabs: {
 			background: GeneralFlatColorsConfig.blueLight
 		},
+		groupTab: {
+			subGroup: {
+				background: colors.background.groupBackground
+			},
+			divider: {
+				background: colors.divider.colorDark
+			}
+		},
 		tab: {
 			active: {
 				background: "rgba(255,255,255,0.4)",

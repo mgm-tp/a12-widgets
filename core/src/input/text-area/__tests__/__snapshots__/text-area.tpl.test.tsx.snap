@@ -990,7 +990,6 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with affixes 1`]
   flex-shrink: 0;
   justify-content: center;
   min-width: 32px;
-  margin-left: -12px;
 }
 
 .c12:last-child {
@@ -1313,6 +1312,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error-messa
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1563,6 +1563,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1589,7 +1590,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2272,7 +2274,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with info-messag
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2931,7 +2934,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with warning-mes
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;

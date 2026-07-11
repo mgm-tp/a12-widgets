@@ -100,7 +100,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -680,7 +681,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1342,7 +1344,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1915,7 +1918,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1943,6 +1947,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2397,7 +2402,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-collapsed 1`] 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3098,7 +3104,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-not-collapsed-
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3814,7 +3821,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-old-child
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4530,7 +4538,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4558,6 +4567,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;

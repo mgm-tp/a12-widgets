@@ -36,6 +36,31 @@ import { HintTooltip } from "../../../tooltip/hint/main/hint.view.js";
 
 import type { AutocompleteProps } from "../main/autocomplete.api.js";
 
+export const cityItems = [
+	"Đà Nẵng",
+	"London",
+	"New York",
+	"Beijing",
+	"Dubai",
+	"Hong Kong",
+	"Paris",
+	"Amsterdam",
+	"Brussels",
+	"Chicago",
+	"São Paulo",
+	"Los Angeles",
+	"Madrid",
+	"Seoul",
+	"München",
+	"Singapore",
+	"Medellín",
+	"Glasgow",
+	"Prague",
+	"Marrakech",
+	"Berlin",
+	"Montreal"
+];
+
 export const items = [
 	"ActionScript",
 	"AppleScript",

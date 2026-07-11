@@ -126,6 +126,7 @@ export type TableConfigType = {
 	};
 	headRow: {
 		borderBottom: string;
+		boxShadow: string;
 		filter: {
 			borderBottom: string;
 			fieldInputBG: string;
@@ -247,6 +248,12 @@ export const tableConfig = (theme: BaseThemeType): TableConfigType => {
 		},
 		headRow: {
 			borderBottom: `1px solid ${colors.divider.colorSubtle}`,
+			// border-collapse: separate ignores borders on <thead>, and an inset
+			// shadow would be occluded by the head cells' opaque backgrounds; so
+			// the DataTable paints this continuous header underline as an outset
+			// (downward) box-shadow just below the sticky <thead>, which renders
+			// regardless of border-collapse and is not covered by the cells.
+			boxShadow: `0 1px 0 0 ${colors.divider.colorSubtle}`,
 			filter: {
 				borderBottom: `1px solid ${colors.divider.colorDark}`,
 				fieldInputBG: colors.background.primaryBackground,

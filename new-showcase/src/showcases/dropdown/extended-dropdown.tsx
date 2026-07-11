@@ -39,11 +39,14 @@ import { Checkbox, DropDown, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ConfigurationView } from "../../helpers/configuration-view.js";
 import { Text } from "../../helpers/text-generator.js";
+import { getCurrentTheme } from "../../helpers/theme-selector.js";
+
+const isBaseTheme = getCurrentTheme().includes("base");
 
 const CustomSecondaryText = styled.span(({ theme }) => {
 	return css`
 		[data-role="plasma-icon"] {
-			font-size: ${theme.typography.fontSize.nanoFontSize};
+			font-size: ${isBaseTheme ? theme.typography.fontSize.lgFontSize : theme.typography.fontSize.nanoFontSize};
 			vertical-align: middle;
 			margin-bottom: 2px;
 		}

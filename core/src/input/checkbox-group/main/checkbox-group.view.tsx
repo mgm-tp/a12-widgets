@@ -221,6 +221,4 @@ export namespace CheckboxGroup {
 
 		return <Checkbox checked={selected || false} onChange={(value, event) => onChange?.(event)} {...rest} />;
 	}
-
-	Item.displayName = "CheckboxGroup.Item";
 }

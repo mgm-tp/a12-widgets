@@ -157,8 +157,6 @@ export namespace MobileValidation {
 		);
 	}
 
-	Overview.displayName = "MobileValidation.Overview";
-
 	export function Graphic(props: MobileValidationProps.GraphicProps): ReactElement<MobileValidationProps.GraphicProps> {
 		const baseOverviewClassName = `${baseClassName}-overview`;
 		const languageContext = useContext<A11yDefinition>(A11YLanguageContext);
@@ -208,8 +206,6 @@ export namespace MobileValidation {
 		);
 	}
 
-	Graphic.displayName = "MobileValidation.Overview.Graphic";
-
 	export function PreviewList(
 		props: MobileValidationProps.PreviewListProps
 	): ReactElement<MobileValidationProps.PreviewListProps> {
@@ -228,8 +224,6 @@ export namespace MobileValidation {
 			</StyledPreviewList>
 		);
 	}
-
-	PreviewList.displayName = "MobileValidation.PreviewList";
 
 	export function PreviewListItem(
 		props: MobileValidationProps.PreviewListItemProps
@@ -275,8 +269,6 @@ export namespace MobileValidation {
 		);
 	}
 
-	PreviewListItem.displayName = "MobileValidation.PreviewList.PreviewListItem";
-
 	export function Content(props: MobileValidationProps.ContentProps): ReactElement<MobileValidationProps.ContentProps> {
 		const { className, style, id, children } = props;
 		const classNames = joinClassNames(`${baseClassName}-content`, className);
@@ -292,8 +284,6 @@ export namespace MobileValidation {
 			</StyledMobileValidationContent>
 		);
 	}
-
-	Content.displayName = "MobileValidation.Content";
 
 	export function Actions(props: MobileValidationProps.ActionsProps): ReactElement<MobileValidationProps.ActionsProps> {
 		const { className, style, id, children } = props;
@@ -313,8 +303,6 @@ export namespace MobileValidation {
 		);
 	}
 
-	Actions.displayName = "MobileValidation.Actions";
-
 	export function ActionsItem(
 		props: MobileValidationProps.ActionsItemProps
 	): ReactElement<MobileValidationProps.ActionsItemProps> {
@@ -332,6 +320,4 @@ export namespace MobileValidation {
 			</StyledMobileValidationActionItem>
 		);
 	}
-
-	ActionsItem.displayName = "MobileValidation.Actions.ActionsItem";
 }

@@ -39,11 +39,13 @@ import { DropDownWithGraphicShowcase } from "./items-with-graphic.js";
 import { Basic } from "./basic.js";
 import { ExtendedDropdownShowcase } from "./extended-dropdown.js";
 import { WithLinkItems } from "./with-link-items.js";
+import { DropDownWithLabelRendererShowcase } from "./items-with-label-renderer.js";
 
 import basicCode from "!./basic.tsx?raw";
 import dropDownWithGraphicShowcaseCode from "!./items-with-graphic.tsx?raw";
 import withLinkItemsCode from "!./with-link-items.tsx?raw";
 import extendedDropdownShowcaseCode from "!./extended-dropdown.tsx?raw";
+import itemsWithLabelRendererCode from "!./items-with-label-renderer.tsx?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -115,6 +117,21 @@ const showcases: Showcase[] = [
 				content: <WithLinkItems />,
 				useConfiguration: true,
 				code: { name: "with-link-items.tsx", code: withLinkItemsCode }
+			},
+			{
+				label: "Custom Label Renderer",
+				description: (
+					<>
+						<p>
+							For advanced use cases, you can customize how dropdown items are displayed by using the{" "}
+							<code>labelRenderer</code> property. This enables you to create visually rich dropdowns content such as
+							icons, descriptions, badges, or multi-line labels.
+						</p>
+					</>
+				),
+				content: <DropDownWithLabelRendererShowcase />,
+				useConfiguration: false,
+				code: { name: "items-with-label-renderer.tsx", code: itemsWithLabelRendererCode }
 			}
 		]
 	}

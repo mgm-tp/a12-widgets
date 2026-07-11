@@ -39,6 +39,15 @@ import type { ReactNode, ReactElement, RefCallback, HTMLAttributes, MouseEvent }
 import type { Orientation } from "../../common/main/alignment.js";
 import type { Ref, Identifiable, Styleable, DataRole, Container } from "../../common/main/base-props.js";
 
+export type PopUpMenuCloseReason =
+	| "onItemClick"
+	| "onOutsideClick"
+	| "onEscape"
+	| "onSpace"
+	| "onTab"
+	| "onCloseButton"
+	| "onProgrammatic";
+
 export interface PopUpMenuProps extends Container, Styleable, Identifiable, DataRole, Ref<HTMLDivElement> {
 	/**
 	 * Contains Icon for button in popup menu.
@@ -84,14 +93,19 @@ export interface PopUpMenuProps extends Container, Styleable, Identifiable, Data
 	focusOnOpen?: boolean;
 
 	/**
-	 * Specifies whether the focus should be set back to the trigger element when the popup is closed.
+	 * Specifies whether the focus should be restored to the trigger element when the popup menu is closed.
+	 *
 	 * @default true
 	 *
-	 * *Note:*
-	 *  - Only works with mouse when clicking outside to close the popup menu. Using the keyboard (ESC and SPACE) will keep the behaviors as normal.
-	 *  - Set to `false` if you want to manually handle the focus after closing the popup menu by clicking a popup item.
+	 * - `true`: restores focus to the trigger element for all close reasons.
+	 * - `false`: disables focus restoration when the popup menu is closed, except ESC and SPACE, which still restore focus.
+	 * - `Object`: configures focus restoration per close reason. Each property is optional and defaults to `true`.
+	 * Available reasons include item clicks, outside clicks, ESC, SPACE, TAB, close button clicks and programmatic closes (when the popup is controlled and closed from outside the component).
+	 *
+	 * Example: `focusOnTriggerElementAfterClose={{ onItemClick: false }}`
+	 * (Focus restoration is disabled for item clicks only, all other close reasons still restore focus)
 	 */
-	focusOnTriggerElementAfterClose?: boolean;
+	focusOnTriggerElementAfterClose?: boolean | Partial<Record<PopUpMenuCloseReason, boolean>>;
 
 	/**
 	 * Specifies whether the portal should be closed when the ESC key is hit.

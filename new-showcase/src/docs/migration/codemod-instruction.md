@@ -96,3 +96,109 @@ After running codemods, it is recommended to:
 2. **Run linters and formatters** — Codemods do not automatically apply code formatting. Run your project's linter (e.g., ESLint) and formatter (e.g., Prettier) to ensure code style consistency.
 3. **Execute tests** — Run your test suite to verify that the transformations did not introduce regressions.
 4. **Commit incrementally** — If running multiple recipes or migrating across versions, consider committing after each successful transformation for easier rollback if issues arise.
+
+## Recipes
+
+The sections below document each recipe and the exact change categories it applies, with one before/after example per category. Use them as a reference when reviewing a codemod diff — every hunk a recipe produces should map to one of its listed categories.
+
+### Recipe: enforce-top-level-exports
+
+Supported versions: `^39.0.0`. Migrates deep `lib/` imports to the top-level barrel, moves CSS imports to `./styles/`, and applies the `TextLine` → `TextField` rename and the removed-alias renames.
+
+```bash
+npx @com.mgmtp.a12.widgets/widgets-codemod@latest enforce-top-level-exports ./tsconfig.json
+```
+
+#### Rewrite import paths
+
+Any deep `lib/**` import of `widgets-core` or `widgets-utils` collapses to the package root.
+
+```typescript
+// Before
+import { Button } from "@com.mgmtp.a12.widgets/widgets-core/lib/button/index.js";
+import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils/lib/code-example/index.js";
+
+// After
+import { Button } from "@com.mgmtp.a12.widgets/widgets-core";
+import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
+```
+
+#### Rewrite CSS import paths
+
+The two CSS entry points move from `lib/` to `styles/`.
+
+| Before                                                                 | After                                        |
+| ---------------------------------------------------------------------- | -------------------------------------------- |
+| `…/widgets-core/lib/theme/basic.css`                                   | `…/widgets-core/styles/basic.css`            |
+| `…/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css` | `…/widgets-core/styles/rich-text-editor.css` |
+
+#### Rename symbols
+
+The removed deprecated aliases are rewritten to their replacements throughout your code.
+
+| Renamed export (before) | Replacement (after)                | What this export is                                                 |
+| ----------------------- | ---------------------------------- | ------------------------------------------------------------------- |
+| `IconPicker`            | `IconPickerTitles`                 | the a11y localization key for the icon picker, not the component    |
+| `Tooltip`               | `TooltipPlugin`                    | the Rich Text Editor tooltip plugin, not the general Tooltip widget |
+| `TooltipProps`          | `TooltipPluginProps`               | props for the Rich Text Editor tooltip plugin                       |
+| `TooltipWrapperProps`   | `TooltipPluginWrapperProps`        | wrapper props for the Rich Text Editor tooltip plugin               |
+| `commonTileConfigs`     | `commonInteractiveTileFlatConfigs` | the shared interactive-tile config in the flat theme                |
+| `BodyCell`              | `TreeTableBodyCell`                | the tree-table body cell component                                  |
+| `BodyContent`           | `TreeTableBodyContent`             | the tree-table body content component                               |
+| `walk`                  | `walkTreeNode`                     | the tree-node traversal helper                                      |
+
+#### Rename TextLine to TextField
+
+The `TextLine` naming is dropped in favour of `TextField`. The recipe applies plain text rewrites, so the rules below match by name pattern rather than by usage — review the diff for false positives (see the note after the table).
+
+| Rewrite (before)                 | Replacement (after)   | What is matched                                                                                                                                   |
+| -------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TextLineStateless`              | `TextField`           | the component export — in imports and JSX                                                                                                         |
+| `TextLineStatelessProps`         | `TextFieldProps`      | the props interface — in type annotations                                                                                                         |
+| `DataRoles.Textline`             | `DataRoles.TextField` | the `DataRoles.Textline` property access                                                                                                          |
+| `TextLineConfigType`             | `TextFieldConfigType` | the theme config type                                                                                                                             |
+| `textLineConfig`                 | `textFieldConfig`     | the theme config object                                                                                                                           |
+| any `"textline…"` string literal | `"text-field…"`       | **any** string/template literal starting with `textline` — `data-role` values in markup, tests, and CSS selectors, but also any other such string |
+| any `textLine` identifier        | `textField`           | **any** identifier named `textLine` — the theme config key, destructured names, `createTheme` overrides, and anything else by that name           |
+
+> The last two rules are pattern-based and intentionally broad — a literal beginning with `textline` or an identifier named `textLine` is rewritten regardless of whether it is widgets-related. Review the diff for unintended matches in your own code (e.g. unrelated strings or variables).
+
+#### Not covered
+
+The type-augmentation path move (`lib/@types/*` → `types/*`) is **not** rewritten correctly by this recipe and must be updated by hand.
+
+### Recipe: prefer-top-level-imports
+
+Supported versions: `^38.2.0`. Migrates deep `widgets-core` imports to the top-level barrel and renames the entities that were deprecated to avoid duplicate export names.
+
+```bash
+npx @com.mgmtp.a12.widgets/widgets-codemod@latest prefer-top-level-imports ./tsconfig.json
+```
+
+#### Rewrite import paths
+
+Any deep `widgets-core/lib/**` import collapses to the package root.
+
+```typescript
+// Before
+import { Button } from "@com.mgmtp.a12.widgets/widgets-core/lib/button/index.js";
+
+// After
+import { Button } from "@com.mgmtp.a12.widgets/widgets-core";
+```
+
+#### Rename symbols
+
+The deprecated entities are rewritten to their replacements.
+
+| Renamed export (before) | Replacement (after)                | What this export is                                                 |
+| ----------------------- | ---------------------------------- | ------------------------------------------------------------------- |
+| `ResizeEventHandler`    | `ColumnResizeEventHandler`         | the column-resize event handler in the table new API                |
+| `IconPicker`            | `IconPickerTitles`                 | the a11y localization key for the icon picker, not the component    |
+| `Tooltip`               | `TooltipPlugin`                    | the Rich Text Editor tooltip plugin, not the general Tooltip widget |
+| `TooltipProps`          | `TooltipPluginProps`               | props for the Rich Text Editor tooltip plugin                       |
+| `TooltipWrapperProps`   | `TooltipPluginWrapperProps`        | wrapper props for the Rich Text Editor tooltip plugin               |
+| `commonTileConfigs`     | `commonInteractiveTileFlatConfigs` | the shared interactive-tile config in the flat theme                |
+| `BodyCell`              | `TreeTableBodyCell`                | the tree-table body cell component                                  |
+| `BodyContent`           | `TreeTableBodyContent`             | the tree-table body content component                               |
+| `walk`                  | `walkTreeNode`                     | the tree-node traversal helper                                      |

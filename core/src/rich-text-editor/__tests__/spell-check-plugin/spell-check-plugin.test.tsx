@@ -31,7 +31,7 @@
  */
 
 import { describe, expect, test } from "vitest";
-import { findByDataRole, getByDataRole, render } from "test-utils";
+import { findByDataRole, getByDataRole, render, waitFor } from "test-utils";
 import { userEvent } from "vitest/browser";
 
 import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
@@ -40,6 +40,7 @@ import type { SpellCheckPluginConfig } from "../../main/wrapper/default-rich-tex
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { prepopulatedRichText } from "../../main/utils/common.js";
 import { editorThemeClasses } from "../../main/themes/themes.js";
+import { AutoLinkPlugin } from "../../index.js";
 
 import { misspelledWordsSampleText } from "../data.js";
 
@@ -199,6 +200,159 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.spell-check-plugin", () => {
 			const misspelledElements = editorInput.getElementsByClassName(editorThemeClasses.misspelledWord);
 
 			expect(misspelledElements.length).toBe(0);
+		});
+	});
+
+	describe("Spell check with auto-link interaction", () => {
+		function findWholeWord(text: string, matchString: string): TextMatcherResult | null {
+			const regex = new RegExp(`\\b${matchString}\\b`);
+			const result = text.match(regex);
+
+			if (!result || result.index === undefined) {
+				return null;
+			}
+
+			return { index: result.index, length: matchString.length, text: matchString };
+		}
+
+		const spellCheckPluginConfig: SpellCheckPluginConfig = {
+			spellCheck: ["developr"].map((word) => (text: string) => findWholeWord(text, word)),
+			render: () => undefined
+		};
+
+		const autoLinkTerms = [
+			{
+				regex: /\bA12W-\d+\b/g,
+				getUrl: (text: string): string => `https://example.com/${text}`
+			}
+		];
+
+		function renderSpellCheckWithAutoLink(namespace: string): ReturnType<typeof render> {
+			return render(
+				<DefaultRichTextEditor initialConfig={{ namespace }} spellCheckPluginConfig={spellCheckPluginConfig}>
+					<AutoLinkPlugin customTerms={autoLinkTerms} target="_blank" />
+				</DefaultRichTextEditor>
+			);
+		}
+
+		test("Should keep misspelled mark on 'developr' and remove link when typing 'd' before 'A12W-123'", async () => {
+			const { container } = renderSpellCheckWithAutoLink("Spell Check AutoLink");
+
+			const editorInput = getByDataRole(container, DataRoles.RichTextEditor.Input);
+			await userEvent.click(editorInput);
+
+			// Type: "A12W-123: abc developr def"
+			await userEvent.type(editorInput, "A12W-123: abc developr def");
+
+			// Wait for auto-link and spell-check to be applied
+			await waitFor(() => {
+				const linkElement = editorInput.querySelector(`.${editorThemeClasses.link}`);
+				expect(linkElement).not.toBeNull();
+				expect(linkElement!.textContent).toBe("A12W-123");
+
+				const misspelled = editorInput.getElementsByClassName(editorThemeClasses.misspelledWord);
+				expect(misspelled.length).toBe(1);
+				expect(misspelled[0].textContent).toBe("developr");
+			});
+
+			// Move cursor to start and type "d" — turns "A12W-123" into "dA12W-123"
+			await userEvent.keyboard("{Home}");
+			await userEvent.type(editorInput, "d");
+
+			await waitFor(() => {
+				// "dA12W-123" no longer matches the link regex, so no link should exist
+				const linkElement = editorInput.querySelector(`.${editorThemeClasses.link}`);
+				expect(linkElement).toBeNull();
+
+				// "developr" should still be marked as misspelled
+				const misspelled = editorInput.getElementsByClassName(editorThemeClasses.misspelledWord);
+				expect(misspelled.length).toBe(1);
+				expect(misspelled[0].textContent).toBe("developr");
+			});
+
+			expect(editorInput.textContent).toBe("dA12W-123: abc developr def");
+		});
+
+		test("Should not throw when pasting text that contains a link pattern and a misspelled word", async () => {
+			const { container } = renderSpellCheckWithAutoLink("Spell Check AutoLink Paste");
+
+			const editorInput = getByDataRole(container, DataRoles.RichTextEditor.Input);
+			await userEvent.click(editorInput);
+
+			// Simulate pasting text that contains a link pattern and a misspelled word
+			await userEvent.type(editorInput, "A12W-123: this developr bug");
+
+			// Verify A12W-123 is rendered as a link
+			await waitFor(() => {
+				const linkElement = editorInput.querySelector(`.${editorThemeClasses.link}`);
+				expect(linkElement).not.toBeNull();
+				expect(linkElement!.textContent).toBe("A12W-123");
+			});
+
+			// Verify "developr" is marked as a misspelled word
+			await waitFor(() => {
+				const misspelled = editorInput.getElementsByClassName(editorThemeClasses.misspelledWord);
+				expect(misspelled.length).toBe(1);
+				expect(misspelled[0].textContent).toBe("developr");
+			});
+		});
+
+		test("Should keep 'A12W-123' as link and 'developr' as misspelled after re-typing both", async () => {
+			const { container } = renderSpellCheckWithAutoLink("Spell Check AutoLink Retype");
+
+			const editorInput = getByDataRole(container, DataRoles.RichTextEditor.Input);
+			await userEvent.click(editorInput);
+
+			// Type: "A12W-123: abc developr def"
+			await userEvent.type(editorInput, "A12W-123: abc developr def");
+
+			await waitFor(() => {
+				const linkElement = editorInput.querySelector(`.${editorThemeClasses.link}`);
+				expect(linkElement).not.toBeNull();
+				expect(linkElement!.textContent).toBe("A12W-123");
+
+				const misspelled = editorInput.getElementsByClassName(editorThemeClasses.misspelledWord);
+				expect(misspelled.length).toBe(1);
+				expect(misspelled[0].textContent).toBe("developr");
+			});
+
+			// Move cursor after "A12W-" (5 chars from start), then delete "123" and retype it
+			// "A12W-123: abc developr def" — "123" starts at index 5
+			await userEvent.keyboard("{Home}");
+			await userEvent.keyboard("{ArrowRight}{ArrowRight}{ArrowRight}{ArrowRight}{ArrowRight}");
+			await userEvent.keyboard("{Delete}{Delete}{Delete}");
+			await userEvent.type(editorInput, "123");
+
+			// "A12W-123" should still be a link after re-typing "123"
+			await waitFor(() => {
+				const linkElement = editorInput.querySelector(`.${editorThemeClasses.link}`);
+				expect(linkElement).not.toBeNull();
+				expect(linkElement!.textContent).toBe("A12W-123");
+			});
+
+			// Navigate to "r" at the end of "developr" and delete then retype it
+			// Position cursor right after "developr" by going to end and stepping back over " def"
+			await userEvent.keyboard("{End}{ArrowLeft}{ArrowLeft}{ArrowLeft}{ArrowLeft}");
+			await userEvent.keyboard("{Backspace}");
+			await userEvent.type(editorInput, "r");
+			await userEvent.keyboard("{Backspace}");
+			await userEvent.type(editorInput, "r");
+
+			// "developr" should still be misspelled after deleting and retyping "r"
+			await waitFor(() => {
+				const misspelled = editorInput.getElementsByClassName(editorThemeClasses.misspelledWord);
+				expect(misspelled.length).toBe(1);
+				expect(misspelled[0].textContent).toBe("developr");
+			});
+
+			// Final state: link intact, misspell intact, full text correct
+			await waitFor(() => {
+				const linkElement = editorInput.querySelector(`.${editorThemeClasses.link}`);
+				expect(linkElement).not.toBeNull();
+				expect(linkElement!.textContent).toBe("A12W-123");
+			});
+
+			expect(editorInput.textContent).toBe("A12W-123: abc developr def");
 		});
 	});
 });

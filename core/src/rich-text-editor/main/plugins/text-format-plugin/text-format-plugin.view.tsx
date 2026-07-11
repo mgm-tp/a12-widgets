@@ -105,10 +105,8 @@ export const TextFormatPlugin: FC = () => {
 					}
 
 					if (isSelectionActiveStyleName) {
-						currentNode.setLexicalUnmergeable();
 						currentNode.removeSelectedStyleName(styleName);
 					} else {
-						currentNode.setLexicalUnmergeable();
 						currentNode.addSelectedStyleName(styleName);
 					}
 				}
@@ -281,11 +279,11 @@ export const TextFormatPlugin: FC = () => {
 					for (const [nodeKey] of mutatedNodes) {
 						const textNode: InlineStyleTextNode | null = $getNodeByKey(nodeKey);
 
-						if (!textNode) {
+						if (!textNode || !textNode.isAttached()) {
 							continue;
 						}
 
-						const next = textNode?.getNextSibling();
+						const next = textNode.getNextSibling();
 
 						if (
 							$isInlineStyleTextNode(textNode) &&
@@ -296,7 +294,7 @@ export const TextFormatPlugin: FC = () => {
 							mergeWithSibling(textNode, next);
 						}
 
-						const previous = textNode?.getPreviousSibling();
+						const previous = textNode.getPreviousSibling();
 
 						if (
 							$isInlineStyleTextNode(textNode) &&
@@ -334,7 +332,7 @@ export const TextFormatPlugin: FC = () => {
 					if (
 						!isEqual(currentClassList, selectionClassList) &&
 						selection.isCollapsed() &&
-						newLettersCount &&
+						newLettersCount > 0 &&
 						// We do not apply custom style to composing node when typing. To do that, select text after composing and apply style to it
 						!focusNode.isComposing()
 					) {

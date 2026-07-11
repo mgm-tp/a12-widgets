@@ -30,11 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, screen } from "test-utils";
+import { getAllByDataRole, render, screen } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 
+import { IconMappingContext } from "../main/icon-mapping-context.js";
 import { Icon } from "../main/icon.view.js";
 import type { IconMappingDefinition } from "../main/icon.api.js";
 
@@ -94,14 +95,14 @@ describe("com.mgmtp.a12.widgets.icon", () => {
 
 		const outlinedWrapper = render(<Icon iconTheme="outlined">{iconName}</Icon>);
 		expect(outlinedWrapper.container.querySelector(`.${baseClassName}--outlined`)).toBeTruthy();
-		expect(outlinedWrapper.container.firstChild).toHaveStyle({ fontFamily: "Material Icons Outlined" });
+		expect(outlinedWrapper.container.firstChild).toHaveStyle({ fontFamily: "Material Symbols Outlined" });
 
 		const roundedWrapper = render(<Icon iconTheme="rounded">{iconName}</Icon>);
 		expect(roundedWrapper.container.querySelector(`.${baseClassName}--rounded`)).toBeTruthy();
-		expect(roundedWrapper.container.firstChild).toHaveStyle({ fontFamily: "Material Icons Round" });
+		expect(roundedWrapper.container.firstChild).toHaveStyle({ fontFamily: "Material Symbols Rounded" });
 
 		const filledWrapper = render(<Icon>{iconName}</Icon>);
-		expect(filledWrapper.container.firstChild).toHaveStyle({ fontFamily: "Material Icons" });
+		expect(filledWrapper.container.firstChild).toHaveStyle({ fontFamily: "Material Symbols Outlined" });
 	});
 
 	/**
@@ -113,15 +114,19 @@ describe("com.mgmtp.a12.widgets.icon", () => {
 			{ originalIcon: "help", mappedIcon: "help_center", theme: "outlined" }
 		];
 
-		ICON_MAPPING_DEFINITIONS.forEach((icon) => {
-			const { container } = render(
-				<Icon iconTheme={icon.theme} title={icon.originalIcon}>
-					{icon.originalIcon}
+		const { container } = render(
+			<IconMappingContext value={ICON_MAPPING_DEFINITIONS}>
+				<Icon iconTheme="filled" title="info">
+					info
 				</Icon>
-			);
-
-			expect(container.firstChild).toMatchSnapshot();
-		});
+				<Icon iconTheme="outlined" title="help">
+					help
+				</Icon>
+			</IconMappingContext>
+		);
+		const icons = getAllByDataRole(container, DataRoles.Icon);
+		expect(icons[0]).toHaveTextContent("report_problem");
+		expect(icons[1]).toHaveTextContent("help_center");
 	});
 
 	/**
@@ -132,6 +137,34 @@ describe("com.mgmtp.a12.widgets.icon", () => {
 	test("rendering-icon-size", () => {
 		const { container } = render(<Icon size="big">{iconName}</Icon>);
 		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	describe("hiddenText property", () => {
+		test("icon-with-specific-value-hiddenText", () => {
+			const { getByDataRole } = render(
+				<Icon hiddenText="Custom Icon" title="Tooltip Title">
+					{iconName}
+				</Icon>
+			);
+			expect(getByDataRole(DataRoles.Icon)).toHaveAttribute("title", "Tooltip Title");
+			expect(getByDataRole(DataRoles.HiddenText)).toHaveTextContent("Custom Icon");
+		});
+
+		test("icon-with-empty-string-hiddenText", () => {
+			const { getByDataRole, queryByDataRole } = render(
+				<Icon hiddenText="" title="Tooltip Title">
+					{iconName}
+				</Icon>
+			);
+			expect(getByDataRole(DataRoles.Icon)).toHaveAttribute("title", "Tooltip Title");
+			expect(queryByDataRole(DataRoles.HiddenText)).toBeNull();
+		});
+
+		test("icon-with-undefined-hiddenText", () => {
+			const { getByDataRole } = render(<Icon title="Fallback Title">{iconName}</Icon>);
+			expect(getByDataRole(DataRoles.Icon)).toHaveAttribute("title", "Fallback Title");
+			expect(getByDataRole(DataRoles.HiddenText)).toHaveTextContent("Fallback Title");
+		});
 	});
 
 	/**

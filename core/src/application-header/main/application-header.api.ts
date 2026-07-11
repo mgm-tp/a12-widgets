@@ -53,4 +53,11 @@ export interface ApplicationHeaderProps extends Identifiable, Styleable {
 	 * This can be used to show application version, username, logout button action and the popup menu due to the limited space on mobile phone.
 	 */
 	rightSlots?: ReactNode;
+
+	/**
+	 * The ARIA role of the ApplicationHeader.
+	 * @see [Roles]{@link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles}
+	 * @default "banner"
+	 */
+	role?: string;
 }

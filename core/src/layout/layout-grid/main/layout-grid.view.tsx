@@ -155,8 +155,6 @@ export namespace LayoutGrid {
 		);
 	}
 
-	LayoutGridTemplate.displayName = "LayoutGridTemplate";
-
 	export function Grid(props: LayoutGridProps.LayoutGridProps): ReactElement<LayoutGridProps.LayoutGridProps> {
 		const { wrapperRef: propWrapperRef } = props;
 		const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -183,8 +181,6 @@ export namespace LayoutGrid {
 
 		return <LayoutGridTemplate {...props} size={breakPoint.size} wrapperRef={getWrapperRef} />;
 	}
-
-	Grid.displayName = "LayoutGrid.Grid";
 
 	export function Row(props: LayoutGridProps.RowProps): ReactElement<LayoutGridProps.RowProps> {
 		const { height, fitToContent, verticalAlignment, layoutConfig, children, className, id, role, style } = props;
@@ -239,8 +235,6 @@ export namespace LayoutGrid {
 			</StyledGridRow>
 		);
 	}
-
-	Row.displayName = "LayoutGrid.Row";
 
 	export function Column(
 		props: LayoutGridProps.ColumnProps & {
@@ -307,6 +301,4 @@ export namespace LayoutGrid {
 			</StyledGridColumn>
 		);
 	}
-
-	Column.displayName = "LayoutGrid.Column";
 }

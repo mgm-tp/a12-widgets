@@ -30,6 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import MobileDetect from "mobile-detect";
+
 import { isBrowser } from "../is-browser.js";
 
 /**
@@ -38,13 +40,17 @@ import { isBrowser } from "../is-browser.js";
  */
 
 /*
- * The device detector relies on the fact that the window variable is accessible.
- * However, this is not the case in node environment (e.g. for testing), therefore this conditional import.
+ * The instantiation relies on the fact that the window variable is accessible. However, this is not the
+ * case in node environment (e.g. for testing), therefore the construction is guarded behind `isBrowser`.
+ *
+ * `mobile-detect` is a CommonJS/UMD module. It is imported statically (like in `device-detector.ts`) so the
+ * bundler interop resolves the default export to the constructor. A dynamic `import("mobile-detect")` produces
+ * a namespace whose `.default` is not reliably the constructor across bundlers, which throws at runtime.
  */
 
 export const AndroidScrollInputIntoViewIfNeeded = isBrowser
-	? Promise.all([import("mobile-detect"), import("../utils.js")]).then(([MobileDetect, { Throttler }]) => {
-			const mobileDetect = new MobileDetect.default(window.navigator.userAgent);
+	? import("../utils.js").then(({ Throttler }) => {
+			const mobileDetect = new MobileDetect(window.navigator.userAgent);
 
 			if (mobileDetect.is("AndroidOS")) {
 				const throttler = new Throttler(() => {

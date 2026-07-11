@@ -34,3 +34,4 @@ export * from "./date-time-picker.api.js";
 export * from "./date-time-picker.styled.js";
 export * from "./date-time-picker.view.js";
 export * from "./wrapper/index.js";
+export * from "./date-time-picker.tpl.view.js";

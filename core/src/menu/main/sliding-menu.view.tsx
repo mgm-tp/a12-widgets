@@ -30,36 +30,53 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ContextType, KeyboardEvent, MouseEvent, ReactElement, ReactNode, RefObject } from "react";
-import { Component, createRef, useCallback, useEffect, useRef, useState } from "react";
+import {
+	useCallback,
+	useContext,
+	useEffect,
+	useLayoutEffect,
+	useRef,
+	useState,
+	type FC,
+	type KeyboardEvent,
+	type MouseEvent,
+	type ReactElement,
+	type ReactNode
+} from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { Key } from "ts-key-enum";
 import { css, styled } from "styled-components";
 import type { OnResizeCallback, ResizePayload } from "react-resize-detector";
 import { useResizeDetector } from "react-resize-detector";
 
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import {
-	addPrefix,
-	bindMethods,
-	isLastFocusableElement,
-	isVisibleOnScreen,
-	joinClassNames
-} from "../../common/main/utils.js";
-import { Icon } from "../../icon/main/icon.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 import { isSimilarNode } from "../../common/main/react-node-utils.js";
+import { addPrefix, isVisibleOnScreen, joinClassNames } from "../../common/main/utils.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { useKeyboardNavigationMode } from "../../keyboard-navigation/main/keyboard-navigation-context.js";
+import type { KeyboardNavigationMode } from "../../keyboard-navigation/main/keyboard-navigation.api.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
 import type { MenuItem } from "./menu.api.js";
 import type { SlidingMenuProps } from "./sliding-menu.api.js";
-import { MainMenuTpl, MenuContainer } from "./template/menu.tpl.view.js";
 import { MenuUtils } from "./menu.internal.js";
 import { MenuTplUtils } from "./template/menu.tpl.internal.js";
-import { isMenuItemList } from "./menu.utils.js";
+import {
+	getNavigableMenuItems,
+	initDefaultMenuTabIndex,
+	isMenuItemList,
+	resetMenuRovingTabIndex,
+	updateMenuRovingTabIndex
+} from "./menu.utils.js";
+import { useSlidingMenuKeyboard, type SlidingMenuKeyboardOptions } from "./use-sliding-menu-keyboard.js";
+import { MainMenuTpl, MenuContainer } from "./template/menu.tpl.view.js";
 
 const { flattenToMenuItems } = MenuTplUtils;
 
-const baseClassName = addPrefix("nav");
+/** @internal */
+interface SlidingMenuInternalProps extends SlidingMenuProps {
+	keyboardNavMode?: KeyboardNavigationMode;
+	handleSlidingMenuKeyDown: (event: KeyboardEvent<HTMLElement>, options: SlidingMenuKeyboardOptions) => void;
+}
 
 const BaseSlidingMenuWrapper = styled.div<Pick<SlidingMenuProps.MainWrapperProps, "expanded"> & { $top?: number }>(
 	({ theme, expanded, $top }) => {
@@ -94,315 +111,391 @@ export interface SlidingMenuState {
 	lastAction: "backward" | "forward" | undefined;
 }
 
-class SlidingMenuInternal extends Component<SlidingMenuProps, SlidingMenuState> {
-	static displayName = "SlidingMenu";
+function SlidingMenuInternal(props: SlidingMenuInternalProps): ReactElement {
+	const context = useContext(A11YLanguageContext);
 
-	declare context: ContextType<typeof A11YLanguageContext>;
-
-	private readonly backwardItem: {
-		label: ReactNode;
-		icon: ReactNode;
-	};
-
-	private hiddenMainMenuElement: HTMLElement | null = null;
-	private menuContainer: HTMLElement | null = null;
-	private selectedItemNode: HTMLLIElement | null = null;
-	private wrapperElement: RefObject<HTMLDivElement | null> = createRef();
-
-	constructor(props: SlidingMenuProps) {
-		super(props);
-		this.state = {
-			path: [
-				{
-					label: "root",
-					items: isMenuItemList(this.props.items) ? flattenToMenuItems(this.props.items) : []
-				}
-			],
-			lastAction: undefined
-		};
-
-		// This is necessary to bind the `this` context
-		const getParentLabel = (): ReactNode =>
-			this.state.path[this.state.path.length - 1].backwardItemProps?.label ??
-			this.state.path[this.state.path.length - 1].label;
-
-		const getIcon = (): ReactNode =>
-			this.state.path[this.state.path.length - 1].backwardItemProps?.icon ?? (
-				<Icon title={this.context.menuTitles?.closeSubMenu}>chevron_left</Icon>
-			);
-		this.backwardItem = {
-			get label(): ReactNode {
-				return getParentLabel();
-			},
-			get icon(): ReactNode {
-				return getIcon();
-			}
-		};
-
-		bindMethods(this);
-	}
-
-	componentDidMount(): void {
-		this.scrollSelectedItemToView();
-
-		if (!this.props.scrollToSelectedItem) {
-			this.hiddenMainMenuElement?.focus();
+	const [path, setPath] = useState<MenuUtils.MenuItemWithChildren[]>(() => [
+		{
+			label: "root",
+			items: isMenuItemList(props.items) ? flattenToMenuItems(props.items) : []
 		}
+	]);
+	const [lastAction, setLastAction] = useState<"backward" | "forward" | undefined>(undefined);
+
+	const hiddenMainMenuElementRef = useRef<HTMLElement | null>(null);
+
+	const menuContainerRef = useRef<HTMLElement | null>(null);
+
+	const selectedItemNodeRef = useRef<HTMLLIElement | null>(null);
+
+	const wrapperElementRef = useRef<HTMLDivElement | null>(null);
+
+	const pathRef = useRef(path);
+	const propsRef = useRef(props);
+	const contextRef = useRef(context);
+	useLayoutEffect(() => {
+		pathRef.current = path;
+		propsRef.current = props;
+		contextRef.current = context;
+	});
+
+	const pendingNavigationRef = useRef<{
+		type: "forward" | "backward";
+		departingLabel?: string;
+	} | null>(null);
+
+	const shouldScrollRef = useRef(false);
+
+	const prevItemsLengthRef = useRef(props.items.length);
+
+	const isMountedRef = useRef(false);
+
+	const baseClassName = addPrefix("nav");
+
+	function generatePath(items: MenuUtils.MenuItemWithChildren[]): MenuUtils.MenuItemWithChildren[] {
+		const result: MenuUtils.MenuItemWithChildren[] = [];
+		const selected = items.find((item) => !!item.selected);
+
+		if (selected?.items) {
+			result.push(selected as MenuUtils.MenuItemWithChildren);
+
+			return result.concat(generatePath(selected.items as MenuUtils.MenuItemWithChildren[]));
+		}
+
+		return result;
 	}
 
-	componentDidUpdate(prevProps: Readonly<SlidingMenuProps>): void {
-		// Update the children of the "root" element so that the references are updated
-		const flattenedItems = flattenToMenuItems(this.props.items);
+	const syncMenuTabIndex = useCallback(() => {
+		if (!menuContainerRef.current) {
+			return;
+		}
 
-		if (!MenuUtils.areItemsEqual(flattenedItems, this.state.path[0].items)) {
-			const newPath: MenuUtils.MenuItemWithChildren[] = [
+		if (propsRef.current.keyboardNavMode === "arrow-only") {
+			resetMenuRovingTabIndex(menuContainerRef.current);
+		} else {
+			initDefaultMenuTabIndex(menuContainerRef.current);
+		}
+	}, []);
+
+	const scrollSelectedItemToView = useCallback(() => {
+		if (!propsRef.current.scrollToSelectedItem) {
+			return;
+		}
+
+		const currentPath = pathRef.current;
+		const rootItems = currentPath[0].items;
+		const selectedItem = rootItems.find((item) => item.selected === true);
+
+		if (!selectedItem) {
+			return;
+		}
+
+		const updatedItems = rootItems.map((item) =>
+			item === selectedItem
+				? {
+						...item,
+						wrapperRef: (ref: HTMLLIElement | null): void => {
+							selectedItemNodeRef.current = ref;
+						}
+					}
+				: item
+		);
+		setPath([{ ...currentPath[0], items: updatedItems }]);
+	}, []);
+
+	const navigateBack = useCallback(() => {
+		const currentPath = pathRef.current;
+		const departingItem = currentPath[currentPath.length - 1];
+		const departingLabel =
+			departingItem.label && typeof departingItem.label === "string" ? departingItem.label : departingItem.title;
+
+		pendingNavigationRef.current = { type: "backward", departingLabel };
+		setLastAction("backward");
+		setPath((prev) => prev.slice(0, prev.length - 1));
+	}, []);
+
+	const navigateForward = useCallback((item: MenuUtils.MenuItemWithChildren) => {
+		const currentLast = pathRef.current[pathRef.current.length - 1];
+
+		if (currentLast && MenuUtils.isItemEqual(currentLast, item)) {
+			return;
+		}
+
+		pendingNavigationRef.current = { type: "forward" };
+		setLastAction("forward");
+		setPath((prev) => [...prev, item]);
+	}, []);
+
+	useEffect(() => {
+		if (!propsRef.current.scrollToSelectedItem) {
+			hiddenMainMenuElementRef.current?.focus();
+		} else {
+			shouldScrollRef.current = true;
+			scrollSelectedItemToView();
+		}
+
+		syncMenuTabIndex();
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+	useEffect(() => {
+		if (!isMountedRef.current) {
+			isMountedRef.current = true;
+
+			return;
+		}
+
+		syncMenuTabIndex();
+	}, [props.keyboardNavMode, path.length, syncMenuTabIndex]);
+
+	useEffect(() => {
+		const flattenedItems = flattenToMenuItems(props.items);
+
+		if (!MenuUtils.areItemsEqual(flattenedItems, pathRef.current[0].items)) {
+			const newRootPath: MenuUtils.MenuItemWithChildren[] = [
 				{
 					label: "root",
-					items: isMenuItemList(this.props.items) ? flattenedItems : []
+					items: isMenuItemList(props.items) ? flattenedItems : []
 				}
 			];
-			this.setState(
-				{
-					path: newPath.concat(this.generatePath(flattenedItems as MenuUtils.MenuItemWithChildren[]))
-				},
-				() => {
-					// scroll to selected item when item list is updated from empty to containing-element state
-					// Being used when projects fetch data from store
-					if (prevProps.items.length === 0 && this.props.items.length !== 0) {
-						this.scrollSelectedItemToView();
+			const wasEmpty = prevItemsLengthRef.current === 0 && props.items.length !== 0;
+
+			if (wasEmpty) {
+				shouldScrollRef.current = true;
+			}
+
+			setPath(newRootPath.concat(generatePath(flattenedItems as MenuUtils.MenuItemWithChildren[])));
+		}
+
+		prevItemsLengthRef.current = props.items.length;
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [props.items]);
+
+	useEffect(() => {
+		const pending = pendingNavigationRef.current;
+
+		if (pending) {
+			pendingNavigationRef.current = null;
+			const isArrowOnly = propsRef.current.keyboardNavMode === "arrow-only";
+			const container = wrapperElementRef.current ?? menuContainerRef.current;
+			const menuItems = container ? getNavigableMenuItems(container, isArrowOnly) : [];
+
+			if (pending.type === "forward") {
+				(menuItems[0] ?? menuContainerRef.current)?.focus();
+			} else {
+				const parentItem = pending.departingLabel
+					? menuItems.find((el) => el.textContent?.includes(pending.departingLabel ?? ""))
+					: undefined;
+				const itemToFocus = parentItem ?? menuItems[0];
+
+				if (isArrowOnly && itemToFocus) {
+					const newIndex = menuItems.indexOf(itemToFocus);
+
+					if (newIndex >= 0) {
+						updateMenuRovingTabIndex(menuItems, newIndex);
 					}
 				}
-			);
-		}
-	}
 
-	render(): ReactElement {
-		const transitionName =
-			this.state.lastAction === "forward"
-				? `${baseClassName}__wrapper--rtl`
-				: this.state.lastAction === "backward"
-					? `${baseClassName}__wrapper--ltr`
-					: "";
-
-		const parentItem = this.state.path[this.state.path.length - 1];
-		const backwardItemOverrideProps = parentItem.backwardItemProps;
-		const backwardItemProps = { ...parentItem, ...backwardItemOverrideProps };
-		const items: MenuItem[] =
-			this.state.path.length > 1
-				? [
-						MenuUtils.createMenuItemWrapper({
-							...backwardItemProps,
-							items: undefined,
-							selected: undefined,
-							...this.backwardItem
-						})
-					]
-				: [];
-
-		for (const item of parentItem.items) {
-			items.push(
-				MenuUtils.createMenuItemWrapper(item, (_item) =>
-					this.state.path.some((itemOnPath) => MenuUtils.isItemEqual(itemOnPath, _item))
-				)
-			);
+				itemToFocus?.focus();
+			}
 		}
 
-		return (
-			<MenuContainer
-				style={this.props.style}
-				className={this.props.className}
-				id={this.props.id}
-				wrapperRef={this.getMenuContainer}
-				type="vertical"
-				collapsed={this.props.collapsed}
-				sliding
-				ariaLabel={this.props.mainContainerLabel}
-				useAs={this.props.useAs}
-				onKeyDown={this.handleKeyDown}
-			>
-				<TransitionGroup>
-					<CSSTransition
-						key={this.state.path.length}
-						classNames={transitionName}
-						timeout={100}
-						enter
-						exit
-						onEntered={this.handleEntered}
-						nodeRef={this.wrapperElement}
-					>
-						<MainMenuTpl
-							items={items}
-							type="vertical"
-							onClick={(item: MenuUtils.ItemMenuWrapper, event: MouseEvent<HTMLElement>) => {
-								this.handleClick(item, event);
-							}}
-							sliding
-							key={this.state.path.length}
-							id={this.props.id ? `${this.props.id}_mainmenu` : undefined}
-							collapsed={this.props.collapsed}
-							hiddenMainMenuRef={this.getHiddenElement}
-							wrapperRef={this.getMainMenuRef}
-						/>
-					</CSSTransition>
-				</TransitionGroup>
-			</MenuContainer>
+		if (shouldScrollRef.current) {
+			shouldScrollRef.current = false;
+			selectedItemNodeRef.current?.scrollIntoView({ block: "center" });
+		}
+	}, [path]);
+
+	const handleEntered = useCallback(() => {
+		if (menuContainerRef.current?.contains(document.activeElement)) {
+			hiddenMainMenuElementRef.current?.focus();
+		}
+	}, []);
+
+	const handleKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLElement>) => {
+			propsRef.current.handleSlidingMenuKeyDown(event, {
+				menuContainer: menuContainerRef.current,
+				path: pathRef.current,
+				navigateBack,
+				navigateForward,
+				onTabOut: propsRef.current.onTabOut,
+				keyboardNavMode: propsRef.current.keyboardNavMode
+			});
+		},
+		[navigateBack, navigateForward]
+	);
+
+	const handleClick = useCallback(
+		(item: MenuUtils.ItemMenuWrapper, event: MouseEvent<HTMLElement>) => {
+			const { id: menuId } = propsRef.current;
+			const originItem = item.origin;
+			const menuWrapper = menuContainerRef.current;
+			const wrapperElement = wrapperElementRef;
+			const currentPath = pathRef.current;
+
+			const currentParentPath = currentPath[currentPath.length - 1];
+			const backwardLabel = currentParentPath.backwardItemProps?.label ?? currentParentPath.label;
+			const backwardIcon = currentParentPath.backwardItemProps?.icon ?? (
+				<Icon title={contextRef.current.menuTitles?.closeSubMenu}>chevron_left</Icon>
+			);
+
+			if (originItem.label === backwardLabel && originItem.icon && isSimilarNode(originItem.icon, backwardIcon)) {
+				navigateBack();
+			} else if (originItem.items !== undefined) {
+				navigateForward(originItem as MenuUtils.MenuItemWithChildren);
+			}
+
+			if (originItem.onClick) {
+				originItem.onClick(event);
+			}
+
+			const path = currentPath[currentPath.length - 1];
+
+			function handleFocus(isBackward = false): void {
+				const isUsingProvidedId = !!originItem.id;
+				const isUsingDefaultStaticId = !!(
+					menuId &&
+					((originItem.label && typeof originItem.label === "string") || originItem.title) &&
+					item.id
+				);
+
+				if (isUsingProvidedId || isUsingDefaultStaticId) {
+					const parentLabel = path.label && typeof path.label === "string" ? path.label : path.title;
+					const itemsContainer = wrapperElement.current ?? menuWrapper;
+					const menuItems = [...(itemsContainer?.querySelectorAll(`[data-role="${DataRoles.Menu.Item}"]`) ?? [])];
+					const parentItem = menuItems.find((el) => el.textContent?.includes(parentLabel ?? ""));
+					const firstItemOnSubMenu = menuItems[0];
+					const itemToFocus = (isBackward ? parentItem : firstItemOnSubMenu) as HTMLElement;
+
+					if (!itemToFocus) {
+						return;
+					}
+
+					itemToFocus.focus();
+
+					menuWrapper?.addEventListener(
+						"transitionend",
+						() => {
+							if (!isVisibleOnScreen(itemToFocus)) {
+								itemToFocus.scrollIntoView({ block: "center", behavior: "smooth" });
+							}
+						},
+						{ once: true }
+					);
+				} else {
+					menuWrapper?.focus();
+				}
+			}
+
+			// Defer focus by one microtask so React has flushed the path state update before we query the DOM.
+			if (originItem.items !== undefined || originItem.label === backwardLabel) {
+				void Promise.resolve().then(() => handleFocus(originItem.label === backwardLabel));
+			}
+		},
+		[navigateBack, navigateForward]
+	);
+
+	const renderParentItem = path[path.length - 1];
+	const backwardItemOverrideProps = renderParentItem.backwardItemProps;
+	const backwardItemMergedProps = { ...renderParentItem, ...backwardItemOverrideProps };
+	const backwardItemLabel: ReactNode = renderParentItem.backwardItemProps?.label ?? renderParentItem.label;
+	const backwardItemIcon: ReactNode = renderParentItem.backwardItemProps?.icon ?? (
+		<Icon title={context.menuTitles?.closeSubMenu}>chevron_left</Icon>
+	);
+
+	const transitionName =
+		lastAction === "forward"
+			? `${baseClassName}__wrapper--rtl`
+			: lastAction === "backward"
+				? `${baseClassName}__wrapper--ltr`
+				: "";
+
+	const renderedItems: MenuItem[] =
+		path.length > 1
+			? [
+					MenuUtils.createMenuItemWrapper({
+						...backwardItemMergedProps,
+						items: undefined,
+						selected: undefined,
+						label: backwardItemLabel,
+						icon: backwardItemIcon
+					})
+				]
+			: [];
+
+	for (const item of renderParentItem.items) {
+		renderedItems.push(
+			MenuUtils.createMenuItemWrapper(item, (_item) =>
+				path.some((itemOnPath) => MenuUtils.isItemEqual(itemOnPath, _item))
+			)
 		);
 	}
 
-	private getMainMenuRef(ref: HTMLDivElement | null): void {
-		this.wrapperElement.current = ref;
-	}
-
-	private handleEntered(): void {
-		this.hiddenMainMenuElement?.focus();
-	}
-
-	private getHiddenElement(ref: HTMLElement | null): void {
-		this.hiddenMainMenuElement = ref;
-	}
-
-	private getMenuContainer(ref: HTMLElement | null): void {
-		this.menuContainer = ref;
-		this.props.wrapperRef?.(ref);
-	}
-
-	private handleKeyDown(event: KeyboardEvent<HTMLElement>): void {
-		if (this.menuContainer && event.target && event.key === Key.Tab && !event.shiftKey) {
-			if (isLastFocusableElement(this.menuContainer, event.target as HTMLElement)) {
-				this.props.onTabOut?.(event);
-			}
-		}
-	}
-
-	private scrollSelectedItemToView(): void {
-		if (this.props.scrollToSelectedItem) {
-			const items = this.state.path[0].items;
-			const selectedItem = items.find((item) => item.selected === true);
-
-			if (selectedItem) {
-				selectedItem.wrapperRef = (ref: HTMLLIElement | null) => {
-					this.selectedItemNode = ref;
-				};
-
-				this.setState(
-					{
-						path: [
-							{
-								...this.state.path[0],
-								items: items
-							}
-						]
-					},
-					() => {
-						this.selectedItemNode?.scrollIntoView({ block: "center" });
-					}
-				);
-			}
-		}
-	}
-
-	private handleClick(item: MenuUtils.ItemMenuWrapper, event: MouseEvent<HTMLElement>): void {
-		const { id: menuId } = this.props;
-		const originItem = item.origin;
-		const menuWrapper = this.menuContainer;
-
-		if (
-			originItem.label === this.backwardItem.label &&
-			originItem.icon &&
-			isSimilarNode(originItem.icon, this.backwardItem.icon)
-		) {
-			this.setState(
-				(state: SlidingMenuState) => {
-					return {
-						lastAction: "backward",
-						path: state.path.slice(0, state.path.length - 1)
-					};
-				},
-				() => handleFocus(true)
-			);
-		} else {
-			if (originItem.items !== undefined) {
-				this.setState(
-					(state: SlidingMenuState) => {
-						return {
-							lastAction: "forward",
-							path: [...state.path, originItem as MenuUtils.MenuItemWithChildren]
-						};
-					},
-					() => handleFocus()
-				);
-			}
-		}
-
-		if (originItem.onClick) {
-			originItem.onClick(event);
-		}
-
-		const path = this.state.path[this.state.path.length - 1];
-
-		function handleFocus(isBackward = false): void {
-			// Menu item's id is provided by users
-			const isUsingProvidedId = !!originItem.id;
-
-			// If `id` for `MenuItem` is not given, it will be generated by the combination of item's label/title and menu's id.
-			// This static id will be used to set focus if `isUsingProvidedId` is false.
-			const isUsingDefaultStaticId = !!(
-				menuId &&
-				((originItem.label && typeof originItem.label === "string") || originItem.title) &&
-				item.id
-			);
-
-			if (isUsingProvidedId || isUsingDefaultStaticId) {
-				const parentLabel = path.label && typeof path.label === "string" ? path.label : path.title;
-				const menuItems = [...(menuWrapper?.querySelectorAll(`[data-role="${DataRoles.Menu.Item}"]`) ?? [])];
-				const parentItem = menuItems.find((el) => el.textContent?.includes(parentLabel ?? ""));
-				const firstItemOnSubMenu = menuItems[0];
-				const itemToFocus = (isBackward ? parentItem : firstItemOnSubMenu) as HTMLElement;
-
-				if (!itemToFocus) {
-					return;
-				}
-
-				itemToFocus.focus();
-
-				// the menu is using animation with duration of 100ms, so we run this after the animation ends to ensure the item is visible on screen
-				menuWrapper?.addEventListener(
-					"transitionend",
-					() => {
-						if (!isVisibleOnScreen(itemToFocus)) {
-							itemToFocus.scrollIntoView({ block: "center", behavior: "smooth" });
-						}
-					},
-					{ once: true }
-				);
-			} else {
-				// If `id` is generated randomly by default, focus on the nav wrapper instead
-				menuWrapper?.focus();
-			}
-		}
-	}
-
-	private generatePath(items: MenuUtils.MenuItemWithChildren[]): MenuUtils.MenuItemWithChildren[] {
-		const path: MenuUtils.MenuItemWithChildren[] = [];
-		const selected = items.find((item) => !!item.selected); // search selected item
-
-		if (selected && selected.items) {
-			// found selected item
-			path.push(selected as MenuUtils.MenuItemWithChildren);
-
-			return path.concat(this.generatePath(selected.items as MenuUtils.MenuItemWithChildren[]));
-		}
-
-		return path;
-	}
+	return (
+		<MenuContainer
+			style={props.style}
+			className={props.className}
+			id={props.id}
+			wrapperRef={(ref: HTMLElement | null) => {
+				menuContainerRef.current = ref;
+				props.wrapperRef?.(ref);
+			}}
+			type="vertical"
+			collapsed={props.collapsed}
+			sliding
+			ariaLabel={props.mainContainerLabel}
+			useAs={props.useAs}
+			onKeyDown={handleKeyDown}
+		>
+			<TransitionGroup>
+				<CSSTransition
+					key={path.length}
+					classNames={transitionName}
+					timeout={100}
+					enter
+					exit
+					onEntered={handleEntered}
+					nodeRef={wrapperElementRef}
+				>
+					<MainMenuTpl
+						items={renderedItems}
+						type="vertical"
+						onClick={handleClick}
+						sliding
+						key={path.length}
+						id={props.id ? `${props.id}_mainmenu` : undefined}
+						collapsed={props.collapsed}
+						hiddenMainMenuRef={(ref: HTMLElement | null) => {
+							hiddenMainMenuElementRef.current = ref;
+						}}
+						wrapperRef={(ref: HTMLDivElement | null) => {
+							wrapperElementRef.current = ref;
+						}}
+					/>
+				</CSSTransition>
+			</TransitionGroup>
+		</MenuContainer>
+	);
 }
 
-SlidingMenuInternal.contextType = A11YLanguageContext;
+SlidingMenuInternal.displayName = "SlidingMenu";
 
-const SlidingMenuComponent = SlidingMenuInternal;
-SlidingMenuComponent.displayName = "SlidingMenu";
+const SlidingMenuWithKeyboardNav: FC<SlidingMenuProps> = (props) => {
+	const keyboardNavMode = useKeyboardNavigationMode("slidingMenu");
+	const { handleSlidingMenuKeyDown } = useSlidingMenuKeyboard();
 
-function SlidingMenuMainWrapper(
+	return (
+		<SlidingMenuInternal
+			{...props}
+			keyboardNavMode={keyboardNavMode}
+			handleSlidingMenuKeyDown={handleSlidingMenuKeyDown}
+		/>
+	);
+};
+
+SlidingMenuWithKeyboardNav.displayName = "SlidingMenu";
+
+export function SlidingMenuMainWrapper(
 	props: SlidingMenuProps.MainWrapperProps
 ): ReactElement<SlidingMenuProps.MainWrapperProps> {
 	const [topDistance, setTopDistance] = useState<number>();
@@ -440,6 +533,9 @@ function SlidingMenuMainWrapper(
 
 SlidingMenuMainWrapper.displayName = "SlidingMenu.MainWrapper";
 
-export const SlidingMenu = Object.assign(SlidingMenuComponent, {
-	MainWrapper: SlidingMenuMainWrapper
-});
+export const SlidingMenu: FC<SlidingMenuProps> & { MainWrapper: typeof SlidingMenuMainWrapper } = Object.assign(
+	SlidingMenuWithKeyboardNav,
+	{
+		MainWrapper: SlidingMenuMainWrapper
+	}
+);

@@ -32,7 +32,8 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -512,7 +513,8 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -540,6 +542,16 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
+}
+
+.c27:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c27:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
 }
 
 .c27 .c31 {
@@ -803,6 +815,13 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   color: rgb(77, 77, 77);
 }
 
+.c28 [data-role="year-selector"] {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0px;
+  width: calc(72px);
+}
+
 .c43 {
   height: 40px;
   width: 40px;
@@ -1036,16 +1055,6 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, -3px, 0px);
@@ -1056,25 +1065,35 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div>
   <div
     class="c0 field-wrapper field-wrapper--block "
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c1 c2 field__main"
     >
       <div
         class="c3 c4 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <div
           class="c5 c6 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c7 c8 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <button
               aria-label="Select a date"
@@ -1110,7 +1129,7 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
           />
           <input
             class="c15 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-date-input-input"
             type="text"
             value=""
@@ -1183,6 +1202,7 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
                 data-mode="single"
                 data-required="false"
                 data-role="date-picker"
+                lang="en-US"
               >
                 <div
                   class="DayPicker-Months"
@@ -1336,130 +1356,47 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
                             </div>
                           </div>
                           <div
-                            class="c3 c4 field field--block year-selector"
+                            class=""
                             data-role="year-selector"
                           >
-                            <label
-                              class="c31 c32 label field__label -u-unseenButRead"
-                              data-role="year-selector-label"
-                            >
-                              Year
-                            </label>
                             <div
-                              class="c33 c34 field__select"
-                              data-role="year-selector-control"
+                              class="c0 field-wrapper field-wrapper--block"
+                              data-role="text-field"
                             >
                               <div
-                                class="c35 c36 field__select-wrapper"
-                                data-role="year-selector-wrapper"
+                                class="c1 c2 field__main"
                               >
-                                <select
-                                  class="c37 c38 field__selectTitle"
-                                  data-role="year-selector-input"
+                                <div
+                                  class="c3 c4 field"
+                                  data-role="text-field-control"
                                 >
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2016"
+                                  <label
+                                    class="c31 c32 label field__label -u-unseenButRead"
+                                    data-role="text-field-label"
                                   >
-                                    2016
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2017"
+                                    Year
+                                  </label>
+                                  <div
+                                    class="c5 c6 field__input"
+                                    data-role="text-field-input-wrapper"
                                   >
-                                    2017
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2018"
-                                  >
-                                    2018
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2019"
-                                  >
-                                    2019
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2020"
-                                  >
-                                    2020
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2021"
-                                  >
-                                    2021
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2022"
-                                  >
-                                    2022
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2023"
-                                  >
-                                    2023
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2024"
-                                  >
-                                    2024
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2025"
-                                  >
-                                    2025
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2026"
-                                  >
-                                    2026
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2027"
-                                  >
-                                    2027
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2028"
-                                  >
-                                    2028
-                                  </option>
-                                  <option
-                                    class="c39 c40 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2029"
-                                  >
-                                    2029
-                                  </option>
-                                </select>
-                                <span
-                                  aria-hidden="true"
-                                  class="c41 c42 field__select-arrow"
-                                />
+                                    <span
+                                      class="c14 supported-unseen-span"
+                                    />
+                                    <input
+                                      class="c15 field__text"
+                                      data-role="year-selector-input"
+                                      inputmode="numeric"
+                                      maxlength="4"
+                                      pattern="[0-9]*"
+                                      type="text"
+                                      value="2022"
+                                    />
+                                    <span
+                                      class="c14 supported-unseen-span"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2303,7 +2240,8 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2615,16 +2553,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, -3px, 0px);
@@ -2635,20 +2563,30 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 field-wrapper field-wrapper--block "
-  data-role="textline"
+  data-role="text-field"
 >
   <div
     class="c1 c2 field__main"
   >
     <div
       class="c3 c4 field"
-      data-role="textline-control"
+      data-role="text-field-control"
     >
       <label
         class="c5 c6 label field__label"
-        data-role="textline-label"
+        data-role="text-field-label"
         for="test-date-input-input"
         id="test-date-input-input-label"
       >
@@ -2662,11 +2600,11 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
       </label>
       <div
         class="c8 c9 field__input"
-        data-role="textline-input-wrapper"
+        data-role="text-field-input-wrapper"
       >
         <div
           class="c10 c11 field__prefix field__prefix--last"
-          data-role="textline-prefix-0"
+          data-role="text-field-prefix-0"
         >
           <button
             aria-label="Select a date"
@@ -2702,7 +2640,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
         />
         <input
           class="c18 field__text"
-          data-role="textline-input"
+          data-role="text-field-input"
           id="test-date-input-input"
           placeholder="test placeholder"
           type="text"
@@ -2717,7 +2655,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
 </div>
 `;
 
-exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextLineStatelessProps 1`] = `
+exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextFieldProps 1`] = `
 .c9 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
@@ -2941,16 +2879,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextLine
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, -3px, 0px);
@@ -2961,30 +2889,40 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextLine
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 field-wrapper field-wrapper--block required-classname"
-  data-role="textline"
+  data-role="text-field"
 >
   <div
     class="c1 c2 field__main"
   >
     <div
       class="c3 field-addon field-addon--before"
-      data-role="textline--addon-before-0"
+      data-role="text-field--addon-before-0"
     >
       addonBefore
     </div>
     <div
       class="c4 c5 field"
-      data-role="textline-control"
+      data-role="text-field-control"
     >
       <div
         class="c6 field__input"
-        data-role="textline-input-wrapper"
+        data-role="text-field-input-wrapper"
       >
         <div
           class="c7 field__prefix field__prefix--last"
-          data-role="textline-prefix-0"
+          data-role="text-field-prefix-0"
         >
           <span
             class="c8 counter"
@@ -3011,7 +2949,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextLine
         />
         <input
           class="c12 field__text field__text--align-right"
-          data-role="textline-input"
+          data-role="text-field-input"
           id="test-date-input-input"
           type="text"
           value=""
@@ -3021,11 +2959,11 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextLine
         />
         <div
           class="c13 field__suffix field__suffix--first -u-background-transparent"
-          data-role="textline-suffix-0"
+          data-role="text-field-suffix-0"
         >
           <div
             class="c14 c15 field__affix-text"
-            data-role="textline-text-affix"
+            data-role="text-field-text-affix"
             id="mmoll"
             title="mmol/l"
           >
@@ -3038,7 +2976,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextLine
     </div>
     <div
       class="c16 field-addon field-addon--after"
-      data-role="textline--addon-after-0"
+      data-role="text-field--addon-after-0"
     >
       addonAfter
     </div>
@@ -3071,7 +3009,8 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3294,16 +3233,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, -3px, 0px);
@@ -3314,24 +3243,34 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 field-wrapper field-wrapper--block "
-  data-role="textline"
+  data-role="text-field"
 >
   <div
     class="c1 c2 field__main"
   >
     <div
       class="c3 c4 field"
-      data-role="textline-control"
+      data-role="text-field-control"
     >
       <div
         class="c5 field__input"
-        data-role="textline-input-wrapper"
+        data-role="text-field-input-wrapper"
       >
         <div
           class="c6 field__prefix field__prefix--last"
-          data-role="textline-prefix-0"
+          data-role="text-field-prefix-0"
         >
           <button
             aria-label="Select a date"
@@ -3367,7 +3306,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
         />
         <input
           class="c13 field__text"
-          data-role="textline-input"
+          data-role="text-field-input"
           id="test-date-input-input"
           type="text"
           value=""
@@ -3406,7 +3345,8 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3639,16 +3579,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   cursor: default;
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, -3px, 0px);
@@ -3659,25 +3589,35 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 field-wrapper field-wrapper--block "
-  data-role="textline"
+  data-role="text-field"
 >
   <div
     class="c1 c2 field__main"
   >
     <div
       class="c3 c4 field"
-      data-role="textline-control"
+      data-role="text-field-control"
     >
       <div
         class="c5 c6 field__input field__input--disabled"
         data-disabled="true"
-        data-role="textline-input-wrapper"
+        data-role="text-field-input-wrapper"
       >
         <div
           class="c7 c8 field__prefix field__prefix--last"
-          data-role="textline-prefix-0"
+          data-role="text-field-prefix-0"
         >
           <button
             aria-label="Select a date"
@@ -3714,7 +3654,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
         />
         <input
           class="c15 field__text"
-          data-role="textline-input"
+          data-role="text-field-input"
           disabled=""
           id="test-date-input-input"
           type="text"
@@ -3754,7 +3694,8 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3991,16 +3932,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   cursor: default;
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, -3px, 0px);
@@ -4011,25 +3942,35 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 field-wrapper field-wrapper--block "
-  data-role="textline"
+  data-role="text-field"
 >
   <div
     class="c1 c2 field__main"
   >
     <div
       class="c3 c4 field"
-      data-role="textline-control"
+      data-role="text-field-control"
     >
       <div
         class="c5 c6 field__input field__input--readonly"
         data-readonly="true"
-        data-role="textline-input-wrapper"
+        data-role="text-field-input-wrapper"
       >
         <div
           class="c7 c8 field__prefix field__prefix--last"
-          data-role="textline-prefix-0"
+          data-role="text-field-prefix-0"
         >
           <button
             aria-label="Select a date"
@@ -4066,7 +4007,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
         />
         <input
           class="c15 field__text"
-          data-role="textline-input"
+          data-role="text-field-input"
           id="test-date-input-input"
           readonly=""
           tabindex="-1"

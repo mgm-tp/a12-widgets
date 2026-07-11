@@ -45,11 +45,13 @@ import { Key } from "ts-key-enum";
 import { beforeAll, describe, expect, test, vi } from "vitest";
 import { useState } from "react";
 import { userEvent } from "vitest/browser";
+import type { ReactNode } from "react";
 
 import { Icon } from "../../../icon/main/icon.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { inputWithSuffixName } from "../../../common/main/utils.js";
 import { TextField } from "../../text-field/text-field.view.js";
+import type { DropDownItem } from "../../../dropdown/main/template/dropdown.tpl.api.js";
 
 import { CustomSelect } from "../main/custom-select.view.js";
 import type { CustomSelectProps } from "../main/select.api.js";
@@ -704,9 +706,9 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 
 			const { baseElement } = render(<TestComponent />);
 
-			const textInput = getByDataRole(baseElement, DataRoles.Textline.Input);
+			const textInput = getByDataRole(baseElement, DataRoles.TextField.Input);
 			const selectInput = getByDataRole(baseElement, DataRoles.Select.Input);
-			expect(queryByDataRole(baseElement, DataRoles.Textline.ErrorMessage)).toBeNull();
+			expect(queryByDataRole(baseElement, DataRoles.TextField.ErrorMessage)).toBeNull();
 
 			await userEvent.click(textInput);
 
@@ -714,7 +716,7 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 
 			await userEvent.click(selectInput);
 
-			const errorMessage = await findByDataRole(baseElement, DataRoles.Textline.ErrorMessage);
+			const errorMessage = await findByDataRole(baseElement, DataRoles.TextField.ErrorMessage);
 			expect(errorMessage).toBeInTheDocument();
 
 			const dropdown = await findByDataRole(baseElement, DataRoles.Dropdown);
@@ -722,6 +724,33 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 
 			const dropdownItems = await findAllByDataRole(baseElement, DataRoles.Dropdown.Item);
 			expect(dropdownItems.length).toBeGreaterThan(0);
+		});
+
+		test("should render rich content with `labelRenderer`", async () => {
+			const customLabelRenderer = (item: DropDownItem): ReactNode => (
+				<div className="rich-label">
+					<span className="label-text">{item.label}</span>
+					{item.disabled ? (
+						<span className="label-unavailable">Unavailable</span>
+					) : (
+						<span className="label-available">Available</span>
+					)}
+				</div>
+			);
+
+			const { getByDataRole, findByDataRole } = render(
+				<CustomSelect items={ITEMS} labelRenderer={customLabelRenderer} />
+			);
+
+			const inputWrapper = getByDataRole(DataRoles.Select.Wrapper);
+			await userEvent.click(inputWrapper);
+
+			const dropdown = await findByDataRole(DataRoles.Dropdown);
+
+			expect(dropdown.querySelector(".rich-label")).toBeTruthy();
+			expect(dropdown.querySelector(".label-text")).toBeTruthy();
+			expect(dropdown.querySelector(".label-available")).toBeTruthy();
+			expect(dropdown.querySelector(".label-unavailable")).toBeTruthy();
 		});
 	});
 
@@ -949,7 +978,7 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 
 			expect(getByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
 
-			fireEvent.keyDown(getByDataRole(container, DataRoles.Textline.Input.Wrapper), { key: Key.Escape });
+			fireEvent.keyDown(getByDataRole(container, DataRoles.TextField.Input.Wrapper), { key: Key.Escape });
 
 			expect(queryByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
 			expect(onModalCloseSpy).not.toHaveBeenCalled();
@@ -972,11 +1001,11 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 
 			await userEvent.click(inputWrapper);
 
-			const modalInput = getByDataRole(container, DataRoles.Textline);
+			const modalInput = getByDataRole(container, DataRoles.TextField);
 
 			expect(modalInput).toMatchSnapshot();
 
-			const graphic = getByDataRole(modalInput, `${DataRoles.Textline.Prefix}-0`);
+			const graphic = getByDataRole(modalInput, `${DataRoles.TextField.Prefix}-0`);
 
 			expect(graphic).toBeTruthy();
 
@@ -1002,9 +1031,9 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 
 			await userEvent.click(inputWrapper);
 
-			const modalInput = getByDataRole(container, DataRoles.Textline);
+			const modalInput = getByDataRole(container, DataRoles.TextField);
 
-			const graphic = queryByDataRole(modalInput, `${DataRoles.Textline.Prefix}-0`);
+			const graphic = queryByDataRole(modalInput, `${DataRoles.TextField.Prefix}-0`);
 
 			expect(graphic).toBeFalsy();
 
@@ -1030,16 +1059,58 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 
 			await userEvent.click(inputWrapper);
 
-			expect(getByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
+			expect(await findByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
 
-			const modalInput = getByDataRole(container, DataRoles.Textline);
+			const modalInput = getByDataRole(container, DataRoles.TextField);
 
 			// Verify the input has the empty value
-			const input = getByDataRole(modalInput, DataRoles.Textline.Input) as HTMLInputElement;
+			const input = getByDataRole(modalInput, DataRoles.TextField.Input) as HTMLInputElement;
 			expect(input.value).toBe("Empty");
 
 			// Verify snapshot includes empty styles
 			expect(modalInput).toMatchSnapshot();
+		});
+
+		test("should render rich content with `labelRenderer`", async () => {
+			const customLabelRenderer = (item: DropDownItem): ReactNode => (
+				<div className="rich-label-mobile">
+					<span className="label-text">{item.label}</span>
+					{item.disabled ? (
+						<span className="label-unavailable">Unavailable</span>
+					) : (
+						<span className="label-available">Available</span>
+					)}
+				</div>
+			);
+
+			const { getByDataRole, findByDataRole } = render(
+				<CustomSelect items={ITEMS} labelRenderer={customLabelRenderer} />
+			);
+
+			const inputWrapper = getByDataRole(DataRoles.Select.Wrapper);
+			await userEvent.click(inputWrapper);
+
+			const dropdown = await findByDataRole(DataRoles.Dropdown);
+
+			expect(dropdown.querySelector(".rich-label-mobile")).toBeTruthy();
+			expect(dropdown.querySelector(".label-text")).toBeTruthy();
+			expect(dropdown.querySelector(".label-available")).toBeTruthy();
+			expect(dropdown.querySelector(".label-unavailable")).toBeTruthy();
+
+			const modal = getByDataRole(DataRoles.Modal.Overlay);
+			const richLabelWrapper = queryByDataRole(modal, DataRoles.Select.RichLabel.Wrapper);
+			expect(richLabelWrapper).toBeTruthy();
+
+			const prefixGraphic = queryByDataRole(modal, `${DataRoles.TextField.Prefix}-0`);
+
+			if (richLabelWrapper && prefixGraphic) {
+				const prefixStyles = window.getComputedStyle(prefixGraphic);
+
+				// Verify computed styles for left positioning to prevent graphic overlap
+				const richLabelStyles = window.getComputedStyle(richLabelWrapper);
+				expect(richLabelStyles.left).toBe(prefixStyles.width);
+				expect(richLabelStyles.paddingLeft).toBe("0px");
+			}
 		});
 	});
 });

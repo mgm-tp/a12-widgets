@@ -57,7 +57,7 @@ export function FilterBarMobile(props: FilterBarMobileProps): ReactElement<Filte
 	return (
 		<StyledMobileFilterBarWrapper disabled={disabled} className={classNames} {...rest} data-role={DataRoles.Filterbar}>
 			<StyledMobileFilterBarContent
-				mobile
+				$mobile
 				className={`${baseClassName}__content`}
 				data-role={DataRoles.Filterbar.Content}
 			>

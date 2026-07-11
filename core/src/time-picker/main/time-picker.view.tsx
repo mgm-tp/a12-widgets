@@ -31,10 +31,11 @@
  */
 
 import type { FC, ReactElement, ContextType, ReactNode } from "react";
-import { useMemo, useCallback, Component } from "react";
+import { useContext, useMemo, useCallback, Component } from "react";
 
 import { addPrefix, bindMethods, StringUtils } from "../../common/main/utils.js";
 import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
+import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { TimeUtils } from "../../common/main/date-time/time-utils.js";
 import { provider } from "../../common/main/device-detector.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
@@ -53,7 +54,18 @@ import { createDefaultTimeFormatter, createDefaultTimeConverter, Header } from "
 import { StyledTimePickerText, StyledTimePickerWrapper } from "./time-picker.styled.js";
 
 export const TimePicker: FC<TimePickerProps> = (props): ReactElement => {
-	const { value: valueTZ, onChange, timezone, customHeaderElement, mode, timeConverter, timeFormatter } = props;
+	const {
+		value: valueTZ,
+		onChange,
+		timezone,
+		customHeaderElement,
+		mode: modeProp,
+		timeConverter,
+		timeFormatter
+	} = props;
+	const { timeMode: contextTimeMode } = useContext(DateTimeContext);
+	const mode = modeProp ?? contextTimeMode;
+	const placeholder = props.placeholder ?? TimeUtils.getTimeFormat(mode);
 	const { convertDate } = useMemo(() => DateTimeUtils.createTimezoneConverter(timezone), [timezone]);
 
 	const value = useMemo(() => {
@@ -91,6 +103,8 @@ export const TimePicker: FC<TimePickerProps> = (props): ReactElement => {
 	return (
 		<TimePickerUTC
 			{...props}
+			placeholder={placeholder}
+			mode={mode}
 			value={value}
 			onChange={_onChange}
 			timeConverter={_timeConverter}

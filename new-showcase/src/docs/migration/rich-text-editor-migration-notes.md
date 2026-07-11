@@ -25,7 +25,7 @@
    import { BoldButton, ItalicButton } from "@com.mgmtp.a12.widgets/widgets-draft-js-editor";
 
    // AFTER
-   import { BoldButton, ItalicButton } from "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/index.js";
+   import { BoldButton, ItalicButton } from "@com.mgmtp.a12.widgets/widgets-core";
    ```
 
 2. **Update Configuration**
@@ -75,7 +75,7 @@
 
 - To use the standard theme for Rich Text Editor, you need to import the CSS file:
   ```tsx
-  import "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css";
+  import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
   ```
 
 ### Plugin
@@ -89,11 +89,7 @@
    import { createMentionPlugin, Editor, Mention } from "@com.mgmtp.a12.widgets/widgets-core/lib/editor";
 
    // AFTER
-   import {
-   	MentionNode,
-   	MentionPlugin,
-   	RichTextEditor
-   } from "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/index.js";
+   import { MentionNode, MentionPlugin, RichTextEditor } from "@com.mgmtp.a12.widgets/widgets-core";
    ```
 
 2. **Update component usage**
@@ -164,11 +160,7 @@
    // AFTER
    import { $createParagraphNode, $createTextNode, $getRoot } from "lexical";
    import { AutoLinkNode, LinkNode } from "@lexical/link";
-   import {
-   	AutoLinkPlugin,
-   	createFollowLinkPopupPlugin,
-   	RichTextEditor
-   } from "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/index.js";
+   import { AutoLinkPlugin, createFollowLinkPopupPlugin, RichTextEditor } from "@com.mgmtp.a12.widgets/widgets-core";
    ```
 
 3. **Update configuration**
@@ -284,10 +276,7 @@
    } from "@com.mgmtp.a12.widgets/widgets-core/lib/pop-up-menu/main/popup-menu.styled";
 
    // AFTER
-   import {
-   	createSpellCheckPlugin,
-   	RichTextEditor
-   } from "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/index.js";
+   import { createSpellCheckPlugin, RichTextEditor } from "@com.mgmtp.a12.widgets/widgets-core";
    ```
 
 2. **Update Component Usage**
@@ -380,10 +369,7 @@ import { EditorState } from "draft-js";
 import { createTooltipPlugin, Editor } from "@com.mgmtp.a12.widgets/widgets-core/lib/editor";
 
 // AFTER
-import {
-	createTooltipPlugin,
-	RichTextEditor
-} from "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/index.js";
+import { createTooltipPlugin, RichTextEditor } from "@com.mgmtp.a12.widgets/widgets-core";
 ```
 
 2. **Update configuration**
@@ -495,12 +481,9 @@ const TooltipPluginEditor = () => {
   // AFTER
   import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
   import { $isTextNode } from "lexical";
-  import "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/main/themes/rich-text-editor.css";
+  import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 
-  import {
-  	InlineStyleTextNode,
-  	RichTextEditor
-  } from "@com.mgmtp.a12.widgets/widgets-core/lib/experimental/rich-text-editor/index.js";
+  import { InlineStyleTextNode, RichTextEditor } from "@com.mgmtp.a12.widgets/widgets-core";
 
   export const CustomPluginEditor = () => {
   	return (

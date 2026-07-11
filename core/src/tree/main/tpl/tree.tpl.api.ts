@@ -389,6 +389,18 @@ export interface ArrowButtonProps extends Styleable, Identifiable, HTMLAttribute
 	disabled?: boolean;
 
 	/**
+	 * Whether the arrow button shows a loading indicator instead of the chevron. Used while a node's
+	 * children are being fetched lazily. The button is non-interactive while loading.
+	 */
+	loading?: boolean;
+
+	/**
+	 * tabIndex for the arrow button element.
+	 * Set to -1 in arrow-only keyboard navigation mode to remove it from Tab order.
+	 */
+	tabIndex?: number;
+
+	/**
 	 * A handler when clicking on the arrow button.
 	 */
 	onToggleExpansion(event?: MouseEvent<HTMLElement>): void;

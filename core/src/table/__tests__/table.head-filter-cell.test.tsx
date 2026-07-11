@@ -35,9 +35,9 @@ import { describe, vi, expect, test } from "vitest";
 
 import { noop } from "../../common/main/utils.js";
 
-import type { BaseColumnType, Column } from "../new-api/column.api.js";
-import { TableInternalUtils } from "../new-api/table.utils.js";
-import { DefaultTableComponentRenderers, HeadFilterCell, TableContextProvider } from "../new-api/table.view.js";
+import type { BaseColumnType, Column } from "../main/column.api.js";
+import { TableInternalUtils } from "../main/table.utils.js";
+import { DefaultTableComponentRenderers, HeadFilterCell, TableContextProvider } from "../main/table.view.js";
 
 describe("com.mgmtp.a12.widgets.table.head-filter-cell", () => {
 	type ColumnType = BaseColumnType;

@@ -52,7 +52,7 @@ import type { Orientation } from "../../common/main/alignment.js";
 import { ORIENTATION_LIST } from "../../common/main/alignment.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import { StyledTooltipContainer, StyledTooltipContent, StyledTooltipWrapper } from "./tooltip.styled.js";
+import { StyledTooltipContainer, StyledTooltipContent, StyledTooltipTriggerWrapper } from "./tooltip.styled.js";
 import type { TooltipProps } from "./tooltip.api.js";
 
 const baseClassName = addPrefix("tooltip");
@@ -330,12 +330,12 @@ export function Tooltip(props: TooltipProps): ReactElement<TooltipProps> {
 	);
 
 	return (
-		<StyledTooltipWrapper
+		<StyledTooltipTriggerWrapper
 			id={props.id}
 			style={props.style}
 			className={classNames}
 			ref={getTriggerElementWrapper}
-			data-role={props.dataRole ?? DataRoles.Tooltip}
+			data-role={props.dataRole ?? DataRoles.Tooltip.TriggerWrapper}
 			role="tooltip"
 			title=""
 			$variant={props.variant}
@@ -347,7 +347,7 @@ export function Tooltip(props: TooltipProps): ReactElement<TooltipProps> {
 				onClick: handleClickEvent
 			})}
 			{triggerElement.current && show && !props.disabled ? tooltipContent : undefined}
-		</StyledTooltipWrapper>
+		</StyledTooltipTriggerWrapper>
 	);
 }
 

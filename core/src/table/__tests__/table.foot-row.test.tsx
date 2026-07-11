@@ -33,8 +33,8 @@
 import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { FootRow } from "../new-api/table.foot-row.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { FootRow } from "../main/table.foot-row.view.js";
 
 describe("com.mgmtp.a12.widgets.table.foot-row", () => {
 	test("default footer row", () => {

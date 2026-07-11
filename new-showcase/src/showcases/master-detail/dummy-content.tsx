@@ -120,7 +120,7 @@ export const DummyContent: FC<DummyContentProps> = (props: DummyContentProps) =>
 			<TextField
 				key="input"
 				className="-u-margin-t-base"
-				label="Sample Textline"
+				label="Sample TextField"
 				value={value}
 				onChange={(event) => setValue(event.target.value)}
 			/>

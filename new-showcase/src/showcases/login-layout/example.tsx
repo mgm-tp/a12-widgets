@@ -66,7 +66,7 @@ export function LoginLayoutExample(): ReactElement {
 	return (
 		<LoginLayout mobile={isMobile} backgroundImage="images/login-bg.jpg">
 			<Logo>
-				<img alt="The A12 application logo" src="images/a12p_bap_logo_mobile.svg" />
+				<img alt="The A12 application logo" src="images/Logo-A12-Widgets-Showcase.png" />
 			</Logo>
 			<Headline>Log in to A12</Headline>
 			<Form>

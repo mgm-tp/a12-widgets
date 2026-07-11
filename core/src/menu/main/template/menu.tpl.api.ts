@@ -110,6 +110,9 @@ export interface MainMenuProps extends Styleable, Identifiable, Ref<HTMLDivEleme
 	/** @internal */
 	clickedOnMainMenu?: boolean;
 
+	/** @internal */
+	onCloseAllSubMenus?(): void;
+
 	/**
 	 * Handle event when clicking an item by mouse.
 	 */
@@ -203,6 +206,9 @@ export namespace MainMenuProps {
 	export interface MenuItemInternalProps extends Ref<HTMLLIElement> {
 		/** @internal */
 		closeCurrentSubMenu?(): void;
+
+		/** @internal */
+		onCloseAllSubMenus?(): void;
 
 		/** @internal */
 		subMenuItem?: boolean;

@@ -36,7 +36,7 @@ import { loremIpsum } from "lorem-ipsum";
 
 import type { ConnectedToastType, Orientation } from "@com.mgmtp.a12.widgets/widgets-core";
 import { ConnectedToast, ORIENTATION_LIST, Radio, Select, Button, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
-import { AnimationWrapper } from "@com.mgmtp.a12.widgets/widgets-utils/lib/animation-wrapper/index.js";
+import { AnimationWrapper } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 import { ConfigurationView } from "../../../../helpers/configuration-view.js";
 

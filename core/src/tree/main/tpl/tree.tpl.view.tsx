@@ -35,6 +35,11 @@ import type { ReactElement, ReactNode } from "react";
 import { TreeContainer, TreeNode } from "./tree-elements.tpl.js";
 import type { TreeNodeRecursiveProps, TreeTemplateProps } from "./tree.tpl.api.js";
 
+/**
+ * @deprecated since 39.0.0. Use `TreeView` instead — it replaces the `Tree` template + behavior-HOC
+ * composition (`Selectable`/`Collapsible`/`DragDrop`/`TreeAdapter`) with a single headless-model-driven
+ * component (controlled/uncontrolled expansion & selection, keyboard nav, drag-and-drop reparenting).
+ */
 export function Tree(props: TreeTemplateProps): ReactElement<TreeTemplateProps> {
 	const { root, hideRoot, ...rest } = props;
 

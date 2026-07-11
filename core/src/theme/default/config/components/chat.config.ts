@@ -73,7 +73,7 @@ export type ChatConfigType = {
 			color?: string;
 			fontFamily: string;
 			fontSize: string;
-			icon: { margin: string };
+			icon: { margin: string; fontSize?: string };
 			padding: string;
 			variant: { text: { info: string; success: string; warning: string; error: string } };
 		};

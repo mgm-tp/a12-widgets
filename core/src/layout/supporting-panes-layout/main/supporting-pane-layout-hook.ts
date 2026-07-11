@@ -35,9 +35,12 @@ import type { BezierDefinition, Variants } from "framer-motion";
 
 import { getTransitionDuration } from "../../../common/main/utils/css-utils.js";
 
+import type { CustomAnimationConfig } from "./supporting-panes-layout.api.js";
+
 interface SPLAnimationConfigProps {
 	width: string;
 	isResized?: boolean;
+	customAnimation?: CustomAnimationConfig;
 }
 
 /**
@@ -48,16 +51,33 @@ interface SPLAnimationConfigProps {
  *
  * @param width - The width of the pane as a string (e.g., "300px").
  * @param isResized - A boolean indicating if the pane is being resized.
+ * @param customAnimation - Optional custom animation configuration that overrides the default SPL animation.
  *
  * @returns An object containing:
  * - `paneVariants`: Animation variants for the pane.
  * - `contentVariants`: Animation variants for the pane's content.
  * - `SPLAnimationStates`: A set of predefined animation states.
  */
-export const useSPLAnimationConfig = ({ width, isResized }: SPLAnimationConfigProps) => {
+export const useSPLAnimationConfig = ({ width, isResized, customAnimation }: SPLAnimationConfigProps) => {
 	const { transitionDuration } = useTheme().components.supportingPanesLayout;
 
 	const duration = getTransitionDuration(transitionDuration);
+	const SPLAnimationStates = {
+		visible: "visible",
+		collapse: "collapse",
+		hidden: "hidden",
+		exit: "exit",
+		resize: "resize"
+	};
+
+	if (customAnimation) {
+		return {
+			paneVariants: customAnimation.paneVariants,
+			contentVariants: customAnimation.contentVariants,
+			SPLAnimationStates
+		};
+	}
+
 	const squashEffect: BezierDefinition = [0.17, 0.88, 0.33, 1.13];
 	const paneVariants: Variants = {
 		hidden: { scaleX: 0, opacity: 0, width: 0 },
@@ -92,13 +112,6 @@ export const useSPLAnimationConfig = ({ width, isResized }: SPLAnimationConfigPr
 			transition: { ease: "easeIn", delay: duration }
 		},
 		resize: { opacity: 1, transition: { duration: 0 } }
-	};
-	const SPLAnimationStates = {
-		visible: "visible",
-		collapse: "collapse",
-		hidden: "hidden",
-		exit: "exit",
-		resize: "resize"
 	};
 
 	return { paneVariants, contentVariants, SPLAnimationStates };

@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, getAllByDataRole, getByDataRole, screen, queryByDataRole } from "test-utils";
+import { render, getAllByDataRole, getByDataRole, screen, queryByDataRole, waitFor } from "test-utils";
 import { describe, test, expect } from "vitest";
 import { userEvent } from "vitest/browser";
 
@@ -41,6 +41,7 @@ import type { MenuItem } from "../../main/menu.api.js";
 import { getA11yResource } from "../../../common/main/a11y-localization/language-context.js";
 import { InteractionHintConfigProvider } from "../../../interaction-hint/main/interaction-hint-context.js";
 import { Badge } from "../../../badge/index.js";
+import { KeyboardNavigationConfigProvider } from "../../../keyboard-navigation/main/keyboard-navigation-context.js";
 
 describe("com.mgmtp.a12.widgets.menu.flyout", () => {
 	test("horizontal-flyout-menu-condensed", () => {
@@ -278,6 +279,636 @@ describe("com.mgmtp.a12.widgets.menu.flyout", () => {
 
 			const hintContent = queryByDataRole(DataRoles.InteractionHint.Content);
 			expect(hintContent).not.toBeInTheDocument();
+		});
+	});
+});
+
+describe("Flyout Menu tests", () => {
+	const navigationItems = [
+		{
+			id: "item-1",
+			label: "1",
+			items: [
+				{
+					id: "item-1.1",
+					label: "1.1",
+					items: [
+						{ id: "item-1.1.1", label: "1.1.1" },
+						{ id: "item-1.1.2", label: "1.1.2", disabled: true },
+						{ id: "item-1.1.3", label: "1.1.3" }
+					]
+				},
+				{ id: "item-1.2", label: "1.2", disabled: true },
+				{ id: "item-1.3", label: "1.3" }
+			]
+		},
+		{
+			id: "item-2",
+			label: "2",
+			items: [{ id: "item-2.1", label: "1.1" }]
+		},
+		{
+			id: "item-3",
+			label: "3"
+		}
+	];
+
+	describe("Horizontal Flyout Menu", () => {
+		test("TAB cycle", async () => {
+			render(<FlyoutMenu type="horizontal" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			// ENTER the first item to open its sub-menu
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			firstMenuItem.focus();
+			await userEvent.keyboard("{Enter}");
+
+			const portal = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.AttachedPortal}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+
+			// After opening sub-menu, focus goes directly to first focusable sub-item
+			const menuItemSubMenu = portal.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+			await waitFor(() => {
+				expect(menuItemSubMenu[0]).toHaveFocus();
+			});
+			// Next TAB (skips disabled item-1.2)
+			await userEvent.tab();
+			expect(menuItemSubMenu[2]).toHaveFocus();
+			// Next TAB from the last interactive element goes to the first interactive element
+			await userEvent.tab();
+			expect(menuItemSubMenu[0]).toHaveFocus();
+		});
+
+		test("TAB cycle with all sub-items are disabled", async () => {
+			render(
+				<FlyoutMenu
+					type="horizontal"
+					id="test-flyout"
+					style={{ width: 500 }}
+					items={[
+						{
+							id: "item-1",
+							label: "1",
+							items: [
+								{ id: "item-1.1", label: "1.1", disabled: true },
+								{ id: "item-1.2", label: "1.2", disabled: true },
+								{ id: "item-1.3", label: "1.3", disabled: true }
+							]
+						},
+						{
+							id: "item-2",
+							label: "2"
+						}
+					]}
+				/>
+			);
+
+			// ENTER the first item to open its sub-menu
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			firstMenuItem.focus();
+			await userEvent.click(firstMenuItem);
+			await userEvent.keyboard("{Enter}");
+
+			const portal = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.AttachedPortal}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+			await waitFor(() => {
+				expect(portal).toHaveFocus();
+			});
+
+			// First TAB after opening the sub-menu
+			await userEvent.tab();
+			await waitFor(() => {
+				expect(portal).toHaveFocus();
+			});
+			// SHIFT-TAB should still keep the focus on the portal
+			await userEvent.tab({ shift: true });
+			await waitFor(() => {
+				expect(portal).toHaveFocus();
+			});
+		});
+
+		test("SHIFT-TAB cycle", async () => {
+			render(<FlyoutMenu type="horizontal" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			// ENTER the first item to open its sub-menu
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+			firstMenuItem.focus();
+			await userEvent.keyboard("{Enter}");
+
+			const portal = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.AttachedPortal}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+
+			// After opening sub-menu, focus goes directly to first focusable sub-item
+			const menuItemSubMenu = portal.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+			await waitFor(() => {
+				expect(menuItemSubMenu[0]).toHaveFocus();
+			});
+
+			// First SHIFT-TAB wraps to the last interactive element
+			await userEvent.tab({ shift: true });
+			expect(menuItemSubMenu[2]).toHaveFocus();
+
+			// Next SHIFT-TAB (skips disabled item-1.2)
+			await userEvent.tab({ shift: true });
+			expect(menuItemSubMenu[0]).toHaveFocus();
+
+			// Next SHIFT-TAB from the first interactive element goes to the last interactive element
+			await userEvent.tab({ shift: true });
+			expect(menuItemSubMenu[2]).toHaveFocus();
+		});
+
+		test("Should open sub-menu when hovering over an item", async () => {
+			render(<FlyoutMenu type="horizontal" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			const menu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.Menu}"]`)!;
+			expect(menu).toBeVisible();
+
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			// Hover over the first menu item to open its sub-menu
+			await userEvent.hover(firstMenuItem);
+
+			// Expect sub menu is not open initially (horizontal requires click first)
+			await waitFor(() => {
+				const subMenu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenu === null || !subMenu.checkVisibility()).toBe(true);
+			});
+
+			// Click the first menu item to open its sub-menu
+			await userEvent.click(firstMenuItem);
+
+			await waitFor(() => {
+				const subMenuAfterClick = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenuAfterClick).toBeVisible();
+			});
+
+			// Click to main menu to close sub menu
+			await userEvent.click(menu);
+
+			await waitFor(() => {
+				const subMenuAfterClose = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenuAfterClose === null || !subMenuAfterClose.checkVisibility()).toBe(true);
+			});
+
+			// Hover over the first menu item again to reopen its sub-menu
+			await userEvent.hover(firstMenuItem);
+
+			await waitFor(() => {
+				const subMenuAfterHover = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenuAfterHover).toBeVisible();
+			});
+
+			const secondMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[1];
+
+			await userEvent.hover(secondMenuItem);
+
+			// Expect the first sub-menu to be closed and the second one to be open
+			await waitFor(() => {
+				const firstSubMenu = document.querySelector<HTMLElement>("#test-flyout_mainmenu_item-1_sub");
+				const secondSubMenu = document.querySelector<HTMLElement>("#test-flyout_mainmenu_item-2_sub");
+				expect(firstSubMenu === null || !firstSubMenu.checkVisibility()).toBe(true);
+				expect(secondSubMenu).toBeVisible();
+			});
+		});
+
+		test("Should not close sub-menu when hovering over a disabled item", async () => {
+			render(<FlyoutMenu type="horizontal" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			const menu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.Menu}"]`)!;
+			expect(menu).toBeVisible();
+
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			// Hover over the first menu item
+			await userEvent.hover(firstMenuItem);
+
+			// Expect sub menu is not open initially
+			await waitFor(() => {
+				const subMenu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenu === null || !subMenu.checkVisibility()).toBe(true);
+			});
+
+			// Click the first menu item to open its sub-menu
+			await userEvent.click(firstMenuItem);
+
+			const subMenuContent = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+
+			// Hover over the first sub menu item to open its sub-menu
+			const firstSubMenuItems = subMenuContent.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+
+			await userEvent.hover(firstSubMenuItems[0]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents[1]).toBeVisible();
+			});
+
+			// Hover over the second sub menu item which is disabled
+			await userEvent.hover(firstSubMenuItems[1]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents[1]).toBeVisible();
+			});
+
+			// Hover over the third sub menu item which is enabled
+			await userEvent.hover(firstSubMenuItems[2]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents.length < 2 || !allSubMenuContents[1].checkVisibility()).toBe(true);
+			});
+		});
+
+		test("Should not close sub-menu when clicking on a disabled item", async () => {
+			render(<FlyoutMenu type="horizontal" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			const menu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.Menu}"]`)!;
+			expect(menu).toBeVisible();
+
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			// Click the first menu item to open its sub-menu
+			await userEvent.click(firstMenuItem);
+
+			const subMenuContent = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+
+			// Hover over the first sub menu item to open its sub-menu
+			const firstSubMenuItems = subMenuContent.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+
+			await userEvent.hover(firstSubMenuItems[0]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents[1]).toBeVisible();
+			});
+
+			// Click the second sub menu item which is disabled
+			await userEvent.click(firstSubMenuItems[1]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents.length < 2 || !allSubMenuContents[1].checkVisibility()).toBe(true);
+			});
+
+			// The parent sub-menu should still be visible
+			await waitFor(() => {
+				const subMenuAfterClick = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenuAfterClick).toBeVisible();
+			});
+		});
+	});
+
+	describe("Vertical Flyout Menu", () => {
+		test("TAB cycle", async () => {
+			render(<FlyoutMenu type="vertical" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			// ENTER the first item to open its sub-menu
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+			await userEvent.tab();
+			await userEvent.keyboard("{Enter}");
+
+			expect(firstMenuItem).toBeVisible();
+
+			const portal = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.AttachedPortal}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+
+			// After opening sub-menu, focus goes directly to first focusable sub-item
+			const menuItemSubMenu = portal.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+			await waitFor(() => {
+				expect(menuItemSubMenu[0]).toHaveFocus();
+			});
+			// Next TAB (skips disabled item-1.2)
+			await userEvent.tab();
+			expect(menuItemSubMenu[2]).toHaveFocus();
+			// Next TAB from the last interactive element goes to the first interactive element
+			await userEvent.tab();
+			expect(menuItemSubMenu[0]).toHaveFocus();
+		});
+
+		test("TAB cycle with all sub-items are disabled", async () => {
+			render(
+				<FlyoutMenu
+					type="vertical"
+					id="test-flyout"
+					style={{ width: 500 }}
+					items={[
+						{
+							id: "item-1",
+							label: "1",
+							items: [
+								{ id: "item-1.1", label: "1.1", disabled: true },
+								{ id: "item-1.2", label: "1.2", disabled: true },
+								{ id: "item-1.3", label: "1.3", disabled: true }
+							]
+						},
+						{
+							id: "item-2",
+							label: "2"
+						}
+					]}
+				/>
+			);
+
+			// ENTER the first item to open its sub-menu
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			firstMenuItem.focus();
+			await userEvent.keyboard("{Enter}");
+
+			const portal = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.AttachedPortal}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+			await waitFor(() => {
+				expect(portal).toHaveFocus();
+			});
+
+			// First TAB after opening the sub-menu
+			await userEvent.tab();
+			await waitFor(() => {
+				expect(portal).toHaveFocus();
+			});
+			// SHIFT-TAB should still keep the focus on the portal
+			await userEvent.tab({ shift: true });
+			await waitFor(() => {
+				expect(portal).toHaveFocus();
+			});
+		});
+
+		test("SHIFT-TAB cycle", async () => {
+			render(<FlyoutMenu type="vertical" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			// ENTER the first item to open its sub-menu
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+			firstMenuItem.focus();
+			await userEvent.keyboard("{Enter}");
+
+			const portal = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.AttachedPortal}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+
+			// After opening sub-menu, focus goes directly to first focusable sub-item
+			const menuItemSubMenu = portal.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+			await waitFor(() => {
+				expect(menuItemSubMenu[0]).toHaveFocus();
+			});
+
+			// First SHIFT-TAB wraps to the last interactive element
+			await userEvent.tab({ shift: true });
+			expect(menuItemSubMenu[2]).toHaveFocus();
+
+			// Next SHIFT-TAB (skips disabled item-1.2)
+			await userEvent.tab({ shift: true });
+			expect(menuItemSubMenu[0]).toHaveFocus();
+			// Next SHIFT-TAB from the first interactive element goes to the last interactive element
+			await userEvent.tab({ shift: true });
+			expect(menuItemSubMenu[2]).toHaveFocus();
+		});
+
+		test("Should open sub-menu when hovering over an item", async () => {
+			render(<FlyoutMenu type="vertical" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			const menu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.Menu}"]`)!;
+			expect(menu).toBeVisible();
+
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			// Hover over the first menu item to open its sub-menu (vertical opens on hover)
+			await userEvent.hover(firstMenuItem);
+
+			await waitFor(() => {
+				const subMenu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenu).toBeVisible();
+			});
+
+			// Click to main menu to close sub menu
+			await userEvent.click(menu);
+
+			await waitFor(() => {
+				const subMenu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenu === null || !subMenu.checkVisibility()).toBe(true);
+			});
+
+			// Hover over the first menu item again to reopen its sub-menu
+			await userEvent.hover(firstMenuItem);
+
+			await waitFor(() => {
+				const subMenu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenu).toBeVisible();
+			});
+
+			const secondMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[1];
+
+			await userEvent.hover(secondMenuItem);
+
+			// Expect the first sub-menu to be closed and the second one to be open
+			await waitFor(() => {
+				const firstSubMenu = document.querySelector<HTMLElement>("#test-flyout_mainmenu_item-1_sub");
+				const secondSubMenu = document.querySelector<HTMLElement>("#test-flyout_mainmenu_item-2_sub");
+				expect(firstSubMenu === null || !firstSubMenu.checkVisibility()).toBe(true);
+				expect(secondSubMenu).toBeVisible();
+			});
+		});
+
+		test("Should not close sub-menu when hovering over a disabled item", async () => {
+			render(<FlyoutMenu type="vertical" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			const menu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.Menu}"]`)!;
+			expect(menu).toBeVisible();
+
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			// Hover over the first menu item to open its sub-menu (vertical opens on hover)
+			await userEvent.hover(firstMenuItem);
+
+			const subMenuContent = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+
+			// Hover over the first sub menu item to open its sub-menu
+			const firstSubMenuItems = subMenuContent.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+
+			await userEvent.hover(firstSubMenuItems[0]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents[1]).toBeVisible();
+			});
+
+			// Hover over the second sub menu item which is disabled
+			await userEvent.hover(firstSubMenuItems[1]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents[1]).toBeVisible();
+			});
+
+			// Hover over the third sub menu item which is enabled
+			await userEvent.hover(firstSubMenuItems[2]);
+
+			await waitFor(
+				() => {
+					const allSubMenuContents = document.querySelectorAll<HTMLElement>(
+						`[data-role="${DataRoles.SubMenu.Content}"]`
+					);
+					expect(allSubMenuContents.length < 2 || !allSubMenuContents[1].checkVisibility()).toBe(true);
+				},
+				{ timeout: 500 }
+			);
+		});
+
+		test("Should not close sub-menu when clicking on a disabled item", async () => {
+			render(<FlyoutMenu type="vertical" id="test-flyout" style={{ width: 500 }} items={navigationItems} />);
+
+			const menu = document.querySelector<HTMLElement>(`[data-role="${DataRoles.Menu}"]`)!;
+			expect(menu).toBeVisible();
+
+			const firstMenuItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+
+			// Hover over the first menu item to open its sub-menu (vertical opens on hover)
+			await userEvent.hover(firstMenuItem);
+
+			const subMenuContentV = await waitFor(() => {
+				const el = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(el).toBeVisible();
+
+				return el!;
+			});
+
+			// Hover over the first sub menu item to open its sub-menu
+			const firstSubMenuItems = subMenuContentV.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+
+			await userEvent.hover(firstSubMenuItems[0]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents[1]).toBeVisible();
+			});
+
+			// Click the second sub menu item which is disabled
+			await userEvent.click(firstSubMenuItems[1]);
+
+			await waitFor(() => {
+				const allSubMenuContents = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(allSubMenuContents.length < 2 || !allSubMenuContents[1].checkVisibility()).toBe(true);
+			});
+
+			// The parent sub-menu should still be visible
+			await waitFor(() => {
+				const subMenuAfterClick = document.querySelector<HTMLElement>(`[data-role="${DataRoles.SubMenu.Content}"]`);
+				expect(subMenuAfterClick).toBeVisible();
+			});
+		});
+	});
+});
+
+describe("com.mgmtp.a12.widgets.menu.flyout", () => {
+	describe("KeyboardNavigation arrow-only mode", () => {
+		const simpleItems: MenuItem[] = [
+			{ id: "item-1", label: "Item 1" },
+			{ id: "item-2", label: "Item 2" },
+			{ id: "item-3", label: "Item 3" }
+		];
+
+		test("horizontal: Tab exits menu to next focusable element in arrow-only mode", async () => {
+			render(
+				<KeyboardNavigationConfigProvider mode="arrow-only">
+					<button data-testid="before">Before</button>
+					<FlyoutMenu type="horizontal" id="test-flyout" style={{ width: 500 }} items={simpleItems} />
+					<button data-testid="after">After</button>
+				</KeyboardNavigationConfigProvider>
+			);
+
+			const firstItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+			firstItem.focus();
+			await userEvent.tab();
+
+			expect(document.querySelector("[data-testid='after']")).toHaveFocus();
+		});
+
+		test("horizontal: Shift+Tab exits menu to previous focusable element in arrow-only mode", async () => {
+			render(
+				<KeyboardNavigationConfigProvider mode="arrow-only">
+					<button data-testid="before">Before</button>
+					<FlyoutMenu type="horizontal" id="test-flyout" style={{ width: 500 }} items={simpleItems} />
+					<button data-testid="after">After</button>
+				</KeyboardNavigationConfigProvider>
+			);
+
+			const firstItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+			firstItem.focus();
+			await userEvent.tab({ shift: true });
+
+			expect(document.querySelector("[data-testid='before']")).toHaveFocus();
+		});
+
+		test("vertical: Tab exits menu to next focusable element in arrow-only mode", async () => {
+			render(
+				<KeyboardNavigationConfigProvider mode="arrow-only">
+					<button data-testid="before">Before</button>
+					<FlyoutMenu type="vertical" id="test-flyout" style={{ width: 500 }} items={simpleItems} />
+					<button data-testid="after">After</button>
+				</KeyboardNavigationConfigProvider>
+			);
+
+			const firstItem = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)[0];
+			firstItem.focus();
+			await userEvent.tab();
+
+			expect(document.querySelector("[data-testid='after']")).toHaveFocus();
+		});
+
+		test("default mode: Tab navigates through menu items naturally (no override)", async () => {
+			render(
+				<KeyboardNavigationConfigProvider mode="default">
+					<button data-testid="before">Before</button>
+					<FlyoutMenu type="horizontal" id="test-flyout" style={{ width: 500 }} items={simpleItems} />
+					<button data-testid="after">After</button>
+				</KeyboardNavigationConfigProvider>
+			);
+
+			const menuItems = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`);
+			menuItems[0].focus();
+			await userEvent.tab();
+
+			// In default mode, Tab is not intercepted — browser moves to the next item
+			expect(menuItems[1]).toHaveFocus();
 		});
 	});
 });

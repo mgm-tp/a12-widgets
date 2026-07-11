@@ -99,7 +99,7 @@ export * from "./table.config.js";
 export * from "./tag-input.config.js";
 export * from "./tag.config.js";
 export * from "./text-area.config.js";
-export * from "./text-line.config.js";
+export * from "./text-field.config.js";
 export * from "./text-output.config.js";
 export * from "./time-picker.config.js";
 export * from "./toast-group.config.js";

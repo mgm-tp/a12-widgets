@@ -1,15 +1,17 @@
 {
-	"extends": "@com.mgmtp.a12.devtools/tsconfig",
+	"extends": "./node_modules/@com.mgmtp.a12.devtools/tsconfig/tsconfig.json",
 	"exclude": ["node_modules"],
-	"include": ["./src", "./config"],
-	"files": ["./src/index.tsx", "./rsbuild.config.ts"],
+	"include": ["./src"],
 	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"noEmitOnError": false,
-		"incremental": true,
 		"declaration": false,
 		"declarationMap": false,
-		"outDir": "./lib",
-		"typeRoots": ["./node_modules/@types", "./src/@types"]
+		"incremental": true,
+		"noEmit": true,
+		"noUncheckedSideEffectImports": false,
+		"rootDir": ".",
+		"tsBuildInfoFile": "target/tsconfig.tsbuildinfo",
+		"lib": ["DOM", "ESNext"],
+		"typeRoots": ["./node_modules/@types", "./src/@types"],
+		"types": ["node"]
 	}
 }

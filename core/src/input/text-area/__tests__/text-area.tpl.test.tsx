@@ -194,7 +194,7 @@ describe("com.mgmtp.a12.widgets.text-area-tpl", () => {
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
-	test("render text-line events", () => {
+	test("render text-field events", () => {
 		const onClickSpy = vi.fn();
 		const onFocusSpy = vi.fn();
 		const onBlurSpy = vi.fn();

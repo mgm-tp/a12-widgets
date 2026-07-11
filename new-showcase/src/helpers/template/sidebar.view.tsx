@@ -31,7 +31,7 @@
  */
 
 import type { ReactElement, SyntheticEvent, ReactNode } from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { styled, css } from "styled-components";
 
 import type { MenuItem } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -39,7 +39,6 @@ import {
 	SlidingMenu,
 	Accordion,
 	provider as DeviceDetector,
-	noop,
 	AccordionDetails,
 	AccordionSummaryText,
 	AccordionSummary
@@ -109,7 +108,13 @@ function getInitialExpandedItems(items: SiteMapMenuItem[]): string[] {
 
 function AccordionMenu(props: AccordionMenuProps): ReactElement<AccordionMenuProps> {
 	const { menuItems } = props;
-	const [expandedSections, setExpandedSections] = useState<string[]>(getInitialExpandedItems(menuItems));
+	const [prevMenuItems, setPrevMenuItems] = useState(menuItems);
+	const [expandedSections, setExpandedSections] = useState<string[]>(() => getInitialExpandedItems(menuItems));
+
+	if (menuItems !== prevMenuItems) {
+		setPrevMenuItems(menuItems);
+		setExpandedSections(getInitialExpandedItems(menuItems));
+	}
 
 	const onItemClick = (event: SyntheticEvent<HTMLElement>, item: SiteMapMenuItem): void => {
 		if (item.onClick) {
@@ -148,9 +153,6 @@ function AccordionMenu(props: AccordionMenuProps): ReactElement<AccordionMenuPro
 			</Accordion.Section>
 		));
 	}
-
-	useEffect(() => setExpandedSections(getInitialExpandedItems(menuItems)), [menuItems]);
-	useEffect(noop, [expandedSections]);
 
 	return <StyledShowcaseAccordionContainer controlled>{recursiveMapping(menuItems)}</StyledShowcaseAccordionContainer>;
 }

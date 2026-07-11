@@ -48,6 +48,13 @@ export type TypographyConfigType = {
 		focusColor: string;
 		hoverBG: string;
 		hoverColor: string;
+		compact?: {
+			activeBackgroundColor?: string;
+			activeBoxShadow?: string;
+			hoverBackgroundColor?: string;
+			hoverBoxShadow?: string;
+			padding?: string;
+		};
 	};
 	graphic: { fontSize: string; iconBG: string; iconSize: string; left: string; margin: string };
 	headline1: {
@@ -181,7 +188,14 @@ export const typographyConfig = (theme: BaseThemeType): TypographyConfigType => 
 			focusBorder: `1px dotted ${colors.text.invertedColor}`,
 			focusColor: colors.interaction.focus.colorInverted,
 			hoverBG: colors.interaction.hover.color,
-			hoverColor: colors.interaction.hover.colorInverted
+			hoverColor: colors.interaction.hover.colorInverted,
+			compact: {
+				activeBackgroundColor: "transparent",
+				activeBoxShadow: `inset 0 0 0 2px ${colors.interaction.secondaryInteractionColor}`,
+				hoverBackgroundColor: "transparent",
+				hoverBoxShadow: `inset 0 0 0 2px ${colors.interaction.secondaryInteractionColor}`,
+				padding: `${spacing.verticalSpacing.vertWhiteSpacing3xs}px 12px`
+			}
 		},
 		body: {
 			color: colors.text.color,

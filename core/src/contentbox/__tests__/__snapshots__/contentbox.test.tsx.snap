@@ -492,7 +492,8 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > back-button 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -721,7 +722,7 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-ActionBar 1`] = `
   padding: 2px 24px;
 }
 
-.c0 > :not(:last-child):not(:only-child):not(.StyledGrid-sc-dOvSfP) {
+.c0 > :not(:last-child):not(:only-child):not(.StyledGrid-sc-kbazOb) {
   margin: 0px 16px 0px 0px;
 }
 
@@ -892,7 +893,7 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-Heading 1`] = `
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c0.c0 {
+.StyledMasterDetailLayoutView-fvsTKU .c0.c0 {
   padding: 0px 24px;
 }
 
@@ -902,8 +903,8 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-Heading 1`] = `
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c1.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c1.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c1.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c1.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -973,7 +974,7 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-base-SubHeading 1`] = `
   flex-direction: column;
 }
 
-.c0 > :not(:empty):not(.sc-bRKDuR) {
+.c0 > :not(:empty):not(.sc-iBPUmU) {
   border-bottom: 1px solid rgba(22, 25, 29, 0.22);
   border-top: 1px solid transparent;
 }
@@ -1022,7 +1023,8 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-color-heading 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1064,7 +1066,7 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-color-heading 1`] = `
   border-bottom-color: red;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c0.c0 {
+.StyledMasterDetailLayoutView-fvsTKU .c0.c0 {
   padding: 0px 24px;
 }
 
@@ -1084,8 +1086,8 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-color-heading 1`] = `
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c4.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c4.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c4.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c4.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -1114,13 +1116,187 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-color-heading 1`] = `
 </div>
 `;
 
+exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-contentbox-with-sidepanel 1`] = `
+.c2 {
+  display: flex;
+  flex: 1 1 0%;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.c4 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  overflow: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c4:has(div[data-role="supporting-panes-layout"]) {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.c8 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+  position: relative;
+  width: 25%;
+  transform-origin: right center;
+  margin-left: 24px;
+}
+
+.c7:has(.StyledResizeHandle-sc-hmrPLD[draggable="true"]) ~ .c7 {
+  pointer-events: none;
+}
+
+.c10 {
+  height: 100%;
+  overflow: auto;
+  padding: 0px;
+  width: 100%;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c6:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c6.c6 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c6.c6 {
+  padding: 16px;
+}
+
+.c3 {
+  min-height: 0px;
+  overflow: hidden;
+}
+
+.c5 {
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.c9 {
+  border-radius: 0px;
+  margin-left: 0px;
+  border-left: 1px solid rgb(200, 200, 200);
+  box-shadow: rgba(22, 25, 29, 0.2) -4px 0px 8px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+}
+
+<div
+  class="c0 contentbox"
+  data-role="contentbox"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div />
+  </div>
+  <div
+    class="c2 c3"
+    data-role="supporting-panes-layout"
+  >
+    <div
+      class="c4 c5"
+      data-role="supporting-panes-layout-primary-pane"
+    >
+      <div
+        class="c6 contentbox__content contentbox__content--initial-padding"
+        data-role="contentbox-content"
+      />
+    </div>
+    <div
+      class="c7 c8 c9"
+      data-positioning="right"
+      data-role="supporting-panes-layout-secondary-pane"
+      style="opacity: 1; width: 100%;"
+    >
+      <div
+        class="c10"
+        data-role="supporting-panes-layout-secondary-pane-content"
+        style="opacity: 1;"
+      >
+        <div
+          id="side-panel"
+          style="outline: transparent solid 1px;"
+          tabindex="-1"
+        >
+          side
+        </div>
+        <div
+          class="tab-sandbox-supporter"
+          data-role="tab-sandbox-supporter"
+          tabindex="0"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-heading 1`] = `
 .c2 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1158,7 +1334,7 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-heading 1`] = `
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c0.c0 {
+.StyledMasterDetailLayoutView-fvsTKU .c0.c0 {
   padding: 0px 24px;
 }
 
@@ -1174,8 +1350,8 @@ exports[`com.mgmtp.a12.widgets.contentboxTpl > rendering-heading 1`] = `
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c3.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c3.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c3.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c3.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 

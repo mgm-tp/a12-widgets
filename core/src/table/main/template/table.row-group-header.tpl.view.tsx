@@ -35,6 +35,7 @@ import { useRef, useMemo, useCallback } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
+import { DataRoles } from "../../../common/index.js";
 
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
@@ -80,7 +81,7 @@ export function RowGroupHeaderTpl(
 			className={classNames}
 			style={props.style}
 			id={props.id}
-			data-role={props.dataRole || "table-row-group-header"}
+			data-role={props.dataRole || DataRoles.Table.Row.Group.Header}
 			role={getRole(props.role, "row")}
 		>
 			{props.children}

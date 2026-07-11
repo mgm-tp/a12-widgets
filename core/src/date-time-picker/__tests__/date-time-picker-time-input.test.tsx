@@ -30,8 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { getByRole, render, getByText } from "test-utils";
-import { beforeAll, afterAll, describe, vi, expect, test } from "vitest";
+import { getByRole, render, getByText, getByDataRole } from "test-utils";
+import { beforeAll, afterAll, beforeEach, afterEach, describe, vi, expect, test } from "vitest";
+import { enUS } from "date-fns/locale";
+
+import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 
 import { DateTimePickerTimeInput } from "../main/wrapper/date-time-picker.time-input.view.js";
 
@@ -52,6 +56,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker.time-input", () => {
 				className="test-class"
 				style={{ color: "red" }}
 				yearRange={{ start: 2000, end: 2020 }}
+				yearSelectorVariant="select"
 			/>
 		);
 		const picker = document.getElementById("test-id");
@@ -63,6 +68,48 @@ describe("com.mgmtp.a12.widgets.date-time-picker.time-input", () => {
 		}
 
 		expect(getByRole(container, "gridcell", { name: "Saturday, February 2nd, 2002, selected" })).toBeInTheDocument();
-		expect(getByRole(container, "textbox")).toHaveValue("12:00 AM");
+		// Scope time input query to the EditTime area to avoid ambiguity with year selector textbox
+		const editTimeArea = getByDataRole(container, DataRoles.TimePicker.Input);
+		expect(getByRole(editTimeArea, "textbox")).toHaveValue("12:00 AM");
+	});
+});
+
+describe("com.mgmtp.a12.widgets.date-time-picker.time-input.context-time-mode", () => {
+	beforeEach(() => {
+		vi.useFakeTimers();
+		vi.setSystemTime(new Date(Date.UTC(2022, 2, 2, 14, 40).valueOf()));
+	});
+
+	afterEach(() => {
+		vi.useRealTimers();
+	});
+
+	test("uses 24h mode from `DateTimeContext`", () => {
+		const { container } = render(
+			<DateTimeContext.Provider value={{ locale: enUS, timeMode: "24h" }}>
+				<DateTimePickerTimeInput />
+			</DateTimeContext.Provider>
+		);
+
+		const editTime = getByDataRole(container, DataRoles.TimePicker.Input);
+		expect(getByRole(editTime, "textbox")).toHaveAttribute("placeholder", "HH:mm");
+	});
+
+	test("`timeMode` prop overrides `DateTimeContext`", () => {
+		const { container } = render(
+			<DateTimeContext.Provider value={{ locale: enUS, timeMode: "24h" }}>
+				<DateTimePickerTimeInput timeMode="12h" />
+			</DateTimeContext.Provider>
+		);
+
+		const editTime = getByDataRole(container, DataRoles.TimePicker.Input);
+		expect(getByRole(editTime, "textbox")).toHaveAttribute("placeholder", "hh:mm A");
+	});
+
+	test("defaults to 12h when neither prop nor context `timeMode` is set", () => {
+		const { container } = render(<DateTimePickerTimeInput />);
+
+		const editTime = getByDataRole(container, DataRoles.TimePicker.Input);
+		expect(getByRole(editTime, "textbox")).toHaveAttribute("placeholder", "hh:mm A");
 	});
 });

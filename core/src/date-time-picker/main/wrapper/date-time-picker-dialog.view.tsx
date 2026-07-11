@@ -30,13 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ComponentType, ReactNode, ComponentClass } from "react";
+import type { ComponentType, ReactNode, ComponentClass, ContextType } from "react";
 import { Component } from "react";
 
 import { provider } from "../../../common/main/device-detector.js";
 import { ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
 import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { DateTimeContext } from "../../../common/main/date-time/date-time-context.js";
 
 import type { DateTimePickerProps } from "../date-time-picker.api.js";
 
@@ -47,6 +48,8 @@ export function DateTimePickerDialog<T extends DateTimePickerProps>(
 ): ComponentClass<DateTimePickerDialogProps<T>> {
 	return class DateTimePickerDialog extends Component<DateTimePickerDialogProps<T>, { show: boolean }> {
 		static displayName = "DateTimePickerDialog";
+		static contextType = DateTimeContext;
+		declare context: ContextType<typeof DateTimeContext>;
 
 		updateElementPosition: (() => void) | undefined;
 
@@ -67,6 +70,8 @@ export function DateTimePickerDialog<T extends DateTimePickerProps>(
 				return undefined;
 			}
 
+			const timeMode = this.props.pickerProps?.timeMode ?? this.context?.timeMode;
+
 			return provider.hasTouch() ? (
 				<ModalOverlay
 					preventScroll
@@ -79,6 +84,7 @@ export function DateTimePickerDialog<T extends DateTimePickerProps>(
 				>
 					<Picker
 						{...(this.props.pickerProps || ({} as T))}
+						timeMode={timeMode}
 						mobileMode
 						mobilePickerAttributes={undefined} // The attributes are already passed to ModalOverlay, so they should not be passed here
 					/>
@@ -103,6 +109,7 @@ export function DateTimePickerDialog<T extends DateTimePickerProps>(
 				>
 					<Picker
 						{...(this.props.pickerProps || ({} as T))}
+						timeMode={timeMode}
 						onScreenChange={(screen, screenRef) => {
 							this.props.pickerProps?.onScreenChange?.(screen, null);
 							this.updateElementPosition?.();

@@ -45,7 +45,12 @@ import { PickerHeaderCloseButton } from "../../datepicker/main/date-picker.tpl.v
 import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import { DatePickerScreen, Footer, Header, TimePickerScreen } from "./date-time-picker.internal.js";
+import {
+	DatePickerScreen,
+	DateTimePickerFooter,
+	DateTimePickerHeader,
+	TimePickerScreen
+} from "./date-time-picker.tpl.view.js";
 import type { DateTimePickerProps } from "./date-time-picker.api.js";
 import { StyledDateTimePickerTimeButton, StyledDateTimePickerTimeDisplay } from "./date-time-picker.styled.js";
 
@@ -165,7 +170,7 @@ export class DateTimePicker extends Component<DateTimePickerProps, DateTimePicke
 	}
 
 	private renderDefaultTimeEdit(): ReactNode {
-		const timeFormat = TimeUtils.getTimeFormat(this.props.timeMode);
+		const timeFormat = TimeUtils.getTimeFormat(this.props.timeMode ?? this.context?.timeMode);
 		const className = joinClassNames(`${baseClassName}__timeDisplay`, {
 			[`${baseClassName}__timeDisplay--initial`]: !this.state.timeFilled
 		});
@@ -232,8 +237,8 @@ export class DateTimePicker extends Component<DateTimePickerProps, DateTimePicke
 			(this.state.month && !TimeUtils.isSameTime(this.state.month, this.converter.toUTC(this.props.defaultMonth)));
 
 		return (
-			<Footer>
-				<Footer.Action>
+			<DateTimePickerFooter>
+				<DateTimePickerFooter.Action>
 					{this.state.currentScreen !== "date" && (
 						<Button
 							label={this.props.backLabel || "back"}
@@ -243,11 +248,11 @@ export class DateTimePicker extends Component<DateTimePickerProps, DateTimePicke
 							}}
 						/>
 					)}
-				</Footer.Action>
-				<Footer.Action>
+				</DateTimePickerFooter.Action>
+				<DateTimePickerFooter.Action>
 					<Button primary label={this.props.okLabel || "ok"} onClick={this.handleOk} />
-				</Footer.Action>
-				<Footer.Action>
+				</DateTimePickerFooter.Action>
+				<DateTimePickerFooter.Action>
 					{isShowClearButton && (
 						<Button
 							destructive
@@ -258,8 +263,8 @@ export class DateTimePicker extends Component<DateTimePickerProps, DateTimePicke
 							}}
 						/>
 					)}
-				</Footer.Action>
-			</Footer>
+				</DateTimePickerFooter.Action>
+			</DateTimePickerFooter>
 		);
 	}
 
@@ -289,13 +294,13 @@ export class DateTimePicker extends Component<DateTimePickerProps, DateTimePicke
 
 		if (this.props.mobileMode) {
 			return (
-				<Header id={headerId} actionButtons={<PickerHeaderCloseButton onClick={this.props.onClose} />}>
+				<DateTimePickerHeader id={headerId} actionButtons={<PickerHeaderCloseButton onClick={this.props.onClose} />}>
 					{this.props.customHeaderTitle || "Set Date and Time"}
-				</Header>
+				</DateTimePickerHeader>
 			);
 		}
 
-		return <Header id={headerId}>{this.getTimePickerTitle()}</Header>;
+		return <DateTimePickerHeader id={headerId}>{this.getTimePickerTitle()}</DateTimePickerHeader>;
 	}
 
 	private renderDatePickerScreen(): ReactElement {
@@ -340,7 +345,7 @@ export class DateTimePicker extends Component<DateTimePickerProps, DateTimePicke
 				headerElement={this.renderHeader()}
 				id={id}
 				initialScreen={this.state.currentScreen !== "date" ? this.state.currentScreen : "hour"}
-				mode={timeMode}
+				mode={timeMode ?? this.context.timeMode}
 				mobileMode={mobileMode}
 				desktopPickerAttributes={!mobileMode ? desktopPickerAttributes : undefined}
 				mobilePickerAttributes={mobileMode ? mobilePickerAttributes : undefined}

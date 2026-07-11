@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, fireEvent, getByDataRole } from "test-utils";
+import { render, fireEvent, getByDataRole, getAllByDataRole, within } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
@@ -212,5 +212,146 @@ describe("com.mgmtp.a12.widgets.button-group-container", () => {
 		expect(portal.style.maxHeight).toBeDefined();
 		expect(portal.style.maxWidth).toBeDefined();
 		expect(portal.style.visibility).toBeDefined();
+	});
+});
+
+describe("responsive behavior (new API)", () => {
+	const responsiveLeftSlotButtons: ButtonGroupContainerProps.ButtonProps[] = [
+		{
+			label: "Hidden label",
+			primary: true,
+			icon: <Icon>cloud</Icon>,
+			id: "left-1",
+			labelHidden: true,
+			title: "Left 1"
+		},
+		{
+			mainAction: <Button label="Left 2" primary id="left-2-main-action" />,
+			actionItems: [
+				{ id: "left-2.1", text: "Left 2.1" },
+				{ id: "left-2.2", text: "Left 2.2" }
+			],
+			id: "left-2",
+			primary: true
+		},
+		{ label: "Left 3", primary: true, disabled: true, id: "left-3" }
+	];
+
+	const responsiveRightSlotButtons: ButtonGroupContainerProps.ButtonProps[] = [
+		{
+			label: "Right 1",
+			primary: true,
+			destructive: true,
+			icon: <Icon>delete</Icon>,
+			id: "right-1"
+		},
+		{
+			mainAction: <Button label="Right 2" primary destructive id="right-2-main-action" />,
+			actionItems: [
+				{ id: "right-2.1", text: "Right 2.1" },
+				{ id: "right-2.2", text: "Right 2.2" }
+			],
+			id: "right-2",
+			primary: true,
+			destructive: true
+		}
+	];
+
+	test("collapses buttons into popup menu in narrow container", () => {
+		const { container } = render(
+			<div style={{ width: "32px" }}>
+				<ButtonGroupContainer
+					responsive
+					leftSlotButtons={responsiveLeftSlotButtons}
+					rightSlotButtons={responsiveRightSlotButtons}
+					popupMenuHeaderTitle="Menu"
+				/>
+			</div>
+		);
+
+		const popupTrigger = getByDataRole(container, DataRoles.Popup.TriggerElement);
+		fireEvent.click(popupTrigger);
+
+		const popupMenu = getByDataRole(container, DataRoles.Popup.Menu);
+		const listItems = getAllByDataRole(popupMenu, DataRoles.List.Item.Content);
+		// Hidden label, Left 2.1, Left 2.2, Left 3, Right 1, Right 2.1, Right 2.2
+		expect(listItems).toHaveLength(7);
+	});
+
+	test("collapses buttons right-to-left into popup menu in narrow container", () => {
+		const { container } = render(
+			<div style={{ width: "32px" }}>
+				<ButtonGroupContainer
+					responsive
+					leftSlotButtons={responsiveLeftSlotButtons}
+					rightSlotButtons={responsiveRightSlotButtons}
+					popupMenuHeaderTitle="Menu"
+					collapsingDirection="right-to-left"
+				/>
+			</div>
+		);
+
+		const popupTrigger = getByDataRole(container, DataRoles.Popup.TriggerElement);
+		fireEvent.click(popupTrigger);
+
+		const popupMenu = getByDataRole(container, DataRoles.Popup.Menu);
+		const listItems = getAllByDataRole(popupMenu, DataRoles.List.Item.Content);
+		expect(listItems).toHaveLength(7);
+		expect(within(popupMenu).getByText("Left 2.1")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("Left 2.2")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("Left 3")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("Right 1")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("Right 2.1")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("Right 2.2")).toBeInTheDocument();
+	});
+});
+
+describe("responsive behavior (legacy API)", () => {
+	const leftSlot = [
+		<Button key="delete" label="Delete" labelHidden={true} secondary icon={<Icon>delete</Icon>} />,
+		<Button key="add" label="Add" labelHidden={true} secondary icon={<Icon>add</Icon>} />
+	];
+	const rightSlot = [
+		<Button key="btn3" label="test button 3" primary />,
+		<Button key="btn4" label="test button 4" secondary />
+	];
+
+	test("collapses buttons into popup menu in narrow container", () => {
+		const { container } = render(
+			<div style={{ width: "32px" }}>
+				<ButtonGroupContainer leftSlot={leftSlot} rightSlot={rightSlot} responsive />
+			</div>
+		);
+
+		const popupTrigger = getByDataRole(container, DataRoles.Popup.TriggerElement);
+		fireEvent.click(popupTrigger);
+
+		const popupMenu = getByDataRole(container, DataRoles.Popup.Menu);
+		expect(within(popupMenu).getByText("Delete")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("Add")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("test button 3")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("test button 4")).toBeInTheDocument();
+	});
+
+	test("collapses buttons right-to-left into popup menu in narrow container", () => {
+		const { container } = render(
+			<div style={{ width: "32px" }}>
+				<ButtonGroupContainer
+					leftSlot={leftSlot}
+					rightSlot={rightSlot}
+					responsive
+					collapsingDirection="right-to-left"
+				/>
+			</div>
+		);
+
+		const popupTrigger = getByDataRole(container, DataRoles.Popup.TriggerElement);
+		fireEvent.click(popupTrigger);
+
+		const popupMenu = getByDataRole(container, DataRoles.Popup.Menu);
+		expect(within(popupMenu).getByText("Delete")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("Add")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("test button 3")).toBeInTheDocument();
+		expect(within(popupMenu).getByText("test button 4")).toBeInTheDocument();
 	});
 });

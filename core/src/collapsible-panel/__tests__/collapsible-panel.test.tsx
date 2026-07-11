@@ -286,4 +286,24 @@ describe("com.mgmtp.a12.widgets.collapsiblePanel", () => {
 			expect(hintContent).not.toBeInTheDocument();
 		});
 	});
+
+	test("rendering-collapsible-panel-with-header-actions-and-compact-mode", () => {
+		const { container } = render(
+			<CollapsiblePanel
+				{...props}
+				swapAddonsPosition
+				addons={
+					<>
+						<Button icon={<span>search</span>} title="Search" />
+						<Button icon={<span>filter</span>} title="Filter" />
+						<Button icon={<span>download</span>} title="Download" />
+					</>
+				}
+				onClick={noop}
+			>
+				<p>Panel content with header actions</p>
+			</CollapsiblePanel>
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
 });

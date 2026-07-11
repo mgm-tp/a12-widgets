@@ -31,14 +31,13 @@
  */
 
 import type { FC, ReactElement } from "react";
-import { useState, useCallback, useMemo, useEffect } from "react";
-import type { RouteComponentProps } from "react-router-dom";
-import { matchPath, useLocation, withRouter } from "react-router-dom";
+import { useState, useCallback, useMemo, useEffect, useTransition } from "react";
+import { matchPath, useLocation, useNavigate, Outlet } from "react-router";
 import { styled, css } from "styled-components";
 
-import type { Container } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
 	InteractionHintConfigProvider,
+	KeyboardNavigationConfigProvider,
 	ApplicationFrame,
 	SizeContext,
 	useWindowSize,
@@ -57,6 +56,8 @@ import { ShowcaseFooter } from "./helpers/showcase-footer.js";
 import { Header } from "./helpers/template/header.view.js";
 import { Sidebar } from "./helpers/template/sidebar.view.js";
 import { useInteractionHintSettings } from "./helpers/use-interaction-hint-settings.js";
+import { useKeyboardNavigationSettings } from "./helpers/use-keyboard-navigation-settings.js";
+import { ToastProvider } from "./helpers/toast-context.js";
 
 declare const __A12_VERSION__: string;
 
@@ -75,9 +76,11 @@ const StyledShowcaseApplicationFrame = styled(ApplicationFrame)<{ $isRenderingNo
 	`;
 });
 
-export const AppView: FC<RouteComponentProps & Container> = (props): ReactElement => {
+export const App: FC = (): ReactElement => {
 	const subExpandedLocal = getLocalStorage("subExpanded");
 	const location = useLocation();
+	const navigate = useNavigate();
+	const [, startTransition] = useTransition();
 	const [isRenderingNotFoundPage, setIsRenderingNotFoundPage] = useState(false);
 
 	const [subExpanded, setSubExpanded] = useState<boolean>(
@@ -86,34 +89,35 @@ export const AppView: FC<RouteComponentProps & Container> = (props): ReactElemen
 	const [showMainMenu, setShowMainMenu] = useState(false);
 	const [a11yLanguage, setA11yLanguage] = useState(() => getLocalStorage("a11yLanguage") ?? "en");
 	const interactionHintSettings = useInteractionHintSettings();
+	const keyboardNavigationSettings = useKeyboardNavigationSettings();
 
 	const { breakPoint } = useWindowSize();
 
 	const isActive = useCallback(
 		(item: SiteMapMenuItem): boolean => {
-			return matchPath(props.location.pathname, { path: item.path }) !== null;
+			return matchPath({ path: item.path, end: false }, location.pathname) !== null;
 		},
-		[props.location.pathname]
+		[location.pathname]
 	);
 
 	const isSmallSize = breakPoint.size === "sm" || breakPoint.size === "xs";
 
 	const isApplicationFrame = useMemo((): boolean => {
-		return props.location.pathname === "/";
-	}, [props.location.pathname]);
+		return location.pathname === "/";
+	}, [location.pathname]);
 
 	const handleSubMenuClick = useCallback(
 		(item: SiteMapMenuItem): void => {
 			if (item.fullScreen) {
 				window.open(`#/fullscreen${item.path}`);
 			} else {
-				props.history.push(item.path);
+				startTransition(() => navigate(item.path));
 			}
 
 			setSubExpanded(isSmallSize || DeviceDetector.isTablet() ? false : subExpanded);
 			setShowMainMenu(isSmallSize ? false : showMainMenu);
 		},
-		[isSmallSize, props.history, showMainMenu, subExpanded]
+		[isSmallSize, navigate, startTransition, showMainMenu, subExpanded]
 	);
 
 	const getSubMenuEntries = useCallback(
@@ -151,10 +155,10 @@ export const AppView: FC<RouteComponentProps & Container> = (props): ReactElemen
 
 	const handleMainMenuClick = useCallback(
 		(item: SiteMapMenuItem): void => {
-			props.history.push(item.path);
+			startTransition(() => navigate(getDeepestLeafPath(item)));
 			setShowMainMenu(DeviceDetector.isPhone() ? false : showMainMenu);
 		},
-		[props.history, showMainMenu]
+		[navigate, startTransition, showMainMenu]
 	);
 
 	const handleHamburgerClick = useCallback((): void => {
@@ -198,65 +202,69 @@ export const AppView: FC<RouteComponentProps & Container> = (props): ReactElemen
 
 	const handleSearchItemClick = useCallback(
 		(item: SearchItem): void => {
-			if (props.history.location.pathname !== item.link) {
-				props.history.push(item.link);
+			if (location.pathname !== item.link) {
+				startTransition(() => navigate(item.link));
 			}
 
 			setShowMainMenu(isSmallSize ? false : showMainMenu);
 		},
-		[isSmallSize, props.history, showMainMenu]
+		[startTransition, isSmallSize, location.pathname, navigate, showMainMenu]
 	);
 
-	const selectedMainMenu = SiteMap.find((item) => isActive(item)) || SiteMap[0];
-	const subMenuEntries =
-		selectedMainMenu && selectedMainMenu.children ? getSubMenuEntries(selectedMainMenu.children) : undefined;
+	const selectedMainMenu = useMemo(() => SiteMap.find((item) => isActive(item)) || SiteMap[0], [isActive]);
+	const subMenuEntries = useMemo(
+		() => (selectedMainMenu && selectedMainMenu.children ? getSubMenuEntries(selectedMainMenu.children) : undefined),
+		[getSubMenuEntries, selectedMainMenu]
+	);
 	useEffect(() => {
 		document.title = getPageTitle;
-		setIsRenderingNotFoundPage(() => {
-			return document.getElementById("not-found-page") !== null;
-		});
-	}, [getPageTitle, props, props.location.pathname]);
+		setIsRenderingNotFoundPage(document.getElementById("not-found-page") !== null);
+	}, [getPageTitle, location.pathname]);
 
 	return (
 		<SizeContext.Provider value={{ currentSize: breakPoint.size }}>
 			<A11YLanguageContext.Provider value={getA11yResource(a11yLanguage)}>
 				<InteractionHintConfigProvider {...interactionHintSettings}>
-					<GlobalSearchProvider onItemClick={handleSearchItemClick}>
-						<StyledShowcaseApplicationFrame
-							$isRenderingNotFoundPage={isRenderingNotFoundPage}
-							main={
-								<Header
-									a12Version={__A12_VERSION__}
-									menuItems={isSmallSize ? mainMenuWithSubEntries : mainMenuEntries}
-									onTouchSupportToggle={handleTouchSupportToggle}
-									touchSupport={getTouchSupport()}
-									onA11yLanguageChange={setA11yLanguage}
-									windowSize={breakPoint.size}
-									onHamburgerClick={handleHamburgerClick}
-									expanded={showMainMenu}
-									interactionHintSettings={interactionHintSettings}
-									{...props}
+					<KeyboardNavigationConfigProvider mode={keyboardNavigationSettings.mode}>
+						<GlobalSearchProvider onItemClick={handleSearchItemClick}>
+							<ToastProvider>
+								<StyledShowcaseApplicationFrame
+									$isRenderingNotFoundPage={isRenderingNotFoundPage}
+									main={
+										<Header
+											a12Version={__A12_VERSION__}
+											menuItems={isSmallSize ? mainMenuWithSubEntries : mainMenuEntries}
+											onTouchSupportToggle={handleTouchSupportToggle}
+											touchSupport={getTouchSupport()}
+											onA11yLanguageChange={setA11yLanguage}
+											windowSize={breakPoint.size}
+											onHamburgerClick={handleHamburgerClick}
+											expanded={showMainMenu}
+											interactionHintSettings={interactionHintSettings}
+											keyboardNavigationSettings={keyboardNavigationSettings}
+										/>
+									}
+									sub={
+										subMenuEntries &&
+										location.pathname !== "/" &&
+										!isRenderingNotFoundPage &&
+										!isSmallSize && <Sidebar expanded={subExpanded} menuItems={subMenuEntries} />
+									}
+									disableCollapsingSub={DeviceDetector.isDesktop()}
+									content={isSmallSize && showMainMenu ? undefined : <Outlet />}
+									subExpanded={subExpanded}
+									onExpansionChange={handleExpansionChange}
+									footer={isApplicationFrame && !(isSmallSize && showMainMenu) && <ShowcaseFooter />}
+									htmlAttributes={{
+										contentAttributes: showMainMenu && isSmallSize ? { "aria-hidden": true } : undefined,
+										footerAttributes: showMainMenu && isSmallSize ? { "aria-hidden": true } : undefined
+									}}
+									stickyFooter={false}
 								/>
-							}
-							sub={
-								subMenuEntries &&
-								props.location.pathname !== "/" &&
-								!isRenderingNotFoundPage &&
-								!isSmallSize && <Sidebar expanded={subExpanded} menuItems={subMenuEntries} />
-							}
-							disableCollapsingSub={DeviceDetector.isDesktop()}
-							content={isSmallSize && showMainMenu ? undefined : props.children}
-							subExpanded={subExpanded}
-							onExpansionChange={handleExpansionChange}
-							footer={isApplicationFrame && !(isSmallSize && showMainMenu) && <ShowcaseFooter />}
-							htmlAttributes={{
-								contentAttributes: showMainMenu && isSmallSize ? { "aria-hidden": true } : undefined,
-								footerAttributes: showMainMenu && isSmallSize ? { "aria-hidden": true } : undefined
-							}}
-							stickyFooter={false}
-						/>
-						<GlobalSearch />
-					</GlobalSearchProvider>
+								<GlobalSearch />
+							</ToastProvider>
+						</GlobalSearchProvider>
+					</KeyboardNavigationConfigProvider>
 				</InteractionHintConfigProvider>
 			</A11YLanguageContext.Provider>
 		</SizeContext.Provider>
@@ -270,6 +278,14 @@ function handleTouchSupportToggle(): void {
 	window.location.reload();
 }
 
+function getDeepestLeafPath(item: SiteMapMenuItem): string {
+	if (Utils.isShowcase(item)) {
+		return item.path;
+	}
+
+	return getDeepestLeafPath(item.children[0]);
+}
+
 function getTouchSupport(): boolean {
 	const storedValue = getLocalStorage("touchSupport");
 	const touchSupport = storedValue !== null ? JSON.parse(storedValue) : DeviceDetector.hasTouch();
@@ -281,5 +297,3 @@ function getTouchSupport(): boolean {
 
 	return touchSupport;
 }
-
-export const App = withRouter(AppView);

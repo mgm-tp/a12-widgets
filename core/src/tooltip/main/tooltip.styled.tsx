@@ -121,7 +121,9 @@ export const StyledTooltipContainer = styled.div.withConfig({ displayName: "Styl
 	`;
 });
 
-export const StyledTooltipWrapper = styled.span.withConfig({ displayName: "StyledTooltipWrapper-sc-" })<{
+export const StyledTooltipTriggerWrapper = styled.span.withConfig({
+	displayName: "StyledTooltipTriggerWrapper-sc-"
+})<{
 	$variant?: string;
 }>(({ theme, $variant }) => {
 	const { tooltip } = theme.components;

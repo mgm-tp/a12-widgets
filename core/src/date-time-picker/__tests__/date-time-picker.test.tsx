@@ -33,8 +33,10 @@
 import { fireEvent, getAllByDataRole, getByDataRole, render, getByText, queryByDataRole, getByRole } from "test-utils";
 import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
 import { useRef, useState } from "react";
+import { enUS } from "date-fns/locale";
 
 import { DataRoles } from "../../common/main/data-roles.js";
+import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { Toast } from "../../toast/main/toast/toast.view.js";
 import { ToastGroup } from "../../toast/main/toast-group.view.js";
 import { BufferedInput, HTMLInputAdapter } from "../../input/buffered/index.js";
@@ -43,7 +45,12 @@ import { Button } from "../../button/index.js";
 import { Icon } from "../../icon/index.js";
 import { AttachedPortal } from "../../attached-portal/index.js";
 
-import { DatePickerScreen, Footer, Header, TimePickerScreen } from "../main/date-time-picker.internal.js";
+import {
+	DatePickerScreen,
+	DateTimePickerFooter,
+	DateTimePickerHeader,
+	TimePickerScreen
+} from "../main/date-time-picker.tpl.view.js";
 import { DateTimePicker } from "../main/date-time-picker.view.js";
 
 const BufferedStringInput = BufferedInput(HTMLInputAdapter(TextField));
@@ -63,8 +70,18 @@ describe("com.mgmtp.a12.widgets.date-time-picker.date-picker-screen", () => {
 		vi.useRealTimers();
 	});
 
-	test("render date picker screen", () => {
+	test("render date picker screen — select year selector", () => {
+		const { container } = render(<DatePickerScreen yearSelectorVariant="select" />);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("render date picker screen — textbox year selector (default)", () => {
 		const { container } = render(<DatePickerScreen />);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("render date picker screen — autocomplete year selector", () => {
+		const { container } = render(<DatePickerScreen yearRange={{ start: 2000, end: 2030 }} />);
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
@@ -82,7 +99,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker.date-picker-screen", () => {
 		expect(getByText(container, "footer")).toHaveAttribute("id", "footer");
 	});
 
-	test("test date picker classNames", () => {
+	test("test date picker classNames — select year selector", () => {
 		const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 		const classNames = {
 			container: "",
@@ -124,6 +141,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker.date-picker-screen", () => {
 			<DatePickerScreen
 				date={today}
 				yearRange={{ start: 2000, end: 2030 }}
+				yearSelectorVariant="select"
 				disabled={today}
 				modifiers={{ highlightedDay, booked: bookedDays }}
 				modifiersStyles={{ booked: bookedStyle }}
@@ -233,18 +251,18 @@ describe("com.mgmtp.a12.widgets.date-time-picker.time-picker-screen", () => {
 describe("com.mgmtp.a12.widgets.date-time-picker.template-elements", () => {
 	test("render header", () => {
 		const { container } = render(
-			<Header id="test-id" className="test-class" actionButtons={<button />}>
+			<DateTimePickerHeader id="test-id" className="test-class" actionButtons={<button />}>
 				Test Title
-			</Header>
+			</DateTimePickerHeader>
 		);
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	test("render footer", () => {
 		const { container } = render(
-			<Footer id="test-id" className="test-class">
+			<DateTimePickerFooter id="test-id" className="test-class">
 				Test Footer
-			</Footer>
+			</DateTimePickerFooter>
 		);
 
 		expect(container.firstChild).toMatchSnapshot();
@@ -252,9 +270,9 @@ describe("com.mgmtp.a12.widgets.date-time-picker.template-elements", () => {
 
 	test("test footer action", () => {
 		const { container } = render(
-			<Footer.Action id="test-id" className="test-class">
+			<DateTimePickerFooter.Action id="test-id" className="test-class">
 				Test Action
-			</Footer.Action>
+			</DateTimePickerFooter.Action>
 		);
 		expect(container.firstChild).toMatchSnapshot();
 	});
@@ -270,8 +288,18 @@ describe("com.mgmtp.a12.widgets.date-time-picker", () => {
 		vi.useRealTimers();
 	});
 
-	test("render date time picker", () => {
+	test("render date time picker — select year selector", () => {
+		const { container } = render(<DateTimePicker initialScreen="hour" yearSelectorVariant="select" />);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("render date time picker — textbox year selector (default)", () => {
 		const { container } = render(<DateTimePicker initialScreen="hour" />);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("render date time picker — autocomplete year selector", () => {
+		const { container } = render(<DateTimePicker initialScreen="hour" yearRange={{ start: 2000, end: 2030 }} />);
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
@@ -317,7 +345,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker", () => {
 		const dateTimePickerElement = getByDataRole(container, DataRoles.DateTimePicker);
 		const clearBtn = getByRole(dateTimePickerElement, "button", { name: "clear" });
 		fireEvent.click(clearBtn);
-		expect(document.activeElement).toEqual(dateTimePickerElement);
+		expect(dateTimePickerElement).toHaveFocus();
 	});
 
 	test("Date Time Picker with `desktopPickerAttributes` property", () => {
@@ -436,11 +464,11 @@ describe("Date time picker when a toast is showing", () => {
 		const okButton = getAllByDataRole(container, DataRoles.DateTimePicker.Footer.Action)[1];
 		fireEvent.click(getByDataRole(okButton, DataRoles.Button));
 
-		const dateTimeInput = getByDataRole(container, DataRoles.Textline.Input) as HTMLInputElement;
+		const dateTimeInput = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
 
 		expect(queryByDataRole(container, DataRoles.DateTimePicker)).not.toBeInTheDocument();
-		expect(document.activeElement).toBe(dateTimeInput);
-		expect(document.activeElement).not.toBe(toastElement);
+		expect(dateTimeInput).toHaveFocus();
+		expect(toastElement).not.toHaveFocus();
 	});
 
 	test("should maintain focus on input after closing date picker with toast present via onVisibilityChange", () => {
@@ -468,11 +496,11 @@ describe("Date time picker when a toast is showing", () => {
 
 		vi.runAllTimers();
 
-		const dateTimeInput = getByDataRole(container, DataRoles.Textline.Input) as HTMLInputElement;
+		const dateTimeInput = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
 
 		expect(queryByDataRole(container, DataRoles.DateTimePicker)).not.toBeInTheDocument();
-		expect(document.activeElement).toBe(dateTimeInput);
-		expect(document.activeElement).not.toBe(toastElement);
+		expect(dateTimeInput).toHaveFocus();
+		expect(toastElement).not.toHaveFocus();
 	});
 });
 
@@ -490,5 +518,38 @@ describe("Mobile Devices", () => {
 
 		const dateTimePicker = getByDataRole(DataRoles.DateTimePicker);
 		expect(dateTimePicker.getAttribute("aria-label")).toBe(ariaLabel);
+	});
+});
+
+describe("com.mgmtp.a12.widgets.date-time-picker.context-time-mode", () => {
+	beforeEach(() => {
+		vi.useFakeTimers();
+		vi.setSystemTime(fakeTimer);
+	});
+
+	afterEach(() => {
+		vi.useRealTimers();
+	});
+
+	test("DateTimePicker uses 24h mode from DateTimeContext", () => {
+		const { container } = render(
+			<DateTimeContext.Provider value={{ locale: enUS, timeMode: "24h" }}>
+				<DateTimePicker initialScreen="hour" />
+			</DateTimeContext.Provider>
+		);
+		// In 24h mode, there should be no AM/PM selectors
+		const amElements = container.querySelectorAll(`[data-role="${DataRoles.TimePicker.Am}"]`);
+		expect(amElements).toHaveLength(0);
+	});
+
+	test("timeMode prop overrides DateTimeContext on DateTimePicker", () => {
+		const { container } = render(
+			<DateTimeContext.Provider value={{ locale: enUS, timeMode: "24h" }}>
+				<DateTimePicker initialScreen="hour" timeMode="12h" />
+			</DateTimeContext.Provider>
+		);
+		// With 12h mode prop override, AM/PM selectors should be present
+		const amElements = container.querySelectorAll(`[data-role="${DataRoles.TimePicker.Am}"]`);
+		expect(amElements).toHaveLength(1);
 	});
 });

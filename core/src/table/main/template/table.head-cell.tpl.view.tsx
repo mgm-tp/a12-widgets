@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { MouseEvent, TouchEvent, ReactElement } from "react";
+import type { MouseEvent, TouchEvent, ReactElement, KeyboardEvent } from "react";
 import { memo, useRef, useMemo, useState, useContext, useCallback } from "react";
 import { styled, css } from "styled-components";
 import { darken } from "polished";
@@ -42,15 +42,15 @@ import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { active, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { Icon, StyledIconWrapper, StyledVariantIconWrapper } from "../../../icon/main/icon.view.js";
-import { useTableContext } from "../../new-api/table.context.js";
-import type { Column } from "../../new-api/column.api.js";
 import { StyledBaseBoolean } from "../../../input/base-input-styled/base-boolean.styled.js";
 import { StyledCheckbox } from "../../../input/checkbox/main/checkbox.styled.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-import { StyledTooltipWrapper } from "../../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../../tooltip/main/tooltip.styled.js";
 import { StyledButton } from "../../../button/main/button.styled.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
+import type { Column } from "../column.api.js";
+import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
 
@@ -64,9 +64,9 @@ import { useStyledTableContext } from "./table.context.styled.js";
 const StyledTableHeadCellSortingIcon = styled(Icon).withConfig({ displayName: "StyledTableHeadCellSortingIcon-sc-" })``;
 
 const StyledTableHeadCellContent = styled.div.withConfig({ displayName: "StyledTableHeadCellContent-sc-" })<{
-	hasColumnGroup?: boolean;
-	horizAlignment?: Column.HorizontalAlignment;
-}>(({ theme, hasColumnGroup, horizAlignment }) => {
+	$hasColumnGroup?: boolean;
+	$horizAlignment?: Column.HorizontalAlignment;
+}>(({ theme, $hasColumnGroup, $horizAlignment }) => {
 	const { headCellGroup, headCell } = theme.components.table;
 
 	return css`
@@ -99,16 +99,16 @@ const StyledTableHeadCellContent = styled.div.withConfig({ displayName: "StyledT
 			width: ${headCell.buttonIconSize};
 		}
 
-		${hasColumnGroup &&
+		${$hasColumnGroup &&
 		css`
 			line-height: ${headCellGroup.lineHeight};
 		`}
-		${horizAlignment !== "left" &&
+		${$horizAlignment !== "left" &&
 		css`
-			justify-content: ${horizAlignment === "right" ? "flex-end" : horizAlignment};
-			text-align: ${horizAlignment};
+			justify-content: ${$horizAlignment === "right" ? "flex-end" : $horizAlignment};
+			text-align: ${$horizAlignment};
 			${StyledBaseBoolean.StyledFieldControl} {
-				justify-content: ${horizAlignment === "right" ? "flex-end" : horizAlignment};
+				justify-content: ${$horizAlignment === "right" ? "flex-end" : $horizAlignment};
 			}
 			${StyledBaseBoolean.StyledFieldGroup} ${StyledBaseBoolean.StyledFieldControl} {
 				justify-content: unset;
@@ -135,86 +135,98 @@ export const StyledTableHeadCell = styled(StyledBaseTable.Cell).withConfig({ dis
 	sortable?: boolean;
 	touch?: boolean;
 	isHovering?: boolean;
-}>(({ theme, subInfo, actionCell, verAlignment, cardView, touch, isHovering }) => {
-	const { header, headCell, bodyCell, bodyRow } = theme.components.table;
-	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
-	const filterRow = useStyledTableContext((context) => !!context.header?.filterRow);
+	$filterRow?: boolean;
+}>(
+	({
+		theme,
+		subInfo,
+		actionCell,
+		verAlignment,
+		cardView,
+		touch,
+		isHovering,
+		$rowSegmentType: rowSegmentType,
+		$filterRow: filterRow
+	}) => {
+		const { header, headCell, bodyCell, bodyRow } = theme.components.table;
 
-	return css`
-		${isHovering &&
-		css`
-			${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
-		`}
-		align-items: center;
-		color: ${headCell.color};
-		cursor: default;
-		font-size: ${headCell.fontSize};
-		font-weight: ${headCell.fontWeight};
-		min-height: ${touch ? headCell.touchMinHeight : headCell.minHeight};
-		position: relative;
-		${StyledCheckbox.StyledField} {
-			min-height: auto;
-		}
-		${!subInfo &&
-		!actionCell &&
-		css`
-			padding: ${filterRow ? bodyCell.padding : headCell.padding};
-		`}
-		&:focus {
-			outline: none;
-		}
+		return css`
+			${isHovering &&
+			css`
+				${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
+			`}
+			align-items: center;
+			color: ${headCell.color};
+			cursor: default;
+			font-size: ${headCell.fontSize};
+			font-weight: ${headCell.fontWeight};
+			min-height: ${touch ? headCell.touchMinHeight : headCell.minHeight};
+			position: relative;
 
-		${filterRow &&
-		css`
-			overflow: hidden;
-			&:empty {
-				display: ${cardView && "none"};
+			${StyledCheckbox.StyledField} {
+				min-height: auto;
 			}
-		`}
+			${!subInfo &&
+			!actionCell &&
+			css`
+				padding: ${filterRow ? bodyCell.padding : headCell.padding};
+			`}
+			&:focus {
+				outline: none;
+			}
 
-		${!filterRow &&
-		!actionCell &&
-		css`
-			${StyledTableHeadCellContent} && {
+			${filterRow &&
+			css`
 				overflow: hidden;
-			}
-		`}
+				&:empty {
+					display: ${cardView && "none"};
+				}
+			`}
+
+			${!filterRow &&
+			!actionCell &&
+			css`
+				${StyledTableHeadCellContent} && {
+					overflow: hidden;
+				}
+			`}
  
 		 ${subInfo &&
-		css`
-			// Reset separator of pinned column
-			&&&&:last-of-type {
-				box-shadow: none;
-			}
-			${StyledTableMixins.setRowBG({
-				background: isHovering ? darken(bodyRow.subBGRatio, header.background) : header.background,
-				theme,
-				darken: true
-			})}
-		`}
+			css`
+				// Reset separator of pinned column
+				&&&&:last-of-type {
+					box-shadow: none;
+				}
+				${StyledTableMixins.setRowBG({
+					background: isHovering ? darken(bodyRow.subBGRatio, header.background) : header.background,
+					theme,
+					darken: true
+				})}
+			`}
 		   ${(verAlignment === "bottom" || verAlignment === "top") &&
-		css`
-			align-items: ${verAlignment === "bottom" ? "flex-end" : "flex-start"};
-		`}
+			css`
+				align-items: ${verAlignment === "bottom" ? "flex-end" : "flex-start"};
+			`}
  
 		 ${!cardView &&
-		(rowSegmentType === "left" || rowSegmentType === "scroll") &&
-		css`
-			${StyledTableHeadRowSegment}:first-child &&&:first-child[data-role*="group-parent"] {
-				min-width: 100%;
-			}
-			${StyledTableHeadCellGroup}:not(:first-child) &&&:first-child[data-role*="group-parent"] {
-				min-width: 100%;
-			}
-		`}
+			(rowSegmentType === "left" || rowSegmentType === "scroll") &&
+			css`
+				${StyledTableHeadRowSegment}:first-child &&&:first-child[data-role*="group-parent"] {
+					min-width: 100%;
+				}
+				${StyledTableHeadCellGroup}:not(:first-child) &&&:first-child[data-role*="group-parent"] {
+					min-width: 100%;
+				}
+			`}
 
-		${StyledTooltipWrapper} {
-			align-items: center;
-			display: inline-flex;
-			margin: ${headCell.tooltipMargin};
-		}
-	`;
-});
+		${StyledTooltipTriggerWrapper} {
+				align-items: center;
+				display: inline-flex;
+				margin: ${headCell.tooltipMargin};
+			}
+		`;
+	}
+);
 
 export const StyledTableHeadSortableCell = styled(StyledTableHeadCell).withConfig({
 	displayName: "StyledTableHeadSortableCell-sc-"
@@ -259,60 +271,101 @@ export const StyledTableHeadSortableCell = styled(StyledTableHeadCell).withConfi
 
 const StyledTableHeadCellGroupTpl = styled(StyledTableHeadSortableCell).withConfig({
 	displayName: "StyledTableHeadCellGroupTpl-sc-"
-})(({ theme, resizable, isHovering }) => {
-	const { headCellGroup, header } = theme.components.table;
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
-	const cellHighlighting = useTableContext((context) => context.cellHighlighting);
-	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
-	const isCellHighlightingForRegularTable = !crossTabulation && cellHighlighting;
+})<{ $cellHighlighting?: boolean }>(
+	({
+		theme,
+		resizable,
+		isHovering,
+		$crossTabulation: crossTabulation,
+		$cellHighlighting: cellHighlighting,
+		$rowSegmentType: rowSegmentType
+	}) => {
+		const { headCellGroup, header } = theme.components.table;
+		const isCellHighlightingForRegularTable = !crossTabulation && cellHighlighting;
 
-	return css`
-		${isHovering &&
-		isCellHighlightingForRegularTable &&
-		css`
-			${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
-		`}
-		${!resizable &&
-		css`
-			${createPseudoElement(
-				":after",
-				css`
-					display: block;
-					left: unset;
-					border-right: ${headCellGroup.gapForSingle};
-				`
-			)}
-			&&:focus:after {
-				border-color: transparent;
-			}
-
-			${StyledTableHeadRowSegment} > && {
-				&:after {
-					border-right: ${headCellGroup.gapForGroup};
-				}
-			}
-			${crossTabulation &&
-			rowSegmentType === "left" &&
+		return css`
+			${isHovering &&
+			isCellHighlightingForRegularTable &&
 			css`
-				&&:last-child:after {
-					border-right-color: transparent;
-				}
+				${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
 			`}
-		`}
-	`;
-});
+			${!resizable &&
+			css`
+				${createPseudoElement(
+					":after",
+					css`
+						display: block;
+						left: unset;
+						border-right: ${headCellGroup.gapForSingle};
+					`
+				)}
+				&&:focus:after {
+					border-color: transparent;
+				}
+
+				${StyledTableHeadRowSegment} > && {
+					&:after {
+						border-right: ${headCellGroup.gapForGroup};
+					}
+				}
+				${crossTabulation &&
+				rowSegmentType === "left" &&
+				css`
+					&&:last-child:after {
+						border-right-color: transparent;
+					}
+				`}
+			`}
+		`;
+	}
+);
 
 export const HeadCellTpl = memo(function HeadCellTpl(
 	props: TableTemplateProps.HeadCellProps
 ): ReactElement<TableTemplateProps.HeadCellProps> {
-	const { onContextMenu, wrapperRef, onClick, onKeyUp, sortable, htmlAttributes } = props;
+	const {
+		onContextMenu,
+		wrapperRef,
+		onClick,
+		onKeyUp,
+		sortable,
+		htmlAttributes,
+		ariaColSpan,
+		ariaRowSpan,
+		ariaColIndex,
+		scope,
+		id,
+		style,
+		isHovering,
+		ariaHidden,
+		sorting,
+		role,
+		contentWrapperRole,
+		dataRole,
+		children,
+		leftResizeHandler,
+		rightResizeHandler,
+		hiddenText,
+		actionCell,
+		relativeWidth,
+		horizontalAlignment,
+		verticalAlignment,
+		fixedWidth,
+		subInfo,
+		className
+	} = props;
 	const cardView = useTableContext((context) => context.cardView);
 	const resizable = useTableContext((context) => context.resizable);
 	const hasColumnGroup = useTableContext((context) => context.hasColumnGroup);
+	const enableColumnGroupA11y = useTableContext((context) => context.enableColumnGroupA11y);
+	const crossTabulation = useTableContext((context) => !!context.crossTabulation);
+	const cellHighlighting = useTableContext((context) => !!context.cellHighlighting);
+	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
+	const filterRow = useStyledTableContext((context) => !!context.header?.filterRow);
 	const headCellRef = useRef<HTMLDivElement | null>(null);
-	const isParentHeadCell = useMemo(() => props.dataRole?.includes("parent"), [props.dataRole]);
+	const isParentHeadCell = useMemo(() => dataRole?.includes("parent"), [dataRole]);
 	const [noEffect, setNoEffect] = useState(false);
-	const columnWidth = props.relativeWidth ?? 1;
+	const columnWidth = relativeWidth ?? 1;
 
 	const classNames = useMemo(
 		() =>
@@ -320,34 +373,34 @@ export const HeadCellTpl = memo(function HeadCellTpl(
 				`${BASE_TABLE_CLASSNAME}__headerCell`,
 				{
 					[`${BASE_TABLE_CLASSNAME}__headerCell--${columnWidth * 10}`]:
-						!isParentHeadCell && (!props.actionCell || (props.actionCell && props.relativeWidth))
+						!isParentHeadCell && (!actionCell || (actionCell && relativeWidth))
 				},
-				{ [`${BASE_TABLE_CLASSNAME}__headerCell--sortable`]: props.sortable },
+				{ [`${BASE_TABLE_CLASSNAME}__headerCell--sortable`]: sortable },
 				{
-					[`${BASE_TABLE_CLASSNAME}__headerCell--align-${props.horizontalAlignment}`]:
-						props.horizontalAlignment && props.horizontalAlignment !== "left"
+					[`${BASE_TABLE_CLASSNAME}__headerCell--align-${horizontalAlignment}`]:
+						horizontalAlignment && horizontalAlignment !== "left"
 				},
 				{
-					[`${BASE_TABLE_CLASSNAME}__headerCell--align-${props.verticalAlignment}`]:
-						props.verticalAlignment && props.verticalAlignment !== "middle"
+					[`${BASE_TABLE_CLASSNAME}__headerCell--align-${verticalAlignment}`]:
+						verticalAlignment && verticalAlignment !== "middle"
 				},
-				{ [`${BASE_TABLE_CLASSNAME}__headerCell--fixedWidth`]: props.fixedWidth },
-				{ [`${BASE_TABLE_CLASSNAME}__headerCell--sub-info`]: props.subInfo },
-				{ [`${BASE_TABLE_CLASSNAME}__actionCell`]: props.actionCell },
-				{ [`${BASE_TABLE_CLASSNAME}__headerCell--touch`]: props.sortable && provider.hasTouch() },
-				props.className
+				{ [`${BASE_TABLE_CLASSNAME}__headerCell--fixedWidth`]: fixedWidth },
+				{ [`${BASE_TABLE_CLASSNAME}__headerCell--sub-info`]: subInfo },
+				{ [`${BASE_TABLE_CLASSNAME}__actionCell`]: actionCell },
+				{ [`${BASE_TABLE_CLASSNAME}__headerCell--touch`]: sortable && provider.hasTouch() },
+				className
 			),
 		[
 			columnWidth,
 			isParentHeadCell,
-			props.actionCell,
-			props.relativeWidth,
-			props.sortable,
-			props.horizontalAlignment,
-			props.verticalAlignment,
-			props.fixedWidth,
-			props.subInfo,
-			props.className
+			actionCell,
+			relativeWidth,
+			sortable,
+			horizontalAlignment,
+			verticalAlignment,
+			fixedWidth,
+			subInfo,
+			className
 		]
 	);
 
@@ -357,6 +410,7 @@ export const HeadCellTpl = memo(function HeadCellTpl(
 	const a11ySortableTitle = tableTitles?.sortableTitle;
 	const a11yActionTitle = tableTitles?.actionTitle;
 	const isMobile = provider.isPhone();
+	const isSortableAndVisible = sortable && !ariaHidden;
 
 	const addNoStyleEffect = useCallback((event: MouseEvent<HTMLElement> | TouchEvent<HTMLElement>): void => {
 		const target = event.target as HTMLElement;
@@ -376,7 +430,7 @@ export const HeadCellTpl = memo(function HeadCellTpl(
 
 	const StyledTableHeadCellRendered = hasColumnGroup
 		? StyledTableHeadCellGroupTpl
-		: props.sortable
+		: sortable
 			? StyledTableHeadSortableCell
 			: StyledTableHeadCell;
 
@@ -394,58 +448,77 @@ export const HeadCellTpl = memo(function HeadCellTpl(
 		}
 	}, [noEffect]);
 
+	const handleOnKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLElement>) => {
+			if (enableColumnGroupA11y && (event.key === "ArrowLeft" || event.key === "ArrowRight")) {
+				event.preventDefault();
+			}
+		},
+		[enableColumnGroupA11y]
+	);
+
 	return (
 		<StyledTableHeadCellRendered
-			id={props.id}
+			id={id}
 			className={classNames}
 			onContextMenu={handleContextMenu(headCellRef, onContextMenu)}
-			style={props.style}
-			isHovering={props.isHovering}
+			style={style}
+			isHovering={isHovering}
 			onClick={onClick}
 			onKeyUp={onKeyUp}
-			data-role={props.dataRole || DataRoles.Table.Header.Cell}
-			role={getRole(props.role, "columnheader")}
-			aria-colindex={props.ariaColIndex}
-			tabIndex={sortable ? 0 : undefined}
-			aria-sort={props.sorting === "asc" ? "ascending" : props.sorting === "desc" ? "descending" : undefined}
+			onKeyDown={handleOnKeyDown}
+			data-role={dataRole || DataRoles.Table.Header.Cell}
+			role={getRole(role, "columnheader")}
+			tabIndex={isSortableAndVisible ? 0 : undefined}
+			aria-sort={sorting === "asc" ? "ascending" : sorting === "desc" ? "descending" : undefined}
+			aria-colspan={ariaColSpan}
+			aria-rowspan={ariaRowSpan}
+			aria-colindex={ariaColIndex}
+			{...(scope ? { scope } : {})}
 			ref={handleHeadCellRef}
 			onMouseOver={sortable ? addNoStyleEffect : undefined}
 			onMouseOut={sortable ? removeNoStyleEffect : undefined}
 			onTouchStart={sortable ? addNoStyleEffect : undefined}
 			onTouchEnd={sortable ? removeNoStyleEffect : undefined}
 			onFocus={handleOnHeadCellFocus}
-			fixedWidth={props.fixedWidth}
-			subInfo={props.subInfo}
-			actionCell={props.actionCell}
+			fixedWidth={fixedWidth}
+			subInfo={subInfo}
+			actionCell={actionCell}
 			relativeWidth={columnWidth}
-			$hasActionCellWidth={!!props.relativeWidth}
 			cardView={cardView}
 			noEffect={noEffect}
-			verAlignment={props.verticalAlignment}
+			verAlignment={verticalAlignment}
 			hasColumnGroup={hasColumnGroup}
 			resizable={resizable}
 			sortable={sortable}
-			data-width={props.relativeWidth}
-			data-type={props.actionCell && TableDataAttributes.Table.ActionCell}
+			$crossTabulation={crossTabulation}
+			$cellHighlighting={cellHighlighting}
+			$rowSegmentType={rowSegmentType}
+			$enableColumnGroupA11y={enableColumnGroupA11y}
+			$filterRow={filterRow}
+			data-width={relativeWidth}
+			data-type={actionCell && TableDataAttributes.Table.ActionCell}
 			{...htmlAttributes}
 			title={
-				sortable
+				isSortableAndVisible
 					? htmlAttributes?.title
 						? `${htmlAttributes?.title}, ${a11ySortableTitle?.trim()}`
 						: a11ySortableTitle?.trim()
 					: htmlAttributes?.title
 			}
+			$hasActionCellWidth={!!relativeWidth}
 		>
-			{props.leftResizeHandler}
+			{leftResizeHandler}
 			<StyledTableHeadCellContent
 				className={`${BASE_TABLE_CLASSNAME}__contentHeaderCell`}
-				role={getRole(props.contentWrapperRole, props.sortable ? "button" : undefined)}
-				hasColumnGroup={hasColumnGroup}
-				horizAlignment={props.horizontalAlignment}
+				role={getRole(contentWrapperRole, isSortableAndVisible ? "button" : undefined)}
+				aria-hidden={ariaHidden}
 				data-role={DataRoles.Table.Header.Cell.Content}
+				$hasColumnGroup={hasColumnGroup}
+				$horizAlignment={horizontalAlignment}
 			>
-				{props.children}
-				{props.sorting === "asc" && (
+				{children}
+				{sorting === "asc" && (
 					<StyledTableHeadCellSortingIcon
 						className={`${BASE_TABLE_CLASSNAME}__sorting-icon`}
 						key="asc"
@@ -455,7 +528,7 @@ export const HeadCellTpl = memo(function HeadCellTpl(
 						arrow_drop_up
 					</StyledTableHeadCellSortingIcon>
 				)}
-				{props.sorting === "desc" && (
+				{sorting === "desc" && (
 					<StyledTableHeadCellSortingIcon
 						className={`${BASE_TABLE_CLASSNAME}__sorting-icon`}
 						key="desc"
@@ -466,13 +539,13 @@ export const HeadCellTpl = memo(function HeadCellTpl(
 					</StyledTableHeadCellSortingIcon>
 				)}
 			</StyledTableHeadCellContent>
-			{props.sortable && isMobile && a11ySortableTitle && <HiddenText>{a11ySortableTitle}</HiddenText>}
-			{props.hiddenText === "" ? undefined : props.hiddenText ? (
-				<HiddenText>{props.hiddenText}</HiddenText>
+			{sortable && isMobile && a11ySortableTitle && <HiddenText>{a11ySortableTitle}</HiddenText>}
+			{hiddenText === "" ? undefined : hiddenText ? (
+				<HiddenText>{hiddenText}</HiddenText>
 			) : (
-				props.actionCell && a11yActionTitle && <HiddenText>{a11yActionTitle}</HiddenText>
+				actionCell && a11yActionTitle && <HiddenText>{a11yActionTitle}</HiddenText>
 			)}
-			{props.rightResizeHandler}
+			{rightResizeHandler}
 		</StyledTableHeadCellRendered>
 	);
 });

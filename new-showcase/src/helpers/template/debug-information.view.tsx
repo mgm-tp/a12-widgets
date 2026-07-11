@@ -44,6 +44,7 @@ import {
 
 import { ThemeContext } from "../theme-selector.js";
 import type { InteractionHintSettingProps } from "../use-interaction-hint-settings.js";
+import type { KeyboardNavigationSettingProps } from "../use-keyboard-navigation-settings.js";
 
 import { ThemeUpload } from "./theme-upload.view.js";
 
@@ -52,6 +53,7 @@ export interface DebugInformationProps {
 	onTouchSupportToggle?(): void;
 	onA11yLanguageChange?(locale: string): void;
 	interactionHintSettings?: InteractionHintSettingProps;
+	keyboardNavigationSettings?: KeyboardNavigationSettingProps;
 }
 
 export function DebugInformation(props: DebugInformationProps): ReactElement | null {
@@ -61,6 +63,7 @@ export function DebugInformation(props: DebugInformationProps): ReactElement | n
 	const [developmentMode, setDevelopmentMode] = useState(getLocalStorage("mode") === "development");
 	const {
 		onA11yLanguageChange,
+		keyboardNavigationSettings: { mode: keyboardNavMode, setDefaultMode, setArrowOnlyMode } = {},
 		interactionHintSettings: {
 			enableInteractionHint,
 			followCursor,
@@ -176,6 +179,19 @@ export function DebugInformation(props: DebugInformationProps): ReactElement | n
 						meta={locale === "de" && <Icon>check</Icon>}
 						selected={locale === "de"}
 						onClick={() => handleLocaleChange("de")}
+					/>
+					<SubHeader fill>Keyboard Navigation</SubHeader>
+					<Item
+						text="Default"
+						meta={keyboardNavMode === "default" && <Icon>check</Icon>}
+						selected={keyboardNavMode === "default"}
+						onClick={setDefaultMode}
+					/>
+					<Item
+						text="Arrow Only"
+						meta={keyboardNavMode === "arrow-only" && <Icon>check</Icon>}
+						selected={keyboardNavMode === "arrow-only"}
+						onClick={setArrowOnlyMode}
 					/>
 					<SubHeader fill>Interaction Hint Config</SubHeader>
 					<Item

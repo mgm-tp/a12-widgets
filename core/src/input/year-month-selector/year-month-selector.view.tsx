@@ -140,6 +140,9 @@ export function YearMonthSelector(props: YearMonthSelectorProps): ReactElement<Y
 					ariaDescribedby={ariaDescribedby}
 					inputProps={props.inputPropsOfYearSelector}
 					optionalItem={props.optionalYearItem}
+					variant={props.yearSelectorVariant}
+					placeholder={props.yearPlaceholder}
+					onBlur={props.onYearSelectorBlur}
 				/>
 			</StyledYearMonthSelectorInner>
 			{props.helperText && (

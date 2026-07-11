@@ -65,6 +65,7 @@ import { HTMLProps } from 'react';
 import { ImgHTMLAttributes } from 'react';
 import type { InfiniteLoader } from 'react-virtualized';
 import type { InitialConfigType } from '@lexical/react/LexicalComposer';
+import type { InputEventHandler } from 'react';
 import { InputHTMLAttributes } from 'react';
 import { IntrinsicTransitionGroupProps } from 'react-transition-group/TransitionGroup.js';
 import { IStyledComponentBase } from 'styled-components/dist/types.js';
@@ -73,7 +74,7 @@ import { Key as Key_2 } from 'ts-key-enum';
 import type { Key as Key_3 } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import type { KeyboardEventHandler } from 'react';
-import { Keyframes } from 'styled-components/dist/types.js';
+import { Keyframes } from 'styled-components';
 import type { Klass } from 'lexical';
 import { LabelHTMLAttributes } from 'react';
 import type { LabelProps as LabelProps_2 } from 'recharts';
@@ -92,6 +93,7 @@ import type { Locale as Locale_2 } from 'react-day-picker';
 import type { Locale as Locale_3 } from 'date-fns';
 import type { Margin } from 'recharts/types/util/types.js';
 import { Matcher } from 'react-day-picker';
+import { MemoExoticComponent } from 'react';
 import { default as MobileDetect_2 } from 'mobile-detect';
 import { Modifiers } from 'react-day-picker';
 import type { MouseEvent as MouseEvent_2 } from 'react';
@@ -119,15 +121,12 @@ import type { RefObject } from 'react';
 import type { ResponsiveContainerProps } from 'recharts';
 import type { Rnd } from 'react-rnd';
 import { RuleSet } from 'styled-components';
-import { Runtime } from 'styled-components/dist/types.js';
 import { SelectHTMLAttributes } from 'react';
 import type { SerializedListItemNode } from '@lexical/list';
 import type { SerializedTextNode } from 'lexical';
 import type { SetStateAction } from 'react';
 import type { Spread } from 'lexical';
-import { StyledTarget } from 'styled-components/dist/types.js';
 import type { Styles } from 'polished/lib/types/style.js';
-import { Substitute } from 'styled-components/dist/types.js';
 import { SVGProps } from 'react';
 import type { SyntheticEvent } from 'react';
 import type { TextFormatType } from 'lexical';
@@ -141,7 +140,10 @@ import { TransitionGroup } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition.js';
 import { TZDate } from '@date-fns/tz';
 import type { UIEvent as UIEvent_2 } from 'react';
+import { useEffect } from 'react';
 import type { useResizeDetectorProps } from 'react-resize-detector';
+import type { Variants } from 'framer-motion';
+import { WebTarget } from 'styled-components';
 import type { XYCoord } from 'react-dnd';
 
 // @public (undocumented)
@@ -322,31 +324,11 @@ export namespace Accordion {
     // (undocumented)
     export function Container(props: AccordionProps.ContainerProps): ReactElement<AccordionProps.ContainerProps>;
     // (undocumented)
-    export namespace Container {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Details(props: AccordionProps.DetailsProps): ReactElement<AccordionProps.DetailsProps>;
-    // (undocumented)
-    export namespace Details {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function Section(props: AccordionProps.SectionProps): ReactElement<AccordionProps.SectionProps>;
     // (undocumented)
-    export namespace Section {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Summary(props: AccordionProps.SummaryProps): ReactElement<AccordionProps.SummaryProps>;
-    // (undocumented)
-    export namespace Summary {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -422,7 +404,7 @@ export type AccordionConfigType = {
 };
 
 // @public (undocumented)
-export const AccordionContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const AccordionContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export const AccordionContext: Context<AccordionContextType>;
@@ -446,7 +428,7 @@ export interface AccordionContextType {
 }
 
 // @public (undocumented)
-export const AccordionDetails: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const AccordionDetails: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export const accordionFlatCompactConfig: (theme: FlatCompactThemeType) => {
@@ -511,15 +493,17 @@ export namespace AccordionProps {
 }
 
 // @public (undocumented)
-export const AccordionSection: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, AccordionProps.SectionProps>> & string;
+export const AccordionSection: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, keyof AccordionProps.SectionProps> & AccordionProps.SectionProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, keyof AccordionProps.SectionProps> & AccordionProps.SectionProps, never>>> & string;
 
 // @public (undocumented)
-export const AccordionSummary: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const AccordionSummary: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
 $variant?: AccordionVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
+$variant?: AccordionVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const AccordionSummaryText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const AccordionSummaryText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export interface AccordionTitles {
@@ -672,11 +656,6 @@ export namespace ApplicationFrame {
     export function getStyle(e: ReactNode | StyledSlot): CSSProperties;
     // (undocumented)
     export function ToggleSidebarButton(props: ApplicationFrameProps.ToggleSidebarButtonProps): ReactElement<ApplicationFrameProps.ToggleSidebarButtonProps>;
-    // (undocumented)
-    export namespace ToggleSidebarButton {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -912,6 +891,7 @@ export const applicationHeaderFlatConfig: (theme: FlatThemeType) => {
 export interface ApplicationHeaderProps extends Identifiable, Styleable {
     leftSlots?: ReactNode;
     rightSlots?: ReactNode;
+    role?: string;
 }
 
 // @public (undocumented)
@@ -972,12 +952,13 @@ export function applyId<T extends TreeNodeModel>(root: T): void;
 export function areRowsEqual<NodeType extends BaseTreeTableNode = BaseTreeTableNode>(row1: FlattenTreeTableNode<NodeType>, row2: FlattenTreeTableNode<NodeType>): boolean;
 
 // @public (undocumented)
-export const ArrowButton: NamedExoticComponent<ArrowButtonProps>;
+export const ArrowButton: MemoExoticComponent<(props: ArrowButtonProps) => ReactElement<ArrowButtonProps>>;
 
 // @public (undocumented)
 export interface ArrowButtonProps extends Styleable, Identifiable, HTMLAttributes {
     disabled?: boolean;
     expanded: boolean;
+    loading?: boolean;
     onBlur?(event: FocusEvent_2<HTMLElement>): void;
     onFocus?(event: FocusEvent_2<HTMLElement>): void;
     onMouseLeave?(event: MouseEvent_2<HTMLElement>): void;
@@ -985,6 +966,7 @@ export interface ArrowButtonProps extends Styleable, Identifiable, HTMLAttribute
     onToggleExpansion(event?: MouseEvent_2<HTMLElement>): void;
     onTouchEnd?(event: TouchEvent_2<HTMLElement>): void;
     onTouchStart?(event: TouchEvent_2<HTMLElement>): void;
+    tabIndex?: number;
 }
 
 // Warning: (ae-forgotten-export) The symbol "AttachedPortalState" needs to be exported by the entry point index.d.ts
@@ -1643,6 +1625,7 @@ export interface BaseTableProps<RowType = unknown, ColumnType extends BaseColumn
     disableArrowNavigation?: boolean;
     disabled?: boolean;
     dragDropOptions?: TableDragDropOptions<RowType>;
+    enableColumnGroupA11y?: boolean;
     hasFootContent?: boolean;
     onBlur?(event: FocusEvent_2<HTMLDivElement>): void;
     rowEventHandlers?: RowEventHandlerGetter<RowType>;
@@ -1657,26 +1640,89 @@ export interface BaseTableProps<RowType = unknown, ColumnType extends BaseColumn
 export type BaseTableRowsGroupColumnType<RowType = unknown> = BaseColumnType<TableRowsGroupRowType<RowType>>;
 
 // @public (undocumented)
-export const BaseTabPanelAddonSuffix: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const BaseTabPanelAddonSuffix: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const BaseTabPanelContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const BaseTabPanelContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const BaseTabPanelHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// Warning: (ae-forgotten-export) The symbol "TabPanelTabStyledProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const BaseTabPanelTab: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, TabPanelTabStyledProps>> & string;
+export const BaseTabPanelHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const BaseTabPanelTabContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const BaseTabPanelTab: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, keyof TabPanelTabStyledProps> & TabPanelTabStyledProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, keyof TabPanelTabStyledProps> & TabPanelTabStyledProps, never>>> & string;
 
 // @public (undocumented)
-export type BaseThemeColors = {
-    colors: BaseThemeColorsType;
-};
+export const BaseTabPanelTabContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$mobileSubListLayout"> & {
+$mobileSubListLayout?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$mobileSubListLayout"> & {
+$mobileSubListLayout?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export interface BaseThemeBaseConfig extends BaseThemeComponents {
+    // (undocumented)
+    applicationStyles: ApplicationStyle;
+    // (undocumented)
+    baseInputStyles: InputStyle;
+    // (undocumented)
+    border: BorderConfig;
+    // (undocumented)
+    colors: BaseThemeColors;
+    // (undocumented)
+    divisionLineStyles: DivisionLineStyle;
+    // (undocumented)
+    focusStyles: FocusStyle;
+    // (undocumented)
+    motion: MotionConfig;
+    // (undocumented)
+    opacity: OpacityConfig;
+    // (undocumented)
+    spacing: BaseThemeSpacingType;
+    // (undocumented)
+    typography: BaseThemeTypographyType;
+}
+
+// @public
+export interface BaseThemeColors extends BaseThemeColorsType {
+    // (undocumented)
+    background: BaseThemeColorsType["background"] & {
+        navigationBackground: string;
+        navigationAccent: string;
+        overlayLight: string;
+    };
+    // (undocumented)
+    divider: BaseThemeColorsType["divider"] & {
+        colorMuted: string;
+    };
+    // (undocumented)
+    interaction: BaseThemeColorsType["interaction"] & {
+        color: string;
+        colorDark: string;
+        colorBG: string;
+        colorBGLight: string;
+        hover: {
+            colorLight: string;
+        };
+        touchOverlay: string;
+        touchOverlayDark: string;
+    };
+    // (undocumented)
+    shadow: {
+        overlayFaint: string;
+        overlaySoft: string;
+        overlayMid: string;
+        overlayDark: string;
+        overlayDeep: string;
+    };
+    // (undocumented)
+    text: BaseThemeColorsType["text"] & {
+        titleColor: string;
+        placeholderColor: string;
+    };
+}
+
+// @public
+export const baseThemeColors: BaseThemeColors;
 
 // @public (undocumented)
 export type BaseThemeColorsType = {
@@ -1697,9 +1743,11 @@ export type BaseThemeColorsType = {
         invertedBackground: string;
         tertiaryBackground: string;
         groupBackground: string;
+        accentBackground: string;
     };
     divider: {
         color: string;
+        colorBorder: string;
         colorSubtle: string;
         colorDark: string;
         colorLight: string;
@@ -1792,6 +1840,39 @@ export type BaseThemeComponents = {
 export type BaseThemeComponentsType = DefaultComponentsType;
 
 // @public (undocumented)
+export interface BaseThemeConfig extends BaseThemeBaseConfig {
+    // (undocumented)
+    colors: BaseThemeColors;
+    // (undocumented)
+    hoverStyles: BaseThemeHoverStyles;
+}
+
+// @public
+export type BaseThemeCore = Omit<BaseThemeConfig, "components">;
+
+// @public
+export interface BaseThemeHoverStyles {
+    // (undocumented)
+    hoverStyle: string;
+    // (undocumented)
+    hoverStyleInset: string;
+    // (undocumented)
+    invertHoverStyle: string;
+}
+
+// @public (undocumented)
+export interface BaseThemeOptions {
+    baseInputStyles?: Partial<InputStyle>;
+    border?: DeepPartial<BorderConfig>;
+    colors?: DeepPartial<BaseThemeColors>;
+    components?: DeepPartial<BaseThemeComponentsType>;
+    motion?: DeepPartial<MotionConfig>;
+    opacity?: DeepPartial<OpacityConfig>;
+    spacing?: SpacingOverrides;
+    typography?: TypographyOverrides;
+}
+
+// @public (undocumented)
 export type BaseThemeSpacingType = {
     baseSpacing: BaseSpacing;
     spacing: Spacing;
@@ -1815,6 +1896,7 @@ export type BaseThemeTypographyType = {
     font: Font;
     fontWeight: FontWeight;
     fontSize: FontSize;
+    lineHeight: LineHeight;
 };
 
 // @public (undocumented)
@@ -1866,16 +1948,16 @@ export interface BlockButtonProps extends BaseToolbarButtonProps {
 }
 
 // @public (undocumented)
-export const BodyCellTpl: NamedExoticComponent<TableTemplateProps.BodyCellProps>;
+export const BodyCellTpl: MemoExoticComponent<(props: TableTemplateProps.BodyCellProps) => ReactElement<TableTemplateProps.BodyCellProps>>;
 
 // @public (undocumented)
 export type BodyProps = BaseTypographyProps;
 
 // @public (undocumented)
-export const BodyRowSegmentTpl: NamedExoticComponent<TableTemplateProps.RowSegmentProps>;
+export const BodyRowSegmentTpl: MemoExoticComponent<(props: TableTemplateProps.RowSegmentProps) => ReactElement<TableTemplateProps.RowSegmentProps>>;
 
 // @public (undocumented)
-export const BodyRowTpl: NamedExoticComponent<TableTemplateProps.BodyRowProps>;
+export const BodyRowTpl: MemoExoticComponent<(props: TableTemplateProps.BodyRowProps) => ReactElement<TableTemplateProps.BodyRowProps>>;
 
 // @public (undocumented)
 export function BodyTpl(props: TableTemplateProps.BodyProps): ReactElement<TableTemplateProps.BodyProps>;
@@ -1893,10 +1975,34 @@ export const BoldButton: ButtonType;
 export const borderColor: RuleSet<object>;
 
 // @public (undocumented)
+export type BorderConfig = {
+    width: BorderWidth;
+    radius: BorderRadius;
+};
+
+// @public (undocumented)
+export type BorderRadius = {
+    none: string | number;
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    full: string;
+};
+
+// @public (undocumented)
 export const borderRadius: RuleSet<object>;
 
 // @public (undocumented)
 export const borderStyle: RuleSet<object>;
+
+// @public (undocumented)
+export type BorderWidth = {
+    thin: string;
+    medium: string;
+    thick: string;
+    thicker: string;
+};
 
 // @public (undocumented)
 export const borderWidth: RuleSet<object>[];
@@ -1939,11 +2045,6 @@ export namespace Breadcrumb {
 export namespace Breadcrumb {
     // (undocumented)
     export function Item(props: BreadcrumbProps.ItemProps, key?: number | string): ReactElement<BreadcrumbProps.ItemProps>;
-    // (undocumented)
-    export namespace Item {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -2011,29 +2112,20 @@ export interface BufferedInputProps<ValueType> extends Styleable, Identifiable {
     onValueSubmit(value?: ValueType): void;
 }
 
+// @public
+export const buildQuickThemeOptions: (input: QuickThemeOptions) => BaseThemeOptions;
+
+// @public
+export const buildSemanticColors: (palette: PaletteType) => BaseThemeColors;
+
 // @public (undocumented)
 export namespace BulletList {
     // (undocumented)
     export function Item(props: BulletListProps.ItemProps): ReactElement<BulletListProps.ItemProps>;
     // (undocumented)
-    export namespace Item {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Ordered(input: BulletListProps.OrderedProps): ReactElement<BulletListProps.OrderedProps>;
     // (undocumented)
-    export namespace Ordered {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Unordered(input: BulletListProps.UnorderedProps): ReactElement<BulletListProps.UnorderedProps>;
-    // (undocumented)
-    export namespace Unordered {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -3606,33 +3698,12 @@ export function Card(props: CardProps): ReactElement<CardProps>;
 
 // @public (undocumented)
 export namespace Card {
-    var // (undocumented)
-    displayName: string;
-}
-
-// @public (undocumented)
-export namespace Card {
     // (undocumented)
     export function ActionArea(props: CardProps.ActionAreaProps): ReactElement<CardProps.ActionAreaProps>;
     // (undocumented)
-    export namespace ActionArea {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Content(props: CardProps.ContentProps): ReactElement<CardProps.ContentProps>;
     // (undocumented)
-    export namespace Content {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Media(props: CardProps.MediaProps): ReactElement<CardProps.MediaProps>;
-    // (undocumented)
-    export namespace Media {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -3735,11 +3806,6 @@ export namespace Chat {
     // (undocumented)
     export function Avatar(props: ChatProps.AvatarProps): ReactElement<ChatProps.AvatarProps>;
     // (undocumented)
-    export namespace Avatar {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export class Container extends Component<ChatProps.ContainerProps, ContainerState> {
         constructor(props: ChatProps.ContainerProps);
         // (undocumented)
@@ -3773,52 +3839,17 @@ export namespace Chat {
     // (undocumented)
     export function DateMarker(props: ChatProps.DateMarkerProps): ReactElement<ChatProps.DateMarkerProps>;
     // (undocumented)
-    export namespace DateMarker {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Message(input: ChatProps.MessageProps): ReactElement<ChatProps.MessageProps>;
-    // (undocumented)
-    export namespace Message {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function MessageGroup(input: ChatProps.MessageGroupProps): ReactElement<ChatProps.MessageGroupProps>;
     // (undocumented)
-    export namespace MessageGroup {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Notification(input: ChatProps.NotificationProps): ReactElement<ChatProps.NotificationProps>;
-    // (undocumented)
-    export namespace Notification {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function SecondaryContent(props: ChatProps.SecondaryContentProps): ReactElement<ChatProps.SecondaryContentProps>;
     // (undocumented)
-    export namespace SecondaryContent {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function TypingMarker(props: ChatProps.TypingMarkerProps): ReactElement<ChatProps.TypingMarkerProps>;
     // (undocumented)
-    export namespace TypingMarker {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function UserInfo(input: ChatProps.UserInfo): ReactElement<ChatProps.UserInfo>;
-    // (undocumented)
-    export namespace UserInfo {
-        var // (undocumented)
-        displayName: string;
-    }
     export {};
 }
 
@@ -3898,6 +3929,7 @@ export type ChatConfigType = {
             fontSize: string;
             icon: {
                 margin: string;
+                fontSize?: string;
             };
             padding: string;
             variant: {
@@ -4026,11 +4058,6 @@ export namespace Checkbox {
 export namespace Checkbox {
     // (undocumented)
     export function Indeterminate(props: IndeterminateCheckboxProps): ReactElement<IndeterminateCheckboxProps>;
-    // (undocumented)
-    export namespace Indeterminate {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -4122,11 +4149,6 @@ export namespace CheckboxGroup {
 export namespace CheckboxGroup {
     // (undocumented)
     export function Item(props: CheckboxItemProps): ReactElement<CheckboxItemProps>;
-    // (undocumented)
-    export namespace Item {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public
@@ -4205,7 +4227,7 @@ export namespace CloseButtonTpl {
     displayName: string;
 }
 
-// @public
+// @public @deprecated
 export function Collapsible<InProps extends TreeProps, OutProps extends InProps & CollapsibleTreeProps>(Target: ComponentType<InProps>): ComponentType<OutProps>;
 
 // Warning: (ae-forgotten-export) The symbol "CollapsiblePanelState" needs to be exported by the entry point index.d.ts
@@ -4278,11 +4300,6 @@ export type CollapsiblePanelConfigType = {
 export namespace CollapsiblePanelElements {
     // (undocumented)
     export function Addon(props: BaseProps): ReactElement<BaseProps>;
-    // (undocumented)
-    export namespace Addon {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export interface BaseProps extends Styleable, Identifiable, Container {
     }
@@ -4366,8 +4383,7 @@ export type ColumnResizeEventHandler<ColumnType> = (params: {
 // @public (undocumented)
 export interface ColumnResizingOptions<ColumnType> {
     onBeginResize?: ColumnResizeEventHandler<ColumnType>;
-    // Warning: (ae-forgotten-export) The symbol "ResizeEventHandler_2" needs to be exported by the entry point index.d.ts
-    onEndResize?: ResizeEventHandler_2<ColumnType>;
+    onEndResize?: ColumnResizeEventHandler<ColumnType>;
     onResize?: ColumnResizeEventHandler<ColumnType>;
 }
 
@@ -5184,8 +5200,15 @@ export const CompactSpacing: {
     BASE_VERTICAL_WHITE_SPACING: number;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const compactTheme: {
+    colors: BaseThemeColorsType;
+    typography: BaseThemeTypographyType;
+    divisionLineStyles: DivisionLineStyle;
+    focusStyles: FocusStyle;
+    baseInputStyles: InputStyle;
+    applicationStyles: ApplicationStyle;
+    spacing: BaseThemeSpacingType;
     components: {
         accordion: AccordionConfigType;
         applicationFrame: ApplicationFrameConfigType;
@@ -5254,7 +5277,7 @@ export const compactTheme: {
         tag: TagConfigType;
         tagInput: TagInputConfigType;
         textArea: TextAreaConfigType;
-        textLine: TextLineConfigType;
+        textField: TextFieldConfigType;
         textOutput: TextOutputConfigType;
         timePicker: TimePickerConfigType;
         toast: ToastConfigType;
@@ -5824,13 +5847,6 @@ export const compactTheme: {
             } | undefined;
         };
     };
-    applicationStyles: ApplicationStyle;
-    spacing: BaseThemeSpacingType;
-    colors: BaseThemeColorsType;
-    typography: BaseThemeTypographyType;
-    divisionLineStyles: DivisionLineStyle;
-    focusStyles: FocusStyle;
-    baseInputStyles: InputStyle;
 };
 
 // @public (undocumented)
@@ -5940,23 +5956,10 @@ export interface Container {
 }
 
 // @public (undocumented)
-export class ContentBox extends Component<ContentBoxProps, {
-    isWizardCollapsed: boolean;
-}> {
-    constructor(props: ContentBoxProps);
-    // (undocumented)
-    componentDidMount(): void;
-    // (undocumented)
-    componentWillUnmount(): void;
-    // (undocumented)
-    static defaultProps: {
-        padding: boolean;
-    };
-    // (undocumented)
-    static displayName: string;
-    // (undocumented)
-    render(): ReactNode;
-}
+export const ContentBox: {
+    (props: ContentBoxProps): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
 export interface ContentBoxBaseProps extends Container, Styleable, Identifiable, Ref<HTMLDivElement> {
@@ -5972,6 +5975,10 @@ export interface ContentBoxBaseProps extends Container, Styleable, Identifiable,
     onKeyDown?(event: KeyboardEvent_2<HTMLElement>): void;
     padding?: number | string | boolean;
     role?: string;
+    sidePanels?: {
+        left?: ContentBoxSidePanels;
+        right?: ContentBoxSidePanels;
+    };
     wizardBar?: ReactNode;
 }
 
@@ -6199,6 +6206,16 @@ export type ContentboxConfigType = {
     };
     wizardBar: {
         borderBottom: string;
+    };
+    sidePanels: {
+        minWidth: number;
+        maxWidth: number;
+        transitionDuration: Duration;
+        contentTransitionDuration: Duration;
+        border?: string;
+        overlay?: {
+            boxShadow?: string;
+        };
     };
 };
 
@@ -6456,6 +6473,19 @@ export namespace ContentBoxProps {
 }
 
 // @public (undocumented)
+export type ContentBoxSidePanelMode = "overlay" | "docked";
+
+// @public (undocumented)
+export interface ContentBoxSidePanels {
+    content?: ReactNode;
+    hide?: boolean;
+    mode?: ContentBoxSidePanelMode;
+    onClose?: () => void;
+    triggerReference?: RefObject<HTMLElement | null>;
+    width?: number | string;
+}
+
+// @public (undocumented)
 export interface ContentboxTitles {
     // (undocumented)
     backButtonTitle?: string;
@@ -6607,7 +6637,7 @@ export const createPseudoElement: (selector?: CSSObject | string, additionStyles
 // @public (undocumented)
 export function createSpellCheckPlugin(config: SpellCheckConfig): SpellCheckPlugin;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const createTheme: (params?: DeepPartial<DefaultThemeType & {
     baseTheme: ThemeType;
 }>) => DefaultThemeType;
@@ -6638,6 +6668,12 @@ export interface CssEllipsisProps extends Styleable, Identifiable, Container, DO
 export const CUSTOM_ICONS: Record<string, number>;
 
 // @public (undocumented)
+export interface CustomAnimationConfig {
+    contentVariants: Variants;
+    paneVariants: Variants;
+}
+
+// @public (undocumented)
 export type CustomBorder = {
     color: string;
     width?: number;
@@ -6666,11 +6702,12 @@ export namespace CustomSelect {
     displayName: string;
 }
 
-// @public (undocumented)
-export interface CustomSelectProps extends Omit<SelectProps<HTMLInputElement>, "customInputProps"> {
+// @public
+export interface CustomSelectProps extends Omit<SelectProps<HTMLInputElement>, "customInputProps" | "useCustomView"> {
     focusBack?: boolean;
     keysToClose?: string[];
     keysToOpen?: string[];
+    labelRenderer?(item: DropDownItem): ReactNode;
     modalProps?: {
         fullscreen?: boolean;
         noGutter?: boolean;
@@ -7075,10 +7112,42 @@ export interface DatePickerProps extends Omit<DayPickerProps, "footer" | "locale
     months?: string[];
     onChange?(value: Date): void;
     onDateRangeChange?(range?: DateRange): void;
+    onYearSelectorBlur?: (event: FocusEvent_2<HTMLInputElement>) => void;
     selected?: Matcher | Matcher[];
     timezone?: string;
     value?: Date;
+    yearErrorMessage?: string;
     yearRange?: YearRange;
+    yearSelectorVariant?: YearSelectorVariant;
+}
+
+// @public (undocumented)
+export function DatePickerScreen(props: DatePickerScreenProps): ReactElement<DatePickerScreenProps>;
+
+// @public (undocumented)
+export namespace DatePickerScreen {
+    var // (undocumented)
+    displayName: string;
+}
+
+// @public (undocumented)
+export interface DatePickerScreenProps extends Omit<DatePickerProps, "onChange" | "value" | "footer" | "onDateRangeChange">, ScreenProps {
+    // (undocumented)
+    date?: Date;
+    // (undocumented)
+    desktopPickerAttributes?: HTMLAttributes_2<HTMLDivElement>;
+    // (undocumented)
+    footerElement?: ReactNode;
+    // (undocumented)
+    headerElement?: ReactNode;
+    // (undocumented)
+    mobileMode?: boolean;
+    // (undocumented)
+    mobilePickerAttributes?: HTMLAttributes_2<HTMLDivElement>;
+    // (undocumented)
+    onDayChange?(newDate: Date): void;
+    // (undocumented)
+    timeEditElement?: ReactNode;
 }
 
 export { DateRange }
@@ -7090,6 +7159,7 @@ export const DateTimeContext: Context<DateTimeContextType>;
 export interface DateTimeContextType {
     // (undocumented)
     readonly locale: Locale;
+    readonly timeMode?: TimeFormat;
 }
 
 // @public (undocumented)
@@ -7214,6 +7284,41 @@ export const dateTimePickerFlatConfig: (theme: FlatThemeType) => {
         };
     };
 };
+
+// @public (undocumented)
+export function DateTimePickerFooter(props: DateTimePickerFooterProps): ReactElement<DateTimePickerFooterProps>;
+
+// @public (undocumented)
+export namespace DateTimePickerFooter {
+    var // (undocumented)
+    displayName: string;
+}
+
+// @public (undocumented)
+export namespace DateTimePickerFooter {
+    // (undocumented)
+    export function Action(props: ActionProps): ReactElement<ActionProps>;
+    // (undocumented)
+    export type ActionProps = DatePickerFooterActionProps;
+}
+
+// @public (undocumented)
+export type DateTimePickerFooterProps = DatePickerFooterProps;
+
+// @public (undocumented)
+export function DateTimePickerHeader(props: DateTimePickerHeaderProps): ReactElement<DateTimePickerHeaderProps>;
+
+// @public (undocumented)
+export namespace DateTimePickerHeader {
+    var // (undocumented)
+    displayName: string;
+}
+
+// @public (undocumented)
+export interface DateTimePickerHeaderProps extends Styleable, Identifiable, Container {
+    // (undocumented)
+    actionButtons?: ReactNode;
+}
 
 // @public (undocumented)
 export function DateTimePickerInput<T extends DateTimePickerProps>(Picker: ComponentType<T>): FC<DateTimePickerInputProps<T>>;
@@ -7521,7 +7626,7 @@ export type DefaultComponentsType = {
     tag: TagConfigType;
     tagInput: TagInputConfigType;
     textArea: TextAreaConfigType;
-    textLine: TextLineConfigType;
+    textField: TextFieldConfigType;
     textOutput: TextOutputConfigType;
     timePicker: TimePickerConfigType;
     toast: ToastConfigType;
@@ -7612,7 +7717,7 @@ export const DefaultTableComponentRenderers: TableComponentRenderers<any>;
 // @public (undocumented)
 export const DefaultTableRowsGroupComponentRenderers: Partial<TableComponentRenderers<any, any>>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const defaultTheme: DefaultThemeType;
 
 // @public (undocumented)
@@ -7775,36 +7880,16 @@ export namespace DnDTable {
     // (undocumented)
     export function DndBodyRow(props: TableRenderPropsType.BodyRowProps): ReactElement;
     // (undocumented)
-    export namespace DndBodyRow {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function DragPreview(props: TableRenderPropsType.DragPreviewProps): ReactElement | null;
-    // (undocumented)
-    export namespace DragPreview {
-        var // (undocumented)
-        displayName: string;
-    }
     export function DragSource<RowType = unknown>(props: TableRenderPropsType.DragSourceProps<RowType>): ReactElement | null;
     // (undocumented)
-    export namespace DragSource {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function DropTarget<RowType>(props: TableRenderPropsType.DropTargetProps<RowType>): ReactElement;
-    // (undocumented)
-    export namespace DropTarget {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function getBodyRowPreviewStyles(initialOffset: XYCoord | null, currentOffset: XYCoord | null): CSSProperties;
     export function useEfficientDragLayer<CollectedProps>(collect: (monitor: DragLayerMonitor) => CollectedProps): CollectedProps;
 }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export class DnDTree extends PureComponent<DnDTreeProps> {
     constructor(props: DnDTreeProps);
     // (undocumented)
@@ -7878,17 +7963,12 @@ export namespace DndTreeTable {
     DEFAULT_ACCEPT_TYPE = "TableDnDRow";
     // (undocumented)
     export function DndContainer<NodeType extends BaseTreeTableNode = BaseTreeTableNode, ColumnType extends BaseTreeTableColumnType<NodeType> = BaseTreeTableColumnType<NodeType>, DragDropOptions = TreeTableDragDropOptions<NodeType>>(props: TreeTableProps<NodeType, ColumnType, DragDropOptions>): ReactElement;
-    // (undocumented)
-    export namespace DndContainer {
-        var // (undocumented)
-        displayName: string;
-    }
     const // (undocumented)
-    DndBodyRow: NamedExoticComponent<TableRenderPropsType.DndBodyRowProps<FlattenTreeTableNode>>;
+    DndBodyRow: MemoExoticComponent<(props: TableRenderPropsType.DndBodyRowProps<FlattenTreeTableNode>) => ReactElement>;
     const // (undocumented)
-    DragSource: NamedExoticComponent<TableRenderPropsType.DragSourceProps<FlattenTreeTableNode>>;
+    DragSource: MemoExoticComponent<(props: TableRenderPropsType.DragSourceProps<FlattenTreeTableNode>) => ReactElement>;
     const // (undocumented)
-    DropTarget: NamedExoticComponent<TreeTableRenderPropsType.DropTargetProps<FlattenTreeTableNode>>;
+    DropTarget: MemoExoticComponent<(props: TreeTableRenderPropsType.DropTargetProps<FlattenTreeTableNode>) => ReactElement | null>;
 }
 
 // @public (undocumented)
@@ -7940,7 +8020,7 @@ export namespace DragAndDropUtils {
     export function canUseDragPreview(): boolean;
 }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export function DragDrop<InProps extends TreeProps, OutProps extends InProps & DragAndDropTreeProps>(Target: ComponentType<InProps>): ComponentType<OutProps>;
 
 // @public (undocumented)
@@ -8198,6 +8278,7 @@ export interface DropDownProps extends Styleable, Identifiable, Ref<HTMLDivEleme
     horizontal?: boolean;
     items: DropDownItem[];
     keysToSelectItem?: string[];
+    labelRenderer?(item: DropDownItem): ReactNode;
     lightBackground?: boolean;
     links?: ReactNode[];
     onBlur?(event: FocusEvent_2<HTMLElement>): void;
@@ -8442,7 +8523,7 @@ abstract class Event_2 {
 export { Event_2 as Event }
 
 // @public (undocumented)
-export const ExpandableBodyRowWrapperTpl: NamedExoticComponent<TableTemplateProps.ExpandableBodyRowWrapperProps>;
+export const ExpandableBodyRowWrapperTpl: MemoExoticComponent<(props: TableTemplateProps.ExpandableBodyRowWrapperProps) => ReactElement<TableTemplateProps.ExpandableBodyRowWrapperProps>>;
 
 // @public (undocumented)
 export function ExpandableRowBodyTpl(props: TableTemplateProps.ExpandableRowBodyProps): ReactElement;
@@ -8463,7 +8544,7 @@ export namespace ExpandableRowFooterTpl {
 }
 
 // @public (undocumented)
-export const ExpandableRowTpl: NamedExoticComponent<TableTemplateProps.ExpandableRowProps>;
+export const ExpandableRowTpl: MemoExoticComponent<(props: TableTemplateProps.ExpandableRowProps) => JSX.Element>;
 
 // @public (undocumented)
 export const ExternalLink: FC<ExternalLinkProps>;
@@ -8609,6 +8690,7 @@ export interface FileUploadProps extends Omit<BaseInputProps, "breakTooltipsToNe
     ariaDescribedby?: string;
     ariaLabelledby?: string;
     compact?: boolean;
+    disableFocusRestore?: boolean;
     fileInputRef?: RefCallback<HTMLInputElement>;
     // @deprecated
     imageFilledUploadArea?: boolean;
@@ -8663,7 +8745,7 @@ export namespace Filter {
 }
 
 // @public (undocumented)
-export function FilterBar(props: FilterBarProps): ReactElement<FilterBarProps>;
+export function FilterBar(input: FilterBarProps): ReactElement<FilterBarProps>;
 
 // @public (undocumented)
 export namespace FilterBar {
@@ -8717,13 +8799,15 @@ export namespace FilterBarMobile {
 
 // @public (undocumented)
 export interface FilterBarMobileProps extends FilterBarProps {
-    actions?: ReactNode;
 }
 
 // @public (undocumented)
 export interface FilterBarProps extends Styleable, Identifiable, Container {
+    actions?: ReactNode;
+    compact?: boolean;
     disabled?: boolean;
     initialCollapsed?: boolean;
+    onHiddenFiltersChange?: (hiddenIndices: number[]) => void;
 }
 
 // @public (undocumented)
@@ -8753,6 +8837,16 @@ export type FilterConfigType = {
     };
     background: string;
     borderRadius: string | number;
+    prefix?: {
+        width?: string;
+        height?: string;
+        marginRight?: string;
+        borderRadius?: string | number;
+        background?: string;
+        color?: string;
+        fontSize?: string;
+        fontWeight?: number;
+    };
     content: {
         active: {
             border: string;
@@ -8825,10 +8919,23 @@ export const filterFlatConfig: () => {
     };
 };
 
+// @public
+export interface FilterItemData extends Omit<FilterSelectorProps.FilterData, "nonRemovable"> {
+    badgeVariant?: "info" | "error";
+    collapsed?: boolean;
+    content: ReactNode;
+    label: string;
+    lastHiddenItem?: boolean;
+    onCollapseChange?: (isCollapsed: boolean) => void;
+    onFocus?: (event: FocusEvent_2<HTMLElement>) => void;
+    showMeta?: boolean;
+}
+
 // @public (undocumented)
 export interface FilterProps extends Styleable, Identifiable {
     active?: boolean;
     ariaExpanded?: boolean;
+    compact?: boolean;
     customAction?: ReactNode;
     disabled?: boolean;
     filterRef?: RefCallback<HTMLDivElement>;
@@ -8836,51 +8943,34 @@ export interface FilterProps extends Styleable, Identifiable {
     nonRemovable?: boolean;
     onClick?(event: MouseEvent_2<HTMLElement>): void;
     onClose?(): void;
+    onFocus?(event: FocusEvent_2<HTMLElement>): void;
     options?: ReactNode;
+    prefix?: ReactNode;
     separator?: ReactNode;
 }
 
+// @public
+export interface FilterSectionData extends Identifiable {
+    // (undocumented)
+    items: FilterItemData[];
+    // (undocumented)
+    label: string;
+}
+
 // @public (undocumented)
-export class FilterSelector extends Component<FilterSelectorProps, FilterSelectorState> {
-    constructor(props: FilterSelectorProps);
-    // (undocumented)
-    componentDidMount(): void;
-    // (undocumented)
-    componentDidUpdate(prevProps: FilterSelectorProps, prevState: FilterSelectorState): void;
-    // (undocumented)
-    static defaultProps: {
-        closeOnEsc: boolean;
-        hideSearchBar: boolean;
-        activeFilters: never[];
-        inactiveFilters: never[];
-    };
-    // (undocumented)
-    static displayName: string;
-    // (undocumented)
-    render(): ReactNode;
+export function FilterSelector(props: FilterSelectorProps | FilterSelectorListModeProps): ReactNode;
+
+// @public (undocumented)
+export namespace FilterSelector {
+    var // (undocumented)
+    displayName: string;
 }
 
 // @public (undocumented)
 export namespace FilterSelector {
+    import FilterItem = LegacyFilterSelector.FilterItem;
     // (undocumented)
-    export class FilterItem extends Component<FilterSelectorProps.FilterItemProps, FilterItemState> {
-        constructor(props: FilterSelectorProps.FilterItemProps);
-        // (undocumented)
-        componentDidMount(): void;
-        // (undocumented)
-        static defaultProps: {
-            current: boolean;
-        };
-        // (undocumented)
-        static displayName: string;
-        // (undocumented)
-        render(): ReactNode;
-    }
-    // (undocumented)
-    export interface FilterItemState {
-        // (undocumented)
-        isGraphicHovered: boolean;
-    }
+    export type FilterItemState = LegacyFilterSelector.FilterItemState;
 }
 
 // @public (undocumented)
@@ -8981,6 +9071,10 @@ export type FilterSelectorConfigType = {
             lineHeight: string;
         };
     };
+    filterSelectorList: {
+        sectionHeadlineColor: string;
+        dividerTopMarginExpanded: string;
+    };
     messageBoxMargin: string;
     secondaryContent: {
         borderLeft: string;
@@ -8993,6 +9087,23 @@ export type FilterSelectorConfigType = {
         width: string;
     };
 };
+
+// @public (undocumented)
+export interface FilterSelectorListModeConfig extends Identifiable, Container {
+    actionBar?: ReactNode;
+    customFilterList?: ReactNode;
+    footerContent?: ReactNode;
+    headerContent?: ReactNode;
+    items?: (FilterItemData | FilterSectionData)[];
+    wrapperRef?: RefCallback<HTMLDivElement>;
+}
+
+// @public (undocumented)
+export interface FilterSelectorListModeProps extends Container {
+    activeFilters?: FilterSelectorProps.FilterData[];
+    inactiveFilters?: FilterSelectorProps.Filters;
+    listMode: FilterSelectorListModeConfig;
+}
 
 // Warning: (ae-forgotten-export) The symbol "FilterSelectorMobileState" needs to be exported by the entry point index.d.ts
 //
@@ -9015,11 +9126,6 @@ export class FilterSelectorMobile extends Component<FilterSelectorMobileProps, F
 export namespace FilterSelectorMobile {
     // (undocumented)
     export function FilterItem(props: FilterSelectorMobileProps.FilterItemMobileProps & FilterItemMobileInternalProps): ReactElement<FilterSelectorMobileProps.FilterItemMobileProps>;
-    // (undocumented)
-    export namespace FilterItem {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export interface FilterItemMobileInternalProps {
         // (undocumented)
@@ -9076,9 +9182,9 @@ export namespace FilterSelectorProps {
     }
 }
 
-// @public (undocumented)
+// @public
 export interface FilterSelectorProps extends FilterSelectorBaseProps {
-    closeOnEsc: boolean;
+    closeOnEsc?: boolean;
     onFilterMouseOver?(id: string, event: MouseEvent_2<HTMLElement>): void;
     onPrimaryViewFocusChange?(focused: boolean): void;
     onVisibilityChange?(isVisible: boolean): void;
@@ -9113,52 +9219,17 @@ export namespace FilterSelectorTemplate {
     // (undocumented)
     export function ActionBar(props: FilterSelectorTemplateProps.ActionBarProps): ReactElement<FilterSelectorTemplateProps.ActionBarProps>;
     // (undocumented)
-    export namespace ActionBar {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function ActionElement(props: FilterSelectorTemplateProps.ActionElementProps): ReactElement<FilterSelectorTemplateProps.ActionElementProps>;
-    // (undocumented)
-    export namespace ActionElement {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function Content(props: FilterSelectorTemplateProps.ContentProps): ReactElement<FilterSelectorTemplateProps.ContentProps>;
     // (undocumented)
-    export namespace Content {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Item(props: FilterSelectorTemplateProps.ItemProps): ReactElement<FilterSelectorTemplateProps.ItemProps>;
-    // (undocumented)
-    export namespace Item {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function List(props: FilterSelectorTemplateProps.ListProps): ReactElement<FilterSelectorTemplateProps.ListProps>;
     // (undocumented)
-    export namespace List {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function SearchInput(props: FilterSelectorTemplateProps.SearchInputProps): ReactElement<FilterSelectorTemplateProps.SearchInputProps>;
     // (undocumented)
-    export namespace SearchInput {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Section(props: FilterSelectorTemplateProps.SectionProps): ReactElement<FilterSelectorTemplateProps.SectionProps>;
-    // (undocumented)
-    export namespace Section {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -9216,7 +9287,7 @@ export namespace FilterSelectorTemplateProps {
         clearButton?: ReactNode;
         inputRef?: RefCallback<HTMLInputElement>;
         onClearButtonClick?(event: MouseEvent_2<HTMLButtonElement>): void;
-        onInput?(event: ChangeEvent<HTMLInputElement>): void;
+        onInput?: InputEventHandler<HTMLInputElement>;
         onKeyDown?(ev: KeyboardEvent_2<HTMLInputElement>): void;
         placeholder?: string;
         searchButton?: ReactNode;
@@ -9292,6 +9363,7 @@ export interface FlatColorsConfigType extends BaseThemeColorsType {
 export const FlatCompactColorsConfig: {
     divider: {
         color: string;
+        colorBorder: string;
         colorDark: string;
         colorLight: string;
         colorSubtle: string;
@@ -10586,43 +10658,43 @@ export const FlatCompactComponentsConfigs: (theme: FlatCompactThemeType) => {
     };
     typography: {
         headline1: {
-            fontWeight: number;
             borderTop: string;
             padding: number;
             color: string;
+            fontWeight: number;
         };
         headline2: {
+            borderTop: string;
+            fontWeight: number;
+            padding: number;
             color: string;
             fontSize: string;
             margin: string;
+        };
+        headline3: {
             borderTop: string;
             fontWeight: number;
             padding: number;
-        };
-        headline3: {
             color: string;
             fontSize: string;
             margin: string;
             height: string;
+        };
+        headline4: {
             borderTop: string;
             fontWeight: number;
             padding: number;
-        };
-        headline4: {
             color: string;
             height: string;
             fontSize: string;
             margin: string;
             textTransform: string;
-            borderTop: string;
-            fontWeight: number;
-            padding: number;
         };
         headline5: {
-            height: string;
             borderTop: string;
             fontWeight: number;
             padding: number;
+            height: string;
         };
         wrapper: {
             padding: number;
@@ -10821,8 +10893,72 @@ export const FlatCompactComponentsConfigs: (theme: FlatCompactThemeType) => {
     };
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const flatCompactTheme: {
+    typography: BaseThemeTypographyType;
+    baseInputStyles: InputStyle;
+    applicationStyles: {
+        background: string;
+        boxShadow: string;
+        color: string;
+        fontFamily: string;
+        fontSize: string;
+        input: {
+            activeBoxShadow: string;
+            background: string;
+            borderRadius: string | number;
+            boxShadow: string;
+            defaultBorder: string;
+            focusBorder: string;
+            focusBoxShadow: string;
+            focusCustomBoxShadow?: CustomBorder;
+            fontColor: string;
+            fontFamily: string;
+            fontSize: string;
+            fontWeight: number;
+            hoverBorder: string;
+            hoverBoxShadow: string;
+            lineHeight: number;
+            height: string;
+        };
+        label: {
+            disabledColor: string;
+            fontColor: string;
+            fontFamily: string;
+            fontSize: string;
+            fontWeight: number;
+            textTransform: string;
+        };
+        paragraphMargin: string;
+        responsive: {
+            desktopMinWidth: string;
+            mobileMaxWidth: string;
+            tabletMinWidth: string;
+        };
+    } & {
+        input: {
+            activeBoxShadow: string;
+            background: string;
+            borderRadius: string;
+            boxShadow: string;
+            defaultBorder: string;
+            focusBorder: string;
+            focusBoxShadow: string;
+            hoverBorder: string;
+            hoverBoxShadow: string;
+        };
+    };
+    divisionLineStyles: DivisionLineStyle;
+    focusStyles: {
+        focusedBoundaryDark: string;
+        focusedBoundaryLight: string;
+    };
+    hoverStyles: {
+        hoverStyle: string;
+        hoverStyleInset: string;
+        invertHoverStyle: string;
+    };
+    spacing: BaseThemeSpacingType;
     colors: FlatColorsConfigType;
     components: {
         accordion: AccordionConfigType & {
@@ -12800,6 +12936,14 @@ export const flatCompactTheme: {
             tabs: {
                 background: string;
             };
+            groupTab: {
+                subGroup: {
+                    background: string;
+                };
+                divider: {
+                    background: string;
+                };
+            };
             tab: {
                 active: {
                     background: string;
@@ -12889,7 +13033,7 @@ export const flatCompactTheme: {
             };
         };
         textArea: TextAreaConfigType;
-        textLine: TextLineConfigType;
+        textField: TextFieldConfigType;
         textOutput: TextOutputConfigType;
         timePicker: TimePickerConfigType & {
             text: {
@@ -14762,43 +14906,43 @@ export const flatCompactTheme: {
             };
         } & {
             headline1: {
-                fontWeight: number;
                 borderTop: string;
                 padding: number;
                 color: string;
+                fontWeight: number;
             };
             headline2: {
+                borderTop: string;
+                fontWeight: number;
+                padding: number;
                 color: string;
                 fontSize: string;
                 margin: string;
+            };
+            headline3: {
                 borderTop: string;
                 fontWeight: number;
                 padding: number;
-            };
-            headline3: {
                 color: string;
                 fontSize: string;
                 margin: string;
                 height: string;
+            };
+            headline4: {
                 borderTop: string;
                 fontWeight: number;
                 padding: number;
-            };
-            headline4: {
                 color: string;
                 height: string;
                 fontSize: string;
                 margin: string;
                 textTransform: string;
-                borderTop: string;
-                fontWeight: number;
-                padding: number;
             };
             headline5: {
-                height: string;
                 borderTop: string;
                 fontWeight: number;
                 padding: number;
+                height: string;
             };
             wrapper: {
                 padding: number;
@@ -15068,70 +15212,6 @@ export const flatCompactTheme: {
             };
         };
     };
-    applicationStyles: {
-        background: string;
-        boxShadow: string;
-        color: string;
-        fontFamily: string;
-        fontSize: string;
-        input: {
-            activeBoxShadow: string;
-            background: string;
-            borderRadius: string | number;
-            boxShadow: string;
-            defaultBorder: string;
-            focusBorder: string;
-            focusBoxShadow: string;
-            focusCustomBoxShadow?: CustomBorder;
-            fontColor: string;
-            fontFamily: string;
-            fontSize: string;
-            fontWeight: number;
-            hoverBorder: string;
-            hoverBoxShadow: string;
-            lineHeight: number;
-            height: string;
-        };
-        label: {
-            disabledColor: string;
-            fontColor: string;
-            fontFamily: string;
-            fontSize: string;
-            fontWeight: number;
-            textTransform: string;
-        };
-        paragraphMargin: string;
-        responsive: {
-            desktopMinWidth: string;
-            mobileMaxWidth: string;
-            tabletMinWidth: string;
-        };
-    } & {
-        input: {
-            activeBoxShadow: string;
-            background: string;
-            borderRadius: string;
-            boxShadow: string;
-            defaultBorder: string;
-            focusBorder: string;
-            focusBoxShadow: string;
-            hoverBorder: string;
-            hoverBoxShadow: string;
-        };
-    };
-    divisionLineStyles: DivisionLineStyle;
-    focusStyles: {
-        focusedBoundaryDark: string;
-        focusedBoundaryLight: string;
-    };
-    hoverStyles: {
-        hoverStyle: string;
-        hoverStyleInset: string;
-        invertHoverStyle: string;
-    };
-    spacing: BaseThemeSpacingType;
-    typography: BaseThemeTypographyType;
-    baseInputStyles: InputStyle;
 };
 
 // @public (undocumented)
@@ -17092,6 +17172,14 @@ export const FlatComponentsConfigs: (theme: FlatThemeType) => {
         tabs: {
             background: string;
         };
+        groupTab: {
+            subGroup: {
+                background: string;
+            };
+            divider: {
+                background: string;
+            };
+        };
         tab: {
             active: {
                 background: string;
@@ -17511,8 +17599,72 @@ export type FlattenTreeTableNode<NodeType extends BaseTreeTableNode = BaseTreeTa
     children?: FlattenTreeTableNode<NodeType>[];
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const flatTheme: {
+    typography: BaseThemeTypographyType;
+    spacing: BaseThemeSpacingType;
+    baseInputStyles: InputStyle;
+    applicationStyles: {
+        background: string;
+        boxShadow: string;
+        color: string;
+        fontFamily: string;
+        fontSize: string;
+        input: {
+            activeBoxShadow: string;
+            background: string;
+            borderRadius: string | number;
+            boxShadow: string;
+            defaultBorder: string;
+            focusBorder: string;
+            focusBoxShadow: string;
+            focusCustomBoxShadow?: CustomBorder;
+            fontColor: string;
+            fontFamily: string;
+            fontSize: string;
+            fontWeight: number;
+            hoverBorder: string;
+            hoverBoxShadow: string;
+            lineHeight: number;
+            height: string;
+        };
+        label: {
+            disabledColor: string;
+            fontColor: string;
+            fontFamily: string;
+            fontSize: string;
+            fontWeight: number;
+            textTransform: string;
+        };
+        paragraphMargin: string;
+        responsive: {
+            desktopMinWidth: string;
+            mobileMaxWidth: string;
+            tabletMinWidth: string;
+        };
+    } & {
+        input: {
+            activeBoxShadow: string;
+            background: string;
+            borderRadius: string;
+            boxShadow: string;
+            defaultBorder: string;
+            focusBorder: string;
+            focusBoxShadow: string;
+            hoverBorder: string;
+            hoverBoxShadow: string;
+        };
+    };
+    focusStyles: {
+        focusedBoundaryDark: string;
+        focusedBoundaryLight: string;
+    };
+    hoverStyles: {
+        hoverStyle: string;
+        hoverStyleInset: string;
+        invertHoverStyle: string;
+    };
+    divisionLineStyles: DivisionLineStyle;
     colors: FlatColorsConfigType;
     components: {
         accordion: AccordionConfigType;
@@ -17582,7 +17734,7 @@ export const flatTheme: {
         tag: TagConfigType;
         tagInput: TagInputConfigType;
         textArea: TextAreaConfigType;
-        textLine: TextLineConfigType;
+        textField: TextFieldConfigType;
         textOutput: TextOutputConfigType;
         timePicker: TimePickerConfigType;
         toast: ToastConfigType;
@@ -19551,6 +19703,14 @@ export const flatTheme: {
             tabs: {
                 background: string;
             };
+            groupTab: {
+                subGroup: {
+                    background: string;
+                };
+                divider: {
+                    background: string;
+                };
+            };
             tab: {
                 active: {
                     background: string;
@@ -19933,70 +20093,6 @@ export const flatTheme: {
             } | undefined;
         };
     };
-    applicationStyles: {
-        background: string;
-        boxShadow: string;
-        color: string;
-        fontFamily: string;
-        fontSize: string;
-        input: {
-            activeBoxShadow: string;
-            background: string;
-            borderRadius: string | number;
-            boxShadow: string;
-            defaultBorder: string;
-            focusBorder: string;
-            focusBoxShadow: string;
-            focusCustomBoxShadow?: CustomBorder;
-            fontColor: string;
-            fontFamily: string;
-            fontSize: string;
-            fontWeight: number;
-            hoverBorder: string;
-            hoverBoxShadow: string;
-            lineHeight: number;
-            height: string;
-        };
-        label: {
-            disabledColor: string;
-            fontColor: string;
-            fontFamily: string;
-            fontSize: string;
-            fontWeight: number;
-            textTransform: string;
-        };
-        paragraphMargin: string;
-        responsive: {
-            desktopMinWidth: string;
-            mobileMaxWidth: string;
-            tabletMinWidth: string;
-        };
-    } & {
-        input: {
-            activeBoxShadow: string;
-            background: string;
-            borderRadius: string;
-            boxShadow: string;
-            defaultBorder: string;
-            focusBorder: string;
-            focusBoxShadow: string;
-            hoverBorder: string;
-            hoverBoxShadow: string;
-        };
-    };
-    focusStyles: {
-        focusedBoundaryDark: string;
-        focusedBoundaryLight: string;
-    };
-    hoverStyles: {
-        hoverStyle: string;
-        hoverStyleInset: string;
-        invertHoverStyle: string;
-    };
-    divisionLineStyles: DivisionLineStyle;
-    typography: BaseThemeTypographyType;
-    spacing: BaseThemeSpacingType;
-    baseInputStyles: InputStyle;
 };
 
 // @public (undocumented)
@@ -20029,6 +20125,9 @@ export interface FlyoutMenuProps extends MenuBaseProps {
     type: "vertical" | "horizontal";
     useAs?: MainMenuProps.UseAs;
 }
+
+// @public
+export function focusEnsuringTabIndex(element: HTMLElement): void;
 
 // @public (undocumented)
 export const FocusFlatStyles: (params: {
@@ -20144,7 +20243,7 @@ export namespace FooterTpl {
 }
 
 // @public (undocumented)
-export const FootRowSegmentTpl: NamedExoticComponent<TableTemplateProps.RowSegmentProps>;
+export const FootRowSegmentTpl: MemoExoticComponent<(props: TableTemplateProps.RowSegmentProps) => ReactElement<TableTemplateProps.RowSegmentProps>>;
 
 // @public (undocumented)
 export function FootRowTpl(props: TableTemplateProps.FootRowProps): ReactElement<TableTemplateProps.FootRowProps>;
@@ -20417,6 +20516,78 @@ export const GeneralFlatColorsConfig: {
 };
 
 // @public
+export const generalPalette: {
+    readonly shared: {
+        readonly white: "#fff";
+        readonly black: "#16191d";
+        readonly black20: "#333";
+        readonly black30: "#4d4d4d";
+        readonly slateGrey: "#596673";
+        readonly slateGreyDark: "#4e5965";
+        readonly slateGreyLight: "#b7c0c7";
+        readonly grey: "#e2e6e9";
+        readonly greyDark: "#a9b3bc";
+        readonly greyLight: "#f1f2f4";
+        readonly grey98: "#f9fafb";
+        readonly grey85: "#d4d9de";
+        readonly grey80: "#c6ccd2";
+        readonly grey50: "#808080";
+        readonly grey55: "#7F8C9B";
+        readonly grey43: "#616f7c";
+        readonly blue: "#0568ae";
+        readonly blueDark: "#056294";
+        readonly blueLight: "#b5e4fd";
+        readonly blueLighter: "#e5f4ff";
+        readonly bluePale: "#f5fbff";
+        readonly green: "#297a24";
+        readonly greenDark: "#196719";
+        readonly greenLight: "#c1f0c1";
+        readonly orange: "#b54c17";
+        readonly orangeDark: "#b34a00";
+        readonly orangeLight: "#ffb580";
+        readonly purple: "#6b28d7";
+        readonly purpleDark: "#35146c";
+        readonly purpleLight: "#c4a9cf";
+        readonly red: "#c91d1d";
+        readonly redDark: "#9c1616";
+        readonly redLight: "#e96363";
+        readonly fuchsia: "#d50075";
+        readonly fuchsia75: "#ff80c6";
+        readonly yellow: "#ffcd29";
+        readonly yellowDark: "#dba800";
+        readonly yellowLight: "#ffe180";
+        readonly amber: "#f9bf30";
+        readonly amberDark: "#af7902";
+        readonly amberLight: "#fef2da";
+    };
+    readonly extended: {
+        readonly grey: "#757575";
+        readonly grey78: "#c8c8c8";
+        readonly grey59: "#979797";
+        readonly grey80: "#cdcdcd";
+        readonly red: "#c62828";
+        readonly blue: "#0277bd";
+        readonly blueDark: "#202e5d";
+        readonly blueDark33: "#434f67";
+        readonly blue31: "#00589f";
+        readonly blue50: "#0087ff";
+        readonly blue70: "#80c6ff";
+        readonly blue87: "#cddeed";
+        readonly blue95: "#ebf1f7";
+        readonly blue97: "#f4f7fb";
+        readonly blue98: "#f7fafc";
+        readonly blueLight: "#f6fafe";
+        readonly black: "#333";
+        readonly green: "#2e7d32";
+        readonly orange: "#ef6c00";
+        readonly yellowLight: "#ffffed";
+        readonly amber: "#fcce34";
+        readonly amberDark: "#ad7d04";
+        readonly amberLight: "#fef6db";
+    };
+};
+
+// @public
 export function generateUid(): string;
 
 // @public (undocumented)
@@ -20468,6 +20639,9 @@ export const getBaseButtonVariantStyles: (params: {
 }, isInvert?: boolean, isSecondary?: boolean) => RuleSet<object>;
 
 // @public (undocumented)
+export const getBaseTheme: (options?: BaseThemeOptions) => BaseThemeConfig;
+
+// @public (undocumented)
 export function getBoundaryAlignment(boundaryAlignmentArgument: BoundaryAlignmentArgument): Position;
 
 // @public (undocumented)
@@ -20481,8 +20655,15 @@ export function getBoundingElements(rect: DOMRect | ClientRect, element?: Elemen
 // @public (undocumented)
 export const getButtonStyles: (theme: BaseThemeType) => ButtonConfigType;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const getCompactTheme: () => {
+    colors: BaseThemeColorsType;
+    typography: BaseThemeTypographyType;
+    divisionLineStyles: DivisionLineStyle;
+    focusStyles: FocusStyle;
+    baseInputStyles: InputStyle;
+    applicationStyles: ApplicationStyle;
+    spacing: BaseThemeSpacingType;
     components: {
         accordion: AccordionConfigType;
         applicationFrame: ApplicationFrameConfigType;
@@ -20551,7 +20732,7 @@ export const getCompactTheme: () => {
         tag: TagConfigType;
         tagInput: TagInputConfigType;
         textArea: TextAreaConfigType;
-        textLine: TextLineConfigType;
+        textField: TextFieldConfigType;
         textOutput: TextOutputConfigType;
         timePicker: TimePickerConfigType;
         toast: ToastConfigType;
@@ -21121,13 +21302,6 @@ export const getCompactTheme: () => {
             } | undefined;
         };
     };
-    applicationStyles: ApplicationStyle;
-    spacing: BaseThemeSpacingType;
-    colors: BaseThemeColorsType;
-    typography: BaseThemeTypographyType;
-    divisionLineStyles: DivisionLineStyle;
-    focusStyles: FocusStyle;
-    baseInputStyles: InputStyle;
 };
 
 // @public (undocumented)
@@ -21136,7 +21310,7 @@ export function getDataByKey<RowType>(row: RowType, key: string | number): React
 // @public (undocumented)
 export const getDefaultMonths: (locale?: Locale_2) => string[];
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const getDefaultTheme: () => DefaultThemeType;
 
 // @public (undocumented)
@@ -21151,8 +21325,72 @@ export function getElementDocument(element?: Element | null): Document;
 // @public
 export function getElementWindow(element?: Element | null): Window;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const getFlatCompactTheme: () => {
+    typography: BaseThemeTypographyType;
+    baseInputStyles: InputStyle;
+    applicationStyles: {
+        background: string;
+        boxShadow: string;
+        color: string;
+        fontFamily: string;
+        fontSize: string;
+        input: {
+            activeBoxShadow: string;
+            background: string;
+            borderRadius: string | number;
+            boxShadow: string;
+            defaultBorder: string;
+            focusBorder: string;
+            focusBoxShadow: string;
+            focusCustomBoxShadow?: CustomBorder;
+            fontColor: string;
+            fontFamily: string;
+            fontSize: string;
+            fontWeight: number;
+            hoverBorder: string;
+            hoverBoxShadow: string;
+            lineHeight: number;
+            height: string;
+        };
+        label: {
+            disabledColor: string;
+            fontColor: string;
+            fontFamily: string;
+            fontSize: string;
+            fontWeight: number;
+            textTransform: string;
+        };
+        paragraphMargin: string;
+        responsive: {
+            desktopMinWidth: string;
+            mobileMaxWidth: string;
+            tabletMinWidth: string;
+        };
+    } & {
+        input: {
+            activeBoxShadow: string;
+            background: string;
+            borderRadius: string;
+            boxShadow: string;
+            defaultBorder: string;
+            focusBorder: string;
+            focusBoxShadow: string;
+            hoverBorder: string;
+            hoverBoxShadow: string;
+        };
+    };
+    divisionLineStyles: DivisionLineStyle;
+    focusStyles: {
+        focusedBoundaryDark: string;
+        focusedBoundaryLight: string;
+    };
+    hoverStyles: {
+        hoverStyle: string;
+        hoverStyleInset: string;
+        invertHoverStyle: string;
+    };
+    spacing: BaseThemeSpacingType;
     colors: FlatColorsConfigType;
     components: {
         accordion: AccordionConfigType & {
@@ -23130,6 +23368,14 @@ export const getFlatCompactTheme: () => {
             tabs: {
                 background: string;
             };
+            groupTab: {
+                subGroup: {
+                    background: string;
+                };
+                divider: {
+                    background: string;
+                };
+            };
             tab: {
                 active: {
                     background: string;
@@ -23219,7 +23465,7 @@ export const getFlatCompactTheme: () => {
             };
         };
         textArea: TextAreaConfigType;
-        textLine: TextLineConfigType;
+        textField: TextFieldConfigType;
         textOutput: TextOutputConfigType;
         timePicker: TimePickerConfigType & {
             text: {
@@ -25092,43 +25338,43 @@ export const getFlatCompactTheme: () => {
             };
         } & {
             headline1: {
-                fontWeight: number;
                 borderTop: string;
                 padding: number;
                 color: string;
+                fontWeight: number;
             };
             headline2: {
+                borderTop: string;
+                fontWeight: number;
+                padding: number;
                 color: string;
                 fontSize: string;
                 margin: string;
+            };
+            headline3: {
                 borderTop: string;
                 fontWeight: number;
                 padding: number;
-            };
-            headline3: {
                 color: string;
                 fontSize: string;
                 margin: string;
                 height: string;
+            };
+            headline4: {
                 borderTop: string;
                 fontWeight: number;
                 padding: number;
-            };
-            headline4: {
                 color: string;
                 height: string;
                 fontSize: string;
                 margin: string;
                 textTransform: string;
-                borderTop: string;
-                fontWeight: number;
-                padding: number;
             };
             headline5: {
-                height: string;
                 borderTop: string;
                 fontWeight: number;
                 padding: number;
+                height: string;
             };
             wrapper: {
                 padding: number;
@@ -25398,6 +25644,13 @@ export const getFlatCompactTheme: () => {
             };
         };
     };
+};
+
+// @public @deprecated (undocumented)
+export const getFlatTheme: () => {
+    typography: BaseThemeTypographyType;
+    spacing: BaseThemeSpacingType;
+    baseInputStyles: InputStyle;
     applicationStyles: {
         background: string;
         boxShadow: string;
@@ -25449,7 +25702,6 @@ export const getFlatCompactTheme: () => {
             hoverBoxShadow: string;
         };
     };
-    divisionLineStyles: DivisionLineStyle;
     focusStyles: {
         focusedBoundaryDark: string;
         focusedBoundaryLight: string;
@@ -25459,13 +25711,7 @@ export const getFlatCompactTheme: () => {
         hoverStyleInset: string;
         invertHoverStyle: string;
     };
-    spacing: BaseThemeSpacingType;
-    typography: BaseThemeTypographyType;
-    baseInputStyles: InputStyle;
-};
-
-// @public (undocumented)
-export const getFlatTheme: () => {
+    divisionLineStyles: DivisionLineStyle;
     colors: FlatColorsConfigType;
     components: {
         accordion: AccordionConfigType;
@@ -25535,7 +25781,7 @@ export const getFlatTheme: () => {
         tag: TagConfigType;
         tagInput: TagInputConfigType;
         textArea: TextAreaConfigType;
-        textLine: TextLineConfigType;
+        textField: TextFieldConfigType;
         textOutput: TextOutputConfigType;
         timePicker: TimePickerConfigType;
         toast: ToastConfigType;
@@ -27504,6 +27750,14 @@ export const getFlatTheme: () => {
             tabs: {
                 background: string;
             };
+            groupTab: {
+                subGroup: {
+                    background: string;
+                };
+                divider: {
+                    background: string;
+                };
+            };
             tab: {
                 active: {
                     background: string;
@@ -27886,70 +28140,6 @@ export const getFlatTheme: () => {
             } | undefined;
         };
     };
-    applicationStyles: {
-        background: string;
-        boxShadow: string;
-        color: string;
-        fontFamily: string;
-        fontSize: string;
-        input: {
-            activeBoxShadow: string;
-            background: string;
-            borderRadius: string | number;
-            boxShadow: string;
-            defaultBorder: string;
-            focusBorder: string;
-            focusBoxShadow: string;
-            focusCustomBoxShadow?: CustomBorder;
-            fontColor: string;
-            fontFamily: string;
-            fontSize: string;
-            fontWeight: number;
-            hoverBorder: string;
-            hoverBoxShadow: string;
-            lineHeight: number;
-            height: string;
-        };
-        label: {
-            disabledColor: string;
-            fontColor: string;
-            fontFamily: string;
-            fontSize: string;
-            fontWeight: number;
-            textTransform: string;
-        };
-        paragraphMargin: string;
-        responsive: {
-            desktopMinWidth: string;
-            mobileMaxWidth: string;
-            tabletMinWidth: string;
-        };
-    } & {
-        input: {
-            activeBoxShadow: string;
-            background: string;
-            borderRadius: string;
-            boxShadow: string;
-            defaultBorder: string;
-            focusBorder: string;
-            focusBoxShadow: string;
-            hoverBorder: string;
-            hoverBoxShadow: string;
-        };
-    };
-    focusStyles: {
-        focusedBoundaryDark: string;
-        focusedBoundaryLight: string;
-    };
-    hoverStyles: {
-        hoverStyle: string;
-        hoverStyleInset: string;
-        invertHoverStyle: string;
-    };
-    divisionLineStyles: DivisionLineStyle;
-    typography: BaseThemeTypographyType;
-    spacing: BaseThemeSpacingType;
-    baseInputStyles: InputStyle;
 };
 
 // @public (undocumented)
@@ -28002,6 +28192,9 @@ export function getPositionBoundingClientRect(position?: {
     top: number;
     left: number;
 }, referenceElement?: Element): CustomClientRect;
+
+// @public (undocumented)
+export const getQuickTheme: (input: QuickThemeOptions) => BaseThemeConfig;
 
 // @public
 export const getRole: (role?: string | boolean, defaultRole?: string) => string | undefined;
@@ -28166,10 +28359,10 @@ export function hasColumnGroup<RowType>(columns: BaseColumnType<RowType>[]): boo
 export function hasGotFocus(container: HTMLElement | null): boolean;
 
 // @public (undocumented)
-export const HeadCellGroupTpl: NamedExoticComponent<TableTemplateProps.HeadCellGroupProps>;
+export const HeadCellGroupTpl: MemoExoticComponent<(props: TableTemplateProps.HeadCellGroupProps) => ReactElement>;
 
 // @public (undocumented)
-export const HeadCellTpl: NamedExoticComponent<TableTemplateProps.HeadCellProps>;
+export const HeadCellTpl: MemoExoticComponent<(props: TableTemplateProps.HeadCellProps) => ReactElement<TableTemplateProps.HeadCellProps>>;
 
 // @public (undocumented)
 export const HeaderTrigger: FC<HeaderTriggerProps>;
@@ -28335,6 +28528,26 @@ export namespace HeadFilterRowTpl {
 }
 
 // @public (undocumented)
+export function HeadGridRowTpl(props: HeadGridRowTplProps): ReactElement;
+
+// @public (undocumented)
+export interface HeadGridRowTplProps extends Container, Identifiable {
+    // (undocumented)
+    ariaRowIndex?: number;
+}
+
+// @public (undocumented)
+export function HeadGridTpl(props: HeadGridTplProps): ReactElement;
+
+// @public (undocumented)
+export interface HeadGridTplProps extends Styleable, Container, Identifiable {
+    // (undocumented)
+    columnWidths: number[];
+    // (undocumented)
+    totalRows: number;
+}
+
+// @public (undocumented)
 export function HeadingActionButtonTpl(props: ButtonProps): ReactElement;
 
 // @public (undocumented)
@@ -28368,8 +28581,10 @@ export interface HeadlineProps extends BaseTypographyProps {
     collapsed?: boolean;
     collapseIcon?: ReactNode;
     collapsible?: boolean;
+    compact?: boolean;
     divider?: boolean;
     expandIcon?: ReactNode;
+    headerActions?: ReactNode;
     htmlTag?: string;
     iconVerticalAlignment?: IconVerticalAlignment;
     info?: ReactNode;
@@ -28383,7 +28598,7 @@ export interface HeadlineProps extends BaseTypographyProps {
 export type HeadlineTitleProps = Identifiable & Ref;
 
 // @public (undocumented)
-export const HeadRowSegmentTpl: NamedExoticComponent<TableTemplateProps.RowSegmentProps>;
+export const HeadRowSegmentTpl: MemoExoticComponent<(props: TableTemplateProps.RowSegmentProps) => ReactElement<TableTemplateProps.RowSegmentProps>>;
 
 // @public (undocumented)
 export function HeadRowTpl(props: TableTemplateProps.HeadRowProps): ReactElement<TableTemplateProps.HeadRowProps>;
@@ -28564,7 +28779,7 @@ export interface IconMappingDefinition {
 export class IconPicker extends Component<IconPickerProps, IconPickerState> {
     constructor(props: IconPickerProps);
     // (undocumented)
-    componentDidUpdate(prevProps: IconPickerProps): void;
+    componentDidUpdate(prevProps: IconPickerProps, prevState: IconPickerState): void;
     // (undocumented)
     context: ContextType<typeof A11YLanguageContext>;
     // (undocumented)
@@ -28608,7 +28823,7 @@ export type IconPickerConfigType = {
 };
 
 // @public (undocumented)
-export interface IconPickerProps extends Omit<TextLineStatelessProps, "onChange">, InputDOMProps {
+export interface IconPickerProps extends Omit<TextFieldProps, "onChange">, InputDOMProps {
     hintTemplate?: string;
     onChange(icon?: IconPickerProps.Icon): void;
     onIconClick?(icon: IconPickerProps.Icon): void;
@@ -28635,6 +28850,7 @@ export interface IconPickerTitles {
 
 // @public
 export interface IconProps extends Styleable, Identifiable, Container, DataRole, HTMLAttributes {
+    hiddenText?: string;
     iconRef?: RefCallback<HTMLElement>;
     iconTheme?: IconTheme;
     onClick?(event: MouseEvent_2): void;
@@ -28781,6 +28997,8 @@ export class InlineStyleTextNode extends TextNode {
     // (undocumented)
     hasClass(className: string): boolean;
     // (undocumented)
+    static importDOM(): DOMConversionMap | null;
+    // (undocumented)
     static importJSON(serializedNode: SerializedInlineStyleTextNode): InlineStyleTextNode;
     // (undocumented)
     isCustomUnmergeable(): boolean;
@@ -28850,10 +29068,10 @@ export function inputWithSuffixName(attributeValue?: string): string | undefined
 export interface InputWrapperProps extends Identifiable, Styleable, DataRole, Container {
 }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export function Insertable<InProps extends TreeProps, OutProps extends InProps & InsertableTreeProps>(Target: ComponentType<InProps>): ComponentType<OutProps>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export function InsertableTree(props: InsertableTreeProps): ReactElement<InsertableTreeProps>;
 
 // @public (undocumented)
@@ -28866,11 +29084,6 @@ export namespace InsertableTree {
 export namespace InsertableTree {
     // (undocumented)
     export function InsertHint(props: InsertableTreeProps.InsertHintProps): ReactElement<InsertableTreeProps.InsertHintProps>;
-    // (undocumented)
-    export namespace InsertHint {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export class TreeNodeTemplateRecursive extends Component<InsertableTreeProps.InsertableTreeNodeRecursiveProps, TreeNodeTemplateRecursiveState> {
         constructor(props: InsertableTreeProps.InsertableTreeNodeRecursiveProps);
@@ -28995,6 +29208,7 @@ export type InteractionHintComponentConfigMap = {
     accordion: InteractionHintVerticalConfig;
     verticalFlyoutMenu: InteractionHintVerticalConfig;
     slidingMenu: InteractionHintVerticalConfig;
+    filter?: InteractionHintBaseConfig;
 };
 
 // @public (undocumented)
@@ -29483,6 +29697,51 @@ export enum Key {
 }
 
 // @public (undocumented)
+export interface KeyboardNavigationBaseConfig {
+    mode?: KeyboardNavigationMode;
+}
+
+// @public
+export type KeyboardNavigationComponentConfig = {
+    [K in KeyboardNavigationComponentKey]?: KeyboardNavigationMode | KeyboardNavigationComponentConfigMap[K];
+};
+
+// @public (undocumented)
+export type KeyboardNavigationComponentConfigMap = {
+    popUpMenu: KeyboardNavigationBaseConfig;
+    buttonGroupContainer: KeyboardNavigationBaseConfig;
+    quickAccessButton: KeyboardNavigationBaseConfig;
+    fileUpload: KeyboardNavigationBaseConfig;
+    richTextEditor: KeyboardNavigationBaseConfig;
+    typography: KeyboardNavigationBaseConfig;
+    comment: KeyboardNavigationBaseConfig;
+    validationBar: KeyboardNavigationBaseConfig;
+    horizontalFlyoutMenu: KeyboardNavigationBaseConfig;
+    verticalFlyoutMenu: KeyboardNavigationBaseConfig;
+    slidingMenu: KeyboardNavigationBaseConfig;
+    tree: KeyboardNavigationBaseConfig;
+    tabPanelSubTablist: KeyboardNavigationBaseConfig;
+};
+
+// @public (undocumented)
+export type KeyboardNavigationComponentKey = keyof KeyboardNavigationComponentConfigMap;
+
+// @public (undocumented)
+export interface KeyboardNavigationConfigContextProps {
+    componentConfigs?: KeyboardNavigationComponentConfig;
+    mode?: KeyboardNavigationMode;
+}
+
+// @public (undocumented)
+export const KeyboardNavigationConfigProvider: {
+    (props: KeyboardNavigationConfigContextProps & Container): ReactNode;
+    displayName: string;
+};
+
+// @public
+export type KeyboardNavigationMode = "default" | "arrow-only";
+
+// @public (undocumented)
 export function Label(props: LabelProps): ReactElement<LabelProps>;
 
 // @public (undocumented)
@@ -29526,31 +29785,11 @@ export namespace LayoutGrid {
         isUsingSpanOffset?: boolean;
     }): ReactElement<LayoutGridProps.ColumnProps> | null;
     // (undocumented)
-    export namespace Column {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Grid(props: LayoutGridProps.LayoutGridProps): ReactElement<LayoutGridProps.LayoutGridProps>;
-    // (undocumented)
-    export namespace Grid {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function LayoutGridTemplate(props: LayoutGridProps.LayoutGridTemplateProps): ReactElement;
     // (undocumented)
-    export namespace LayoutGridTemplate {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Row(props: LayoutGridProps.RowProps): ReactElement<LayoutGridProps.RowProps>;
-    // (undocumented)
-    export namespace Row {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -29683,6 +29922,32 @@ export interface LayoutResultItem<T> {
     width?: ViewWidth;
 }
 
+// @public (undocumented)
+export namespace LegacyFilterSelector {
+    // (undocumented)
+    export class FilterItem extends Component<FilterSelectorProps.FilterItemProps, FilterItemState> {
+        constructor(props: FilterSelectorProps.FilterItemProps);
+        // (undocumented)
+        componentDidMount(): void;
+        // (undocumented)
+        static defaultProps: {
+            current: boolean;
+        };
+        // (undocumented)
+        static displayName: string;
+        // (undocumented)
+        render(): ReactNode;
+    }
+    // (undocumented)
+    export interface FilterItemState {
+        // (undocumented)
+        isGraphicHovered: boolean;
+    }
+}
+
+// @public (undocumented)
+export type Level = 1 | 2 | 3 | 4 | 5;
+
 // @public
 export function LexicalAutoLinkPlugin(input: {
     matchers: Array<LinkMatcher>;
@@ -29770,6 +30035,13 @@ export interface LineChartWidgetState {
         [dataKey: string]: boolean;
     };
 }
+
+// @public (undocumented)
+export type LineHeight = {
+    tight: number;
+    base: number;
+    relaxed: number;
+};
 
 // @public (undocumented)
 export const lineHeight: RuleSet<object>;
@@ -29903,17 +30175,7 @@ export namespace List {
     // (undocumented)
     export function Item(props: ListItemProps): ReactElement<ListItemProps>;
     // (undocumented)
-    export namespace Item {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function SubHeader(props: ListSubHeaderProps): ReactElement<ListSubHeaderProps>;
-    // (undocumented)
-    export namespace SubHeader {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -30070,6 +30332,8 @@ export class ListItemNode extends ListItemNode_2 {
     // (undocumented)
     static getType(): string;
     // (undocumented)
+    static importDOM(): DOMConversionMap | null;
+    // (undocumented)
     static importJSON(serializedNode: SerializedListItemNode): ListItemNode;
 }
 
@@ -30179,45 +30443,15 @@ export namespace LoginLayout {
     // (undocumented)
     export function Container(props: LoginContainerProps): ReactElement<LoginContainerProps>;
     // (undocumented)
-    export namespace Container {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Footer(props: LoginFooterProps): ReactElement<LoginFooterProps>;
-    // (undocumented)
-    export namespace Footer {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function Form(props: LoginFormProps): ReactElement<LoginFormProps>;
     // (undocumented)
-    export namespace Form {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function FormItem(props: LoginFormItemProps): ReactElement<LoginFormItemProps>;
-    // (undocumented)
-    export namespace FormItem {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function Headline(input: LoginHeadlineProps): ReactElement<LoginHeadlineProps>;
     // (undocumented)
-    export namespace Headline {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Logo(props: LoginLogoProps): ReactElement<LoginLogoProps>;
-    // (undocumented)
-    export namespace Logo {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -30318,6 +30552,8 @@ export namespace MainMenu {
         // (undocumented)
         static displayName: string;
         // (undocumented)
+        static pendingSubmenuOpenElement: HTMLElement | null;
+        // (undocumented)
         render(): ReactNode;
     }
     // (undocumented)
@@ -30326,6 +30562,8 @@ export namespace MainMenu {
         $disabled?: boolean;
         // (undocumented)
         isSelected?: boolean;
+        // (undocumented)
+        keyboardNavMode?: KeyboardNavigationMode;
         // (undocumented)
         nonCondensedItemCount?: number;
         // (undocumented)
@@ -31530,52 +31768,17 @@ export namespace MobileValidation {
     // (undocumented)
     export function Actions(props: MobileValidationProps.ActionsProps): ReactElement<MobileValidationProps.ActionsProps>;
     // (undocumented)
-    export namespace Actions {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function ActionsItem(props: MobileValidationProps.ActionsItemProps): ReactElement<MobileValidationProps.ActionsItemProps>;
-    // (undocumented)
-    export namespace ActionsItem {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function Content(props: MobileValidationProps.ContentProps): ReactElement<MobileValidationProps.ContentProps>;
     // (undocumented)
-    export namespace Content {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Graphic(props: MobileValidationProps.GraphicProps): ReactElement<MobileValidationProps.GraphicProps>;
-    // (undocumented)
-    export namespace Graphic {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function Overview(props: MobileValidationProps.OverviewProps): ReactElement<MobileValidationProps.OverviewProps>;
     // (undocumented)
-    export namespace Overview {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function PreviewList(props: MobileValidationProps.PreviewListProps): ReactElement<MobileValidationProps.PreviewListProps>;
     // (undocumented)
-    export namespace PreviewList {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function PreviewListItem(props: MobileValidationProps.PreviewListItemProps): ReactElement<MobileValidationProps.PreviewListItemProps>;
-    // (undocumented)
-    export namespace PreviewListItem {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -31795,6 +31998,30 @@ export interface MonthSelectorProps<T extends OptionalYearMonthItem | undefined 
 }
 
 // @public (undocumented)
+export type MotionConfig = {
+    duration: MotionDuration;
+    easing: MotionEasing;
+};
+
+// @public (undocumented)
+export type MotionDuration = {
+    instant: string;
+    fast: string;
+    normal: string;
+    slow: string;
+    slower: string;
+    slowest: string;
+};
+
+// @public (undocumented)
+export type MotionEasing = {
+    default: string;
+    linear: string;
+    easeIn: string;
+    easeOut: string;
+};
+
+// @public (undocumented)
 export function moveItemFocus(container: HTMLElement | null, from: Element | null, selector: string, computeNextIndex: (currentIndex: number, elements: Element[]) => number): void;
 
 // @public (undocumented)
@@ -31979,7 +32206,7 @@ export namespace NativeSelect {
 }
 
 // @public
-export type NativeSelectProps = Omit<SelectProps, "customInputProps">;
+export type NativeSelectProps = Omit<SelectProps, "customInputProps" | "useCustomView">;
 
 // @public (undocumented)
 export const NavigationContentboxContext: Context<NavigationContentboxContextType>;
@@ -32009,11 +32236,6 @@ export class NewComment extends Component<NewCommentProps, {
 export namespace NewComment {
     // (undocumented)
     export function Input(props: NewCommentInputProps): ReactElement<NewCommentInputProps>;
-    // (undocumented)
-    export namespace Input {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public
@@ -32044,7 +32266,7 @@ export class NextStepFirstWithBoundaryFocusedBehaviour extends PreviousStepFirst
 }
 
 // @public (undocumented)
-export const NodeContent: NamedExoticComponent<NodeContentProps>;
+export const NodeContent: MemoExoticComponent<(props: NodeContentProps) => ReactElement<NodeContentProps>>;
 
 // @public (undocumented)
 export interface NodeContentProps extends Container, Styleable, Identifiable {
@@ -32060,21 +32282,21 @@ export interface NodeContentProps extends Container, Styleable, Identifiable {
 }
 
 // @public (undocumented)
-export const NodeIcon: NamedExoticComponent<NodeIconProps>;
+export const NodeIcon: MemoExoticComponent<(props: NodeIconProps) => ReactElement<NodeTitleProps>>;
 
 // @public (undocumented)
 export interface NodeIconProps extends Container, Styleable, Identifiable {
 }
 
 // @public (undocumented)
-export const NodeName: NamedExoticComponent<NodeNameProps>;
+export const NodeName: MemoExoticComponent<(props: NodeNameProps) => ReactElement<NodeTitleProps>>;
 
 // @public (undocumented)
 export interface NodeNameProps extends Container, Styleable, Identifiable {
 }
 
 // @public (undocumented)
-export const NodeTitle: NamedExoticComponent<NodeTitleProps>;
+export const NodeTitle: MemoExoticComponent<(props: NodeTitleProps) => ReactElement<NodeTitleProps>>;
 
 // @public (undocumented)
 export interface NodeTitleProps extends Container, Styleable, Identifiable {
@@ -32087,38 +32309,13 @@ export namespace NodeTpl {
     // @deprecated (undocumented)
     export function Node(props: NodeTplProps.NodeProps): ReactElement<NodeTplProps.NodeProps>;
     // @deprecated (undocumented)
-    export namespace Node {
-        var // (undocumented)
-        displayName: string;
-    }
-    // @deprecated (undocumented)
     export function NodeIcon(props: NodeTplProps.BaseProps): ReactElement;
-    // @deprecated (undocumented)
-    export namespace NodeIcon {
-        var // (undocumented)
-        displayName: string;
-    }
     // @deprecated (undocumented)
     export function NodeTitle(props: NodeTplProps.BaseProps): ReactElement;
     // @deprecated (undocumented)
-    export namespace NodeTitle {
-        var // (undocumented)
-        displayName: string;
-    }
-    // @deprecated (undocumented)
     export function Role(props: NodeTplProps.RoleProps & RoleInternalProps): ReactElement<NodeTplProps.RoleProps>;
     // @deprecated (undocumented)
-    export namespace Role {
-        var // (undocumented)
-        displayName: string;
-    }
-    // @deprecated (undocumented)
     export function RoleContent(props: NodeTplProps.RoleContentProps): ReactElement<NodeTplProps.RoleProps>;
-    // @deprecated (undocumented)
-    export namespace RoleContent {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export interface RoleInternalProps {
         // (undocumented)
@@ -32126,11 +32323,6 @@ export namespace NodeTpl {
     }
     // @deprecated (undocumented)
     export function TitleText(props: NodeTplProps.BaseProps): ReactElement;
-    // @deprecated (undocumented)
-    export namespace TitleText {
-        var // (undocumented)
-        displayName: string;
-    }
     export {};
 }
 
@@ -32171,6 +32363,17 @@ export namespace NotificationAreaTpl {
 
 // @public (undocumented)
 export const NumberListButton: ButtonType;
+
+// @public (undocumented)
+export type OpacityConfig = {
+    slightly: number;
+    hint: number;
+    subtle: number;
+    low: number;
+    medium: number;
+    high: number;
+    nearFull: number;
+};
 
 // @public (undocumented)
 export type OptionalYearMonthItem = {
@@ -32367,6 +32570,12 @@ export interface PaginationTitles {
 }
 
 // @public
+export type PaletteType = {
+    shared: Readonly<Record<keyof typeof shared, string>>;
+    extended: Readonly<Record<keyof typeof extended, string>>;
+};
+
+// @public
 export function parseIncompleteTime(timeString: string, mode?: TimePickerProps.ClockMode): Date | null;
 
 // Warning: (ae-forgotten-export) The symbol "Spacing_2" needs to be exported by the entry point index.d.ts
@@ -32384,7 +32593,7 @@ export interface PickerFooter {
 }
 
 // @public
-export const PickerHeaderButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+export const PickerHeaderButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
 export function PickerHeaderCloseButton(props: ButtonProps): ReactElement;
@@ -32649,6 +32858,9 @@ export interface PluginEditorTitles {
 export const PopUpMenu: FC<PopUpMenuProps>;
 
 // @public (undocumented)
+export type PopUpMenuCloseReason = "onItemClick" | "onOutsideClick" | "onEscape" | "onSpace" | "onTab" | "onCloseButton" | "onProgrammatic";
+
+// @public (undocumented)
 export const popupMenuCompactConfig: (theme: CompactThemeType) => {
     button: {
         fontSize: string;
@@ -32773,7 +32985,7 @@ export interface PopUpMenuProps extends Container, Styleable, Identifiable, Data
     };
     disabled?: boolean;
     focusOnOpen?: boolean;
-    focusOnTriggerElementAfterClose?: boolean;
+    focusOnTriggerElementAfterClose?: boolean | Partial<Record<PopUpMenuCloseReason, boolean>>;
     headerTitle?: ReactNode;
     htmlTag?: string;
     icon?: ReactNode;
@@ -33127,6 +33339,37 @@ export interface QuickAccessMenuTitles {
 }
 
 // @public (undocumented)
+export interface QuickThemeOptions {
+    fontFamily?: string;
+    fontSize?: number;
+    palette?: QuickThemePalette;
+    spacing?: number;
+}
+
+// @public
+export interface QuickThemePalette {
+    border: string;
+    borderSubtle?: string;
+    error: string;
+    groupBackground?: string;
+    info: string;
+    navigationAccent?: string;
+    navigationBackground?: string;
+    pageBackground: string;
+    primary: string;
+    primaryActive?: string;
+    primaryHover?: string;
+    primaryLight?: string;
+    primaryTint?: string;
+    success: string;
+    surface: string;
+    textPrimary: string;
+    textSecondary?: string;
+    textTitle?: string;
+    warning: string;
+}
+
+// @public (undocumented)
 export function Radio(input: RadioProps): ReactElement<RadioProps>;
 
 // @public (undocumented)
@@ -33141,11 +33384,6 @@ export namespace Radio {
     export function Item(props: RadioItemProps & {
         inline?: boolean;
     }): ReactElement<RadioItemProps>;
-    // (undocumented)
-    export namespace Item {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -33268,6 +33506,12 @@ export interface Registration {
     readonly handler: Handler<Event_2>;
     readonly type: typeof Event_2;
 }
+
+// @public
+export type RelativeYearRange = {
+    startOffset?: number;
+    endOffset?: number;
+};
 
 // @public (undocumented)
 export function removeClassFromMatchersInNode(node: InlineStyleTextNode, matchers: TextMatcher[], className: string): void;
@@ -33674,6 +33918,9 @@ export interface RowStyles extends Styleable {
     title?: string;
 }
 
+// @public (undocumented)
+export type ScreenProps = Ref;
+
 // @public
 export class ScrollbarWidthResolver {
     static get(): number | undefined;
@@ -33687,7 +33934,34 @@ export const SecondaryPaneAnimation: {
 };
 
 // @public (undocumented)
+export interface SecondaryPaneAnimationProps {
+    // (undocumented)
+    children: ReactNode;
+    // (undocumented)
+    collapsed?: boolean;
+    // (undocumented)
+    customAnimation?: CustomAnimationConfig;
+    // (undocumented)
+    hide?: boolean;
+    // (undocumented)
+    htmlAttributes?: HTMLAttributes_2<HTMLDivElement>;
+    // (undocumented)
+    isExpandingOrCollapsing: RefObject<boolean>;
+    // (undocumented)
+    isResized: RefObject<boolean>;
+    // (undocumented)
+    position: SupportingPanesLayoutProps.SecondaryPanePosition;
+    // (undocumented)
+    ref?: Ref_2<HTMLDivElement>;
+    // (undocumented)
+    resizeHandleRenderer: (position: SupportingPanesLayoutProps.SecondaryPanePosition) => ReactNode;
+    // (undocumented)
+    width: string;
+}
+
+// @public (undocumented)
 export interface SectionProps extends Identifiable, Styleable, Container {
+    onFocus?: (event: FocusEvent_2<HTMLElement>) => void;
     role?: string;
 }
 
@@ -33700,7 +33974,7 @@ export namespace Select {
     displayName: string;
 }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export function Selectable<InProps extends TreeProps, OutProps extends InProps & SelectableTreeProps>(Target: ComponentType<InProps>): ComponentType<OutProps>;
 
 // @public (undocumented)
@@ -33873,7 +34147,7 @@ export type SerializedMentionNode = Spread<{
 }, SerializedInlineStyleTextNode>;
 
 // @public (undocumented)
-export function shouldForwardProp<R extends Runtime>(prop: string, elementToBeCreated: StyledTarget<R>): boolean;
+export function shouldForwardProp(prop: string, elementToBeCreated: string | React.ComponentType<any>): boolean;
 
 // @public (undocumented)
 export function shouldHaveHiddenText<NodeType extends BaseTreeTableNode>(params: {
@@ -34031,12 +34305,19 @@ export interface SliderProps extends Omit<BaseInputProps, OmittedBaseInputProps>
 // @public (undocumented)
 export const slideUpAndHide: default_2;
 
-// Warning: (ae-forgotten-export) The symbol "SlidingMenuInternal" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const SlidingMenu: typeof SlidingMenuInternal & {
+export const SlidingMenu: FC<SlidingMenuProps> & {
     MainWrapper: typeof SlidingMenuMainWrapper;
 };
+
+// @public (undocumented)
+export function SlidingMenuMainWrapper(props: SlidingMenuProps.MainWrapperProps): ReactElement<SlidingMenuProps.MainWrapperProps>;
+
+// @public (undocumented)
+export namespace SlidingMenuMainWrapper {
+    var // (undocumented)
+    displayName: string;
+}
 
 // @public (undocumented)
 export interface SlidingMenuProps extends MenuBaseProps {
@@ -34099,6 +34380,20 @@ export const SPACING_MODIFIERS: string[];
 export const SpacingConfig: (baseSpacing: number) => Spacing;
 
 // @public (undocumented)
+export interface SpacingOverrides {
+    // (undocumented)
+    base?: number;
+    // (undocumented)
+    baseSpacing?: Partial<BaseSpacing>;
+    // (undocumented)
+    horizontalSpacing?: Partial<HorizontalSpacing>;
+    // (undocumented)
+    spacing?: Partial<Spacing>;
+    // (undocumented)
+    verticalSpacing?: Partial<VerticalSpacing>;
+}
+
+// @public (undocumented)
 export const spacingValue: (direct: string, modifier: string) => RuleSet<object>;
 
 // @public (undocumented)
@@ -34143,11 +34438,6 @@ export namespace SplitView {
 export namespace SplitView {
     // (undocumented)
     export function Area(props: SplitViewProps.AreaProps): ReactElement<SplitViewProps.AreaProps>;
-    // (undocumented)
-    export namespace Area {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -34296,106 +34586,146 @@ export interface Styleable {
 // @public (undocumented)
 export namespace StyledApplicationFrame {
     const // (undocumented)
-    StyledFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$stickyFooter"> & {
     $stickyFooter?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$stickyFooter"> & {
+    $stickyFooter?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabledCollapsingSub" | "$hasToggleButton" | "$subExpanded"> & {
     $hasToggleButton?: boolean;
     $subExpanded?: boolean;
     $disabledCollapsingSub?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabledCollapsingSub" | "$hasToggleButton" | "$subExpanded"> & {
+    $hasToggleButton?: boolean;
+    $subExpanded?: boolean;
+    $disabledCollapsingSub?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledMainContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledMainContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$sidebarWidth" | "$sub"> & {
     $sub?: boolean;
     $sidebarWidth?: string;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$sidebarWidth" | "$sub"> & {
+    $sub?: boolean;
+    $sidebarWidth?: string;
+    }, never>>> & string;
     const // (undocumented)
-    StyledSidebar: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledSidebar: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabledCollapsingSub" | "$maximized" | "$minimized" | "$resizable" | "$subExpanded" | "$width"> & {
     $width: string;
     $subExpanded?: boolean;
     $disabledCollapsingSub?: boolean;
     $minimized?: boolean;
     $maximized?: boolean;
     $resizable?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabledCollapsingSub" | "$maximized" | "$minimized" | "$resizable" | "$subExpanded" | "$width"> & {
+    $width: string;
+    $subExpanded?: boolean;
+    $disabledCollapsingSub?: boolean;
+    $minimized?: boolean;
+    $maximized?: boolean;
+    $resizable?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledSidebarContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledSidebarContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledToggleSidebarButtonWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledToggleSidebarButtonWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$smallView"> & {
     $smallView: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$smallView"> & {
+    $smallView: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledToggleSidebarButton: IStyledComponentBase<"web", Substitute<ButtonProps, {
+    StyledToggleSidebarButton: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonProps, "$smallView" | "$subExpanded"> & {
     $smallView: boolean;
     $subExpanded?: boolean;
-    }>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+    }, never> & Partial<Pick<FastOmit<ButtonProps, "$smallView" | "$subExpanded"> & {
+    $smallView: boolean;
+    $subExpanded?: boolean;
+    }, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 }
 
 // @public (undocumented)
-export const StyledApplicationHeaderContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledApplicationHeaderContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledApplicationHeaderSlot: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledApplicationHeaderSlot: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledApplicationHeaderSlotWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledApplicationHeaderSlotWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "slotPosition"> & {
 slotPosition: "left" | "right" | "center";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "slotPosition"> & {
+slotPosition: "left" | "right" | "center";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledApplicationHeaderWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledApplicationHeaderWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledAutocompleteDropdownWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledAutocompleteDropdownWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isLoading"> & {
 isLoading?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isLoading"> & {
+isLoading?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledAutocompleteModal: IStyledComponentBase<"web", FastOmit<ModalOverlayProps, never>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
+export const StyledAutocompleteModal: IStyledComponentBase<"web", FastOmit<ModalOverlayProps, never> & Partial<Pick<ModalOverlayProps, never>>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledAutocompleteWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledAutocompleteWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
 $disabled?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
+$disabled?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledAvatarImage: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, never>> & string;
+export const StyledAvatarImage: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, never> & Partial<Pick<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledAvatarWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledAvatarWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
 position?: ChatProps.MessagePosition;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
+position?: ChatProps.MessagePosition;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledBadge: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, BadgeProps>> & string;
+export const StyledBadge: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never>>> & string;
 
 // @public (undocumented)
-export const StyledBadgeWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, BadgeProps>> & string;
+export const StyledBadgeWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledBaseBoolean {
     const // (undocumented)
-    StyledInput: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, {
+    StyledInput: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
     $checked?: boolean;
     $disabled?: boolean;
     $readonly?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldGroup: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldGroup: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$inline" | "$touch"> & {
     $inline?: boolean;
     $touch?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$inline" | "$touch"> & {
+    $inline?: boolean;
+    $touch?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldControl: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldControl: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasTooltips" | "$inline" | "$isNonInteractive"> & {
     $inline?: boolean;
     $hasTooltips?: boolean;
     $isNonInteractive?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasTooltips" | "$inline" | "$isNonInteractive"> & {
+    $inline?: boolean;
+    $hasTooltips?: boolean;
+    $isNonInteractive?: boolean;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
@@ -34403,36 +34733,51 @@ export namespace StyledBaseInput {
     const // (undocumented)
     helperClassInDisabledStyles: RuleSet<object>;
     const // (undocumented)
-    StyledFieldAffixText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldAffixText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$truncated"> & {
     $truncated?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$truncated"> & {
+    $truncated?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldAddon: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldAddon: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
     $position: "before" | "after";
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+    $position: "before" | "after";
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldHelperText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>, never>> & string;
+    StyledFieldHelperText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>, never> & Partial<Pick<DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>, never>>> & string;
     const // (undocumented)
-    StyledFieldHelperWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldHelperWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$customWidth"> & {
     $customWidth?: string | number;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$customWidth"> & {
+    $customWidth?: string | number;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldPrefixWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldPrefixWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$last"> & {
     $last?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$last"> & {
+    $last?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldSuffixWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldSuffixWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$first" | "$negativeMargin"> & {
     $first?: boolean;
-    }>> & string;
+    $negativeMargin?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$first" | "$negativeMargin"> & {
+    $first?: boolean;
+    $negativeMargin?: boolean;
+    }, never>>> & string;
     const // @deprecated (undocumented)
-    StyledFieldMobile: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledFieldMobile: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledFieldTextInput: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, {
+    StyledFieldTextInput: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$alignRight" | "virtualkeyboardpolicy"> & {
     $alignRight?: boolean;
     virtualkeyboardpolicy?: "manual" | "auto";
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$alignRight" | "virtualkeyboardpolicy"> & {
+    $alignRight?: boolean;
+    virtualkeyboardpolicy?: "manual" | "auto";
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldInput: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldInput: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
     $mobile?: boolean;
     $readonly?: boolean;
     $disabled?: boolean;
@@ -34441,36 +34786,56 @@ export namespace StyledBaseInput {
     $info?: boolean;
     $noEffect?: boolean;
     $hasFocus?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
+    $mobile?: boolean;
+    $readonly?: boolean;
+    $disabled?: boolean;
+    $warning?: boolean;
+    $error?: boolean;
+    $info?: boolean;
+    $noEffect?: boolean;
+    $hasFocus?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
     $block?: boolean;
     $phone?: boolean;
     $disabled?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+    $block?: boolean;
+    $phone?: boolean;
+    $disabled?: boolean;
+    }, never>>> & string;
     const // (undocumented)
     elementWithTooltipStyles: (numberOfTooltips: number) => RuleSet<object>;
     const // (undocumented)
-    StyledField: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldMain: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledFieldMain: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 }
 
 // @public (undocumented)
 export namespace StyledBaseTable {
     const // (undocumented)
-    Row: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    Row: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
     cardView?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    Group: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    Group: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    Cell: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    Cell: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
     fixedWidth?: boolean;
     subInfo?: boolean;
     actionCell?: boolean;
@@ -34479,96 +34844,149 @@ export namespace StyledBaseTable {
     hasColumnGroup?: boolean;
     resizable?: boolean;
     $hasActionCellWidth?: boolean;
-    }>> & string;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    Segment: IStyledComponentBase<"web", Substitute<TableTemplateProps.CollapsingWrapperProps, {
+    Segment: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
     rowSegmentType?: TableTemplateProps.RowSegmentType;
     cardView?: boolean;
-    }>> & string & Omit<NamedExoticComponent<TableTemplateProps.CollapsingWrapperProps>, keyof Component<any, {}, any>>;
+    $crossTabulation?: boolean;
+    }, never> & Partial<Pick<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never>>> & string & Omit<MemoExoticComponent<(props: TableTemplateProps.CollapsingWrapperProps) => ReactElement<TableTemplateProps.CollapsingWrapperProps> | null>, keyof Component<any, {}, any>>;
 }
 
 // @public (undocumented)
-export const StyledBigIconWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>> & string;
+export const StyledBigIconWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledBodyRowBadgeWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledBodyRowBadgeWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledBottomNotificationWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledBottomNotificationWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "scrollWidth"> & {
 scrollWidth: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "scrollWidth"> & {
+scrollWidth: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledBreadcrumb: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never>> & string;
+export const StyledBreadcrumb: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledBreadcrumbContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledBreadcrumbContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledBreadcrumbItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>> & string;
+export const StyledBreadcrumbItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never> & Partial<Pick<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledBreadcrumbSeparator: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledBreadcrumbSeparator: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledBreadCrumbWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledBreadCrumbWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledBufferedStringDatePickerInput: IStyledComponentBase<"web", FastOmit<BufferedInputProps<string> & ImmediateInputProps<string> & TextLineStatelessProps & {
+export const StyledBufferedStringDatePickerInput: IStyledComponentBase<"web", FastOmit<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
 isPhone?: boolean;
-} & RefAttributes<Component<BufferedInputProps<string> & ImmediateInputProps<string> & TextLineStatelessProps & {
+} & RefAttributes<Component<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
 isPhone?: boolean;
-}, any, any>>, never>> & string & Omit<ComponentClass<BufferedInputProps<string> & ImmediateInputProps<string> & TextLineStatelessProps & {
+}, any, any>>, never> & Partial<Pick<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
+isPhone?: boolean;
+} & RefAttributes<Component<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
+isPhone?: boolean;
+}, any, any>>, never>>> & string & Omit<ComponentClass<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
 isPhone?: boolean;
 }, any>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledBulletList: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, {
+export const StyledBulletList: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "inline" | "listType" | "noIndent" | "overrideColor"> & {
 inline?: boolean;
 noIndent?: boolean;
 listType?: BulletListProps.UnorderedType | BulletListProps.OrderedType;
 overrideColor?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "inline" | "listType" | "noIndent" | "overrideColor"> & {
+inline?: boolean;
+noIndent?: boolean;
+listType?: BulletListProps.UnorderedType | BulletListProps.OrderedType;
+overrideColor?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledBulletListContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledBulletListContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledBulletListItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>> & string;
+export const StyledBulletListItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never> & Partial<Pick<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledButton: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, ButtonProps & {
+export const StyledButton: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$hasLabel" | "$hasProgressBar" | "$loading" | keyof ButtonProps> & ButtonProps & {
 $hasLabel?: boolean;
 $loading?: boolean;
 $disabled?: boolean;
 $hasProgressBar?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$hasLabel" | "$hasProgressBar" | "$loading" | keyof ButtonProps> & ButtonProps & {
+$hasLabel?: boolean;
+$loading?: boolean;
+$disabled?: boolean;
+$hasProgressBar?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledButtonGroup: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, ButtonGroupProps>> & string;
+export const StyledButtonGroup: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, keyof ButtonGroupProps> & ButtonGroupProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, keyof ButtonGroupProps> & ButtonGroupProps, never>>> & string;
 
 // @public (undocumented)
-export const StyledButtonGroupContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledButtonGroupContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledButtonGroupContainerList: IStyledComponentBase<"web", FastOmit<ListProps, never>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
+export const StyledButtonGroupContainerList: IStyledComponentBase<"web", FastOmit<ListProps, never> & Partial<Pick<ListProps, never>>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledButtonGroupResponsiveContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, never>> & string;
+export const StyledButtonGroupResponsiveContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarDayContent: IStyledComponentBase<"web", Substitute<ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, {
+export const StyledCalendarDayContent: IStyledComponentBase<"web", FastOmit<FastOmit<ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, "$variant"> & {
 $variant: "month" | "week";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, "$variant"> & {
+$variant: "month" | "week";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarDayItem: IStyledComponentBase<"web", Substitute<ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, {
+export const StyledCalendarDayItem: IStyledComponentBase<"web", FastOmit<FastOmit<ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, "$selected" | "$variant"> & {
 $variant: "month" | "week";
 $selected?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, "$selected" | "$variant"> & {
+$variant: "month" | "week";
+$selected?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarDayWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCalendarDayWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isChildHovered" | "$isCurrentDate" | "$isDisabled" | "$isOutsideDay" | "$isPublicHolidays" | "$isSelected" | "$isWeekendDay" | "$variant"> & {
 $variant: "month" | "week";
 $isSelected?: boolean;
 $isCurrentDate?: boolean;
@@ -34577,114 +34995,186 @@ $isPublicHolidays?: boolean;
 $isOutsideDay?: boolean;
 $isDisabled?: boolean;
 $isChildHovered?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isChildHovered" | "$isCurrentDate" | "$isDisabled" | "$isOutsideDay" | "$isPublicHolidays" | "$isSelected" | "$isWeekendDay" | "$variant"> & {
+$variant: "month" | "week";
+$isSelected?: boolean;
+$isCurrentDate?: boolean;
+$isWeekendDay?: boolean;
+$isPublicHolidays?: boolean;
+$isOutsideDay?: boolean;
+$isDisabled?: boolean;
+$isChildHovered?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarMonthViewDayContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarMonthViewDayContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarMonthViewDayHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarMonthViewDayHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarMonthViewEmptyDay: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarMonthViewEmptyDay: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarMonthViewTable: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCalendarMonthViewTable: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$rowNum"> & {
 $rowNum: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$rowNum"> & {
+$rowNum: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarMonthViewTableHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarMonthViewTableHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarMonthViewTableHeaderItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarMonthViewTableHeaderItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarMonthViewWeek: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCalendarMonthViewWeek: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$columnNum"> & {
 $columnNum: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$columnNum"> & {
+$columnNum: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarMonthViewWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCalendarMonthViewWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$maxHeight" | "$minHeight"> & {
 $minHeight?: number | string;
 $maxHeight?: number | string;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$maxHeight" | "$minHeight"> & {
+$minHeight?: number | string;
+$maxHeight?: number | string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarWeekViewContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarWeekViewContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarWeekViewDayContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarWeekViewDayContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarWeekViewEmptyDay: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarWeekViewEmptyDay: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarWeekViewHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarWeekViewHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarWeekViewHeaderItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarWeekViewHeaderItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalendarWeekViewWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalendarWeekViewWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalloutBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalloutBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalloutFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalloutFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalloutHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalloutHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalloutHeaderSuffix: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalloutHeaderSuffix: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalloutHeaderTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCalloutHeaderTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalloutInner: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCalloutInner: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasHeader"> & {
 hasHeader?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasHeader"> & {
+hasHeader?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalloutPointer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCalloutPointer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "calloutOrientation"> & {
 calloutOrientation?: Orientation;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "calloutOrientation"> & {
+calloutOrientation?: Orientation;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCalloutWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCalloutWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "calloutOrientation" | "hasDefinedWidth" | "hasPointer"> & {
 calloutOrientation?: Orientation;
 hasPointer?: boolean;
 hasDefinedWidth: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "calloutOrientation" | "hasDefinedWidth" | "hasPointer"> & {
+calloutOrientation?: Orientation;
+hasPointer?: boolean;
+hasDefinedWidth: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledCheckbox {
     const // (undocumented)
-    StyledControl: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasTooltips" | "$inline" | "$isNonInteractive"> & {
+    StyledControl: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasTooltips" | "$inline" | "$isNonInteractive"> & {
     $inline?: boolean;
     $hasTooltips?: boolean;
     $isNonInteractive?: boolean;
-    }, never>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasTooltips" | "$inline" | "$isNonInteractive"> & {
+    $inline?: boolean;
+    $hasTooltips?: boolean;
+    $isNonInteractive?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasTooltips" | "$inline" | "$isNonInteractive"> & {
+    $inline?: boolean;
+    $hasTooltips?: boolean;
+    $isNonInteractive?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasTooltips" | "$inline" | "$isNonInteractive"> & {
+    $inline?: boolean;
+    $hasTooltips?: boolean;
+    $isNonInteractive?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never>>> & string;
     const // (undocumented)
-    StyledBox: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+    StyledBox: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "isInteractive"> & {
     isInteractive?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "isInteractive"> & {
+    isInteractive?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$block" | "$hasTooltips" | "$numberOfTooltips"> & {
+    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, never>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never>>> & string;
     const // (undocumented)
-    StyledCheckboxInput: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$disabled" | "$readonly" | "$checked"> & {
+    StyledCheckboxInput: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
     $checked?: boolean;
     $disabled?: boolean;
     $readonly?: boolean;
-    }, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$checked" | "$disabled" | "$error" | "$hovered" | "$info" | "$mixed" | "$readonly" | "$warning"> & {
     $checked?: boolean;
     $mixed?: boolean;
     $disabled?: boolean;
@@ -34693,13 +35183,18 @@ export namespace StyledCheckbox {
     $error?: boolean;
     $info?: boolean;
     $hovered?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledIndeterminateInput: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$disabled" | "$readonly" | "$checked"> & {
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
     $checked?: boolean;
     $disabled?: boolean;
     $readonly?: boolean;
-    }, "$disabled" | "$readonly" | "$error" | "$warning" | "$info" | "$checked" | "$mixed" | "$hovered"> & {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$checked" | "$disabled" | "$error" | "$hovered" | "$info" | "$mixed" | "$readonly" | "$warning"> & {
     $checked?: boolean;
     $mixed?: boolean;
     $disabled?: boolean;
@@ -34708,139 +35203,287 @@ export namespace StyledCheckbox {
     $error?: boolean;
     $info?: boolean;
     $hovered?: boolean;
-    }, never>> & string;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledIndeterminateInput: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$checked" | "$disabled" | "$error" | "$hovered" | "$info" | "$mixed" | "$readonly" | "$warning"> & {
+    $checked?: boolean;
+    $mixed?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    $warning?: boolean;
+    $error?: boolean;
+    $info?: boolean;
+    $hovered?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$checked" | "$disabled" | "$error" | "$hovered" | "$info" | "$mixed" | "$readonly" | "$warning"> & {
+    $checked?: boolean;
+    $mixed?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    $warning?: boolean;
+    $error?: boolean;
+    $info?: boolean;
+    $hovered?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$checked" | "$disabled" | "$error" | "$hovered" | "$info" | "$mixed" | "$readonly" | "$warning"> & {
+    $checked?: boolean;
+    $mixed?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    $warning?: boolean;
+    $error?: boolean;
+    $info?: boolean;
+    $hovered?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$checked" | "$disabled" | "$error" | "$hovered" | "$info" | "$mixed" | "$readonly" | "$warning"> & {
+    $checked?: boolean;
+    $mixed?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    $warning?: boolean;
+    $error?: boolean;
+    $info?: boolean;
+    $hovered?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledCheckboxGroupField: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$block" | "$hasTooltips" | "$numberOfTooltips"> & {
+export const StyledCheckboxGroupField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
-}, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$block?: boolean;
+$hasTooltips?: boolean;
+$disabled?: boolean;
+$numberOfTooltips?: number;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$touch"> & {
 $touch?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$block?: boolean;
+$hasTooltips?: boolean;
+$disabled?: boolean;
+$numberOfTooltips?: number;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$block?: boolean;
+$hasTooltips?: boolean;
+$disabled?: boolean;
+$numberOfTooltips?: number;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$touch"> & {
+$touch?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCollapsiblePanelAddons: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCollapsiblePanelAddons: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCollapsiblePanelContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCollapsiblePanelContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCollapsiblePanelIndicator: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCollapsiblePanelIndicator: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$swapAddonsPosition"> & {
 $swapAddonsPosition?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledCollapsiblePanelLabel: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$swapAddonsPosition"> & {
 $swapAddonsPosition?: boolean;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCollapsiblePanelLabelInfo: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledCollapsiblePanelLabel: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$swapAddonsPosition"> & {
+$swapAddonsPosition?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$swapAddonsPosition"> & {
+$swapAddonsPosition?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCollapsiblePanelLabelText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCollapsiblePanelLabelInfo: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCollapsiblePanelTitle: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCollapsiblePanelLabelText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledCollapsiblePanelTitle: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noEffect" | "$noFocus"> & {
 $noEffect?: boolean;
 $noFocus?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noEffect" | "$noFocus"> & {
+$noEffect?: boolean;
+$noFocus?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCollapsiblePanelWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCollapsiblePanelWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCommentActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentActionsCombine: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCommentActionsCombine: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isReply"> & {
 isReply?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledCommentContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isReply"> & {
 isReply?: boolean;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentListItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>> & string;
+export const StyledCommentContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isReply"> & {
+isReply?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isReply"> & {
+isReply?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentListWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never>> & string;
+export const StyledCommentListItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never> & Partial<Pick<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentMeta: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, {
+export const StyledCommentListWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledCommentMeta: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "inactive"> & {
 inactive?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledCommentMetaAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledCommentMetaAuthor: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledCommentMetaAvatar: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "inactive"> & {
 inactive?: boolean;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentMetaContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCommentMetaAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentMetaDate: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCommentMetaAuthor: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentMetaGroup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCommentMetaAvatar: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "inactive"> & {
+inactive?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "inactive"> & {
+inactive?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentReplies: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledCommentMetaContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentRepliesActions: IStyledComponentBase<"web", Substitute<ButtonGroupProps, {
+export const StyledCommentMetaDate: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledCommentMetaGroup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledCommentReplies: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledCommentRepliesActions: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonGroupProps, "isReply"> & {
 isReply?: boolean;
-}>> & string & Omit<typeof ButtonGroup, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ButtonGroupProps, "isReply"> & {
+isReply?: boolean;
+}, never>>> & string & Omit<typeof ButtonGroup, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledCommentText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCommentText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "inactive" | "minimised"> & {
 minimised?: boolean;
 inactive?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "inactive" | "minimised"> & {
+minimised?: boolean;
+inactive?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCommentWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledCommentWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "inactive" | "isReply"> & {
 isReply?: boolean;
 inactive?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "inactive" | "isReply"> & {
+isReply?: boolean;
+inactive?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledCondensedTab: IStyledComponentBase<"web", Substitute<import("./index.js").TabPanelTemplateProps.TabProps, {
+export const StyledCondensedTab: IStyledComponentBase<"web", FastOmit<FastOmit<import("./index.js").TabPanelTemplateProps.TabProps, "$orientation" | "$selected"> & {
 $selected?: boolean;
 $orientation?: TabPanelOrientation;
-}>> & string & Omit<typeof TabPanelTemplate.Tab, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<import("./index.js").TabPanelTemplateProps.TabProps, "$orientation" | "$selected"> & {
+$selected?: boolean;
+$orientation?: TabPanelOrientation;
+}, never>>> & string & Omit<typeof TabPanelTemplate.Tab, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledContainerInner: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledContainerInner: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledContainerWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledContainerWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledContentBox: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledContentBox: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$boxShadow"> & {
 $boxShadow?: "always" | "none" | "default";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$boxShadow"> & {
+$boxShadow?: "always" | "none" | "default";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledContentBoxAddOn: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledContentBoxAddOn: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledContentBoxContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledContentBoxContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$nonFooter" | "padding"> & {
 padding?: number | string | boolean;
 $nonFooter?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$nonFooter" | "padding"> & {
+padding?: number | string | boolean;
+$nonFooter?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export const StyledContentBoxContext: Context<    {
@@ -34848,177 +35491,305 @@ embedded?: boolean;
 }>;
 
 // @public (undocumented)
-export const StyledContentBoxFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledContentBoxDetailPanel: IStyledComponentBase<"web", FastOmit<SupportingPanesLayoutProps.PrimaryPaneProps, never> & Partial<Pick<SupportingPanesLayoutProps.PrimaryPaneProps, never>>> & string & Omit<SPLPrimaryPane, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledContentBoxHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledContentBoxDetailPanelHeader: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$noGrow" | "as" | "forwardedAs" | keyof ClassAttributes<HTMLDivElement> | keyof HTMLAttributes_2<HTMLDivElement>> & FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$noGrow"> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$noGrow" | "as" | "forwardedAs" | keyof ClassAttributes<HTMLDivElement> | keyof HTMLAttributes_2<HTMLDivElement>> & FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$noGrow">>> & string;
 
 // @public (undocumented)
-export const StyledContentBoxHeading: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledContentBoxFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledContentBoxHeader: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
+$noGrow?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledContentBoxHeading: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variantColor"> & {
 variantColor?: string;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variantColor"> & {
+variantColor?: string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledContentBoxSubtitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledContentBoxSidePanel: IStyledComponentBase<"web", FastOmit<FastOmit<SupportingPanesLayoutProps.SecondaryPaneProps, "$mode" | keyof SupportingPanesLayoutProps.SecondaryPaneProps> & SupportingPanesLayoutProps.SecondaryPaneProps & {
+$mode?: ContentBoxSidePanelMode;
+}, never> & Partial<Pick<FastOmit<SupportingPanesLayoutProps.SecondaryPaneProps, "$mode" | keyof SupportingPanesLayoutProps.SecondaryPaneProps> & SupportingPanesLayoutProps.SecondaryPaneProps & {
+$mode?: ContentBoxSidePanelMode;
+}, never>>> & string & Omit<SPLSecondaryPane, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledContentBoxTitleWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledContentBoxSubtitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledContextMenuDialog: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledContentBoxTitleWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledCounter: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledContentBoxWizardBar: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "collapsed"> & {
+collapsed?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "collapsed"> & {
+collapsed?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledContextMenuDialog: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledCounter: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "counterType" | "interactive" | "secondary"> & {
 secondary?: boolean;
 interactive?: boolean;
 counterType?: "default" | "constructive" | "destructive";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "counterType" | "interactive" | "secondary"> & {
+secondary?: boolean;
+interactive?: boolean;
+counterType?: "default" | "constructive" | "destructive";
+}, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledCustomSelect {
     const // (undocumented)
-    StyledSelectModal: IStyledComponentBase<"web", FastOmit<ModalOverlayProps, never>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
+    StyledSelectModal: IStyledComponentBase<"web", FastOmit<ModalOverlayProps, never> & Partial<Pick<ModalOverlayProps, never>>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
     const // (undocumented)
-    StyledSelectDropdownWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledSelectDropdownWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledSelectMobileTextLine: IStyledComponentBase<"web", Substitute<TextLineStatelessProps & {
+    StyledSelectMobileTextField: IStyledComponentBase<"web", FastOmit<FastOmit<TextFieldProps & {
     isPhone?: boolean;
-    }, {
+    }, "$isEmptyValue"> & {
     $isEmptyValue?: boolean;
-    }>> & string & Omit<typeof TextLineStateless, keyof Component<any, {}, any>>;
+    }, never> & Partial<Pick<FastOmit<TextFieldProps & {
+    isPhone?: boolean;
+    }, "$isEmptyValue"> & {
+    $isEmptyValue?: boolean;
+    }, never>>> & string & Omit<typeof TextField, keyof Component<any, {}, any>>;
+    const // (undocumented)
+    StyledSelectRichLabelWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$readonly"> & {
+    $readonly?: boolean;
+    $disabled?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$readonly"> & {
+    $readonly?: boolean;
+    $disabled?: boolean;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledSelectMobileWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$prefixWidth" | "$richLabelHeight"> & {
+    $richLabelHeight?: number;
+    $prefixWidth?: number;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$prefixWidth" | "$richLabelHeight"> & {
+    $richLabelHeight?: number;
+    $prefixWidth?: number;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledDateContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledDateContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledDateMarker: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledDateMarker: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledDatePicker {
     const // (undocumented)
-    StyledDatePickerRoot: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledDatePickerRoot: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledDatePickerContainer: IStyledComponentBase<"web", Substitute<DayPickerProps & BaseObject, DatePickerProps & {
+    StyledDatePickerContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DayPickerProps & BaseObject, "$mobile" | keyof DatePickerProps> & DatePickerProps & {
     $mobile?: boolean;
-    }>> & string & Omit<typeof DayPicker, keyof Component<any, {}, any>>;
-    const // (undocumented)
-    StyledDatePickerNavButton: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonProps, never>, never>> & string;
-    const // (undocumented)
-    StyledDatePickerNavBar: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    }, never> & Partial<Pick<FastOmit<DayPickerProps & BaseObject, "$mobile" | keyof DatePickerProps> & DatePickerProps & {
     $mobile?: boolean;
-    }>> & string;
+    }, never>>> & string & Omit<typeof DayPicker, keyof Component<any, {}, any>>;
     const // (undocumented)
-    StyledDatePickerCaption: IStyledComponentBase<"web", Substitute<YearMonthSelectorProps, {
-    $mobile?: boolean;
-    }>> & string & Omit<typeof YearMonthSelector, keyof Component<any, {}, any>>;
+    StyledDatePickerNavButton: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never> & Partial<Pick<FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never>>> & string;
     const // (undocumented)
-    StyledGridCell: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledDatePickerNavBar: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$mobile"> & {
     $mobile?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$mobile"> & {
+    $mobile?: boolean;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledDatePickerCaption: IStyledComponentBase<"web", FastOmit<FastOmit<YearMonthSelectorProps, "$mobile"> & {
+    $mobile?: boolean;
+    }, never> & Partial<Pick<FastOmit<YearMonthSelectorProps, "$mobile"> & {
+    $mobile?: boolean;
+    }, never>>> & string & Omit<typeof YearMonthSelector, keyof Component<any, {}, any>>;
+    const // (undocumented)
+    StyledYearErrorMessage: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+    const // (undocumented)
+    StyledGridCell: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$mobile"> & {
+    $mobile?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$mobile"> & {
+    $mobile?: boolean;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
 export namespace StyledDatePickerMobile {
     const // (undocumented)
-    StyledDatePickerDialogContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledDatePickerDialogContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledDatePickerDialogHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledDatePickerDialogHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledDatePickerDialogTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledDatePickerDialogTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledDatePickerDialogFooter: IStyledComponentBase<"web", FastOmit<DatePickerFooterProps, never>> & string & Omit<typeof DatePickerFooter, keyof Component<any, {}, any>>;
+    StyledDatePickerDialogFooter: IStyledComponentBase<"web", FastOmit<DatePickerFooterProps, never> & Partial<Pick<DatePickerFooterProps, never>>> & string & Omit<typeof DatePickerFooter, keyof Component<any, {}, any>>;
 }
 
 // @public (undocumented)
 export namespace StyledDatePickerTemplate {
     const // (undocumented)
-    StyledDatePickerFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledDatePickerFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledDatePickerFooterAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledDatePickerFooterAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledDateTimePicker: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDateTimePicker: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isTimeScreen"> & {
 isTimeScreen?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isTimeScreen"> & {
+isTimeScreen?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDateTimePickerInput: IStyledComponentBase<"web", FastOmit<TextLineStatelessProps & {
+export const StyledDateTimePickerInput: IStyledComponentBase<"web", FastOmit<TextFieldProps & {
 isPhone?: boolean;
-}, never>> & string & Omit<TextLineStateless, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<TextFieldProps & {
+isPhone?: boolean;
+}, never>>> & string & Omit<typeof TextField, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledDateTimePickerTimeButton: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledDateTimePickerTimeButton: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledDateTimePickerTimeDisplay: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledDateTimePickerTimeDisplay: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "isInitialized"> & {
 isInitialized?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "isInitialized"> & {
+isInitialized?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDayButton: IStyledComponentBase<"web", Substitute<    {
+export const StyledDayButton: IStyledComponentBase<"web", FastOmit<FastOmit<    {
 day: CalendarDay_2;
 modifiers: Modifiers;
-} & ButtonHTMLAttributes<HTMLButtonElement>, {
+} & ButtonHTMLAttributes<HTMLButtonElement>, "$mobile" | "day" | "modifiers" | keyof ButtonHTMLAttributes<HTMLButtonElement>> & {
 day: CalendarDay_2;
 modifiers: Modifiers;
 } & ButtonHTMLAttributes<HTMLButtonElement> & {
 $mobile?: boolean;
-}>> & string & Omit<typeof DayButton, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<    {
+day: CalendarDay_2;
+modifiers: Modifiers;
+} & ButtonHTMLAttributes<HTMLButtonElement>, "$mobile" | "day" | "modifiers" | keyof ButtonHTMLAttributes<HTMLButtonElement>> & {
+day: CalendarDay_2;
+modifiers: Modifiers;
+} & ButtonHTMLAttributes<HTMLButtonElement> & {
+$mobile?: boolean;
+}, never>>> & string & Omit<typeof DayButton, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledDiagramGridMainPoint: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledDiagramGridMainPoint: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledDiagramGridSubPoint: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDiagramGridSubPoint: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isBeforeMainPoint"> & {
 $isBeforeMainPoint?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isBeforeMainPoint"> & {
+$isBeforeMainPoint?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDiagramLabelSubText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledDiagramLabelSubText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledDiagramLabelWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDiagramLabelWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$diagramLabelType" | "$isSelected" | "$readOnly"> & {
 $diagramLabelType: DiagramLabelType;
 $isSelected?: boolean;
 $readOnly?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$diagramLabelType" | "$isSelected" | "$readOnly"> & {
+$diagramLabelType: DiagramLabelType;
+$isSelected?: boolean;
+$readOnly?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDiagramNodeWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDiagramNodeWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isSelected" | "$isUseAsLink" | "$readOnly"> & {
 $isSelected?: boolean;
 $isUseAsLink?: boolean;
 $readOnly?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isSelected" | "$isUseAsLink" | "$readOnly"> & {
+$isSelected?: boolean;
+$isUseAsLink?: boolean;
+$readOnly?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDiagramPort: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDiagramPort: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isCornerPoint" | "$isSelected" | "$readOnly"> & {
 $isSelected?: boolean;
 $isCornerPoint?: boolean;
 $readOnly?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isCornerPoint" | "$isSelected" | "$readOnly"> & {
+$isSelected?: boolean;
+$isCornerPoint?: boolean;
+$readOnly?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDropdownContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$touch"> & {
 $touch?: boolean;
 $horizontal?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$touch"> & {
+$touch?: boolean;
+$horizontal?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledDropdownFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownGraphic: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDropdownGraphic: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$preselected"> & {
 $horizontal?: boolean;
 $preselected?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$preselected"> & {
+$horizontal?: boolean;
+$preselected?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownHint: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledDropdownHint: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownItem: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDropdownItem: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$divider" | "$extended" | "$focusPreselected" | "$hasLabelRenderer" | "$horizontal" | "$isEmptyValue" | "$preselected" | "$touch"> & {
 $disabled?: boolean;
 $focusPreselected?: boolean;
 $extended?: boolean;
@@ -35027,73 +35798,121 @@ $horizontal?: boolean;
 $divider?: boolean;
 $preselected?: boolean;
 $isEmptyValue?: boolean;
-}>> & string;
+$hasLabelRenderer?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$divider" | "$extended" | "$focusPreselected" | "$hasLabelRenderer" | "$horizontal" | "$isEmptyValue" | "$preselected" | "$touch"> & {
+$disabled?: boolean;
+$focusPreselected?: boolean;
+$extended?: boolean;
+$touch?: boolean;
+$horizontal?: boolean;
+$divider?: boolean;
+$preselected?: boolean;
+$isEmptyValue?: boolean;
+$hasLabelRenderer?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownLink: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDropdownLink: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$preselected" | "$touch"> & {
 $preselected?: boolean;
 $touch: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledDropdownLinksWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$preselected" | "$touch"> & {
+$preselected?: boolean;
 $touch: boolean;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownSecondaryText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDropdownLinksWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$touch"> & {
+$touch: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$touch"> & {
+$touch: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledDropdownSecondaryText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$extended" | "$preselected" | "$touch"> & {
 $extended?: boolean;
 $disabled?: boolean;
 $preselected?: boolean;
 $touch?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$extended" | "$preselected" | "$touch"> & {
+$extended?: boolean;
+$disabled?: boolean;
+$preselected?: boolean;
+$touch?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownSection: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledDropdownSection: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDropdownText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$extended" | "$horizontal"> & {
 $extended?: boolean;
 $horizontal?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$extended" | "$horizontal"> & {
+$extended?: boolean;
+$horizontal?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledDropdownWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$lightBackground" | "$touch"> & {
 $lightBackground?: boolean;
 $touch?: boolean;
 $horizontal?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$lightBackground" | "$touch"> & {
+$lightBackground?: boolean;
+$touch?: boolean;
+$horizontal?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledEditorAddon: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+export const StyledEditorAddon: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
 $position: "before" | "after";
-}, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "notSingleLine"> & {
 notSingleLine?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "notSingleLine"> & {
+notSingleLine?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledEditorButton: IStyledComponentBase<"web", Substitute<ListItemProps, {
+export const StyledEditorButton: IStyledComponentBase<"web", FastOmit<FastOmit<ListItemProps, "isActive"> & {
 isActive?: boolean;
-}>> & string & Omit<typeof List.Item, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ListItemProps, "isActive"> & {
+isActive?: boolean;
+}, never>>> & string & Omit<typeof List.Item, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledEditorButtonGroup: IStyledComponentBase<"web", FastOmit<PopUpMenuProps, never>> & string & Omit<FC<PopUpMenuProps>, keyof Component<any, {}, any>>;
+export const StyledEditorButtonGroup: IStyledComponentBase<"web", FastOmit<PopUpMenuProps, never> & Partial<Pick<PopUpMenuProps, never>>> & string & Omit<FC<PopUpMenuProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledEditorButtonGroupTrigger: IStyledComponentBase<"web", Substitute<ButtonProps, {
+export const StyledEditorButtonGroupTrigger: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonProps, "$active"> & {
 $active?: boolean;
-}>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ButtonProps, "$active"> & {
+$active?: boolean;
+}, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledEditorContentWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledEditorContentWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledEditorInput: IStyledComponentBase<"web", Substitute<(ContentEditableProps & RefAttributes<HTMLDivElement>) & BaseObject, {
+export const StyledEditorInput: IStyledComponentBase<"web", FastOmit<FastOmit<(ContentEditableProps & RefAttributes<HTMLDivElement>) & BaseObject, "$hasFocus"> & {
 $hasFocus?: boolean;
-}>> & string & Omit<ForwardRefExoticComponent<ContentEditableProps & RefAttributes<HTMLDivElement>>, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<(ContentEditableProps & RefAttributes<HTMLDivElement>) & BaseObject, "$hasFocus"> & {
+$hasFocus?: boolean;
+}, never>>> & string & Omit<ForwardRefExoticComponent<ContentEditableProps & RefAttributes<HTMLDivElement>>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledEditorInputWrapper: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$readonly" | "$noEffect" | "$error" | "$warning" | "$info" | "$mobile" | "$hasFocus"> & {
+export const StyledEditorInputWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
 $mobile?: boolean;
 $readonly?: boolean;
 $disabled?: boolean;
@@ -35102,74 +35921,136 @@ $error?: boolean;
 $info?: boolean;
 $noEffect?: boolean;
 $hasFocus?: boolean;
-}, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
+$mobile?: boolean;
+$readonly?: boolean;
+$disabled?: boolean;
+$warning?: boolean;
+$error?: boolean;
+$info?: boolean;
+$noEffect?: boolean;
+$hasFocus?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$autoExpand" | "$focused" | "$maxHeight" | "$minHeight" | "$singleLine" | "$withInitialHeight"> & {
 $focused?: boolean;
 $autoExpand?: boolean;
 $withInitialHeight?: boolean;
 $singleLine?: boolean;
 $minHeight?: string | number;
 $maxHeight?: string | number;
-}>> & string;
-
-// @public (undocumented)
-export const StyledEditorMain: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, {
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
+$mobile?: boolean;
+$readonly?: boolean;
+$disabled?: boolean;
+$warning?: boolean;
+$error?: boolean;
+$info?: boolean;
+$noEffect?: boolean;
+$hasFocus?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
+$mobile?: boolean;
+$readonly?: boolean;
+$disabled?: boolean;
+$warning?: boolean;
+$error?: boolean;
+$info?: boolean;
+$noEffect?: boolean;
+$hasFocus?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$autoExpand" | "$focused" | "$maxHeight" | "$minHeight" | "$singleLine" | "$withInitialHeight"> & {
+$focused?: boolean;
 $autoExpand?: boolean;
 $withInitialHeight?: boolean;
-}>> & string;
+$singleLine?: boolean;
+$minHeight?: string | number;
+$maxHeight?: string | number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledEditorMentionSuggestion: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledEditorMain: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$autoExpand" | "$withInitialHeight"> & {
+$autoExpand?: boolean;
+$withInitialHeight?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$autoExpand" | "$withInitialHeight"> & {
+$autoExpand?: boolean;
+$withInitialHeight?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledEditorMentionSuggestionItem: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledEditorMentionSuggestion: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledEditorMentionSuggestionItem: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "focused"> & {
 focused?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "focused"> & {
+focused?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledEditorPlaceholder: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledEditorPlaceholder: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledEditorSeparator: IStyledComponentBase<"web", FastOmit<ListItemProps, never>> & string & Omit<typeof List.Item, keyof Component<any, {}, any>>;
+export const StyledEditorSeparator: IStyledComponentBase<"web", FastOmit<ListItemProps, never> & Partial<Pick<ListItemProps, never>>> & string & Omit<typeof List.Item, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledEditorToolbar: IStyledComponentBase<"web", FastOmit<ListProps, never>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
+export const StyledEditorToolbar: IStyledComponentBase<"web", FastOmit<ListProps, never> & Partial<Pick<ListProps, never>>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledEditorTooltipArrow: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledEditorTooltipArrow: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledEditorTooltipWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledEditorTooltipWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledFieldLabel: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>, {
+export const StyledFieldLabel: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>, "$disabled" | "$hidden"> & {
 $disabled?: boolean;
 $hidden?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledFieldLabelGraphicWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>, "$disabled" | "$hidden"> & {
 $disabled?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledFieldLabelWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
 $hidden?: boolean;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledFieldMessageTextWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFieldLabelGraphicWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
+$disabled?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
+$disabled?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledFieldMessageWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledFieldLabelWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hidden"> & {
+$hidden?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hidden"> & {
+$hidden?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledFieldMessageTextWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledFieldMessageWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$error" | "$info" | "$warning"> & {
 $error?: boolean;
 $warning?: boolean;
 $info?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$error" | "$info" | "$warning"> & {
+$error?: boolean;
+$warning?: boolean;
+$info?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledFileUpload {
     const // (undocumented)
-    StyledUploadWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledUploadWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$hasActionItem" | "$textOnlyDisplay" | "$uploadAreaSize"> & {
     $uploadAreaSize?: {
     height?: number | string;
     width?: number | string;
@@ -35179,36 +36060,61 @@ export namespace StyledFileUpload {
     $compact?: boolean;
     $textOnlyDisplay?: boolean;
     $hasActionItem?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$hasActionItem" | "$textOnlyDisplay" | "$uploadAreaSize"> & {
+    $uploadAreaSize?: {
+    height?: number | string;
+    width?: number | string;
+    maxWidth?: number | string;
+    maxHeight?: number | string;
+    };
+    $compact?: boolean;
+    $textOnlyDisplay?: boolean;
+    $hasActionItem?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledUploadText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+    StyledUploadText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$hidden"> & {
     $hidden?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$hidden"> & {
+    $hidden?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledUploadDescriptionText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+    StyledUploadDescriptionText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$hidden" | "desktop"> & {
     desktop?: boolean;
     $hidden?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$hidden" | "desktop"> & {
+    desktop?: boolean;
+    $hidden?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledUploadSvgIcon: IStyledComponentBase<"web", Substitute<SVGProps<SVGSVGElement>, {
+    StyledUploadSvgIcon: IStyledComponentBase<"web", FastOmit<FastOmit<SVGProps<SVGSVGElement>, "$disabled" | "preview"> & {
     preview?: boolean;
     $disabled?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<SVGProps<SVGSVGElement>, "$disabled" | "preview"> & {
+    preview?: boolean;
+    $disabled?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledUploadIcon: IStyledComponentBase<"web", Substitute<IconProps, {
+    StyledUploadIcon: IStyledComponentBase<"web", FastOmit<FastOmit<IconProps, "$compact" | "$withPlaceholder"> & {
     $withPlaceholder?: boolean;
     $compact?: boolean;
-    }>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
+    }, never> & Partial<Pick<FastOmit<IconProps, "$compact" | "$withPlaceholder"> & {
+    $withPlaceholder?: boolean;
+    $compact?: boolean;
+    }, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
     const // (undocumented)
-    StyledUploadActions: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledUploadActions: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$cancelable" | "$fileNamePreview" | "$unavailable"> & {
     $cancelable?: boolean;
     $unavailable?: boolean;
     $fileNamePreview?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$cancelable" | "$fileNamePreview" | "$unavailable"> & {
+    $cancelable?: boolean;
+    $unavailable?: boolean;
+    $fileNamePreview?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledUploadInput: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, never>> & string;
+    StyledUploadInput: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, never> & Partial<Pick<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, never>>> & string;
     const // (undocumented)
-    StyledUploadContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledUploadContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$cancelable" | "$compact" | "$disabled" | "$dragOver" | "$error" | "$hasActionItem" | "$hasChild" | "$hasLoadingLabel" | "$info" | "$interactiveFileName" | "$interactiveReadonly" | "$loading" | "$readonly" | "$shouldBeInteractiveInReadonly" | "$textOnlyDisplay" | "$uploaded" | "$warning" | "$withPlaceholder"> & {
     $hasChild?: boolean;
     $loading?: boolean;
     $error?: boolean;
@@ -35227,14 +36133,41 @@ export namespace StyledFileUpload {
     $interactiveFileName?: boolean;
     $shouldBeInteractiveInReadonly?: boolean;
     $uploaded?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$cancelable" | "$compact" | "$disabled" | "$dragOver" | "$error" | "$hasActionItem" | "$hasChild" | "$hasLoadingLabel" | "$info" | "$interactiveFileName" | "$interactiveReadonly" | "$loading" | "$readonly" | "$shouldBeInteractiveInReadonly" | "$textOnlyDisplay" | "$uploaded" | "$warning" | "$withPlaceholder"> & {
+    $hasChild?: boolean;
+    $loading?: boolean;
+    $error?: boolean;
+    $warning?: boolean;
+    $info?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    $interactiveReadonly?: boolean;
+    $dragOver?: boolean;
+    $withPlaceholder?: boolean;
+    $cancelable?: boolean;
+    $compact?: boolean;
+    $hasActionItem?: boolean;
+    $textOnlyDisplay?: boolean;
+    $hasLoadingLabel?: boolean;
+    $interactiveFileName?: boolean;
+    $shouldBeInteractiveInReadonly?: boolean;
+    $uploaded?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldUploadWrapper: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$block" | "$hasTooltips" | "$numberOfTooltips"> & {
+    StyledFieldUploadWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$compact" | "$fileUploadSize" | "$horizFit" | "$vertFit"> & {
     $horizFit?: boolean;
     $vertFit?: boolean;
     $compact?: boolean;
@@ -35242,176 +36175,278 @@ export namespace StyledFileUpload {
     width: string;
     height: string;
     };
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$compact" | "$fileUploadSize" | "$horizFit" | "$vertFit"> & {
+    $horizFit?: boolean;
+    $vertFit?: boolean;
+    $compact?: boolean;
+    $fileUploadSize?: {
+    width: string;
+    height: string;
+    };
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldUploadFileNameLink: IStyledComponentBase<"web", FastOmit<LinkProps, never>> & string & Omit<typeof Link, keyof Component<any, {}, any>>;
+    StyledFieldUploadFileNameLink: IStyledComponentBase<"web", FastOmit<LinkProps, never> & Partial<Pick<LinkProps, never>>> & string & Omit<typeof Link, keyof Component<any, {}, any>>;
     const // (undocumented)
-    StyledFieldUploadFileNameDivider: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledFieldUploadFileNameDivider: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledFieldUploadInlineWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledFieldUploadInlineWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledFilterAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterActionButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+export const StyledFilterActionButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledFilterBarAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterBarAction: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasCustomActions"> & {
+$hasCustomActions?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasCustomActions"> & {
+$hasCustomActions?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterBarActionButton: IStyledComponentBase<"web", Substitute<ButtonProps, {
+export const StyledFilterBarActionButton: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonProps, "collapsed"> & {
 collapsed?: boolean;
-}>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
-
-// @public (undocumented)
-export const StyledFilterBarContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
-mobile?: boolean;
+}, never> & Partial<Pick<FastOmit<ButtonProps, "collapsed"> & {
 collapsed?: boolean;
-}>> & string;
+}, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledFilterBarWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterBarContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$mobile"> & {
+$mobile?: boolean;
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$mobile"> & {
+$mobile?: boolean;
+$compact?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, {
+export const StyledFilterBarWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact"> & {
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact"> & {
+$compact?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledFilterContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$active" | "$disabled" | "$hasPrefix"> & {
 $active?: boolean;
 $disabled?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledFilterContentInner: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledFilterName: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
-$disabled?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledFilterNameArrow: IStyledComponentBase<"web", Substitute<IconProps, {
-$disabled?: boolean;
-}>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
-
-// @public (undocumented)
-export const StyledFilterNameText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledFilterOptions: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+$hasPrefix?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$active" | "$disabled" | "$hasPrefix"> & {
 $active?: boolean;
 $disabled?: boolean;
-}>> & string;
+$hasPrefix?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterSelectorActionBar: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterContentInner: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$compact"> & {
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$compact"> & {
+$compact?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterSelectorActionElement: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterName: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$compact" | "$disabled"> & {
+$disabled?: boolean;
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$compact" | "$disabled"> & {
+$disabled?: boolean;
+$compact?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterSelectorBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterNameArrow: IStyledComponentBase<"web", FastOmit<FastOmit<IconProps, "$compact" | "$disabled"> & {
+$disabled?: boolean;
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<IconProps, "$compact" | "$disabled"> & {
+$disabled?: boolean;
+$compact?: boolean;
+}, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledFilterSelectorChildrenWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterNameText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterSelectorContainer: IStyledComponentBase<"web", Substitute<ActionContentboxProps, {
+export const StyledFilterOptions: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$active" | "$compact" | "$disabled"> & {
+$active?: boolean;
+$disabled?: boolean;
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$active" | "$compact" | "$disabled"> & {
+$active?: boolean;
+$disabled?: boolean;
+$compact?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledFilterPrefix: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledFilterSelectorActionBar: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledFilterSelectorActionElement: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledFilterSelectorBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledFilterSelectorChildrenWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledFilterSelectorContainer: IStyledComponentBase<"web", FastOmit<FastOmit<ActionContentboxProps, "padding"> & {
 padding?: number | string | boolean;
-}>> & string & Omit<typeof ActionContentbox, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ActionContentboxProps, "padding"> & {
+padding?: number | string | boolean;
+}, never>>> & string & Omit<typeof ActionContentbox, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledFilterSelectorContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledFilterSelectorContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "contentType" | "isMobileSecondary"> & {
 contentType: "primary" | "secondary";
 isMobileSecondary?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "contentType" | "isMobileSecondary"> & {
+contentType: "primary" | "secondary";
+isMobileSecondary?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterSelectorExpandButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+export const StyledFilterSelectorExpandButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledFilterSelectorFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterSelectorFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterSelectorItem: IStyledComponentBase<"web", Substitute<ListItemProps, {
+export const StyledFilterSelectorItem: IStyledComponentBase<"web", FastOmit<FastOmit<ListItemProps, "disabled" | "lastSelectedDivider" | "readonly"> & {
 readonly?: boolean;
 disabled?: boolean;
 lastSelectedDivider?: boolean;
-}>> & string & Omit<typeof List.Item, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ListItemProps, "disabled" | "lastSelectedDivider" | "readonly"> & {
+readonly?: boolean;
+disabled?: boolean;
+lastSelectedDivider?: boolean;
+}, never>>> & string & Omit<typeof List.Item, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledFilterSelectorItemCheckbox: IStyledComponentBase<"web", Substitute<CheckboxProps, {
+export const StyledFilterSelectorItemCheckbox: IStyledComponentBase<"web", FastOmit<FastOmit<CheckboxProps, "graphicHovered"> & {
 graphicHovered?: boolean;
-}>> & string & Omit<typeof Checkbox, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<CheckboxProps, "graphicHovered"> & {
+graphicHovered?: boolean;
+}, never>>> & string & Omit<typeof Checkbox, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledFilterSelectorList: IStyledComponentBase<"web", FastOmit<ListProps, never>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
+export const StyledFilterSelectorList: IStyledComponentBase<"web", FastOmit<ListProps, never> & Partial<Pick<ListProps, never>>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledFilterSelectorSectionTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterSelectorSectionTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterSelectorTemplateWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterSelectorTemplateWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterSelectorWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledFilterSelectorWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledFilterWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledFilterWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$active" | "$disabled"> & {
 $active?: boolean;
 $disabled?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$active" | "$disabled"> & {
+$active?: boolean;
+$disabled?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledGlobalMessageBoxActions: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledGlobalMessageBoxActions: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$ellipsis" | "$isMobile" | "$variant"> & {
 $isMobile?: boolean;
 $ellipsis?: boolean;
 $variant?: GlobalMessageBoxVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$ellipsis" | "$isMobile" | "$variant"> & {
+$isMobile?: boolean;
+$ellipsis?: boolean;
+$variant?: GlobalMessageBoxVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledGlobalMessageBoxContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledGlobalMessageBoxContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "ellipsis"> & {
 ellipsis?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "ellipsis"> & {
+ellipsis?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledGlobalMessageBoxGraphic: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledGlobalMessageBoxGraphic: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
 $variant: GlobalMessageBoxVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
+$variant: GlobalMessageBoxVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledGlobalMessageBoxText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledGlobalMessageBoxText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$ellipsis" | "$variant"> & {
 $variant: GlobalMessageBoxVariant;
 $ellipsis?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$ellipsis" | "$variant"> & {
+$variant: GlobalMessageBoxVariant;
+$ellipsis?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledGlobalMessageBoxWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledGlobalMessageBoxWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "ellipsis" | "isMobile" | "variant"> & {
 variant?: GlobalMessageBoxVariant;
 isMobile?: boolean;
 ellipsis?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "ellipsis" | "isMobile" | "variant"> & {
+variant?: GlobalMessageBoxVariant;
+isMobile?: boolean;
+ellipsis?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledGrid: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, Pick<LayoutGridProps.LayoutGridTemplateProps, "size" | "fitToParent" | "noGutter" | "cellBorder">>> & string;
+export const StyledGrid: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cellBorder" | "fitToParent" | "noGutter" | "size"> & Pick<LayoutGridProps.LayoutGridTemplateProps, "cellBorder" | "fitToParent" | "noGutter" | "size">, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cellBorder" | "fitToParent" | "noGutter" | "size"> & Pick<LayoutGridProps.LayoutGridTemplateProps, "cellBorder" | "fitToParent" | "noGutter" | "size">, never>>> & string;
 
 // @public (undocumented)
-export const StyledGridColumn: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, Pick<LayoutGridProps.ColumnProps, "size" | "verticalAlignment" | "spacerColumn"> & {
+export const StyledGridColumn: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "customHeight" | "isUsingSpanOffset" | "maxColumns" | "size" | "spacerColumn" | "verticalAlignment"> & Pick<LayoutGridProps.ColumnProps, "size" | "spacerColumn" | "verticalAlignment"> & {
 maxColumns: number;
 isUsingSpanOffset?: boolean;
 customHeight?: LayoutGridProps.ColumnHeight;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "customHeight" | "isUsingSpanOffset" | "maxColumns" | "size" | "spacerColumn" | "verticalAlignment"> & Pick<LayoutGridProps.ColumnProps, "size" | "spacerColumn" | "verticalAlignment"> & {
+maxColumns: number;
+isUsingSpanOffset?: boolean;
+customHeight?: LayoutGridProps.ColumnHeight;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledGridContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, Pick<LayoutGridProps.LayoutGridTemplateProps, "size" | "fitToParent">>> & string;
+export const StyledGridContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fitToParent" | "size"> & Pick<LayoutGridProps.LayoutGridTemplateProps, "fitToParent" | "size">, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fitToParent" | "size"> & Pick<LayoutGridProps.LayoutGridTemplateProps, "fitToParent" | "size">, never>>> & string;
 
 // @public (undocumented)
-export const StyledGridRow: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, Pick<LayoutGridProps.RowProps, "verticalAlignment" | "fitToContent" | "layoutConfig"> & {
+export const StyledGridRow: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "customHeight" | "fitToContent" | "layoutConfig" | "rowCount" | "verticalAlignment"> & Pick<LayoutGridProps.RowProps, "fitToContent" | "layoutConfig" | "verticalAlignment"> & {
 customHeight?: string | number;
 rowCount?: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "customHeight" | "fitToContent" | "layoutConfig" | "rowCount" | "verticalAlignment"> & Pick<LayoutGridProps.RowProps, "fitToContent" | "layoutConfig" | "verticalAlignment"> & {
+customHeight?: string | number;
+rowCount?: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledHeaderTriggerContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, {
+export const StyledGroupDivider: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$orientation"> & {
+$orientation?: TabPanelOrientation;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$orientation"> & {
+$orientation?: TabPanelOrientation;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledHeaderTriggerContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$activated" | "$disabled" | "$light" | "$multilingual" | "$onlyGraphicIcon" | "$onlyMetaIcon" | "$vertical"> & {
 $activated?: boolean;
 $disabled?: boolean;
 $multilingual?: boolean;
@@ -35419,76 +36454,102 @@ $light?: boolean;
 $vertical?: boolean;
 $onlyGraphicIcon?: boolean;
 $onlyMetaIcon?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$activated" | "$disabled" | "$light" | "$multilingual" | "$onlyGraphicIcon" | "$onlyMetaIcon" | "$vertical"> & {
+$activated?: boolean;
+$disabled?: boolean;
+$multilingual?: boolean;
+$light?: boolean;
+$vertical?: boolean;
+$onlyGraphicIcon?: boolean;
+$onlyMetaIcon?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledHeaderTriggerGraphicIcon: IStyledComponentBase<"web", Substitute<IconProps, {
+export const StyledHeaderTriggerGraphicIcon: IStyledComponentBase<"web", FastOmit<FastOmit<IconProps, "$multilingual" | "$vertical"> & {
 $multilingual?: boolean;
 $vertical?: boolean;
-}>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
-
-// @public (undocumented)
-export const StyledHeaderTriggerMetaIcon: IStyledComponentBase<"web", FastOmit<IconProps, never>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
-
-// @public (undocumented)
-export const StyledHeaderTriggerText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledHeaderTriggerTextAbbreviation: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, {
+}, never> & Partial<Pick<FastOmit<IconProps, "$multilingual" | "$vertical"> & {
+$multilingual?: boolean;
 $vertical?: boolean;
-}>> & string;
+}, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledHeadingActionButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+export const StyledHeaderTriggerMetaIcon: IStyledComponentBase<"web", FastOmit<IconProps, never> & Partial<Pick<IconProps, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledHeadingAffix: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledHeaderTriggerText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledHeadingElementsWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledHeaderTriggerTextAbbreviation: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, "$vertical"> & {
+$vertical?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, "$vertical"> & {
+$vertical?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledHeadingIcon: IStyledComponentBase<"web", Substitute<IconProps, {
+export const StyledHeadingActionButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+
+// @public (undocumented)
+export const StyledHeadingAffix: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledHeadingElementsWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledHeadingIcon: IStyledComponentBase<"web", FastOmit<FastOmit<IconProps, "variantColor"> & {
 variantColor?: string;
-}>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<IconProps, "variantColor"> & {
+variantColor?: string;
+}, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledHiddenTextWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledHiddenTextWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$showHiddenText"> & {
 $showHiddenText?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$showHiddenText"> & {
+$showHiddenText?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledIconPickerDropdown: IStyledComponentBase<"web", Substitute<DropDownProps & RefAttributes<DropDown>, {
+export const StyledIconPickerDropdown: IStyledComponentBase<"web", FastOmit<FastOmit<DropDownProps & RefAttributes<DropDown>, "$saveSpace"> & {
 $saveSpace?: boolean;
-}>> & string & Omit<typeof DropDown, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<DropDownProps & RefAttributes<DropDown>, "$saveSpace"> & {
+$saveSpace?: boolean;
+}, never>>> & string & Omit<typeof DropDown, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledIconPickerPreviewIcon: IStyledComponentBase<"web", FastOmit<IconProps, never>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
+export const StyledIconPickerPreviewIcon: IStyledComponentBase<"web", FastOmit<IconProps, never> & Partial<Pick<IconProps, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledIconPickerWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledIconPickerWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
 $disabled?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
+$disabled?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledIconWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, IconProps>> & string;
+export const StyledIconWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>>> & string;
 
 // @public (undocumented)
-export const StyledInsertableTreeActionButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+export const StyledInsertableTreeActionButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledInsertableTreeActionButtonGroup: IStyledComponentBase<"web", FastOmit<ButtonGroupProps, never>> & string & Omit<typeof ButtonGroup, keyof Component<any, {}, any>>;
+export const StyledInsertableTreeActionButtonGroup: IStyledComponentBase<"web", FastOmit<ButtonGroupProps, never> & Partial<Pick<ButtonGroupProps, never>>> & string & Omit<typeof ButtonGroup, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledInsertableTreeHint: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledInsertableTreeHint: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$available" | "$focused" | "$level" | "$position"> & {
 $available?: boolean;
 $focused?: boolean;
 $position: InsertableTreeProps.InsertPosition;
 $level?: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$available" | "$focused" | "$level" | "$position"> & {
+$available?: boolean;
+$focused?: boolean;
+$position: InsertableTreeProps.InsertPosition;
+$level?: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledInteractionHintContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledInteractionHintContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$containerRect" | "$followCursor" | "$orientation" | "$position" | "$referenceElementRect" | "$showArrow" | "$variant"> & {
 $variant?: string;
 $orientation?: Orientation;
 $referenceElementRect?: DOMRect;
@@ -35496,30 +36557,46 @@ $containerRect?: DOMRect;
 $showArrow?: boolean;
 $followCursor?: boolean;
 $position?: InteractionHintPosition;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$containerRect" | "$followCursor" | "$orientation" | "$position" | "$referenceElementRect" | "$showArrow" | "$variant"> & {
+$variant?: string;
+$orientation?: Orientation;
+$referenceElementRect?: DOMRect;
+$containerRect?: DOMRect;
+$showArrow?: boolean;
+$followCursor?: boolean;
+$position?: InteractionHintPosition;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledInteractionHintContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledInteractionHintContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledInteractiveTile: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledInteractiveTile: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$active" | "$disabled" | "$primary" | "$secondary" | "$selected"> & {
 $primary?: boolean;
 $secondary?: boolean;
 $active?: boolean;
 $selected?: boolean;
 $disabled?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledLinesEllipsis: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledLink: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$active" | "$disabled" | "$primary" | "$secondary" | "$selected"> & {
+$primary?: boolean;
+$secondary?: boolean;
+$active?: boolean;
+$selected?: boolean;
 $disabled?: boolean;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListItemContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledLinesEllipsis: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledLink: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, "$disabled"> & {
+$disabled?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, "$disabled"> & {
+$disabled?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledListItemContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$buttonSemantics" | "$disabled" | "$noEffect" | "$preserveMainActionStyles" | "$readonly" | "$selected" | "$useAsButton" | "$useFocusWithinStyles"> & {
 $readonly?: boolean;
 $disabled?: boolean;
 $selected?: boolean;
@@ -35534,160 +36611,250 @@ destructive?: boolean;
 active?: boolean;
 iconOnly?: boolean;
 };
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$buttonSemantics" | "$disabled" | "$noEffect" | "$preserveMainActionStyles" | "$readonly" | "$selected" | "$useAsButton" | "$useFocusWithinStyles"> & {
+$readonly?: boolean;
+$disabled?: boolean;
+$selected?: boolean;
+$noEffect?: boolean;
+$useAsButton?: boolean;
+$useFocusWithinStyles?: boolean;
+$preserveMainActionStyles?: boolean;
+$buttonSemantics?: {
+primary?: boolean;
+secondary?: boolean;
+destructive?: boolean;
+active?: boolean;
+iconOnly?: boolean;
+};
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListItemGraphic: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledListItemGraphic: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$iconPlaceholder"> & {
 $iconPlaceholder?: boolean;
 $disabled?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledListItemMeta: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$iconPlaceholder"> & {
+$iconPlaceholder?: boolean;
 $disabled?: boolean;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListItemSecondaryText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledListItemMeta: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
+$disabled?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
+$disabled?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListItemText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledListItemSecondaryText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledListItemText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$paddedLeft" | "$paddedRight" | "$selected"> & {
 $paddedLeft?: boolean;
 $paddedRight?: boolean;
 $selected?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$paddedLeft" | "$paddedRight" | "$selected"> & {
+$paddedLeft?: boolean;
+$paddedRight?: boolean;
+$selected?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListItemWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, {
+export const StyledListItemWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$disabled" | "$hasBorder" | "$hasButtonSemantics" | "$hasDivider" | "$readonly"> & {
 $readonly?: boolean;
 $disabled?: boolean;
 $hasBorder?: boolean;
 $hasDivider?: boolean | "light" | "dark";
 $hasButtonSemantics?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$disabled" | "$hasBorder" | "$hasButtonSemantics" | "$hasDivider" | "$readonly"> & {
+$readonly?: boolean;
+$disabled?: boolean;
+$hasBorder?: boolean;
+$hasDivider?: boolean | "light" | "dark";
+$hasButtonSemantics?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListSubHeader: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, {
+export const StyledListSubHeader: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$fill" | "$hasBorder" | "$hasDivider"> & {
 $fill?: boolean;
 $hasBorder?: boolean;
 $hasDivider?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$fill" | "$hasBorder" | "$hasDivider"> & {
+$fill?: boolean;
+$hasBorder?: boolean;
+$hasDivider?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListSubHeaderChildren: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledListSubHeaderChildren: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledListSubHeaderContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledListSubHeaderContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$useAsButton"> & {
 $useAsButton?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$useAsButton"> & {
+$useAsButton?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListSubHeaderContentWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledListSubHeaderContentWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$fill" | "$interactive"> & {
 $fill?: boolean;
 $interactive?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$fill" | "$interactive"> & {
+$fill?: boolean;
+$interactive?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListSubHeaderGraphic: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$iconPlaceholder"> & {
+export const StyledListSubHeaderGraphic: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$iconPlaceholder"> & {
 $iconPlaceholder?: boolean;
 $disabled?: boolean;
-}, never>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$iconPlaceholder"> & {
+$iconPlaceholder?: boolean;
+$disabled?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$iconPlaceholder"> & {
+$iconPlaceholder?: boolean;
+$disabled?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$iconPlaceholder"> & {
+$iconPlaceholder?: boolean;
+$disabled?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledListSubHeaderMeta: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledListSubHeaderMeta: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledListWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never>> & string;
+export const StyledListWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoadingCircle: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledLoadingCircle: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "horizontal" | "noAnimation" | "size"> & {
 noAnimation?: boolean;
 size?: ProgressIndicatorSize;
 horizontal?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "horizontal" | "noAnimation" | "size"> & {
+noAnimation?: boolean;
+size?: ProgressIndicatorSize;
+horizontal?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoadingCircleLayer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledLoadingCircleLayer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "borderColor"> & {
 borderColor?: string;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "borderColor"> & {
+borderColor?: string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoadingCircleSpinner: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledLoadingCircleSpinner: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "position"> & {
 position: "left" | "right";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "position"> & {
+position: "left" | "right";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoadingHalfCircle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledLoadingHalfCircle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoadingInnerOverlay: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledLoadingInnerOverlay: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "noAnimation" | "single" | "variant"> & {
 single?: boolean;
 noAnimation?: boolean;
 variant?: OverlayVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "noAnimation" | "single" | "variant"> & {
+single?: boolean;
+noAnimation?: boolean;
+variant?: OverlayVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoadingLabel: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledLoadingLabel: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "innerOverlayVariant" | "noAnimation" | "outerOverlayVariant" | "small" | "useDots"> & {
 useDots?: boolean;
 noAnimation?: boolean;
 small?: boolean;
 outerOverlayVariant?: OverlayVariant;
 innerOverlayVariant?: OverlayVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "innerOverlayVariant" | "noAnimation" | "outerOverlayVariant" | "small" | "useDots"> & {
+useDots?: boolean;
+noAnimation?: boolean;
+small?: boolean;
+outerOverlayVariant?: OverlayVariant;
+innerOverlayVariant?: OverlayVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoadingOuterOverlay: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledLoadingOuterOverlay: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "global" | "single" | "variant" | "visible"> & {
 single?: boolean;
 variant?: OverlayVariant;
 global?: boolean;
 visible?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "global" | "single" | "variant" | "visible"> & {
+single?: boolean;
+variant?: OverlayVariant;
+global?: boolean;
+visible?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoginContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledLoginContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "secondary"> & {
 secondary?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "secondary"> & {
+secondary?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoginFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledLoginFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoginForm: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledLoginForm: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoginFormItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledLoginFormItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoginHeadline: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledLoginHeadline: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoginLayout: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledLoginLayout: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fullscreen" | "mobile"> & {
 mobile?: boolean;
 fullscreen?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fullscreen" | "mobile"> & {
+mobile?: boolean;
+fullscreen?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledLoginLogo: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledLoginLogo: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMasterDetailHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMasterDetailHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMasterDetailLayoutBody: IStyledComponentBase<"web", Substitute<any, {
+export const StyledMasterDetailLayoutBody: IStyledComponentBase<"web", FastOmit<FastOmit<any, "$animation" | "$isAnimateRtl" | "$smallView"> & {
 $smallView: boolean;
 $isAnimateRtl: boolean;
 $animation: boolean;
-}>> & string & Omit<(input: any) => JSX.Element, keyof Component<any, {}, any>>;
-
-// @public (undocumented)
-export const StyledMasterDetailLayoutBodyWithoutAnimation: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<any, "$animation" | "$isAnimateRtl" | "$smallView"> & {
 $smallView: boolean;
 $isAnimateRtl: boolean;
 $animation: boolean;
-}>> & string;
+}, never>>> & string & Omit<(input: any) => JSX.Element, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledMasterDetailLayoutPane: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMasterDetailLayoutBodyWithoutAnimation: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$animation" | "$isAnimateRtl" | "$smallView"> & {
+$smallView: boolean;
+$isAnimateRtl: boolean;
+$animation: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$animation" | "$isAnimateRtl" | "$smallView"> & {
+$smallView: boolean;
+$isAnimateRtl: boolean;
+$animation: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledMasterDetailLayoutPane: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, string | number> & ({
 $smallView?: boolean;
 $isRtl: boolean;
 $numOfColumns: number;
@@ -35695,32 +36862,47 @@ $columnsCount: number;
 $width?: number | string;
 $maxWidth?: number | string;
 $isResizable: boolean;
-} & Partial<CSSTransitionProps>>> & string;
+} & Partial<CSSTransitionProps>), never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, string | number> & ({
+$smallView?: boolean;
+$isRtl: boolean;
+$numOfColumns: number;
+$columnsCount: number;
+$width?: number | string;
+$maxWidth?: number | string;
+$isResizable: boolean;
+} & Partial<CSSTransitionProps>), never>>> & string;
 
 // @public (undocumented)
-export const StyledMasterDetailLayoutView: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMasterDetailLayoutView: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "smallView"> & {
 smallView?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "smallView"> & {
+smallView?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMasterDetailPlaceholder: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMasterDetailPlaceholder: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMasterDetailTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;
+export const StyledMasterDetailTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLParagraphElement>, HTMLParagraphElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLParagraphElement>, HTMLParagraphElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, {
+export const StyledMenuContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, "$condensible" | "$menuType" | "$sliding" | "$useAs"> & {
 $menuType: "vertical" | "horizontal";
 $condensible?: boolean;
 $sliding?: boolean;
 $useAs?: MainMenuProps.UseAs;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, "$condensible" | "$menuType" | "$sliding" | "$useAs"> & {
+$menuType: "vertical" | "horizontal";
+$condensible?: boolean;
+$sliding?: boolean;
+$useAs?: MainMenuProps.UseAs;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuGroupTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledMenuGroupTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuItem: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, {
+export const StyledMenuItem: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$collapsed" | "$disabled" | "$menuItemType" | "$nonCondensedItemCount" | "$parentMenuType" | "$selected" | "$showPlaceholder" | "$subLayer" | "$useAs"> & {
 $menuItemType: "vertical" | "horizontal";
 $disabled?: boolean;
 $selected?: boolean;
@@ -35730,10 +36912,20 @@ $collapsed?: boolean;
 $showPlaceholder?: boolean;
 $useAs?: MainMenuProps.UseAs;
 $nonCondensedItemCount?: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$collapsed" | "$disabled" | "$menuItemType" | "$nonCondensedItemCount" | "$parentMenuType" | "$selected" | "$showPlaceholder" | "$subLayer" | "$useAs"> & {
+$menuItemType: "vertical" | "horizontal";
+$disabled?: boolean;
+$selected?: boolean;
+$subLayer?: boolean;
+$parentMenuType?: string;
+$collapsed?: boolean;
+$showPlaceholder?: boolean;
+$useAs?: MainMenuProps.UseAs;
+$nonCondensedItemCount?: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuItemIcon: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMenuItemIcon: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$additionalIconVariant" | "$collapsed" | "$disabled" | "$hasAdditionalInfoIcon" | "$menuItemType" | "$parentMenuType" | "$selected" | "$subLayer" | "$variant"> & {
 $menuItemType: "vertical" | "horizontal";
 $disabled?: boolean;
 $selected?: boolean;
@@ -35743,27 +36935,45 @@ $collapsed?: boolean;
 $subLayer?: boolean;
 $additionalIconVariant?: string;
 $variant?: MenuItemVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$additionalIconVariant" | "$collapsed" | "$disabled" | "$hasAdditionalInfoIcon" | "$menuItemType" | "$parentMenuType" | "$selected" | "$subLayer" | "$variant"> & {
+$menuItemType: "vertical" | "horizontal";
+$disabled?: boolean;
+$selected?: boolean;
+$hasAdditionalInfoIcon?: boolean;
+$parentMenuType?: string;
+$collapsed?: boolean;
+$subLayer?: boolean;
+$additionalIconVariant?: string;
+$variant?: MenuItemVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuItemLabel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMenuItemLabel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuItemLink: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMenuItemLink: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$collapsed" | "$menuItemType" | "$parentMenuType" | "$subLayer"> & {
 $menuItemType: "vertical" | "horizontal";
 $parentMenuType?: string;
 $subLayer?: boolean;
 $collapsed?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$collapsed" | "$menuItemType" | "$parentMenuType" | "$subLayer"> & {
+$menuItemType: "vertical" | "horizontal";
+$parentMenuType?: string;
+$subLayer?: boolean;
+$collapsed?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuItemPlaceholder: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledMenuItemPlaceholder: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$disabled" | "$menuItemType"> & {
 $menuItemType: "vertical" | "horizontal";
 $disabled?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$disabled" | "$menuItemType"> & {
+$menuItemType: "vertical" | "horizontal";
+$disabled?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuItemText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMenuItemText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$collapsed" | "$disabled" | "$hasBadgeCount" | "$hasNonLabel" | "$hasOverflowCount" | "$menuItemType" | "$parentMenuType" | "$selected" | "$sliding" | "$subLayer"> & {
 $menuItemType: "vertical" | "horizontal";
 $disabled?: boolean;
 $selected?: boolean;
@@ -35774,235 +36984,351 @@ $hasNonLabel?: boolean;
 $hasBadgeCount?: boolean;
 $sliding?: boolean;
 $hasOverflowCount?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$collapsed" | "$disabled" | "$hasBadgeCount" | "$hasNonLabel" | "$hasOverflowCount" | "$menuItemType" | "$parentMenuType" | "$selected" | "$sliding" | "$subLayer"> & {
+$menuItemType: "vertical" | "horizontal";
+$disabled?: boolean;
+$selected?: boolean;
+$parentMenuType?: string;
+$collapsed?: boolean;
+$subLayer?: boolean;
+$hasNonLabel?: boolean;
+$hasBadgeCount?: boolean;
+$sliding?: boolean;
+$hasOverflowCount?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuMainLayer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, {
+export const StyledMenuMainLayer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$menuType" | "$useAs"> & {
 $menuType: "vertical" | "horizontal";
 $useAs?: MainMenuProps.UseAs;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$menuType" | "$useAs"> & {
+$menuType: "vertical" | "horizontal";
+$useAs?: MainMenuProps.UseAs;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuSubLayer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, {
+export const StyledMenuSubLayer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$menuType" | "$parentMenuType" | "$useAs"> & {
 $menuType: "vertical" | "horizontal";
 $parentMenuType?: string;
 $useAs?: MainMenuProps.UseAs;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$menuType" | "$parentMenuType" | "$useAs"> & {
+$menuType: "vertical" | "horizontal";
+$parentMenuType?: string;
+$useAs?: MainMenuProps.UseAs;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMenuWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMenuWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$menuType" | "$sliding" | "$useAs"> & {
 $sliding?: boolean;
 $menuType: "vertical" | "horizontal";
 $useAs?: MainMenuProps.UseAs;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$menuType" | "$sliding" | "$useAs"> & {
+$sliding?: boolean;
+$menuType: "vertical" | "horizontal";
+$useAs?: MainMenuProps.UseAs;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessage: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMessage: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageBoxAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMessageBoxAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageBoxIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMessageBoxIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageBoxLabel: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMessageBoxLabel: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasAction"> & {
 $hasAction?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasAction"> & {
+$hasAction?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageBoxMainContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMessageBoxMainContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageBoxSubContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMessageBoxSubContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageBoxTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMessageBoxTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageBoxWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMessageBoxWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variant"> & {
 variant?: MessageBoxVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variant"> & {
+variant?: MessageBoxVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageBubble: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMessageBubble: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
 position?: "left" | "right";
-}>> & string;
-
-// @public (undocumented)
-export const StyledMessageContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
 position?: "left" | "right";
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledMessageGroup: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMessageContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
 position?: "left" | "right";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
+position?: "left" | "right";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageStatus: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMessageContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMessageWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledMessageGroup: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
+position?: "left" | "right";
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
+position?: "left" | "right";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMobileFilterBarAction: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, never>> & string;
+export const StyledMessageStatus: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMobileFilterBarContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "mobile" | "collapsed"> & {
-mobile?: boolean;
-collapsed?: boolean;
-}, never>> & string;
+export const StyledMessageWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMobileFilterBarWrapper: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, {
+export const StyledMobileFilterBarAction: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasCustomActions"> & {
+$hasCustomActions?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasCustomActions"> & {
+$hasCustomActions?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasCustomActions"> & {
+$hasCustomActions?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasCustomActions"> & {
+$hasCustomActions?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledMobileFilterBarContent: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$mobile"> & {
+$mobile?: boolean;
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$mobile"> & {
+$mobile?: boolean;
+$compact?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$mobile"> & {
+$mobile?: boolean;
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$mobile"> & {
+$mobile?: boolean;
+$compact?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledMobileFilterBarWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact"> & {
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact"> & {
+$compact?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "disabled"> & {
 disabled?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact"> & {
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact"> & {
+$compact?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "disabled"> & {
+disabled?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMobileFilterSelectorItem: IStyledComponentBase<"web", Substitute<import("./filter-selector.api.js").FilterSelectorProps.FilterItemProps & RefAttributes<FilterSelector.FilterItem>, {
+export const StyledMobileFilterSelectorItem: IStyledComponentBase<"web", FastOmit<FastOmit<import("./filter-selector.api.js").FilterSelectorProps.FilterItemProps & RefAttributes<FilterSelector.FilterItem>, "$active" | "$expanded"> & {
 $active?: boolean;
 $expanded?: boolean;
-}>> & string & Omit<typeof FilterSelector.FilterItem, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<import("./filter-selector.api.js").FilterSelectorProps.FilterItemProps & RefAttributes<FilterSelector.FilterItem>, "$active" | "$expanded"> & {
+$active?: boolean;
+$expanded?: boolean;
+}, never>>> & string & Omit<typeof FilterSelector.FilterItem, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledMobileFilterSelectorTemplate: IStyledComponentBase<"web", FastOmit<FilterSelectorTemplateProps, never>> & string & Omit<typeof FilterSelectorTemplate, keyof Component<any, {}, any>>;
+export const StyledMobileFilterSelectorTemplate: IStyledComponentBase<"web", FastOmit<FilterSelectorTemplateProps, never> & Partial<Pick<FilterSelectorTemplateProps, never>>> & string & Omit<typeof FilterSelectorTemplate, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
 export namespace StyledMobileValidationBar {
     const // (undocumented)
-    StyledMobileValidationActionItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledMobileValidationActionItem: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledMobileValidationWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledMobileValidationWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
     $variant: ValidationBarVariant;
-    }>> & string;
-    const // (undocumented)
-    StyledMobileValidationOverview: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
     $variant: ValidationBarVariant;
-    }>> & string;
+    }, never>>> & string;
     const // (undocumented)
-    StyledMobileValidationOverviewLeft: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledMobileValidationOverview: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, "$variant"> & {
+    $variant: ValidationBarVariant;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, "$variant"> & {
+    $variant: ValidationBarVariant;
+    }, never>>> & string;
     const // (undocumented)
-    StyledMobileValidationOverviewRight: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledMobileValidationOverviewLeft: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledMobileValidationGraphic: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledMobileValidationOverviewRight: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledMobileValidationGraphicIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledMobileValidationGraphic: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledMobileValidationGraphicContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledMobileValidationGraphicIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledMobileValidationContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledMobileValidationGraphicContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledMobileValidationActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledMobileValidationContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledPreviewList: IStyledComponentBase<"web", FastOmit<ListProps, never>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
+    StyledMobileValidationActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledPreviewListItem: IStyledComponentBase<"web", FastOmit<ListItemProps, never>> & string & Omit<typeof List.Item, keyof Component<any, {}, any>>;
+    StyledPreviewList: IStyledComponentBase<"web", FastOmit<ListProps, never> & Partial<Pick<ListProps, never>>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
+    const // (undocumented)
+    StyledPreviewListItem: IStyledComponentBase<"web", FastOmit<ListItemProps, never> & Partial<Pick<ListItemProps, never>>> & string & Omit<typeof List.Item, keyof Component<any, {}, any>>;
 }
 
 // @public (undocumented)
-export const StyledModalNotificationContentBox: IStyledComponentBase<"web", Substitute<ActionContentboxProps, {
+export const StyledModalNotificationContentBox: IStyledComponentBase<"web", FastOmit<FastOmit<ActionContentboxProps, "$hasCloseButton" | "$variant" | keyof ActionContentboxProps> & {
 $variant: "info" | "success" | "warning" | "error";
 $hasCloseButton: boolean;
-} & ActionContentboxProps>> & string & Omit<typeof ActionContentbox, keyof Component<any, {}, any>>;
+} & ActionContentboxProps, never> & Partial<Pick<FastOmit<ActionContentboxProps, "$hasCloseButton" | "$variant" | keyof ActionContentboxProps> & {
+$variant: "info" | "success" | "warning" | "error";
+$hasCloseButton: boolean;
+} & ActionContentboxProps, never>>> & string & Omit<typeof ActionContentbox, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledModalOverlayContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledModalOverlayContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$fitToParent" | "$fullscreen" | "$isPhone" | "$maxWidth" | "$noGutter" | "$preventScroll"> & {
 $fullscreen?: boolean;
 $noGutter?: boolean;
 $isPhone?: boolean;
 $fitToParent?: boolean;
 $preventScroll?: boolean;
 $maxWidth?: number | string;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$fitToParent" | "$fullscreen" | "$isPhone" | "$maxWidth" | "$noGutter" | "$preventScroll"> & {
+$fullscreen?: boolean;
+$noGutter?: boolean;
+$isPhone?: boolean;
+$fitToParent?: boolean;
+$preventScroll?: boolean;
+$maxWidth?: number | string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledModalOverlayWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledModalOverlayWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fitToParent"> & {
 fitToParent?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fitToParent"> & {
+fitToParent?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledMonthSelector: IStyledComponentBase<"web", FastOmit<NativeSelectProps, never>> & string & Omit<typeof NativeSelect, keyof Component<any, {}, any>>;
+export const StyledMonthSelector: IStyledComponentBase<"web", FastOmit<NativeSelectProps, never> & Partial<Pick<NativeSelectProps, never>>> & string & Omit<typeof NativeSelect, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledMultiselectDropdown: IStyledComponentBase<"web", FastOmit<DropDownProps & RefAttributes<DropDown>, never>> & string & Omit<typeof DropDown, keyof Component<any, {}, any>>;
+export const StyledMultiselectDropdown: IStyledComponentBase<"web", FastOmit<DropDownProps & RefAttributes<DropDown>, never> & Partial<Pick<DropDownProps & RefAttributes<DropDown>, never>>> & string & Omit<typeof DropDown, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledMultiselectInput: IStyledComponentBase<"web", FastOmit<TextLineStatelessProps & {
+export const StyledMultiselectInput: IStyledComponentBase<"web", FastOmit<TextFieldProps & {
 isPhone?: boolean;
-}, never>> & string & Omit<TextLineStateless, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<TextFieldProps & {
+isPhone?: boolean;
+}, never>>> & string & Omit<typeof TextField, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledMultiselectModal: IStyledComponentBase<"web", FastOmit<ModalOverlayProps, never>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
+export const StyledMultiselectModal: IStyledComponentBase<"web", FastOmit<ModalOverlayProps, never> & Partial<Pick<ModalOverlayProps, never>>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledMultiselectWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledMultiselectWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$readonly"> & {
 $disabled?: boolean;
 $readonly?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$readonly"> & {
+$disabled?: boolean;
+$readonly?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledNativeSelect {
     const // (undocumented)
-    StyledSelectOption: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>, {
+    StyledSelectOption: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>, "$isEmptyValue"> & {
     $isEmptyValue?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>, "$isEmptyValue"> & {
+    $isEmptyValue?: boolean;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledNewCommentActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledNewCommentActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledNewCommentContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledNewCommentContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledNewCommentMeta: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledNewCommentMeta: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledNewCommentMetaContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledNewCommentMetaContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledNewCommentWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledNewCommentWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isReply"> & {
 isReply?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isReply"> & {
+isReply?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledNotificationContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledNotificationContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fixedToBottom" | "variant"> & {
 fixedToBottom?: boolean;
 variant: ChatProps.NotificationVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fixedToBottom" | "variant"> & {
+fixedToBottom?: boolean;
+variant: ChatProps.NotificationVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledNotificationContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledNotificationContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
 $variant: ChatProps.NotificationVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
+$variant: ChatProps.NotificationVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledNotificationWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledNotificationWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "show"> & {
 show?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "show"> & {
+show?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledPaginationWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledPaginationWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$alignment" | "$disabled" | "$simple"> & {
 $simple?: boolean;
 $disabled?: boolean;
 $alignment?: "left" | "right";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$alignment" | "$disabled" | "$simple"> & {
+$simple?: boolean;
+$disabled?: boolean;
+$alignment?: "left" | "right";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledPickerHeaderButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+export const StyledPickerHeaderButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledPlaceholderCalendarDayCell: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledPlaceholderCalendarDayCell: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledPopup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledPopup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledPopupMenu: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledPopupMenu: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$baseClassName" | "$hasHeader" | "$hasVerticalScrollbar" | "$isMobile" | "$isMobileOrTablet" | "$showMenu" | "$transitionTime"> & {
 $isMobileOrTablet?: boolean;
 $isMobile?: boolean;
 $hasHeader?: boolean;
@@ -36010,30 +37336,46 @@ $showMenu?: boolean;
 $baseClassName?: string;
 $transitionTime?: number;
 $hasVerticalScrollbar?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$baseClassName" | "$hasHeader" | "$hasVerticalScrollbar" | "$isMobile" | "$isMobileOrTablet" | "$showMenu" | "$transitionTime"> & {
+$isMobileOrTablet?: boolean;
+$isMobile?: boolean;
+$hasHeader?: boolean;
+$showMenu?: boolean;
+$baseClassName?: string;
+$transitionTime?: number;
+$hasVerticalScrollbar?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledPopupMenuHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledPopupMenuHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledPopupMenuHeaderWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledPopupMenuHeaderWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledPopupMenuItem: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, {
+export const StyledPopupMenuItem: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$isInResponsiveGroupButton" | "$withPadding" | "hasLoadingButton"> & {
 $withPadding?: boolean;
 hasLoadingButton?: boolean;
 $isInResponsiveGroupButton?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$isInResponsiveGroupButton" | "$withPadding" | "hasLoadingButton"> & {
+$withPadding?: boolean;
+hasLoadingButton?: boolean;
+$isInResponsiveGroupButton?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledPopupMenuModalOverlay: IStyledComponentBase<"web", Substitute<ModalOverlayProps, {
+export const StyledPopupMenuModalOverlay: IStyledComponentBase<"web", FastOmit<FastOmit<ModalOverlayProps, "$hasOverlay" | "$showModalOverlay" | "$transitionTime"> & {
 $transitionTime: number;
 $hasOverlay?: boolean;
 $showModalOverlay?: boolean;
-}>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ModalOverlayProps, "$hasOverlay" | "$showModalOverlay" | "$transitionTime"> & {
+$transitionTime: number;
+$hasOverlay?: boolean;
+$showModalOverlay?: boolean;
+}, never>>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledPopupMenuWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$isMobileOrTablet" | "$isMobile" | "$hasHeader" | "$showMenu" | "$baseClassName" | "$transitionTime" | "$hasVerticalScrollbar"> & {
+export const StyledPopupMenuWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$baseClassName" | "$hasHeader" | "$hasVerticalScrollbar" | "$isMobile" | "$isMobileOrTablet" | "$showMenu" | "$transitionTime"> & {
 $isMobileOrTablet?: boolean;
 $isMobile?: boolean;
 $hasHeader?: boolean;
@@ -36041,219 +37383,406 @@ $showMenu?: boolean;
 $baseClassName?: string;
 $transitionTime?: number;
 $hasVerticalScrollbar?: boolean;
-}, never>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$baseClassName" | "$hasHeader" | "$hasVerticalScrollbar" | "$isMobile" | "$isMobileOrTablet" | "$showMenu" | "$transitionTime"> & {
+$isMobileOrTablet?: boolean;
+$isMobile?: boolean;
+$hasHeader?: boolean;
+$showMenu?: boolean;
+$baseClassName?: string;
+$transitionTime?: number;
+$hasVerticalScrollbar?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$baseClassName" | "$hasHeader" | "$hasVerticalScrollbar" | "$isMobile" | "$isMobileOrTablet" | "$showMenu" | "$transitionTime"> & {
+$isMobileOrTablet?: boolean;
+$isMobile?: boolean;
+$hasHeader?: boolean;
+$showMenu?: boolean;
+$baseClassName?: string;
+$transitionTime?: number;
+$hasVerticalScrollbar?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$baseClassName" | "$hasHeader" | "$hasVerticalScrollbar" | "$isMobile" | "$isMobileOrTablet" | "$showMenu" | "$transitionTime"> & {
+$isMobileOrTablet?: boolean;
+$isMobile?: boolean;
+$hasHeader?: boolean;
+$showMenu?: boolean;
+$baseClassName?: string;
+$transitionTime?: number;
+$hasVerticalScrollbar?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledPrimaryPane: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledPrimaryPane: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledProgressBar: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledProgressBar: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "hasBackground"> & {
 hasBackground: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "hasBackground"> & {
+hasBackground: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledProgressBarBuffer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledProgressBarBuffer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledProgressBarFill: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledProgressBarFill: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "percentage"> & {
 percentage?: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "percentage"> & {
+percentage?: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledQuickAccessButton: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledQuickAccessButton: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$invert" | "$isMobile" | "$primary" | "$secondary" | "$touch"> & {
 $primary?: boolean;
 $secondary?: boolean;
 $invert?: boolean;
 $disabled?: boolean;
 $touch?: boolean;
 $isMobile?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$invert" | "$isMobile" | "$primary" | "$secondary" | "$touch"> & {
+$primary?: boolean;
+$secondary?: boolean;
+$invert?: boolean;
+$disabled?: boolean;
+$touch?: boolean;
+$isMobile?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledQuickAccessButtonDivider: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledQuickAccessButtonDivider: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$destructive" | "$disabled" | "$invert" | "$primary" | "$secondary"> & {
 $primary?: boolean;
 $secondary?: boolean;
 $destructive?: boolean;
 $disabled?: boolean;
 $invert?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$destructive" | "$disabled" | "$invert" | "$primary" | "$secondary"> & {
+$primary?: boolean;
+$secondary?: boolean;
+$destructive?: boolean;
+$disabled?: boolean;
+$invert?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledQuickAccessButtonTriggerElement: IStyledComponentBase<"web", Substitute<ButtonProps, {
+export const StyledQuickAccessButtonTriggerElement: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonProps, "$isMobile" | "$open" | "$touch"> & {
 $open?: boolean;
 $touch?: boolean;
 $isMobile?: boolean;
-}>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ButtonProps, "$isMobile" | "$open" | "$touch"> & {
+$open?: boolean;
+$touch?: boolean;
+$isMobile?: boolean;
+}, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
 export namespace StyledRadio {
     const // (undocumented)
-    StyledField: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$block" | "$hasTooltips" | "$numberOfTooltips"> & {
+    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$touch"> & {
     $touch?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $block?: boolean;
+    $hasTooltips?: boolean;
+    $disabled?: boolean;
+    $numberOfTooltips?: number;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$touch"> & {
+    $touch?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledBox: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+    StyledBox: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
     const // (undocumented)
-    StyledInput: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$disabled" | "$readonly" | "$checked"> & {
+    StyledInput: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
     $checked?: boolean;
     $disabled?: boolean;
     $readonly?: boolean;
-    }, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$checked" | "$error" | "$info" | "$warning"> & {
     $checked?: boolean;
     $warning?: boolean;
     $error?: boolean;
     $info?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$checked" | "$disabled" | "$readonly"> & {
+    $checked?: boolean;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$checked" | "$error" | "$info" | "$warning"> & {
+    $checked?: boolean;
+    $warning?: boolean;
+    $error?: boolean;
+    $info?: boolean;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledReplyItemAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledReplyItemAction: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledResizeAndDragContentWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledResizeAndDragContentWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$animationDuration" | "$containsHandle" | "$disableDragging" | "$isDragging" | "$orientation"> & {
 $containsHandle?: boolean;
 $disableDragging?: boolean;
 $isDragging?: boolean;
 $orientation: Orientation;
 $animationDuration: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$animationDuration" | "$containsHandle" | "$disableDragging" | "$isDragging" | "$orientation"> & {
+$containsHandle?: boolean;
+$disableDragging?: boolean;
+$isDragging?: boolean;
+$orientation: Orientation;
+$animationDuration: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledResizeHandle: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledResizeHandle: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$gap" | "$resizeCursor" | "$targetBorder" | "$targetPosition"> & {
 $targetPosition: ResizeHandleProps["targetPosition"];
 $resizeCursor?: string;
 $gap: number;
 $targetBorder: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$gap" | "$resizeCursor" | "$targetBorder" | "$targetPosition"> & {
+$targetPosition: ResizeHandleProps["targetPosition"];
+$resizeCursor?: string;
+$gap: number;
+$targetBorder: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledResizeHandler: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledResizeHandler: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$borderRadius" | "$layoutGap" | "$position"> & {
 $layoutGap: number;
 $borderRadius: number;
 $position: ResizeHandlerProps["position"];
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$borderRadius" | "$layoutGap" | "$position"> & {
+$layoutGap: number;
+$borderRadius: number;
+$position: ResizeHandlerProps["position"];
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledResizeHandlerWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledResizeHandlerWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$resizable"> & {
 $resizable: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$resizable"> & {
+$resizable: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSecondaryContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledSecondaryContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // Warning: (ae-forgotten-export) The symbol "StyledSecondaryPaneProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const StyledSecondaryPane: IStyledComponentBase<"web", Substitute<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, StyledSecondaryPaneProps>> & string & Omit<ForwardRefComponent<HTMLDivElement, HTMLMotionProps<"div">>, keyof Component<any, {}, any>>;
+export const StyledSecondaryPane: IStyledComponentBase<"web", FastOmit<FastOmit<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, keyof StyledSecondaryPaneProps> & StyledSecondaryPaneProps, never> & Partial<Pick<FastOmit<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, keyof StyledSecondaryPaneProps> & StyledSecondaryPaneProps, never>>> & string & Omit<ForwardRefComponent<HTMLDivElement, HTMLMotionProps<"div">>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSecondaryPaneContent: IStyledComponentBase<"web", FastOmit<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, never>> & string & Omit<ForwardRefComponent<HTMLDivElement, HTMLMotionProps<"div">>, keyof Component<any, {}, any>>;
+export const StyledSecondaryPaneContent: IStyledComponentBase<"web", FastOmit<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, never> & Partial<Pick<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, never>>> & string & Omit<ForwardRefComponent<HTMLDivElement, HTMLMotionProps<"div">>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSelectedTileIcon: IStyledComponentBase<"web", Substitute<IconProps, {
+export const StyledSelectedTileIcon: IStyledComponentBase<"web", FastOmit<FastOmit<IconProps, "$primary" | "$secondary"> & {
 $primary?: boolean;
 $secondary?: boolean;
-}>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<IconProps, "$primary" | "$secondary"> & {
+$primary?: boolean;
+$secondary?: boolean;
+}, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSelectionSuffix: IStyledComponentBase<"web", Substitute<IconProps, {
+export const StyledSelectionSuffix: IStyledComponentBase<"web", FastOmit<FastOmit<IconProps, "$disabled"> & {
 $disabled?: boolean;
-}>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<IconProps, "$disabled"> & {
+$disabled?: boolean;
+}, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
 export namespace StyledSelectTemplate {
     const // (undocumented)
-    StyledSelectInput: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>, {
+    StyledSelectInput: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>, "$disabled" | "$isEmptyValue" | "$isHidden" | "$readonly"> & {
     $readonly?: boolean;
     $disabled?: boolean;
     $isEmptyValue?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledFieldSelectControl: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    $isHidden?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>, "$disabled" | "$isEmptyValue" | "$isHidden" | "$readonly"> & {
     $readonly?: boolean;
     $disabled?: boolean;
-    }>> & string;
+    $isEmptyValue?: boolean;
+    $isHidden?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldSelectWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldSelectControl: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$readonly"> & {
+    $readonly?: boolean;
+    $disabled?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$readonly"> & {
+    $readonly?: boolean;
+    $disabled?: boolean;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledFieldSelectWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$info" | "$readonly" | "$warning"> & {
     $error?: boolean;
     $warning?: boolean;
     $info?: boolean;
     $readonly?: boolean;
     $disabled?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledSelectArrow: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$info" | "$readonly" | "$warning"> & {
+    $error?: boolean;
+    $warning?: boolean;
+    $info?: boolean;
     $readonly?: boolean;
     $disabled?: boolean;
-    }>> & string;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledSelectArrow: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$disabled" | "$readonly"> & {
+    $readonly?: boolean;
+    $disabled?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$disabled" | "$readonly"> & {
+    $readonly?: boolean;
+    $disabled?: boolean;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledSimplePaginationAction: IStyledComponentBase<"web", Substitute<ButtonProps, {
+export const StyledSimplePaginationAction: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonProps, "$disabled"> & {
 $disabled?: boolean;
-}>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ButtonProps, "$disabled"> & {
+$disabled?: boolean;
+}, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSimplePaginationLabel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledSimplePaginationLabel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSlider: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledSlider: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$invalid" | "$readonly"> & {
 $disabled?: boolean;
 $readonly?: boolean;
 $invalid?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$invalid" | "$readonly"> & {
+$disabled?: boolean;
+$readonly?: boolean;
+$invalid?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSliderBackdrop: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledSliderBackdrop: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSliderBar: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledSliderBar: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSliderBarFill: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledSliderBarFill: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$thumbPosition"> & {
 $disabled?: boolean;
 $thumbPosition: number;
-}>> & string;
-
-// @public (undocumented)
-export const StyledSliderBarLeftFill: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$thumbPosition"> & {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$thumbPosition"> & {
 $disabled?: boolean;
 $thumbPosition: number;
-}, never>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSliderLabel: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledSliderBarLeftFill: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$thumbPosition"> & {
+$disabled?: boolean;
+$thumbPosition: number;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$thumbPosition"> & {
+$disabled?: boolean;
+$thumbPosition: number;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$thumbPosition"> & {
+$disabled?: boolean;
+$thumbPosition: number;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$thumbPosition"> & {
+$disabled?: boolean;
+$thumbPosition: number;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledSliderLabel: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$position"> & {
 $disabled?: boolean;
 $position?: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$position"> & {
+$disabled?: boolean;
+$position?: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSliderLeftTick: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$tickPosition"> & {
+export const StyledSliderLeftTick: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$tickPosition"> & {
 $disabled?: boolean;
 $tickPosition?: number;
-}, never>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$tickPosition"> & {
+$disabled?: boolean;
+$tickPosition?: number;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$tickPosition"> & {
+$disabled?: boolean;
+$tickPosition?: number;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$tickPosition"> & {
+$disabled?: boolean;
+$tickPosition?: number;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSliderThumb: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledSliderThumb: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$invalid" | "$readonly" | "$thumbPosition"> & {
 $disabled?: boolean;
 $invalid?: boolean;
 $readonly?: boolean;
 $thumbPosition: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$invalid" | "$readonly" | "$thumbPosition"> & {
+$disabled?: boolean;
+$invalid?: boolean;
+$readonly?: boolean;
+$thumbPosition: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSliderTick: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledSliderTick: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$tickPosition"> & {
 $disabled?: boolean;
 $tickPosition?: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$tickPosition"> & {
+$disabled?: boolean;
+$tickPosition?: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSliderWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledSliderWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public
 export interface StyledSlot {
@@ -36262,79 +37791,155 @@ export interface StyledSlot {
 }
 
 // @public (undocumented)
-export const StyledStatusContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledStatusContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variant"> & {
 variant: StatusVariant;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variant"> & {
+variant: StatusVariant;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledStatusIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledStatusIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledStatusLabel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledStatusLabel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledStatusLabelWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledStatusLabelWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$longText"> & {
 $longText?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$longText"> & {
+$longText?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSubActionBarItem: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledSubActionBarItem: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hidden"> & {
 $hidden?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hidden"> & {
+$hidden?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSubActionBarTpl: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledSubActionBarTpl: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSubMenuGroupTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>> & string;
+export const StyledSubGroupLabel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSubMenuPopup: IStyledComponentBase<"web", FastOmit<PopUpMenuProps, never>> & string & Omit<FC<PopUpMenuProps>, keyof Component<any, {}, any>>;
+export const StyledSubMenuGroupTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never> & Partial<Pick<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSubTabListTriggerButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+export const StyledSubMenuPopup: IStyledComponentBase<"web", FastOmit<PopUpMenuProps, never> & Partial<Pick<PopUpMenuProps, never>>> & string & Omit<FC<PopUpMenuProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSubTabPanelTabs: IStyledComponentBase<"web", FastOmit<ListProps, never>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
+export const StyledSubTabListTriggerButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSupportingPanesLayout: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledSubTabPanelTabs: IStyledComponentBase<"web", FastOmit<ListProps, never> & Partial<Pick<ListProps, never>>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSwitchControl: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledSupportingPanesLayout: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSwitchInput: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, never>> & string;
+export const StyledSupportingPanesLayoutWrapper: IStyledComponentBase<"web", FastOmit<SupportingPanesLayoutProps.LayoutProps, never> & Partial<Pick<SupportingPanesLayoutProps.LayoutProps, never>>> & string & Omit<FC<SupportingPanesLayoutProps.LayoutProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSwitchInteractive: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledSwitchControl: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledSwitchField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$block?: boolean;
+$hasTooltips?: boolean;
+$disabled?: boolean;
+$numberOfTooltips?: number;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$block?: boolean;
+$hasTooltips?: boolean;
+$disabled?: boolean;
+$numberOfTooltips?: number;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$block?: boolean;
+$hasTooltips?: boolean;
+$disabled?: boolean;
+$numberOfTooltips?: number;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$block?: boolean;
+$hasTooltips?: boolean;
+$disabled?: boolean;
+$numberOfTooltips?: number;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledSwitchInlineWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledSwitchInput: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, never> & Partial<Pick<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledSwitchInteractive: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$checked" | "$disabled" | "$error" | "$focused" | "$readonly" | "$warning"> & {
 $warning?: boolean;
 $error?: boolean;
 $readonly?: boolean;
 $disabled?: boolean;
 $checked?: boolean;
 $focused?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$checked" | "$disabled" | "$error" | "$focused" | "$readonly" | "$warning"> & {
+$warning?: boolean;
+$error?: boolean;
+$readonly?: boolean;
+$disabled?: boolean;
+$checked?: boolean;
+$focused?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledSwitchOption: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledSwitchLabel: IStyledComponentBase<"web", FastOmit<FastOmit<LabelProps, "$isInteractive" | "$labelPosition"> & {
+$labelPosition?: SwitchLabelPosition;
+$isInteractive?: boolean;
+}, never> & Partial<Pick<FastOmit<LabelProps, "$isInteractive" | "$labelPosition"> & {
+$labelPosition?: SwitchLabelPosition;
+$isInteractive?: boolean;
+}, never>>> & string & Omit<typeof Label, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledSwitchThumb: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledSwitchOption: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSwitchThumbIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledSwitchThumb: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSwitchTrack: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledSwitchThumbIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableBody: IStyledComponentBase<"web", Substitute<TableTemplateProps.CollapsingWrapperProps, {
+export const StyledSwitchTrack: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledTabGroup: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$orientation"> & {
+$orientation?: TabPanelOrientation;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$orientation"> & {
+$orientation?: TabPanelOrientation;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTabGroupList: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$orientation"> & {
+$orientation?: TabPanelOrientation;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$orientation"> & {
+$orientation?: TabPanelOrientation;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTableBody: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView"> & {
 cardView?: boolean;
-}>> & string & Omit<NamedExoticComponent<TableTemplateProps.CollapsingWrapperProps>, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView"> & {
+cardView?: boolean;
+}, never>>> & string & Omit<MemoExoticComponent<(props: TableTemplateProps.CollapsingWrapperProps) => ReactElement<TableTemplateProps.CollapsingWrapperProps> | null>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTableBodyCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+export const StyledTableBodyCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36343,21 +37948,10 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
-}, {
-actionCell?: boolean;
-useSecondaryColor?: boolean;
-horizAlignment?: Column.HorizontalAlignment;
-verAlignment?: Column.VerticalAlignment;
-$verticalHeader?: boolean;
-$cellHighlighting?: boolean;
-$firstCell?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledTableBodyCellGroup: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, never>> & string;
-
-// @public (undocumented)
-export const StyledTableBodyCellGroupTpl: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36366,7 +37960,13 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
-}, "actionCell" | "useSecondaryColor" | "horizAlignment" | "verAlignment" | "$verticalHeader" | "$cellHighlighting" | "$firstCell"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$cellHighlighting" | "$crossTabulation" | "$firstCell" | "$rowDisabled" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowInteractive" | "$rowNoEffect" | "$rowSegmentType" | "$rowSelected" | "$rowSubInfo" | "$verticalHeader" | "actionCell" | "horizAlignment" | "useSecondaryColor" | "verAlignment"> & {
 actionCell?: boolean;
 useSecondaryColor?: boolean;
 horizAlignment?: Column.HorizontalAlignment;
@@ -36374,23 +37974,339 @@ verAlignment?: Column.VerticalAlignment;
 $verticalHeader?: boolean;
 $cellHighlighting?: boolean;
 $firstCell?: boolean;
-}, never>> & string;
+$rowSelected?: boolean;
+$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+$rowHighlighted?: boolean;
+$rowDisabled?: boolean;
+$rowSubInfo?: boolean;
+$rowInteractive?: boolean;
+$rowNoEffect?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$cellHighlighting" | "$crossTabulation" | "$firstCell" | "$rowDisabled" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowInteractive" | "$rowNoEffect" | "$rowSegmentType" | "$rowSelected" | "$rowSubInfo" | "$verticalHeader" | "actionCell" | "horizAlignment" | "useSecondaryColor" | "verAlignment"> & {
+actionCell?: boolean;
+useSecondaryColor?: boolean;
+horizAlignment?: Column.HorizontalAlignment;
+verAlignment?: Column.VerticalAlignment;
+$verticalHeader?: boolean;
+$cellHighlighting?: boolean;
+$firstCell?: boolean;
+$rowSelected?: boolean;
+$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+$rowHighlighted?: boolean;
+$rowDisabled?: boolean;
+$rowSubInfo?: boolean;
+$rowInteractive?: boolean;
+$rowNoEffect?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableBodyRow: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+export const StyledTableBodyCellGroup: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$crossTabulation" | "$rowInteractive" | "$rowSegmentType"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$rowInteractive?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$crossTabulation" | "$rowInteractive" | "$rowSegmentType"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$rowInteractive?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTableBodyCellGroupTpl: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
 cardView?: boolean;
-}, {
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$cellHighlighting" | "$crossTabulation" | "$firstCell" | "$rowDisabled" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowInteractive" | "$rowNoEffect" | "$rowSegmentType" | "$rowSelected" | "$rowSubInfo" | "$verticalHeader" | "actionCell" | "horizAlignment" | "useSecondaryColor" | "verAlignment"> & {
+actionCell?: boolean;
+useSecondaryColor?: boolean;
+horizAlignment?: Column.HorizontalAlignment;
+verAlignment?: Column.VerticalAlignment;
+$verticalHeader?: boolean;
+$cellHighlighting?: boolean;
+$firstCell?: boolean;
+$rowSelected?: boolean;
+$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+$rowHighlighted?: boolean;
+$rowDisabled?: boolean;
+$rowSubInfo?: boolean;
+$rowInteractive?: boolean;
+$rowNoEffect?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$cellHighlighting" | "$crossTabulation" | "$firstCell" | "$rowDisabled" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowInteractive" | "$rowNoEffect" | "$rowSegmentType" | "$rowSelected" | "$rowSubInfo" | "$verticalHeader" | "actionCell" | "horizAlignment" | "useSecondaryColor" | "verAlignment"> & {
+actionCell?: boolean;
+useSecondaryColor?: boolean;
+horizAlignment?: Column.HorizontalAlignment;
+verAlignment?: Column.VerticalAlignment;
+$verticalHeader?: boolean;
+$cellHighlighting?: boolean;
+$firstCell?: boolean;
+$rowSelected?: boolean;
+$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+$rowHighlighted?: boolean;
+$rowDisabled?: boolean;
+$rowSubInfo?: boolean;
+$rowInteractive?: boolean;
+$rowNoEffect?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$crossTabulation" | "$rowSegmentType"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$cellHighlighting" | "$crossTabulation" | "$firstCell" | "$rowDisabled" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowInteractive" | "$rowNoEffect" | "$rowSegmentType" | "$rowSelected" | "$rowSubInfo" | "$verticalHeader" | "actionCell" | "horizAlignment" | "useSecondaryColor" | "verAlignment"> & {
+actionCell?: boolean;
+useSecondaryColor?: boolean;
+horizAlignment?: Column.HorizontalAlignment;
+verAlignment?: Column.VerticalAlignment;
+$verticalHeader?: boolean;
+$cellHighlighting?: boolean;
+$firstCell?: boolean;
+$rowSelected?: boolean;
+$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+$rowHighlighted?: boolean;
+$rowDisabled?: boolean;
+$rowSubInfo?: boolean;
+$rowInteractive?: boolean;
+$rowNoEffect?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$cellHighlighting" | "$crossTabulation" | "$firstCell" | "$rowDisabled" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowInteractive" | "$rowNoEffect" | "$rowSegmentType" | "$rowSelected" | "$rowSubInfo" | "$verticalHeader" | "actionCell" | "horizAlignment" | "useSecondaryColor" | "verAlignment"> & {
+actionCell?: boolean;
+useSecondaryColor?: boolean;
+horizAlignment?: Column.HorizontalAlignment;
+verAlignment?: Column.VerticalAlignment;
+$verticalHeader?: boolean;
+$cellHighlighting?: boolean;
+$firstCell?: boolean;
+$rowSelected?: boolean;
+$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+$rowHighlighted?: boolean;
+$rowDisabled?: boolean;
+$rowSubInfo?: boolean;
+$rowInteractive?: boolean;
+$rowNoEffect?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$crossTabulation" | "$rowSegmentType"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTableBodyRow: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$cellHighlighting" | "$contextMenuOpen" | "$crossTabulation" | "$disabled" | "$highlightVariant" | "$highlighted" | "$interactive" | "$noEffect" | "$selected" | "virtualScroll"> & {
 virtualScroll?: boolean;
-}>> & string;
+$cellHighlighting?: boolean;
+$crossTabulation?: boolean;
+$selected?: boolean;
+$highlightVariant?: TableTemplateProps.TableHighlightVariant;
+$highlighted?: boolean;
+$disabled?: boolean;
+$interactive?: boolean;
+$noEffect?: boolean;
+$contextMenuOpen?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$cellHighlighting" | "$contextMenuOpen" | "$crossTabulation" | "$disabled" | "$highlightVariant" | "$highlighted" | "$interactive" | "$noEffect" | "$selected" | "virtualScroll"> & {
+virtualScroll?: boolean;
+$cellHighlighting?: boolean;
+$crossTabulation?: boolean;
+$selected?: boolean;
+$highlightVariant?: TableTemplateProps.TableHighlightVariant;
+$highlighted?: boolean;
+$disabled?: boolean;
+$interactive?: boolean;
+$noEffect?: boolean;
+$contextMenuOpen?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableBodyRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+export const StyledTableBodyRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
 rowSegmentType?: TableTemplateProps.RowSegmentType;
 cardView?: boolean;
-}, never>> & string;
+$crossTabulation?: boolean;
+}, never> & Partial<Pick<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$crossTabulation"> & {
+$crossTabulation?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never> & Partial<Pick<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$crossTabulation"> & {
+$crossTabulation?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableContainerWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableContainerWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export const StyledTableContext: Context<StyledTableContextType>;
@@ -36415,36 +38331,41 @@ export type StyledTableContextType = {
 };
 
 // @public (undocumented)
-export const StyledTableDnDBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableDnDBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableDnDBodyHint: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTableDnDBodyHint: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isOpen" | "isOver"> & {
 isOpen?: boolean;
 isOver?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isOpen" | "isOver"> & {
+isOpen?: boolean;
+isOver?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableDnDDragPreview: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableDnDDragPreview: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableExpandableRow: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableExpandableRow: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableExpandableRowBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableExpandableRowBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableExpandableRowFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableExpandableRowFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableExpandableWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableExpandableWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableFoot: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTableFoot: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasFootContent"> & {
 hasFootContent?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasFootContent"> & {
+hasFootContent?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableFootCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+export const StyledTableFootCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36453,29 +38374,110 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
-}, {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "horizAlignment" | "verAlignment"> & {
 horizAlignment?: Column.HorizontalAlignment;
 verAlignment?: Column.VerticalAlignment;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "horizAlignment" | "verAlignment"> & {
+horizAlignment?: Column.HorizontalAlignment;
+verAlignment?: Column.VerticalAlignment;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableFootRow: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+export const StyledTableFootRow: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
 cardView?: boolean;
-}, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "useHighlightColor"> & {
 useHighlightColor?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "useHighlightColor"> & {
+useHighlightColor?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableFootRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+export const StyledTableFootRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
 rowSegmentType?: TableTemplateProps.RowSegmentType;
 cardView?: boolean;
-}, never>> & string;
+$crossTabulation?: boolean;
+}, never> & Partial<Pick<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never> & Partial<Pick<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableHead: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableHead: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableHeadCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+export const StyledTableHeadCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36484,39 +38486,10 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
-}, {
-noEffect?: boolean;
-verAlignment?: Column.VerticalAlignment;
-sortable?: boolean;
-touch?: boolean;
-isHovering?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledTableHeadCellGroup: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, {
-resizable?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledTableHeadFilterRow: IStyledComponentBase<"web", Substitute<TableTemplateProps.BaseProps, {
-cardView?: boolean;
-}>> & string & Omit<typeof HeadRowTpl, keyof Component<any, {}, any>>;
-
-// @public (undocumented)
-export const StyledTableHeadRow: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
-cardView?: boolean;
-}, {
-cardView?: boolean;
-}>> & string;
-
-// @public (undocumented)
-export const StyledTableHeadRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
-rowSegmentType?: TableTemplateProps.RowSegmentType;
-cardView?: boolean;
-}, never>> & string;
-
-// @public (undocumented)
-export const StyledTableHeadSortableCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36525,13 +38498,277 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
-}, "touch" | "noEffect" | "sortable" | "isHovering" | "verAlignment"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$filterRow" | "isHovering" | "noEffect" | "sortable" | "touch" | "verAlignment"> & {
 noEffect?: boolean;
 verAlignment?: Column.VerticalAlignment;
 sortable?: boolean;
 touch?: boolean;
 isHovering?: boolean;
-}, never>> & string;
+$filterRow?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$filterRow" | "isHovering" | "noEffect" | "sortable" | "touch" | "verAlignment"> & {
+noEffect?: boolean;
+verAlignment?: Column.VerticalAlignment;
+sortable?: boolean;
+touch?: boolean;
+isHovering?: boolean;
+$filterRow?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTableHeadCellGroup: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "resizable"> & {
+resizable?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "resizable"> & {
+resizable?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTableHeadFilterRow: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.BaseProps, "cardView"> & {
+cardView?: boolean;
+}, never> & Partial<Pick<FastOmit<TableTemplateProps.BaseProps, "cardView"> & {
+cardView?: boolean;
+}, never>>> & string & Omit<typeof HeadRowTpl, keyof Component<any, {}, any>>;
+
+// @public (undocumented)
+export const StyledTableHeadRow: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$embedded" | "cardView"> & {
+cardView?: boolean;
+$embedded?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+cardView?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$embedded" | "cardView"> & {
+cardView?: boolean;
+$embedded?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTableHeadRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never> & Partial<Pick<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$enableColumnGroupA11y" | "$filterRow" | "$gridRowData" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+$gridRowData?: TableTemplateProps.GridRowDataProps;
+$filterRow?: boolean;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never> & Partial<Pick<FastOmit<TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+cardView?: boolean;
+$crossTabulation?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$enableColumnGroupA11y" | "$filterRow" | "$gridRowData" | "rowSegmentType"> & {
+rowSegmentType?: TableTemplateProps.RowSegmentType;
+$gridRowData?: TableTemplateProps.GridRowDataProps;
+$filterRow?: boolean;
+$enableColumnGroupA11y?: boolean;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTableHeadSortableCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$filterRow" | "isHovering" | "noEffect" | "sortable" | "touch" | "verAlignment"> & {
+noEffect?: boolean;
+verAlignment?: Column.VerticalAlignment;
+sortable?: boolean;
+touch?: boolean;
+isHovering?: boolean;
+$filterRow?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$filterRow" | "isHovering" | "noEffect" | "sortable" | "touch" | "verAlignment"> & {
+noEffect?: boolean;
+verAlignment?: Column.VerticalAlignment;
+sortable?: boolean;
+touch?: boolean;
+isHovering?: boolean;
+$filterRow?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$filterRow" | "isHovering" | "noEffect" | "sortable" | "touch" | "verAlignment"> & {
+noEffect?: boolean;
+verAlignment?: Column.VerticalAlignment;
+sortable?: boolean;
+touch?: boolean;
+isHovering?: boolean;
+$filterRow?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+fixedWidth?: boolean;
+subInfo?: boolean;
+actionCell?: boolean;
+relativeWidth?: Column.Width;
+cardView?: boolean;
+hasColumnGroup?: boolean;
+resizable?: boolean;
+$hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$enableColumnGroupA11y?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "$filterRow" | "isHovering" | "noEffect" | "sortable" | "touch" | "verAlignment"> & {
+noEffect?: boolean;
+verAlignment?: Column.VerticalAlignment;
+sortable?: boolean;
+touch?: boolean;
+isHovering?: boolean;
+$filterRow?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
 export const StyledTableMixins: {
@@ -36556,196 +38793,575 @@ export const StyledTableMixins: {
 };
 
 // @public (undocumented)
-export const StyledTableRowGroup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableRowGroup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableRowGroupHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTableRowGroupHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledTableTemplate {
     const // (undocumented)
-    StyledRowGroup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledRowGroup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledRowGroupHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledRowGroupHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledHead: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledHead: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     const // (undocumented)
-    StyledHeadRow: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    StyledHeadRow: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
     cardView?: boolean;
-    }, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
     cardView?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledHeadFilterRow: IStyledComponentBase<"web", Substitute<import("./table.tpl.api.js").TableTemplateProps.BaseProps, {
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$embedded" | "cardView"> & {
     cardView?: boolean;
-    }>> & string & Omit<typeof HeadRowTpl, keyof Component<any, {}, any>>;
+    $embedded?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$embedded" | "cardView"> & {
+    cardView?: boolean;
+    $embedded?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledHeadRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+    StyledHeadFilterRow: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.BaseProps, "cardView"> & {
+    cardView?: boolean;
+    }, never> & Partial<Pick<FastOmit<import("./table.tpl.api.js").TableTemplateProps.BaseProps, "cardView"> & {
+    cardView?: boolean;
+    }, never>>> & string & Omit<typeof HeadRowTpl, keyof Component<any, {}, any>>;
+    const // (undocumented)
+    StyledHeadRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
     rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
     cardView?: boolean;
-    }, never>> & string;
+    $crossTabulation?: boolean;
+    }, never> & Partial<Pick<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$enableColumnGroupA11y" | "$filterRow" | "$gridRowData" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $gridRowData?: import("./table.tpl.api.js").TableTemplateProps.GridRowDataProps;
+    $filterRow?: boolean;
+    $enableColumnGroupA11y?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never> & Partial<Pick<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$enableColumnGroupA11y" | "$filterRow" | "$gridRowData" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $gridRowData?: import("./table.tpl.api.js").TableTemplateProps.GridRowDataProps;
+    $filterRow?: boolean;
+    $enableColumnGroupA11y?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledHeadCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+    StyledHeadCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
     fixedWidth?: boolean;
     subInfo?: boolean;
     actionCell?: boolean;
-    relativeWidth?: import("../../index.js").Column.Width;
+    relativeWidth?: import("../column.api.js").Column.Width;
     cardView?: boolean;
     hasColumnGroup?: boolean;
     resizable?: boolean;
     $hasActionCellWidth?: boolean;
-    }, {
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$filterRow" | "isHovering" | "noEffect" | "sortable" | "touch" | "verAlignment"> & {
     noEffect?: boolean;
-    verAlignment?: import("../../index.js").Column.VerticalAlignment;
+    verAlignment?: import("../column.api.js").Column.VerticalAlignment;
     sortable?: boolean;
     touch?: boolean;
     isHovering?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledHeadCellGroup: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, {
-    resizable?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledBody: IStyledComponentBase<"web", Substitute<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, {
-    cardView?: boolean;
-    }>> & string & Omit<NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps>, keyof Component<any, {}, any>>;
-    const // (undocumented)
-    StyledBodyCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+    $filterRow?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
     fixedWidth?: boolean;
     subInfo?: boolean;
     actionCell?: boolean;
-    relativeWidth?: import("../../index.js").Column.Width;
+    relativeWidth?: import("../column.api.js").Column.Width;
     cardView?: boolean;
     hasColumnGroup?: boolean;
     resizable?: boolean;
     $hasActionCellWidth?: boolean;
-    }, {
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$filterRow" | "isHovering" | "noEffect" | "sortable" | "touch" | "verAlignment"> & {
+    noEffect?: boolean;
+    verAlignment?: import("../column.api.js").Column.VerticalAlignment;
+    sortable?: boolean;
+    touch?: boolean;
+    isHovering?: boolean;
+    $filterRow?: boolean;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledHeadCellGroup: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "resizable"> & {
+    resizable?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "resizable"> & {
+    resizable?: boolean;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledHeadGrid: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$columnWidths" | "$totalRows"> & {
+    $columnWidths: number[];
+    $totalRows: number;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$columnWidths" | "$totalRows"> & {
+    $columnWidths: number[];
+    $totalRows: number;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledHeadGridRow: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+    const // (undocumented)
+    StyledBody: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView"> & {
+    cardView?: boolean;
+    }, never> & Partial<Pick<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView"> & {
+    cardView?: boolean;
+    }, never>>> & string & Omit<MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps) => ReactElement<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps> | null>, keyof Component<any, {}, any>>;
+    const // (undocumented)
+    StyledBodyCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$cellHighlighting" | "$crossTabulation" | "$firstCell" | "$rowDisabled" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowInteractive" | "$rowNoEffect" | "$rowSegmentType" | "$rowSelected" | "$rowSubInfo" | "$verticalHeader" | "actionCell" | "horizAlignment" | "useSecondaryColor" | "verAlignment"> & {
     actionCell?: boolean;
     useSecondaryColor?: boolean;
-    horizAlignment?: import("../../index.js").Column.HorizontalAlignment;
-    verAlignment?: import("../../index.js").Column.VerticalAlignment;
+    horizAlignment?: import("../column.api.js").Column.HorizontalAlignment;
+    verAlignment?: import("../column.api.js").Column.VerticalAlignment;
     $verticalHeader?: boolean;
     $cellHighlighting?: boolean;
     $firstCell?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledBodyRow: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
-    cardView?: boolean;
-    }, {
-    virtualScroll?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledBodyRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
-    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
-    cardView?: boolean;
-    }, never>> & string;
-    const // (undocumented)
-    StyledFoot: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
-    hasFootContent?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledFootRow: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
-    cardView?: boolean;
-    }, {
-    useHighlightColor?: boolean;
-    }>> & string;
-    const // (undocumented)
-    StyledFootRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
-    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
-    cardView?: boolean;
-    }, never>> & string;
-    const // (undocumented)
-    StyledFootCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+    $rowSelected?: boolean;
+    $rowHighlightVariant?: import("./table.tpl.api.js").TableTemplateProps.TableHighlightVariant;
+    $rowHighlighted?: boolean;
+    $rowDisabled?: boolean;
+    $rowSubInfo?: boolean;
+    $rowInteractive?: boolean;
+    $rowNoEffect?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
     fixedWidth?: boolean;
     subInfo?: boolean;
     actionCell?: boolean;
-    relativeWidth?: import("../../index.js").Column.Width;
+    relativeWidth?: import("../column.api.js").Column.Width;
     cardView?: boolean;
     hasColumnGroup?: boolean;
     resizable?: boolean;
     $hasActionCellWidth?: boolean;
-    }, {
-    horizAlignment?: import("../../index.js").Column.HorizontalAlignment;
-    verAlignment?: import("../../index.js").Column.VerticalAlignment;
-    }>> & string;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$cellHighlighting" | "$crossTabulation" | "$firstCell" | "$rowDisabled" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowInteractive" | "$rowNoEffect" | "$rowSegmentType" | "$rowSelected" | "$rowSubInfo" | "$verticalHeader" | "actionCell" | "horizAlignment" | "useSecondaryColor" | "verAlignment"> & {
+    actionCell?: boolean;
+    useSecondaryColor?: boolean;
+    horizAlignment?: import("../column.api.js").Column.HorizontalAlignment;
+    verAlignment?: import("../column.api.js").Column.VerticalAlignment;
+    $verticalHeader?: boolean;
+    $cellHighlighting?: boolean;
+    $firstCell?: boolean;
+    $rowSelected?: boolean;
+    $rowHighlightVariant?: import("./table.tpl.api.js").TableTemplateProps.TableHighlightVariant;
+    $rowHighlighted?: boolean;
+    $rowDisabled?: boolean;
+    $rowSubInfo?: boolean;
+    $rowInteractive?: boolean;
+    $rowNoEffect?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    }, never>>> & string;
     const // (undocumented)
-    StyledExpandableBodyRowWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledBodyRow: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$cellHighlighting" | "$contextMenuOpen" | "$crossTabulation" | "$disabled" | "$highlightVariant" | "$highlighted" | "$interactive" | "$noEffect" | "$selected" | "virtualScroll"> & {
+    virtualScroll?: boolean;
+    $cellHighlighting?: boolean;
+    $crossTabulation?: boolean;
+    $selected?: boolean;
+    $highlightVariant?: import("./table.tpl.api.js").TableTemplateProps.TableHighlightVariant;
+    $highlighted?: boolean;
+    $disabled?: boolean;
+    $interactive?: boolean;
+    $noEffect?: boolean;
+    $contextMenuOpen?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$cellHighlighting" | "$contextMenuOpen" | "$crossTabulation" | "$disabled" | "$highlightVariant" | "$highlighted" | "$interactive" | "$noEffect" | "$selected" | "virtualScroll"> & {
+    virtualScroll?: boolean;
+    $cellHighlighting?: boolean;
+    $crossTabulation?: boolean;
+    $selected?: boolean;
+    $highlightVariant?: import("./table.tpl.api.js").TableTemplateProps.TableHighlightVariant;
+    $highlighted?: boolean;
+    $disabled?: boolean;
+    $interactive?: boolean;
+    $noEffect?: boolean;
+    $contextMenuOpen?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledExpandableRowBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledBodyRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never> & Partial<Pick<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$crossTabulation"> & {
+    $crossTabulation?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never> & Partial<Pick<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "$crossTabulation"> & {
+    $crossTabulation?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledTable: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFoot: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasFootContent"> & {
+    hasFootContent?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasFootContent"> & {
+    hasFootContent?: boolean;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledFootRow: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "useHighlightColor"> & {
+    useHighlightColor?: boolean;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
+    cardView?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "useHighlightColor"> & {
+    useHighlightColor?: boolean;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledFootRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never> & Partial<Pick<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never> & Partial<Pick<FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never> & Partial<Pick<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "$crossTabulation" | "cardView" | "rowSegmentType"> & {
+    rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    cardView?: boolean;
+    $crossTabulation?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledFootCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "horizAlignment" | "verAlignment"> & {
+    horizAlignment?: import("../column.api.js").Column.HorizontalAlignment;
+    verAlignment?: import("../column.api.js").Column.VerticalAlignment;
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$crossTabulation" | "$enableColumnGroupA11y" | "$hasActionCellWidth" | "$rowSegmentType" | "actionCell" | "cardView" | "fixedWidth" | "hasColumnGroup" | "relativeWidth" | "resizable" | "subInfo"> & {
+    fixedWidth?: boolean;
+    subInfo?: boolean;
+    actionCell?: boolean;
+    relativeWidth?: import("../column.api.js").Column.Width;
+    cardView?: boolean;
+    hasColumnGroup?: boolean;
+    resizable?: boolean;
+    $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
+    $enableColumnGroupA11y?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, "horizAlignment" | "verAlignment"> & {
+    horizAlignment?: import("../column.api.js").Column.HorizontalAlignment;
+    verAlignment?: import("../column.api.js").Column.VerticalAlignment;
+    }, never>>> & string;
+    const // (undocumented)
+    StyledExpandableBodyRowWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+    const // (undocumented)
+    StyledExpandableRowBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+    const // (undocumented)
+    StyledTable: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "addLastBorderOnHeader" | "horizontalScrollPosition" | "virtualScroll"> & {
     virtualScroll?: boolean;
     addLastBorderOnHeader?: boolean;
     horizontalScrollPosition?: import("./table.tpl.api.js").TableTemplateProps.HorizontalScrollPosition;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "addLastBorderOnHeader" | "horizontalScrollPosition" | "virtualScroll"> & {
+    virtualScroll?: boolean;
+    addLastBorderOnHeader?: boolean;
+    horizontalScrollPosition?: import("./table.tpl.api.js").TableTemplateProps.HorizontalScrollPosition;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledTableTpl: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTableTpl: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "addLastBorderOnHeader" | "horizontalScrollPosition" | "virtualScroll"> & {
 virtualScroll?: boolean;
 addLastBorderOnHeader?: boolean;
 horizontalScrollPosition?: TableTemplateProps.HorizontalScrollPosition;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "addLastBorderOnHeader" | "horizontalScrollPosition" | "virtualScroll"> & {
+virtualScroll?: boolean;
+addLastBorderOnHeader?: boolean;
+horizontalScrollPosition?: TableTemplateProps.HorizontalScrollPosition;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTableVirtualizedBody: IStyledComponentBase<"web", FastOmit<import("../main/template/table.tpl.api.js").TableTemplateProps.BodyProps, never>> & string & Omit<BodyTpl, keyof Component<any, {}, any>>;
+export const StyledTableVirtualizedBody: IStyledComponentBase<"web", FastOmit<import("./template/table.tpl.api.js").TableTemplateProps.BodyProps, never> & Partial<Pick<import("./template/table.tpl.api.js").TableTemplateProps.BodyProps, never>>> & string & Omit<BodyTpl, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTabPanelHeading: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTabPanelHeading: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTabPanelPanel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTabPanelPanel: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTabPanelTabs: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, {
+export const StyledTabPanelTabs: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$isShadow" | "$orientation"> & {
 $isShadow?: boolean;
 $orientation?: TabPanelOrientation;
-}>> & string;
-
-// @public (undocumented)
-export const StyledTabPanelWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$isShadow" | "$orientation"> & {
+$isShadow?: boolean;
 $orientation?: TabPanelOrientation;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTabPanelWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$orientation"> & {
+$orientation?: TabPanelOrientation;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$orientation"> & {
+$orientation?: TabPanelOrientation;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTagContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "borderColor"> & {
 borderColor?: string;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "borderColor"> & {
+borderColor?: string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagGroup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTagGroup: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagInputActionContentBox: IStyledComponentBase<"web", FastOmit<ActionContentboxProps, never>> & string & Omit<typeof ActionContentbox, keyof Component<any, {}, any>>;
+export const StyledTagInputActionContentBox: IStyledComponentBase<"web", FastOmit<ActionContentboxProps, never> & Partial<Pick<ActionContentboxProps, never>>> & string & Omit<typeof ActionContentbox, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTagInputFieldAddon: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+export const StyledTagInputFieldAddon: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
 $position: "before" | "after";
-}, never>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagInputFieldWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$block" | "$phone"> & {
+export const StyledTagInputFieldWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
-}, never>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$block?: boolean;
+$phone?: boolean;
+$disabled?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$block?: boolean;
+$phone?: boolean;
+$disabled?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$block?: boolean;
+$phone?: boolean;
+$disabled?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagInputGroupWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTagInputGroupWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagInputHiddenSpan: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledTagInputHiddenSpan: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagInputTag: IStyledComponentBase<"web", Substitute<TagProps, {
+export const StyledTagInputTag: IStyledComponentBase<"web", FastOmit<FastOmit<TagProps, "$disabled" | "$focus" | "$hover" | "$readonly"> & {
 $focus?: boolean;
 $hover?: boolean;
 $disabled?: boolean;
 $readonly?: boolean;
-}>> & string & Omit<typeof Tag, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<TagProps, "$disabled" | "$focus" | "$hover" | "$readonly"> & {
+$focus?: boolean;
+$hover?: boolean;
+$disabled?: boolean;
+$readonly?: boolean;
+}, never>>> & string & Omit<typeof Tag, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTagInputTagGroup: IStyledComponentBase<"web", Substitute<TagGroupProps, {
+export const StyledTagInputTagGroup: IStyledComponentBase<"web", FastOmit<FastOmit<TagGroupProps, "$disabled" | "$error" | "$focus" | "$info" | "$noEffect" | "$readonly" | "$tagHover" | "$warning"> & {
 $disabled?: boolean;
 $readonly?: boolean;
 $noEffect?: boolean;
@@ -36754,29 +39370,67 @@ $tagHover?: boolean;
 $warning?: boolean;
 $error?: boolean;
 $info?: boolean;
-}>> & string & Omit<FC<TagGroupProps>, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<TagGroupProps, "$disabled" | "$error" | "$focus" | "$info" | "$noEffect" | "$readonly" | "$tagHover" | "$warning"> & {
+$disabled?: boolean;
+$readonly?: boolean;
+$noEffect?: boolean;
+$focus?: boolean;
+$tagHover?: boolean;
+$warning?: boolean;
+$error?: boolean;
+$info?: boolean;
+}, never>>> & string & Omit<FC<TagGroupProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTagInputTouch: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTagInputTouch: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, Pick<TagProps, "removable">>> & string;
+export const StyledTagWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "removable"> & Pick<TagProps, "removable">, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "removable"> & Pick<TagProps, "removable">, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextAreaAddon: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+export const StyledTextAreaAddon: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
 $position: "before" | "after";
-}, never>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextAreaInput: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "virtualkeyboardpolicy" | "$alignRight"> & {
+export const StyledTextAreaInput: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$alignRight" | "virtualkeyboardpolicy"> & {
 $alignRight?: boolean;
 virtualkeyboardpolicy?: "manual" | "auto";
-}, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$alignRight" | "virtualkeyboardpolicy"> & {
+$alignRight?: boolean;
+virtualkeyboardpolicy?: "manual" | "auto";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "autoExpand"> & {
 autoExpand?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$alignRight" | "virtualkeyboardpolicy"> & {
+$alignRight?: boolean;
+virtualkeyboardpolicy?: "manual" | "auto";
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "$alignRight" | "virtualkeyboardpolicy"> & {
+$alignRight?: boolean;
+virtualkeyboardpolicy?: "manual" | "auto";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "autoExpand"> & {
+autoExpand?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextAreaInputWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$readonly" | "$noEffect" | "$error" | "$warning" | "$info" | "$mobile" | "$hasFocus"> & {
+export const StyledTextAreaInputWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
 $mobile?: boolean;
 $readonly?: boolean;
 $disabled?: boolean;
@@ -36785,219 +39439,364 @@ $error?: boolean;
 $info?: boolean;
 $noEffect?: boolean;
 $hasFocus?: boolean;
-}, never>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
+$mobile?: boolean;
+$readonly?: boolean;
+$disabled?: boolean;
+$warning?: boolean;
+$error?: boolean;
+$info?: boolean;
+$noEffect?: boolean;
+$hasFocus?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
+$mobile?: boolean;
+$readonly?: boolean;
+$disabled?: boolean;
+$warning?: boolean;
+$error?: boolean;
+$info?: boolean;
+$noEffect?: boolean;
+$hasFocus?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$error" | "$hasFocus" | "$info" | "$mobile" | "$noEffect" | "$readonly" | "$warning"> & {
+$mobile?: boolean;
+$readonly?: boolean;
+$disabled?: boolean;
+$warning?: boolean;
+$error?: boolean;
+$info?: boolean;
+$noEffect?: boolean;
+$hasFocus?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextAreaStateless: IStyledComponentBase<"web", FastOmit<TextAreaStatelessProps, never>> & string & Omit<typeof TextAreaStateless, keyof Component<any, {}, any>>;
+export const StyledTextAreaStateless: IStyledComponentBase<"web", FastOmit<TextAreaStatelessProps, never> & Partial<Pick<TextAreaStatelessProps, never>>> & string & Omit<typeof TextAreaStateless, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTextOutput: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTextOutput: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasTooltip" | "numberAddons"> & {
 numberAddons?: number;
 hasTooltip: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasTooltip" | "numberAddons"> & {
+numberAddons?: number;
+hasTooltip: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextOutputAddons: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTextOutputAddons: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextOutputContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTextOutputContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noData"> & {
 $noData?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noData"> & {
+$noData?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextOutputFieldAddon: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+export const StyledTextOutputFieldAddon: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
 $position: "before" | "after";
-}, never>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position"> & {
+$position: "before" | "after";
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextOutputParagraph: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;
+export const StyledTextOutputParagraph: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLParagraphElement>, HTMLParagraphElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLParagraphElement>, HTMLParagraphElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextOutputText: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTextOutputText: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noData"> & {
 $noData?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noData"> & {
+$noData?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextOutputWrapper: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$block" | "$phone"> & {
+export const StyledTextOutputWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
-}, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$block?: boolean;
+$phone?: boolean;
+$disabled?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "alignment"> & {
 alignment: TextOutputProps["alignment"];
-}>> & string;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$block?: boolean;
+$phone?: boolean;
+$disabled?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$block?: boolean;
+$phone?: boolean;
+$disabled?: boolean;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, "alignment"> & {
+alignment: TextOutputProps["alignment"];
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimeInput: IStyledComponentBase<"web", FastOmit<BufferedInputProps<string> & ImmediateInputProps<string> & TextLineStatelessProps & {
+export const StyledTimeInput: IStyledComponentBase<"web", FastOmit<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
 isPhone?: boolean;
-} & RefAttributes<Component<BufferedInputProps<string> & ImmediateInputProps<string> & TextLineStatelessProps & {
+} & RefAttributes<Component<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
 isPhone?: boolean;
-}, any, any>>, never>> & string & Omit<ComponentClass<BufferedInputProps<string> & ImmediateInputProps<string> & TextLineStatelessProps & {
+}, any, any>>, never> & Partial<Pick<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
+isPhone?: boolean;
+} & RefAttributes<Component<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
+isPhone?: boolean;
+}, any, any>>, never>>> & string & Omit<ComponentClass<BufferedInputProps<string> & ImmediateInputProps<string> & TextFieldProps & {
 isPhone?: boolean;
 }, any>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTimePickerActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerBody: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerClock: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerClock: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerClockNum: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledTimePickerClockNum: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerClockPointer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTimePickerClockPointer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasSmallPointer" | "initialPointer"> & {
 hasSmallPointer?: boolean;
 initialPointer?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasSmallPointer" | "initialPointer"> & {
+hasSmallPointer?: boolean;
+initialPointer?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerClockPointerInnerDot: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTimePickerClockPointerInnerDot: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "initial"> & {
 initial?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "initial"> & {
+initial?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerClockPointerOuterDot: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerClockPointerOuterDot: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerClockPointerOuterDotContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledTimePickerClockPointerOuterDotContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerDialog: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerDialog: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerFormatSelection: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledTimePickerFormatSelection: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "selected" | "timeFormat"> & {
 timeFormat: "am" | "pm";
 selected?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "selected" | "timeFormat"> & {
+timeFormat: "am" | "pm";
+selected?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerInput: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerInput: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerSetting: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerSetting: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerValue: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledTimePickerValue: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "initial" | "selected"> & {
 selected: boolean;
 initial: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "initial" | "selected"> & {
+selected: boolean;
+initial: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTimePickerWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTimePickerWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTinyBadgeWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never>> & string;
+export const StyledTinyBadgeWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, keyof BadgeProps> & BadgeProps, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledToastActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastAnimation: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledToastAnimation: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastBody: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledToastBody: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variant"> & {
 variant: Variant;
-}>> & string;
-
-// @public (undocumented)
-export const StyledToastButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
-
-// @public (undocumented)
-export const StyledToastCollapse: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledToastContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledToastFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledToastGraphic: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variant"> & {
 variant: Variant;
-}>> & string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastGroupToolbar: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledToastButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+
+// @public (undocumented)
+export const StyledToastCollapse: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledToastContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledToastFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledToastGraphic: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variant"> & {
+variant: Variant;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variant"> & {
+variant: Variant;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledToastGroupToolbar: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$stacking"> & {
 $stacking?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$stacking"> & {
+$stacking?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastGroupToolbarTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledToastGroupToolbarTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastGroupWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledToastGroupWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$direction" | "$stackable" | "$stacking" | "isMobile"> & {
 isMobile?: boolean;
 $stackable?: boolean;
 $stacking?: boolean;
 $direction?: ToastGroupProps.Direction;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$direction" | "$stackable" | "$stacking" | "isMobile"> & {
+isMobile?: boolean;
+$stackable?: boolean;
+$stacking?: boolean;
+$direction?: ToastGroupProps.Direction;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledToastHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastMessage: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledToastMessage: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledToastTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledToastWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "shouldHideToastWhenAdding"> & {
 shouldHideToastWhenAdding?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "shouldHideToastWhenAdding"> & {
+shouldHideToastWhenAdding?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledToggle {
     const // (undocumented)
-    StyledOptionButtons: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, {
+    StyledOptionButtons: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$hasOverlay"> & {
     $hasOverlay?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLUListElement>, HTMLUListElement>, "$hasOverlay"> & {
+    $hasOverlay?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledOptionButton: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, {
+    StyledOptionButton: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$disabled" | "$readonly"> & {
     $disabled?: boolean;
     $readonly?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$disabled" | "$readonly"> & {
+    $disabled?: boolean;
+    $readonly?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledToggleContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+    StyledToggleContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$showOnlySelectedOption"> & {
     $showOnlySelectedOption?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$showOnlySelectedOption"> & {
+    $showOnlySelectedOption?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledSelectedItemOverlay: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+    StyledSelectedItemOverlay: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$disabled" | "$hasTouch" | "$readonly" | "$variant"> & {
     $variant?: ToggleItemVariant;
     $disabled?: boolean;
     $readonly?: boolean;
     $hasTouch?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$disabled" | "$hasTouch" | "$readonly" | "$variant"> & {
+    $variant?: ToggleItemVariant;
+    $disabled?: boolean;
+    $readonly?: boolean;
+    $hasTouch?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledToggleItem: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$readonly" | "$selected" | "$showOnlySelectedOption"> & {
+    StyledToggleItem: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$readonly" | "$selected" | "$showOnlySelectedOption"> & {
     $disabled?: boolean;
     $selected?: boolean;
     $readonly?: boolean;
     $showOnlySelectedOption?: boolean;
-    }, never>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$readonly" | "$selected" | "$showOnlySelectedOption"> & {
+    $disabled?: boolean;
+    $selected?: boolean;
+    $readonly?: boolean;
+    $showOnlySelectedOption?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$readonly" | "$selected" | "$showOnlySelectedOption"> & {
+    $disabled?: boolean;
+    $selected?: boolean;
+    $readonly?: boolean;
+    $showOnlySelectedOption?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$readonly" | "$selected" | "$showOnlySelectedOption"> & {
+    $disabled?: boolean;
+    $selected?: boolean;
+    $readonly?: boolean;
+    $showOnlySelectedOption?: boolean;
+    }, never>> & {
+    as?: WebTarget | undefined;
+    forwardedAs?: WebTarget | undefined;
+    }, never>>> & string;
     const // (undocumented)
-    StyledFieldWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledFieldWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block"> & {
     $block?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block"> & {
+    $block?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledToggleWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledToggleWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$showOnlySelectedOption" | "$showOverlay"> & {
     $showOnlySelectedOption?: boolean;
     $block?: boolean;
     $showOverlay?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$showOnlySelectedOption" | "$showOverlay"> & {
+    $showOnlySelectedOption?: boolean;
+    $block?: boolean;
+    $showOverlay?: boolean;
+    }, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledTooltipContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTooltipContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position" | "$referenceElement" | "$tooltipOrientation" | "$variant"> & {
 $variant?: string;
 $tooltipOrientation?: Orientation;
 $position?: {
@@ -37005,30 +39804,49 @@ top: number;
 left: number;
 };
 $referenceElement?: HTMLElement | null;
-}>> & string;
-
-// @public (undocumented)
-export const StyledTooltipContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
-
-// @public (undocumented)
-export const StyledTooltipWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$position" | "$referenceElement" | "$tooltipOrientation" | "$variant"> & {
 $variant?: string;
-}>> & string;
+$tooltipOrientation?: Orientation;
+$position?: {
+top: number;
+left: number;
+};
+$referenceElement?: HTMLElement | null;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTransitionGroup: IStyledComponentBase<"web", Substitute<(Omit<IntrinsicTransitionGroupProps<"div"> & ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, "ref"> & RefAttributes<TransitionGroup>) | (Omit<ComponentTransitionGroupProps<any> & {
+export const StyledTooltipContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledTooltipTriggerWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$variant"> & {
+$variant?: string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$variant"> & {
+$variant?: string;
+}, never>>> & string;
+
+// @public (undocumented)
+export const StyledTransitionGroup: IStyledComponentBase<"web", FastOmit<FastOmit<(Omit<ComponentTransitionGroupProps<any> & {
 [prop: string]: any;
 children?: ReactElement<TransitionProps<any>> | Array<ReactElement<TransitionProps<any>>> | undefined;
 childFactory?(child: ReactElement): ReactElement;
-}, "ref"> & RefAttributes<TransitionGroup>), {
+}, "ref"> & RefAttributes<TransitionGroup>) | (Omit<IntrinsicTransitionGroupProps<"div"> & ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, "ref"> & RefAttributes<TransitionGroup>), "$isMobile"> & {
 $isMobile?: boolean;
-}>> & string & Omit<typeof TransitionGroup, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<(Omit<ComponentTransitionGroupProps<any> & {
+[prop: string]: any;
+children?: ReactElement<TransitionProps<any>> | Array<ReactElement<TransitionProps<any>>> | undefined;
+childFactory?(child: ReactElement): ReactElement;
+}, "ref"> & RefAttributes<TransitionGroup>) | (Omit<IntrinsicTransitionGroupProps<"div"> & ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, "ref"> & RefAttributes<TransitionGroup>), "$isMobile"> & {
+$isMobile?: boolean;
+}, never>>> & string & Omit<typeof TransitionGroup, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTreeContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTreeContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$dnd" | "$fit"> & {
 $fit?: boolean;
 $dnd?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$dnd" | "$fit"> & {
+$fit?: boolean;
+$dnd?: boolean;
+}, never>>> & string;
 
 // Warning: (ae-forgotten-export) The symbol "TreeContextType" needs to be exported by the entry point index.d.ts
 //
@@ -37036,191 +39854,286 @@ $dnd?: boolean;
 export const StyledTreeContext: Context<TreeContextType>;
 
 // @public (undocumented)
-export const StyledTreeDropHint: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTreeDropHint: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$available" | "$dropForbidden" | "$level" | "$opened" | "$position"> & {
 $position?: "top" | "bottom";
 $available?: boolean;
 $opened?: boolean;
 $dropForbidden?: boolean;
 $level?: number;
-}>> & string;
-
-// @public (undocumented)
-export const StyledTreeDropTarget: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$available" | "$dropForbidden" | "$level" | "$opened" | "$position"> & {
+$position?: "top" | "bottom";
+$available?: boolean;
 $opened?: boolean;
 $dropForbidden?: boolean;
-}>> & string;
+$level?: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodeActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTreeDropTarget: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$dropForbidden" | "$opened"> & {
+$opened?: boolean;
+$dropForbidden?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$dropForbidden" | "$opened"> & {
+$opened?: boolean;
+$dropForbidden?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodeArrow: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTreeNodeActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodeArrowButton: IStyledComponentBase<"web", Substitute<ButtonProps, {
+export const StyledTreeNodeArrow: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledTreeNodeArrowButton: IStyledComponentBase<"web", FastOmit<FastOmit<ButtonProps, "$active"> & {
 $active?: boolean;
-}>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
+}, never> & Partial<Pick<FastOmit<ButtonProps, "$active"> & {
+$active?: boolean;
+}, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTreeNodeArrowIcon: IStyledComponentBase<"web", FastOmit<IconProps, never>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
+export const StyledTreeNodeArrowIcon: IStyledComponentBase<"web", FastOmit<IconProps, never> & Partial<Pick<IconProps, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTreeNodeContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTreeNodeContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodeContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTreeNodeContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$interactive" | "$level" | "$noEffect" | "$selected"> & {
 $level?: number;
 $noEffect?: boolean;
 $disabled?: boolean;
 $interactive?: boolean;
 $selected?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$interactive" | "$level" | "$noEffect" | "$selected"> & {
+$level?: number;
+$noEffect?: boolean;
+$disabled?: boolean;
+$interactive?: boolean;
+$selected?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodeIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTreeNodeIcon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodeName: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTreeNodeName: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodePreview: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTreeNodePreview: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodesContainer: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTreeNodesContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$fit"> & {
 $fit?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$fit"> & {
+$fit?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodeTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTreeNodeTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledTreeTable {
     const // (undocumented)
-    StyledTreeContainer: IStyledComponentBase<"web", FastOmit<TreeContainerProps, never>> & string & Omit<typeof TreeContainer, keyof Component<any, {}, any>>;
+    StyledTreeContainer: IStyledComponentBase<"web", FastOmit<TreeContainerProps, never> & Partial<Pick<TreeContainerProps, never>>> & string & Omit<typeof TreeContainer, keyof Component<any, {}, any>>;
     const // (undocumented)
-    StyledTableContainer: IStyledComponentBase<"web", Substitute<Omit<HTMLProps<HTMLDivElement>, "ref"> & RefAttributes<TableTpl>, TableTemplateProps.TableElementProps & {
+    StyledTableContainer: IStyledComponentBase<"web", FastOmit<FastOmit<Omit<HTMLProps<HTMLDivElement>, "ref"> & RefAttributes<TableTpl>, "droppable" | "forbidden" | keyof TableTemplateProps.TableElementProps> & TableTemplateProps.TableElementProps & {
     virtualScroll?: boolean;
     droppable?: boolean;
     forbidden?: boolean;
-    }>> & string & Omit<TableTpl, keyof Component<any, {}, any>>;
+    }, never> & Partial<Pick<FastOmit<Omit<HTMLProps<HTMLDivElement>, "ref"> & RefAttributes<TableTpl>, "droppable" | "forbidden" | keyof TableTemplateProps.TableElementProps> & TableTemplateProps.TableElementProps & {
+    virtualScroll?: boolean;
+    droppable?: boolean;
+    forbidden?: boolean;
+    }, never>>> & string & Omit<TableTpl, keyof Component<any, {}, any>>;
     const // (undocumented)
-    StyledNode: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledNode: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "draggable" | "dragging" | "droppable" | "forbidden"> & {
     draggable?: boolean;
     dragging?: boolean;
     droppable?: boolean;
     forbidden?: boolean;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "draggable" | "dragging" | "droppable" | "forbidden"> & {
+    draggable?: boolean;
+    dragging?: boolean;
+    droppable?: boolean;
+    forbidden?: boolean;
+    }, never>>> & string;
     const // (undocumented)
-    StyledTarget: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledTarget: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "droppable" | "forbidden" | "nodeLevel" | "top"> & {
     top?: boolean;
     droppable?: boolean;
     forbidden?: boolean;
     nodeLevel: number;
-    }>> & string;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "droppable" | "forbidden" | "nodeLevel" | "top"> & {
+    top?: boolean;
+    droppable?: boolean;
+    forbidden?: boolean;
+    nodeLevel: number;
+    }, never>>> & string;
     const // (undocumented)
-    StyledNodePreview: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledNodePreview: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledTypingMaker: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTypingMaker: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyAddon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTypographyAddon: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyAddons: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTypographyAddons: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$iconVerticalAlignment" | "$level" | "$swapAddonsPosition"> & {
 $level: Level;
 $swapAddonsPosition: boolean;
 $iconVerticalAlignment: IconVerticalAlignment;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$iconVerticalAlignment" | "$level" | "$swapAddonsPosition"> & {
+$level: Level;
+$swapAddonsPosition: boolean;
+$iconVerticalAlignment: IconVerticalAlignment;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyBody: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTypographyBody: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$alignment" | "$typographyColor"> & {
 $alignment?: "left" | "right" | "center";
 $typographyColor?: string;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$alignment" | "$typographyColor"> & {
+$alignment?: "left" | "right" | "center";
+$typographyColor?: string;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTypographyContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyDivider: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTypographyDivider: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$level"> & {
 $level: Level;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$level"> & {
+$level: Level;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyGraphic: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTypographyGraphic: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasHeaderActions" | "$iconVerticalAlignment" | "$level"> & {
 $level: Level;
 $iconVerticalAlignment: IconVerticalAlignment;
-}>> & string;
+$hasHeaderActions?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$hasHeaderActions" | "$iconVerticalAlignment" | "$level"> & {
+$level: Level;
+$iconVerticalAlignment: IconVerticalAlignment;
+$hasHeaderActions?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyHeadline: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTypographyHeaderActions: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyledTypographyHeadline: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$collapsible" | "$compact" | "$level" | "$noEffect" | "$noFocus" | "$typographyColor"> & {
 $level: Level;
 $collapsible?: boolean;
 $noFocus?: boolean;
 $noEffect?: boolean;
 $typographyColor?: string;
-}>> & string;
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$collapsible" | "$compact" | "$level" | "$noEffect" | "$noFocus" | "$typographyColor"> & {
+$level: Level;
+$collapsible?: boolean;
+$noFocus?: boolean;
+$noEffect?: boolean;
+$typographyColor?: string;
+$compact?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyInfo: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTypographyInfo: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographySection: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledTypographySection: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyTitle: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTypographyTitle: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$alignment" | "$swapAddonsPosition"> & {
 $alignment?: "left" | "right" | "center";
 $swapAddonsPosition: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$alignment" | "$swapAddonsPosition"> & {
+$alignment?: "left" | "right" | "center";
+$swapAddonsPosition: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTypographyWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledTypographyWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$level"> & {
 $level: Level;
-}>> & string;
+$compact?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$compact" | "$level"> & {
+$level: Level;
+$compact?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledUserInfo: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledUserInfo: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
 position?: "left" | "right";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
+position?: "left" | "right";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledUserName: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledUserName: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
 position?: "left" | "right";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "position"> & {
+position?: "left" | "right";
+}, never>>> & string;
 
 // @public (undocumented)
 export namespace StyledValidationBar {
     const // (undocumented)
-    StyledValidationBarWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, {
+    StyledValidationBarWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, "$variant"> & {
     $variant: ValidationBarVariant;
-    }>> & string;
-    const // (undocumented)
-    StyledValidationBarHeader: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, "$variant"> & {
     $variant: ValidationBarVariant;
-    }>> & string;
+    }, never>>> & string;
     const // (undocumented)
-    StyledValidationBarGraphic: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    StyledValidationBarHeader: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
     $variant: ValidationBarVariant;
-    }>> & string;
-    const // (undocumented)
-    StyledValidationBarTitle: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
     $variant: ValidationBarVariant;
-    }>> & string;
+    }, never>>> & string;
     const // (undocumented)
-    StyledValidationBarPrimaryTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledValidationBarGraphic: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
+    $variant: ValidationBarVariant;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
+    $variant: ValidationBarVariant;
+    }, never>>> & string;
     const // (undocumented)
-    StyledValidationBarSecondaryTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledValidationBarTitle: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
+    $variant: ValidationBarVariant;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$variant"> & {
+    $variant: ValidationBarVariant;
+    }, never>>> & string;
     const // (undocumented)
-    StyledValidationBarContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledValidationBarPrimaryTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+    const // (undocumented)
+    StyledValidationBarSecondaryTitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+    const // (undocumented)
+    StyledValidationBarContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 }
 
 // @public (undocumented)
-export const StyledVariantIconWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>, never>> & string;
+export const StyledVariantIconWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLElement>, HTMLElement>, keyof IconProps> & IconProps, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>> & {
+as?: WebTarget | undefined;
+forwardedAs?: WebTarget | undefined;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledWizardContent: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, {
+export const StyledWizardContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$error" | "$finished" | "$leftOut" | "$nonInteractive" | "$selected" | "$warning"> & {
 $disabled?: boolean;
 $selected?: boolean;
 $nonInteractive?: boolean;
@@ -37228,61 +40141,93 @@ $warning?: boolean;
 $error?: boolean;
 $finished?: boolean;
 $leftOut?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$disabled" | "$error" | "$finished" | "$leftOut" | "$nonInteractive" | "$selected" | "$warning"> & {
+$disabled?: boolean;
+$selected?: boolean;
+$nonInteractive?: boolean;
+$warning?: boolean;
+$error?: boolean;
+$finished?: boolean;
+$leftOut?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledWizardContentContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledWizardContentContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledWizardContentContainerWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, {
+export const StyledWizardContentContainerWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$hasIcon" | "$selected"> & {
 $selected?: boolean;
 $hasIcon?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$hasIcon" | "$selected"> & {
+$selected?: boolean;
+$hasIcon?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledWizardNavigator: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, {
+export const StyledWizardNavigator: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$navigationType"> & {
 $navigationType: "previous" | "next";
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "$navigationType"> & {
+$navigationType: "previous" | "next";
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledWizardStep: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledWizardStep: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$focused" | "$leftOut" | "$nonInteractive" | "$selected"> & {
 $nonInteractive?: boolean;
 $selected?: boolean;
 $focused?: boolean;
 $leftOut?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$focused" | "$leftOut" | "$nonInteractive" | "$selected"> & {
+$nonInteractive?: boolean;
+$selected?: boolean;
+$focused?: boolean;
+$leftOut?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledWizardText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>> & string;
+export const StyledWizardText: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledWizardTip: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledWizardTip: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$finished" | "$leftOut" | "$selected"> & {
 $leftOut?: boolean;
 $selected?: boolean;
 $finished?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$finished" | "$leftOut" | "$selected"> & {
+$leftOut?: boolean;
+$selected?: boolean;
+$finished?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledWizardWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledWizardWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$responsive" | "$truncateText"> & {
 $truncateText?: boolean;
 $responsive?: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$responsive" | "$truncateText"> & {
+$truncateText?: boolean;
+$responsive?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledYearMonthSelector: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
+export const StyledYearMonthSelector: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$numberOfTooltips"> & {
 $numberOfTooltips?: number;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$numberOfTooltips"> & {
+$numberOfTooltips?: number;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledYearMonthSelectorInner: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export const StyledYearMonthSelectorInner: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledYearSelector: IStyledComponentBase<"web", FastOmit<NativeSelectProps, never>> & string & Omit<typeof NativeSelect, keyof Component<any, {}, any>>;
+export const StyledYearSelector: IStyledComponentBase<"web", FastOmit<NativeSelectProps, never> & Partial<Pick<NativeSelectProps, never>>> & string & Omit<typeof NativeSelect, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyleMenuGroupWrapper: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, {
+export const StyledYearSelectorWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
+export const StyleMenuGroupWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$firstGroup"> & {
 $firstGroup: boolean;
-}>> & string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "$firstGroup"> & {
+$firstGroup: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export function SubActionBarTpl(props: SubActionBarTplProps): ReactElement<SubActionBarTplProps>;
@@ -37301,53 +40246,23 @@ export interface SubActionBarTplProps extends Styleable, Container, Identifiable
 // @public (undocumented)
 export namespace SubHeadingElements {
     const // (undocumented)
-    StyledSubHeading: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
+    StyledSubHeading: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
     // (undocumented)
     export function ActionBar(props: ContentBoxProps.BaseProps): ReactElement<ContentBoxProps.BaseProps>;
     // (undocumented)
-    export namespace ActionBar {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function ActionBarGroup(props: ContentBoxProps.ActionBarGroupProps): ReactElement<ContentBoxProps.BaseProps>;
-    // (undocumented)
-    export namespace ActionBarGroup {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function ActionBarGroupArea(props: ContentBoxProps.ActionBarGroupAreaTplProps): ReactElement<ContentBoxProps.ActionBarGroupAreaTplProps>;
     // (undocumented)
-    export namespace ActionBarGroupArea {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function ActionBarGroupDivider(props: ContentBoxProps.BaseProps): ReactElement<ContentBoxProps.BaseProps>;
-    // (undocumented)
-    export namespace ActionBarGroupDivider {
-        var // (undocumented)
-        displayName: string;
-    }
     // (undocumented)
     export function SubActionBar(props: ContentBoxProps.BaseProps): ReactElement<ContentBoxProps.BaseProps>;
     // (undocumented)
-    export namespace SubActionBar {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function SubHeading(props: ContentBoxProps.BaseProps): ReactElement<ContentBoxProps.BaseProps>;
-    // (undocumented)
-    export namespace SubHeading {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
-export const SubNodesContainer: NamedExoticComponent<SubNodesContainerProps>;
+export const SubNodesContainer: MemoExoticComponent<(props: SubNodesContainerProps) => ReactElement<SubNodesContainerProps>>;
 
 // @public (undocumented)
 export interface SubNodesContainerProps extends Container, Styleable, Identifiable {
@@ -37437,6 +40352,7 @@ export namespace SupportingPanesLayoutProps {
     // (undocumented)
     export interface SecondaryPaneProps extends Styleable, Identifiable, Container, Ref, HTMLAttributes {
         collapsed?: boolean;
+        customAnimation?: CustomAnimationConfig;
         hide?: boolean;
         onToggleCollapsed?(): void;
         position: SecondaryPanePosition;
@@ -37495,6 +40411,12 @@ export const switchConfig: (theme: BaseThemeType) => SwitchConfigType;
 
 // @public (undocumented)
 export type SwitchConfigType = {
+    control: {
+        gap: string;
+    };
+    label: {
+        cursor: string;
+    };
     optionLabel: {
         checkedMargin: string;
         color: string;
@@ -37509,6 +40431,7 @@ export type SwitchConfigType = {
             size: string;
         };
         border: string;
+        checkedIconColor: string;
         color: string;
         disabled: {
             backgroundColor: string;
@@ -37524,6 +40447,7 @@ export type SwitchConfigType = {
             color: string;
             size: string;
         };
+        uncheckedIconColor: string;
         iconSize?: string;
         infoColor: string;
         readonly: {
@@ -37552,12 +40476,18 @@ export type SwitchConfigType = {
 };
 
 // @public (undocumented)
+export type SwitchLabelPosition = "top" | "left" | "right" | "bottom";
+
+// @public (undocumented)
 export interface SwitchProps extends Omit<BaseInputProps, "breakTooltipsToNewLine">, Omit<BaseInputEventHandler<HTMLInputElement>, "onChange">, InputDOMProps, Container {
     addonAfter?: ReactNode | ReactNode[];
     checked?: boolean;
+    checkedIcon?: ReactNode;
     checkedOption?: ReactNode;
     hideOptions?: boolean;
+    labelPosition?: SwitchLabelPosition;
     onChange(value: boolean, event: ChangeEvent<HTMLInputElement>): void;
+    uncheckedIcon?: ReactNode;
     uncheckedOption?: ReactNode;
 }
 
@@ -37777,6 +40707,7 @@ export type TableConfigType = {
     };
     headRow: {
         borderBottom: string;
+        boxShadow: string;
         filter: {
             borderBottom: string;
             fieldInputBG: string;
@@ -37835,6 +40766,8 @@ export interface TableContextType<RowType = unknown, ColumnType extends BaseColu
     disabled?: boolean;
     // (undocumented)
     dragDropOptions?: TableDragDropOptions<RowType>;
+    // (undocumented)
+    enableColumnGroupA11y?: boolean;
     // (undocumented)
     flattenColumns?: ColumnType[];
     // (undocumented)
@@ -38208,31 +41141,35 @@ export namespace TableTemplate {
     const // (undocumented)
     HeadFilterRow: typeof HeadFilterRowTpl;
     const // (undocumented)
-    HeadRowSegment: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps>;
+    HeadRowSegment: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps) => ReactElement<import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps>>;
     const // (undocumented)
-    HeadCell: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.HeadCellProps>;
+    HeadCell: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.HeadCellProps) => ReactElement<import("./table.tpl.api.js").TableTemplateProps.HeadCellProps>>;
     const // (undocumented)
-    HeadCellGroup: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.HeadCellGroupProps>;
+    HeadCellGroup: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.HeadCellGroupProps) => ReactElement>;
     const // (undocumented)
-    BodyRowSegment: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps>;
+    HeadGrid: typeof HeadGridTpl;
     const // (undocumented)
-    BodyRow: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.BodyRowProps>;
+    HeadGridRow: typeof HeadGridRowTpl;
+    const // (undocumented)
+    BodyRowSegment: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps) => ReactElement<import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps>>;
+    const // (undocumented)
+    BodyRow: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.BodyRowProps) => ReactElement<import("./table.tpl.api.js").TableTemplateProps.BodyRowProps>>;
     const // (undocumented)
     Body: typeof BodyTpl;
     const // (undocumented)
-    BodyCell: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.BodyCellProps>;
+    BodyCell: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.BodyCellProps) => ReactElement<import("./table.tpl.api.js").TableTemplateProps.BodyCellProps>>;
     const // (undocumented)
     Foot: typeof FootTpl;
     const // (undocumented)
     FootRow: typeof FootRowTpl;
     const // (undocumented)
-    FootRowSegment: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps>;
+    FootRowSegment: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps) => ReactElement<import("./table.tpl.api.js").TableTemplateProps.RowSegmentProps>>;
     const // (undocumented)
     FootCell: typeof FootCellTpl;
     const // (undocumented)
-    ExpandableBodyRowWrapper: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.ExpandableBodyRowWrapperProps>;
+    ExpandableBodyRowWrapper: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.ExpandableBodyRowWrapperProps) => ReactElement<import("./table.tpl.api.js").TableTemplateProps.ExpandableBodyRowWrapperProps>>;
     const // (undocumented)
-    ExpandableRow: NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.ExpandableRowProps>;
+    ExpandableRow: MemoExoticComponent<(props: import("./table.tpl.api.js").TableTemplateProps.ExpandableRowProps) => JSX.Element>;
     const // (undocumented)
     ExpandableRowBody: typeof ExpandableRowBodyTpl;
     const // (undocumented)
@@ -38276,6 +41213,8 @@ export namespace TableTemplateProps {
     export interface BodyRowProps extends BaseProps, Ref<HTMLDivElement>, HTMLAttributes {
         // (undocumented)
         ariaLevel?: number;
+        // (undocumented)
+        ariaRowIndex?: number;
         // (undocumented)
         ariaSelected?: boolean;
         disabled?: boolean;
@@ -38379,6 +41318,16 @@ export namespace TableTemplateProps {
         useHighlightColor?: boolean;
     }
     // (undocumented)
+    export type GridRowDataProps = {
+        gridRow: number;
+        gridColumn: number;
+        gridRowSpan: number;
+        gridColumnSpan: number;
+        isHidden?: boolean;
+        leftOffset?: number;
+        rightOffset?: number;
+    };
+    // (undocumented)
     export interface HeadCellGroupProps extends HeadCellProps {
         parent?: ReactNode;
     }
@@ -38414,6 +41363,8 @@ export namespace TableTemplateProps {
     // (undocumented)
     export interface RowSegmentProps extends BaseProps {
         // (undocumented)
+        gridRowData?: GridRowDataProps;
+        // (undocumented)
         type: RowSegmentType;
     }
     // (undocumented)
@@ -38444,14 +41395,19 @@ export namespace TableTemplateProps {
 
 // @public (undocumented)
 export interface TableTitles {
+    actionColumnDefaultLabel?: string;
     actionTitle?: string;
     ascendingIcon?: string;
     descendingIcon?: string;
+    emptyStateLabel?: string;
     footerLabel?: string;
     interactiveTableLabel?: string;
     secondaryCellTitles?: string;
     selectedRowTitles?: string;
     sortableTitle?: string;
+    sortAscendingAnnouncement?: string;
+    sortClearedAnnouncement?: string;
+    sortDescendingAnnouncement?: string;
     successRowTitles?: string;
     tableLabel?: string;
     virtualizedBodyLabel?: string;
@@ -38554,6 +41510,26 @@ export type TabPanelConfigType = {
         padding: string;
         horizontalPadding: string;
     };
+    groupTab: {
+        subGroup: {
+            background: string;
+            fontSize: string;
+            fontWeight: string;
+            padding: string;
+        };
+        divider: {
+            background: string;
+            margin: string;
+        };
+        subItem: {
+            gap: string;
+            padding: string;
+            iconFontSize: string;
+            iconMinWidth: string;
+            labelFontSize: string;
+            margin: string;
+        };
+    };
 };
 
 // @public (undocumented)
@@ -38570,6 +41546,14 @@ export const tabPanelFlatCompactConfig: (theme: FlatThemeType) => {
 export const tabPanelFlatConfig: (theme: FlatThemeType) => {
     tabs: {
         background: string;
+    };
+    groupTab: {
+        subGroup: {
+            background: string;
+        };
+        divider: {
+            background: string;
+        };
     };
     tab: {
         active: {
@@ -38619,8 +41603,22 @@ export interface TabPanelProps extends TabPanelTemplateProps.BaseProps, Containe
     onSelect?(tab: TabPanelTemplateProps.TabProps): void;
     orientation?: TabPanelOrientation;
     tabListAriaLabel?: string;
-    tabs: TabPanelTemplateProps.TabProps[];
+    tabs: TabPanelTemplateProps.TabProps[] | TabPanelTemplateProps.GroupTabProps[];
     value?: string;
+}
+
+// @public (undocumented)
+export interface TabPanelTabStyledProps {
+    // (undocumented)
+    $disabled?: boolean;
+    // (undocumented)
+    $highlighted?: boolean;
+    // (undocumented)
+    $mobileSubListLayout?: boolean;
+    // (undocumented)
+    $orientation?: TabPanelOrientation;
+    // (undocumented)
+    $selected?: boolean;
 }
 
 // @public (undocumented)
@@ -38628,23 +41626,19 @@ export namespace TabPanelTemplate {
     // (undocumented)
     export function PanelHeader(props: TabPanelTemplateProps.PanelHeaderProps): ReactElement;
     // (undocumented)
-    export namespace PanelHeader {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Tab(props: TabPanelTemplateProps.TabProps): ReactElement;
-    // (undocumented)
-    export namespace Tab {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
 export namespace TabPanelTemplateProps {
     // (undocumented)
     export interface BaseProps extends Styleable, Identifiable {
+    }
+    // (undocumented)
+    export interface GroupTabProps extends BaseProps {
+        ariaLabel?: string;
+        groupLabel: string;
+        tabs: TabProps[];
     }
     // (undocumented)
     export interface PanelHeaderProps extends BaseProps {
@@ -38660,6 +41654,7 @@ export namespace TabPanelTemplateProps {
         disabled?: boolean;
         highlighted?: boolean;
         icon?: ReactNode;
+        label?: ReactNode;
         onClick?(event: SyntheticEvent<HTMLElement>): void;
         orientation?: "vertical" | "horizontal";
         selected?: boolean;
@@ -38681,6 +41676,7 @@ export const TabSandbox: FC<TabSandboxProps>;
 
 // @public
 export interface TabSandboxProps extends Container {
+    disableTabTrapping?: boolean;
     focusBack?: boolean;
     // (undocumented)
     focusBackHandler?(handler: () => void): void;
@@ -39053,7 +42049,7 @@ export interface TextAreaStatelessProps extends Omit<BaseInputProps, "breakToolt
     inputWrapperRef?: RefCallback<HTMLDivElement>;
     onClick?(event: MouseEvent_2): void;
     onHeightChanged?(inputRef: HTMLTextAreaElement, newHeight: number): void;
-    onInput?(event: ChangeEvent<HTMLTextAreaElement>): void;
+    onInput?: InputEventHandler<HTMLTextAreaElement>;
     onKeyDown?(event: KeyboardEvent_2<HTMLTextAreaElement>): void;
     placeholder?: string;
     prefixes?: ReactNode | ReactNode[];
@@ -39068,19 +42064,21 @@ export interface TextAreaStatelessProps extends Omit<BaseInputProps, "breakToolt
 export const textColor: RuleSet<object>;
 
 // @public (undocumented)
-export const TextField: typeof TextLineStateless;
+export function TextField(props: TextFieldProps & {
+    isPhone?: boolean;
+}): ReactElement;
 
 // @public (undocumented)
-export type TextFieldProps = TextLineStatelessProps;
+export namespace TextField {
+    var // (undocumented)
+    displayName: string;
+}
 
 // @public (undocumented)
-export const TextFormatPlugin: FC;
+export const textFieldConfig: (theme: BaseThemeType) => TextFieldConfigType;
 
 // @public (undocumented)
-export const textLineConfig: (theme: BaseThemeType) => TextLineConfigType;
-
-// @public (undocumented)
-export type TextLineConfigType = {
+export type TextFieldConfigType = {
     mobile?: {
         fontSize: string;
         height: string;
@@ -39094,18 +42092,7 @@ export type TextLineConfigType = {
 };
 
 // @public (undocumented)
-export function TextLineStateless(props: TextLineStatelessProps & {
-    isPhone?: boolean;
-}): ReactElement;
-
-// @public (undocumented)
-export namespace TextLineStateless {
-    var // (undocumented)
-    displayName: string;
-}
-
-// @public (undocumented)
-export interface TextLineStatelessProps extends Omit<BaseInputProps, "breakTooltipsToNewLine">, BaseInputEventHandler<HTMLInputElement>, InputDOMProps {
+export interface TextFieldProps extends Omit<BaseInputProps, "breakTooltipsToNewLine">, BaseInputEventHandler<HTMLInputElement>, InputDOMProps {
     addonAfter?: ReactNode | ReactNode[];
     addonBefore?: ReactNode | ReactNode[];
     autoComplete?: string;
@@ -39119,7 +42106,7 @@ export interface TextLineStatelessProps extends Omit<BaseInputProps, "breakToolt
     labelRef?: RefCallback<HTMLLabelElement>;
     onClick?(event: MouseEvent_2): void;
     onDoubleClick?(event: MouseEvent_2<HTMLInputElement>): void;
-    onInput?(event: ChangeEvent<HTMLInputElement>): void;
+    onInput?: InputEventHandler<HTMLInputElement>;
     onKeyDown?(ev: KeyboardEvent_2<HTMLInputElement>): void;
     onKeyUp?(ev: KeyboardEvent_2<HTMLInputElement>): void;
     onWrapperClick?(event: MouseEvent_2<HTMLElement>): void;
@@ -39134,6 +42121,9 @@ export interface TextLineStatelessProps extends Omit<BaseInputProps, "breakToolt
     textAlignment?: "left" | "right";
     value?: string;
 }
+
+// @public (undocumented)
+export const TextFormatPlugin: FC;
 
 // @public (undocumented)
 export type TextMatcher = (text: string) => TextMatcherResult | null;
@@ -39189,7 +42179,7 @@ export const textStyle: RuleSet<object>;
 // @public (undocumented)
 export const textTransformHelper: RuleSet<object>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ThemeType = "default" | "compact" | "flat" | "flat-compact";
 
 // @public
@@ -39228,6 +42218,9 @@ export interface TileProps extends ContentBoxProps.BaseProps {
     // (undocumented)
     title: ReactNode;
 }
+
+// @public (undocumented)
+export type TimeFormat = "12h" | "24h";
 
 // @public (undocumented)
 export interface TimeInputBaseProps extends InputDOMProps, Omit<BaseInputProps, "breakTooltipsToNewLine" | "fitToParent"> {
@@ -39441,15 +42434,51 @@ export interface TimePickerProps extends TimePickerBaseProps, TimeInputBaseProps
 // @public (undocumented)
 export namespace TimePickerProps {
     // (undocumented)
-    export type ClockMode = "12h" | "24h";
+    export type ClockMode = TimeFormat;
     // (undocumented)
     export type Renderer = (time?: Date, closeHandler?: () => void) => ReactNode;
     // (undocumented)
-    export type Screen = "hour" | "minute";
+    export type Screen = TimeUnit;
     // (undocumented)
     export type TimeConverter = (timeString: string) => Date | undefined;
     // (undocumented)
     export type TimeFormatter = (time: Date | undefined) => string;
+}
+
+// @public (undocumented)
+export function TimePickerScreen(props: TimePickerScreenProps): ReactElement<TimePickerScreenProps>;
+
+// @public (undocumented)
+export namespace TimePickerScreen {
+    var // (undocumented)
+    displayName: string;
+}
+
+// @public (undocumented)
+export interface TimePickerScreenProps extends ScreenProps, Styleable, Identifiable {
+    // (undocumented)
+    dateDisplay?: ReactNode;
+    // (undocumented)
+    desktopPickerAttributes?: HTMLAttributes_2<HTMLDivElement>;
+    // (undocumented)
+    footerElement?: ReactNode;
+    // (undocumented)
+    headerElement?: ReactNode;
+    // (undocumented)
+    initialScreen?: TimePickerProps.Screen;
+    // (undocumented)
+    mobileMode?: boolean;
+    // (undocumented)
+    mobilePickerAttributes?: HTMLAttributes_2<HTMLDivElement>;
+    // (undocumented)
+    mode?: TimePickerProps.ClockMode;
+    // (undocumented)
+    onScreenChange?(newScreen: TimePickerProps.Screen): void;
+    // (undocumented)
+    onTimeChange?(time?: Date): void;
+    // (undocumented)
+    time?: Date;
+    timezone?: string;
 }
 
 // @public (undocumented)
@@ -39459,16 +42488,14 @@ export namespace TimePickerTpl {
     // (undocumented)
     export function Header(props: HeaderProps): ReactElement<HeaderProps>;
     // (undocumented)
-    export namespace Header {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export interface HeaderProps extends Container, Styleable, Identifiable {
         // (undocumented)
         actionButtons?: ReactNode;
     }
 }
+
+// @public (undocumented)
+export type TimeUnit = "hour" | "minute";
 
 // @public (undocumented)
 export namespace TimeUtils {
@@ -39714,11 +42741,6 @@ export namespace Toggle {
 export namespace Toggle {
     // (undocumented)
     export function Item(props: ToggleItemProps): ReactElement<ToggleItemProps>;
-    // (undocumented)
-    export namespace Item {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -40045,6 +43067,26 @@ export interface TooltipPluginWrapperProps extends Styleable, Identifiable, Cont
 }
 
 // @public
+export function TooltipPortal(input: TooltipPortalProps): ReactElement | null;
+
+// @public (undocumented)
+export namespace TooltipPortal {
+    var // (undocumented)
+    displayName: string;
+}
+
+// @public
+export interface TooltipPortalProps {
+    children: ReactNode;
+    className?: string;
+    dataRole?: string;
+    referenceElementRef: RefObject<HTMLElement | null>;
+    shouldShowTooltip?: () => boolean;
+    tooltipContentDataRole?: string;
+    variant?: "success" | "hint" | "error" | "warning";
+}
+
+// @public
 export interface TooltipProps extends BaseTooltipProps {
     children: ReactElement;
     variant?: "success" | "hint" | "error" | "warning";
@@ -40069,7 +43111,7 @@ export interface TooltipTitles {
 // @public (undocumented)
 export const TooltipWrapper: FC<TooltipPluginWrapperProps>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export function Tree(props: TreeTemplateProps): ReactElement<TreeTemplateProps>;
 
 // @public (undocumented)
@@ -40078,7 +43120,7 @@ export namespace Tree {
     displayName: string;
 }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export function TreeAdapter(Target: ComponentType<TreeTemplateProps>): ComponentType<TreeProps>;
 
 // @public (undocumented)
@@ -40273,7 +43315,7 @@ export interface TreeNodeBaseProps extends Identifiable {
 }
 
 // @public (undocumented)
-export const TreeNodeContainer: NamedExoticComponent<TreeNodeContainerProps>;
+export const TreeNodeContainer: MemoExoticComponent<(props: TreeNodeContainerProps) => ReactElement<TreeNodeContainerProps>>;
 
 // @public (undocumented)
 export interface TreeNodeContainerProps extends Container, Styleable, Identifiable {
@@ -40373,10 +43415,10 @@ export namespace TreeTable {
 }
 
 // @public (undocumented)
-export const TreeTableBodyCell: NamedExoticComponent<TableRenderPropsType.BodyCellProps<unknown, BaseColumnType<unknown>>>;
+export const TreeTableBodyCell: MemoExoticComponent<(props: TableRenderPropsType.BodyCellProps) => ReactElement>;
 
 // @public (undocumented)
-export const TreeTableBodyContent: NamedExoticComponent<TableRenderPropsType.BodyContentProps<FlattenTreeTableNode, BaseTreeTableColumnType<BaseTreeTableNode<unknown>>>>;
+export const TreeTableBodyContent: MemoExoticComponent<(props: TableRenderPropsType.BodyContentProps<FlattenTreeTableNode, BaseTreeTableColumnType>) => ReactElement>;
 
 // @public (undocumented)
 export const treeTableCompactConfig: (theme: CompactThemeType) => {
@@ -40661,24 +43703,9 @@ export namespace Typography {
     // (undocumented)
     export function Body(props: BodyProps): ReactElement<BodyProps>;
     // (undocumented)
-    export namespace Body {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Headline(props: HeadlineProps): ReactElement<HeadlineProps>;
     // (undocumented)
-    export namespace Headline {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Section(props: SectionProps): ReactElement<SectionProps>;
-    // (undocumented)
-    export namespace Section {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -40741,6 +43768,13 @@ export type TypographyConfigType = {
         focusColor: string;
         hoverBG: string;
         hoverColor: string;
+        compact?: {
+            activeBackgroundColor?: string;
+            activeBoxShadow?: string;
+            hoverBackgroundColor?: string;
+            hoverBoxShadow?: string;
+            padding?: string;
+        };
     };
     graphic: {
         fontSize: string;
@@ -40829,43 +43863,43 @@ export type TypographyConfigType = {
 // @public (undocumented)
 export const typographyFlatCompactConfig: (theme: FlatCompactThemeType) => {
     headline1: {
-        fontWeight: number;
         borderTop: string;
         padding: number;
         color: string;
+        fontWeight: number;
     };
     headline2: {
+        borderTop: string;
+        fontWeight: number;
+        padding: number;
         color: string;
         fontSize: string;
         margin: string;
+    };
+    headline3: {
         borderTop: string;
         fontWeight: number;
         padding: number;
-    };
-    headline3: {
         color: string;
         fontSize: string;
         margin: string;
         height: string;
+    };
+    headline4: {
         borderTop: string;
         fontWeight: number;
         padding: number;
-    };
-    headline4: {
         color: string;
         height: string;
         fontSize: string;
         margin: string;
         textTransform: string;
-        borderTop: string;
-        fontWeight: number;
-        padding: number;
     };
     headline5: {
-        height: string;
         borderTop: string;
         fontWeight: number;
         padding: number;
+        height: string;
     };
     wrapper: {
         padding: number;
@@ -40898,6 +43932,12 @@ export const typographyHeadlineCalculation: (ratio: number, lineHeightValue: num
 };
 
 // @public (undocumented)
+export interface TypographyOverrides {
+    font?: string;
+    fontSize?: Partial<FontSize>;
+}
+
+// @public (undocumented)
 export interface TypographyTitles {
     // (undocumented)
     collapse?: string;
@@ -40918,7 +43958,7 @@ export const useAddClassToTextMatchers: (editor: LexicalEditor, matchers: TextMa
 
 // @public
 export const useArrowKeyNavigation: (input: {
-    elementRef: MutableRefObject<HTMLElement | null>;
+    elementRef: RefObject<HTMLElement | null>;
     selector?: string;
     orientation?: "vertical" | "horizontal";
     allowAllDirections?: boolean;
@@ -40954,6 +43994,21 @@ export const useElementSizeDetector: (params: ElementSizeDetectorProps) => {
     breakPoint: SizeDetectorProps.BreakPoint;
 };
 
+// @public
+export function useFilterFocusManagement(input: UseFilterFocusManagementOptions): UseFilterFocusManagementResult;
+
+// @public (undocumented)
+export interface UseFilterFocusManagementOptions {
+    filters: FilterSelectorProps.FilterData[];
+    focusedFilterId?: string | null;
+    hiddenIndices: number[];
+}
+
+// @public (undocumented)
+export interface UseFilterFocusManagementResult {
+    isFallbackFocus: boolean;
+}
+
 // @public (undocumented)
 export const useIsMount: () => boolean;
 
@@ -40985,13 +44040,13 @@ export function usePreviousProps<T>(value: T): T | undefined;
 export const useRichTextEditorCache: () => RichTextEditorSelectionCacheContextValue;
 
 // @public (undocumented)
-export const useRowScrollManager: (ref: MutableRefObject<HTMLDivElement | null>) => void;
+export const useRowScrollManager: (ref: RefObject<HTMLDivElement | null>) => void;
 
 // @public (undocumented)
 export const userSelect: RuleSet<object>;
 
 // @public (undocumented)
-export const useSelectedText: (textWrapElement: MutableRefObject<HTMLElement | null>, isInteractive?: boolean) => {
+export const useSelectedText: (textWrapElement: RefObject<HTMLElement | null>, isInteractive?: boolean) => {
     isSelectedText: boolean;
 };
 
@@ -41013,6 +44068,9 @@ export function useTableContext<RowType = unknown, ColumnType extends BaseColumn
 
 // @public (undocumented)
 export function useTreeTableContext<NodeType extends BaseTreeTableNode = BaseTreeTableNode, ColumnType extends BaseTreeTableColumnType<NodeType> = BaseTreeTableColumnType<NodeType>, DragDropOptions = TreeTableDragDropOptions<NodeType>, Selector extends (context: TreeTableContextType<NodeType, ColumnType, DragDropOptions>) => any = (context: TreeTableContextType<NodeType, ColumnType, DragDropOptions>) => any>(selector: Selector): ReturnType<Selector>;
+
+// @public
+export const useUpdateEffect: typeof useEffect;
 
 // @public (undocumented)
 export const useWindowSize: (params?: WindowSizeDetectorProps) => {
@@ -41236,9 +44294,6 @@ export interface VisibleView extends Identifiable {
     width?: ViewWidth;
 }
 
-// @public @deprecated (undocumented)
-export const walk: typeof walkTreeNode;
-
 // @public
 export function walkTreeNode<T extends TreeNodeModel>(node: T, visitor: TreeVisitor<T>): void;
 
@@ -41309,24 +44364,11 @@ export class Wizard extends Component<WizardProps, WizardState> {
 // @public (undocumented)
 export namespace Wizard {
     const // (undocumented)
-    PreviousStepButton: {
-        (props: WizardNavigationButtonProps): ReactElement<WizardNavigationButtonProps>;
-        displayName: string;
-    };
+    PreviousStepButton: (props: WizardNavigationButtonProps) => ReactElement<WizardNavigationButtonProps>;
     // (undocumented)
     export function NextStepButton(props: WizardNavigationButtonProps): ReactElement<WizardNavigationButtonProps>;
     // (undocumented)
-    export namespace NextStepButton {
-        var // (undocumented)
-        displayName: string;
-    }
-    // (undocumented)
     export function Step(props: WizardStepProps): ReactElement<WizardStepProps>;
-    // (undocumented)
-    export namespace Step {
-        var // (undocumented)
-        displayName: string;
-    }
 }
 
 // @public (undocumented)
@@ -41543,17 +44585,20 @@ export interface YearMonthSelectorProps extends Omit<BaseInputProps, "hideLabel"
     months?: string[];
     monthSelectRef?: RefCallback<HTMLSelectElement>;
     onValueChange?(month?: number, year?: number): void;
+    onYearSelectorBlur?(event: FocusEvent_2<HTMLInputElement>): void;
     optionalMonthItem?: OptionalYearMonthItem;
     optionalYearItem?: OptionalYearMonthItem;
     year?: number;
-    yearRange?: YearRange;
+    yearPlaceholder?: string;
+    yearRange?: YearRange | RelativeYearRange;
+    yearSelectorVariant?: YearSelectorVariant;
     yearSelectRef?: RefCallback<HTMLSelectElement>;
 }
 
-// @public (undocumented)
+// @public
 export type YearRange = {
-    start: number;
-    end: number;
+    start?: number;
+    end?: number;
 };
 
 // @public (undocumented)
@@ -41567,21 +44612,27 @@ export namespace YearSelector {
 
 // @public (undocumented)
 export interface YearSelectorProps<T extends OptionalYearMonthItem | undefined = undefined, Year = T extends OptionalYearMonthItem ? number | undefined : number> extends BaseInputProps, DataRole, InputDOMProps<HTMLSelectElement> {
+    autocompleteHintTemplate?: string;
+    onBlur?(event: FocusEvent_2<HTMLInputElement>): void;
     onYearChange?(year: Year): void;
     optionalItem?: T;
+    placeholder?: string;
+    variant?: YearSelectorVariant;
     year?: number;
-    yearRange?: YearRange;
+    yearRange?: YearRange | RelativeYearRange;
     yearSelectRef?: RefCallback<HTMLSelectElement>;
 }
 
+// @public
+export type YearSelectorVariant = "autocomplete" | "select" | "textbox";
+
 // Warnings were encountered during analysis:
 //
-// src/file-upload/main/default/default-file-upload.view.tsx:515:28 - (ae-forgotten-export) The symbol "FileUploadIconProps" needs to be exported by the entry point index.d.ts
-// src/layout/supporting-panes-layout/main/secondary-pane-animation.tsx:57:36 - (ae-forgotten-export) The symbol "SecondaryPaneAnimationProps" needs to be exported by the entry point index.d.ts
-// src/menu/main/sliding-menu.view.tsx:443:25 - (ae-forgotten-export) The symbol "SlidingMenuMainWrapper" needs to be exported by the entry point index.d.ts
+// src/file-upload/main/default/default-file-upload.view.tsx:475:28 - (ae-forgotten-export) The symbol "FileUploadIconProps" needs to be exported by the entry point index.d.ts
 // src/multiselect/main/multiselect.view.tsx:81:6 - (ae-forgotten-export) The symbol "defaultJoiningHandler" needs to be exported by the entry point index.d.ts
+// src/theme/base-theme/config/base/colors.config.ts:133:2 - (ae-forgotten-export) The symbol "shared" needs to be exported by the entry point index.d.ts
+// src/theme/base-theme/config/base/colors.config.ts:134:2 - (ae-forgotten-export) The symbol "extended" needs to be exported by the entry point index.d.ts
 // src/theme/base/mixins/_portal-arrow.ts:63:2 - (ae-forgotten-export) The symbol "ElementDefaultSelector" needs to be exported by the entry point index.d.ts
-// src/typography/main/typography.styled.tsx:230:36 - (ae-forgotten-export) The symbol "Level" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

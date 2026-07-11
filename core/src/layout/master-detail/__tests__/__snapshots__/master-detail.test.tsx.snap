@@ -1,11 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-body-with-1-visible 1`] = `
-.c2 {
-  height: 100%;
-  width: 100%;
-}
-
 .c1 {
   box-sizing: border-box;
   display: flex;
@@ -65,6 +60,11 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-bod
   flex: 1 1 auto;
   margin: 0px;
   overflow: auto;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
 }
 
 <div
@@ -90,11 +90,6 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-bod
 `;
 
 exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-body-with-2-visibles 1`] = `
-.c2 {
-  height: 100%;
-  width: 100%;
-}
-
 .c1 {
   box-sizing: border-box;
   display: flex;
@@ -154,6 +149,11 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-bod
   flex: 1 1 auto;
   margin: 0px;
   overflow: auto;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
 }
 
 <div
@@ -226,11 +226,6 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-hea
 `;
 
 exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-single-body 1`] = `
-.c2 {
-  height: 100%;
-  width: 100%;
-}
-
 .c1 {
   box-sizing: border-box;
   display: flex;
@@ -290,6 +285,11 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-sin
   flex: 1 1 auto;
   margin: 0px;
   overflow: auto;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
 }
 
 <div
@@ -315,11 +315,6 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-sin
 `;
 
 exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-two-visibles-body 1`] = `
-.c2 {
-  height: 100%;
-  width: 100%;
-}
-
 .c1 {
   box-sizing: border-box;
   display: flex;
@@ -379,6 +374,11 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-two
   flex: 1 1 auto;
   margin: 0px;
   overflow: auto;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
 }
 
 <div
@@ -419,36 +419,6 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-master-detail-two
 `;
 
 exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-resizable-master-detail-for-the-first-view 1`] = `
-.c3 {
-  cursor: col-resize;
-  flex-shrink: 0;
-  position: absolute;
-  right: -16px;
-  top: 0px;
-  bottom: 0px;
-  width: 16px;
-  z-index: 1;
-  user-select: none;
-}
-
-.c3::before {
-  content: "";
-  inset: 0px 0px 0px 5px;
-  position: absolute;
-  width: 6px;
-}
-
-.c5 {
-  height: 100%;
-  width: 100%;
-}
-
-.c2 {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
 .c4 {
   box-sizing: border-box;
   display: flex;
@@ -564,6 +534,36 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-resizable-master-
   overflow: auto;
 }
 
+.c3 {
+  cursor: col-resize;
+  flex-shrink: 0;
+  position: absolute;
+  right: -16px;
+  top: 0px;
+  bottom: 0px;
+  width: 16px;
+  z-index: 1;
+  user-select: none;
+}
+
+.c3::before {
+  content: "";
+  inset: 0px 0px 0px 5px;
+  position: absolute;
+  width: 6px;
+}
+
+.c5 {
+  height: 100%;
+  width: 100%;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
 @media (pointer: fine) {
   .c3:hover::before {
     background-color: rgb(213, 0, 117);
@@ -612,36 +612,6 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-resizable-master-
 `;
 
 exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-resizable-master-detail-for-the-second-view 1`] = `
-.c5 {
-  cursor: col-resize;
-  flex-shrink: 0;
-  position: absolute;
-  left: -16px;
-  top: 0px;
-  bottom: 0px;
-  width: 16px;
-  z-index: 1;
-  user-select: none;
-}
-
-.c5::before {
-  content: "";
-  inset: 0px 0px 0px 5px;
-  position: absolute;
-  width: 6px;
-}
-
-.c2 {
-  height: 100%;
-  width: 100%;
-}
-
-.c4 {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
 .c1 {
   box-sizing: border-box;
   display: flex;
@@ -755,6 +725,36 @@ exports[`com.mgmtp.a12.widgets.layout.masterdetail > rendering-resizable-master-
   flex: 1 1 auto;
   margin: 0px;
   overflow: auto;
+}
+
+.c5 {
+  cursor: col-resize;
+  flex-shrink: 0;
+  position: absolute;
+  left: -16px;
+  top: 0px;
+  bottom: 0px;
+  width: 16px;
+  z-index: 1;
+  user-select: none;
+}
+
+.c5::before {
+  content: "";
+  inset: 0px 0px 0px 5px;
+  position: absolute;
+  width: 6px;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
+}
+
+.c4 {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
 @media (pointer: fine) {

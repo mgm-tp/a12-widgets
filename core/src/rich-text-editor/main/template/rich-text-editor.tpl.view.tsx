@@ -58,15 +58,22 @@ import type {
 
 export const RichTextEditorLabel: FC<LabelProps> = (props) => {
 	const [editor] = useLexicalComposerContext();
-	const handleClick = useCallback(() => editor.focus(), [editor]);
+	const handleClick = useCallback(() => {
+		// editor.focus() is skipped when the editor is not editable (readOnly),
+		// so focus the root DOM element directly instead.
+		const root = editor.getRootElement();
+
+		if (root) {
+			root.focus();
+		} else {
+			editor.focus();
+		}
+	}, [editor]);
 
 	return (
 		<InputElements.Label
-			id={props.id}
-			label={props.label}
-			graphic={props.graphic}
+			{...props}
 			hide={props.hide || !props.label}
-			disabled={props.disabled}
 			dataRole={DataRoles.RichTextEditor.Label}
 			onClick={handleClick}
 		/>
@@ -103,11 +110,11 @@ RichTextEditorHelperText.displayName = "RichTextEditorHelperText";
 
 export const RichTextEditorContentEditable: FC<ContentEditableProps> = (props) => {
 	const [editor] = useLexicalComposerContext();
-	const { disabled, readOnly, as, ...rest } = props;
+	const { disabled, readOnly, ...rest } = props;
 
 	const [isFocused, setIsFocused] = useState(false);
 
-	const allowFocus = !readOnly || editorHasContent(editor);
+	const allowFocus = (!readOnly || editorHasContent(editor)) && !disabled;
 
 	useEffect(() => {
 		editor.setEditable(!disabled && !readOnly);
@@ -129,6 +136,8 @@ export const RichTextEditorContentEditable: FC<ContentEditableProps> = (props) =
 			onBlur={onBlur}
 			tabIndex={allowFocus ? 0 : -1}
 			data-role={DataRoles.RichTextEditor.Input}
+			disabled={disabled}
+			readOnly={readOnly}
 			$hasFocus={isFocused}
 			{...rest}
 		/>

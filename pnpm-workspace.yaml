@@ -2,6 +2,67 @@
 loglevel: info
 strictPeerDependencies: true
 lockfileIncludeTarballUrl: false
-
 packages:
   - "*"
+
+catalog:
+  # React ecosystem
+  react: ^19.2.6
+  react-dom: ^19.2.6
+  react-is: ^19.2.6
+  styled-components: ^6.4.1
+  "@types/react": ^19.2.14
+  "@types/react-dom": ^19.2.3
+
+  # Build tooling
+  typescript: 6.0.3
+  "@types/node": ^24.10.13
+  rimraf: ^6.1.3
+  vitest: ^4.1.8
+  "@vitest/ui": ^4.1.8
+  "@vitest/browser": ^4.1.8
+  "@vitest/browser-playwright": ^4.1.8
+  "@vitejs/plugin-react": ^6.0.2
+  vite: ^8.0.16
+  typedoc: ^0.28.19
+
+  # Shared libraries
+  date-fns: ^4.2.1
+  lodash-es: ^4.18.1
+  "@types/lodash-es": ^4.17.12
+  react-transition-group: ^4.4.5
+  "@types/react-transition-group": ^4.4.12
+  deepmerge: ^4.3.1
+  dompurify: ^3.4.3
+  immer: ^11.1.8
+  react-virtualized: ^9.22.6
+  "@types/react-virtualized": ^9.22.3
+  recharts: ^2.15.4
+  polished: ^4.3.1
+  ts-key-enum: ^2.0.13
+  mobile-detect: ^1.4.5
+  "@types/react-syntax-highlighter": ^15.5.13
+
+  # Lexical
+  lexical: ^0.44.0
+  "@lexical/html": ^0.44.0
+  "@lexical/link": ^0.44.0
+  "@lexical/list": ^0.44.0
+  "@lexical/plain-text": ^0.44.0
+  "@lexical/react": ^0.44.0
+  "@lexical/rich-text": ^0.44.0
+  "@lexical/selection": ^0.44.0
+  "@lexical/utils": ^0.44.0
+
+  # DnD
+  react-dnd: ^16.0.1
+  react-dnd-html5-backend: ^16.0.1
+
+  # Other shared
+  "@date-fns/tz": ^1.4.1
+
+allowBuilds:
+  esbuild: true
+
+patchedDependencies:
+  react-dnd@16.0.1: core/patches/pnpm/react-dnd@16.0.1.patch

@@ -38,16 +38,17 @@ import { StyledButton } from "../../../button/main/button.styled.js";
 
 import type { TabPanelOrientation } from "../tab-panel.api.js";
 
-interface TabPanelTabStyledProps {
+export interface TabPanelTabStyledProps {
 	$disabled?: boolean;
 	$selected?: boolean;
 	$highlighted?: boolean;
 	$orientation?: TabPanelOrientation;
+	$mobileSubListLayout?: boolean;
 }
 
 export const BaseTabPanelTab = styled.li.withConfig({ displayName: "BaseTabPanelTab-sc-" })<TabPanelTabStyledProps>(
-	({ theme, $disabled, $selected, $highlighted, $orientation }) => {
-		const { tab } = theme.components.tabPanel;
+	({ theme, $disabled, $selected, $highlighted, $orientation, $mobileSubListLayout }) => {
+		const { tab, groupTab } = theme.components.tabPanel;
 
 		const isVertical = $orientation === "vertical";
 		const isHorizontal = $orientation === "horizontal";
@@ -235,6 +236,19 @@ export const BaseTabPanelTab = styled.li.withConfig({ displayName: "BaseTabPanel
 				background: ${tab.disabled.background};
 				color: ${tab.disabled.color};
 			`}
+
+		${$mobileSubListLayout &&
+			css`
+				font-size: ${groupTab.subItem.labelFontSize};
+				justify-content: flex-start;
+				padding: 0;
+				margin: ${groupTab.subItem.margin};
+
+				${StyledIconWrapper} {
+					font-size: ${groupTab.subItem.iconFontSize};
+					min-width: ${groupTab.subItem.iconMinWidth};
+				}
+			`}
 		`;
 	}
 );
@@ -281,10 +295,26 @@ export const BaseTabPanelAddonSuffix = styled.div.withConfig({ displayName: "Bas
 	}
 );
 
-export const BaseTabPanelTabContent = styled.div.withConfig({ displayName: "BaseTabPanelTabContent-sc-" })`
-	display: inline-flex;
-	justify-content: center;
-`;
+export const BaseTabPanelTabContent = styled.div.withConfig({ displayName: "BaseTabPanelTabContent-sc-" })<{
+	$mobileSubListLayout?: boolean;
+}>(({ theme, $mobileSubListLayout }) => {
+	const { groupTab } = theme.components.tabPanel;
+
+	return css`
+		display: inline-flex;
+		justify-content: center;
+
+		${$mobileSubListLayout &&
+		css`
+			align-items: center;
+			display: flex;
+			gap: ${groupTab.subItem.gap};
+			justify-content: flex-start;
+			padding: ${groupTab.subItem.padding};
+			width: 100%;
+		`}
+	`;
+});
 
 export const StyledTabPanelHeading = styled.div.withConfig({ displayName: "StyledTabPanelHeading-sc-" })(
 	({ theme }) => {

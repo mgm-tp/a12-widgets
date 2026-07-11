@@ -31,16 +31,22 @@
  */
 
 import { render, getByDataRole, fireEvent, createReferenceElement, removeReferenceElement } from "test-utils";
-import { describe, vi, expect, test } from "vitest";
+import { describe, vi, expect, test, beforeEach, afterEach } from "vitest";
 
 import { DataRoles } from "../../../common/index.js";
 
 import { CommentContainer } from "../main/comment-container.view.js";
 
 describe("com.mgmtp.a12.widgets.comment.comment-container", () => {
+	let referenceElement: HTMLElement;
+	beforeEach(() => {
+		referenceElement = createReferenceElement();
+	});
+	afterEach(() => {
+		removeReferenceElement(referenceElement);
+	});
 	test("rendering-comment-container", async () => {
 		const body = "body";
-		const referenceElement = createReferenceElement();
 		const { container } = render(
 			<CommentContainer referenceElement={referenceElement} header={{ title: <p>header</p> }}>
 				{body}
@@ -53,12 +59,10 @@ describe("com.mgmtp.a12.widgets.comment.comment-container", () => {
 
 		const portal = getByDataRole(container, "attached-portal");
 		expect(portal).toMatchSnapshot();
-		removeReferenceElement(referenceElement);
 	});
 
 	test("comment-container-will-close-after-clicking-outside", () => {
 		const body = "body";
-		const referenceElement = createReferenceElement();
 		const outerNode = document.createElement("div");
 		const onCloseSpy = vi.fn();
 		render(
@@ -78,13 +82,11 @@ describe("com.mgmtp.a12.widgets.comment.comment-container", () => {
 		fireEvent.mouseDown(outerNode);
 
 		expect(onCloseSpy).toHaveBeenCalledTimes(1);
-		removeReferenceElement(referenceElement);
 		document.body.removeChild(outerNode);
 	});
 
 	test("comment-container-will-NOT-close-after-clicking-outside", () => {
 		const body = "body";
-		const referenceElement = createReferenceElement();
 		const outerNode = document.createElement("div");
 		const onCloseSpy = vi.fn();
 		render(
@@ -104,13 +106,11 @@ describe("com.mgmtp.a12.widgets.comment.comment-container", () => {
 		fireEvent.mouseDown(outerNode);
 
 		expect(onCloseSpy).toHaveBeenCalledTimes(0);
-		removeReferenceElement(referenceElement);
 		document.body.removeChild(outerNode);
 	});
 
 	test("Comment Container with `htmlAttributes` property", () => {
 		const ariaLabel = "Test Custom Label";
-		const referenceElement = createReferenceElement();
 		const { getByDataRole } = render(
 			<CommentContainer
 				referenceElement={referenceElement}
@@ -127,7 +127,5 @@ describe("com.mgmtp.a12.widgets.comment.comment-container", () => {
 		const calloutElement = getByDataRole(DataRoles.Callout);
 		expect(calloutElement).toBeTruthy();
 		expect(calloutElement.getAttribute("aria-label")).toBe(ariaLabel);
-
-		removeReferenceElement(referenceElement);
 	});
 });

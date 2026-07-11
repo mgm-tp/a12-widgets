@@ -13,7 +13,8 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -118,7 +119,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   overflow: auto;
 }
 
-.c20 {
+.c21 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -140,27 +141,114 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   margin: -1px !important;
 }
 
-.c20:empty {
+.c21:empty {
   display: none;
 }
 
-.c20 * {
+.c21 * {
   width: 1px;
   height: 1px;
 }
 
-.c18 {
+.c37 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c37::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c35 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c35 .c6 {
+  border-radius: 0px;
+}
+
+.c32 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c32 .c33 {
+  display: flex;
+  width: 100%;
+}
+
+.c32 * {
+  max-width: 100%;
+}
+
+.c19 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c18 .c19 {
+.c19 .c20 {
   display: block;
   width: fit-content;
 }
 
-.c26 {
+.c34 {
+  display: inline-flex;
+}
+
+.c34 .c18 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c36 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c27 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -183,21 +271,21 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   cursor: pointer;
 }
 
-.c26.c26.c26 {
+.c27.c27.c27 {
   outline: transparent solid 1px;
 }
 
-.c26::selection {
+.c27::selection {
   background-color: transparent;
 }
 
-.c26::placeholder {
+.c27::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c22 {
+.c23 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -213,11 +301,11 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   height: 32px;
 }
 
-.c22:focus {
+.c23:focus {
   outline: none;
 }
 
-.c24 {
+.c25 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -226,18 +314,19 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   position: relative;
 }
 
-.c24:focus-within {
+.c25:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c30::after {
+.c31::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -253,21 +342,31 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   overflow-wrap: normal;
 }
 
-.c28 {
+.c29 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c28:focus {
+.c29:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c14 .c19 {
+.c14:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c14:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c14 .c20 {
   display: block;
   margin: 0px 0px 4px;
 }
@@ -290,7 +389,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   border: 2px solid rgb(255, 255, 255);
 }
 
-.c32 {
+.c39 {
   align-items: center;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -307,13 +406,13 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   width: 40px;
 }
 
-.c32:focus {
+.c39:focus {
   outline: rgb(51, 51, 51) dotted 1px;
   border: 2px solid rgb(213, 0, 117);
   background-color: rgb(255, 255, 255);
 }
 
-.c33 {
+.c40 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -331,12 +430,12 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   width: 40px;
 }
 
-.c33:focus {
+.c40:focus {
   outline: rgb(51, 51, 51) dotted 1px;
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c34 {
+.c41 {
   align-items: center;
   background-color: rgb(241, 242, 244);
   display: flex;
@@ -345,16 +444,16 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   padding: 0px 16px;
 }
 
-.c36 {
+.c43 {
   flex: 1 1 0%;
   text-align: center;
 }
 
-.c36:first-child {
+.c43:first-child {
   text-align: left;
 }
 
-.c36:last-child {
+.c43:last-child {
   text-align: right;
 }
 
@@ -443,7 +542,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   height: 48px;
 }
 
-.c15 .c25 {
+.c15 .c26 {
   height: 32px;
   padding: 0px 32px 0px 8px;
   background-color: rgb(255, 255, 255);
@@ -455,35 +554,42 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   font-size: 1rem;
 }
 
-.c15 .c25:focus {
+.c15 .c26:focus {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
 }
 
-.c15 .c21 {
+.c15 .c22 {
   height: auto;
 }
 
-.c15 .c29::after {
+.c15 .c30::after {
   content: "";
   font-size: 1.25rem;
   width: 32px;
 }
 
-.c15 .c23 {
+.c15 .c24 {
   background-color: transparent;
   outline-offset: unset;
 }
 
-.c15 .c23:focus-within {
+.c15 .c24:focus-within {
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c15 .c27 {
+.c15 .c28 {
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
 }
 
-.c31 {
+.c15 [data-role="year-selector"] {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0px;
+  width: calc(72px);
+}
+
+.c38 {
   height: 40px;
   width: 40px;
 }
@@ -515,7 +621,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   font-weight: 700;
 }
 
-.c35 {
+.c42 {
   border-top-width: medium;
   border-top-style: none;
   border-top-color: currentcolor;
@@ -523,7 +629,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
   justify-content: center;
 }
 
-.c35:focus {
+.c42:focus {
   outline: none;
 }
 
@@ -559,20 +665,33 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
 }
 
 @media (pointer: coarse) {
-  .c24:active {
+  .c35:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c24:hover {
+  .c35:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c28:active {
+  .c25:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c25:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c29:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -580,7 +699,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
 }
 
 @media (pointer: fine) {
-  .c28:hover {
+  .c29:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
@@ -606,7 +725,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
 }
 
 @media (pointer: coarse) {
-  .c32:active {
+  .c39:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
@@ -614,27 +733,27 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
 }
 
 @media (pointer: fine) {
-  .c32:hover {
+  .c39:hover {
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
   }
 }
 
 @media (pointer: coarse) {
-  .c33:active {
+  .c40:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c33:hover {
+  .c40:hover {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c15 .c27:active {
+  .c15 .c28:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -642,7 +761,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
 }
 
 @media (pointer: fine) {
-  .c15 .c27:hover {
+  .c15 .c28:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
@@ -708,6 +827,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                 data-mode="single"
                 data-required="false"
                 data-role="date-picker"
+                lang="en-US"
               >
                 <div
                   class="DayPicker-Months"
@@ -747,106 +867,106 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           data-role="year-month-selector-control"
                         >
                           <div
-                            class="c18 field field--block month-selector"
+                            class="c18 c19 field field--block month-selector"
                             data-role="month-selector"
                           >
                             <label
-                              class="c19 c20 label field__label -u-unseenButRead"
+                              class="c20 c21 label field__label -u-unseenButRead"
                               data-role="month-selector-label"
                             >
                               Month
                             </label>
                             <div
-                              class="c21 c22 field__select"
+                              class="c22 c23 field__select"
                               data-role="month-selector-control"
                             >
                               <div
-                                class="c23 c24 field__select-wrapper"
+                                class="c24 c25 field__select-wrapper"
                                 data-role="month-selector-wrapper"
                               >
                                 <select
-                                  class="c25 c26 field__selectTitle"
+                                  class="c26 c27 field__selectTitle"
                                   data-role="month-selector-input"
                                 >
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="0"
                                   >
                                     January
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="1"
                                   >
                                     February
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="2"
                                   >
                                     March
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="3"
                                   >
                                     April
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="4"
                                   >
                                     May
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="5"
                                   >
                                     June
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="6"
                                   >
                                     July
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="7"
                                   >
                                     August
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="8"
                                   >
                                     September
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="9"
                                   >
                                     October
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="10"
                                   >
                                     November
                                   </option>
                                   <option
-                                    class="c27 c28 field__selectOption"
+                                    class="c28 c29 field__selectOption"
                                     data-role="month-selector-option"
                                     value="11"
                                   >
@@ -855,136 +975,53 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                                 </select>
                                 <span
                                   aria-hidden="true"
-                                  class="c29 c30 field__select-arrow"
+                                  class="c30 c31 field__select-arrow"
                                 />
                               </div>
                             </div>
                           </div>
                           <div
-                            class="c18 field field--block year-selector"
+                            class=""
                             data-role="year-selector"
                           >
-                            <label
-                              class="c19 c20 label field__label -u-unseenButRead"
-                              data-role="year-selector-label"
-                            >
-                              Year
-                            </label>
                             <div
-                              class="c21 c22 field__select"
-                              data-role="year-selector-control"
+                              class="c32 field-wrapper field-wrapper--block"
+                              data-role="text-field"
                             >
                               <div
-                                class="c23 c24 field__select-wrapper"
-                                data-role="year-selector-wrapper"
+                                class="c33 c34 field__main"
                               >
-                                <select
-                                  class="c25 c26 field__selectTitle"
-                                  data-role="year-selector-input"
+                                <div
+                                  class="c18 c19 field"
+                                  data-role="text-field-control"
                                 >
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2016"
+                                  <label
+                                    class="c20 c21 label field__label -u-unseenButRead"
+                                    data-role="text-field-label"
                                   >
-                                    2016
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2017"
+                                    Year
+                                  </label>
+                                  <div
+                                    class="c35 field__input"
+                                    data-role="text-field-input-wrapper"
                                   >
-                                    2017
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2018"
-                                  >
-                                    2018
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2019"
-                                  >
-                                    2019
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2020"
-                                  >
-                                    2020
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2021"
-                                  >
-                                    2021
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2022"
-                                  >
-                                    2022
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2023"
-                                  >
-                                    2023
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2024"
-                                  >
-                                    2024
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2025"
-                                  >
-                                    2025
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2026"
-                                  >
-                                    2026
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2027"
-                                  >
-                                    2027
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2028"
-                                  >
-                                    2028
-                                  </option>
-                                  <option
-                                    class="c27 c28 field__selectOption"
-                                    data-role="year-selector-option"
-                                    value="2029"
-                                  >
-                                    2029
-                                  </option>
-                                </select>
-                                <span
-                                  aria-hidden="true"
-                                  class="c29 c30 field__select-arrow"
-                                />
+                                    <span
+                                      class="c36 supported-unseen-span"
+                                    />
+                                    <input
+                                      class="c37 field__text"
+                                      data-role="year-selector-input"
+                                      inputmode="numeric"
+                                      maxlength="4"
+                                      pattern="[0-9]*"
+                                      type="text"
+                                      value="2022"
+                                    />
+                                    <span
+                                      class="c36 supported-unseen-span"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1096,7 +1133,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1108,7 +1145,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1119,7 +1156,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Tuesday, March 1st, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1136,7 +1173,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Today, Wednesday, March 2nd, 2022"
-                              class="c33 DayPicker-Day"
+                              class="c40 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="0"
@@ -1152,7 +1189,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Thursday, March 3rd, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1168,7 +1205,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Friday, March 4th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1184,7 +1221,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Saturday, March 5th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1205,7 +1242,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Sunday, March 6th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1221,7 +1258,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Monday, March 7th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1237,7 +1274,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Tuesday, March 8th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1253,7 +1290,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Wednesday, March 9th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1269,7 +1306,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Thursday, March 10th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1285,7 +1322,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Friday, March 11th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1301,7 +1338,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Saturday, March 12th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1322,7 +1359,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Sunday, March 13th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1338,7 +1375,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Monday, March 14th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1354,7 +1391,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Tuesday, March 15th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1370,7 +1407,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Wednesday, March 16th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1386,7 +1423,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Thursday, March 17th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1402,7 +1439,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Friday, March 18th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1418,7 +1455,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Saturday, March 19th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1439,7 +1476,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Sunday, March 20th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1455,7 +1492,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Monday, March 21st, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1471,7 +1508,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Tuesday, March 22nd, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1487,7 +1524,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Wednesday, March 23rd, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1503,7 +1540,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Thursday, March 24th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1519,7 +1556,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Friday, March 25th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1535,7 +1572,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Saturday, March 26th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1556,7 +1593,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Sunday, March 27th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1572,7 +1609,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Monday, March 28th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1588,7 +1625,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Tuesday, March 29th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1604,7 +1641,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Wednesday, March 30th, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1620,7 +1657,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                           >
                             <button
                               aria-label="Thursday, March 31st, 2022"
-                              class="c32 DayPicker-Day"
+                              class="c39 DayPicker-Day"
                               data-role="date-picker-day-button"
                               role="gridcell"
                               tabindex="-1"
@@ -1637,7 +1674,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1649,7 +1686,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1666,7 +1703,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1678,7 +1715,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1690,7 +1727,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1702,7 +1739,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1714,7 +1751,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1726,7 +1763,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1738,7 +1775,7 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                             role="presentation"
                           >
                             <div
-                              class="c31"
+                              class="c38"
                               role="gridcell"
                             />
                           </td>
@@ -1749,21 +1786,21 @@ exports[`com.mgmtp.a12.widgets.date-picker.mobile > render basic date picker on 
                 </div>
               </div>
               <div
-                class="c34 picker-footer c35 DayPicker-Actions"
+                class="c41 picker-footer c42 DayPicker-Actions"
                 data-role="picker-footer"
               >
                 <div
-                  class="c36 picker-footer__action"
+                  class="c43 picker-footer__action"
                   data-role="picker-footer-action"
                 />
                 <div
-                  class="c36 picker-footer__action"
+                  class="c43 picker-footer__action"
                   data-role="picker-footer-action"
                 >
                   <button />
                 </div>
                 <div
-                  class="c36 picker-footer__action"
+                  class="c43 picker-footer__action"
                   data-role="picker-footer-action"
                 />
               </div>

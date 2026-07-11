@@ -56,6 +56,10 @@ import type { TreeNodeTemplateModel } from "../tpl/tree.tpl.api.js";
 
 import type { SelectableTreeNodeModel, SelectableTreeProps, TreeProps } from "./tree.behavior.api.js";
 
+/**
+ * @deprecated since 39.0.0. Use `TreeView` instead — its `selectionMode` + `selectedKeys`/
+ * `onSelectionChange` replace the `Selectable` behavior HOC.
+ */
 export function Selectable<InProps extends TreeProps, OutProps extends InProps & SelectableTreeProps>(
 	Target: ComponentType<InProps>
 ): ComponentType<OutProps> {

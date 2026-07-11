@@ -45,9 +45,11 @@ export interface TabPanelProps extends TabPanelTemplateProps.BaseProps, Containe
 	header?: ReactNode;
 
 	/**
-	 * Array of Tab List.
+	 * Array of tab items.
+	 * Use {@link TabPanelTemplateProps.TabProps}[] for a flat list,
+	 * Or {@link TabPanelTemplateProps.GroupTabProps}[] to define tabs into groups.
 	 */
-	tabs: TabPanelTemplateProps.TabProps[];
+	tabs: TabPanelTemplateProps.TabProps[] | TabPanelTemplateProps.GroupTabProps[];
 
 	/**
 	 * Specifies the value of a Tab List that should get selected.

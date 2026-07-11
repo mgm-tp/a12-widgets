@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { DefaultThemeType } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DefaultThemeType, BaseThemeConfig } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export interface ShowcaseThemeType {
 	/*
@@ -43,7 +43,12 @@ export interface ShowcaseThemeType {
 	 */
 	label?: string;
 
-	theme: DefaultThemeType;
+	theme: DefaultThemeType | BaseThemeConfig;
 
 	default?: boolean;
+
+	/*
+	 * When true the theme is shown under a "Deprecated" section header in the theme selector.
+	 */
+	deprecated?: boolean;
 }

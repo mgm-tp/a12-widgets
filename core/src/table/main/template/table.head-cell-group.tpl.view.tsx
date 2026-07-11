@@ -35,10 +35,10 @@ import { memo } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames } from "../../../common/main/utils.js";
-import { useTableContext } from "../../new-api/table.context.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
+import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import type { TableTemplateProps } from "./table.tpl.api.js";

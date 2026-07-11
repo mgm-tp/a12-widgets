@@ -73,6 +73,8 @@ export namespace TabPanelTemplate {
 			dataRole,
 			tabIndex,
 			orientation = "vertical",
+			label,
+			mobileSubListLayout,
 			...rest
 		} = props;
 		const tabItemRef = useRef<HTMLLIElement | null>(null);
@@ -116,7 +118,7 @@ export namespace TabPanelTemplate {
 		);
 
 		const newId = useMemo(() => {
-			const trimValue = value.trim();
+			const trimValue = (value ?? "").trim();
 
 			return id ?? (trimValue !== "" ? trimValue.toLowerCase().replace(/\s/g, "-") : undefined);
 		}, [id, value]);
@@ -154,8 +156,12 @@ export namespace TabPanelTemplate {
 				$highlighted={isHighlighted}
 				$selected={isSelected}
 				$orientation={orientation}
+				$mobileSubListLayout={mobileSubListLayout}
 			>
-				<BaseTabPanelTabContent className={`${TAB_PANEL_CLASS_NAME}__tab_content`}>
+				<BaseTabPanelTabContent
+					className={`${TAB_PANEL_CLASS_NAME}__tab_content`}
+					$mobileSubListLayout={mobileSubListLayout}
+				>
 					{newId && title && <HiddenText id={`${newId}-hidden-title`}>{title}</HiddenText>}
 					{icon}
 					{isValidElement<BadgeProps>(children)
@@ -166,8 +172,6 @@ export namespace TabPanelTemplate {
 			</BaseTabPanelTab>
 		);
 	}
-
-	Tab.displayName = "Tab";
 
 	export function PanelHeader(props: TabPanelTemplateProps.PanelHeaderProps): ReactElement {
 		const { suffixes, heading, ariaLevel = 2, ...rest } = props;
@@ -199,6 +203,4 @@ export namespace TabPanelTemplate {
 			</BaseTabPanelHeader>
 		);
 	}
-
-	PanelHeader.displayName = "PanelHeader";
 }

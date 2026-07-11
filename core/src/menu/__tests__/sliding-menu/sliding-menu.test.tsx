@@ -30,11 +30,22 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, getAllByDataRole, fireEvent, waitFor, getByDataRole, screen } from "test-utils";
-import { describe, expect, test, vitest } from "vitest";
+import {
+	render,
+	getAllByDataRole,
+	fireEvent,
+	waitFor,
+	getByDataRole,
+	screen,
+	getByRole,
+	setupDevice
+} from "test-utils";
+import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 
 import { SlidingMenu } from "../../main/sliding-menu.view.js";
-import { items, itemsWithChildren, itemWithVariants } from "../../test/menu.setup.js";
+import type { MenuItem } from "../../main/menu.api.js";
+import { items, itemsWithChildren, itemWithVariants, scrollTestItems } from "../../test/menu.setup.js";
 import { Badge } from "../../../badge/index.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { Icon } from "../../../icon/index.js";
@@ -49,25 +60,25 @@ describe("com.mgmtp.a12.widgets.menu.sliding", () => {
 
 		// Change to sub menu of first element
 		const item1 = getAllByDataRole(container, DataRoles.Menu.Item)[0];
-		fireEvent.click(item1);
+		await userEvent.click(item1);
 		await waitFor(() => {
 			const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
 			expect(menuItems.length).toBe(4);
-			expect(document.activeElement).toEqual(menuItems[0]);
+			expect(menuItems[0]).toHaveFocus();
 		});
 
 		// Change back from sub menu to top level menu
 		const itemBack1 = getAllByDataRole(container, DataRoles.Menu.Item)[0];
-		fireEvent.click(itemBack1);
+		await userEvent.click(itemBack1);
 		await waitFor(() => {
 			const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
 			expect(menuItems.length).toBe(items.length);
-			expect(document.activeElement).toEqual(menuItems[0]);
+			expect(menuItems[0]).toHaveFocus();
 		});
 
 		// Change to sub menu of fourth element
 		const item4 = getAllByDataRole(container, DataRoles.Menu.Item)[3];
-		fireEvent.click(item4);
+		await userEvent.click(item4);
 		await waitFor(() => expect(getAllByDataRole(container, DataRoles.Menu.Item).length).toBe(3));
 	});
 
@@ -79,17 +90,17 @@ describe("com.mgmtp.a12.widgets.menu.sliding", () => {
 
 		// Change to sub menu of first element
 		const item1 = getAllByDataRole(container, DataRoles.Menu.Item)[0];
-		fireEvent.click(item1);
+		await userEvent.click(item1);
 		await waitFor(() => expect(getAllByDataRole(container, DataRoles.Menu.Item).length).toBe(4));
 
 		// Change back from sub menu to top level menu
 		const itemBack1 = getAllByDataRole(container, DataRoles.Menu.Item)[0];
-		fireEvent.click(itemBack1);
+		await userEvent.click(itemBack1);
 		await waitFor(() => expect(getAllByDataRole(container, DataRoles.Menu.Item).length).toBe(itemsWithChildren.length));
 
 		// Change to sub menu of fourth element
 		const item4 = getAllByDataRole(container, DataRoles.Menu.Item)[3];
-		fireEvent.click(item4);
+		await userEvent.click(item4);
 		await waitFor(() => expect(getAllByDataRole(container, DataRoles.Menu.Item).length).toBe(3));
 	});
 
@@ -198,7 +209,7 @@ describe("com.mgmtp.a12.widgets.menu.sliding", () => {
 
 	test("Should apply custom label and onClick to backward item through `backwardItemProps` property", async () => {
 		const customBackwardLabel = "Go Back";
-		const mockOnClick = vitest.fn();
+		const mockOnClick = vi.fn();
 		const itemsWithBackwardOverrides = [
 			{
 				label: "Products",
@@ -218,7 +229,7 @@ describe("com.mgmtp.a12.widgets.menu.sliding", () => {
 
 		// Navigate to submenu
 		const productsMenuItem = getAllByDataRole(DataRoles.Menu.Item)[0];
-		fireEvent.click(productsMenuItem);
+		await userEvent.click(productsMenuItem);
 
 		await waitFor(() => {
 			const menuItems = getAllByDataRole(DataRoles.Menu.Item);
@@ -233,7 +244,154 @@ describe("com.mgmtp.a12.widgets.menu.sliding", () => {
 		expect(backwardItemText.textContent).toBe(customBackwardLabel);
 
 		// Click backward item and verify custom onClick is called
-		fireEvent.click(backwardItem);
+		await userEvent.click(backwardItem);
 		expect(mockOnClick).toHaveBeenCalledTimes(1);
+	});
+
+	test("Scroll selected menu item into view", async () => {
+		// Constrained container to simulate a small viewport (similar to 200% zoom on 1024x768)
+		const { container } = render(
+			<div style={{ width: "512px", height: "384px", overflow: "hidden" }}>
+				<SlidingMenu items={scrollTestItems} useAs="main" id="basic-sliding-menu" />
+			</div>
+		);
+
+		const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+
+		// Click last item (Z Menu) that may not be visible due to small container
+		await userEvent.click(menuItems[menuItems.length - 1]);
+
+		// Sub menu opens, first item should contain "Z MENU"
+		await waitFor(() => {
+			const currentMenuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+			expect(currentMenuItems[0].textContent?.toUpperCase()).toContain("Z MENU");
+		});
+
+		// Click the first item (backward navigation) to return to top level
+		const submenuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+		await userEvent.click(submenuItems[0]);
+
+		// After navigating back, last item should contain "Z MENU"
+		await waitFor(() => {
+			const currentMenuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+			expect(currentMenuItems[currentMenuItems.length - 1].textContent?.toUpperCase()).toContain("Z MENU");
+		});
+	});
+
+	describe("Event handlers and ARIA", () => {
+		test("calls item onClick when a leaf item is clicked", async () => {
+			const mockOnClick = vi.fn();
+			const clickableItems: MenuItem[] = [
+				{ id: "leaf-1", label: "Leaf", onClick: mockOnClick },
+				{ id: "parent-1", label: "Parent", items: [{ id: "child-1", label: "Child" }] }
+			];
+			const { container } = render(<SlidingMenu id="test-sliding" items={clickableItems} />);
+			const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+			await userEvent.click(menuItems[0]);
+			expect(mockOnClick).toHaveBeenCalledTimes(1);
+		});
+
+		test("does not call item onClick when a disabled item is clicked", async () => {
+			const mockOnClick = vi.fn();
+			const disabledItems: MenuItem[] = [{ id: "disabled-1", label: "Disabled", disabled: true, onClick: mockOnClick }];
+			const { container } = render(<SlidingMenu id="test-sliding" items={disabledItems} />);
+			const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+			await userEvent.click(menuItems[0]);
+			expect(mockOnClick).not.toHaveBeenCalled();
+		});
+
+		test("applies mainContainerLabel as aria-label on the menu container", () => {
+			const { container } = render(
+				<SlidingMenu id="test-sliding" items={items} mainContainerLabel="Custom Navigation" />
+			);
+			const menuContainer = container.querySelector(`[data-role="${DataRoles.Menu}"]`);
+			expect(menuContainer).toHaveAttribute("aria-label", "Custom Navigation");
+		});
+
+		test('sets aria-label to "Main navigation" on the menu container when useAs="main"', () => {
+			const { container } = render(<SlidingMenu id="test-sliding" items={items} useAs="main" />);
+			const menuContainer = container.querySelector(`[data-role="${DataRoles.Menu}"]`);
+			expect(menuContainer).toHaveAttribute("aria-label", "Main navigation");
+		});
+
+		test("disabled menu item has aria-disabled='true' on its link element", () => {
+			const mixedItems: MenuItem[] = [
+				{ id: "active-1", label: "Active" },
+				{ id: "disabled-1", label: "Disabled", disabled: true }
+			];
+			const { container } = render(<SlidingMenu id="test-sliding" items={mixedItems} />);
+			const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+			const disabledLink = getByRole(menuItems[1], "link");
+			expect(disabledLink).toHaveAttribute("aria-disabled", "true");
+			const activeLink = getByRole(menuItems[0], "link");
+			expect(activeLink).not.toHaveAttribute("aria-disabled");
+		});
+
+		test("selected menu item has aria-current='page' and non-selected items have aria-current='false'", () => {
+			const selectableItems: MenuItem[] = [
+				{ id: "selected-1", label: "Selected", selected: true },
+				{ id: "normal-1", label: "Normal" }
+			];
+			const { container } = render(<SlidingMenu id="test-sliding" items={selectableItems} />);
+			const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+			const selectedLink = getByRole(menuItems[0], "link");
+			expect(selectedLink).toHaveAttribute("aria-current", "page");
+			const normalLink = getByRole(menuItems[1], "link");
+			expect(normalLink).toHaveAttribute("aria-current", "false");
+		});
+
+		test("double tap on a parent item only navigates one level forward", async () => {
+			const { container } = render(<SlidingMenu id="test-sliding-double-tap" items={items} />);
+
+			// item-4 (index 3) has two children, so a single navigateForward yields [back, 4.1, 4.2]
+			const parentItem = getAllByDataRole(container, DataRoles.Menu.Item)[3];
+
+			await userEvent.dblClick(parentItem);
+
+			await waitFor(() => {
+				const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+				expect(menuItems.length).toBe(3); // [back, 4.1, 4.2]
+			});
+
+			const backwardItem = getAllByDataRole(container, DataRoles.Menu.Item)[0];
+			await userEvent.click(backwardItem);
+
+			await waitFor(() => {
+				const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+				expect(menuItems.length).toBe(items.length);
+			});
+		});
+	});
+
+	describe("mobile", () => {
+		beforeAll(() => {
+			setupDevice("phone", true);
+		});
+
+		afterAll(() => {
+			vi.restoreAllMocks();
+		});
+
+		test("double tap on a parent item only navigates one level forward", async () => {
+			const { container } = render(<SlidingMenu id="test-sliding-double-tap" items={items} />);
+
+			// item-4 (index 3) has two children, so a single navigateForward yields [back, 4.1, 4.2]
+			const parentItem = getAllByDataRole(container, DataRoles.Menu.Item)[3];
+
+			await userEvent.dblClick(parentItem);
+
+			await waitFor(() => {
+				const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+				expect(menuItems.length).toBe(3); // [back, 4.1, 4.2]
+			});
+
+			const backwardItem = getAllByDataRole(container, DataRoles.Menu.Item)[0];
+			await userEvent.click(backwardItem);
+
+			await waitFor(() => {
+				const menuItems = getAllByDataRole(container, DataRoles.Menu.Item);
+				expect(menuItems.length).toBe(items.length);
+			});
+		});
 	});
 });

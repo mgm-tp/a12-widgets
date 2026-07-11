@@ -35,10 +35,10 @@ import { useContext, useRef, useMemo } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
-import { useTableContext } from "../../new-api/table.context.js";
 import { StyledContentBoxContext } from "../../../contentbox/main/template/contentbox.context.js";
 import { StyledContentBox, StyledContentBoxContent } from "../../../contentbox/main/template/contentbox.tpl.styled.js";
 
+import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import type { TableTemplateProps } from "./table.tpl.api.js";
@@ -46,8 +46,8 @@ import { StyledBaseTable, StyledTableMixins } from "./table.styled.js";
 
 export const StyledTableHeadRow = styled(StyledBaseTable.Row).withConfig({ displayName: "StyledTableHeadRow-sc-" })<{
 	cardView?: boolean;
-}>(({ theme, cardView }) => {
-	const { embedded } = useContext(StyledContentBoxContext);
+	$embedded?: boolean;
+}>(({ theme, cardView, $embedded: embedded }) => {
 	const { headRow, header } = theme.components.table;
 	const { contentBox } = theme.components;
 
@@ -77,6 +77,7 @@ export function HeadRowTpl(props: TableTemplateProps.HeadRowProps): ReactElement
 		return joinClassNames(`${BASE_TABLE_CLASSNAME}__headerRow`, props.className);
 	}, [props.className]);
 	const cardView = useTableContext((context) => context.cardView);
+	const { embedded } = useContext(StyledContentBoxContext);
 
 	return (
 		<StyledTableHeadRow
@@ -87,6 +88,7 @@ export function HeadRowTpl(props: TableTemplateProps.HeadRowProps): ReactElement
 			data-role={props.dataRole || "table-header-row"}
 			role={getRole(props.role, "row")}
 			cardView={cardView}
+			$embedded={embedded}
 		>
 			{props.children}
 		</StyledTableHeadRow>

@@ -40,7 +40,7 @@ import { GroupColorContentBox } from "./group-color-contentbox.js";
 
 export function MainColorsShowcase() {
 	const { theme } = useContext(ThemeContext);
-	const isFlatTheme = theme.includes("flat");
+	const isBrightTheme = theme.includes("flat") || theme.includes("base");
 	const themeColors = useTheme().colors;
 	const mainColors: Color[] = [
 		{
@@ -48,14 +48,14 @@ export function MainColorsShowcase() {
 			It is regularly used for the application header, and content headings.`,
 			textName: "primaryColor",
 			colorCode: themeColors.primaryColor,
-			textColor: isFlatTheme ? "black" : "white"
+			textColor: isBrightTheme ? "black" : "white"
 		},
 		{
 			description: `The secondary color is a supportive main color and indicates the second-level information. 
 			It is used to split primary information for a better overview. Example usages: Main menu, Tab navigation, etc.`,
 			textName: "secondaryColor",
 			colorCode: themeColors.secondaryColor,
-			textColor: isFlatTheme ? "black" : "white"
+			textColor: isBrightTheme ? "black" : "white"
 		}
 	];
 

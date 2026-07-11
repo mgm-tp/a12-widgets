@@ -33,12 +33,4 @@
 export * from "./tree-table.api.js";
 export * from "./tree-table.styled.js";
 export * from "./tree-table.utils.js";
-export {
-	TreeTableBodyCell,
-	TreeTableBodyContent,
-	DefaultTreeTableComponentRenderers,
-	DndTreeTable,
-	TreeTable,
-	TreeTableContextProvider,
-	useTreeTableContext
-} from "./tree-table.view.js";
+export * from "./tree-table.view.js";

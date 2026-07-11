@@ -98,11 +98,10 @@ APIs natively or with the assistance of a polyfill.
 
 ### Use Widgets components
 
-Import directly to the components you need:
+Import to the components you need:
 
 ```tsx
-import { Button } from "@com.mgmtp.a12.widgets/widgets-core/lib/button";
-import { ButtonGroup } from "@com.mgmtp.a12.widgets/widgets-core/lib/button-group";
+import { Button, ButtonGroup } from "@com.mgmtp.a12.widgets/widgets-core";
 ```
 
 There is an example about how to use Widgets button component instead of the normal button tag, modify the **App.tsx**
@@ -110,8 +109,8 @@ like this:
 
 ```typescript jsx
 import React from "react";
-import "@com.mgmtp.a12.widgets/widgets-core/lib/theme/basic.css";
-import { Button } from "@com.mgmtp.a12.widgets/widgets-core/lib/button";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/basic.css";
+import { Button } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export default function App() {
     return <Button label="This is a button from widgets" primary={true} />;
@@ -126,11 +125,8 @@ this, adapt the code and add a ThemeProvider, as well as GlobalStyles provided f
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyles } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/base";
-import { flatTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/flat/flat-theme";
-import "@com.mgmtp.a12.widgets/widgets-core/lib/theme/basic.css";
-
-import { Button } from "@com.mgmtp.a12.widgets/widgets-core/lib/button";
+import { GlobalStyles, flatTheme, Button } from "@com.mgmtp.a12.widgets/widgets-core";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/basic.css";
 
 export function App() {
   return (
@@ -161,11 +157,8 @@ top), sidebar (left) and content (center).
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyles } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/base";
-import { flatTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/flat/flat-theme";
-import "@com.mgmtp.a12.widgets/widgets-core/lib/theme/basic.css";
-
-import { ApplicationFrame } from "@com.mgmtp.a12.widgets/widgets-core/lib/layout/application-frame";
+import { GlobalStyles, flatTheme, ApplicationFrame } from "@com.mgmtp.a12.widgets/widgets-core";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/basic.css";
 
 export default function App() {
   return (
@@ -202,8 +195,7 @@ hello-widgets/
 
 ```typescript jsx
 import React from "react";
-import { ApplicationHeader } from "@com.mgmtp.a12.widgets/widgets-core/lib/application-header";
-import { FlyoutMenu, MenuItem } from "@com.mgmtp.a12.widgets/widgets-core/lib/menu";
+import { ApplicationHeader, FlyoutMenu, MenuItem } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export interface HeaderProps {
   items: MenuItem[];
@@ -245,9 +237,7 @@ hello-widgets/
 
 ```typescript jsx
 import React from "react";
-import { FlyoutMenu, MenuItem } from "@com.mgmtp.a12.widgets/widgets-core/lib/menu";
-
-export interface SidebarProps {
+import { FlyoutMenu, MenuItem } from "@com.mgmtp.a12.widgets/widgets-core";
   items: MenuItem[];
 }
 
@@ -275,7 +265,7 @@ hello-widgets/
 
 ```typescript jsx
 import React from "react";
-import { ActionContentbox, ContentBoxElements } from "@com.mgmtp.a12.widgets/widgets-core/lib/contentbox";
+import { ActionContentbox, ContentBoxElements } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export interface ContentProps {
   title: string;
@@ -305,11 +295,9 @@ Just replace the dummy texts in **App.tsx** with our new components, then you ca
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyles } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/base";
-import { flatTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/flat/flat-theme";
-import "@com.mgmtp.a12.widgets/widgets-core/lib/theme/basic.css";
+import { GlobalStyles, flatTheme, ApplicationFrame } from "@com.mgmtp.a12.widgets/widgets-core";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/basic.css";
 
-import { ApplicationFrame } from "@com.mgmtp.a12.widgets/widgets-core/lib/layout/application-frame";
 // import our components
 import { Content } from "./Content";
 import { Header } from "./Header";
@@ -342,12 +330,8 @@ Modify **App.tsx** file like below:
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyles } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/base";
-import { flatTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/flat/flat-theme";
-import "@com.mgmtp.a12.widgets/widgets-core/lib/theme/basic.css";
-
-import { ApplicationFrame } from "@com.mgmtp.a12.widgets/widgets-core/lib/layout/application-frame";
-import { MenuItem } from "@com.mgmtp.a12.widgets/widgets-core/lib/menu";
+import { GlobalStyles, flatTheme, ApplicationFrame, MenuItem } from "@com.mgmtp.a12.widgets/widgets-core";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/basic.css";
 
 // import your components
 import { Header } from "./Header";

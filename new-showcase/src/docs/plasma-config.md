@@ -1,5 +1,9 @@
 The styles of Widgets are written inside the React component using styled-components. It can be utilized in two ways: either by using one of our themes, or by extending our theme and changing it to fit the desired styles of your application.
 
+**Recommended starting point:** Use `getBaseTheme()` — a clean three-layer architecture (Application → Semantic → Widget) that makes custom themes straightforward with minimal token changes.
+It replaces the legacy `Default`, `Compact`, `Flat`, and `Flat Compact` themes, which are kept for backwards compatibility but are now deprecated.
+See the [Base Theme](#/basics/theme/base-theme) guide for details.
+
 ## Use the theme out of the box
 
 The widgets core package includes 4 themes:
@@ -13,7 +17,7 @@ To use one of these themes, simply import it and supply it to the `ThemeProvider
 
 ```typescript jsx
 import { ThemeProvider } from "styled-components";
-import { defaultTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/default/default-theme";
+import { defaultTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 // Somewhere in your render function
 <ThemeProvider theme={defaultTheme}> ... </ThemeProvider>
@@ -90,7 +94,7 @@ You can change any color by overriding `theme.colors` properties.
 This example sets the `primaryColor` from `#4e5965` to `red`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	colors: { primaryColor: "red" }
@@ -112,7 +116,7 @@ You can change the **Font family** with the `theme.typography.font.MAIN_FONT`.
 This example uses the `monospace` font instead of the default `Open Sans` font:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	typography: { font: { MAIN_FONT: `monospace` } }
@@ -127,8 +131,7 @@ Widgets use the `rem` unit for font size and provide a range of pre-defined font
 This example uses the `1.25rem` font size instead of the default `1rem` font size:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
-import { createFontSizeConfig } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/default/config/application/font_size.config";
+import { createTheme, createFontSizeConfig } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	typography: { fontSize: createFontSizeConfig(1.25) } //in rem unit
@@ -144,7 +147,7 @@ Widgets provide a range of pre-defined font weights, please see [this section](#
 This example sets the `typography.fontWeight.boldFontWeight` to `750` instead of the default `700`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	typography: { fontWeight: { boldFontWeight: 750 } }
@@ -171,8 +174,7 @@ Widgets provide a range of pre-defined spacings, please see [this section](#/bas
 This example creates a new set of **Spacings** based on the base spacing of `14px` instead of the default `16px`, using the `SpacingConfig()`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
-import { SpacingConfig } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/default/config/application/spacing.config";
+import { createTheme, SpacingConfig } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	spacing: { spacing: SpacingConfig(14) } //in px unit
@@ -189,8 +191,7 @@ Widgets provide a range of pre-defined horizontal spacings, please see [this sec
 This example creates a new set of **Horizontal Spacings** based on the base spacing of `14px` instead of the default `16px`, using the `HorizontalSpacingConfig()`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
-import { HorizontalSpacingConfig } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/default/config/application/spacing.config";
+import { createTheme, HorizontalSpacingConfig } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	spacing: { horizontalSpacing: HorizontalSpacingConfig(14) } //in px unit
@@ -207,8 +208,7 @@ Widgets provide a range of pre-defined vertical spacings, please see [this secti
 This example creates a new set of **Vertical Spacings** based on the base spacing of `14px` instead of the default `16px`, using the `VerticalSpacingConfig()`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
-import { VerticalSpacingConfig } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/default/config/application/spacing.config";
+import { createTheme, VerticalSpacingConfig } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	spacing: { verticalSpacing: VerticalSpacingConfig(14) } //in px unit
@@ -234,7 +234,7 @@ By default, Widgets provide 3 `applicationStyles.responsive` breakpoints:
 You can change the value of those breakpoints by following this example:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	applicationStyles: {
@@ -254,7 +254,7 @@ Widgets provide `applicationStyles.input` styles to provide a consistent UI acro
 The following example will change the `background` of all Widgets' inputs to `white`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	applicationStyles: { input: { background: "white" } }
@@ -268,7 +268,7 @@ Widgets provide `applicationStyles.label` styles to provide a consistent UI acro
 The following example will change the `fontColor` of all Widgets' labels to `blue`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	applicationStyles: { label: { fontColor: "blue" } }
@@ -287,7 +287,7 @@ These `focusStyles` are applied to the `outline` property of any Widgets that ar
 The following example will change the `focusedBoundaryDark` to `1px solid black`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	focusStyles: { focusedBoundaryDark: "1px solid black" }
@@ -312,7 +312,7 @@ By default, values of `divisionLineStyles` are used in heading-level components 
 The following example will change the `divisionLineStyles.bottomLine` to `1px solid purple`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	divisionLineStyles: { bottomLine: "1px solid purple" }
@@ -327,7 +327,7 @@ You can customize the styles of a Widget's component by modifying the value of i
 This example sets the `background` of the primary button to `orange`:
 
 ```typescript
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
 	components: { button: { primary: { background: "orange" } } }
@@ -377,9 +377,7 @@ Only the `primary` `Button` wrapped inside the `customTheme` will have the `purp
 
 ```typescript jsx
 import { ThemeProvider } from "styled-components";
-import { defaultTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/default/default-theme";
-import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
-import { Button } from "@com.mgmtp.a12.widgets/widgets-core";
+import { defaultTheme, createTheme, Button } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
   components: { button: { primary: { background: "purple" } } }

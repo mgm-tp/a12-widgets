@@ -34,14 +34,8 @@ import type { ReactElement } from "react";
 import { useState, useCallback, useRef } from "react";
 import { styled } from "styled-components";
 
-import { Button } from "@com.mgmtp.a12.widgets/widgets-core/lib/button/index.js";
-import { ButtonGroup } from "@com.mgmtp.a12.widgets/widgets-core/lib/button-group/index.js";
-import type {
-	BaseColumnType,
-	TableScrollToNodeHandler,
-	RowStyles
-} from "@com.mgmtp.a12.widgets/widgets-core/lib/table/new-api/index.js";
-import { Table } from "@com.mgmtp.a12.widgets/widgets-core/lib/table/new-api/index.js";
+import type { BaseColumnType, TableScrollToNodeHandler, RowStyles } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Button, ButtonGroup, Table } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const StyledScrollContainer = styled.div`
 	display: flex;

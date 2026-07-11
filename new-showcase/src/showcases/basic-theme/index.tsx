@@ -31,13 +31,13 @@
  */
 
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
-import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils/lib/code-example/index.js";
+import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { ThemeVariablesShowcase } from "./theme-variables.js";
 
-const customTheme = `import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core/lib/theme/create-theme";
+const customTheme = `import { createTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const theme = createTheme({
   colors: { primaryColor: "red" },
@@ -50,17 +50,25 @@ const showcases: Showcase[] = [
 		description: (
 			<>
 				<p>
-					The theme specifies color of the components, darkness of the surfaces, level of shadow, appropriate opacity of
-					ink elements, etc.
+					The theme controls the colour of components, surface darkness, shadow depth, opacity of interactive elements,
+					and more. It lets you apply a consistent visual tone across your entire app to match your brand or business
+					requirements.
 				</p>
 				<p>
-					Themes let you apply a consistent tone to your app. It allows you to customize all design aspects of your
-					project in order to meet the specific needs of your business or brand.
+					<strong>Recommended starting point:</strong> Use <code>getBaseTheme()</code> — a clean three-layer
+					architecture (Application → Semantic → Widget) that makes custom themes straightforward with minimal token
+					changes. It replaces the legacy <code>Default</code>, <code>Compact</code>, <code>Flat</code>, and{" "}
+					<code>Flat Compact</code> themes, which are kept for backwards compatibility but are now deprecated.
 				</p>
 				<p>
-					Our Theme set consists of four themes: Default, Compact, Flat and Flat Compact. You can check the differences
-					between each of them directly by toggling the "Theme Selector" button positioned on the top-right of our
-					Showcase.
+					See <Link href="#/basics/theme/base-theme/quick-start">Base Theme {">"} Quick Start</Link> for a quick branded
+					theme demonstration, or{" "}
+					<Link href="#/basics/theme/base-theme/customization">Base Theme {">"} Customization</Link> for the full set of
+					override recipes.
+				</p>
+				<p>
+					The theme selector in the top-right of this showcase lets you switch between all available themes live. The
+					legacy themes are listed under a <em>Deprecated</em> section in that menu.
 				</p>
 			</>
 		),

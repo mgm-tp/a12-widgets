@@ -31,6 +31,9 @@
  */
 
 export * from "./filter-selector.api.js";
+export * from "./filter-selector.legacy.view.js";
+export * from "./filter-selector.list-mode.api.js";
+export * from "./filter-selector.list-mode.view.js";
 export * from "./filter-selector.mobile.api.js";
 export * from "./filter-selector.mobile.js";
 export * from "./filter-selector.view.js";

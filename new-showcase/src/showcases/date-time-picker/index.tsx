@@ -44,6 +44,7 @@ import { SimpleDateTimePicker } from "./date-time-picker.simple.js";
 import { DateTimeTimeButton } from "./date-time-picker.time-button.js";
 import { DateTimePickerInputWithTimeInput } from "./date-time-picker-input.time-input.js";
 import { DateTimePickerInputWithAdditionalProps } from "./date-time-picker-input.additional-props.js";
+import { DateTimePickerInputContextTimeModeShowcase } from "./date-time-picker-input.context-time-mode.js";
 import { DateTimePickerInputCustomFormat } from "./date-time-picker-input.custom-format.js";
 import { AccessibilityDateTimePickerShowcase } from "./accessibility-date-time-picker.js";
 
@@ -52,6 +53,7 @@ import simpleDateTimePickerCode from "!./date-time-picker.simple.tsx?raw";
 import dateTimeTimeButtonCode from "!./date-time-picker.time-button.tsx?raw";
 import dateTimePickerInputWithTimeInputCode from "!./date-time-picker-input.time-input.tsx?raw";
 import dateTimePickerInputWithAdditionalPropsCode from "!./date-time-picker-input.additional-props.tsx?raw";
+import dateTimePickerInputContextTimeModeCode from "!./date-time-picker-input.context-time-mode.tsx?raw";
 import dateTimePickerInputCustomFormatCode from "!./date-time-picker-input.custom-format.tsx?raw";
 import accessibilityDateTimePickerCode from "!./accessibility-date-time-picker.tsx?raw";
 
@@ -127,13 +129,37 @@ const showcases: Showcase[] = [
 				code: { name: "date-time-picker-input.time-input.tsx", code: dateTimePickerInputWithTimeInputCode }
 			},
 			{
+				label: "Timezone",
+				description: (
+					<>
+						<p>
+							The returned date and time will be handled by the <code>timezone</code> passed in the{" "}
+							<code>pickerProps</code> property.
+						</p>
+						<p>
+							The value of <code>timezone</code> should be the{" "}
+							<Link href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">
+								Timezone Database Name
+							</Link>
+							.
+						</p>
+						<p>
+							<strong>Note:</strong> If <code>timezone</code> is not specified, the input date time will be handled
+							according to the Coordinated Universal Time (UTC).
+						</p>
+					</>
+				),
+				content: <DateTimePickerInputWithTimezone />,
+				code: { name: "date-time-picker-input.timezone.tsx", code: dateTimePickerInputWithTimezoneCode }
+			},
+			{
 				label: "Additional Properties",
 				description: {
 					info: (
 						<>
 							<p>
 								Use the <code>pickerProps</code> property to access the{" "}
-								<ExternalLink href="https://react-day-picker-v7.netlify.app/api/DayPicker">
+								<ExternalLink href="https://daypicker.dev/v9/api/type-aliases/DayPickerProps">
 									library's properties
 								</ExternalLink>
 								, such as:
@@ -195,28 +221,22 @@ const showcases: Showcase[] = [
 				]
 			},
 			{
-				label: "Timezone",
+				label: "Context Time Mode",
 				description: (
 					<>
 						<p>
-							The returned date and time will be handled by the <code>timezone</code> passed in the{" "}
-							<code>pickerProps</code> property.
+							Instead of passing <code>timeMode</code> to each <strong>Date Time Picker</strong> individually, you can
+							set the time mode globally using <code>DateTimeContext.Provider</code>. All date time-related components
+							within the provider will use this mode unless overridden by their own <code>timeMode</code> property.
 						</p>
 						<p>
-							The value of <code>timezone</code> should be the{" "}
-							<Link href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">
-								Timezone Database Name
-							</Link>
-							.
-						</p>
-						<p>
-							<strong>Note:</strong> If <code>timezone</code> is not specified, the input date time will be handled
-							according to the Coordinated Universal Time (UTC).
+							In the example below, <b>DateTimePickerInput</b> is used to display both input and picker screen.
+							Therefore, the overridden <code>timeMode</code> is configured through <code>pickerProps</code> property.
 						</p>
 					</>
 				),
-				content: <DateTimePickerInputWithTimezone />,
-				code: { name: "date-time-picker-input.timezone.tsx", code: dateTimePickerInputWithTimezoneCode }
+				content: <DateTimePickerInputContextTimeModeShowcase />,
+				code: { name: "date-time-picker-input.context-time-mode.tsx", code: dateTimePickerInputContextTimeModeCode }
 			},
 			{
 				label: "Custom Format",
@@ -241,17 +261,15 @@ const showcases: Showcase[] = [
 				label: "Accessibility",
 				description: (
 					<>
-						<p>
-							To ensure proper accessibility for screen readers, you can use:
-							<BulletList.Unordered>
-								<BulletList.Item>
-									On desktop: <code>desktopPickerAttributes</code> property.
-								</BulletList.Item>
-								<BulletList.Item>
-									On mobile: <code>mobilePickerAttributes</code> property.
-								</BulletList.Item>
-							</BulletList.Unordered>
-						</p>
+						<p>To ensure proper accessibility for screen readers, you can use: </p>
+						<BulletList.Unordered>
+							<BulletList.Item>
+								On desktop: <code>desktopPickerAttributes</code> property.
+							</BulletList.Item>
+							<BulletList.Item>
+								On mobile: <code>mobilePickerAttributes</code> property.
+							</BulletList.Item>
+						</BulletList.Unordered>
 						<p>
 							By default, these additional attributes are applied to the <code>data-role="date-time-picker"</code>{" "}
 							element. However, when using <strong>DateTimePickerInput</strong> to display the picker, the behavior

@@ -30,10 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
+import type { FC, FocusEvent } from "react";
 import { useState, useCallback } from "react";
 
 import { YearMonthSelector } from "@com.mgmtp.a12.widgets/widgets-core";
+
+import { validateYearOnBlur } from "../year-selector/year-selector-validation.utils.js";
 
 const hiddenLabels = {
 	yearLabel: "Year Select",
@@ -43,11 +45,20 @@ const hiddenLabels = {
 export const YearMonthSelectorExample: FC = () => {
 	const [month, setMonth] = useState<number | undefined>();
 	const [year, setYear] = useState<number | undefined>();
+	const [yearError, setYearError] = useState<string | undefined>();
 
-	const onChange = useCallback((month?: number, year?: number): void => {
-		setMonth(month);
-		setYear(year);
+	const onChange = useCallback((nextMonth?: number, nextYear?: number): void => {
+		setMonth(nextMonth);
+		setYear(nextYear);
+
+		if (nextYear !== undefined) {
+			setYearError(undefined);
+		}
 	}, []);
+
+	const handleYearBlur = (event: FocusEvent<HTMLInputElement>): void => {
+		setYearError(validateYearOnBlur(event, { min: 1900, max: new Date().getFullYear() }));
+	};
 
 	return (
 		<div className="-u-width-full">
@@ -57,7 +68,10 @@ export const YearMonthSelectorExample: FC = () => {
 				month={month}
 				year={year}
 				onValueChange={onChange}
+				onYearSelectorBlur={handleYearBlur}
 				hiddenLabels={hiddenLabels}
+				yearPlaceholder="Year"
+				errorMessage={yearError}
 			/>
 		</div>
 	);

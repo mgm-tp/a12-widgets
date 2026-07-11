@@ -40,11 +40,16 @@ import {
 	render,
 	waitFor
 } from "test-utils";
-import { userEvent } from "vitest/browser";
+import { page, userEvent } from "vitest/browser";
+import { useState, useRef, useCallback } from "react";
+import type { ReactNode } from "react";
 
 import { Button } from "../../button/main/button.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { ContentBox, ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
+import type { ResizeAndDragContainerProps } from "../main/resize-and-drag-container.api.js";
 import { ResizeAndDragContainer } from "../main/resize-and-drag-container.view.js";
 
 describe("com.mgmtp.a12.widgets.resize-and-drag-container", () => {
@@ -230,5 +235,100 @@ describe("com.mgmtp.a12.widgets.resize-and-drag-container", () => {
 
 		// Verify that the aria-labelledby attribute is correctly applied
 		expect(resizeAndDragContainer.getAttribute("aria-labelledby")).toBe(headerId);
+	});
+});
+
+// --- Additional interaction scenarios from resize-and-drag-container.spec.tsx ---
+
+function ExampleResizableContainer(props: Omit<ResizeAndDragContainerProps, "referenceElement">): ReactNode {
+	const [show, setShow] = useState<boolean>(false);
+	const referenceElement = useRef<HTMLDivElement | null>(null);
+
+	const toggleShow = useCallback(() => {
+		setShow(!show);
+	}, [show]);
+
+	const onClose = useCallback(() => {
+		setShow(false);
+	}, []);
+
+	const headingElements = (
+		<ContentBoxElements.Heading>
+			<ContentBoxElements.Title text="Resizable Container" />
+		</ContentBoxElements.Heading>
+	);
+
+	return (
+		<>
+			<div key="element" ref={referenceElement}>
+				<Button icon={<Icon>add</Icon>} title="Show Container" onClick={toggleShow} id="button-trigger-id" />
+			</div>
+			{show && referenceElement.current && (
+				<ResizeAndDragContainer
+					{...props}
+					key="container"
+					referenceElement={referenceElement.current}
+					closeOnOutsideClick
+					onClose={onClose}
+				>
+					<ContentBox heading={headingElements}>
+						<p>Content</p>
+					</ContentBox>
+				</ResizeAndDragContainer>
+			)}
+		</>
+	);
+}
+
+describe("com.mgmtp.a12.widgets.resize-and-drag-container - interaction behavior", () => {
+	test("The basic resize and drag container should be shown", async () => {
+		const { getByDataRole: getByRole } = render(<ExampleResizableContainer />);
+		await userEvent.click(getByRole(DataRoles.Button) as HTMLElement);
+		await waitFor(() => {
+			expect(getByRole(DataRoles.ResizeAndDragContainer)).toBeVisible();
+		});
+	});
+
+	test("Custom container with minWidth, maxWidth, minHeight, maxHeight as strings should be shown", async () => {
+		const { getByDataRole: getByRole } = render(
+			<ExampleResizableContainer maxHeight="50vh" minHeight="40vh" minWidth="25vw" maxWidth="60vw" />
+		);
+		await userEvent.click(getByRole(DataRoles.Button) as HTMLElement);
+		await waitFor(() => {
+			expect(getByRole(DataRoles.ResizeAndDragContainer)).toBeVisible();
+		});
+	});
+
+	test("Custom container with minWidth, maxWidth, minHeight, maxHeight as numbers should be shown", async () => {
+		const { getByDataRole: getByRole } = render(
+			<ExampleResizableContainer maxHeight={1000} minHeight={500} minWidth={100} maxWidth={500} />
+		);
+		await userEvent.click(getByRole(DataRoles.Button) as HTMLElement);
+		await waitFor(() => {
+			expect(getByRole(DataRoles.ResizeAndDragContainer)).toBeVisible();
+		});
+	});
+
+	test("Initialize the container with dimensions larger than the viewport size", async () => {
+		const viewport = { width: 800, height: 300 };
+		const originalViewport = { width: window.innerWidth, height: window.innerHeight };
+
+		await page.viewport(viewport.width, viewport.height);
+
+		try {
+			const { getByDataRole: getByRole } = render(
+				<ExampleResizableContainer initialSize={{ width: 900, height: 400 }} />
+			);
+			await userEvent.click(getByRole(DataRoles.Button) as HTMLElement);
+
+			await waitFor(() => {
+				const resizeAndDragContainer = getByRole(DataRoles.ResizeAndDragContainer) as HTMLElement;
+				const boundingBox = resizeAndDragContainer.getBoundingClientRect();
+				expect(boundingBox.width).toEqual(viewport.width);
+				expect(boundingBox.height).toEqual(viewport.height);
+			});
+		} finally {
+			await page.viewport(originalViewport.width, originalViewport.height);
+		}
 	});
 });

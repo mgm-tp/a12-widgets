@@ -90,7 +90,7 @@ function useTimeConverter(timezone?: string): TimePickerProps.TimeConverter {
 
 export function CustomFormatShowcase(): ReactElement {
 	return (
-		<div className="-u-width-full">
+		<div className="-u-flex -u-flex-col -u-width-full" style={{ gap: "1rem" }}>
 			<TimePicker
 				{...useTimePickerProps({ defaultValue: createDefaultTime(), id: "custom-format" })}
 				label="Custom Format"
@@ -98,7 +98,6 @@ export function CustomFormatShowcase(): ReactElement {
 				timeFormatter={useTimeFormatter()}
 				timeConverter={useTimeConverter()}
 			/>
-			<br />
 			<TimePicker
 				{...useTimePickerProps({
 					defaultValue: createDefaultTime(TIMEZONE),

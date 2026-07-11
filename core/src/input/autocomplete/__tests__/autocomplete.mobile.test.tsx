@@ -40,28 +40,28 @@ import {
 	render,
 	waitFor
 } from "test-utils";
-import { Key } from "ts-key-enum";
 import { describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 import type { ReactElement } from "react";
 
 import { Link } from "../../../link/main/link/link.view.js";
 import { Icon } from "../../../icon/main/icon.view.js";
+import { noop } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import type { DropDownItem } from "../../../dropdown/index.js";
 
 import { MobileAutocomplete } from "../main/autocomplete.mobile.view.js";
 
-import { inputProps } from "./data.js";
+import { inputProps, cityItems } from "./data.js";
 
 describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 	test("render default mobile autocomplete", async () => {
 		const { container } = render(<MobileAutocomplete {...inputProps} />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		const modal = getByDataRole(container, DataRoles.Modal.Overlay);
 		expect(modal).toBeTruthy();
 		expect(container).toMatchSnapshot();
@@ -69,11 +69,11 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 
 	test("render readonly mobile autocomplete", async () => {
 		const { container } = render(<MobileAutocomplete {...inputProps} readonly />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(input).toHaveAttribute("readonly", "");
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		await waitFor(() => {
 			expect(container.firstElementChild?.children).toHaveLength(1);
 		});
@@ -81,9 +81,9 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 
 	test("render disabled mobile autocomplete", async () => {
 		const { container } = render(<MobileAutocomplete {...inputProps} disabled />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(input).toBeDisabled();
 
 		fireEvent.click(input);
 		await waitFor(() => {
@@ -93,7 +93,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 
 	test("render loading mobile autocomplete", async () => {
 		const { container } = render(<MobileAutocomplete {...inputProps} loading />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		fireEvent.click(input);
 		const modal = getByDataRole(container, DataRoles.Modal.Overlay);
@@ -108,15 +108,15 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 		const { container } = render(
 			<MobileAutocomplete {...inputProps} onSearch={onSearchSpy} onValueChange={onValueChange} />
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		expect(onSearchSpy).toHaveBeenCalledTimes(1);
 
 		const modal = getByDataRole(container, DataRoles.Modal.Overlay);
 		expect(modal).toBeTruthy();
 
-		const modalInput = getByDataRole(modal, DataRoles.Textline.Input) as HTMLInputElement;
+		const modalInput = getByDataRole(modal, DataRoles.TextField.Input) as HTMLInputElement;
 
 		fireEvent.input(modalInput, { target: { value: "A" } });
 		await waitFor(() => {
@@ -124,7 +124,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 			expect(onSearchSpy).toHaveBeenCalledTimes(2);
 		});
 		const dropdownItems = getAllByDataRole(container, DataRoles.Dropdown.Item);
-		fireEvent.click(dropdownItems[0]);
+		await userEvent.click(dropdownItems[0]);
 		await waitFor(() => {
 			expect(container.firstElementChild?.children).toHaveLength(1);
 			expect(onValueChange).toHaveBeenCalledTimes(1);
@@ -133,7 +133,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 
 	test("focus input without opening the list", async () => {
 		const { container } = render(<MobileAutocomplete {...inputProps} openOnFocus={false} />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		fireEvent.focus(input);
 		await waitFor(() => {
@@ -141,35 +141,35 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 			expect(modal).toBeFalsy();
 		});
 
-		fireEvent.keyDown(input, { key: Key.Enter });
+		fireEvent.keyDown(input, { key: "Enter" });
 		await waitFor(() => {
 			const modal = queryByDataRole(container, DataRoles.Modal.Overlay);
 			expect(modal).toBeTruthy();
 		});
 	});
 
-	test("onValueChange should not be triggered when picking the currently selected item", () => {
+	test("onValueChange should not be triggered when picking the currently selected item", async () => {
 		const onValueChange = vi.fn();
 
 		const { container } = render(<MobileAutocomplete {...inputProps} onValueChange={onValueChange} value="" />);
 
-		const openAutocomplete = () => {
-			const input = getByDataRole(container, DataRoles.Textline.Input);
-			fireEvent.click(input);
+		const openAutocomplete = async () => {
+			const input = getByDataRole(container, DataRoles.TextField.Input);
+			await userEvent.click(input);
 
 			return getAllByDataRole(container, DataRoles.Dropdown.Item);
 		};
 
-		let dropdownItems = openAutocomplete();
-		fireEvent.click(dropdownItems[0]);
+		let dropdownItems = await openAutocomplete();
+		await userEvent.click(dropdownItems[0]);
 		expect(onValueChange).toHaveBeenCalledTimes(1);
 
-		dropdownItems = openAutocomplete();
-		fireEvent.click(dropdownItems[0]);
+		dropdownItems = await openAutocomplete();
+		await userEvent.click(dropdownItems[0]);
 		expect(onValueChange).toHaveBeenCalledTimes(1);
 
-		dropdownItems = openAutocomplete();
-		fireEvent.click(dropdownItems[1]);
+		dropdownItems = await openAutocomplete();
+		await userEvent.click(dropdownItems[1]);
 		expect(onValueChange).toHaveBeenCalledTimes(2);
 	});
 
@@ -177,7 +177,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 		const onValueChange = vi.fn();
 		const { container } = render(<MobileAutocomplete {...inputProps} onValueChange={onValueChange} value="" />);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		const openDropdown = async (): Promise<HTMLElement[]> => {
 			await userEvent.click(input);
@@ -191,7 +191,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 			const modalContent = getByDataRole(container, DataRoles.Modal.OverlayContent);
 			const modalHeader = getByDataRole(modalContent, DataRoles.Contentbox.Header);
 			const closeButton = getByDataRole(modalHeader, DataRoles.Button);
-			const modalInput = getByDataRole(modalContent, DataRoles.Textline.Input);
+			const modalInput = getByDataRole(modalContent, DataRoles.TextField.Input);
 
 			if (value === "") {
 				await userEvent.clear(modalInput);
@@ -240,8 +240,8 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 			/>
 		);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
-		fireEvent.click(input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
+		await userEvent.click(input);
 
 		const modal = getByDataRole(container, DataRoles.Modal.Overlay);
 		expect(modal).toBeTruthy();
@@ -264,7 +264,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 			/>
 		);
 
-		fireEvent.click(getByDataRole(container, DataRoles.Textline.Input));
+		await userEvent.click(getByDataRole(container, DataRoles.TextField.Input));
 
 		const modal = getByDataRole(container, DataRoles.Modal.Overlay);
 		expect(modal).toBeTruthy();
@@ -275,9 +275,9 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 
 		expect(getDropdownItems()).toHaveLength(0);
 
-		const input = getByDataRole(modal, DataRoles.Textline.Input);
+		const input = getByDataRole(modal, DataRoles.TextField.Input);
 		fireEvent.input(input, { target: { value: "New York" } });
-		fireEvent.keyDown(input, { key: Key.Enter });
+		await userEvent.keyboard("{Enter}");
 		expect(onValueChangeSpy).toHaveBeenCalledTimes(1);
 	});
 
@@ -297,7 +297,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 			/>
 		);
 
-		fireEvent.click(getByDataRole(container, DataRoles.Textline.Input));
+		await userEvent.click(getByDataRole(container, DataRoles.TextField.Input));
 
 		const modal = getByDataRole(container, DataRoles.Modal.Overlay);
 		expect(modal).toBeTruthy();
@@ -308,7 +308,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 
 		expect(getDropdownItems()).toHaveLength(0);
 
-		const input = getByDataRole(modal, DataRoles.Textline.Input);
+		const input = getByDataRole(modal, DataRoles.TextField.Input);
 		fireEvent.input(input, { target: { value: "London" } });
 		fireEvent.blur(input);
 		expect(onValueChangeSpy).toHaveBeenCalledTimes(1);
@@ -336,7 +336,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 		};
 
 		const { getByDataRole } = render(<MobileAutocompleteContainer />);
-		const input = getByDataRole(DataRoles.Textline.Input);
+		const input = getByDataRole(DataRoles.TextField.Input);
 
 		await userEvent.click(input);
 
@@ -344,9 +344,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 		expect(dropdownItem).toBeTruthy();
 
 		// Verify that clicking the dropdown item does not throw an error
-		expect(async () => {
-			await userEvent.click(dropdownItem);
-		}).not.toThrowError();
+		await expect(userEvent.click(dropdownItem)).resolves.not.toThrow();
 	});
 
 	test("Should trigger `onDropdownClose` when the dropdown is closed", async () => {
@@ -355,7 +353,7 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 		const { container } = render(<MobileAutocomplete {...inputProps} onDropdownClose={onDropdownClose} value="" />);
 
 		const openAutocomplete = async () => {
-			const input = getByDataRole(container, DataRoles.Textline.Input);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
 			await userEvent.click(input);
 
 			return getAllByDataRole(container, DataRoles.Dropdown.Item);
@@ -372,5 +370,282 @@ describe("com.mgmtp.a12.widgets.autocomplete.mobile", () => {
 		await openAutocomplete();
 		await userEvent.click(document.body);
 		expect(onDropdownClose).toHaveBeenCalledTimes(3);
+	});
+
+	describe("Autocomplete mobile modal interactions", () => {
+		test("Modal should open and the focus is set on input field after clicking to input, selecting item closes modal", async () => {
+			const { container } = render(
+				<MobileAutocomplete items={cityItems} hintTemplate="Just a hint" onValueChange={noop} />
+			);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
+
+			await userEvent.click(input);
+
+			const modalOverlay = container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"]`) as HTMLElement;
+			expect(modalOverlay).toBeTruthy();
+
+			const inputModal = modalOverlay.querySelector(`[data-role="${DataRoles.TextField.Input}"]`) as HTMLInputElement;
+			expect(inputModal).toBeTruthy();
+
+			await waitFor(() => {
+				expect(inputModal).toHaveFocus();
+			});
+
+			// Select the first dropdown item to close the modal
+			const item = container.querySelector(`[data-role="${DataRoles.Dropdown.Item}"]`) as HTMLElement;
+			expect(item).toBeTruthy();
+
+			await userEvent.click(item);
+
+			await waitFor(() => {
+				expect(
+					container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"] [data-role="${DataRoles.TextField.Input}"]`)
+				).not.toBeInTheDocument();
+			});
+
+			expect((input as HTMLInputElement).value).toBe(cityItems[0]);
+		});
+
+		test("Modal should be closed without selecting any new item when pressing Save and Close button", async () => {
+			const { container } = render(
+				<MobileAutocomplete items={cityItems} hintTemplate="Just a hint" onValueChange={noop} />
+			);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
+
+			await userEvent.click(input);
+
+			const modalOverlay = container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"]`) as HTMLElement;
+			expect(modalOverlay).toBeTruthy();
+
+			const button = container.querySelector("[aria-label='Save and close']") as HTMLElement;
+			expect(button).toBeTruthy();
+
+			await userEvent.click(button);
+
+			await waitFor(() => {
+				expect(
+					container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"] [data-role="${DataRoles.TextField.Input}"]`)
+				).not.toBeInTheDocument();
+			});
+
+			expect((input as HTMLInputElement).value).toBe("");
+		});
+
+		test("Modal should be closed without clearing the selected item", async () => {
+			const inputValue = cityItems[2];
+			const { container } = render(
+				<MobileAutocomplete items={cityItems} hintTemplate="Just a hint" value={inputValue} onValueChange={noop} />
+			);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
+
+			// First round: backspace all characters then press space, then save/close
+			await userEvent.click(input);
+
+			const modalOverlay = container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"]`) as HTMLElement;
+			expect(modalOverlay).toBeTruthy();
+
+			const inputModal = modalOverlay.querySelector(`[data-role="${DataRoles.TextField.Input}"]`) as HTMLInputElement;
+			expect(inputModal).toBeTruthy();
+
+			await userEvent.click(inputModal);
+
+			for (let i = 0; i < inputValue.length; i++) {
+				await userEvent.keyboard("{Backspace}");
+			}
+
+			await userEvent.keyboard(" ");
+
+			const button = container.querySelector("[aria-label='Save and close']") as HTMLElement;
+			expect(button).toBeTruthy();
+
+			await userEvent.click(button);
+
+			await waitFor(() => {
+				expect((input as HTMLInputElement).value).toBe(inputValue);
+			});
+
+			// Second round: backspace all characters then type non-existing item, then save/close
+			await userEvent.click(input);
+
+			const inputModal2 = container.querySelector(
+				`[data-role="${DataRoles.Modal.Overlay}"] [data-role="${DataRoles.TextField.Input}"]`
+			) as HTMLInputElement;
+			expect(inputModal2).toBeTruthy();
+
+			await userEvent.click(inputModal2);
+
+			for (let i = 0; i < inputValue.length; i++) {
+				await userEvent.keyboard("{Backspace}");
+			}
+
+			await userEvent.type(inputModal2, "not existing item");
+
+			const button2 = container.querySelector("[aria-label='Save and close']") as HTMLElement;
+			expect(button2).toBeTruthy();
+
+			await userEvent.click(button2);
+
+			await waitFor(() => {
+				expect((input as HTMLInputElement).value).toBe(inputValue);
+			});
+		});
+
+		test("Modal should be closed with clearing the selected item via clear button", async () => {
+			const inputValue = cityItems[2];
+			const { container } = render(
+				<MobileAutocomplete items={cityItems} hintTemplate="Just a hint" value={inputValue} onValueChange={noop} />
+			);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
+
+			await userEvent.click(input);
+
+			const modalOverlay = container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"]`) as HTMLElement;
+			expect(modalOverlay).toBeTruthy();
+
+			const buttonClear = modalOverlay.querySelector("[aria-label='Clear text']") as HTMLElement;
+			expect(buttonClear).toBeTruthy();
+
+			const buttonSaveAndClose = modalOverlay.querySelector("[aria-label='Save and close']") as HTMLElement;
+			expect(buttonSaveAndClose).toBeTruthy();
+
+			await userEvent.click(buttonClear);
+			await userEvent.click(buttonSaveAndClose);
+
+			await waitFor(() => {
+				expect((input as HTMLInputElement).value).toBe("");
+			});
+		});
+
+		test("Modal should close with selecting the matched item after Enter to a matching item", async () => {
+			const { container } = render(
+				<MobileAutocomplete items={cityItems} hintTemplate="Just a hint" onValueChange={noop} />
+			);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
+
+			await userEvent.click(input);
+
+			const modalOverlay = container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"]`) as HTMLElement;
+			expect(modalOverlay).toBeTruthy();
+
+			const inputModal = modalOverlay.querySelector(`[data-role="${DataRoles.TextField.Input}"]`) as HTMLInputElement;
+			expect(inputModal).toBeTruthy();
+
+			await userEvent.click(inputModal);
+			await userEvent.clear(inputModal);
+			await userEvent.type(inputModal, "London");
+			await userEvent.keyboard("{Enter}");
+
+			await waitFor(() => {
+				expect(
+					container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"] [data-role="${DataRoles.TextField.Input}"]`)
+				).not.toBeInTheDocument();
+			});
+
+			expect((input as HTMLInputElement).value).toBe(cityItems[1]);
+		});
+
+		test("Should clear input value when tapping on the clear button", async () => {
+			const { container } = render(
+				<MobileAutocomplete items={cityItems} hintTemplate="Just a hint" onValueChange={noop} />
+			);
+			const input = getByDataRole(container, DataRoles.TextField.Input);
+
+			await userEvent.click(input);
+
+			const modalOverlay = container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"]`) as HTMLElement;
+			expect(modalOverlay).toBeTruthy();
+
+			const inputModal = modalOverlay.querySelector(`[data-role="${DataRoles.TextField.Input}"]`) as HTMLInputElement;
+			expect(inputModal).toBeTruthy();
+
+			await userEvent.click(inputModal);
+			await userEvent.clear(inputModal);
+			await userEvent.type(inputModal, "London");
+			await userEvent.keyboard("{Enter}");
+
+			// After selecting "London", modal should close. Now find the input wrapper and blur it.
+			const inputWrapper = container.querySelector(`[data-role="${DataRoles.TextField.Input.Wrapper}"]`) as HTMLElement;
+			expect(inputWrapper).toBeTruthy();
+
+			fireEvent.blur(inputWrapper);
+
+			// Find the clear button within the input wrapper
+			const clearButton = inputWrapper.querySelector(`[data-role="${DataRoles.Button}"]`) as HTMLElement;
+			expect(clearButton).toBeTruthy();
+
+			await userEvent.click(clearButton);
+
+			// After tapping the clear button, the modal should reopen with an empty input
+			await waitFor(() => {
+				const reopenedInputModal = container.querySelector(
+					`[data-role="${DataRoles.Modal.Overlay}"] [data-role="${DataRoles.TextField.Input}"]`
+				) as HTMLInputElement;
+				expect(reopenedInputModal).toBeVisible();
+				expect(reopenedInputModal.value).toBe("");
+			});
+
+			// The clear button should not be visible within the modal since the input is now empty
+			await waitFor(() => {
+				const modalClearButton = container.querySelector(
+					`[data-role="${DataRoles.Modal.Overlay}"] [aria-label='Clear text']`
+				);
+
+				if (modalClearButton) {
+					expect(modalClearButton).not.toBeVisible();
+				} else {
+					expect(modalClearButton).toBeNull();
+				}
+			});
+		});
+
+		test("Should not render the clear button when `enableClearButton` is false", async () => {
+			const { container } = render(
+				<MobileAutocomplete
+					enableClearButton={false}
+					items={cityItems}
+					onValueChange={noop}
+					hintTemplate="Just a hint"
+				/>
+			);
+
+			const input = getByDataRole(container, DataRoles.TextField.Input);
+
+			const getClearButtonInTrigger = () =>
+				container.querySelector(
+					`[data-role="${DataRoles.Autocomplete}"] > [data-role="${DataRoles.TextField}"] [aria-label='Clear text']`
+				);
+
+			// Check if the input's clear button is not rendered when the input is empty
+			expect(getClearButtonInTrigger()).toBeFalsy();
+
+			await userEvent.click(input);
+
+			// Check if the input modal's clear button is not rendered when the input is empty
+			const getModalClearButton = () =>
+				container.querySelector(`[data-role="${DataRoles.Modal.Overlay}"] [aria-label='Clear text']`);
+
+			expect(getModalClearButton()).toBeFalsy();
+
+			const inputModal = container.querySelector(
+				`[data-role="${DataRoles.Modal.Overlay}"] [data-role="${DataRoles.TextField.Input}"]`
+			) as HTMLInputElement;
+			expect(inputModal).toBeTruthy();
+
+			await userEvent.click(inputModal);
+			await userEvent.clear(inputModal);
+			await userEvent.type(inputModal, "Seoul");
+
+			// Check if the input modal's clear button is still not rendered when the input has a value
+			await waitFor(() => {
+				expect(getModalClearButton()).toBeFalsy();
+			});
+
+			await userEvent.keyboard("{Enter}");
+
+			// Check if the input's clear button is still not rendered when the modal is closed and the input has a value
+			await waitFor(() => {
+				expect(getClearButtonInTrigger()).toBeFalsy();
+			});
+		});
 	});
 });

@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { MutableRefObject, MouseEventHandler, MouseEvent } from "react";
+import type { MouseEventHandler, MouseEvent, RefObject } from "react";
 import { useRef, useEffect } from "react";
 import type { CSSObject } from "styled-components";
 import { css } from "styled-components";
@@ -39,10 +39,6 @@ import { createContext, useContextSelector } from "../../../context/index.js";
 import { getNearestFocusableParent } from "../../../common/main/utils.js";
 
 import type { RowScrollManager } from "../table.internal.js";
-
-/** @internal */
-export const getRole = (role?: string | boolean, defaultRole?: string): string | undefined =>
-	typeof role === "string" ? role : role !== false ? defaultRole : undefined;
 
 /** @internal **/
 export namespace RowScrollManagerContextType {
@@ -63,7 +59,7 @@ export function useRowScrollManagerContext<
 	return useContextSelector(RowScrollManagerContext, selector);
 }
 
-export const useRowScrollManager = (ref: MutableRefObject<HTMLDivElement | null>): void => {
+export const useRowScrollManager = (ref: RefObject<HTMLDivElement | null>): void => {
 	const rowScrollManager = useRowScrollManagerContext((context) => context.rowScrollManager);
 	const added = useRef(false);
 
@@ -87,7 +83,7 @@ export const useRowScrollManager = (ref: MutableRefObject<HTMLDivElement | null>
 
 /** @internal */
 export const handleContextMenu =
-	(wrapperRef: MutableRefObject<HTMLDivElement | null>, onContextMenu: MouseEventHandler<HTMLElement> | undefined) =>
+	(wrapperRef: RefObject<HTMLDivElement | null>, onContextMenu: MouseEventHandler<HTMLElement> | undefined) =>
 	(event: MouseEvent<HTMLElement>): void => {
 		const target = event.target as HTMLElement;
 

@@ -37,8 +37,8 @@ import { Key } from "ts-key-enum";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import { moveItemFocusBack, moveItemFocusNext, Button, ButtonGroup, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
-import type { SourceCode } from "@com.mgmtp.a12.widgets/widgets-utils/lib/code-example/index.js";
-import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils/lib/code-example/index.js";
+import type { SourceCode } from "@com.mgmtp.a12.widgets/widgets-utils";
+import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 import { getCurrentTheme } from "./theme-selector.js";
 import type { Section } from "./definitions.js";

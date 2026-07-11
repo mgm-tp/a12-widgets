@@ -52,7 +52,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -583,16 +584,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -600,6 +591,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
 
   100% {
     transform: translateZ(0px);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -611,18 +612,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
   >
     <div
       class="c1 field-wrapper field-wrapper--block multiselect__input"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-multiselect__input"
             id="test-id-multiselect__input-label"
           >
@@ -636,11 +637,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
           </label>
           <div
             class="c9 field__input"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <div
               class="c10 field__prefix field__prefix--last"
-              data-role="textline-prefix-0"
+              data-role="text-field-prefix-0"
             >
               <span
                 class="c11 counter multiselect__counter"
@@ -674,7 +675,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
               aria-expanded="true"
               aria-haspopup="listbox"
               class="c15 c16 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-multiselect__input"
               placeholder="Test Placeholder"
               role="combobox"
@@ -686,7 +687,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
             />
             <div
               class="c17 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -708,7 +709,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
       >
         <label
           class="c23 c24 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id-multiselect__input"
         >
           Helper text
@@ -1821,7 +1822,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2083,16 +2085,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   color: rgb(226, 230, 233);
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -2103,6 +2095,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 multiselect multiselect--disabled"
   data-role="multiselect"
@@ -2110,19 +2112,19 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label label--disabled"
           data-disabled="true"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -2137,11 +2139,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
         <div
           class="c9 c10 field__input field__input--disabled"
           data-disabled="true"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c11 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c12 c13 counter multiselect__counter"
@@ -2172,7 +2174,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
           <input
             aria-describedby="test-id-counter"
             class="c17 c18 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             disabled=""
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
@@ -2184,7 +2186,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
           />
           <div
             class="c19 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -2206,7 +2208,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
     >
       <label
         class="c25 c26 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -2261,7 +2263,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2289,6 +2292,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2605,16 +2609,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -2625,6 +2619,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 multiselect"
   data-role="multiselect"
@@ -2632,18 +2636,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -2657,7 +2661,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
         </label>
         <div
           class="c9 message message--error field__message"
-          data-role="textline-error-message"
+          data-role="text-field-error-message"
           id="test-id-multiselect__input-error"
         >
           <div
@@ -2690,11 +2694,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
         </div>
         <div
           class="c16 c17 field__input field__input--error"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c18 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c19 c20 counter multiselect__counter"
@@ -2728,7 +2732,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c23 c24 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -2740,7 +2744,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
           />
           <div
             class="c25 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -2762,7 +2766,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
     >
       <label
         class="c30 c31 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -2824,7 +2828,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3270,16 +3275,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -3290,6 +3285,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 multiselect"
   data-role="multiselect"
@@ -3297,18 +3302,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -3322,11 +3327,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
         </label>
         <div
           class="c9 c10 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c11 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c12 c13 counter multiselect__counter"
@@ -3360,7 +3365,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c17 c18 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -3372,7 +3377,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
           />
           <div
             class="c19 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -3390,7 +3395,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
       </div>
       <div
         class="c24 c25 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c26 c27 tooltip tooltip--hint"
@@ -3430,7 +3435,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
     >
       <label
         class="c32 c33 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -3527,7 +3532,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3958,16 +3964,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -3978,6 +3974,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 multiselect"
   data-role="multiselect"
@@ -3985,18 +3991,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -4041,11 +4047,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
         </span>
         <div
           class="c16 c17 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c18 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c19 c20 counter multiselect__counter"
@@ -4079,7 +4085,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c23 c24 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -4091,7 +4097,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
           />
           <div
             class="c25 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -4113,7 +4119,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
     >
       <label
         class="c30 c31 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -4168,7 +4174,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4485,16 +4492,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -4505,6 +4502,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 multiselect"
   data-role="multiselect"
@@ -4512,18 +4519,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -4537,7 +4544,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
         </label>
         <div
           class="c9 message message--warning field__message"
-          data-role="textline-warning-message"
+          data-role="text-field-warning-message"
           id="test-id-multiselect__input-warning"
         >
           <div
@@ -4570,11 +4577,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
         </div>
         <div
           class="c16 c17 field__input field__input--warning"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c18 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c19 c20 counter multiselect__counter"
@@ -4608,7 +4615,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c23 c24 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -4620,7 +4627,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
           />
           <div
             class="c25 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -4642,7 +4649,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
     >
       <label
         class="c29 c30 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -4883,16 +4890,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
   color: rgb(241, 242, 244);
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -4903,6 +4900,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
   }
 }
 
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div
   class="c0 multiselect multiselect--readonly"
   data-role="multiselect"
@@ -4910,18 +4917,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -4936,11 +4943,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
         <div
           class="c9 field__input field__input--readonly"
           data-readonly="true"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c10 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c11 c12 counter multiselect__counter"
@@ -4971,7 +4978,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
           <input
             aria-describedby="test-id-counter"
             class="c16 c17 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             readonly=""
@@ -4989,7 +4996,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
     >
       <label
         class="c20 c21 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text

@@ -199,8 +199,6 @@ export namespace List {
 		);
 	}
 
-	SubHeader.displayName = "List.SubHeader";
-
 	export function Item(props: ListItemProps): ReactElement<ListItemProps> {
 		const a11yContext = useContext(A11YLanguageContext);
 		const metaRef = useRef<HTMLDivElement>(null);
@@ -427,6 +425,4 @@ export namespace List {
 			</ListContext.Consumer>
 		);
 	}
-
-	Item.displayName = "List.Item";
 }

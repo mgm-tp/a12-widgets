@@ -356,7 +356,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may5);
 			await userEvent.keyboard("{ArrowRight}");
 
-			expect(document.activeElement).toBe(may6);
+			expect(may6).toHaveFocus();
 		});
 
 		test("ArrowLeft moves focus to the previous day", async () => {
@@ -368,7 +368,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may6);
 			await userEvent.keyboard("{ArrowLeft}");
 
-			expect(document.activeElement).toBe(may5);
+			expect(may5).toHaveFocus();
 		});
 
 		test("ArrowDown moves focus to the same weekday one week later", async () => {
@@ -380,7 +380,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may5);
 			await userEvent.keyboard("{ArrowDown}");
 
-			expect(document.activeElement).toBe(may12);
+			expect(may12).toHaveFocus();
 		});
 
 		test("ArrowUp moves focus to the same weekday one week earlier", async () => {
@@ -392,7 +392,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may12);
 			await userEvent.keyboard("{ArrowUp}");
 
-			expect(document.activeElement).toBe(may5);
+			expect(may5).toHaveFocus();
 		});
 
 		test("ArrowRight wraps from the last day of a week to the first day of the next week", async () => {
@@ -404,7 +404,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may11);
 			await userEvent.keyboard("{ArrowRight}");
 
-			expect(document.activeElement).toBe(may12);
+			expect(may12).toHaveFocus();
 		});
 
 		test("ArrowLeft wraps from the first day of a week to the last day of the previous week", async () => {
@@ -416,7 +416,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may5);
 			await userEvent.keyboard("{ArrowLeft}");
 
-			expect(document.activeElement).toBe(may4);
+			expect(may4).toHaveFocus();
 		});
 
 		test("ArrowRight skips disabled days", async () => {
@@ -430,7 +430,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may5);
 			await userEvent.keyboard("{ArrowRight}");
 
-			expect(document.activeElement).toBe(may7);
+			expect(may7).toHaveFocus();
 		});
 
 		test("ArrowLeft skips disabled days", async () => {
@@ -444,7 +444,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may7);
 			await userEvent.keyboard("{ArrowLeft}");
 
-			expect(document.activeElement).toBe(may5);
+			expect(may5).toHaveFocus();
 		});
 
 		test("ArrowDown skips disabled days", async () => {
@@ -458,7 +458,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may5);
 			await userEvent.keyboard("{ArrowDown}");
 
-			expect(document.activeElement).toBe(may19);
+			expect(may19).toHaveFocus();
 		});
 
 		test("ArrowUp skips disabled days", async () => {
@@ -472,7 +472,7 @@ describe("com.mgmtp.a12.widgets.calendar-month-view", () => {
 			await userEvent.click(may19);
 			await userEvent.keyboard("{ArrowUp}");
 
-			expect(document.activeElement).toBe(may5);
+			expect(may5).toHaveFocus();
 		});
 	});
 });

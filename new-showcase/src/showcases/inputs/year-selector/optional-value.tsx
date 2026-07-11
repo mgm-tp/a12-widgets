@@ -45,7 +45,8 @@ export const YearSelectorWithOptionalValue: FC = () => {
 			</p>
 			<YearSelector
 				id="optional-value-year-selector"
-				label="Optional value with placeholder"
+				label="Optional value"
+				variant="select"
 				year={year}
 				onYearChange={setYear}
 				optionalItem={{ label: "Optional item" }}

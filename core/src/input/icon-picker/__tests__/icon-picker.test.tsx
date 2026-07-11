@@ -30,14 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactNode } from "react";
+import { useState } from "react";
 import { Key } from "ts-key-enum";
 import { render, fireEvent, getByDataRole, getAllByDataRole, queryByDataRole, waitFor } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
+import { page, userEvent } from "vitest/browser";
 
-import { noop } from "../../../common/main/utils.js";
+import { isNotFullyOverlapped, noop } from "../../../common/main/utils.js";
 import { HintTooltip } from "../../../tooltip/hint/main/hint.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
+import type { IconPickerProps } from "../main/icon-picker.api.js";
 import { IconPicker } from "../main/icon-picker.view.js";
 
 const properties = {
@@ -63,7 +67,7 @@ describe("com.mgmtp.a12.widgets.icon-picker", () => {
 				ariaDescribedby={properties.ariaDescribedby}
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		expect(container.firstChild).toMatchSnapshot();
 
 		fireEvent.click(input);
@@ -86,7 +90,7 @@ describe("com.mgmtp.a12.widgets.icon-picker", () => {
 				}}
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		expect(container.firstChild).toMatchSnapshot();
 
 		fireEvent.click(input);
@@ -107,7 +111,7 @@ describe("com.mgmtp.a12.widgets.icon-picker", () => {
 				saveSpaceMode
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		expect(container.firstChild).toMatchSnapshot();
 
 		fireEvent.click(input);
@@ -171,7 +175,7 @@ describe("com.mgmtp.a12.widgets.icon-picker", () => {
 				readonly
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		expect(container.firstChild).toMatchSnapshot();
 
 		fireEvent.click(input);
@@ -192,7 +196,7 @@ describe("com.mgmtp.a12.widgets.icon-picker", () => {
 				disabled
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		expect(container.firstChild).toMatchSnapshot();
 
 		fireEvent.click(input);
@@ -261,7 +265,7 @@ describe("com.mgmtp.a12.widgets.icon-picker", () => {
 	test("focus input without opening the list", async () => {
 		const { container } = render(<IconPicker onChange={noop} id={properties.id} openOnFocus={false} />);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		fireEvent.focus(input);
 
 		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
@@ -280,7 +284,7 @@ describe("com.mgmtp.a12.widgets.icon-picker", () => {
 		const { container } = render(
 			<IconPicker onIconClick={onIconClickSpy} onChange={onChangeSpy} onFocus={onFocusSpy} onBlur={onBlurSpy} />
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		fireEvent.focus(input);
 		expect(onFocusSpy).toHaveBeenCalledTimes(1);
@@ -308,6 +312,81 @@ describe("com.mgmtp.a12.widgets.icon-picker", () => {
 			expect(queryByDataRole(container, DataRoles.AttachedPortal)).not.toBeInTheDocument();
 			expect(onIconClickSpy).toHaveBeenCalledTimes(2);
 			expect(onChangeSpy).toHaveBeenCalledTimes(2);
+		});
+	});
+
+	test("should show the icon picker dropdown when touch to input on mobile viewport", async () => {
+		const IconPickerExample = (): ReactNode => {
+			const [selectedIcon, setSelectedIcon] = useState<IconPickerProps.Icon | undefined>();
+
+			return (
+				<IconPicker
+					id="basic-icon-picker"
+					label="Basic"
+					placeholder="Type an icon or select one"
+					hintTemplate="{count} of {total} icons shown"
+					onChange={setSelectedIcon}
+					selectedIcon={selectedIcon}
+				/>
+			);
+		};
+
+		const { container } = render(<IconPickerExample />);
+
+		const input = getByDataRole(container, DataRoles.TextField.Input);
+		expect(input).toBeTruthy();
+
+		fireEvent.click(input);
+
+		// Simulate mobile keyboard appearing by dispatching a resize event
+		input.scrollIntoView({ block: "center", behavior: "auto" });
+		window.dispatchEvent(new Event("resize"));
+
+		await waitFor(() => {
+			expect(getByDataRole(container, DataRoles.AttachedPortal)).toBeTruthy();
+		});
+	});
+});
+
+describe("com.mgmtp.a12.widgets.icon-picker.dropdown", () => {
+	test("Should keep dropdown above the input and prevent overlap when having limited bottom space for dropdown", async () => {
+		await page.viewport(980, 726);
+
+		const { container } = render(
+			<div
+				style={{
+					height: "100vh",
+					overflow: "hidden",
+					boxSizing: "border-box",
+					background: "yellow"
+				}}
+			>
+				{/* Creates limited bottom space so the dropdown should be positioned above the input. */}
+				<div style={{ height: "620px", background: "gray" }} />
+
+				<div className="-u-width-full">
+					<IconPicker
+						id="basic-icon-picker"
+						label="Basic"
+						placeholder="Type an icon or select one"
+						hintTemplate="{count} of {total} icons shown"
+						onChange={noop}
+					/>
+				</div>
+			</div>
+		);
+
+		const input = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
+
+		// Open the dropdown by clicking on the input.
+		await userEvent.click(page.elementLocator(input));
+
+		// Type into the already focused input to trigger filtering and dropdown repositioning.
+		await userEvent.keyboard("v");
+
+		await waitFor(() => {
+			// Verify the input is not overlapped after the search result list changes.
+			expect(isNotFullyOverlapped(input)).toBeTruthy();
 		});
 	});
 });

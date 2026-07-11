@@ -55,6 +55,8 @@ import { RowGroupHeaderTpl, StyledTableRowGroupHeader } from "./table.row-group-
 import { RowGroupTpl, StyledTableRowGroup } from "./table.row-group.tpl.view.js";
 import { ContextMenuTpl } from "./table.context-menu.tpl.view.js";
 import { StyledTableTpl, TableTpl } from "./table.tpl.view.js";
+import { HeadGridTpl, HeadGridRowTpl } from "./table-head-grid/table.head-grid.tpl.view.js";
+import { StyledTableHeadGrid, StyledTableHeadGridRow } from "./table-head-grid/table.head-grid.tpl.styled.js";
 
 export namespace TableTemplate {
 	export const RowGroup = RowGroupTpl;
@@ -72,6 +74,10 @@ export namespace TableTemplate {
 	export const HeadCell = HeadCellTpl;
 
 	export const HeadCellGroup = HeadCellGroupTpl;
+
+	export const HeadGrid = HeadGridTpl;
+
+	export const HeadGridRow = HeadGridRowTpl;
 
 	export const BodyRowSegment = BodyRowSegmentTpl;
 
@@ -112,6 +118,9 @@ export namespace StyledTableTemplate {
 	export const StyledHeadRowSegment = StyledTableHeadRowSegment;
 	export const StyledHeadCell = StyledTableHeadCell;
 	export const StyledHeadCellGroup = StyledTableHeadCellGroup;
+
+	export const StyledHeadGrid = StyledTableHeadGrid;
+	export const StyledHeadGridRow = StyledTableHeadGridRow;
 
 	export const StyledBody = StyledTableBody;
 	export const StyledBodyCell = StyledTableBodyCell;
@@ -155,5 +164,7 @@ export * from "./table.row-group-header.tpl.view.js";
 export * from "./table.row-group.tpl.view.js";
 export * from "./table.styled.js";
 export * from "./table.tpl.api.js";
-export { useRowScrollManager } from "./table.tpl.utils.js";
+export * from "./table.tpl.utils.js";
 export * from "./table.tpl.view.js";
+export * from "./table-head-grid/table.head-grid.api.js";
+export * from "./table-head-grid/table.head-grid.tpl.view.js";

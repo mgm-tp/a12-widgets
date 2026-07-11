@@ -33,6 +33,12 @@
 import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type SwitchConfigType = {
+	control: {
+		gap: string;
+	};
+	label: {
+		cursor: string;
+	};
 	optionLabel: {
 		checkedMargin: string;
 		color: string;
@@ -44,11 +50,13 @@ export type SwitchConfigType = {
 	thumb: {
 		active: { color: string; size: string };
 		border: string;
+		checkedIconColor: string;
 		color: string;
 		disabled: { backgroundColor: string; borderWidth: string; color: string };
 		errorColor: string;
 		focus: { color: string; size: string };
 		hover: { color: string; size: string };
+		uncheckedIconColor: string;
 		iconSize?: string;
 		infoColor: string;
 		readonly: { borderWidth: string; color: string };
@@ -71,6 +79,12 @@ export const switchConfig = (theme: BaseThemeType): SwitchConfigType => {
 	const { colors, spacing, typography } = theme;
 
 	return {
+		control: {
+			gap: `${spacing.horizontalSpacing.horizWhiteSpacing2xs}px`
+		},
+		label: {
+			cursor: "pointer"
+		},
 		optionLabel: {
 			color: colors.text.color,
 			checkedMargin: `0 0 0 ${spacing.horizontalSpacing.horizWhiteSpacing2xs}px`,
@@ -85,6 +99,7 @@ export const switchConfig = (theme: BaseThemeType): SwitchConfigType => {
 				size: `${spacing.spacing.spacingMd - 2}px`
 			},
 			border: `2px solid ${colors.interaction.secondaryInteractionColor}`,
+			checkedIconColor: colors.background.primaryBackground,
 			color: colors.interaction.secondaryInteractionColor,
 			disabled: {
 				backgroundColor: colors.interaction.disabled.color,
@@ -100,6 +115,7 @@ export const switchConfig = (theme: BaseThemeType): SwitchConfigType => {
 				color: colors.interaction.hover.color,
 				size: `${spacing.spacing.spacingMd - 2}px`
 			},
+			uncheckedIconColor: colors.interaction.secondaryInteractionColor,
 			iconSize: "12px",
 			infoColor: colors.variant.infoColor,
 			readonly: {

@@ -36,7 +36,7 @@ import { useTheme } from "styled-components";
 
 import {
 	LayoutGrid,
-	TextLineStateless,
+	TextField,
 	TextAffix,
 	HintTooltip,
 	VerticalSpacingConfig
@@ -62,7 +62,7 @@ export const VerticalSpacingShowcase = () => {
 		<ConfigurationView
 			reportLabel="vertical-spacing"
 			configuration={
-				<TextLineStateless
+				<TextField
 					fitToParent={false}
 					value={`${baseVerticalSpacing}`}
 					onChange={handleSpacingChange}

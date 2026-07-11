@@ -31,8 +31,8 @@
  */
 
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
-import TableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/new-api/table.api.json" with { type: "json" };
-import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/new-api/column.api.json" with { type: "json" };
+import TableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table.api.json" with { type: "json" };
+import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/column.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 

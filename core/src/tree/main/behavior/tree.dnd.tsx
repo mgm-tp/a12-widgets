@@ -52,6 +52,10 @@ import type {
 	TreeProps
 } from "./tree.behavior.api.js";
 
+/**
+ * @deprecated since 39.0.0. Use `TreeView` with its `dragDrop` prop instead — it replaces the
+ * `DragDrop` behavior HOC (and the `DnDTree`) with pragmatic-drag-and-drop reparenting.
+ */
 export function DragDrop<InProps extends TreeProps, OutProps extends InProps & DragAndDropTreeProps>(
 	Target: ComponentType<InProps>
 ): ComponentType<OutProps> {

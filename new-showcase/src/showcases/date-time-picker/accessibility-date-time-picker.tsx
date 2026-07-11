@@ -30,10 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
+import type { FC, FocusEvent } from "react";
 import { useCallback, useState, useEffect } from "react";
 
 import { DateTimePicker, DateTimePickerInput, DateTimeUtils } from "@com.mgmtp.a12.widgets/widgets-core";
+
+import { validateYearOnBlur } from "../inputs/year-selector/year-selector-validation.utils.js";
 
 const PickerWithTimeInput = DateTimePickerInput(DateTimePicker);
 
@@ -41,6 +43,7 @@ export const AccessibilityDateTimePickerShowcase: FC = () => {
 	const [acceptedDatetime, setAcceptedDatetime] = useState<Date | undefined>();
 	const [invalidValue, setInvalidValue] = useState<string | undefined>(undefined);
 	const [value, setValue] = useState("");
+	const [yearErrorMessage, setYearErrorMessage] = useState<string | undefined>();
 
 	useEffect(() => {
 		if (acceptedDatetime || value.trim() === "") {
@@ -51,6 +54,10 @@ export const AccessibilityDateTimePickerShowcase: FC = () => {
 	const handleInputValidationError = useCallback((value: string) => {
 		setInvalidValue(value);
 		setAcceptedDatetime(undefined);
+	}, []);
+
+	const handleYearBlur = useCallback((ev: FocusEvent<HTMLInputElement>): void => {
+		setYearErrorMessage(validateYearOnBlur(ev, { min: 1900, max: new Date().getFullYear() }));
 	}, []);
 
 	return (
@@ -65,7 +72,9 @@ export const AccessibilityDateTimePickerShowcase: FC = () => {
 				},
 				mobilePickerAttributes: {
 					"aria-label": "Mobile Accessible Date Time Picker"
-				}
+				},
+				onYearSelectorBlur: handleYearBlur,
+				yearErrorMessage
 			}}
 			inputErrorMessage={invalidValue && `Invalid value: ${invalidValue}`}
 			onInputChange={setValue}

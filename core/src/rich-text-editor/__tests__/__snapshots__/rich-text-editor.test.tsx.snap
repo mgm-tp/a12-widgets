@@ -1,0 +1,1284 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Disabled Rich Text Editor > Should render disabled editor with content and not be focusable via tab 1`] = `
+.c12 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c16 .c6 {
+  margin: 0px;
+}
+
+.c7 {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+  color: rgb(169, 179, 188);
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c8 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c3 > .c4 {
+  min-width: 0px;
+}
+
+.c10 {
+  max-height: inherit;
+  min-height: inherit;
+}
+
+.c13 .c11 {
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+}
+
+.c13 .c11 p:first-child,
+.c13 .c11 h1:first-child,
+.c13 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c14 .c11 {
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c14 .c11 p:first-child,
+.c14 .c11 h1:first-child,
+.c14 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c15 .c11 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+  background: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c15 .c11 p:first-child,
+.c15 .c11 h1:first-child,
+.c15 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c15 .c11 :focus-visible {
+  outline: none;
+}
+
+.c9 {
+  display: block;
+  height: auto;
+  position: relative;
+  isolation: isolate;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c9 .tree-view-output {
+  border-radius: 0px;
+}
+
+.c9 .c11 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+  background: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c9 .c11 p:first-child,
+.c9 .c11 h1:first-child,
+.c9 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c9 .c11 :focus-visible {
+  outline: none;
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="rich-text-editor-wrapper"
+    id="disabled-content-test"
+  >
+    <div
+      class="c1 c2 c3"
+      data-role="rich-text-editor"
+    >
+      <div
+        class="c4 c5"
+        data-role="rich-text-editor-input-field"
+      >
+        <label
+          class="c6 c7 label field__label label--disabled"
+          data-disabled="true"
+          data-role="rich-text-editor-label"
+          id="disabled-content-test-label"
+        >
+          Disabled Editor
+        </label>
+        <div>
+          <div
+            class="c8 c9"
+            data-role="rich-text-editor-input-wrapper"
+          >
+            <div
+              class="c10"
+              data-role="rich-text-editor-content-wrapper"
+            >
+              <div
+                aria-autocomplete="none"
+                aria-disabled="true"
+                aria-labelledby="disabled-content-test-label"
+                aria-multiline="true"
+                aria-readonly="true"
+                class="c11 "
+                contenteditable="false"
+                data-lexical-editor="true"
+                data-role="rich-text-editor-input"
+                disabled=""
+                id="disabled-content-test"
+                role="textbox"
+                spellcheck="false"
+                style="user-select: text; white-space: pre-wrap; word-break: break-word;"
+                tabindex="-1"
+              >
+                <p
+                  class="editor-paragraph"
+                  dir="auto"
+                >
+                  <span
+                    data-lexical-text="true"
+                  >
+                    Disabled content
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c12"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`Readonly Rich Text Editor > Should render readonly editor with content and be focusable via tab 1`] = `
+.c12 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c15 .c6 {
+  margin: 0px;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c8 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c3 > .c4 {
+  min-width: 0px;
+}
+
+.c10 {
+  max-height: inherit;
+  min-height: inherit;
+}
+
+.c13 .c11 {
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+}
+
+.c13 .c11 p:first-child,
+.c13 .c11 h1:first-child,
+.c13 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c14 .c11 {
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c14 .c11 p:first-child,
+.c14 .c11 h1:first-child,
+.c14 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c9 {
+  display: block;
+  height: auto;
+  position: relative;
+  isolation: isolate;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c9 .tree-view-output {
+  border-radius: 0px;
+}
+
+.c9 .c11 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+  background: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c9 .c11 p:first-child,
+.c9 .c11 h1:first-child,
+.c9 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c9 .c11 :focus-visible {
+  outline: none;
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="rich-text-editor-wrapper"
+    id="readonly-content-test"
+  >
+    <div
+      class="c1 c2 c3"
+      data-role="rich-text-editor"
+    >
+      <div
+        class="c4 c5"
+        data-role="rich-text-editor-input-field"
+      >
+        <label
+          class="c6 c7 label field__label"
+          data-role="rich-text-editor-label"
+          id="readonly-content-test-label"
+        >
+          Readonly Editor
+        </label>
+        <div>
+          <div
+            class="c8 c9"
+            data-role="rich-text-editor-input-wrapper"
+          >
+            <div
+              class="c10"
+              data-role="rich-text-editor-content-wrapper"
+            >
+              <div
+                aria-autocomplete="none"
+                aria-labelledby="readonly-content-test-label"
+                aria-multiline="true"
+                aria-readonly="true"
+                class="c11 "
+                contenteditable="false"
+                data-lexical-editor="true"
+                data-role="rich-text-editor-input"
+                id="readonly-content-test"
+                readonly=""
+                role="textbox"
+                spellcheck="false"
+                style="user-select: text; white-space: pre-wrap; word-break: break-word;"
+                tabindex="0"
+              >
+                <p
+                  class="editor-paragraph"
+                  dir="auto"
+                >
+                  <span
+                    data-lexical-text="true"
+                  >
+                    Readonly content
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c12"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`Readonly Rich Text Editor > Should render readonly editor without content and not be focusable via tab 1`] = `
+.c12 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c15 .c6 {
+  margin: 0px;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c8 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c3 > .c4 {
+  min-width: 0px;
+}
+
+.c10 {
+  max-height: inherit;
+  min-height: inherit;
+}
+
+.c13 .c11 {
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+}
+
+.c13 .c11 p:first-child,
+.c13 .c11 h1:first-child,
+.c13 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c14 .c11 {
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c14 .c11 p:first-child,
+.c14 .c11 h1:first-child,
+.c14 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c9 {
+  display: block;
+  height: auto;
+  position: relative;
+  isolation: isolate;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c9 .tree-view-output {
+  border-radius: 0px;
+}
+
+.c9 .c11 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+  background: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c9 .c11 p:first-child,
+.c9 .c11 h1:first-child,
+.c9 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c9 .c11 :focus-visible {
+  outline: none;
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="rich-text-editor-wrapper"
+    id="readonly-empty-test"
+  >
+    <div
+      class="c1 c2 c3"
+      data-role="rich-text-editor"
+    >
+      <div
+        class="c4 c5"
+        data-role="rich-text-editor-input-field"
+      >
+        <label
+          class="c6 c7 label field__label"
+          data-role="rich-text-editor-label"
+          id="readonly-empty-test-label"
+        >
+          Readonly Editor
+        </label>
+        <div>
+          <div
+            class="c8 c9"
+            data-role="rich-text-editor-input-wrapper"
+          >
+            <div
+              class="c10"
+              data-role="rich-text-editor-content-wrapper"
+            >
+              <div
+                aria-autocomplete="none"
+                aria-labelledby="readonly-empty-test-label"
+                aria-multiline="true"
+                aria-readonly="true"
+                class="c11 "
+                contenteditable="false"
+                data-lexical-editor="true"
+                data-role="rich-text-editor-input"
+                id="readonly-empty-test"
+                readonly=""
+                role="textbox"
+                spellcheck="false"
+                style="user-select: text; white-space: pre-wrap; word-break: break-word;"
+                tabindex="-1"
+              >
+                <p
+                  class="editor-paragraph"
+                  dir="auto"
+                >
+                  <br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c12"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`Rich Text Editor > Should render with label, content and helper text 1`] = `
+.c14 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c13 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c12 {
+  display: flex;
+}
+
+.c8 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c3 > .c4 {
+  min-width: 0px;
+}
+
+.c10 {
+  max-height: inherit;
+  min-height: inherit;
+}
+
+.c9 {
+  display: block;
+  height: auto;
+  position: relative;
+  isolation: isolate;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c9 .tree-view-output {
+  border-radius: 0px;
+}
+
+.c9 .c11 {
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+}
+
+.c9 .c11 p:first-child,
+.c9 .c11 h1:first-child,
+.c9 .c11 h2:first-child {
+  margin: 0px;
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="rich-text-editor-wrapper"
+    id="label-content-helper-test"
+  >
+    <div
+      class="c1 c2 c3"
+      data-role="rich-text-editor"
+    >
+      <div
+        class="c4 c5"
+        data-role="rich-text-editor-input-field"
+      >
+        <label
+          class="c6 c7 label field__label"
+          data-role="rich-text-editor-label"
+          id="label-content-helper-test-label"
+        >
+          Editor Label
+        </label>
+        <div>
+          <div
+            class="c8 c9"
+            data-role="rich-text-editor-input-wrapper"
+          >
+            <div
+              class="c10"
+              data-role="rich-text-editor-content-wrapper"
+            >
+              <div
+                aria-describedby="label-content-helper-test-helper-text"
+                aria-labelledby="label-content-helper-test-label"
+                aria-multiline="true"
+                class="c11 "
+                contenteditable="true"
+                data-lexical-editor="true"
+                data-role="rich-text-editor-input"
+                id="label-content-helper-test"
+                role="textbox"
+                spellcheck="false"
+                style="user-select: text; white-space: pre-wrap; word-break: break-word;"
+                tabindex="0"
+              >
+                <p
+                  class="editor-paragraph"
+                  dir="auto"
+                >
+                  <span
+                    data-lexical-text="true"
+                  >
+                    Initial editor content
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c12"
+      data-role="rich-text-editor-helper-text-wrapper"
+    >
+      <label
+        class="c13"
+        data-role="rich-text-editor-helper-text"
+        id="label-content-helper-test-helper-text"
+      >
+        Helper text content
+      </label>
+    </div>
+  </div>
+  <div
+    class="c14"
+    data-role="portal-placeholder"
+  />
+</div>
+`;
+
+exports[`Rich Text Editor > Should render with label, placeholder and helper text 1`] = `
+.c15 {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+}
+
+.c7 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c7:empty {
+  display: none;
+}
+
+.c14 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c13 {
+  display: flex;
+}
+
+.c8 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.c5 .c6 {
+  display: block;
+  width: fit-content;
+}
+
+.c2 {
+  display: inline-flex;
+}
+
+.c2 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c3 > .c4 {
+  min-width: 0px;
+}
+
+.c10 {
+  max-height: inherit;
+  min-height: inherit;
+}
+
+.c9 {
+  display: block;
+  height: auto;
+  position: relative;
+  isolation: isolate;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c9 .tree-view-output {
+  border-radius: 0px;
+}
+
+.c9 .c11 {
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 100px;
+  overflow: auto;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: relative;
+  text-align: inherit;
+  vertical-align: top;
+  width: 100%;
+}
+
+.c9 .c11 p:first-child,
+.c9 .c11 h1:first-child,
+.c9 .c11 h2:first-child {
+  margin: 0px;
+}
+
+.c12 {
+  color: rgb(97, 111, 124);
+  left: 0px;
+  padding: calc(16px - 0.54375rem) 12px;
+  position: absolute;
+  top: 0px;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (pointer: coarse) {
+  .c8:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-role="rich-text-editor-wrapper"
+    id="label-placeholder-helper-test"
+  >
+    <div
+      class="c1 c2 c3"
+      data-role="rich-text-editor"
+    >
+      <div
+        class="c4 c5"
+        data-role="rich-text-editor-input-field"
+      >
+        <label
+          class="c6 c7 label field__label"
+          data-role="rich-text-editor-label"
+          id="label-placeholder-helper-test-label"
+        >
+          Editor Label
+        </label>
+        <div>
+          <div
+            class="c8 c9"
+            data-role="rich-text-editor-input-wrapper"
+          >
+            <div
+              class="c10"
+              data-role="rich-text-editor-content-wrapper"
+            >
+              <div
+                aria-describedby="label-placeholder-helper-test-placeholder label-placeholder-helper-test-helper-text"
+                aria-labelledby="label-placeholder-helper-test-label"
+                aria-multiline="true"
+                class="c11 "
+                contenteditable="true"
+                data-lexical-editor="true"
+                data-role="rich-text-editor-input"
+                id="label-placeholder-helper-test"
+                role="textbox"
+                spellcheck="false"
+                style="user-select: text; white-space: pre-wrap; word-break: break-word;"
+                tabindex="0"
+              >
+                <p
+                  class="editor-paragraph"
+                  dir="auto"
+                >
+                  <br />
+                </p>
+              </div>
+            </div>
+            <div
+              class="c12"
+              data-role="rich-text-editor-placeholder"
+              id="label-placeholder-helper-test-placeholder"
+            >
+              Type something...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+      data-role="rich-text-editor-helper-text-wrapper"
+    >
+      <label
+        class="c14"
+        data-role="rich-text-editor-helper-text"
+        id="label-placeholder-helper-test-helper-text"
+      >
+        Helper text content
+      </label>
+    </div>
+  </div>
+  <div
+    class="c15"
+    data-role="portal-placeholder"
+  />
+</div>
+`;

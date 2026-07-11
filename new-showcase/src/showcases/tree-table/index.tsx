@@ -42,6 +42,7 @@ import { Async } from "./async.js";
 import { DnDTreeTable } from "./dnd.js";
 import { ResizableTreeTable } from "./resizable.js";
 import { Basic } from "./basic.js";
+import { ColumnGroupTreeTable } from "./column-group.js";
 import { Validation } from "./validation.js";
 import { VirtualScrolling } from "./virtual-scrolling.js";
 import { Accessibility } from "./accessibility.js";
@@ -50,6 +51,7 @@ import asyncCode from "!./async.tsx?raw";
 import dndCode from "!./dnd.tsx?raw";
 import resizableCode from "!./resizable.tsx?raw";
 import basicCode from "!./basic.tsx?raw";
+import columnGroupCode from "!./column-group.tsx?raw";
 import validationCode from "!./validation.tsx?raw";
 import virtualScrollingCode from "!./virtual-scrolling.tsx?raw";
 import sharedDataCode from "!./shared/data.tsx?raw";
@@ -117,6 +119,27 @@ const showcases: Showcase[] = [
 							{ name: "async.tsx", code: asyncCode },
 							{ name: "shared/data.tsx", code: sharedDataCode }
 						]
+					},
+					{
+						label: "Column Group",
+						description: (
+							<>
+								<p>
+									This example demonstrates how to organize columns into groups with nested sub-columns in a tree table.
+									Like the regular{" "}
+									<Link href="#/widgets/data-display/table/basic#column-group">Table Column Group</Link> example, you
+									can create hierarchical column headers to better organize related data.
+								</p>
+								<p>
+									The example shows an organizational structure with grouped columns for Profile information, Contact
+									details (with nested E-address and Address groups), and Organization data.
+								</p>
+							</>
+						),
+						content: <ColumnGroupTreeTable />,
+						fitToSection: true,
+						fullSize: true,
+						code: [{ name: "column-group.tsx", code: columnGroupCode }]
 					},
 					{
 						label: "Accessibility",

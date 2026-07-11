@@ -71,6 +71,8 @@ export interface TreeState {
  * Collapsible behavior factory. Call this function to obtain a collapsible tree. The resulting tree will have the
  * props of the given component plus {@link CollapsibleTreeProps}.
  * @param Target – Original tree to which the collapsible behavior should be added
+ * @deprecated since 39.0.0. Use `TreeView` instead — its built-in expansion (controlled/uncontrolled,
+ * lazy `loadChildren`) replaces the `Collapsible` behavior HOC.
  */
 export function Collapsible<InProps extends TreeProps, OutProps extends InProps & CollapsibleTreeProps>(
 	Target: ComponentType<InProps>

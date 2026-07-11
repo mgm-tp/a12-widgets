@@ -40,10 +40,7 @@ export class NewDeviceClassProvider extends MobileDetectDeviceClassProvider {
 	}
 }
 
-import {
-	configure,
-	MobileDetectDeviceClassProvider
-} from "@com.mgmtp.a12.widgets/widgets-core/lib/common/main/device-detector";
+import { configure, MobileDetectDeviceClassProvider } from "@com.mgmtp.a12.widgets/widgets-core";
 import MobileDetect from "mobile-detect";
 export class AppView extends React.Component<AppViewProp, AppViewState> {
 	constructor(props: AppViewProp) {
@@ -85,8 +82,7 @@ want to allow the user to control the behavior via some setting interface. See t
 Below is the code example which helps to implement Touch Support feature:
 
 ```typescript jsx
-import { provider as DeviceDetector } from "@com.mgmtp.a12.widgets/widgets-core/lib/common/main/device-detector";
-import { configure, MobileDetectDeviceClassProvider } from "@com.mgmtp.a12.widgets/widgets-core/lib/common";
+import { provider as DeviceDetector, configure, MobileDetectDeviceClassProvider } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export class App extends React.Component<{}, {}> {
   render(): React.ReactNode {

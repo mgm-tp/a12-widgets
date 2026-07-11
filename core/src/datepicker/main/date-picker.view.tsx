@@ -101,7 +101,8 @@ interface DatePickerState {
 	range?: DateRange;
 }
 const CustomCaption = (props: MonthCaptionProps): ReactElement => {
-	const { yearRange, mobile, months } = useContext(DatePickerContext);
+	const { yearRange, mobile, months, yearSelectorVariant, onYearSelectorBlur, yearErrorMessage } =
+		useContext(DatePickerContext);
 	const languageContext = useContext<A11yDefinition>(A11YLanguageContext);
 	const a11yTitles = languageContext.pickerTitles;
 
@@ -120,8 +121,12 @@ const CustomCaption = (props: MonthCaptionProps): ReactElement => {
 	};
 
 	const handleYearMonthSelectorChange = useCallback(
-		(monthProps: number, yearProps: number) => {
+		(monthProps: number, yearProps: number | undefined) => {
 			if (disableNavigation) {
+				return;
+			}
+
+			if (yearProps === undefined || isNaN(yearProps)) {
 				return;
 			}
 
@@ -141,6 +146,10 @@ const CustomCaption = (props: MonthCaptionProps): ReactElement => {
 			const year = month.getFullYear();
 			const { start, end } = yearRange;
 
+			if (start === undefined || end === undefined) {
+				return undefined;
+			}
+
 			const shouldUpdateRange = year < start || year > end;
 			const range = Math.round((end - start) / 2);
 
@@ -154,24 +163,33 @@ const CustomCaption = (props: MonthCaptionProps): ReactElement => {
 	}, [month, yearRange]);
 
 	return (
-		<StyledDatePickerNavBar id={props.id} data-role={DataRoles.DatePicker.NavBar} $mobile={mobile}>
-			<PickerHeaderNavButton disabled={disableNavigation} onClick={previousButtonClick} />
-			<StyledDatePickerCaption
-				onValueChange={handleYearMonthSelectorChange}
-				disabled={disableNavigation}
-				month={month?.getMonth()}
-				months={months}
-				year={month?.getFullYear()}
-				yearRange={getYearRange()}
-				className={`${baseClassName}-Caption`}
-				hiddenLabels={{
-					monthLabel: a11yTitles?.monthSelectorLabel,
-					yearLabel: a11yTitles?.yearSelectorLabel
-				}}
-				$mobile={mobile}
-			/>
-			<PickerHeaderNavButton isNext disabled={disableNavigation} onClick={nextButtonClick} />
-		</StyledDatePickerNavBar>
+		<>
+			{yearErrorMessage && (
+				<StyledDatePicker.StyledYearErrorMessage data-role={DataRoles.DatePicker.YearErrorMessage}>
+					{yearErrorMessage}
+				</StyledDatePicker.StyledYearErrorMessage>
+			)}
+			<StyledDatePickerNavBar id={props.id} data-role={DataRoles.DatePicker.NavBar} $mobile={mobile}>
+				<PickerHeaderNavButton disabled={disableNavigation} onClick={previousButtonClick} />
+				<StyledDatePickerCaption
+					onValueChange={handleYearMonthSelectorChange}
+					disabled={disableNavigation}
+					month={month?.getMonth()}
+					months={months}
+					year={month?.getFullYear()}
+					yearRange={getYearRange()}
+					yearSelectorVariant={yearSelectorVariant}
+					onYearSelectorBlur={onYearSelectorBlur}
+					className={`${baseClassName}-Caption`}
+					hiddenLabels={{
+						monthLabel: a11yTitles?.monthSelectorLabel,
+						yearLabel: a11yTitles?.yearSelectorLabel
+					}}
+					$mobile={mobile}
+				/>
+				<PickerHeaderNavButton isNext disabled={disableNavigation} onClick={nextButtonClick} />
+			</StyledDatePickerNavBar>
+		</>
 	);
 };
 
@@ -323,7 +341,11 @@ class DatePickerUTC extends Component<DatePickerProps, DatePickerState> {
 		if (!value && yearRange) {
 			const fullYear = month.getFullYear();
 
-			if (fullYear < yearRange.start || fullYear > yearRange.end) {
+			if (
+				yearRange.start !== undefined &&
+				yearRange.end !== undefined &&
+				(fullYear < yearRange.start || fullYear > yearRange.end)
+			) {
 				month.setFullYear(yearRange.start);
 			}
 		}

@@ -32,12 +32,10 @@
 
 import type { ReactNode, FC, ReactElement } from "react";
 import { useState, useMemo, useCallback, useEffect, Fragment } from "react";
-import type { RouteComponentProps } from "react-router";
-import { Redirect, Route, Switch } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { styled, css } from "styled-components";
 
 import {
-	usePreviousProps,
 	Breadcrumb,
 	FlyoutMenu,
 	SplitView,
@@ -60,11 +58,12 @@ import { ThemeSelector } from "./theme-selector.js";
 import { convertPathToBreadcrumbTexts, getHashId, isGroupSection, scrollToHashLink, toLink } from "./utils.js";
 import { ShowcaseTypedoc } from "./typedoc.view.js";
 import { StyledShowcaseExampleWrapper } from "./showcase-example-content.js";
+import { useToast } from "./toast-context.js";
 
 export interface LayoutShowcaseContentBoxProps {
 	label: string;
 	showcases: Showcase[];
-	route: RouteComponentProps;
+	basePath: string;
 	fitToContentArea?: boolean;
 	widgetInfo?: WidgetInfo;
 	useFullPageLayout?: boolean;
@@ -195,8 +194,9 @@ interface ShowcaseTabProps {
 
 export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (props): ReactElement => {
 	const [currentHash, setCurrentHash] = useState("");
-	const [currentTabIndex, setCurrentTabIndex] = useState(0);
-	const prevPathname = usePreviousProps(props.route.location.pathname);
+	const location = useLocation();
+	const navigate = useNavigate();
+	const { showToast } = useToast();
 
 	const mapLabelToPath = (label: string, parentPath: string): string => {
 		return `${parentPath}/${label.trim().toLowerCase().replace(/\W+/g, "-")}`;
@@ -205,9 +205,9 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 	const mappedShowcases = useMemo(() => {
 		return props.showcases.map((showcase) => ({
 			...showcase,
-			path: props.route.match.path
+			path: props.basePath
 		}));
-	}, [props.route.match.path, props.showcases]);
+	}, [props.basePath, props.showcases]);
 
 	const showcaseTabs = useMemo((): ShowcaseTabProps[] | undefined => {
 		const groupSections = mappedShowcases[0].sections;
@@ -227,6 +227,55 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 		return undefined;
 	}, [mappedShowcases]);
 
+	const currentTabIndex = useMemo((): number => {
+		const subPathname = location.pathname.split("/").pop();
+
+		if (showcaseTabs && showcaseTabs.length > 0 && subPathname === "api") {
+			return showcaseTabs.length;
+		}
+
+		if (subPathname === "table") {
+			return 0;
+		}
+
+		const index = showcaseTabs?.findIndex((value) => toLink(value.label) === subPathname) ?? -1;
+
+		return index !== -1 ? index : 0;
+	}, [location.pathname, showcaseTabs]);
+
+	useEffect(() => {
+		if (location.pathname === props.basePath || location.pathname === `${props.basePath}/`) {
+			return;
+		}
+
+		if (!location.pathname.startsWith(`${props.basePath}/`)) {
+			return;
+		}
+
+		const subPathname = location.pathname.slice(props.basePath.length + 1).split("/")[0];
+
+		if (!subPathname) {
+			return;
+		}
+
+		if (showcaseTabs && showcaseTabs.length > 0) {
+			if (subPathname === "api") {
+				return;
+			}
+
+			if (showcaseTabs.some((tab) => toLink(tab.label) === subPathname)) {
+				return;
+			}
+		}
+
+		showToast({
+			variant: "warning",
+			header: "Page not found",
+			message: `"${subPathname}" doesn't exist — redirected to ${props.basePath}.`
+		});
+		navigate(props.basePath, { replace: true });
+	}, [location.pathname, props.basePath, showcaseTabs, navigate, showToast]);
+
 	const updateScrollToElement = useCallback((): void => {
 		if (window.location.hash) {
 			const hash = window.location.hash.split("#");
@@ -243,10 +292,10 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 	const handleTabClick = useCallback(
 		(path?: string) => {
 			if (path) {
-				props.route.history.push(path);
+				navigate(path);
 			}
 		},
-		[props.route.history]
+		[navigate]
 	);
 
 	useEffect(() => {
@@ -261,27 +310,6 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 	useEffect(() => {
 		document.title = `${props.label} - Widgets Showcase`;
 	}, [props.label]);
-
-	useEffect(() => {
-		const newPathname = props.route.location.pathname;
-		const newSubPathname = props.route.location.pathname.split("/").pop();
-
-		if (prevPathname !== newPathname) {
-			const indexOfNewPath = showcaseTabs?.findIndex((value) => toLink(value.label) === newSubPathname) ?? -1;
-
-			if (indexOfNewPath !== -1) {
-				setCurrentTabIndex(indexOfNewPath);
-			}
-		}
-
-		if (newSubPathname === "table") {
-			setCurrentTabIndex(0);
-		}
-
-		if (showcaseTabs && showcaseTabs.length > 0 && newSubPathname === "api") {
-			setCurrentTabIndex(showcaseTabs.length);
-		}
-	}, [prevPathname, props.route, showcaseTabs]);
 
 	const renderBreadcrumb = useCallback((path: string): ReactNode => {
 		return (
@@ -321,14 +349,14 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 										label: tab.label,
 										selected: index === currentTabIndex,
 										onClick: (): void => {
-											handleTabClick(mapLabelToPath(tab?.label, props.route.match.path));
+											handleTabClick(mapLabelToPath(tab?.label, props.basePath));
 										}
 									})),
 									{
 										label: "API",
 										selected: currentTabIndex === showcaseTabs.length,
 										onClick: (): void => {
-											handleTabClick(mapLabelToPath("api", props.route.match.path));
+											handleTabClick(mapLabelToPath("api", props.basePath));
 										}
 									}
 								]}
@@ -340,13 +368,9 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 								type="horizontal"
 								items={mappedShowcases.map((showcase) => ({
 									label: showcase.label,
-									selected: showcase.path === props.route.location.pathname,
+									selected: showcase.path === location.pathname,
 									onClick: (): void => {
-										if (showcase.path && props.route) {
-											props.route.location.pathname = showcase.path;
-										}
-
-										handleTabClick(mapLabelToPath(showcase?.label, props.route.match.path));
+										handleTabClick(mapLabelToPath(showcase?.label, props.basePath));
 									}
 								}))}
 							/>
@@ -408,7 +432,7 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 				layoutContent
 			);
 		},
-		[currentTabIndex, handleTabClick, props.route.match.path, props.widgetInfo, showcaseTabs]
+		[currentTabIndex, handleTabClick, props.basePath, props.widgetInfo, showcaseTabs]
 	);
 
 	const renderFullLayout = useCallback(
@@ -452,30 +476,10 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 				</StyledShowcaseSplitView>
 			);
 		},
-		[currentTabIndex, handleTabClick, props.route.match.path, props.widgetInfo, showcaseTabs]
+		[currentTabIndex, handleTabClick, props.basePath, props.widgetInfo, showcaseTabs]
 	);
 
-	const renderDesktopShowcase = useCallback(
-		(mappedShowcases: Showcase[]): ReactElement => {
-			return (
-				<Switch>
-					{mappedShowcases.map((showcase: Showcase, index) => {
-						return (
-							<Route
-								key={index}
-								path={showcase.path}
-								render={(): ReactNode =>
-									props.useFullPageLayout ? renderFullLayout(showcase) : renderLayout(showcase)
-								}
-							/>
-						);
-					})}
-					<Redirect to={mappedShowcases[0].path || ""} />
-				</Switch>
-			);
-		},
-		[renderLayout]
-	);
+	const showcase = mappedShowcases[0];
 
-	return renderDesktopShowcase(mappedShowcases);
+	return <>{props.useFullPageLayout ? renderFullLayout(showcase) : renderLayout(showcase)}</>;
 };

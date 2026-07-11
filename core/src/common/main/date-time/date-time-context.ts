@@ -33,7 +33,16 @@
 import { createContext } from "react";
 import { enUS, type Locale } from "date-fns/locale";
 
+import type { TimeFormat } from "./time-types.js";
+
 export interface DateTimeContextType {
 	readonly locale: Locale;
+
+	/**
+	 * The global clock mode for all datetime components.
+	 * Components will use this value unless overridden by their own `mode` or `timeMode` prop.
+	 * @default undefined (components fall back to "12h")
+	 */
+	readonly timeMode?: TimeFormat;
 }
 export const DateTimeContext = createContext<DateTimeContextType>({ locale: enUS });

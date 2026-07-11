@@ -234,6 +234,7 @@ export function TextAreaStateless(props: TextAreaStatelessProps): ReactElement<T
 					onTouchStart={addNoEffectClass}
 					onTouchEnd={removeNoEffectClass}
 					$first={index === 0}
+					$negativeMargin={false}
 				>
 					{suffix}
 				</StyledBaseInput.StyledFieldSuffixWrapper>

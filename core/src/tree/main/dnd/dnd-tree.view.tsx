@@ -42,6 +42,10 @@ import { DnDRootNode } from "./dnd-tree.internal.js";
 
 const baseClassName = addPrefix("treeWidget");
 
+/**
+ * @deprecated since 39.0.0. Use `TreeView` with its `dragDrop` prop instead — pragmatic-drag-and-drop
+ * reparenting (before/after/inside) replaces the react-dnd-based `DnDTree`.
+ */
 export class DnDTree extends PureComponent<DnDTreeProps> {
 	static displayName = "DnDTree";
 	constructor(props: DnDTreeProps) {

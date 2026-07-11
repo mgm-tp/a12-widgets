@@ -35,6 +35,7 @@ import { describe, vi, expect, test } from "vitest";
 
 import { noop } from "../../../common/main/utils.js";
 import { HintTooltip } from "../../../tooltip/hint/main/hint.view.js";
+import { DataRoles } from "../../../common/index.js";
 
 import { Switch } from "../main/switch.view.js";
 
@@ -202,5 +203,83 @@ describe("com.mgmtp.a12.widgets.switch", () => {
 
 		fireEvent.click(switchInput, { currentTarget: { checked: true } });
 		expect(onChangeSpy).toHaveBeenCalledTimes(1);
+	});
+
+	describe("switch with", () => {
+		test("renders default icons when `uncheckedIcon` and `checkedIcon` are not provided", () => {
+			const { getByDataRole, rerender } = render(<Switch onChange={noop} checked />);
+			const thumbIcon = getByDataRole(DataRoles.Switch.ThumbIcon);
+			expect(thumbIcon.textContent).toBe("check");
+
+			rerender(<Switch onChange={noop} checked={false} />);
+			expect(thumbIcon.textContent).toBe("remove");
+		});
+
+		test("renders custom icons when `checkedIcon` and `uncheckedIcon` are provided", () => {
+			const { getByDataRole, rerender } = render(
+				<Switch onChange={noop} checked={false} checkedIcon={<span>ON</span>} uncheckedIcon={<span>OFF</span>} />
+			);
+			const thumbIcon = getByDataRole(DataRoles.Switch.ThumbIcon);
+			expect(thumbIcon.textContent).toBe("OFF");
+
+			rerender(<Switch onChange={noop} checked checkedIcon={<span>ON</span>} uncheckedIcon={<span>OFF</span>} />);
+			expect(thumbIcon.textContent).toBe("ON");
+		});
+	});
+
+	describe("switch with label position", () => {
+		test("switch with label position top", () => {
+			const { getByDataRole, queryByDataRole } = render(
+				<Switch labelPosition="top" onChange={noop} id={properties.id} label={properties.label} />
+			);
+
+			const label = getByDataRole(DataRoles.Switch.Label);
+			const control = getByDataRole(DataRoles.Switch.Control);
+
+			expect(label).toBeTruthy();
+			expect(queryByDataRole(DataRoles.Switch.InlineWrapper)).toBeNull();
+			expect(control.previousElementSibling).toBe(label);
+		});
+
+		test("switch with label position left", () => {
+			const { getByDataRole } = render(
+				<Switch labelPosition="left" onChange={noop} id={properties.id} label={properties.label} />
+			);
+
+			const label = getByDataRole(DataRoles.Switch.Label);
+			const control = getByDataRole(DataRoles.Switch.Control);
+			const inlineWrapper = getByDataRole(DataRoles.Switch.InlineWrapper);
+
+			expect(label).toBeTruthy();
+			expect(inlineWrapper).toBeTruthy();
+			expect(control.previousElementSibling).toBe(label);
+		});
+
+		test("switch with label position right", () => {
+			const { getByDataRole } = render(
+				<Switch labelPosition="right" onChange={noop} id={properties.id} label={properties.label} />
+			);
+
+			const label = getByDataRole(DataRoles.Switch.Label);
+			const control = getByDataRole(DataRoles.Switch.Control);
+			const inlineWrapper = getByDataRole(DataRoles.Switch.InlineWrapper);
+
+			expect(label).toBeTruthy();
+			expect(inlineWrapper).toBeTruthy();
+			expect(label.previousElementSibling).toBe(control);
+		});
+
+		test("switch with label position bottom", () => {
+			const { getByDataRole, queryByDataRole } = render(
+				<Switch labelPosition="bottom" onChange={noop} id={properties.id} label={properties.label} />
+			);
+
+			const label = getByDataRole(DataRoles.Switch.Label);
+			const control = getByDataRole(DataRoles.Switch.Control);
+
+			expect(label).toBeTruthy();
+			expect(queryByDataRole(DataRoles.Switch.InlineWrapper)).toBeNull();
+			expect(label.previousElementSibling).toBe(control);
+		});
 	});
 });

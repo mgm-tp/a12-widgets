@@ -56,8 +56,15 @@ export type FontSize = {
 	tinyFontSize: string;
 };
 
+export type LineHeight = {
+	tight: number;
+	base: number;
+	relaxed: number;
+};
+
 export type BaseThemeTypographyType = {
 	font: Font;
 	fontWeight: FontWeight;
 	fontSize: FontSize;
+	lineHeight: LineHeight;
 };

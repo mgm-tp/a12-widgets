@@ -47,7 +47,7 @@ This is a practical example of how to migrate from the legacy Bar Chart Widget.
 - **Before:** Single component with properties
 
   ```tsx
-  import { ResponsiveChartContainer, BarChart } from "@com.mgmtp.a12.widgets/widgets-core/lib/chart/index.js";
+  import { ResponsiveChartContainer, BarChart } from "@com.mgmtp.a12.widgets/widgets-core";
 
   const DATA = [
   	{ product: "Apple", sale: 120 },

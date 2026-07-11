@@ -1,11 +1,14 @@
 {
 	"extends": "../tsconfig.json",
+	"exclude": ["./node_modules"],
 	"include": ["./src"],
 	"compilerOptions": {
+		"tsBuildInfoFile": "./target/tsconfig.tsbuildinfo",
+		"types": ["node"],
+		"rootDir": "./src",
 		"outDir": "./lib",
 		"typeRoots": ["./node_modules/@types", "./src/@types"],
 		"declarationMap": true,
-		"stripInternal": true,
-		"baseUrl": "src"
+		"stripInternal": true
 	}
 }

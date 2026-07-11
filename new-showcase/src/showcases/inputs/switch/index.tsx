@@ -38,10 +38,12 @@ import type { Showcase } from "../../../helpers/definitions.js";
 import { BasicSwitch } from "./basic.js";
 import { StatesAndMessagesSwitch } from "./states-and-messages.js";
 import { AddonsAndTooltipsSwitch } from "./addons-and-tooltips.js";
+import { LabelPositionSwitch } from "./label-position.js";
 
 import basicCode from "!./basic.tsx?raw";
 import statesAndMessagesCode from "!./states-and-messages.tsx?raw";
 import addonsAndTooltipsCode from "!./addons-and-tooltips.tsx?raw";
+import labelPositionCode from "!./label-position.tsx?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -74,6 +76,11 @@ const showcases: Showcase[] = [
 						<p>
 							It's also worth noting that the <code>for-attribute</code> will be added to the label if you supply an id
 							for the <strong>Switch</strong>.
+						</p>
+						<p>
+							By default, the switch thumb displays a "check" icon when on and a "remove" icon when off. You can replace
+							these with your own customization using the <code>checkedIcon</code> and <code>uncheckedIcon</code>{" "}
+							properties.
 						</p>
 					</>
 				),
@@ -119,6 +126,18 @@ const showcases: Showcase[] = [
 				),
 				content: <AddonsAndTooltipsSwitch />,
 				code: { name: "addons-and-tooltips.tsx", code: addonsAndTooltipsCode }
+			},
+			{
+				label: "Label Position",
+				description: (
+					<p>
+						By default, the label is displayed above the switch. You can change its position using the{" "}
+						<code>labelPosition</code> property, which accepts <b>top</b> (default), <b>left</b>, <b>right</b>, or{" "}
+						<b>bottom</b>.
+					</p>
+				),
+				content: <LabelPositionSwitch />,
+				code: { name: "label-position.tsx", code: labelPositionCode }
 			}
 		]
 	}

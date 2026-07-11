@@ -83,6 +83,12 @@ export function BackgroundColorsShowcase() {
 			textName: "background.groupBackground",
 			colorCode: themeColors.background.groupBackground,
 			textColor: "black"
+		},
+		{
+			description: "The accent background is used to support elements that need additional visual emphasis.",
+			textName: "background.accentGroup",
+			colorCode: themeColors.background.accentBackground,
+			textColor: "black"
 		}
 	];
 

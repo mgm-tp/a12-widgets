@@ -33,13 +33,14 @@
 import { render } from "test-utils";
 import { describe, expect, test, afterEach } from "vitest";
 import { userEvent } from "vitest/browser";
-import type { ChangeEvent, ReactNode } from "react";
+import type { ChangeEvent, KeyboardEvent, ReactNode } from "react";
 import { useRef, useState, useCallback, useEffect, useMemo } from "react";
 import { waitFor } from "@testing-library/dom";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 import { Button } from "../../button/main/button.view.js";
-import { TextLineStateless } from "../../input/text-line/main/template/text-line.tpl.view.js";
+import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
+import { TextField } from "../../input/text-field/main/template/text-field.tpl.view.js";
 import { DropDown } from "../../dropdown/main/template/dropdown.tpl.view.js";
 import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
 
@@ -98,7 +99,7 @@ function NestedPortalTestComponent({
 					>
 						<h4>First Portal</h4>
 						<p>Type to open nested portal</p>
-						<TextLineStateless
+						<TextField
 							id="nested-trigger-input"
 							label="Type to open 2nd portal"
 							value={inputValue}
@@ -339,7 +340,7 @@ describe("AttachedPortal - Nested Portals with Scrolling", () => {
 		const firstPortalInitialTop = firstPortal.getBoundingClientRect().top;
 
 		// Type to open nested portal
-		const input = getByDataRole(DataRoles.Textline.Input) as HTMLInputElement;
+		const input = getByDataRole(DataRoles.TextField.Input) as HTMLInputElement;
 		await userEvent.type(input, "test");
 
 		const portals = queryAllByDataRole(DataRoles.AttachedPortal);
@@ -391,5 +392,204 @@ describe("AttachedPortal - Nested Portals with Scrolling", () => {
 			expect(portalAfterRect.top).not.toEqual(initialPortalRect.top);
 			expect(portalAfterRect.top).toBeGreaterThanOrEqual(textareaAfterRect?.height);
 		});
+	});
+});
+
+// --- Additional interaction scenarios ---
+
+function ExampleAttachedPortal({
+	hideOnReferenceElementPositionChange,
+	hasReferenceElement,
+	position,
+	hasSubPortal,
+	title,
+	hasPortal = true
+}: {
+	hideOnReferenceElementPositionChange?: boolean;
+	hasReferenceElement?: boolean;
+	position?: { top: number; left: number };
+	hasSubPortal?: boolean;
+	title?: string;
+	hasPortal?: boolean;
+}): ReactNode {
+	const buttonRef = useRef<HTMLButtonElement | null>(null);
+	const [show, setShow] = useState(false);
+	const [addNewElement, setAddNewElement] = useState(false);
+	const [openSubPortal, setOpenSubPortal] = useState(false);
+	const buttonSubPortalRef = useRef<HTMLButtonElement | null>(null);
+
+	const getSubButtonRef = (ref: HTMLButtonElement): void => {
+		buttonSubPortalRef.current = ref;
+	};
+
+	const getButtonRef = (ref: HTMLButtonElement): void => {
+		buttonRef.current = ref;
+	};
+
+	const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>): void => {
+		if (event.key === "Enter" && buttonRef.current) {
+			buttonRef.current.style.position = "absolute";
+			buttonRef.current.style.top = "200px";
+			buttonRef.current.style.left = "200px";
+		}
+	};
+
+	return (
+		<InteractionHintConfigProvider enableInteractionHint>
+			<Button dataRole="trigger-change-position" onClick={() => setAddNewElement((prevState) => !prevState)}>
+				Change Position
+			</Button>
+			{addNewElement && <div style={{ height: "100px", width: "100px", backgroundColor: "pink" }} />}
+			<Button
+				buttonRef={getButtonRef}
+				dataRole="trigger-button"
+				title={title}
+				onClick={() => setShow((prevState) => !prevState)}
+				onKeyDown={handleKeyDown}
+			>
+				Trigger Button
+			</Button>
+			{buttonRef.current && show && hasPortal && (
+				<AttachedPortal
+					hideOnReferenceElementPositionChange={hideOnReferenceElementPositionChange}
+					onVisibilityChange={setShow}
+					referenceElement={hasReferenceElement ? buttonRef.current : undefined}
+					position={position}
+				>
+					<div style={{ height: "500px", width: "500px", backgroundColor: "green" }} data-role="portal-element" />
+					{hasSubPortal && !openSubPortal && (
+						<Button
+							dataRole="sub-menu-button"
+							buttonRef={getSubButtonRef}
+							onClick={() => setOpenSubPortal((prevState) => !prevState)}
+						>
+							Open sub portal
+						</Button>
+					)}
+				</AttachedPortal>
+			)}
+			{hasSubPortal && buttonSubPortalRef.current && openSubPortal && (
+				<AttachedPortal onVisibilityChange={setShow} position={{ top: 0, left: 0 }}>
+					<div style={{ height: "300px", width: "300px", backgroundColor: "pink" }} />
+				</AttachedPortal>
+			)}
+		</InteractionHintConfigProvider>
+	);
+}
+
+describe("AttachedPortal interaction behavior", () => {
+	describe("has given position", () => {
+		test("should not close when open another portal and it covers the trigger element", async () => {
+			const { getByDataRole } = render(<ExampleAttachedPortal hasSubPortal position={{ top: 100, left: 100 }} />);
+
+			await userEvent.click(getByDataRole("trigger-button") as HTMLElement);
+
+			const attachedPortal = getByDataRole(DataRoles.AttachedPortal) as HTMLElement;
+			expect(attachedPortal).toBeVisible();
+
+			await userEvent.click(getByDataRole("sub-menu-button") as HTMLElement);
+			expect(attachedPortal).toBeVisible();
+		});
+	});
+
+	describe("has referenceElement", () => {
+		test("should not close when open another portal and it covers the trigger element", async () => {
+			const { getByDataRole } = render(<ExampleAttachedPortal hasSubPortal hasReferenceElement />);
+
+			await userEvent.click(getByDataRole("trigger-button") as HTMLElement);
+
+			const attachedPortal = getByDataRole(DataRoles.AttachedPortal) as HTMLElement;
+			expect(attachedPortal).toBeVisible();
+
+			await userEvent.click(getByDataRole("sub-menu-button") as HTMLElement);
+			expect(attachedPortal).toBeVisible();
+		});
+	});
+
+	test("should close if the trigger element's position changes and hideOnReferenceElementPositionChange is set to true", async () => {
+		const { getByDataRole } = render(
+			<ExampleAttachedPortal hideOnReferenceElementPositionChange hasReferenceElement />
+		);
+
+		await userEvent.click(getByDataRole("trigger-button") as HTMLElement);
+		const attachedPortal = getByDataRole(DataRoles.AttachedPortal) as HTMLElement;
+		expect(attachedPortal).toBeVisible();
+
+		await userEvent.click(getByDataRole("trigger-change-position") as HTMLElement);
+		await waitFor(() => {
+			expect(attachedPortal).not.toBeVisible();
+		});
+	});
+
+	test("should not close if the trigger element's position changes and hideOnReferenceElementPositionChange is set to false", async () => {
+		const { getByDataRole } = render(
+			<ExampleAttachedPortal hideOnReferenceElementPositionChange={false} hasReferenceElement />
+		);
+
+		await userEvent.click(getByDataRole("trigger-button") as HTMLElement);
+		const attachedPortal = getByDataRole(DataRoles.AttachedPortal) as HTMLElement;
+		expect(attachedPortal).toBeVisible();
+
+		const boundingBox = attachedPortal.getBoundingClientRect();
+
+		await userEvent.click(getByDataRole("trigger-change-position") as HTMLElement);
+
+		await waitFor(
+			() => {
+				const boundingBoxAfter = attachedPortal.getBoundingClientRect();
+				expect(boundingBoxAfter.top).not.toEqual(boundingBox.top);
+				expect(boundingBoxAfter.left).not.toEqual(boundingBox.left);
+			},
+			{ timeout: 2000 }
+		);
+
+		expect(attachedPortal).toBeVisible();
+	});
+
+	test("should display the portal at the specified position", async () => {
+		const { getByDataRole } = render(
+			<ExampleAttachedPortal hideOnReferenceElementPositionChange={false} position={{ top: 100, left: 100 }} />
+		);
+
+		await userEvent.click(getByDataRole("trigger-button") as HTMLElement);
+		const attachedPortal = getByDataRole(DataRoles.AttachedPortal) as HTMLElement;
+		expect(attachedPortal).toBeVisible();
+
+		const boundingBox = attachedPortal.getBoundingClientRect();
+		expect(boundingBox.top).toEqual(100);
+		expect(boundingBox.left).toEqual(100);
+	});
+
+	test("should update the position of portal when the trigger element changes the position", async () => {
+		const { getByDataRole } = render(<ExampleAttachedPortal hasReferenceElement title="Interaction Hint" />);
+
+		const triggerElement = getByDataRole("trigger-button") as HTMLElement;
+		triggerElement.focus();
+
+		const interactionHint = await waitFor(() => getByDataRole(DataRoles.InteractionHint) as HTMLElement);
+		expect(interactionHint).toBeVisible();
+
+		await userEvent.click(triggerElement);
+		const attachedPortal = getByDataRole(DataRoles.AttachedPortal) as HTMLElement;
+		expect(attachedPortal).toBeVisible();
+
+		await waitFor(() => {
+			expect(interactionHint).not.toBeVisible();
+		});
+
+		const attachedPortalRect = attachedPortal.getBoundingClientRect();
+
+		await userEvent.click(getByDataRole("trigger-change-position") as HTMLElement);
+
+		await waitFor(
+			() => {
+				const rectAfter = attachedPortal.getBoundingClientRect();
+				expect(rectAfter.top).not.toEqual(attachedPortalRect.top);
+				expect(rectAfter.left).not.toEqual(attachedPortalRect.left);
+			},
+			{ timeout: 3000 }
+		);
+
+		expect(attachedPortal).toBeVisible();
 	});
 });

@@ -45,7 +45,7 @@ import { TimePickerInput } from "../../../time-picker/main/time-picker-input.vie
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
 import { DateTimeContext } from "../../../common/main/date-time/date-time-context.js";
 
-import { Footer } from "../date-time-picker.internal.js";
+import { DateTimePickerFooter } from "../date-time-picker.tpl.view.js";
 import type { DateTimePickerProps } from "../date-time-picker.api.js";
 import { DateTimePicker } from "../date-time-picker.view.js";
 
@@ -87,7 +87,7 @@ export class DateTimePickerTimeInput extends Component<DateTimePickerTimeInputPr
 	}
 
 	private getTime(value?: string): Date | undefined {
-		const timeFormat = TimeUtils.getTimeFormat(this.props.timeMode);
+		const timeFormat = TimeUtils.getTimeFormat(this.props.timeMode ?? this.context?.timeMode);
 
 		if (!value) {
 			return undefined;
@@ -99,7 +99,7 @@ export class DateTimePickerTimeInput extends Component<DateTimePickerTimeInputPr
 	private getDisplayTime(time: Date): string {
 		// This is due to the fact that getDisplayTime is called in constructore where the context is not available yet.
 		const locale: Locale = this.context?.locale || enUS;
-		const timeFormat = TimeUtils.getTimeFormat(this.props.timeMode);
+		const timeFormat = TimeUtils.getTimeFormat(this.props.timeMode ?? this.context?.timeMode);
 
 		return TimeUtils.formatUTCTime(time, locale, timeFormat);
 	}
@@ -201,7 +201,9 @@ export class DateTimePickerTimeInput extends Component<DateTimePickerTimeInputPr
 					this.inputRef = ref;
 				}}
 				errorMessage={this.state.invalidInputValue && this.props.invalidInputMessage}
-				placeholder={this.props.timeInputPlaceholder || TimeUtils.getTimeFormat(this.props.timeMode)}
+				placeholder={
+					this.props.timeInputPlaceholder || TimeUtils.getTimeFormat(this.props.timeMode ?? this.context.timeMode)
+				}
 				value={displayValue || ""}
 				icon={
 					<A11YLanguageContext.Consumer>
@@ -239,21 +241,21 @@ export class DateTimePickerTimeInput extends Component<DateTimePickerTimeInputPr
 
 		return (
 			this.props.customFooterElement || (
-				<Footer>
-					<Footer.Action>
+				<DateTimePickerFooter>
+					<DateTimePickerFooter.Action>
 						{this.state.screen !== "date" && (
 							<Button label={this.props.backLabel || "back"} onClick={this.handleBack} />
 						)}
-					</Footer.Action>
-					<Footer.Action>
+					</DateTimePickerFooter.Action>
+					<DateTimePickerFooter.Action>
 						<Button primary label={this.props.okLabel || "ok"} onClick={this.handleOk} />
-					</Footer.Action>
-					<Footer.Action>
+					</DateTimePickerFooter.Action>
+					<DateTimePickerFooter.Action>
 						{isShowClearButton && (
 							<Button destructive label={this.props.clearLabel || "clear"} onClick={this.handleClear} />
 						)}
-					</Footer.Action>
-				</Footer>
+					</DateTimePickerFooter.Action>
+				</DateTimePickerFooter>
 			)
 		);
 	}

@@ -627,6 +627,7 @@ export class DropDown extends Component<DropDownProps, DropDownState> {
 														useFocusStyle={props.useFocusStyle}
 														sectionId={item.id ?? `section-${index}`}
 														hideA11yLabel={this.props.hideA11yLabel}
+														labelRenderer={props.labelRenderer}
 													/>
 												);
 											})}
@@ -652,6 +653,7 @@ export class DropDown extends Component<DropDownProps, DropDownState> {
 											className={extendedItemClassName}
 											useFocusStyle={props.useFocusStyle}
 											hideA11yLabel={this.props.hideA11yLabel}
+											labelRenderer={props.labelRenderer}
 										/>
 									);
 								}
@@ -671,6 +673,7 @@ interface DropdownItemInternalProps extends Styleable, Identifiable {
 	sectionId?: string;
 	preselected?: boolean;
 	hideA11yLabel?: boolean;
+	labelRenderer?(item: DropdownItemProps): ReactNode;
 
 	onClick(item: DropdownItemProps, event: MouseEvent<HTMLElement>): void;
 
@@ -721,6 +724,7 @@ function DropDownItem(props: DropdownItemInternalProps): ReactElement<DropdownIt
 			}
 			$disabled={props.item.disabled}
 			$divider={props.item.divider}
+			$hasLabelRenderer={!!props.labelRenderer}
 		>
 			{props.item.graphic && (
 				<StyledDropdownGraphic
@@ -745,7 +749,7 @@ function DropDownItem(props: DropdownItemInternalProps): ReactElement<DropdownIt
 					$extended={dropdownContextValue.extended}
 					$horizontal={dropdownContextValue.horizontal}
 				>
-					{props.item.label}
+					{props.labelRenderer ? props.labelRenderer(props.item) : props.item.label}
 				</StyledDropdownText>
 			)}
 			{props.item.secondaryText && (

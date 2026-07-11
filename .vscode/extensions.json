@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "styled-components.vscode-styled-components",
+        "vitest.explorer",
+        "ms-playwright.playwright",
+        "editorconfig.editorconfig",
+        "antfu.pnpm-catalog-lens",
+        "yoavbls.pretty-ts-errors",
+        "davidanson.vscode-markdownlint",
+        "maptz.regionfolder"
+    ]
+}

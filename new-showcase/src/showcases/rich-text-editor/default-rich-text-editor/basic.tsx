@@ -31,15 +31,15 @@
  */
 
 import type { FC } from "react";
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 
-import "@com.mgmtp.a12.widgets/widgets-core/lib/rich-text-editor/main/themes/rich-text-editor.css";
-import { Icon, Radio, CheckboxGroup, DefaultRichTextEditor } from "@com.mgmtp.a12.widgets/widgets-core";
+import { CheckboxGroup, DefaultRichTextEditor, Radio } from "@com.mgmtp.a12.widgets/widgets-core";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 
 import { ConfigurationView } from "../../../helpers/configuration-view.js";
 
-import { EditorStyle } from "../style/inline-styled-editor-wrapper.styled.js";
 import { BUTTONS } from "../share/data.js";
+import { EditorStyle } from "../style/inline-styled-editor-wrapper.styled.js";
 
 export const Basic: FC = () => {
 	const [selectedValue, setSelectedValue] = useState("editable");
@@ -90,7 +90,6 @@ export const Basic: FC = () => {
 					initialConfig={{ namespace: "Default Rich Text Editor" }}
 					id="default-editor"
 					label="Basic Default Rich Text Editor"
-					labelGraphic={<Icon>info</Icon>}
 					disabled={selectedValue === "disabled"}
 					readonly={selectedValue === "readonly"}
 					autoExpand={selectedValue === "autoExpand"}
@@ -100,6 +99,7 @@ export const Basic: FC = () => {
 					helperText="Example Helper Text. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 					staticToolbarButtons={BUTTONS}
+					infoMessage="Type and use the toolbar to see how the editor works."
 				/>
 			</div>
 		</ConfigurationView>

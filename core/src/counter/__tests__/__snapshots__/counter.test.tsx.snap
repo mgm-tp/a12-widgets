@@ -47,16 +47,6 @@ exports[`com.mgmtp.a12.widgets.counter > render counter 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -64,6 +54,16 @@ exports[`com.mgmtp.a12.widgets.counter > render counter 1`] = `
 
   100% {
     transform: translateZ(0px);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -122,7 +122,8 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with addon 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -197,13 +198,13 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with addon 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -217,13 +218,13 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with addon 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -331,13 +332,13 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with placeholder 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k2;
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -351,13 +352,13 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with placeholder 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -453,13 +454,13 @@ exports[`com.mgmtp.a12.widgets.counter > render interactive counter 1`] = `
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -473,13 +474,13 @@ exports[`com.mgmtp.a12.widgets.counter > render interactive counter 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -560,13 +561,13 @@ exports[`com.mgmtp.a12.widgets.counter > render overflowed counter 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -580,13 +581,13 @@ exports[`com.mgmtp.a12.widgets.counter > render overflowed counter 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -665,13 +666,13 @@ exports[`com.mgmtp.a12.widgets.counter > render secondary counter 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -685,13 +686,13 @@ exports[`com.mgmtp.a12.widgets.counter > render secondary counter 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -770,13 +771,13 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -790,13 +791,13 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -875,13 +876,13 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 2`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -895,13 +896,13 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 2`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -980,13 +981,13 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 3`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -1000,13 +1001,13 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 3`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -1085,13 +1086,13 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 4`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -1105,13 +1106,13 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 4`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 

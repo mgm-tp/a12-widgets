@@ -36,7 +36,7 @@ import { loremIpsum } from "lorem-ipsum";
 
 import type { CommonToastProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { ConnectedToast, Radio, Button } from "@com.mgmtp.a12.widgets/widgets-core";
-import { AnimationWrapper } from "@com.mgmtp.a12.widgets/widgets-utils/lib/animation-wrapper/index.js";
+import { AnimationWrapper } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 import { ConfigurationView } from "../../../../helpers/configuration-view.js";
 

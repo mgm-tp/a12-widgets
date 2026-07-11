@@ -167,8 +167,6 @@ export function Card(props: CardProps): ReactElement<CardProps> {
 	);
 }
 
-Card.displayName = "Card";
-
 export namespace Card {
 	export function Media(props: CardProps.MediaProps): ReactElement<CardProps.MediaProps> {
 		const classNames = joinClassNames(`${baseClassName}__media`, props.className);
@@ -179,8 +177,6 @@ export namespace Card {
 			</StyledMediaWrapper>
 		);
 	}
-
-	Media.displayName = "Card.Media";
 
 	export function Content(props: CardProps.ContentProps): ReactElement<CardProps.ContentProps> {
 		return (
@@ -194,8 +190,6 @@ export namespace Card {
 			</StyledContentWrapper>
 		);
 	}
-
-	Content.displayName = "Card.Content";
 
 	export function ActionArea(props: CardProps.ActionAreaProps): ReactElement<CardProps.ActionAreaProps> {
 		const { onClick, onKeyDown, id, style, className, children, useLinkRole = true } = props;
@@ -266,6 +260,4 @@ export namespace Card {
 			</StyledActionAreaWrapper>
 		);
 	}
-
-	ActionArea.displayName = "Card.ActionArea";
 }

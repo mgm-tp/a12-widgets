@@ -48,6 +48,6 @@ export const ItalicButton = createInlineButton({
 
 export const UnderlineButton = createInlineButton({
 	nodeFormatType: "underline",
-	icon: <Icon iconTheme="outlined">format_underline</Icon>,
+	icon: <Icon iconTheme="outlined">format_underlined</Icon>,
 	title: (languageContext) => languageContext.pluginEditorTitles?.underlineButton
 });

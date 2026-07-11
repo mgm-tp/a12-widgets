@@ -335,11 +335,11 @@ export const ShowcaseStyles = createGlobalStyle`
 
 					.contentbox--determine-location {
 						[data-role="autocomplete"] {
-							[data-role="textline-input"] ~ [data-role="button"] {
+							[data-role="text-field-input"] ~ [data-role="button"] {
 								color: ${colors.interaction.secondaryInteractionColor};
 							}
 
-							[data-role="textline-input"][value=""] ~ [data-role="button"] {
+							[data-role="text-field-input"][value=""] ~ [data-role="button"] {
 								color: ${colors.secondaryColor};
 							}
 						}

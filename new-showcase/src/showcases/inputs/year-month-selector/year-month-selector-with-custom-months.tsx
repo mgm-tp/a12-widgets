@@ -54,6 +54,7 @@ export const YearMonthSelectorWithCustomMonths: FC = () => {
 				year={year}
 				onValueChange={onChange}
 				months={customMonths}
+				yearPlaceholder="YYYY"
 				hiddenLabels={{
 					yearLabel: "Year Select",
 					monthLabel: "Month Select"

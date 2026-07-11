@@ -272,6 +272,4 @@ export namespace Radio {
 			</StyledBaseBoolean.StyledFieldControl>
 		);
 	}
-
-	Item.displayName = "RadioItem";
 }

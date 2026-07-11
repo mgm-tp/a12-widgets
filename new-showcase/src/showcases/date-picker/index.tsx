@@ -95,7 +95,7 @@ const showcases: Showcase[] = [
 						<>
 							<p>
 								Use the <code>datePickerProps</code> to access the{" "}
-								<ExternalLink href="https://react-day-picker.js.org/api/interfaces/DayPickerBase">
+								<ExternalLink href="https://daypicker.dev/v9/api/type-aliases/DayPickerProps">
 									library's properties
 								</ExternalLink>
 								, such as:
@@ -235,8 +235,8 @@ const showcases: Showcase[] = [
 				content: <AccessibilityDatePickerShowcase />,
 				description: {
 					info: (
-						<p>
-							To ensure proper accessibility for screen readers, you can use:
+						<>
+							<p>To ensure proper accessibility for screen readers, you can use:</p>
 							<BulletList.Unordered>
 								<BulletList.Item>
 									On desktop: <code>datePickerProps</code> property. This will apply attributes to{" "}
@@ -247,7 +247,7 @@ const showcases: Showcase[] = [
 									attributes to the picker's modal overlay container element.
 								</BulletList.Item>
 							</BulletList.Unordered>
-						</p>
+						</>
 					),
 					note: (
 						<p>

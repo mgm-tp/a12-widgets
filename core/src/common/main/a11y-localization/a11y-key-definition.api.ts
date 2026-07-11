@@ -403,6 +403,32 @@ export interface TableTitles {
 	 * aria-label for Table's footer
 	 */
 	footerLabel?: string;
+
+	/**
+	 * Live-region announcement when a sort changes to ascending. Used by DataTable.
+	 */
+	sortAscendingAnnouncement?: string;
+
+	/**
+	 * Live-region announcement when a sort changes to descending. Used by DataTable.
+	 */
+	sortDescendingAnnouncement?: string;
+
+	/**
+	 * Live-region announcement when a sort is cleared. Used by DataTable.
+	 */
+	sortClearedAnnouncement?: string;
+
+	/**
+	 * Message announced when the table has no data rows. Used by DataTable.
+	 */
+	emptyStateLabel?: string;
+
+	/**
+	 * Default fallback aria-label for an action column whose definition doesn't supply
+	 * a `label` or `hiddenText`. Used by DataTable.
+	 */
+	actionColumnDefaultLabel?: string;
 }
 
 export interface HeaderTriggerTitles {
@@ -463,8 +489,6 @@ export interface CounterTitles {
 	counterUnit?: string;
 }
 
-/** @deprecated since version 38.2.0. Use {@link IconPickerTitles} instead. */
-export type IconPicker = IconPickerTitles;
 export interface IconPickerTitles {
 	viewListMaterialIconsTitle?: string;
 	clearTextButton?: string;

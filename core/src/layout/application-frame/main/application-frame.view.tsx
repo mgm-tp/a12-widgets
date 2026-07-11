@@ -444,6 +444,4 @@ export namespace ApplicationFrame {
 			</StyledToggleSidebarButtonWrapper>
 		);
 	}
-
-	ToggleSidebarButton.displayName = "ToggleSidebarButton";
 }

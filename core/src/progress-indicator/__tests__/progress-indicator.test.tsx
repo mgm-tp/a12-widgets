@@ -30,8 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, queryByAttribute, waitFor } from "test-utils";
+import { render, queryByAttribute, waitFor, getByDataRole } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
+
+import { DataRoles } from "../../common/main/data-roles.js";
 
 import { ProgressIndicator } from "../main/progress-indicator.view.js";
 
@@ -98,6 +100,22 @@ describe("com.mgmtp.a12.widgets.progress-indicator", () => {
 	test("render progress indicator with hidden loading circle", () => {
 		const { container } = render(<ProgressIndicator hideLoadingCircle id="id-test" />);
 		expect(container).toMatchSnapshot();
+	});
+
+	test("render progress indicator with focusOnOpen", async () => {
+		const { container } = render(
+			<div style={{ width: "100px", height: "100px" }}>
+				<ProgressIndicator focusOnOpen />
+			</div>
+		);
+
+		await waitFor(() => {
+			expect(getByDataRole(container, DataRoles.HiddenText)).toBeTruthy();
+		});
+		await waitFor(() => {
+			const innerOverlay = getByDataRole(container, DataRoles.ProgressIndicator.InnerOverlay);
+			expect(innerOverlay).toHaveFocus();
+		});
 	});
 
 	test("render progress indicator with scrollIntoView", async () => {

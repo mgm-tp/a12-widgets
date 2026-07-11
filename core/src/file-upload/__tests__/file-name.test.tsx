@@ -32,6 +32,7 @@
 
 import { render, fireEvent, getByDataRole, queryByDataRole, screen } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 
 import { Icon } from "../../icon/main/icon.view.js";
 import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
@@ -160,7 +161,7 @@ describe("com.mgmtp.a12.widgets.default-file-upload.simplified", () => {
 		expect(onCancelFn).toHaveBeenCalledTimes(1);
 	});
 
-	test("simulate upload area click", () => {
+	test("simulate upload area click", async () => {
 		const onUploadAreaClick = vi.fn();
 		const uploadAreaRefFn = vi.fn();
 		render(<DefaultFileUpload {...properties} uploadAreaRef={uploadAreaRefFn} onUploadAreaClick={onUploadAreaClick} />);
@@ -171,5 +172,21 @@ describe("com.mgmtp.a12.widgets.default-file-upload.simplified", () => {
 
 		fireEvent.click(uploadArea);
 		expect(uploadAreaRefFn).toHaveBeenCalledTimes(1);
+		await userEvent.keyboard("{Escape}");
+	});
+
+	test("should not overflow when its parent has padding", () => {
+		const { container } = render(
+			<div style={{ padding: "16px" }}>
+				<DefaultFileUpload {...properties} />
+			</div>
+		);
+		const fileUpload = getByDataRole(container, DataRoles.FileUpload);
+		const fileUploadContent = getByDataRole(container, DataRoles.FileUpload.Content);
+
+		const fileUploadWidth = fileUpload.getBoundingClientRect().width;
+		const fileUploadContentWidth = fileUploadContent.getBoundingClientRect().width;
+
+		expect(fileUploadContentWidth).toBeLessThanOrEqual(fileUploadWidth);
 	});
 });

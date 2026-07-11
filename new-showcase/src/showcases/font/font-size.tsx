@@ -38,7 +38,7 @@ import { Key } from "ts-key-enum";
 import type { FontSize } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
 	LayoutGrid,
-	TextLineStateless,
+	TextField,
 	TextAffix,
 	HintTooltip,
 	createFontSizeConfig
@@ -73,7 +73,7 @@ export const FontSizeShowcaseContent = () => {
 						<strong>Font Size</strong> is used to define the font size of an element.
 					</p>
 					It is calculated based on <code>typography.font.BASE_FONT_SIZE</code>:&nbsp;&nbsp;
-					<TextLineStateless
+					<TextField
 						fitToParent={false}
 						value={temporaryBaseFontSize}
 						onChange={handleFontSizeChange}

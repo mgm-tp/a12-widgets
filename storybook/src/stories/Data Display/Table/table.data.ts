@@ -1,0 +1,80 @@
+/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+import type { BaseColumnType } from "@com.mgmtp.a12.widgets/widgets-core";
+
+export default {};
+export interface Employee {
+	id: number;
+	firstName: string;
+	lastName: string;
+	department: string;
+	role: string;
+	status: string;
+}
+
+export const EMPLOYEES: Employee[] = [
+	{
+		id: 1,
+		firstName: "Alice",
+		lastName: "Smith",
+		department: "Engineering",
+		role: "Senior Engineer",
+		status: "Active"
+	},
+	{ id: 2, firstName: "Bob", lastName: "Johnson", department: "Sales", role: "Account Manager", status: "Active" },
+	{ id: 3, firstName: "Carol", lastName: "Williams", department: "Marketing", role: "Designer", status: "On Leave" },
+	{ id: 4, firstName: "David", lastName: "Brown", department: "Finance", role: "Analyst", status: "Active" },
+	{ id: 5, firstName: "Eve", lastName: "Davis", department: "Engineering", role: "Team Lead", status: "Active" }
+];
+
+export const BASIC_COLUMNS: BaseColumnType<Employee>[] = [
+	{ label: "ID", dataKey: "id", width: 0.4, fixedWidth: true, verticalAlignment: "middle", pinning: "left" },
+	{
+		label: "First Name",
+		dataKey: "firstName",
+		width: 1,
+		sortable: true,
+		sortDirections: ["asc", "desc"],
+		verticalAlignment: "middle"
+	},
+	{
+		label: "Last Name",
+		dataKey: "lastName",
+		width: 1,
+		sortable: true,
+		sortDirections: ["asc", "desc"],
+		verticalAlignment: "middle"
+	},
+	{ label: "Department", dataKey: "department", width: 1.5, verticalAlignment: "middle" },
+	{ label: "Role", dataKey: "role", width: 1.5, verticalAlignment: "middle" }
+];

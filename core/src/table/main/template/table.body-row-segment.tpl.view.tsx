@@ -36,8 +36,8 @@ import { styled, css } from "styled-components";
 
 import { joinClassNames } from "../../../common/main/utils.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-import { useTableContext } from "../../new-api/table.context.js";
 
+import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import { StyledTableBodyRow } from "./table.body-row.tpl.view.js";
@@ -46,8 +46,7 @@ import { StyledBaseTable } from "./table.styled.js";
 
 export const StyledTableBodyRowSegment = styled(StyledBaseTable.Segment).withConfig({
 	displayName: "StyledTableBodyRowSegment-sc-"
-})(({ theme, rowSegmentType }) => {
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
+})<{ $crossTabulation?: boolean }>(({ theme, rowSegmentType, $crossTabulation: crossTabulation }) => {
 	const { bodyRow } = theme.components.table;
 
 	return css`
@@ -90,6 +89,7 @@ export const BodyRowSegmentTpl = memo(function BodyRowSegmentTpl(
 	props: TableTemplateProps.RowSegmentProps
 ): ReactElement<TableTemplateProps.RowSegmentProps> {
 	const cardView = useTableContext((context) => context.cardView);
+	const crossTabulation = useTableContext((context) => context.crossTabulation);
 
 	const classNames = useMemo(() => {
 		return joinClassNames(`${BASE_TABLE_CLASSNAME}__contentRow--${props.type}`, props.className);
@@ -103,6 +103,7 @@ export const BodyRowSegmentTpl = memo(function BodyRowSegmentTpl(
 			dataRole={props.dataRole || `table-body-row--${props.type}`}
 			rowSegmentType={props.type}
 			cardView={cardView}
+			$crossTabulation={crossTabulation}
 		>
 			{props.children}
 		</StyledTableBodyRowSegment>

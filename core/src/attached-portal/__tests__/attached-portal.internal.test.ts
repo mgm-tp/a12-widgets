@@ -30,7 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, beforeEach, afterEach } from "vitest";
+import { page } from "vitest/browser";
 
 import { hasRectChanged, computeMaxSize } from "../main/attached-portal.internal.js";
 
@@ -106,31 +107,28 @@ describe("attached-portal.internal", () => {
 	});
 
 	describe("computeMaxSize", () => {
+		let originalViewport: { width: number; height: number };
+
+		beforeEach(async () => {
+			originalViewport = { width: window.innerWidth, height: window.innerHeight };
+			await page.viewport(1920, 1080);
+		});
+
+		afterEach(async () => {
+			await page.viewport(originalViewport.width, originalViewport.height);
+		});
+
 		test("should compute max size for bottom-start orientation", () => {
 			const referenceRect = { left: 100, right: 200, top: 100, bottom: 150, width: 100, height: 50, x: 100, y: 100 };
-
-			// Mock window.innerWidth and window.innerHeight
-			const originalInnerWidth = window.innerWidth;
-			const originalInnerHeight = window.innerHeight;
-
-			Object.defineProperty(window, "innerWidth", { value: 1920, writable: true, configurable: true });
-			Object.defineProperty(window, "innerHeight", { value: 1080, writable: true, configurable: true });
 
 			const result = computeMaxSize(referenceRect, "bottom-start");
 
 			expect(result.maxWidth).toBeGreaterThan(0);
 			expect(result.maxHeight).toBeGreaterThan(0);
-
-			// Restore original values
-			Object.defineProperty(window, "innerWidth", { value: originalInnerWidth, configurable: true });
-			Object.defineProperty(window, "innerHeight", { value: originalInnerHeight, configurable: true });
 		});
 
 		test("should compute max size for top-end orientation", () => {
 			const referenceRect = { left: 100, right: 200, top: 200, bottom: 250, width: 100, height: 50, x: 100, y: 200 };
-
-			Object.defineProperty(window, "innerWidth", { value: 1920, writable: true, configurable: true });
-			Object.defineProperty(window, "innerHeight", { value: 1080, writable: true, configurable: true });
 
 			const result = computeMaxSize(referenceRect, "top-end");
 
@@ -141,9 +139,6 @@ describe("attached-portal.internal", () => {
 		test("should compute max size for right-start orientation", () => {
 			const referenceRect = { left: 100, right: 200, top: 100, bottom: 150, width: 100, height: 50, x: 100, y: 100 };
 
-			Object.defineProperty(window, "innerWidth", { value: 1920, writable: true, configurable: true });
-			Object.defineProperty(window, "innerHeight", { value: 1080, writable: true, configurable: true });
-
 			const result = computeMaxSize(referenceRect, "right-start");
 
 			expect(result.maxWidth).toBeGreaterThan(0);
@@ -152,9 +147,6 @@ describe("attached-portal.internal", () => {
 
 		test("should compute max size for left-end orientation", () => {
 			const referenceRect = { left: 500, right: 600, top: 100, bottom: 150, width: 100, height: 50, x: 500, y: 100 };
-
-			Object.defineProperty(window, "innerWidth", { value: 1920, writable: true, configurable: true });
-			Object.defineProperty(window, "innerHeight", { value: 1080, writable: true, configurable: true });
 
 			const result = computeMaxSize(referenceRect, "left-end");
 
@@ -173,9 +165,6 @@ describe("attached-portal.internal", () => {
 				x: 100.5,
 				y: 100.5
 			};
-
-			Object.defineProperty(window, "innerWidth", { value: 1920, writable: true, configurable: true });
-			Object.defineProperty(window, "innerHeight", { value: 1080, writable: true, configurable: true });
 
 			const result = computeMaxSize(referenceRect, "bottom-start");
 

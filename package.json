@@ -1,40 +1,40 @@
 {
 	"name": "root",
 	"private": true,
-	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
-	"packageManager": "pnpm@10.18.2+sha512.9fb969fa749b3ade6035e0f109f0b8a60b5d08a1a87fdf72e337da90dcc93336e2280ca4e44f2358a649b83c17959e9993e777c2080879f3801e6f0d999ad3dd",
+	"packageManager": "pnpm@11.0.9+sha512.34ce82e6780233cf9cad8685029a8f81d2e06196c5a9bad98879f7424940c6817c4e4524fb7d38b8553ceed48b9758b8ebaf1abd3600c232c4c8cf7366086f38",
 	"scripts": {
 		"compile": "pnpm -r compile",
-		"clean": "pnpm -r clean",
+		"clean": "pnpm run -r clean",
 		"start": "pnpm -r --parallel start",
 		"test": "pnpm -r test",
 		"lint": "pnpm \"/^lint:.*/\"",
 		"lint:eslint": "pnpm -r --parallel --no-bail lint:eslint",
-		"lint:prettier": "prettier . --check",
+		"lint:prettier": "prettier . --check --experimental-cli --parallel-workers 2",
 		"lint:detect-cycle": "devtools detect-cycles \"./{core,utils,new-showcase}/src/**/*.@(ts|tsx)\"",
 		"format": "pnpm \"/format:/\"",
 		"format:eslint": "pnpm lint:eslint --fix",
-		"format:prettier": "prettier . --write",
+		"format:prettier": "prettier . --write --experimental-cli --parallel-workers 2",
 		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@com.mgmtp.a12.devtools/build-tools": "^1.1.0",
-		"@com.mgmtp.a12.devtools/eslint-config": "^3.1.0",
-		"@com.mgmtp.a12.devtools/prettier-config": "^1.1.0",
-		"@com.mgmtp.a12.devtools/tsconfig": "^1.1.0",
-		"@stylistic/eslint-plugin": "5.6.1",
+		"@com.mgmtp.a12.devtools/build-tools": "^1.1.2",
+		"@com.mgmtp.a12.devtools/eslint-config": "^3.1.2",
+		"@com.mgmtp.a12.devtools/prettier-config": "^1.1.1",
+		"@com.mgmtp.a12.devtools/tsconfig": "^2.0.1",
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"@types/node": "catalog:",
 		"@types/unzipper": "^0.10.11",
 		"eslint": "^9.39.4",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-notice": "^1.0.0",
-		"eslint-plugin-react-refresh": "^0.4.26",
-		"eslint-plugin-storybook": "^10.3.5",
-		"globals": "^16.5.0",
+		"eslint-plugin-react-refresh": "^0.5.3",
+		"eslint-plugin-storybook": "^10.4.4",
+		"globals": "^17.6.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.4.0",
-		"prettier": "^3.8.2",
-		"typescript": "5.8.2",
-		"typescript-eslint": "^8.58.1",
+		"lint-staged": "^17.0.7",
+		"prettier": "^3.8.4",
+		"typescript": "catalog:",
+		"typescript-eslint": "^8.61.0",
 		"unzipper": "^0.12.3"
 	},
 	"lint-staged": {
@@ -43,12 +43,7 @@
 			"eslint --fix"
 		]
 	},
-	"version": "38.3.3",
-	"a12Version": "2025.06-ext5",
-	"pnpm": {
-		"patchedDependencies": {
-			"react-dnd@16.0.1": "core/patches/pnpm/react-dnd@16.0.1.patch"
-		}
-	},
+	"version": "39.0.2",
+	"a12Version": "2026.06-ext0",
 	"type": "module"
 }

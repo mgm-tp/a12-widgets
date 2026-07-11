@@ -39,7 +39,7 @@ import { getHorizontalSpace } from "../../common/main/utils.js";
 
 import type { IconVerticalAlignment } from "./typography.api.js";
 
-type Level = 1 | 2 | 3 | 4 | 5;
+export type Level = 1 | 2 | 3 | 4 | 5;
 
 const iconAlignmentStyle = (alignment: IconVerticalAlignment) => {
 	return css`
@@ -49,7 +49,8 @@ const iconAlignmentStyle = (alignment: IconVerticalAlignment) => {
 
 export const StyledTypographyWrapper = styled.div.withConfig({ displayName: "StyledTypographyWrapper-sc-" })<{
 	$level: Level;
-}>(({ theme, $level }) => {
+	$compact?: boolean;
+}>(({ theme, $level, $compact }) => {
 	const { typography } = theme.components;
 	const headlineLevel = typography[`headline${$level}`];
 
@@ -59,8 +60,25 @@ export const StyledTypographyWrapper = styled.div.withConfig({ displayName: "Sty
 		display: flex;
 		min-height: ${typography.wrapper.minHeight};
 		outline: none;
-		padding: ${typography.wrapper.padding};
+		padding: ${$compact ? typography.collapsible.compact : typography.wrapper.padding};
 		position: relative;
+
+		&:hover [class*="StyledTypographyHeaderActions"],
+		&:focus-within [class*="StyledTypographyHeaderActions"] {
+			opacity: 1;
+
+			[data-type="icon"] {
+				border-radius: 4px;
+
+				${StyledIconWrapper} {
+					color: inherit;
+				}
+
+				&:hover ${StyledIconWrapper} {
+					color: inherit;
+				}
+			}
+		}
 	`;
 });
 
@@ -81,7 +99,8 @@ export const StyledTypographyDivider = styled.div.withConfig({ displayName: "Sty
 export const StyledTypographyGraphic = styled.div.withConfig({ displayName: "StyledTypographyGraphic-sc-" })<{
 	$level: Level;
 	$iconVerticalAlignment: IconVerticalAlignment;
-}>(({ theme, $level, $iconVerticalAlignment }) => {
+	$hasHeaderActions?: boolean;
+}>(({ theme, $level, $iconVerticalAlignment, $hasHeaderActions }) => {
 	const { typography } = theme.components;
 
 	return css`
@@ -90,7 +109,13 @@ export const StyledTypographyGraphic = styled.div.withConfig({ displayName: "Sty
 		height: ${typography[`headline${$level}`].height};
 		margin: ${typography.graphic.margin};
 
-		${iconAlignmentStyle($iconVerticalAlignment)}
+		${$hasHeaderActions
+			? css`
+					align-self: center;
+				`
+			: css`
+					${iconAlignmentStyle($iconVerticalAlignment)}
+				`}
 
 		${StyledIconWrapper} {
 			align-items: center;
@@ -112,15 +137,17 @@ export const StyledTypographyHeadline = styled.div.withConfig({ displayName: "St
 	$noFocus?: boolean;
 	$noEffect?: boolean;
 	$typographyColor?: string;
-}>(({ theme, $level, $collapsible, $noFocus, $noEffect, $typographyColor }) => {
+	$compact?: boolean;
+}>(({ theme, $level, $collapsible, $noFocus, $noEffect, $typographyColor, $compact }) => {
 	const { typography } = theme.components;
 	const headlineLevel = typography[`headline${$level}`];
+	const compactStyle = typography.collapsible.compact;
 
 	return css`
 		color: ${$typographyColor ?? headlineLevel.color};
 		font-family: ${headlineLevel.font};
-		font-size: ${headlineLevel.fontSize};
-		font-weight: ${headlineLevel.fontWeight};
+		font-size: ${$compact ? `calc(${headlineLevel.fontSize} * 0.75)` : headlineLevel.fontSize};
+		font-weight: ${$compact ? theme.typography.fontWeight.boldFontWeight : headlineLevel.fontWeight};
 		margin: ${headlineLevel.margin};
 		outline: none;
 		padding: ${headlineLevel.padding};
@@ -128,6 +155,7 @@ export const StyledTypographyHeadline = styled.div.withConfig({ displayName: "St
 
 		${$collapsible &&
 		!$noEffect &&
+		!$compact &&
 		css`
 			cursor: pointer;
 			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -154,22 +182,66 @@ export const StyledTypographyHeadline = styled.div.withConfig({ displayName: "St
 		`}
 
 		${$collapsible &&
-		!$noFocus &&
+		!$noEffect &&
+		$compact &&
 		css`
-			&:focus-within {
-				color: ${typography.collapsible.focusColor};
+			${StyledIconWrapper} {
+				background-color: transparent;
+			}
+
+			cursor: pointer;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			${active(css`
 				${StyledTypographyWrapper} {
-					background-color: ${typography.collapsible.focusBG};
-					${darkFocus}
+					background-color: ${compactStyle?.activeBackgroundColor};
+					box-shadow: ${compactStyle?.activeBoxShadow};
 				}
-				${StyledTypographyDivider} {
-					border-top-color: transparent;
+			`)}
+			${hover(css`
+				${StyledTypographyWrapper} {
+					background-color: ${compactStyle?.hoverBackgroundColor};
+					box-shadow: ${compactStyle?.hoverBoxShadow};
 				}
-				${StyledTypographyGraphic} ${StyledIconWrapper} {
-					background-color: transparent;
+			`)}
+			&:has(${StyledTypographyHeaderActions}:hover) {
+				${StyledTypographyWrapper} {
+					box-shadow: none;
 				}
 			}
 		`}
+
+		${$collapsible &&
+		!$noFocus &&
+		($compact
+			? css`
+					&:focus-within {
+						${StyledTypographyWrapper} {
+							background-color: transparent;
+							box-shadow: ${compactStyle?.activeBoxShadow};
+						}
+					}
+
+					&:has(${StyledTypographyHeaderActions}:focus-within) {
+						${StyledTypographyWrapper} {
+							box-shadow: none;
+						}
+					}
+				`
+			: css`
+					&:focus-within {
+						color: ${typography.collapsible.focusColor};
+						${StyledTypographyWrapper} {
+							background-color: ${typography.collapsible.focusBG};
+							${darkFocus}
+						}
+						${StyledTypographyDivider} {
+							border-top-color: transparent;
+						}
+						${StyledTypographyGraphic} ${StyledIconWrapper} {
+							background-color: transparent;
+						}
+					}
+				`)}
 	`;
 });
 
@@ -226,6 +298,21 @@ export const StyledTypographyAddon = styled.div.withConfig({ displayName: "Style
 		`;
 	}
 );
+
+export const StyledTypographyHeaderActions = styled.div.withConfig({
+	displayName: "StyledTypographyHeaderActions-sc-"
+})(({ theme }) => {
+	const { spacing } = theme.spacing;
+
+	return css`
+		align-items: center;
+		display: flex;
+		gap: ${spacing.spacing2xs}px;
+		margin-left: auto;
+		margin-right: ${spacing.spacing2xs}px;
+		opacity: 0;
+	`;
+});
 
 export const StyledTypographyAddons = styled.div.withConfig({ displayName: "StyledTypographyAddons-sc-" })<{
 	$level: Level;

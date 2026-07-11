@@ -669,7 +669,8 @@ exports[`com.mgmtp.a12.widgets.tree-table > interactive tree table with hidden r
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -954,7 +955,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > interactive tree table with hidden r
   justify-content: center;
 }
 
-.c48 > :not(.StyledCounter-sc-kNkaAz):not(.StyledTooltipWrapper-sc-bqyqat) {
+.c48 > :not(.StyledCounter-sc-egdIVr):not(.StyledTooltipTriggerWrapper-sc-cBsekp) {
   font-size: 1rem;
   max-height: 20px;
   width: 20px;
@@ -1461,7 +1462,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > interactive tree table with hidden r
   min-height: 22px;
 }
 
-.c17 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c17 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1494,7 +1495,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > interactive tree table with hidden r
   text-align: center;
 }
 
-.c19 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1527,7 +1528,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > interactive tree table with hidden r
   text-align: right;
 }
 
-.c21 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c21 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1549,7 +1550,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > interactive tree table with hidden r
   width: 22px;
 }
 
-.c67 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c67 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1571,7 +1572,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > interactive tree table with hidden r
   width: 22px;
 }
 
-.c68 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c68 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -3795,7 +3796,8 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering basic tree table with colu
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4094,7 +4096,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering basic tree table with colu
   justify-content: center;
 }
 
-.c52 > :not(.StyledCounter-sc-kNkaAz):not(.StyledTooltipWrapper-sc-bqyqat) {
+.c52 > :not(.StyledCounter-sc-egdIVr):not(.StyledTooltipTriggerWrapper-sc-cBsekp) {
   font-size: 1rem;
   max-height: 20px;
   width: 20px;
@@ -4530,7 +4532,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering basic tree table with colu
   border-color: transparent;
 }
 
-.c75 > .c47:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c75 > .c47:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -4552,7 +4554,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering basic tree table with colu
   width: 22px;
 }
 
-.c76 > .c47:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c76 > .c47:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -4574,7 +4576,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering basic tree table with colu
   width: 22px;
 }
 
-.c77 > .c47:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c77 > .c47:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -4605,7 +4607,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering basic tree table with colu
   line-height: 120%;
 }
 
-.c17 > .c47:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c17 > .c47:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -4638,7 +4640,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering basic tree table with colu
   text-align: center;
 }
 
-.c24 > .c47:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c24 > .c47:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -8371,7 +8373,8 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering resizable tree table 1`] =
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -8678,7 +8681,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering resizable tree table 1`] =
   justify-content: center;
 }
 
-.c49 > :not(.StyledCounter-sc-kNkaAz):not(.StyledTooltipWrapper-sc-bqyqat) {
+.c49 > :not(.StyledCounter-sc-egdIVr):not(.StyledTooltipTriggerWrapper-sc-cBsekp) {
   font-size: 1rem;
   max-height: 20px;
   width: 20px;
@@ -9183,7 +9186,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering resizable tree table 1`] =
   min-height: 22px;
 }
 
-.c16 > .c44:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c16 > .c44:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -9216,7 +9219,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering resizable tree table 1`] =
   text-align: center;
 }
 
-.c19 > .c44:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c19 > .c44:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -9249,7 +9252,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering resizable tree table 1`] =
   text-align: right;
 }
 
-.c21 > .c44:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c21 > .c44:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -9271,7 +9274,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering resizable tree table 1`] =
   width: 22px;
 }
 
-.c72 > .c44:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c72 > .c44:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -9293,7 +9296,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering resizable tree table 1`] =
   width: 22px;
 }
 
-.c73 > .c44:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c73 > .c44:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -11846,7 +11849,8 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with additional
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -12153,7 +12157,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with additional
   justify-content: center;
 }
 
-.c48 > :not(.StyledCounter-sc-kNkaAz):not(.StyledTooltipWrapper-sc-bqyqat) {
+.c48 > :not(.StyledCounter-sc-egdIVr):not(.StyledTooltipTriggerWrapper-sc-cBsekp) {
   font-size: 1rem;
   max-height: 20px;
   width: 20px;
@@ -12685,7 +12689,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with additional
   min-height: 22px;
 }
 
-.c16 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c16 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -12718,7 +12722,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with additional
   text-align: center;
 }
 
-.c18 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c18 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -12751,7 +12755,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with additional
   text-align: right;
 }
 
-.c20 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c20 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -12773,7 +12777,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with additional
   width: 22px;
 }
 
-.c69 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c69 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -12795,7 +12799,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with additional
   width: 22px;
 }
 
-.c70 > .c43:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c70 > .c43:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -15461,7 +15465,8 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with dnd 1`] = 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -15746,7 +15751,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with dnd 1`] = 
   justify-content: center;
 }
 
-.c50 > :not(.StyledCounter-sc-kNkaAz):not(.StyledTooltipWrapper-sc-bqyqat) {
+.c50 > :not(.StyledCounter-sc-egdIVr):not(.StyledTooltipTriggerWrapper-sc-cBsekp) {
   font-size: 1rem;
   max-height: 20px;
   width: 20px;
@@ -16287,7 +16292,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with dnd 1`] = 
   min-height: 22px;
 }
 
-.c21 > .c45:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c21 > .c45:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -16320,7 +16325,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with dnd 1`] = 
   text-align: center;
 }
 
-.c16 > .c45:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c16 > .c45:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -16353,7 +16358,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with dnd 1`] = 
   text-align: right;
 }
 
-.c22 > .c45:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c22 > .c45:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -16375,7 +16380,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with dnd 1`] = 
   width: 22px;
 }
 
-.c71 > .c45:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c71 > .c45:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -16397,7 +16402,7 @@ exports[`com.mgmtp.a12.widgets.tree-table > rendering tree table with dnd 1`] = 
   width: 22px;
 }
 
-.c72 > .c45:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c72 > .c45:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 

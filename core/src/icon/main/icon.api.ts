@@ -36,7 +36,7 @@ import type { Styleable, Container, Identifiable, DataRole, HTMLAttributes } fro
 
 /**
  * The icon widget wraps HTML <i> element.
- * By default, it shows the corresponding icon from The Material Icons (https://design.google.com/icons/).
+ * By default, it shows the corresponding icon from Material Symbols (https://fonts.google.com/icons).
  */
 
 export interface IconProps extends Styleable, Identifiable, Container, DataRole, HTMLAttributes {
@@ -44,6 +44,15 @@ export interface IconProps extends Styleable, Identifiable, Container, DataRole,
 	 * Specifies the title attribute for the icon.
 	 */
 	title?: string;
+
+	/**
+	 * Specifies the hidden text for the icon.
+	 *
+	 * - If set to a specific value, use that value.
+	 * - If set to an empty string (`""`), no hidden text is rendered at all.
+	 * - If not set (default), the value of {@link title} is used.
+	 */
+	hiddenText?: string;
 
 	/**
 	 * If true, the title will be shown as a tooltip, otherwise, it will not be shown but still be able to read it by screen readers.
@@ -54,17 +63,16 @@ export interface IconProps extends Styleable, Identifiable, Container, DataRole,
 	/**
 	 * Icon theme to use for rendering the icon.
 	 *
-	 * - `filled`: Solid filled icons from Material Icons
-	 * - `outlined`: Outlined/stroke-based icons from Material Icons
-	 * - `rounded`: Rounded corner variant from Material Icons
+	 * - `filled`: Solid filled icons from Material Symbols (uses FILL axis)
+	 * - `outlined`: Outlined/stroke-based icons from Material Symbols
+	 * - `rounded`: Rounded corner variant from Material Symbols (uses FILL axis, fill enabled by default)
 	 * - `custom`: Custom icon implementations
 	 *
 	 * @default 'filled'
-	 * @see [filled]{@link https://fonts.google.com/icons?selected=Material+Icons&icon.style=Filled}
-	 * @see [outlined]{@link https://fonts.google.com/icons?selected=Material+Icons&icon.style=Outlined}
+	 * @see [filled]{@link https://fonts.google.com/icons?icon.style=Filled}
+	 * @see [outlined]{@link https://fonts.google.com/icons?icon.style=Outlined}
+	 * @see [rounded]{@link https://fonts.google.com/icons?icon.style=Rounded}
 	 * @see [custom]{@link #/widgets/general/icon#custom-icons}
-	 * @remarks
-	 * The 'rounded' theme option was added to support Material Icons rounded variant.
 	 */
 	iconTheme?: IconTheme;
 

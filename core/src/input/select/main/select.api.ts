@@ -36,7 +36,7 @@
  * @module
  */
 
-import type { RefCallback, HTMLProps } from "react";
+import type { RefCallback, HTMLProps, ReactNode } from "react";
 
 import type { DataRole } from "../../../common/main/base-props.js";
 import type { DropDownItem } from "../../../dropdown/main/template/dropdown.tpl.api.js";
@@ -93,7 +93,10 @@ export interface SelectProps<T extends HTMLElement = HTMLSelectElement>
 	horizontalMode?: boolean;
 }
 
-export interface CustomSelectProps extends Omit<SelectProps<HTMLInputElement>, "customInputProps"> {
+/**
+ * The props of Custom Select.
+ */
+export interface CustomSelectProps extends Omit<SelectProps<HTMLInputElement>, "customInputProps" | "useCustomView"> {
 	/**
 	 * Whether the list of items would be opened when focusing the input.
 	 * @default false
@@ -180,12 +183,21 @@ export interface CustomSelectProps extends Omit<SelectProps<HTMLInputElement>, "
 	 * Callback when the modal is opened.
 	 */
 	onModalOpen?(): void;
+
+	/**
+	 * Custom function to render custom label.
+	 * This allows for flexible rendering of rich content label inside both select input and dropdown items.
+	 *
+	 * @param item - The dropdown item being rendered
+	 * @returns ReactNode to be rendered as the label
+	 */
+	labelRenderer?(item: DropDownItem): ReactNode;
 }
 
 /**
- * Props for native HTML select element, inheriting from SelectProps but excluding custom input properties.
+ * The props of native HTML select element.
  */
-export type NativeSelectProps = Omit<SelectProps, "customInputProps">;
+export type NativeSelectProps = Omit<SelectProps, "customInputProps" | "useCustomView">;
 
 export interface SelectItem
 	extends

@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { RefCallback } from "react";
+import type { RefCallback, FocusEvent } from "react";
 
 import type { DataRole } from "../../common/main/base-props.js";
 
@@ -38,10 +38,25 @@ import type { BaseInputProps, InputDOMProps } from "../base/template/base.tpl.ap
 
 import type { OptionalYearMonthItem } from "./month-selector.api.js";
 
+/**
+ * Absolute year range. Both fields are optional to support single-bound ranges.
+ */
 export type YearRange = {
-	start: number;
-	end: number;
+	start?: number;
+	end?: number;
 };
+
+/**
+ * Relative year range expressed as offsets from the reference year
+ * (the currently selected year, or today's year when no year is selected).
+ */
+export type RelativeYearRange = {
+	startOffset?: number;
+	endOffset?: number;
+};
+
+/** Controls which rendering mode the YearSelector uses. */
+export type YearSelectorVariant = "autocomplete" | "select" | "textbox";
 
 export interface YearSelectorProps<
 	T extends OptionalYearMonthItem | undefined = undefined,
@@ -54,14 +69,37 @@ export interface YearSelectorProps<
 	year?: number;
 
 	/**
-	 * The value of the start and end years.
-	 * @default start: {@link year} - 6; end: {@link year} + 7
+	 * The range of selectable years, either as absolute values (`YearRange`) or
+	 * relative offsets from the reference year (`RelativeYearRange`).
+	 * Single-bound ranges are supported; the missing side is filled automatically.
+	 * Only applies when `variant="autocomplete"` or `variant="select"`. Ignored for `variant="textbox"`.
+	 * @default start: referenceYear - 6; end: referenceYear + 7
 	 */
-	yearRange?: YearRange;
+	yearRange?: YearRange | RelativeYearRange;
+
+	/**
+	 * Controls the rendering mode.
+	 * When omitted, the mode is auto-detected: `"autocomplete"` if {@link yearRange} is provided, `"textbox"` otherwise.
+	 */
+	variant?: YearSelectorVariant;
+
+	/**
+	 * The template for the hint text shown in the autocomplete dropdown.
+	 * Only applies when `variant="autocomplete"`.
+	 * @see {@link AutocompleteProps.hintTemplate}
+	 */
+	autocompleteHintTemplate?: string;
+
+	/**
+	 * Placeholder text shown when no year is selected.
+	 * Has no effect when `optionalItem` is provided.
+	 */
+	placeholder?: string;
 
 	/**
 	 * This optional item will be set as the first item of YearSelector
 	 * and return an undefined value if selected.
+	 * Only applies when `variant="select"` or `variant="autocomplete"`. Has no effect on `variant="textbox"`.
 	 */
 	optionalItem?: T;
 
@@ -71,7 +109,15 @@ export interface YearSelectorProps<
 	onYearChange?(year: Year): void;
 
 	/**
+	 * Callback invoked when the year selector loses focus.
+	 * Only applies to `textbox` and `autocomplete` variants;
+	 * Has no effect on `variant="select"`.
+	 */
+	onBlur?(event: FocusEvent<HTMLInputElement>): void;
+
+	/**
 	 * The reference of the year selector.
+	 * Only applies when `variant="select"`.
 	 * @param instance – the year select element instance.
 	 */
 	yearSelectRef?: RefCallback<HTMLSelectElement>;

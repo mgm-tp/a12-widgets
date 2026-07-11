@@ -187,9 +187,12 @@ export function ApplicationLevelToastGroupShowcase(): ReactElement {
 				});
 			};
 
+			const { key: toastItemKey, ...toastProps } = updatedToast;
+
 			return (
 				<Toast
-					{...updatedToast}
+					key={toastItemKey}
+					{...toastProps}
 					message={toastWithLongMessage ? renderMessage : NORMAL_TEXT}
 					collapse={
 						toastWithLongMessage && (

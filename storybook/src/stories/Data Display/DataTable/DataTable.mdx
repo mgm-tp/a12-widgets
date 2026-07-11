@@ -1,0 +1,87 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Data Display/DataTable/Overview" />
+
+# DataTable
+
+> ⚠️ **Experimental.** `DataTable` is the CSS-grid-based successor to the production `Table`.
+> Not every `Table` feature is available yet — see the migration notes for the supported subset.
+> The API may still change.
+
+`DataTable` renders a native `<table>` driven entirely by CSS: column tracks are CSS
+custom properties on the table root, pinned columns use `position: sticky`, and there is
+**no imperative column-width sync, no per-row scroll containers, and no `RowScrollManager`**.
+That makes it lighter than the production `Table` while keeping native table semantics for
+accessibility.
+
+```tsx
+import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core";
+
+<DataTable
+	ariaLabel="Employees"
+	data={rows}
+	columns={[
+		{ label: "ID", dataKey: "id", width: 0.4, fixedWidth: true },
+		{ label: "Name", dataKey: "name", sortable: true },
+		{ label: "Department", dataKey: "department" }
+	]}
+	rowKey="id"
+/>;
+```
+
+**New here?** Open **DataTable › Playground** to toggle the display props live, or
+**DataTable › Full Example** for a realistic assembly (sorting + pinning + filter row +
+selection + footer) you can copy.
+
+## Where to look
+
+Each story group isolates one capability. Start here:
+
+| If you want to…                                      | See the group       |
+| ---------------------------------------------------- | ------------------- |
+| Render a basic table, sort, pin, card view           | **DataTable**       |
+| Control width, alignment, fixed vs. fluid columns    | **Columns**         |
+| Row/cell selection, styling, context menu, scroll-to | **Interactions**    |
+| Customize cells/headers (render hooks vs. slots)     | **Customization**   |
+| Group rows, nest columns, cross-tabulate             | **Grouping**        |
+| Show detail content under a row                      | **Expandable Rows** |
+| Add a sticky filter row                              | **Filter Row**      |
+| Virtualize, resize, or infinite-scroll large data    | **Large Data**      |
+
+### Customizing presentation — three layers
+
+Pick the narrowest tool that fits:
+
+1. **Column render hooks** (`renderCell` / `renderHeader` / `renderFooter` / `renderFilter`)
+   — own the presentation of **one column** while `dataKey`/`dataGetter` still resolves the
+   value (so sorting, footers and filtering keep working). Prefer these for single-column
+   tweaks. → _Customization > Render Hooks_
+2. **Content slots** (`headContent`, `cellContent`) — transform **every** column's label or
+   value from one place, falling back to `defaultContent`. → _Customization > Content Slots_
+3. **Structural slots** (`row`, `cell`, …) — take full control of an element. Slot components
+   must have **stable identity** (declare at module scope or memoize) and should compose the
+   self-wiring `DataTable.*` primitives so sorting/selection/keyboard/context-menu stay intact.
+   → _Customization > Render Hooks (Row Slot)_
+
+## Feature compatibility
+
+A few features cannot be combined. The most important constraints:
+
+| Feature                 | Requires    | Notes                                                                                              |
+| ----------------------- | ----------- | -------------------------------------------------------------------------------------------------- |
+| `virtualScrollOptions`  | `maxHeight` | **Silently disables** `dragDropOptions`, row groups, `rowExpansion`, and column resize.            |
+| `infiniteScrollOptions` | `maxHeight` | **Overrides** `virtualScrollOptions` when both are set. Same column-width rules as virtualization. |
+| `cellHighlighting`      | a header    | Forced **off** in `cardView`, when `disabled`, or when `hideHeader` is set.                        |
+| `cardView`              | —           | Hides `<thead>` and forces `cellHighlighting` off.                                                 |
+| `disabled`              | —           | Suppresses all event handlers; `rowStyling`, `cellStyling` and `cellHighlighting` go inactive.     |
+
+### `actionColumn` width differs from production `Table`
+
+The production `Table` measures action cells in JS and sizes the column to its buttons.
+`DataTable` does **no** such measurement: a width-less `actionColumn` falls back to a fixed
+**`150px`** track. Set an explicit `width` / `fixedWidth` to control it.
+
+### Deprecated / ignored props
+
+- `enableColumnGroupA11y` — has no effect; native `<th scope colspan rowspan>` semantics are always on.
+- `virtualScrollOptions.overscanRowCount` — migration alias for `overscan`; use `overscan`.

@@ -30,13 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { getByDataRole, render, fireEvent } from "test-utils";
+import { getAllByDataRole, getByDataRole, render, fireEvent } from "test-utils";
 import { describe, expect, test } from "vitest";
 
 import { Tag } from "../../../tag/main/tag/tag.view.js";
 import { Icon } from "../../../icon/main/icon.view.js";
 import { PopUpMenu } from "../../../pop-up-menu/main/pop-up-menu.view.js";
 import { Button } from "../../../button/main/button.view.js";
+import { DataRoles } from "../../../common/index.js";
 
 import { Comment } from "../main/comment.view.js";
 
@@ -132,7 +133,7 @@ describe("com.mgmtp.a12.widgets.comment.comment", () => {
 			<Comment commentMeta={generateMeta()} inactive showAllText={showAllText} minimiseText={minimizeText} />
 		);
 		expect(container.firstChild).toMatchSnapshot();
-		const buttonTrigger = getByDataRole(container, "button");
+		const buttonTrigger = getByDataRole(container, DataRoles.Button);
 		fireEvent.click(buttonTrigger);
 		expect(container.firstChild).toMatchSnapshot();
 	});
@@ -173,5 +174,51 @@ describe("com.mgmtp.a12.widgets.comment.comment", () => {
 	test("rendering-comment-with-replies-comment", () => {
 		const { container } = render(<Comment commentMeta={generateMeta()} replies={<p>Comment here</p>} />);
 		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("resets-padding-right-from-reply-level-2-and-above", () => {
+		const actionButton = <Button label="Actions" />;
+		const { container } = render(
+			<Comment
+				isReply
+				commentMeta={generateMeta()}
+				combinedActionButton={actionButton}
+				replies={
+					<Comment
+						isReply
+						commentMeta={generateMeta()}
+						combinedActionButton={actionButton}
+						replies={
+							<Comment
+								isReply
+								commentMeta={generateMeta()}
+								combinedActionButton={actionButton}
+								replies={
+									<Comment isReply commentMeta={generateMeta()} combinedActionButton={actionButton}>
+										{content}
+									</Comment>
+								}
+							>
+								{content}
+							</Comment>
+						}
+					>
+						{content}
+					</Comment>
+				}
+			>
+				{content}
+			</Comment>
+		);
+
+		const commentWrappers = getAllByDataRole(container, DataRoles.Comment);
+
+		// Main comment and its reply (level 1), wrappers keep their non-zero replyComment right padding
+		expect(window.getComputedStyle(commentWrappers[0]).paddingRight).not.toBe("0px");
+		expect(window.getComputedStyle(commentWrappers[1]).paddingRight).not.toBe("0px");
+
+		// From level 2 (level 1's replies), padding-right is reset so that it will make sure all element inside stay right-aligned
+		expect(window.getComputedStyle(commentWrappers[2]).paddingRight).toBe("0px");
+		expect(window.getComputedStyle(commentWrappers[3]).paddingRight).toBe("0px");
 	});
 });

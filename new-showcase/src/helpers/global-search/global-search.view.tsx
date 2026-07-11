@@ -61,11 +61,11 @@ const StyledInputShowcase = styled(TextField)(({ theme }) => {
 	const { typography } = theme;
 
 	return css`
-		[data-role="textline-input-wrapper"] {
+		[data-role="text-field-input-wrapper"] {
 			box-shadow: none;
 			outline: none;
 		}
-		[data-role="textline-input"] {
+		[data-role="text-field-input"] {
 			font-size: ${typography.fontSize.lgFontSize};
 		}
 	`;

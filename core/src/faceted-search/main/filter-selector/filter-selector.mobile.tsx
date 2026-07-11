@@ -492,6 +492,4 @@ export namespace FilterSelectorMobile {
 			</>
 		);
 	}
-
-	FilterItem.displayName = "FilterItem";
 }

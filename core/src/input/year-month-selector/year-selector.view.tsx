@@ -30,69 +30,207 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
-import { useMemo } from "react";
+import type { ChangeEvent, ReactElement } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-import { joinClassNames, Range, addPrefix } from "../../common/main/utils.js";
+import { Range } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
 
 import type { SelectItem } from "../select/main/select.api.js";
+import { Autocomplete } from "../autocomplete/main/autocomplete.view.js";
+import { TextField } from "../text-field/main/template/text-field.tpl.view.js";
 
-import { StyledYearSelector } from "./year-month-selector.styled.js";
-import type { YearRange, YearSelectorProps } from "./year-selector.api.js";
+import { StyledYearSelector, StyledYearSelectorWrapper } from "./year-month-selector.styled.js";
+import type { YearSelectorProps } from "./year-selector.api.js";
 import type { OptionalYearMonthItem } from "./month-selector.api.js";
+import {
+	clampRangeToYear,
+	detectVariant,
+	normalizeAutocompleteValue,
+	parseYearDigits,
+	resolveYearRange
+} from "./year-selector.utils.js";
+
+function TextboxYearSelector({
+	year,
+	placeholder,
+	onBlur,
+	fitToParent,
+	style,
+	dataRole: dataRoleProp,
+	onYearChange,
+	...baseInputProps
+}: YearSelectorProps): ReactElement {
+	const dataRole = dataRoleProp || DataRoles.Year.Selector;
+	const [inputValue, setInputValue] = useState(year !== undefined ? String(year) : "");
+	const lastCommittedRef = useRef<number | undefined>(year);
+
+	useEffect(() => {
+		if (year !== lastCommittedRef.current) {
+			lastCommittedRef.current = year;
+			setInputValue(year !== undefined ? String(year) : "");
+		}
+	}, [year]);
+
+	const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+		const digits = event.currentTarget.value.replace(/\D/g, "");
+		setInputValue(digits);
+
+		const normalizedYear = parseYearDigits(digits);
+
+		if (normalizedYear !== null) {
+			const parsed = normalizedYear ? parseInt(normalizedYear, 10) : undefined;
+
+			lastCommittedRef.current = parsed;
+			(onYearChange as ((y: number | undefined) => void) | undefined)?.(parsed);
+		}
+	};
+
+	return (
+		<StyledYearSelectorWrapper data-role={dataRole} style={style}>
+			<TextField
+				{...baseInputProps}
+				fitToParent={fitToParent}
+				placeholder={placeholder}
+				onChange={handleChange}
+				inputProps={{
+					type: "text",
+					inputMode: "numeric",
+					pattern: "[0-9]*",
+					maxLength: 4,
+					value: inputValue,
+					"data-role": DataRoles.Year.Selector.Input,
+					onBlur
+				}}
+			/>
+		</StyledYearSelectorWrapper>
+	);
+}
 
 export function YearSelector<T extends undefined | OptionalYearMonthItem = undefined>(
 	props: YearSelectorProps<T>
 ): ReactElement<YearSelectorProps> {
-	const itemValue = props.year ?? (props.optionalItem ? undefined : new Date().getUTCFullYear());
+	const {
+		year,
+		yearRange,
+		variant: variantProp,
+		placeholder,
+		optionalItem,
+		autocompleteHintTemplate,
+		onYearChange,
+		yearSelectRef,
+		inputProps,
+		className: classNameProp,
+		dataRole: dataRoleProp,
+		fitToParent,
+		onBlur,
+		...rest
+	} = props;
 
-	const hasOptionalItem = (
-		value: string,
-		_onYearChange: (year: T extends OptionalYearMonthItem ? number | undefined : number) => void
-	): _onYearChange is (year: number | undefined) => void => {
-		return !Number(value);
-	};
+	const activeVariant = detectVariant(variantProp, yearRange);
+	const referenceYear = year ?? new Date().getUTCFullYear();
+	const dataRole = dataRoleProp || DataRoles.Year.Selector;
 
-	const onValueChanged = (value: string): void => {
-		if (!props.onYearChange) {
-			return;
-		}
+	const resolvedRange = useMemo(() => {
+		const base = resolveYearRange(yearRange, referenceYear);
 
-		if (hasOptionalItem(value, props.onYearChange)) {
-			props.onYearChange(undefined);
-		} else {
-			props.onYearChange(Number(value));
-		}
-	};
-
-	const yearRange = useMemo((): YearRange => {
-		const year = props.year || new Date().getUTCFullYear();
-
-		return {
-			start: props.yearRange?.start || year - 6,
-			end: props.yearRange?.end || year + 7
-		};
-	}, [props.yearRange, props.year]);
+		return clampRangeToYear(base, year);
+	}, [yearRange, referenceYear, year]);
 
 	const years: SelectItem[] = useMemo(
 		() =>
-			Array.from(new Range(yearRange.start, yearRange.end + 1)).map((item: number) => ({
+			Array.from(new Range(resolvedRange.start, resolvedRange.end + 1)).map((item: number) => ({
 				label: `${item}`,
 				value: `${item}`
 			})),
-		[yearRange]
+		[resolvedRange]
 	);
+
+	const yearStrings = useMemo(() => years.map((yearItem) => yearItem.value as string), [years]);
+
+	const handleYearChange = (yearText?: string): void => {
+		if (!onYearChange) {
+			return;
+		}
+
+		if (!yearText) {
+			(onYearChange as (year: number | undefined) => void)(undefined);
+
+			return;
+		}
+
+		const parsedYear = parseInt(yearText, 10);
+
+		if (!isNaN(parsedYear)) {
+			onYearChange(parsedYear as Parameters<typeof onYearChange>[0]);
+		}
+	};
+
+	if (activeVariant === "textbox") {
+		return <TextboxYearSelector {...(props as YearSelectorProps)} />;
+	}
+
+	if (activeVariant === "autocomplete") {
+		const handleValueChange = (rawAutocompleteValue: string | unknown): void => {
+			const normalized = normalizeAutocompleteValue(rawAutocompleteValue);
+			const digits = normalized.replace(/\D/g, "");
+			const normalizedYear = parseYearDigits(digits);
+
+			if (normalizedYear === null) {
+				return;
+			}
+
+			handleYearChange(normalizedYear);
+		};
+
+		const autocompleteItems: DropDownItem[] | string[] = optionalItem
+			? [
+					{ label: optionalItem.label, value: "", isEmptyValue: true },
+					...years.map((yearItem) => ({ label: yearItem.label, value: yearItem.value as string }))
+				]
+			: yearStrings;
+
+		return (
+			<StyledYearSelectorWrapper data-role={dataRole} style={rest.style}>
+				<Autocomplete
+					{...rest}
+					enableClearButton={false}
+					value={year !== undefined ? String(year) : undefined}
+					inputPlaceHolder={placeholder}
+					hintTemplate={autocompleteHintTemplate ?? ""}
+					onValueChange={handleValueChange}
+					items={autocompleteItems}
+					inputProps={{
+						"data-role": DataRoles.Year.Selector.Input,
+						inputMode: "numeric",
+						pattern: "[0-9]*",
+						maxLength: 4,
+						onBlur
+					}}
+				/>
+			</StyledYearSelectorWrapper>
+		);
+	}
+
+	const firstSelectItem = optionalItem ? [{ label: optionalItem.label, value: "", isEmptyValue: true }] : [];
+	const selectItems = [...firstSelectItem, ...years];
+	const showPlaceholder = !optionalItem && placeholder !== undefined && year === undefined;
+	const selectValue =
+		year !== undefined ? `${year}` : optionalItem !== undefined || showPlaceholder ? "" : `${referenceYear}`;
 
 	return (
 		<StyledYearSelector
-			{...props}
-			value={`${itemValue}`}
-			onValueChanged={onValueChanged}
-			className={joinClassNames(addPrefix("year-selector"), props.className)}
-			dataRole={props.dataRole || DataRoles.Year.Selector}
-			selectRef={props.yearSelectRef}
-			items={props.optionalItem ? [{ label: props.optionalItem.label }, ...years] : years}
+			{...rest}
+			fitToParent={fitToParent}
+			inputProps={inputProps}
+			value={selectValue}
+			onValueChanged={handleYearChange}
+			className={classNameProp}
+			dataRole={dataRole}
+			selectRef={yearSelectRef}
+			items={selectItems}
+			placeholder={showPlaceholder ? placeholder : undefined}
 		/>
 	);
 }

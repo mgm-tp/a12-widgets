@@ -30,25 +30,53 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
+import type { FC, FocusEvent } from "react";
 import { useState } from "react";
 
 import { YearSelector } from "@com.mgmtp.a12.widgets/widgets-core";
 
+import { validateYearOnBlur } from "./year-selector-validation.utils.js";
+
 export const BasicYearSelector: FC = () => {
-	const [year, setYear] = useState(2023);
+	const [year, setYear] = useState<number>();
+	const [errorMessage, setErrorMessage] = useState<string>();
+	const [hiddenLabelErrorMessage, setHiddenLabelErrorMessage] = useState<string>();
+
+	const handleYearChange = (value?: number): void => {
+		setYear(value);
+	};
+
+	const validationRange = { min: 1900, max: new Date().getFullYear() };
+
+	const handleBlur = (ev: FocusEvent<HTMLInputElement>): void => {
+		setErrorMessage(validateYearOnBlur(ev, validationRange));
+	};
+
+	const handleHiddenLabelBlur = (event: FocusEvent<HTMLInputElement>): void => {
+		setHiddenLabelErrorMessage(validateYearOnBlur(event, validationRange));
+	};
 
 	return (
 		<div className="-u-width-full">
-			<YearSelector id="simple-year-selector" label="Simple Year Selector" year={year} onYearChange={setYear} />
-			<br />
+			<YearSelector
+				id="simple-year-selector"
+				label="Simple Year Selector"
+				year={year}
+				onYearChange={handleYearChange}
+				onBlur={handleBlur}
+				placeholder="YYYY"
+				errorMessage={errorMessage}
+			/>
 			<br />
 			<YearSelector
 				id="hidden-label-selector"
 				year={year}
-				onYearChange={setYear}
+				onYearChange={handleYearChange}
 				label="Hidden Label Year Selector"
 				hideLabel
+				placeholder="YYYY"
+				onBlur={handleHiddenLabelBlur}
+				errorMessage={hiddenLabelErrorMessage}
 			/>
 		</div>
 	);

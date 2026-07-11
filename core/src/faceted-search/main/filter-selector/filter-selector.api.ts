@@ -143,23 +143,32 @@ export namespace FilterSelectorProps {
 		/**
 		 * Event that will be fired when the Filter Item is clicked.
 		 * @param id – identifier of the Filter Item.
+		 * @param event
 		 */
 		onClick?(id: string, event?: MouseEvent<HTMLElement>): void;
 
 		/**
 		 * Event that will be fired when the Filter Item is hovered.
 		 * @param id – identifier of the Filter Item.
+		 * @param event
 		 */
 		onMouseOver?(id: string, event: MouseEvent<HTMLElement>): void;
 
 		/**
 		 * Event that will be fired when the Filter Item is focused.
 		 * @param id – identifier of the Filter Item.
+		 * @param event
 		 */
 		onFocus?(id: string, event?: FocusEvent<HTMLElement>): void;
 	}
 }
 
+/**
+ * Props for the FilterSelector component in classic (attached-portal) mode.
+ *
+ * Also used as the base type for backward-compatible usage.
+ * For list mode, use {@link FilterSelectorListModeProps} instead.
+ */
 export interface FilterSelectorProps extends FilterSelectorBaseProps {
 	/**
 	 * Element that is used to align the Filter Selector.
@@ -170,7 +179,7 @@ export interface FilterSelectorProps extends FilterSelectorBaseProps {
 	 * Close on hitting Escape
 	 * @default true
 	 */
-	closeOnEsc: boolean;
+	closeOnEsc?: boolean;
 
 	/**
 	 * Callback that will be fired when the visibility of the Filter Selector is changed.
@@ -185,6 +194,7 @@ export interface FilterSelectorProps extends FilterSelectorBaseProps {
 	/**
 	 * Event that will be fired when the Filter Item is being hovered.
 	 * @param id – identifier of the Filter Item that is being hovered.
+	 * @param event
 	 */
 	onFilterMouseOver?(id: string, event: MouseEvent<HTMLElement>): void;
 }
@@ -245,6 +255,7 @@ export interface FilterSelectorBaseProps extends Styleable, Identifiable, InputD
 	/**
 	 * Event that will be fired when the Filter Item is clicked.
 	 * @param id - identifier of the Filter Item.
+	 * @param event
 	 */
 	onFilterClick?(id: string, event?: MouseEvent<HTMLElement>): void;
 

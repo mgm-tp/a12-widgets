@@ -35,8 +35,8 @@ import { describe, expect, test } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
 
-import type { BaseTableRowsGroupColumnType, RowsGroup } from "../new-api/table-rows-group/table-row-group.api.js";
-import { TableRowsGroup } from "../new-api/table-rows-group/table-row-group.view.js";
+import type { BaseTableRowsGroupColumnType, RowsGroup } from "../main/table-rows-group/table-row-group.api.js";
+import { TableRowsGroup } from "../main/table-rows-group/table-row-group.view.js";
 
 describe("com.mgmtp.a12.widgets.table-row-group", () => {
 	const COLUMN_COUNT = 4;

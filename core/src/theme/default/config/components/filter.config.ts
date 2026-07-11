@@ -36,6 +36,16 @@ export type FilterConfigType = {
 	actionButton: { borderLeft: string; icon: { fontSize: string } };
 	background: string;
 	borderRadius: string | number;
+	prefix?: {
+		width?: string;
+		height?: string;
+		marginRight?: string;
+		borderRadius?: string | number;
+		background?: string;
+		color?: string;
+		fontSize?: string;
+		fontWeight?: number;
+	};
 	content: {
 		active: { border: string; color: string };
 		focus: { border: string; color: string };
@@ -81,7 +91,7 @@ export const filterConfig = (theme: BaseThemeType): FilterConfigType => {
 	const {
 		colors,
 		spacing: { spacing, horizontalSpacing, verticalSpacing },
-		typography: { font, fontSize }
+		typography: { font, fontSize, fontWeight }
 	} = theme;
 
 	const filterBarContentSpacingBottom = `${verticalSpacing.vertWhiteSpacingxs - 2}px`;
@@ -148,6 +158,16 @@ export const filterConfig = (theme: BaseThemeType): FilterConfigType => {
 					focus: colors.interaction.focus.color
 				}
 			}
+		},
+		prefix: {
+			width: `${spacing.spacingMd + 4}px`,
+			height: `${spacing.spacingMd + 4}px`,
+			marginRight: `${horizontalSpacing.horizWhiteSpacingxs}px`,
+			borderRadius: "4px",
+			background: colors.background.secondaryBackground,
+			color: colors.text.color,
+			fontSize: fontSize.smallFontSize,
+			fontWeight: fontWeight.boldFontWeight
 		},
 		actionButton: {
 			borderLeft: `1px solid ${colors.divider.color}`,

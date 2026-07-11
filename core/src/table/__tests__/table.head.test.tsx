@@ -33,8 +33,8 @@
 import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { Head } from "../new-api/table.head.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { Head } from "../main/table.head.view.js";
 
 describe("com.mgmtp.a12.widgets.table.head", () => {
 	test("default header", () => {

@@ -56,6 +56,7 @@ import type { DivisionLineStyle } from "../schema/application-styles.api.js";
 import { FlatCompactComponentsConfigs } from "./config/components/components.js";
 import { FlatCompactColorsConfig } from "./config/base/colors.config.js";
 
+/** @deprecated since v39.0.0. Use {@link getBaseTheme} from `@com.mgmtp.a12.widgets/widgets-core` — default base spacing is already compact (12px). */
 export const getFlatCompactTheme = () => {
 	const defaultTheme = getDefaultTheme();
 	const colors: FlatColorsConfigType = merge<FlatColorsConfigType>(FlatColorsConfig, FlatCompactColorsConfig);
@@ -98,4 +99,5 @@ export const getFlatCompactTheme = () => {
 	};
 };
 
+/** @deprecated since v39.0.0. Use {@link getBaseTheme} from `@com.mgmtp.a12.widgets/widgets-core`. */
 export const flatCompactTheme = getFlatCompactTheme();

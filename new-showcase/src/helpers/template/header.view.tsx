@@ -32,7 +32,6 @@
 
 import type { KeyboardEvent, ReactElement } from "react";
 import { useRef, useContext, useCallback, useMemo, useEffect } from "react";
-import type { RouterProps } from "react-router";
 import { styled, css } from "styled-components";
 import { Key } from "ts-key-enum";
 
@@ -58,12 +57,13 @@ import { ThemeSelectorHeader } from "../theme-selector-header.js";
 import { GlobalSearchContext } from "../global-search/global-search-context.js";
 import { getDesktopOperatingSystem } from "../utils.js";
 import type { InteractionHintSettingProps } from "../use-interaction-hint-settings.js";
+import type { KeyboardNavigationSettingProps } from "../use-keyboard-navigation-settings.js";
 
 import { DebugInformation } from "./debug-information.view.js";
 
 const isDesktop = DeviceDetector.isDesktop();
 const cmdOrCtrlBasedOnOS = getDesktopOperatingSystem() === "MacOS" ? "Cmd" : "Ctrl";
-export interface HeaderProps extends RouterProps {
+export interface HeaderProps {
 	a12Version: string;
 	menuItems: MenuItem[];
 	touchSupport?: boolean;
@@ -73,6 +73,7 @@ export interface HeaderProps extends RouterProps {
 	onA11yLanguageChange?(locale: string): void;
 	onHamburgerClick?(): void;
 	interactionHintSettings?: InteractionHintSettingProps;
+	keyboardNavigationSettings?: KeyboardNavigationSettingProps;
 }
 
 const ShowcaseApplicationHeader = styled(ApplicationHeader)<{ smallView?: boolean }>`
@@ -187,7 +188,8 @@ export function Header(props: HeaderProps): ReactElement {
 		onTouchSupportToggle,
 		onA11yLanguageChange,
 		onHamburgerClick,
-		interactionHintSettings
+		interactionHintSettings,
+		keyboardNavigationSettings
 	} = props;
 
 	const getSearchInputButtonRef = useCallback((ref: HTMLDivElement | null) => {
@@ -265,6 +267,7 @@ export function Header(props: HeaderProps): ReactElement {
 				onTouchSupportToggle={onTouchSupportToggle}
 				onA11yLanguageChange={onA11yLanguageChange}
 				interactionHintSettings={interactionHintSettings}
+				keyboardNavigationSettings={keyboardNavigationSettings}
 			/>,
 			(isDesktop && isSmallView) || !isDesktop ? (
 				<Button
@@ -327,6 +330,7 @@ export function Header(props: HeaderProps): ReactElement {
 			getSearchInputWrapperRef,
 			handleSearchInputButtonKeydown,
 			interactionHintSettings,
+			keyboardNavigationSettings,
 			isSmallView,
 			onA11yLanguageChange,
 			onTouchSupportToggle,

@@ -38,9 +38,9 @@ import type {
 	BaseThemeTypographyType,
 	BaseThemeComponentsType
 } from "@com.mgmtp.a12.widgets/widgets-core";
-import { getFlatTheme, createTheme, provider as DeviceDetector } from "@com.mgmtp.a12.widgets/widgets-core";
+import { getBaseTheme, createTheme, provider as DeviceDetector } from "@com.mgmtp.a12.widgets/widgets-core";
 
-const { colors, spacing, typography } = getFlatTheme();
+const { colors, spacing, typography } = getBaseTheme({ spacing: { base: 16 } });
 
 const showcaseColors: DeepPartial<FlatColorsConfigType> = {
 	text: {

@@ -30,18 +30,66 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 import { useState } from "react";
 import { Key } from "ts-key-enum";
+import { css, styled } from "styled-components";
 
-import { CustomSelect } from "@com.mgmtp.a12.widgets/widgets-core";
+import { CustomSelect, Icon, StyledIconWrapper } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DropDownItem } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { items, customItems, itemsWithEmpty } from "../data.js";
+
+const ShowcaseStyledRichLabel = styled.div(({ theme }) => {
+	const { spacing } = theme;
+
+	return css`
+		display: flex;
+		align-items: center;
+		margin: ${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0;
+		gap: 12px;
+
+		${StyledIconWrapper} {
+			color: inherit;
+		}
+	`;
+});
 
 export const BasicCustomSelect: FC = () => {
 	const [value, setValue] = useState<string>("Avocado");
 	const [optionGroupValue, setOptionGroupValue] = useState<string>("Java");
 	const [emptyValueItem, setEmptyValueItem] = useState<string>("Empty");
+	const [richLabelValue, setRichLabelValue] = useState<string>("Avocado");
+
+	const descriptions: Record<string, string> = {
+		Avocado: "Rich in healthy fats and fiber",
+		Chestnut: "Sweet and nutty flavor profile",
+		"Dragon fruit": "Exotic tropical superfruit",
+		Grape: "Perfect for wines and snacking",
+		Grapefruit: "Tangy citrus with vitamin C"
+	};
+
+	const icons: Record<string, string> = {
+		Avocado: "eco",
+		Chestnut: "nature",
+		"Dragon fruit": "local_fire_department",
+		Grape: "wine_bar",
+		Grapefruit: "wb_sunny"
+	};
+
+	const multiLineLabelRenderer = (item: DropDownItem): ReactNode => {
+		const itemValue: string = item.value || "";
+
+		return (
+			<ShowcaseStyledRichLabel>
+				<Icon>{icons[itemValue]}</Icon>
+				<div>
+					<span>{item.label} - </span>
+					<span className="-u-italic">{descriptions[itemValue]}</span>
+				</div>
+			</ShowcaseStyledRichLabel>
+		);
+	};
 
 	return (
 		<div className="-u-width-full">
@@ -83,6 +131,15 @@ export const BasicCustomSelect: FC = () => {
 				value={emptyValueItem}
 				onValueChanged={setEmptyValueItem}
 				helperText="Select 'Empty' to see the empty value styling"
+			/>
+			<br />
+			<CustomSelect
+				id="custom-select-with-rich-label"
+				label="Custom Select with rich label content"
+				items={items.slice(0, 5)}
+				value={richLabelValue}
+				onValueChanged={setRichLabelValue}
+				labelRenderer={multiLineLabelRenderer}
 			/>
 		</div>
 	);

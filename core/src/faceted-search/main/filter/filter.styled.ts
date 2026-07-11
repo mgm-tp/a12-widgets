@@ -35,6 +35,7 @@ import { styled, css } from "styled-components";
 import { Button } from "../../../button/main/button.view.js";
 import { Icon } from "../../../icon/main/icon.view.js";
 import { active as activeFn, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
+import { DataRoles } from "../../../common/index.js";
 
 export const StyledFilterWrapper = styled.div.withConfig({ displayName: "StyledFilterWrapper-sc-" })<{
 	$active?: boolean;
@@ -63,25 +64,27 @@ export const StyledFilterWrapper = styled.div.withConfig({ displayName: "StyledF
 	`;
 });
 
-export const StyledFilterContentInner = styled.span.withConfig({ displayName: "StyledFilterContentInner-sc-" })(
-	({ theme }) => {
-		const { filter } = theme.components;
+export const StyledFilterContentInner = styled.span.withConfig({
+	displayName: "StyledFilterContentInner-sc-"
+})<{ $compact?: boolean }>(({ theme, $compact }) => {
+	const { filter } = theme.components;
 
-		return css`
-			align-content: center;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			max-width: ${filter.content.maxWidth};
-			min-width: ${filter.content.minWidth};
-		`;
-	}
-);
+	return css`
+		align-content: center;
+		align-items: center;
+		display: flex;
+		flex-direction: ${$compact ? "horizontal" : "column"};
+		justify-content: center;
+		max-width: ${filter.content.maxWidth};
+		min-width: ${filter.content.minWidth};
+	`;
+});
 
 export const StyledFilterOptions = styled.span.withConfig({ displayName: "StyledFilterOptions-sc-" })<{
 	$active?: boolean;
 	$disabled?: boolean;
-}>(({ theme, $active, $disabled }) => {
+	$compact?: boolean;
+}>(({ theme, $active, $disabled, $compact }) => {
 	const { options } = theme.components.filter;
 
 	return css`
@@ -96,6 +99,12 @@ export const StyledFilterOptions = styled.span.withConfig({ displayName: "Styled
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		width: 100%;
+
+		${$compact &&
+		css`
+			flex: 1;
+			min-width: 0;
+		`}
 
 		${$active &&
 		css`
@@ -112,10 +121,16 @@ export const StyledFilterOptions = styled.span.withConfig({ displayName: "Styled
 export const StyledFilterContent = styled.button.withConfig({ displayName: "StyledFilterContent-sc-" })<{
 	$active?: boolean;
 	$disabled?: boolean;
-}>(({ theme, $active, $disabled }) => {
+	$hasPrefix?: boolean;
+}>(({ theme, $active, $disabled, $hasPrefix }) => {
 	const { filter } = theme.components;
 
 	return css`
+		${$hasPrefix &&
+		css`
+			display: flex;
+			align-items: center;
+		`}
 		background-color: transparent;
 		border: none;
 		margin: 0;
@@ -192,6 +207,7 @@ export const StyledFilterContent = styled.button.withConfig({ displayName: "Styl
 		`}
 
 		${$active &&
+		!$hasPrefix &&
 		css`
 			&:after {
 				content: "";
@@ -237,7 +253,8 @@ export const StyledFilterContent = styled.button.withConfig({ displayName: "Styl
 
 export const StyledFilterName = styled.span.withConfig({ displayName: "StyledFilterName-sc-" })<{
 	$disabled?: boolean;
-}>(({ theme, $disabled }) => {
+	$compact?: boolean;
+}>(({ theme, $disabled, $compact }) => {
 	const { options, name } = theme.components.filter;
 
 	return css`
@@ -245,7 +262,7 @@ export const StyledFilterName = styled.span.withConfig({ displayName: "StyledFil
 		color: ${name.color};
 		display: flex;
 		font-family: ${name.fontFamily};
-		font-size: ${name.fontSize};
+		font-size: ${$compact ? options.fontSize : name.fontSize};
 		line-height: ${name.lineHeight};
 		overflow: hidden;
 		width: 100%;
@@ -270,7 +287,8 @@ export const StyledFilterNameText = styled.span.withConfig({ displayName: "Style
 
 export const StyledFilterNameArrow = styled(Icon).withConfig({ displayName: "StyledFilterNameArrow-sc-" })<{
 	$disabled?: boolean;
-}>(({ theme, $disabled }) => {
+	$compact?: boolean;
+}>(({ theme, $disabled, $compact }) => {
 	const { options, name } = theme.components.filter;
 
 	return css`
@@ -281,7 +299,7 @@ export const StyledFilterNameArrow = styled(Icon).withConfig({ displayName: "Sty
 		display: inline-block;
 		height: ${name.arrow.size};
 		pointer-events: none;
-		transform: rotate(180deg);
+		transform: ${$compact ? "rotate(0deg)" : "rotate(180deg)"};
 		width: ${name.arrow.size};
 
 		${$disabled &&
@@ -320,3 +338,33 @@ export const StyledFilterActionButton = styled(Button).withConfig({ displayName:
 		`;
 	}
 );
+
+export const StyledFilterPrefix = styled.div.withConfig({ displayName: "StyledFilterPrefix-sc-" })(({ theme }) => {
+	const { filter } = theme.components;
+
+	return css`
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: ${filter.prefix?.width};
+		height: ${filter.prefix?.height};
+		font-weight: ${filter.prefix?.fontWeight};
+		border-radius: ${filter.prefix?.borderRadius};
+		background-color: ${filter.prefix?.background};
+		color: ${filter.prefix?.color};
+		margin-right: ${filter.prefix?.marginRight};
+		font-size: ${filter.prefix?.fontSize};
+		flex-shrink: 0;
+
+		[data-role="${DataRoles.Icon}"] {
+			color: ${filter.prefix?.color};
+		}
+
+		svg,
+		img {
+			display: block;
+			max-width: 70%;
+			max-height: 70%;
+		}
+	`;
+});

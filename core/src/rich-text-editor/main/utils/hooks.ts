@@ -39,8 +39,8 @@ import { $isAutoLinkNode } from "@lexical/link";
 import type { TextMatcher } from "../plugins/plugin.internal.api.js";
 import { $isInlineStyleTextNode, InlineStyleTextNode } from "../nodes/inline-style-text-node.js";
 
-import { addClassToMatchersInNode, mergeWithSibling, removeClassFromMatchersInNode } from "./node.js";
-import { findFirstMatch } from "./common.js";
+import { addClassToMatchersInNode, getEffectedNodes, mergeWithSibling, removeClassFromMatchersInNode } from "./node.js";
+import { endsWithSeparator, findFirstMatch, startsWithSeparator } from "./common.js";
 
 export const useEditorUpdateChange = ($updateChange: (isSelectionChange?: boolean) => void): void => {
 	const [editor] = useLexicalComposerContext();
@@ -97,12 +97,23 @@ function handleBadNeighbors(
 		const isClassAddedToNeighbor = neighbor.getSelectedStyleName().includes(className);
 
 		if (isClassAddedToNeighbor) {
+			// A separator at the join means the neighbor stays a standalone word
+			const boundaryPreserved = isNextNode ? endsWithSeparator(textContent) : startsWithSeparator(textContent);
+
+			if (boundaryPreserved) {
+				return;
+			}
+
 			const neighborTextContent = neighbor.getTextContent();
 			const newTextContent = isNextNode ? textContent + neighborTextContent : neighborTextContent + textContent;
 			const newMatch = findFirstMatch(newTextContent, matchers ?? []);
 
 			if ((newMatch && newMatch.text !== neighborTextContent) || !newMatch) {
 				const newNeighbor = neighbor.removeSelectedStyleName(className);
+
+				if (!textNode.isAttached() || !newNeighbor.isAttached()) {
+					return;
+				}
 
 				if (isNextNode) {
 					mergeWithSibling(textNode, newNeighbor);
@@ -128,15 +139,23 @@ export const useAddClassToTextMatchers = (editor: LexicalEditor, matchers: TextM
 		}
 
 		const removeTransform = editor.registerNodeTransform(InlineStyleTextNode, (node) => {
-			const isClassAdded = node.getSelectedStyleName().includes(className);
-			const parent = node.getParent();
+			/*Since Lexical only transforms dirty nodes, adjacent unchanged nodes may not be re-evaluated when
+			boundaries change. Process the entire affected word group. */
+			for (const effectedNode of getEffectedNodes(node)) {
+				if (!effectedNode.isAttached()) {
+					continue;
+				}
 
-			if (isClassAdded) {
-				removeClassFromMatchersInNode(node, matchers, className);
-			} else if (!$isAutoLinkNode(parent) && !node.getSelectedStyleName().includes(className)) {
-				addClassToMatchersInNode(node, matchers, className);
+				const isClassAdded = effectedNode.getSelectedStyleName().includes(className);
+				const parent = effectedNode.getParent();
 
-				handleBadNeighbors(node, className, { matchers });
+				if (isClassAdded) {
+					removeClassFromMatchersInNode(effectedNode, matchers, className);
+				} else if (!$isAutoLinkNode(parent)) {
+					addClassToMatchersInNode(effectedNode, matchers, className);
+
+					handleBadNeighbors(effectedNode, className, { matchers });
+				}
 			}
 		});
 

@@ -170,6 +170,4 @@ export namespace SplitView {
 			</ResizeHandler>
 		);
 	}
-
-	Area.displayName = "SplitView.Area";
 }

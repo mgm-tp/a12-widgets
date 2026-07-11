@@ -104,8 +104,6 @@ export namespace LoginLayout {
 		);
 	}
 
-	Container.displayName = "LoginLayout.Container";
-
 	export function Logo(props: LoginLogoProps): ReactElement<LoginLogoProps> {
 		const { className, children, ...rest } = props;
 		const classNames = joinClassNames(`${LOGIN_LAYOUT_BASE_CLASSNAME}__logo`, className);
@@ -116,8 +114,6 @@ export namespace LoginLayout {
 			</StyledLoginLogo>
 		);
 	}
-
-	Logo.displayName = "LoginLayout.Logo";
 
 	export function Headline({
 		ariaLevel = 1,
@@ -140,8 +136,6 @@ export namespace LoginLayout {
 		);
 	}
 
-	Headline.displayName = "LoginLayout.Headline";
-
 	export function Form(props: LoginFormProps): ReactElement<LoginFormProps> {
 		const { className, children, ...rest } = props;
 		const classNames = joinClassNames(`${LOGIN_LAYOUT_BASE_CLASSNAME}__form`, className);
@@ -152,8 +146,6 @@ export namespace LoginLayout {
 			</StyledLoginForm>
 		);
 	}
-
-	Form.displayName = "LoginLayout.Form";
 
 	export function FormItem(props: LoginFormItemProps): ReactElement<LoginFormItemProps> {
 		const { className, children, ...rest } = props;
@@ -166,8 +158,6 @@ export namespace LoginLayout {
 		);
 	}
 
-	FormItem.displayName = "LoginLayout.FormItem";
-
 	export function Footer(props: LoginFooterProps): ReactElement<LoginFooterProps> {
 		const { className, children, ...rest } = props;
 		const classNames = joinClassNames(`${LOGIN_LAYOUT_BASE_CLASSNAME}__footer`, className);
@@ -178,6 +168,4 @@ export namespace LoginLayout {
 			</StyledLoginFooter>
 		);
 	}
-
-	Footer.displayName = "LoginLayout.Footer";
 }

@@ -37,14 +37,15 @@ import { styled, css } from "styled-components";
 import { StyledIconWrapper, StyledVariantIconWrapper } from "../../../icon/main/icon.view.js";
 import { StyledTextOutputText } from "../../../text-output/main/text-output.view.js";
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
-import { useTableContext } from "../../new-api/table.context.js";
-import type { Column } from "../../new-api/column.api.js";
 
+import { useTableContext } from "../table.context.js";
+import type { Column } from "../column.api.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
 
 import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledBaseTable } from "./table.styled.js";
+import { useStyledTableContext } from "./table.context.styled.js";
 import { StyledTableFootRowSegment } from "./table.foot-row-segment.tpl.view.js";
 import { resetBoxShadowForSubInfoCell } from "./table.tpl.utils.js";
 
@@ -88,6 +89,9 @@ export const StyledTableFootCell = styled(StyledBaseTable.Cell).withConfig({ dis
 export function FootCellTpl(props: TableTemplateProps.FootCellProps): ReactElement<TableTemplateProps.FootCellProps> {
 	const cardView = useTableContext((context) => context.cardView);
 	const resizable = useTableContext((context) => context.resizable);
+	const crossTabulation = useTableContext((context) => !!context.crossTabulation);
+	const enableColumnGroupA11y = useTableContext((context) => !!context.enableColumnGroupA11y);
+	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
 	const columnWidth = props.relativeWidth ?? 1;
 	const classNames = useMemo(
 		() =>
@@ -143,6 +147,9 @@ export function FootCellTpl(props: TableTemplateProps.FootCellProps): ReactEleme
 			verAlignment={props.verticalAlignment}
 			horizAlignment={props.horizontalAlignment}
 			resizable={resizable}
+			$crossTabulation={crossTabulation}
+			$rowSegmentType={rowSegmentType}
+			$enableColumnGroupA11y={enableColumnGroupA11y}
 			data-width={props.relativeWidth}
 			data-type={props.actionCell && TableDataAttributes.Table.ActionCell}
 		>

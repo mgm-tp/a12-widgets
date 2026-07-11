@@ -60,6 +60,7 @@ export * from "./global-message-box/index.js";
 export * from "./icon/index.js";
 export * from "./input/index.js";
 export * from "./interaction-hint/index.js";
+export * from "./keyboard-navigation/index.js";
 export * from "./interactive-tile/index.js";
 export * from "./layout/index.js";
 export * from "./lines-ellipsis/index.js";

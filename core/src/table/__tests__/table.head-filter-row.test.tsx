@@ -33,9 +33,9 @@
 import { render } from "test-utils";
 import { describe, expect, test, vi } from "vitest";
 
-import { DefaultTableComponentRenderers, HeadFilterRow, Table, TableContextProvider } from "../new-api/table.view.js";
-import type { BaseColumnType } from "../new-api/index.js";
-import { getDataByKey } from "../new-api/index.js";
+import { DefaultTableComponentRenderers, HeadFilterRow, Table, TableContextProvider } from "../main/table.view.js";
+import type { BaseColumnType } from "../main/index.js";
+import { getDataByKey } from "../main/index.js";
 
 describe("com.mgmtp.a12.widgets.table.head-filter-row", () => {
 	test("default", () => {

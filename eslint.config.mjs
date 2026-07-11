@@ -8,7 +8,7 @@
  * This source file is part of the mgm A12 Platform and available under
  * a choice of two different licenses:
  *
- * 1. Open-Source License – EUPL v1.2
+ * 1. Open-Source License - EUPL v1.2
  *    You may redistribute and/or modify this file under the terms of the
  *    European Union Public License, version 1.2 - see https://eupl.eu/.
  *
@@ -54,7 +54,9 @@ export default [
 		name: "widgets/general",
 		languageOptions: {
 			parserOptions: {
-				projectService: { allowDefaultProject: ["./*.{js,cjs,mjs,ts}", "*/scripts/*.{js,cjs,mjs,ts}"] },
+				projectService: {
+					allowDefaultProject: ["./*.{js,cjs,mjs,ts}", "core/scripts/*.{js,mjs,cjs}"]
+				},
 				tsconfigRootDir: import.meta.dirname
 			}
 		},
@@ -150,27 +152,19 @@ export default [
 		}
 	},
 	{
+		name: "widgets/scripts",
+		files: ["**/scripts/**/*.{ts,tsx,js,cjs,mjs}"],
+		rules: {
+			"no-console": "off"
+		}
+	},
+	{
 		name: "widgets/test",
 		files: ["{core}/**/{test,__tests__,playwright}/**/*.{ts,tsx}", "**/*.config.ts"],
 		rules: {
 			"react/display-name": "off",
 			"import/no-extraneous-dependencies": "off",
 			"@typescript-eslint/explicit-function-return-type": "off"
-		}
-	},
-	{
-		name: "widgets/new-showcase",
-		files: ["new-showcase/**"],
-		rules: {
-			"no-restricted-imports": [
-				"error",
-				{
-					paths: [
-						"@com.mgmtp.a12.widgets/widgets-core/lib/index.js",
-						"@com.mgmtp.a12.widgets/widgets-core/lib/common/index.js"
-					]
-				}
-			]
 		}
 	},
 	...storybook.configs["flat/recommended"].map((config) => ({

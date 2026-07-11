@@ -121,7 +121,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker-input", () => {
 		const dateTimeFormatter: DateTimePickerProps.DateTimeFormatter = (dateTime?: Date) =>
 			DateTimeUtils.formatUTCDateTime(dateTime, undefined, format);
 		const { container } = render(<Picker pickerProps={{ value: date }} dateTimeFormatter={dateTimeFormatter} />);
-		const timeInput = getByDataRole(container, DataRoles.Textline.Input) as HTMLInputElement;
+		const timeInput = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
 
 		expect(timeInput.value).toBe("25-12-2017 14.00");
 	});
@@ -133,7 +133,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker-input", () => {
 		const { container } = render(
 			<Picker pickerProps={{ value: date, timezone }} dateTimeFormatter={dateTimeFormatter} />
 		);
-		const timeInput = getByDataRole(container, DataRoles.Textline.Input) as HTMLInputElement;
+		const timeInput = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
 
 		expect(timeInput.value).toBe("25-12-2017 09.00");
 	});
@@ -147,7 +147,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker-input", () => {
 		};
 
 		const { container } = render(<Picker pickerProps={{ value: date }} dateTimeConverter={dateTimeConverter} />);
-		const timeInput = getByDataRole(container, DataRoles.Textline.Input) as HTMLInputElement;
+		const timeInput = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
 
 		expect(timeInput.value).toBe("12/25/2017 2:00 PM");
 	});
@@ -165,7 +165,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker-input", () => {
 		const { container } = render(
 			<Picker pickerProps={{ value: date, timezone }} dateTimeConverter={dateTimeConverter} />
 		);
-		const timeInput = getByDataRole(container, DataRoles.Textline.Input) as HTMLInputElement;
+		const timeInput = getByDataRole(container, DataRoles.TextField.Input) as HTMLInputElement;
 
 		expect(timeInput.value).toBe("12/25/2017 9:00 AM");
 	});
@@ -188,7 +188,7 @@ describe("com.mgmtp.a12.widgets.date-time-picker-input", () => {
 		expect(onAcceptFn).toHaveBeenCalledTimes(1);
 
 		expect(queryByDataRole(container, DataRoles.DateTimePicker)).not.toBeInTheDocument();
-		expect(document.activeElement).toBe(triggerButton);
+		expect(triggerButton).toHaveFocus();
 	});
 
 	test("Date Time Picker Input with `desktopPickerAttributes` property", async () => {

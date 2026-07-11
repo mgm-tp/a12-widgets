@@ -13,7 +13,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -105,7 +106,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c17.c17 {
+.StyledMasterDetailLayoutView-fvsTKU .c17.c17 {
   padding: 0px 24px;
 }
 
@@ -166,6 +167,216 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
+.c43 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c47 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c50 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c50::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c46:not([data-role*="filter-selector"]) .c50.c50 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c46:not([data-role*="filter-selector"]) .c50.c50::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c46:not([data-role*="filter-selector"]) .c50.c50:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c50:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c50:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c50:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c50 .c62 {
+  outline: none;
+}
+
+.c69 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c69::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c69:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c69:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c69:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c69 .c62 {
+  outline: none;
+}
+
+.c52 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c52 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c52 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c63 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
+  color: inherit;
+  font-weight: 400;
+}
+
+.c72 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c65 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c2 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c3 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.c3 .c11 {
+  outline: none;
+}
+
+.c3 .c11 .c41 {
+  font-size: 0.75rem;
+}
+
+.c3 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c3 .c11 {
+  border-radius: 0px;
+}
+
 .c21 {
   align-items: center;
   display: flex;
@@ -178,8 +389,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -236,51 +447,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   box-shadow: none;
   color: rgb(255, 255, 255);
   border: 2px solid rgb(255, 255, 255);
-}
-
-.c2 {
-  align-items: center;
-  background: rgba(22, 25, 29, 0.4);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  left: 0px;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-}
-
-.c3 {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  margin: 0px;
-  outline: transparent solid 1px;
-  overflow: auto;
-  flex-shrink: 1;
-  align-items: center;
-  background-color: transparent;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-.c3 .c11 {
-  outline: none;
-}
-
-.c3 .c11 .c41 {
-  font-size: 0.75rem;
-}
-
-.c3 > * {
-  background-color: rgb(255, 255, 255);
-  overflow: auto;
-}
-
-.c3 .c11 {
-  border-radius: 0px;
 }
 
 .c61 {
@@ -435,171 +601,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c43 {
-  background: rgb(255, 255, 255);
-  font-family: "Open Sans", sans-serif;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c47 {
-  box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
-  color: rgb(77, 77, 77);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border-bottom: 1px solid rgb(226, 230, 233);
-}
-
-.c50 {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  gap: 16px;
-  min-height: 48px;
-  outline: 0px;
-  padding: 8px 16px;
-}
-
-.c50::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-}
-
-.c46:not([data-role*="filter-selector"]) .c50.c50 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c46:not([data-role*="filter-selector"]) .c50.c50::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c46:not([data-role*="filter-selector"]) .c50.c50:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c50:focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c50:focus-within::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c50:has(> * :focus)::before {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  margin: 0px;
-  outline: none;
-}
-
-.c50 .c62 {
-  outline: none;
-}
-
-.c69 {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  gap: 16px;
-  min-height: 48px;
-  outline: 0px;
-  padding: 8px 16px;
-}
-
-.c69::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-}
-
-.c69:focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c69:focus-within::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c69:has(> * :focus)::before {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  margin: 0px;
-  outline: none;
-}
-
-.c69 .c62 {
-  outline: none;
-}
-
-.c52 {
-  align-items: center;
-  color: inherit;
-  display: inline-flex;
-  flex-shrink: 0;
-  justify-content: center;
-  position: relative;
-}
-
-.c52 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c52 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c63 {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  position: relative;
-  color: inherit;
-  font-weight: 400;
-}
-
-.c72 {
-  color: inherit;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  font-weight: 400;
-  position: relative;
-}
-
-.c65 {
-  color: rgb(97, 111, 124);
-  font-size: 0.75rem;
-  position: relative;
-  text-align: right;
 }
 
 .c58 {
@@ -1125,44 +1126,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
 }
 
 @media (pointer: coarse) {
-  .c24.c24:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: none;
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c24.c24:not(:disabled):hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: none;
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media only screen and (max-width: 756px) {
-  .c3 {
-    width: 100%;
-  }
-}
-
-@media (pointer: coarse) {
-  .c37:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c37:hover {
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: coarse) {
   .c46:not([data-role*="filter-selector"]) .c50.c50:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -1223,6 +1186,44 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
 @media (pointer: fine) {
   .c69:hover::before {
     border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c3 {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c24.c24:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c24.c24:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c37:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c37:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
@@ -1468,25 +1469,25 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                           >
                             <div
                               class="c32 field-wrapper field-wrapper--block filter-selector__search"
-                              data-role="textline"
+                              data-role="text-field"
                             >
                               <div
                                 class="c33 c34 field__main"
                               >
                                 <div
                                   class="c35 c36 field"
-                                  data-role="textline-control"
+                                  data-role="text-field-control"
                                 >
                                   <div
                                     class="c37 field__input"
-                                    data-role="textline-input-wrapper"
+                                    data-role="text-field-input-wrapper"
                                   >
                                     <span
                                       class="c38 supported-unseen-span"
                                     />
                                     <input
                                       class="c39 field__text"
-                                      data-role="textline-input"
+                                      data-role="text-field-input"
                                       type="text"
                                       value=""
                                     />
@@ -1495,7 +1496,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                                     />
                                     <div
                                       class="c40 field__suffix field__suffix--first"
-                                      data-role="textline-suffix-0"
+                                      data-role="text-field-suffix-0"
                                     >
                                       <i
                                         class="c25 c26 plasma-icon"
@@ -2010,7 +2011,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2114,7 +2116,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c17.c17 {
+.StyledMasterDetailLayoutView-fvsTKU .c17.c17 {
   padding: 0px 24px;
 }
 
@@ -2175,6 +2177,78 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
+.c50 .c25 {
+  user-select: none;
+}
+
+.c51 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c51 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c52 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.c52 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c53 .c25 {
+  color: inherit;
+}
+
+.c2 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c3 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.c3 .c11 {
+  outline: none;
+}
+
+.c3 .c11 .c44 {
+  font-size: 0.75rem;
+}
+
+.c3 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c3 .c11 {
+  border-radius: 0px;
+}
+
 .c21 {
   align-items: center;
   display: flex;
@@ -2187,8 +2261,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -2250,51 +2324,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   box-shadow: none;
   color: rgb(255, 255, 255);
   border: 2px solid rgb(255, 255, 255);
-}
-
-.c2 {
-  align-items: center;
-  background: rgba(22, 25, 29, 0.4);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  left: 0px;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-}
-
-.c3 {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  margin: 0px;
-  outline: transparent solid 1px;
-  overflow: auto;
-  flex-shrink: 1;
-  align-items: center;
-  background-color: transparent;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-.c3 .c11 {
-  outline: none;
-}
-
-.c3 .c11 .c44 {
-  font-size: 0.75rem;
-}
-
-.c3 > * {
-  background-color: rgb(255, 255, 255);
-  overflow: auto;
-}
-
-.c3 .c11 {
-  border-radius: 0px;
 }
 
 .c41 {
@@ -2417,33 +2446,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c50 .c25 {
-  user-select: none;
-}
-
-.c51 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c51 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c52 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-  color: inherit;
-}
-
-.c52 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c53 .c25 {
-  color: inherit;
 }
 
 .c5 {
@@ -2676,6 +2678,12 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   }
 }
 
+@media only screen and (max-width: 756px) {
+  .c3 {
+    width: 100%;
+  }
+}
+
 @media (pointer: coarse) {
   .c24.c24:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -2692,12 +2700,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
     box-shadow: none;
     color: rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media only screen and (max-width: 756px) {
-  .c3 {
-    width: 100%;
   }
 }
 
@@ -2820,25 +2822,25 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
                           >
                             <div
                               class="c32 field-wrapper field-wrapper--block filter-selector__search"
-                              data-role="textline"
+                              data-role="text-field"
                             >
                               <div
                                 class="c33 c34 field__main"
                               >
                                 <div
                                   class="c35 c36 field"
-                                  data-role="textline-control"
+                                  data-role="text-field-control"
                                 >
                                   <div
                                     class="c37 c38 field__input"
-                                    data-role="textline-input-wrapper"
+                                    data-role="text-field-input-wrapper"
                                   >
                                     <span
                                       class="c39 supported-unseen-span"
                                     />
                                     <input
                                       class="c40 field__text"
-                                      data-role="textline-input"
+                                      data-role="text-field-input"
                                       type="text"
                                       value=""
                                     />
@@ -2847,7 +2849,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
                                     />
                                     <div
                                       class="c41 field__suffix field__suffix--first"
-                                      data-role="textline-suffix-0"
+                                      data-role="text-field-suffix-0"
                                     >
                                       <i
                                         class="c25 c26 plasma-icon"
@@ -2927,7 +2929,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3031,7 +3034,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c17.c17 {
+.StyledMasterDetailLayoutView-fvsTKU .c17.c17 {
   padding: 0px 24px;
 }
 
@@ -3092,6 +3095,243 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
+.c44 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c48 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c52 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c52::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c47:not([data-role*="filter-selector"]) .c52.c52 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c47:not([data-role*="filter-selector"]) .c52.c52::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c47:not([data-role*="filter-selector"]) .c52.c52:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c52:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c52:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c52:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c52 .c65 {
+  outline: none;
+}
+
+.c76 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c76::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c76:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c76:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c76:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c76 .c65 {
+  outline: none;
+}
+
+.c86 .c25 {
+  user-select: none;
+}
+
+.c54 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c54 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c54 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c87 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.c87 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c66 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
+  color: inherit;
+  font-weight: 400;
+}
+
+.c79 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c68 {
+  color: inherit;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  overflow: hidden;
+}
+
+.c70 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c88 .c25 {
+  color: inherit;
+}
+
+.c2 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c3 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.c3 .c11 {
+  outline: none;
+}
+
+.c3 .c11 .c42 {
+  font-size: 0.75rem;
+}
+
+.c3 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c3 .c11 {
+  border-radius: 0px;
+}
+
 .c21 {
   align-items: center;
   display: flex;
@@ -3104,8 +3344,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -3162,51 +3402,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   box-shadow: none;
   color: rgb(255, 255, 255);
   border: 2px solid rgb(255, 255, 255);
-}
-
-.c2 {
-  align-items: center;
-  background: rgba(22, 25, 29, 0.4);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  left: 0px;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-}
-
-.c3 {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  margin: 0px;
-  outline: transparent solid 1px;
-  overflow: auto;
-  flex-shrink: 1;
-  align-items: center;
-  background-color: transparent;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-.c3 .c11 {
-  outline: none;
-}
-
-.c3 .c11 .c42 {
-  font-size: 0.75rem;
-}
-
-.c3 > * {
-  background-color: rgb(255, 255, 255);
-  overflow: auto;
-}
-
-.c3 .c11 {
-  border-radius: 0px;
 }
 
 .c64 {
@@ -3379,198 +3574,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c44 {
-  background: rgb(255, 255, 255);
-  font-family: "Open Sans", sans-serif;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c48 {
-  box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
-  color: rgb(77, 77, 77);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border-bottom: 1px solid rgb(226, 230, 233);
-}
-
-.c52 {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  gap: 16px;
-  min-height: 48px;
-  outline: 0px;
-  padding: 8px 16px;
-}
-
-.c52::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-}
-
-.c47:not([data-role*="filter-selector"]) .c52.c52 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c47:not([data-role*="filter-selector"]) .c52.c52::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c47:not([data-role*="filter-selector"]) .c52.c52:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c52:focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c52:focus-within::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c52:has(> * :focus)::before {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  margin: 0px;
-  outline: none;
-}
-
-.c52 .c65 {
-  outline: none;
-}
-
-.c76 {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  gap: 16px;
-  min-height: 48px;
-  outline: 0px;
-  padding: 8px 16px;
-}
-
-.c76::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-}
-
-.c76:focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c76:focus-within::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c76:has(> * :focus)::before {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  margin: 0px;
-  outline: none;
-}
-
-.c76 .c65 {
-  outline: none;
-}
-
-.c86 .c25 {
-  user-select: none;
-}
-
-.c54 {
-  align-items: center;
-  color: inherit;
-  display: inline-flex;
-  flex-shrink: 0;
-  justify-content: center;
-  position: relative;
-}
-
-.c54 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c54 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c87 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-  color: inherit;
-}
-
-.c87 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c66 {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  position: relative;
-  color: inherit;
-  font-weight: 400;
-}
-
-.c79 {
-  color: inherit;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  font-weight: 400;
-  position: relative;
-}
-
-.c68 {
-  color: inherit;
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 400;
-  line-height: 1rem;
-  overflow: hidden;
-}
-
-.c70 {
-  color: rgb(97, 111, 124);
-  font-size: 0.75rem;
-  position: relative;
-  text-align: right;
-}
-
-.c88 .c25 {
-  color: inherit;
 }
 
 .c61 {
@@ -4161,44 +4164,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
 }
 
 @media (pointer: coarse) {
-  .c24.c24:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: none;
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c24.c24:not(:disabled):hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: none;
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media only screen and (max-width: 756px) {
-  .c3 {
-    width: 100%;
-  }
-}
-
-@media (pointer: coarse) {
-  .c38:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c38:hover {
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: coarse) {
   .c47:not([data-role*="filter-selector"]) .c52.c52:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -4259,6 +4224,44 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
 @media (pointer: fine) {
   .c76:hover::before {
     border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c3 {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c24.c24:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c24.c24:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c38:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c38:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
@@ -4504,25 +4507,25 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                           >
                             <div
                               class="c32 field-wrapper field-wrapper--block filter-selector__search"
-                              data-role="textline"
+                              data-role="text-field"
                             >
                               <div
                                 class="c33 c34 field__main"
                               >
                                 <div
                                   class="c35 c36 field"
-                                  data-role="textline-control"
+                                  data-role="text-field-control"
                                 >
                                   <div
                                     class="c37 c38 field__input"
-                                    data-role="textline-input-wrapper"
+                                    data-role="text-field-input-wrapper"
                                   >
                                     <span
                                       class="c39 supported-unseen-span"
                                     />
                                     <input
                                       class="c40 field__text"
-                                      data-role="textline-input"
+                                      data-role="text-field-input"
                                       type="text"
                                       value=""
                                     />
@@ -4531,7 +4534,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                     />
                                     <div
                                       class="c41 field__suffix field__suffix--first"
-                                      data-role="textline-suffix-0"
+                                      data-role="text-field-suffix-0"
                                     >
                                       <i
                                         class="c25 c26 plasma-icon"
@@ -5084,7 +5087,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -5188,7 +5192,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c17.c17 {
+.StyledMasterDetailLayoutView-fvsTKU .c17.c17 {
   padding: 0px 24px;
 }
 
@@ -5249,6 +5253,234 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
+.c44 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c48 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c51 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c51::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c47:not([data-role*="filter-selector"]) .c51.c51 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c47:not([data-role*="filter-selector"]) .c51.c51::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c47:not([data-role*="filter-selector"]) .c51.c51:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c51:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c51:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c51:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c51 .c64 {
+  outline: none;
+}
+
+.c71 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c71::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c71:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c71:focus-within::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c71:has(> * :focus)::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  margin: 0px;
+  outline: none;
+}
+
+.c71 .c64 {
+  outline: none;
+}
+
+.c81 .c25 {
+  user-select: none;
+}
+
+.c53 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c53 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c53 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c82 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.c82 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c65 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
+  color: inherit;
+  font-weight: 400;
+}
+
+.c74 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c67 {
+  color: rgb(97, 111, 124);
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c83 .c25 {
+  color: inherit;
+}
+
+.c2 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c3 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.c3 .c11 {
+  outline: none;
+}
+
+.c3 .c11 .c42 {
+  font-size: 0.75rem;
+}
+
+.c3 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c3 .c11 {
+  border-radius: 0px;
+}
+
 .c21 {
   align-items: center;
   display: flex;
@@ -5261,8 +5493,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -5319,51 +5551,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   box-shadow: none;
   color: rgb(255, 255, 255);
   border: 2px solid rgb(255, 255, 255);
-}
-
-.c2 {
-  align-items: center;
-  background: rgba(22, 25, 29, 0.4);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  left: 0px;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-}
-
-.c3 {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  margin: 0px;
-  outline: transparent solid 1px;
-  overflow: auto;
-  flex-shrink: 1;
-  align-items: center;
-  background-color: transparent;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-.c3 .c11 {
-  outline: none;
-}
-
-.c3 .c11 .c42 {
-  font-size: 0.75rem;
-}
-
-.c3 > * {
-  background-color: rgb(255, 255, 255);
-  overflow: auto;
-}
-
-.c3 .c11 {
-  border-radius: 0px;
 }
 
 .c63 {
@@ -5536,189 +5723,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c44 {
-  background: rgb(255, 255, 255);
-  font-family: "Open Sans", sans-serif;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c48 {
-  box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
-  color: rgb(77, 77, 77);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border-bottom: 1px solid rgb(226, 230, 233);
-}
-
-.c51 {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  gap: 16px;
-  min-height: 48px;
-  outline: 0px;
-  padding: 8px 16px;
-}
-
-.c51::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-}
-
-.c47:not([data-role*="filter-selector"]) .c51.c51 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c47:not([data-role*="filter-selector"]) .c51.c51::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c47:not([data-role*="filter-selector"]) .c51.c51:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c51:focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c51:focus-within::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c51:has(> * :focus)::before {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  margin: 0px;
-  outline: none;
-}
-
-.c51 .c64 {
-  outline: none;
-}
-
-.c71 {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  gap: 16px;
-  min-height: 48px;
-  outline: 0px;
-  padding: 8px 16px;
-}
-
-.c71::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-}
-
-.c71:focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c71:focus-within::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c71:has(> * :focus)::before {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  margin: 0px;
-  outline: none;
-}
-
-.c71 .c64 {
-  outline: none;
-}
-
-.c81 .c25 {
-  user-select: none;
-}
-
-.c53 {
-  align-items: center;
-  color: inherit;
-  display: inline-flex;
-  flex-shrink: 0;
-  justify-content: center;
-  position: relative;
-}
-
-.c53 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c53 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c82 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-  color: inherit;
-}
-
-.c82 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c65 {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  position: relative;
-  color: inherit;
-  font-weight: 400;
-}
-
-.c74 {
-  color: inherit;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  font-weight: 400;
-  position: relative;
-}
-
-.c67 {
-  color: rgb(97, 111, 124);
-  font-size: 0.75rem;
-  position: relative;
-  text-align: right;
-}
-
-.c83 .c25 {
-  color: inherit;
 }
 
 .c60 {
@@ -6271,44 +6275,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
 }
 
 @media (pointer: coarse) {
-  .c24.c24:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: none;
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c24.c24:not(:disabled):hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: none;
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media only screen and (max-width: 756px) {
-  .c3 {
-    width: 100%;
-  }
-}
-
-@media (pointer: coarse) {
-  .c38:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c38:hover {
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: coarse) {
   .c47:not([data-role*="filter-selector"]) .c51.c51:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -6369,6 +6335,44 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
 @media (pointer: fine) {
   .c71:hover::before {
     border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c3 {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .c24.c24:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c24.c24:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c38:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c38:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
@@ -6614,25 +6618,25 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                           >
                             <div
                               class="c32 field-wrapper field-wrapper--block filter-selector__search"
-                              data-role="textline"
+                              data-role="text-field"
                             >
                               <div
                                 class="c33 c34 field__main"
                               >
                                 <div
                                   class="c35 c36 field"
-                                  data-role="textline-control"
+                                  data-role="text-field-control"
                                 >
                                   <div
                                     class="c37 c38 field__input"
-                                    data-role="textline-input-wrapper"
+                                    data-role="text-field-input-wrapper"
                                   >
                                     <span
                                       class="c39 supported-unseen-span"
                                     />
                                     <input
                                       class="c40 field__text"
-                                      data-role="textline-input"
+                                      data-role="text-field-input"
                                       type="text"
                                       value=""
                                     />
@@ -6641,7 +6645,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                     />
                                     <div
                                       class="c41 field__suffix field__suffix--first"
-                                      data-role="textline-suffix-0"
+                                      data-role="text-field-suffix-0"
                                     >
                                       <i
                                         class="c25 c26 plasma-icon"
@@ -7208,7 +7212,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -7348,7 +7353,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c17.c17 {
+.StyledMasterDetailLayoutView-fvsTKU .c17.c17 {
   padding: 0px 24px;
 }
 
@@ -7423,6 +7428,177 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
+.c47 {
+  background: rgb(255, 255, 255);
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c51 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgb(226, 230, 233);
+  cursor: default;
+  color: rgb(169, 179, 188);
+}
+
+.c50:not([data-role*="filter-selector"]) .c85.c85 {
+  background-color: rgb(245, 251, 255);
+}
+
+.c50:not([data-role*="filter-selector"]) .c85.c85::before {
+  border-left: 4px solid rgb(5, 104, 174);
+}
+
+.c50:not([data-role*="filter-selector"]) .c85.c85:focus::before {
+  border-left: 4px solid rgb(213, 0, 117);
+}
+
+.c85 .c64 {
+  outline: none;
+}
+
+.c86 .c64 {
+  outline: none;
+}
+
+.c54 {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 48px;
+  outline: 0px;
+  padding: 8px 16px;
+}
+
+.c54::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+}
+
+.c54:focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c87 .c25 {
+  user-select: none;
+}
+
+.c88 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+}
+
+.c88 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c56 {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
+}
+
+.c56 .c25 {
+  display: inline-flex;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.c56 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+  color: inherit;
+}
+
+.c65 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
+  color: inherit;
+  font-weight: 400;
+}
+
+.c73 {
+  color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+}
+
+.c67 {
+  color: inherit;
+  font-size: 0.75rem;
+  position: relative;
+  text-align: right;
+}
+
+.c67 .c25 {
+  color: inherit;
+}
+
+.c2 {
+  align-items: center;
+  background: rgba(22, 25, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.c3 {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  margin: 0px;
+  outline: transparent solid 1px;
+  overflow: auto;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.c3 .c11 {
+  outline: none;
+}
+
+.c3 .c11 .c45 {
+  font-size: 0.75rem;
+}
+
+.c3 > * {
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.c3 .c11 {
+  border-radius: 0px;
+}
+
 .c21 {
   align-items: center;
   display: flex;
@@ -7435,8 +7611,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c18.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
@@ -7495,51 +7671,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   box-shadow: none;
   color: rgb(255, 255, 255);
   border: 2px solid rgb(255, 255, 255);
-}
-
-.c2 {
-  align-items: center;
-  background: rgba(22, 25, 29, 0.4);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  left: 0px;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-}
-
-.c3 {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  margin: 0px;
-  outline: transparent solid 1px;
-  overflow: auto;
-  flex-shrink: 1;
-  align-items: center;
-  background-color: transparent;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-.c3 .c11 {
-  outline: none;
-}
-
-.c3 .c11 .c45 {
-  font-size: 0.75rem;
-}
-
-.c3 > * {
-  background-color: rgb(255, 255, 255);
-  overflow: auto;
-}
-
-.c3 .c11 {
-  border-radius: 0px;
 }
 
 .c38 {
@@ -7717,132 +7848,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c47 {
-  background: rgb(255, 255, 255);
-  font-family: "Open Sans", sans-serif;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c51 {
-  box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border-bottom: 1px solid rgb(226, 230, 233);
-  cursor: default;
-  color: rgb(169, 179, 188);
-}
-
-.c50:not([data-role*="filter-selector"]) .c85.c85 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c50:not([data-role*="filter-selector"]) .c85.c85::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c50:not([data-role*="filter-selector"]) .c85.c85:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c85 .c64 {
-  outline: none;
-}
-
-.c86 .c64 {
-  outline: none;
-}
-
-.c54 {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  gap: 16px;
-  min-height: 48px;
-  outline: 0px;
-  padding: 8px 16px;
-}
-
-.c54::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-}
-
-.c54:focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c87 .c25 {
-  user-select: none;
-}
-
-.c88 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c88 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c56 {
-  align-items: center;
-  color: inherit;
-  display: inline-flex;
-  flex-shrink: 0;
-  justify-content: center;
-  position: relative;
-}
-
-.c56 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-  color: inherit;
-}
-
-.c56 .c25:not(.StyledVariantIconWrapper-sc-bMgxYI) {
-  color: inherit;
-}
-
-.c65 {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  position: relative;
-  color: inherit;
-  font-weight: 400;
-}
-
-.c73 {
-  color: inherit;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  font-weight: 400;
-  position: relative;
-}
-
-.c67 {
-  color: inherit;
-  font-size: 0.75rem;
-  position: relative;
-  text-align: right;
-}
-
-.c67 .c25 {
-  color: inherit;
 }
 
 .c62 {
@@ -8436,6 +8441,28 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
 }
 
 @media (pointer: coarse) {
+  .c50:not([data-role*="filter-selector"]) .c85.c85:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c50:not([data-role*="filter-selector"]) .c85.c85:active::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c50:not([data-role*="filter-selector"]) .c85.c85:hover::before {
+    border-left: 4px solid rgb(213, 0, 117);
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  .c3 {
+    width: 100%;
+  }
+}
+
+@media (pointer: coarse) {
   .c24.c24:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0.2);
@@ -8451,28 +8478,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
     box-shadow: none;
     color: rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media only screen and (max-width: 756px) {
-  .c3 {
-    width: 100%;
-  }
-}
-
-@media (pointer: coarse) {
-  .c50:not([data-role*="filter-selector"]) .c85.c85:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c50:not([data-role*="filter-selector"]) .c85.c85:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c50:not([data-role*="filter-selector"]) .c85.c85:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
@@ -8650,19 +8655,19 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                           >
                             <div
                               class="c32 field-wrapper field-wrapper--block filter-selector__search"
-                              data-role="textline"
+                              data-role="text-field"
                             >
                               <div
                                 class="c33 c34 field__main"
                               >
                                 <div
                                   class="c35 c36 field"
-                                  data-role="textline-control"
+                                  data-role="text-field-control"
                                 >
                                   <label
                                     class="c37 c38 label field__label label--disabled -u-unseenButRead"
                                     data-disabled="true"
-                                    data-role="textline-label"
+                                    data-role="text-field-label"
                                     for="id-test-input"
                                     id="id-test-input-label"
                                   >
@@ -8677,7 +8682,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                   <div
                                     class="c40 c41 field__input field__input--disabled"
                                     data-disabled="true"
-                                    data-role="textline-input-wrapper"
+                                    data-role="text-field-input-wrapper"
                                   >
                                     <span
                                       class="c42 supported-unseen-span"
@@ -8685,7 +8690,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                     <input
                                       class="c43 field__text"
                                       data="test"
-                                      data-role="textline-input"
+                                      data-role="text-field-input"
                                       disabled=""
                                       id="id-test-input"
                                       placeholder="input placeholder"
@@ -8697,7 +8702,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                     />
                                     <div
                                       class="c44 field__suffix field__suffix--first"
-                                      data-role="textline-suffix-0"
+                                      data-role="text-field-suffix-0"
                                     >
                                       <i
                                         class="c25 c26 plasma-icon"

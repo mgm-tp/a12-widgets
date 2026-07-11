@@ -150,4 +150,10 @@ export interface FileUploadProps
 	 * Providing an empty string will hide the title.
 	 */
 	title?: string;
+
+	/**
+	 * Disables automatic focus restoration to the upload area after a file upload completes or loading finishes.
+	 * Use this when focus is managed programmatically by the consuming application.
+	 */
+	disableFocusRestore?: boolean;
 }

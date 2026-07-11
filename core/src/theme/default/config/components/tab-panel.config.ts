@@ -80,6 +80,26 @@ export type TabPanelConfigType = {
 		};
 	};
 	tabs: { background: string; minWidth: string; minHeight: string; padding: string; horizontalPadding: string };
+	groupTab: {
+		subGroup: {
+			background: string;
+			fontSize: string;
+			fontWeight: string;
+			padding: string;
+		};
+		divider: {
+			background: string;
+			margin: string;
+		};
+		subItem: {
+			gap: string;
+			padding: string;
+			iconFontSize: string;
+			iconMinWidth: string;
+			labelFontSize: string;
+			margin: string;
+		};
+	};
 };
 
 export const tabPanelConfig = (theme: BaseThemeType): TabPanelConfigType => {
@@ -93,6 +113,26 @@ export const tabPanelConfig = (theme: BaseThemeType): TabPanelConfigType => {
 			minHeight: `${spacing.spacing.spacingXl}px`,
 			padding: `${spacing.verticalSpacing.vertWhiteSpacing2xl}px 0 0`,
 			horizontalPadding: "0"
+		},
+		groupTab: {
+			subGroup: {
+				background: colors.background.secondaryBackground,
+				fontSize: typography.fontSize.tinyFontSize,
+				fontWeight: `${typography.fontWeight.regularFontWeight}`,
+				padding: `${spacing.verticalSpacing.vertWhiteSpacing2xs}px ${spacing.horizontalSpacing.horizWhiteSpacingsm}px`
+			},
+			divider: {
+				background: colors.divider.colorSubtle,
+				margin: `${spacing.verticalSpacing.vertWhiteSpacingxs}px`
+			},
+			subItem: {
+				gap: `${spacing.horizontalSpacing.horizWhiteSpacing2xs}px`,
+				padding: `${spacing.verticalSpacing.vertWhiteSpacingxs}px ${spacing.horizontalSpacing.horizWhiteSpacingsm}px`,
+				iconFontSize: typography.fontSize.hugeFontSize,
+				iconMinWidth: typography.fontSize.hugeFontSize,
+				labelFontSize: typography.fontSize.tinyFontSize,
+				margin: "0 1px"
+			}
 		},
 		tab: {
 			active: {

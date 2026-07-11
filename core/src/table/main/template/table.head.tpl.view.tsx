@@ -35,6 +35,7 @@ import { useMemo } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
+import { DataRoles } from "../../../common/index.js";
 
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
@@ -61,7 +62,7 @@ export function HeadTpl(props: TableTemplateProps.HeadProps): ReactElement<Table
 			className={classNames}
 			style={props.style}
 			id={props.id}
-			data-role={props.dataRole || "table-header"}
+			data-role={props.dataRole || DataRoles.Table.Header}
 			role={getRole(props.role, "rowgroup")}
 			aria-hidden={props.ariaHidden}
 		>

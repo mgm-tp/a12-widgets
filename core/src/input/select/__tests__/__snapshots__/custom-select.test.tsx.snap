@@ -6,337 +6,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > Should have the gr
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c11 > span {
-  display: inline-block;
-}
-
-.c11.c11 {
-  max-width: unset;
-}
-
-.c25 .c10 {
-  font-size: 1.25rem;
-}
-
-.c16 {
-  color: rgb(127, 140, 155);
-  user-select: none;
-  cursor: pointer;
-}
-
-.c35 .c10 {
-  user-select: none;
-}
-
-.c35 .c10 {
-  color: inherit;
-}
-
-.c35 .c10 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c35.c35 > .c10 {
-  display: block;
-}
-
-.c9 {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  min-width: 32px;
-  margin-right: -12px;
-  position: relative;
-}
-
-.c9:first-child {
-  border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px;
-}
-
-.c15 {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  min-width: 32px;
-  margin-left: -12px;
-}
-
-.c15:last-child {
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}
-
-.c14 {
-  background-color: transparent;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  box-sizing: border-box;
-  color: inherit;
-  flex-grow: 1;
-  font-style: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.45;
-  outline: none;
-  padding: 0px 12px;
-  text-align: inherit;
-  text-overflow: ellipsis;
-  text-transform: inherit;
-  min-width: 0px;
-  width: 100%;
-}
-
-.c14::placeholder {
-  font-style: italic;
-  color: rgb(89, 102, 115);
-  opacity: 1;
-}
-
-.c7 {
-  background-color: rgb(241, 242, 244);
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 32px;
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c0 {
-  overflow-wrap: break-word;
-  word-break: break-word;
-  flex-direction: column;
-  display: flex;
-  width: 100%;
-}
-
-.c0 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c0 * {
-  max-width: 100%;
-}
-
-.c5 {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.c17[class*="h_"] .c6 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c3 {
-  display: inline-flex;
-}
-
-.c3 .c4 {
-  flex: 1 1 160px;
-  max-width: 100%;
-}
-
-.c12 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
-}
-
-.c26 .c10 {
-  font-size: 1.125rem;
-}
-
-.c27 .c10 {
-  color: inherit;
-}
-
-.c28 .c10 {
-  color: inherit;
-}
-
-.c29 .c10 {
-  color: inherit;
-}
-
-.c30 .c10 {
-  color: inherit;
-}
-
-.c31 .c10 {
-  color: inherit;
-}
-
-.c32 .c10 {
-  color: inherit;
-}
-
-.c33 .c10 {
-  color: inherit;
-}
-
-.c34 .c10 {
-  color: inherit;
-}
-
-.c4[class*="h_"] .c24.c24 {
-  background-color: inherit !important;
-}
-
-.c18 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c19 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c20 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c21 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c22 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c23 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c1 .c13 {
-  pointer-events: none;
-}
-
-.c1 .c6:focus {
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c1 .c6 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-<div
-  class="c0 field-wrapper field-wrapper--block c1 field__select--mobile"
-  data-role="textline"
->
-  <div
-    class="c2 c3 field__main"
-  >
-    <div
-      class="c4 c5 field"
-      data-role="textline-control"
-    >
-      <div
-        class="c6 c7 field__input"
-        data-isfocused="true"
-        data-role="textline-input-wrapper"
-        tabindex="-1"
-      >
-        <div
-          class="c8 c9 field__prefix field__prefix--last"
-          data-role="textline-prefix-0"
-        >
-          <i
-            class="c10 c11 plasma-icon"
-            data-role="plasma-icon"
-          >
-            <span
-              aria-hidden="true"
-            >
-              vertical_align_top
-            </span>
-          </i>
-        </div>
-        <span
-          class="c12 supported-unseen-span"
-        />
-        <input
-          class="c13 c14 field__text"
-          data-role="textline-input"
-          type="text"
-          value="Top"
-        />
-        <span
-          class="c12 supported-unseen-span"
-        />
-        <div
-          class="c15 field__suffix field__suffix--first"
-          data-role="textline-suffix-0"
-        >
-          <i
-            aria-hidden="true"
-            class="c10 c11 plasma-icon plasma-icon--big c16"
-            data-role="selection-suffix"
-          >
-            <span
-              aria-hidden="true"
-            >
-              expand_more
-            </span>
-          </i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty styles to mobile modal input when isEmptyValue is true 1`] = `
-.c11 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -584,16 +255,355 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
   cursor: default;
 }
 
-.c37 .c13 {
+.c1 .c13 {
   pointer-events: none;
 }
 
-.c37 .c6:focus {
+.c1 .c6:focus {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c37 .c6 .c8 > .c10 {
+.c1 .c6 .c8 > .c10 {
+  color: inherit;
+  cursor: default;
+}
+
+<div
+  class="c0 field-wrapper field-wrapper--block c1 field__select--mobile"
+  data-role="text-field"
+>
+  <div
+    class="c2 c3 field__main"
+  >
+    <div
+      class="c4 c5 field"
+      data-role="text-field-control"
+    >
+      <div
+        class="c6 c7 field__input"
+        data-isfocused="true"
+        data-role="text-field-input-wrapper"
+        tabindex="-1"
+      >
+        <div
+          class="c8 c9 field__prefix field__prefix--last"
+          data-role="text-field-prefix-0"
+        >
+          <i
+            class="c10 c11 plasma-icon"
+            data-role="plasma-icon"
+          >
+            <span
+              aria-hidden="true"
+            >
+              vertical_align_top
+            </span>
+          </i>
+        </div>
+        <span
+          class="c12 supported-unseen-span"
+        />
+        <input
+          class="c13 c14 field__text"
+          data-role="text-field-input"
+          type="text"
+          value="Top"
+        />
+        <span
+          class="c12 supported-unseen-span"
+        />
+        <div
+          class="c15 field__suffix field__suffix--first"
+          data-role="text-field-suffix-0"
+        >
+          <i
+            aria-hidden="true"
+            class="c10 c11 plasma-icon plasma-icon--big c16"
+            data-role="selection-suffix"
+          >
+            <span
+              aria-hidden="true"
+            >
+              expand_more
+            </span>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty styles to mobile modal input when isEmptyValue is true 1`] = `
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+.c25 .c10 {
+  font-size: 1.25rem;
+}
+
+.c16 {
+  color: rgb(127, 140, 155);
+  user-select: none;
+  cursor: pointer;
+}
+
+.c37 .c10 {
+  user-select: none;
+}
+
+.c37 .c10 {
+  color: inherit;
+}
+
+.c37 .c10 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c37.c37 > .c10 {
+  display: block;
+}
+
+.c9 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-right: -12px;
+  position: relative;
+}
+
+.c9:first-child {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.c15 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c15:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c14 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c14::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c7 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c0 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c0 .c2 {
+  display: flex;
+  width: 100%;
+}
+
+.c0 * {
+  max-width: 100%;
+}
+
+.c5 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c17[class*="h_"] .c6 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
+  display: inline-flex;
+}
+
+.c3 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c12 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c26 .c10 {
+  font-size: 1.125rem;
+}
+
+.c27 .c10 {
+  color: inherit;
+}
+
+.c28 .c10 {
+  color: inherit;
+}
+
+.c29 .c10 {
+  color: inherit;
+}
+
+.c30 .c10 {
+  color: inherit;
+}
+
+.c31 .c10 {
+  color: inherit;
+}
+
+.c32 .c10 {
+  color: inherit;
+}
+
+.c33 .c10 {
+  color: inherit;
+}
+
+.c34 .c10 {
+  color: inherit;
+}
+
+.c35 .c10 {
+  color: inherit;
+}
+
+.c36 .c10 {
+  color: inherit;
+}
+
+.c4[class*="h_"] .c24.c24 {
+  background-color: inherit !important;
+}
+
+.c18 .c8 > .c10 {
+  color: inherit;
+  cursor: default;
+}
+
+.c19 .c8 > .c10 {
+  color: inherit;
+  cursor: default;
+}
+
+.c20 .c8 > .c10 {
+  color: inherit;
+  cursor: default;
+}
+
+.c21 .c8 > .c10 {
+  color: inherit;
+  cursor: default;
+}
+
+.c22 .c8 > .c10 {
+  color: inherit;
+  cursor: default;
+}
+
+.c23 .c8 > .c10 {
+  color: inherit;
+  cursor: default;
+}
+
+.c38 .c13 {
+  pointer-events: none;
+}
+
+.c38 .c6:focus {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c38 .c6 .c8 > .c10 {
   color: inherit;
   cursor: default;
 }
@@ -616,24 +626,24 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
 
 <div
   class="c0 field-wrapper field-wrapper--block c1 field__select--mobile"
-  data-role="textline"
+  data-role="text-field"
 >
   <div
     class="c2 c3 field__main"
   >
     <div
       class="c4 c5 field"
-      data-role="textline-control"
+      data-role="text-field-control"
     >
       <div
         class="c6 c7 field__input"
         data-isfocused="true"
-        data-role="textline-input-wrapper"
+        data-role="text-field-input-wrapper"
         tabindex="-1"
       >
         <div
           class="c8 c9 field__prefix field__prefix--last"
-          data-role="textline-prefix-0"
+          data-role="text-field-prefix-0"
         >
           <i
             class="c10 c11 plasma-icon"
@@ -651,7 +661,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
         />
         <input
           class="c13 c14 field__text"
-          data-role="textline-input"
+          data-role="text-field-input"
           type="text"
           value="Empty"
         />
@@ -660,7 +670,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
         />
         <div
           class="c15 field__suffix field__suffix--first"
-          data-role="textline-suffix-0"
+          data-role="text-field-suffix-0"
         >
           <i
             aria-hidden="true"
@@ -785,7 +795,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render base custo
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -938,7 +949,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render disabled s
   color: rgb(169, 179, 188);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1009,6 +1021,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render error sele
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1142,7 +1155,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render error sele
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1258,7 +1272,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render info selec
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1392,7 +1407,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render info selec
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1566,7 +1582,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render readonly s
   color: rgb(127, 140, 155);
   content: "";
   display: none;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1708,7 +1725,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1897,7 +1915,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2050,7 +2069,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2197,7 +2217,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2349,7 +2370,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2438,7 +2460,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render warning se
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2572,7 +2595,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render warning se
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;

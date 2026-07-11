@@ -131,6 +131,14 @@ export interface DropDownProps extends Styleable, Identifiable, Ref<HTMLDivEleme
 	hideA11yLabel?: boolean;
 
 	/**
+	 * Custom function to render dropdown custom label.
+	 *
+	 * @param item - The dropdown item being rendered
+	 * @returns ReactNode to be rendered as the label
+	 */
+	labelRenderer?(item: DropDownItem): ReactNode;
+
+	/**
 	 * Handle event when pressing keyboard on the dropdown wrapper.
 	 */
 	onKeyDown?(event: KeyboardEvent<HTMLElement>): void;

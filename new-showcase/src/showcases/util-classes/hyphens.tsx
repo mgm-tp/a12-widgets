@@ -33,7 +33,7 @@
 import type { ChangeEvent, ReactElement } from "react";
 import { useState, useCallback } from "react";
 
-import { noop, TextLineStateless, Checkbox, TextOutput } from "@com.mgmtp.a12.widgets/widgets-core";
+import { noop, TextField, Checkbox, TextOutput } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../helpers/configuration-view.js";
@@ -54,7 +54,7 @@ export function HyphensUtilClassShowcase(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<div className="-u-width-1-3 -u-flex-col">
-					<TextLineStateless
+					<TextField
 						label="Enter your text:"
 						className="-u-padding-b-base"
 						value={value}
@@ -72,7 +72,7 @@ export function HyphensUtilClassShowcase(): ReactElement {
 			<div lang="de" style={{ width }} className="-sc-helper-border -u-padding-base -u-hyphens">
 				<TextOutput className="-u-padding-b-base">{value}</TextOutput>
 				<Checkbox className="-u-padding-b-base" checked={false} label={value} onChange={() => undefined} />
-				<TextLineStateless
+				<TextField
 					className="-u-padding-b-base"
 					placeholder="Placeholder"
 					value=""

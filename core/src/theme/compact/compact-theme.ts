@@ -45,6 +45,7 @@ import { DefaultComponentsConfigs } from "../default/config/components/component
 import { CompactSpacing } from "./config/base/spacing.config.js";
 import { CompactComponentsConfigs } from "./config/components/components.js";
 
+/** @deprecated since v39.0.0. The compact theme will be removed in a future release with no replacement; its visual style is not carried forward. Adopt `getBaseTheme` from `@com.mgmtp.a12.widgets/widgets-core` to stay supported (it uses the flat visual style; its default base spacing is already compact at 12px). */
 export const getCompactTheme = () => {
 	const defaultTheme = getDefaultTheme();
 	const compactSpacing = CompactSpacing;
@@ -74,4 +75,5 @@ export const getCompactTheme = () => {
 	};
 };
 
+/** @deprecated since v39.0.0. The compact theme will be removed in a future release with no replacement; its visual style is not carried forward. Adopt `getBaseTheme` from `@com.mgmtp.a12.widgets/widgets-core` to stay supported (it uses the flat visual style; its default base spacing is already compact at 12px). */
 export const compactTheme = getCompactTheme();

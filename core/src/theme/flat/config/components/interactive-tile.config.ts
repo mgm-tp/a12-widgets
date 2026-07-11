@@ -43,9 +43,6 @@ export const commonInteractiveTileFlatConfigs = (theme: FlatThemeType) => {
 	};
 };
 
-/** @deprecated since version 38.2.0. Use {@link commonInteractiveTileFlatConfigs} instead. */
-export const commonTileConfigs = commonInteractiveTileFlatConfigs;
-
 export const interactiveTileFlatConfig = (theme: FlatThemeType) => {
 	const tileConfigs = commonInteractiveTileFlatConfigs(theme);
 	const { colors, spacing } = theme;

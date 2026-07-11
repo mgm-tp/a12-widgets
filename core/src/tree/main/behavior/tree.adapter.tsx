@@ -45,6 +45,9 @@ import type { TreeTemplateProps, TreeNodeTemplateModel } from "../tpl/tree.tpl.a
 
 import type { TreeProps, TreeNodeModel } from "./tree.behavior.api.js";
 
+/**
+ * @deprecated since 39.0.0. Use `TreeView` instead of the `TreeAdapter` + behavior-HOC composition.
+ */
 export function TreeAdapter(Target: ComponentType<TreeTemplateProps>): ComponentType<TreeProps> {
 	const AdaptedTree: FunctionComponent<TreeProps> = (props) => {
 		return (

@@ -1,19 +1,6 @@
 {
 	"extends": "./tsconfig.json",
-	"include": ["./src"],
-	"exclude": ["**/test", "**/__tests__", "./playwright"],
-	"typedocOptions": {
-		"name": "Widgets",
-		"theme": "default",
-		"exclude": ["**/*+(.test|index|internal|styled).ts", "**/*+(.view|test|internal|styled).tsx"],
-		"excludeExternals": "true",
-		"readme": "./README.md",
-		"entryPoints": "./src",
-		"entryPointStrategy": "expand",
-		"json": "./target/typedoc.json",
-		"pretty": false,
-		"skipErrorChecking": true
-	},
+	"exclude": ["**/test", "**/__tests__"],
 	"compilerOptions": {
 		"noEmitOnError": false,
 		"noEmit": false

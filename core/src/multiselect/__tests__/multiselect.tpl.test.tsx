@@ -308,7 +308,7 @@ describe("com.mgmtp.a12.widgets.multiselect.template", () => {
 				showDropdown
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		fireEvent.focus(input);
 		expect(onFocusSpy).toHaveBeenCalledTimes(1);

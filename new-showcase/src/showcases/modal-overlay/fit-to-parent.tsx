@@ -31,7 +31,7 @@
  */
 
 import type { ReactElement } from "react";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { loremIpsum } from "lorem-ipsum";
 
 import {
@@ -51,6 +51,10 @@ const shortText = loremIpsum({ units: "sentences", count: 10 });
 export function FitToParent(): ReactElement {
 	const [openModal, setOpenModal] = useState<boolean>(false);
 	const [openConfirmation, setOpenConfirmation] = useState<boolean>(false);
+	const showModalButtonRef = useRef<HTMLButtonElement | null>(null);
+	const handleShowModalButtonRef = useCallback((ref: HTMLButtonElement | null) => {
+		showModalButtonRef.current = ref;
+	}, []);
 
 	const showModal = (): void => {
 		setOpenModal(true);
@@ -69,6 +73,7 @@ export function FitToParent(): ReactElement {
 	};
 
 	const closeAll = (): void => {
+		showModalButtonRef.current?.focus();
 		setOpenConfirmation(false);
 		setOpenModal(false);
 	};
@@ -79,7 +84,13 @@ export function FitToParent(): ReactElement {
 				headingElements={<ContentBoxElements.Title key="title" text="Content Box" />}
 				style={{ maxHeight: 450 }}
 			>
-				<Button className="-u-margin-t-sm" label="Show Modal" primary onClick={showModal} />
+				<Button
+					className="-u-margin-t-sm"
+					label="Show Modal"
+					primary
+					onClick={showModal}
+					buttonRef={handleShowModalButtonRef}
+				/>
 				<p>{longText}</p>
 				{openModal && (
 					<ModalOverlay closeOnOutsideClick fitToParent onClose={closeModal}>

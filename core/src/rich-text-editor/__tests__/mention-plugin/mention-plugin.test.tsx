@@ -30,12 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { expect, test } from "vitest";
+import { describe, expect, test } from "vitest";
 import { getByDataRole, queryByDataRole, render, waitFor } from "test-utils";
 import { userEvent } from "vitest/browser";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-import { DefaultEditorCombination } from "../../../../playwright/rich-text-editor/default-editor-combination.stories.js";
+import { editorThemeClasses } from "../../main/themes/themes.js";
+
+import { DefaultEditorCombination } from "../default-editor-combination.js";
 
 test("Should show tooltip on focus of MentionNode", async () => {
 	const { container } = render(
@@ -65,5 +67,125 @@ test("Should show tooltip on focus of MentionNode", async () => {
 		const tooltip = queryByDataRole(container, DataRoles.RichTextEditor.Tooltip);
 
 		expect(tooltip).toBeVisible();
+	});
+});
+
+describe("Mention Plugin - Multiple Mentions", () => {
+	const getMentionNodes = (container: HTMLElement): NodeListOf<Element> => {
+		return container.querySelectorAll(`.${editorThemeClasses.mention}`);
+	};
+
+	const createMention = async (
+		container: HTMLElement,
+		editor: HTMLElement,
+		trigger: string,
+		index: number
+	): Promise<void> => {
+		await userEvent.type(editor, trigger);
+		await waitFor(() => {
+			const mentionList = queryByDataRole(container, DataRoles.RichTextEditor.MentionSuggestion);
+			expect(mentionList).toBeVisible();
+		});
+
+		// Navigate to the desired index
+		for (let i = 0; i < index; i++) {
+			await userEvent.keyboard("{ArrowDown}");
+		}
+
+		await userEvent.keyboard("{Enter}");
+	};
+
+	const waitForMentionCount = async (container: HTMLElement, expectedCount: number): Promise<void> => {
+		await waitFor(() => {
+			const mentions = getMentionNodes(container);
+			expect(mentions.length).toBe(expectedCount);
+		});
+	};
+
+	test("Should be able to type multiple mentions in sequence", async () => {
+		const { container } = render(<DefaultEditorCombination hasMentionPlugin />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+
+		// Type first mention
+		await createMention(container, editor, "@", 0); // A12W
+		await userEvent.type(editor, "and ");
+
+		// Type second mention
+		await createMention(container, editor, "@", 1); // A12P
+		await userEvent.type(editor, "are working together with ");
+
+		// Type third mention
+		await createMention(container, editor, "@", 2); // mgm
+
+		await waitForMentionCount(container, 3);
+
+		// Verify the content of each mention
+		const mentions = getMentionNodes(container);
+		expect(mentions[0]).toHaveTextContent("Widgets");
+		expect(mentions[1]).toHaveTextContent("Plasma");
+		expect(mentions[2]).toHaveTextContent("mgm-tp");
+
+		// Verify the full text content
+		expect(editor.textContent).toBe("Widgets and Plasma are working together with mgm-tp ");
+	});
+
+	test("Should add mention node after text", async () => {
+		const { container } = render(<DefaultEditorCombination hasMentionPlugin />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+
+		await userEvent.click(editor);
+		await userEvent.type(editor, "This is a test ");
+
+		// Create multiple mentions
+		await createMention(container, editor, "@", 0); // A12W
+		await createMention(container, editor, "@", 1); // A12P
+		await createMention(container, editor, "@", 2); // mgm
+
+		await waitForMentionCount(container, 3);
+
+		// Verify final state
+		const mentions = getMentionNodes(container);
+		expect(mentions[0]).toHaveTextContent("Widgets");
+		expect(mentions[1]).toHaveTextContent("Plasma");
+		expect(mentions[2]).toHaveTextContent("mgm-tp");
+	});
+
+	test("Should type mention node, text and then mention node", async () => {
+		const { container } = render(<DefaultEditorCombination hasMentionPlugin />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+
+		// Mention at the beginning
+		await createMention(container, editor, "@", 0); // A12W
+		await userEvent.type(editor, "is the start, ");
+
+		// Mention in the middle
+		await createMention(container, editor, "@", 1); // A12P
+		await userEvent.type(editor, "is in the middle, and ");
+
+		// Mention at the end
+		await createMention(container, editor, "@", 2); // mgm
+
+		await waitForMentionCount(container, 3);
+
+		// Verify the full text content
+		expect(editor.textContent).toContain("Widgets is the start, Plasma is in the middle, and mgm-tp");
+	});
+
+	test("Should handle mentions with special characters and formatting", async () => {
+		const { container } = render(<DefaultEditorCombination hasMentionPlugin />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+
+		// Add mentions with special characters around them
+		await userEvent.type(editor, "Hello ");
+		await createMention(container, editor, "@", 0); // A12W
+		await userEvent.type(editor, "! How are ");
+		await createMention(container, editor, "@", 1); // A12P
+		await userEvent.type(editor, "? Greetings from ");
+		await createMention(container, editor, "@", 2); // mgm
+		await userEvent.type(editor, ".");
+
+		await waitForMentionCount(container, 3);
+
+		expect(editor.textContent).toBe("Hello Widgets ! How are Plasma ? Greetings from mgm-tp .");
 	});
 });

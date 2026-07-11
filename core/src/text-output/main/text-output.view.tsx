@@ -45,7 +45,7 @@ import {
 } from "../../input/base/template/base.tpl.view.js";
 import type { TooltipProps } from "../../tooltip/main/tooltip.api.js";
 import { StyledBulletList } from "../../bullet-list/main/bullet-list.view.js";
-import { StyledTooltipWrapper } from "../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 
 import type { TextOutputProps } from "./text-output.api.js";
@@ -102,7 +102,7 @@ export const StyledTextOutputFieldAddon = styled(StyledBaseInput.StyledFieldAddo
 	align-items: flex-start;
 	height: auto;
 
-	${StyledTooltipWrapper} {
+	${StyledTooltipTriggerWrapper} {
 		// Trick to make sure Tooltips are aligned with the first line of content in Text Output
 		margin-top: -4px;
 	}
@@ -166,7 +166,7 @@ export const StyledTextOutput = styled.div.withConfig({ displayName: "StyledText
 				}
 			}
 		}
-		> ${StyledTooltipWrapper} {
+		> ${StyledTooltipTriggerWrapper} {
 			margin: 0 0 4px 4px;
 		}
 
@@ -179,7 +179,7 @@ export const StyledTextOutput = styled.div.withConfig({ displayName: "StyledText
 				}
 			`}
 
-			> ${StyledTooltipWrapper}:last-of-type,
+			> ${StyledTooltipTriggerWrapper}:last-of-type,
 				> ${StyledFieldMessageWrapper} {
 				margin-right: ${marginRight};
 			}

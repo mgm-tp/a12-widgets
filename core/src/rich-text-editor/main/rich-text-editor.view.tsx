@@ -42,6 +42,7 @@ import { InputElements } from "../../input/base/template/base.tpl.view.js";
 import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 import type { Identifiable } from "../../common/main/base-props.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { joinClassNames } from "../../common/main/utils.js";
 
 import {
 	StyledEditorAddon,
@@ -98,6 +99,23 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 	const addonAfterRefs = useRef<Record<string, HTMLElement | null>>({});
 
 	const isInteractive = useMemo(() => !readonly && !disabled, [disabled, readonly]);
+
+	const ariaDescribedBy = useMemo(() => {
+		if (!id) {
+			return undefined;
+		}
+
+		return (
+			joinClassNames(
+				{ [`${id}-error`]: !!errorMessage },
+				{ [`${id}-warning`]: !!warningMessage },
+				{ [`${id}-info`]: !!infoMessage },
+				{ [`${id}-placeholder`]: !!(isInteractive && placeholder) },
+				{ [`${id}-helper-text`]: !!helperText }
+			) || undefined
+		);
+	}, [id, isInteractive, placeholder, helperText, errorMessage, warningMessage, infoMessage]);
+
 	const isFixedHeight = useMemo(
 		() => !!(minHeight && !(singleLine || autoExpand)),
 		[autoExpand, minHeight, singleLine]
@@ -223,16 +241,25 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 											data-role={DataRoles.RichTextEditor.ContentWrapper}
 										>
 											<RichTextEditorContentEditable
+												id={id}
+												{...rest}
 												readOnly={readonly}
 												disabled={disabled}
 												spellCheck={spellCheck ?? false}
-												{...rest}
+												aria-labelledby={id && label ? `${id}-label` : undefined}
+												aria-describedby={ariaDescribedBy}
+												aria-multiline={!singleLine}
+												aria-readonly={readonly}
+												aria-disabled={disabled}
 											/>
 										</StyledEditorContentWrapper>
 									}
 									placeholder={
 										isInteractive && placeholder ? (
-											<StyledEditorPlaceholder data-role={DataRoles.RichTextEditor.Placeholder}>
+											<StyledEditorPlaceholder
+												id={id ? `${id}-placeholder` : undefined}
+												data-role={DataRoles.RichTextEditor.Placeholder}
+											>
 												{placeholder}
 											</StyledEditorPlaceholder>
 										) : null

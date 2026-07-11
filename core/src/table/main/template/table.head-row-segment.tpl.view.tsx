@@ -35,10 +35,11 @@ import { memo, useMemo } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames } from "../../../common/main/utils.js";
-import { useTableContext } from "../../new-api/table.context.js";
 import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
 import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
+import { DataRoles } from "../../../common/index.js";
 
+import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import type { TableTemplateProps } from "./table.tpl.api.js";
@@ -47,30 +48,94 @@ import { useStyledTableContext } from "./table.context.styled.js";
 
 export const StyledTableHeadRowSegment = styled(StyledBaseTable.Segment).withConfig({
 	displayName: "StyledTableHeadRowSegment-sc-"
-})(({ theme }) => {
-	const filterRow = useStyledTableContext((context) => context.header?.filterRow);
+})<{
+	rowSegmentType?: TableTemplateProps.RowSegmentType;
+	$gridRowData?: TableTemplateProps.GridRowDataProps;
+	$filterRow?: boolean;
+	$enableColumnGroupA11y?: boolean;
+}>(
+	({
+		theme,
+		rowSegmentType,
+		$gridRowData: { gridRow, gridColumn, gridRowSpan, gridColumnSpan, isHidden, leftOffset, rightOffset } = {},
+		$filterRow: filterRow,
+		$enableColumnGroupA11y: enableColumnGroupA11y
+	}) => {
+		const { headRow, header } = theme.components.table;
 
-	const { headRow } = theme.components.table;
+		return css`
+			${enableColumnGroupA11y &&
+			css`
+				grid-row: ${gridRow} / span ${gridRowSpan};
+				grid-column: ${gridColumn} / span ${gridColumnSpan};
+				display: grid;
 
-	return css`
-		${filterRow &&
-		css`
-			align-items: flex-start;
-			${StyledBaseInput.StyledFieldWrapper}:not(:last-child),
+				/* Create a subgrid to maintain cell positioning */
+				grid-template-columns: subgrid;
+				grid-template-rows: subgrid;
+
+				${isHidden &&
+				css`
+					position: absolute;
+					width: 1px;
+					height: 1px;
+					padding: 0;
+					margin: -1px;
+					overflow: hidden;
+					clip-path: inset(0);
+					white-space: nowrap;
+					border: 0;
+				`}
+
+				/* Apply pinning styles for wrapper segments */
+			${rowSegmentType === "left" &&
+				!isHidden &&
+				css`
+					position: sticky;
+					left: ${leftOffset !== undefined ? `${leftOffset}px` : "0"};
+					z-index: 2;
+					background: ${header.background};
+					isolation: isolate;
+				`}
+
+			${rowSegmentType === "right" &&
+				!isHidden &&
+				css`
+					position: sticky;
+					right: ${rightOffset !== undefined ? `${rightOffset}px` : "0"};
+					z-index: 1;
+					background: ${header.background};
+					isolation: isolate;
+				`}
+
+			${rowSegmentType === "scroll" &&
+				css`
+					min-width: 0;
+				`}
+			`}
+
+			${filterRow &&
+			css`
+				align-items: flex-start;
+				${StyledBaseInput.StyledFieldWrapper}:not(:last-child),
 				${StyledTimePickerWrapper}:not(:last-child) {
-				margin-bottom: ${headRow.filter.fieldInputMarginBottom};
-			}
-			${StyledBaseInput.StyledFieldInput}:read-only {
-				background-color: ${headRow.filter.fieldInputReadonlyBG};
-			}
-		`}
-	`;
-});
+					margin-bottom: ${headRow.filter.fieldInputMarginBottom};
+				}
+				${StyledBaseInput.StyledFieldInput}:read-only {
+					background-color: ${headRow.filter.fieldInputReadonlyBG};
+				}
+			`}
+		`;
+	}
+);
 
 export const HeadRowSegmentTpl = memo(function HeadRowSegmentTpl(
 	props: TableTemplateProps.RowSegmentProps
 ): ReactElement<TableTemplateProps.RowSegmentProps> {
 	const cardView = useTableContext((context) => context.cardView);
+	const crossTabulation = useTableContext((context) => !!context.crossTabulation);
+	const enableColumnGroupA11y = useTableContext((context) => !!context.enableColumnGroupA11y);
+	const filterRow = useStyledTableContext((context) => !!context.header?.filterRow);
 
 	const classNames = useMemo(() => {
 		return joinClassNames(`${BASE_TABLE_CLASSNAME}__headerRow--${props.type}`, props.className);
@@ -81,9 +146,13 @@ export const HeadRowSegmentTpl = memo(function HeadRowSegmentTpl(
 			className={classNames}
 			style={props.style}
 			id={props.id}
-			dataRole={props.dataRole || `table-header-row--${props.type}`}
+			dataRole={props.dataRole || `${DataRoles.Table.Header.Row}--${props.type}`}
 			rowSegmentType={props.type}
 			cardView={cardView}
+			$gridRowData={props.gridRowData}
+			$crossTabulation={crossTabulation}
+			$enableColumnGroupA11y={enableColumnGroupA11y}
+			$filterRow={filterRow}
 		>
 			{props.children}
 		</StyledTableHeadRowSegment>

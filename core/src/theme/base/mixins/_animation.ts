@@ -31,7 +31,7 @@
  */
 
 import { keyframes } from "styled-components";
-import { type Keyframes } from "styled-components/dist/types.js";
+import { type Keyframes } from "styled-components";
 
 export const fadeIn = (opacity = 1): Keyframes => keyframes`
 	0% {

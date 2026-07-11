@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-export { createTheme, type ThemeType } from "./create-theme.js";
+export * from "./create-theme.js";
 export * from "./schema.js";
 export * from "./base/index.js";
 export * from "./compact/index.js";
@@ -38,3 +38,5 @@ export * from "./default/index.js";
 export * from "./flat/index.js";
 export * from "./flat-compact/index.js";
 export * from "./schema/index.js";
+
+export * from "./base-theme/index.js";

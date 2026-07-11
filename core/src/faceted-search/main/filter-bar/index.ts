@@ -36,3 +36,4 @@ export * from "./filter-bar.mobile.view.js";
 export * from "./filter-bar.styled.js";
 export * from "./filter-bar.view.js";
 export * from "./filter-context.js";
+export * from "./use-filter-focus-management.js";

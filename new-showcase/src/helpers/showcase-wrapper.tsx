@@ -36,7 +36,7 @@ import { styled, css } from "styled-components";
 import { getCurrentTheme } from "./theme-selector.js";
 
 export const DarkBackgroundContainer = styled.div<{ unsetColorInFlat?: boolean }>(({ theme, unsetColorInFlat }) => {
-	const isInFlatTheme = getCurrentTheme().includes("flat");
+	const isInFlatTheme = getCurrentTheme().includes("flat") || getCurrentTheme().includes("base");
 
 	return css`
 		background: ${unsetColorInFlat && isInFlatTheme ? "#dbdfe8" : theme.colors.variant.infoColor};

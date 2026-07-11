@@ -32,3 +32,14 @@
 
 export * from "./table.data-attributes.js";
 export * from "./template/index.js";
+export * from "./column.api.js";
+export * from "./infinite-scroll.api.js";
+export * from "./table-renderer.api.js";
+export * from "./table.api.js";
+export * from "./table.body-cell.view.js";
+export * from "./table.context.js";
+export * from "./table.dnd.view.js";
+export * from "./table.utils.js";
+export * from "./table.view.js";
+export * from "./table.virtualized-body.view.js";
+export * from "./table-rows-group/index.js";

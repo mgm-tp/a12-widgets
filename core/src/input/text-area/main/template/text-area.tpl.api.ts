@@ -43,8 +43,8 @@ import type {
 	RefCallback,
 	MouseEvent,
 	KeyboardEvent,
-	ChangeEvent,
-	HTMLAttributes
+	HTMLAttributes,
+	InputEventHandler
 } from "react";
 
 import type { BaseInputEventHandler, BaseInputProps, InputDOMProps } from "../../../base/template/base.tpl.api.js";
@@ -141,7 +141,7 @@ export interface TextAreaStatelessProps
 	/**
 	 * The input event is fired when the value has been changed.
 	 */
-	onInput?(event: ChangeEvent<HTMLTextAreaElement>): void;
+	onInput?: InputEventHandler<HTMLTextAreaElement>;
 
 	/**
 	 * The role attribute for the input wrapper, in order to support Accessibility.

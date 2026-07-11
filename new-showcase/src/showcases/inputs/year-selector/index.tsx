@@ -66,7 +66,9 @@ const showcases: Showcase[] = [
 					<>
 						<p>
 							The <strong>YearSelector</strong> widget provides the <code>onYearChange</code> property to handle the
-							selected year and set it to the <code>year</code> property to be displayed.
+							selected year and set it to the <code>year</code> property to be displayed. When no <code>yearRange</code>{" "}
+							is given, the selector auto-detects as a <strong>textbox</strong> — only digits are accepted and
+							validation can be driven by the consumer via <code>errorMessage</code>.
 						</p>
 						<p>
 							The recommended way of hiding the label while still supporting <strong>accessibility</strong> is to set{" "}
@@ -84,7 +86,9 @@ const showcases: Showcase[] = [
 				description: (
 					<p>
 						By default, the range starts from <code>(current year - 6)</code> to <code>(current year + 7)</code>. Use{" "}
-						<code>yearRange</code> to customize the range.
+						<code>yearRange</code> to customize the range. When <code>yearRange</code> is provided without an explicit{" "}
+						<code>variant</code>, the selector auto-detects and renders as an <strong>autocomplete</strong> input with a
+						dropdown of the specified year options.
 					</p>
 				),
 				code: { name: "custom-year-range-selector.tsx", code: customYearRangeCode }
@@ -92,10 +96,13 @@ const showcases: Showcase[] = [
 			{
 				label: "Optional Value",
 				description: (
-					<p>
-						Use the <code>optionalItem</code> property to set it as the first item of the YearSelector. It will return
-						an <code>undefined</code> value if selected.
-					</p>
+					<>
+						<p>
+							Use the <code>optionalItem</code> property to prepend a selectable item at the top of the list. When
+							selected, it calls <code>onYearChange</code> with <code>undefined</code>.
+						</p>
+						<strong>Note:</strong> <code>optionalItem</code> only works with <code>variant="select"</code>.
+					</>
 				),
 				content: <YearSelectorWithOptionalValue />,
 				code: { name: "optional-value.tsx", code: withOptionalValueCode }

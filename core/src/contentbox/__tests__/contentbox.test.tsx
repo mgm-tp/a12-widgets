@@ -286,4 +286,22 @@ describe("com.mgmtp.a12.widgets.contentboxTpl", () => {
 		expect(titleElement).toHaveAttribute("data-testid", "custom-title");
 		expect(titleElement).toHaveAttribute("aria-label", "Custom Aria Label");
 	});
+
+	test("rendering-contentbox-with-sidepanel", () => {
+		const { container } = render(
+			<ContentBox
+				heading={<div />}
+				sidePanels={{
+					right: {
+						hide: false,
+						mode: "overlay",
+						width: "300px",
+						content: <div id="side-panel">side</div>
+					}
+				}}
+			/>
+		);
+
+		expect(container.firstChild).toMatchSnapshot();
+	});
 });

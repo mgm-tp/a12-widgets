@@ -71,7 +71,7 @@ To enable it for other languages, simply wrap your application in our language p
 import {
 	A11YLanguageContext,
 	getA11yResource
-} from "@com.mgmtp.a12.widgets/widgets-core/lib/common/main/a11y-localization";
+} from "@com.mgmtp.a12.widgets/widgets-core";
 
 const App = () => <A11YLanguageContext.Provider value={getA11yResource(CURRENT_LOCALE)}>
         <Application />

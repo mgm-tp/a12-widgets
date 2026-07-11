@@ -6,7 +6,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active primary tile 1`]
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -28,7 +29,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active primary tile 1`]
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -61,7 +62,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active primary tile 1`]
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -73,7 +74,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active primary tile 1`]
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -123,7 +124,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active secondary tile 1
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -145,15 +147,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active secondary tile 1
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -161,7 +163,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active secondary tile 1
   color: inherit;
 }
 
-.c6 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c6 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -193,7 +195,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active secondary tile 1
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -205,7 +207,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active secondary tile 1
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -255,7 +257,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render default tile same as th
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -277,15 +280,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render default tile same as th
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -321,15 +324,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render default tile same as th
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c6 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c6 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c6 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c6 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -337,19 +340,19 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render default tile same as th
   color: inherit;
 }
 
-.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c9 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c9 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c9 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c9 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -390,7 +393,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled primary tile 1
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -412,15 +416,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled primary tile 1
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -478,7 +482,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled secondary tile
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -500,15 +505,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled secondary tile
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -516,15 +521,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled secondary tile
   color: inherit;
 }
 
-.c6 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c6 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c7 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c7 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c7 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c7 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -582,7 +587,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -604,15 +610,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1
   max-width: unset;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c5 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c5 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c5 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c5 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -620,15 +626,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1
   color: inherit;
 }
 
-.c7 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c7 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -665,7 +671,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -677,7 +683,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -745,7 +751,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary tile 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -796,7 +803,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary tile 1`] = `
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -837,7 +844,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -859,15 +867,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   max-width: unset;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c5 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c5 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c5 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c5 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -875,15 +883,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   color: inherit;
 }
 
-.c7 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c7 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c8 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -891,11 +899,11 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   color: inherit;
 }
 
-.c10 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c10 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c10 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c10 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -927,7 +935,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -939,7 +947,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1017,7 +1025,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary tile 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1039,15 +1048,15 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary tile 1`] = `
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1083,7 +1092,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary tile 1`] = `
   text-decoration: none;
 }
 
-.c0 .c1:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c0 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 

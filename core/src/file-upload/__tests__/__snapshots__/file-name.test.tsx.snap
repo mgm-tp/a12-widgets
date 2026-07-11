@@ -26,6 +26,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -219,7 +220,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
 }
 
 @media (pointer: fine) {
-  .cQeHJf:hover .c9 {
+  .dqlCZy:hover .c9 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -228,7 +229,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
 }
 
 @media (pointer: fine) {
-  .cEJYpV:hover .c9 {
+  .cYJlnM:hover .c9 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -237,7 +238,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
 }
 
 @media (pointer: fine) {
-  .jVroVV:hover .c9 {
+  .yRQxo:hover .c9 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -246,7 +247,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
 }
 
 @media (pointer: fine) {
-  .ekvKIa:hover .c9 {
+  .fjonAo:hover .c9 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -255,7 +256,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
 }
 
 @media (pointer: fine) {
-  .cLNTSn:hover .c9 {
+  .kegfCX:hover .c9 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -381,6 +382,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -742,7 +744,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -809,10 +812,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-.c8 + svg {
-  width: 9999px;
 }
 
 .c10 {
@@ -1008,7 +1007,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1040,6 +1040,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1121,7 +1122,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   color: inherit;
 }
 
-.c15 .c17.c17:not(:active):not(:hover):not(:focus) .c11:not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c15 .c17.c17:not(:active):not(:hover):not(:focus) .c11:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1598,6 +1599,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1814,7 +1816,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
 }
 
 @media (pointer: fine) {
-  .cQeHJf:hover .c8 {
+  .dqlCZy:hover .c8 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -1823,7 +1825,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
 }
 
 @media (pointer: fine) {
-  .cEJYpV:hover .c8 {
+  .cYJlnM:hover .c8 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -1832,7 +1834,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
 }
 
 @media (pointer: fine) {
-  .jVroVV:hover .c8 {
+  .yRQxo:hover .c8 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -1966,6 +1968,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2219,7 +2222,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
 }
 
 @media (pointer: fine) {
-  .cQeHJf:hover .c15 {
+  .dqlCZy:hover .c15 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -2426,6 +2429,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2703,7 +2707,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
 }
 
 @media (pointer: fine) {
-  .cEJYpV:hover .c8 {
+  .cYJlnM:hover .c8 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -2712,7 +2716,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
 }
 
 @media (pointer: fine) {
-  .jVroVV:hover .c8 {
+  .yRQxo:hover .c8 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -3086,7 +3090,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3114,6 +3119,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3367,7 +3373,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
 }
 
 @media (pointer: fine) {
-  .cQeHJf:hover .c15 {
+  .dqlCZy:hover .c15 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
@@ -3376,7 +3382,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
 }
 
 @media (pointer: fine) {
-  .cEJYpV:hover .c15 {
+  .cYJlnM:hover .c15 {
     background-position: left bottom;
     transition: background-position 0.3s;
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));

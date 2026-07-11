@@ -34,6 +34,7 @@ import type { DefaultThemeType } from "../schema.js";
 import type { BaseThemeColorsType } from "../schema/base-colors.api.js";
 import type { BaseThemeTypographyType } from "../schema/typography.api.js";
 import type { BaseThemeSpacingType } from "../schema/spacing.api.js";
+import { LineHeightConfig } from "../base-theme/config/application/line-height.config.js";
 
 import { DefaultColorsConfig } from "./config/base/colors.config.js";
 import { FontConfig } from "./config/base/fonts.config.js";
@@ -47,13 +48,15 @@ import { BaseInputStyles } from "./config/base/input.config.js";
 import { FocusStyles } from "./config/application/focus.config.js";
 import { DivisionLineStyles } from "./config/application/division-line.config.js";
 
+/** @deprecated since v39.0.0. The default theme will be removed in a future release with no replacement; its visual style is not carried forward. Adopt `getBaseTheme` from `@com.mgmtp.a12.widgets/widgets-core` to stay supported (it uses the flat-compact visual style). */
 export const getDefaultTheme = (): DefaultThemeType => {
 	const colors: BaseThemeColorsType = DefaultColorsConfig;
 	const baseFont = FontConfig;
 	const typography: BaseThemeTypographyType = {
 		font: baseFont,
 		fontSize: FontSizeConfig(baseFont),
-		fontWeight: FontWeightConfig
+		fontWeight: FontWeightConfig,
+		lineHeight: LineHeightConfig
 	};
 
 	const spacing: BaseThemeSpacingType = {
@@ -83,4 +86,5 @@ export const getDefaultTheme = (): DefaultThemeType => {
 	};
 };
 
+/** @deprecated since v39.0.0. The default theme will be removed in a future release with no replacement; its visual style is not carried forward. Adopt `getBaseTheme` from `@com.mgmtp.a12.widgets/widgets-core` to stay supported (it uses the flat-compact visual style). */
 export const defaultTheme = getDefaultTheme();

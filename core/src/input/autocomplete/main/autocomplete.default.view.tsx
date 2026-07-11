@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ContextType, MutableRefObject, KeyboardEvent, ChangeEvent, ReactNode } from "react";
+import type { ContextType, MutableRefObject, KeyboardEvent, InputEvent, ReactNode } from "react";
 import { createRef, Component } from "react";
 import { Key } from "ts-key-enum";
 import { type ResizePayload } from "react-resize-detector";
@@ -53,7 +53,7 @@ import { DropDown } from "../../../dropdown/main/template/dropdown.tpl.view.js";
 import { Button } from "../../../button/main/button.view.js";
 import { Icon } from "../../../icon/main/icon.view.js";
 import { ProgressIndicator } from "../../../progress-indicator/main/progress-indicator.view.js";
-import { TextLineStateless } from "../../text-line/main/template/text-line.tpl.view.js";
+import { TextField } from "../../text-field/main/template/text-field.tpl.view.js";
 import { SelectionSuffix } from "../../base/template/base.tpl.view.js";
 import { WidgetsResizeDetector } from "../../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
 import { isEmptyString } from "../../../common/main/utils/string-utils.js";
@@ -585,7 +585,8 @@ export class DefaultAutocomplete extends Component<AutocompleteProps, DefaultAut
 		this.setState({ showPortal: false });
 	}
 
-	private handleInputChange({ target: { value } }: ChangeEvent<HTMLInputElement>): void {
+	private handleInputChange(event: InputEvent<HTMLInputElement>): void {
+		const value = (event.target as HTMLInputElement).value;
 		this.setState({ searchText: value, isSearched: true, isPressedClearButton: false });
 
 		if (this.props.onSearch) {
@@ -840,7 +841,7 @@ export class DefaultAutocomplete extends Component<AutocompleteProps, DefaultAut
 					ref={this.getWrapperRef}
 					$disabled={disabled}
 				>
-					<TextLineStateless
+					<TextField
 						id={id}
 						value={inputValue}
 						label={label}

@@ -112,6 +112,7 @@ describe("com.mgmtp.a12.widgets.filter-selector", () => {
 			<FilterSelector
 				primaryContentProps={{ headingElements: "" }}
 				activeFilters={[]}
+				inactiveFilters={[]}
 				disabled
 				referenceElement={mountPoint.container}
 			/>
@@ -129,6 +130,7 @@ describe("com.mgmtp.a12.widgets.filter-selector", () => {
 			<FilterSelector
 				primaryContentProps={{ headingElements: "" }}
 				activeFilters={[]}
+				inactiveFilters={[]}
 				disabled
 				renderFilterView={() => "test"}
 				renderFilterOptions={() => "filter option"}
@@ -150,6 +152,7 @@ describe("com.mgmtp.a12.widgets.filter-selector", () => {
 			<FilterSelector
 				primaryContentProps={{ headingElements: "" }}
 				activeFilters={[filterData[3]]}
+				inactiveFilters={[]}
 				renderFilterView={() => "test"}
 				renderFilterOptions={() => "filter option"}
 				referenceElement={mountPoint.container}
@@ -174,13 +177,18 @@ describe("com.mgmtp.a12.widgets.filter-selector", () => {
 	test("Focus is set to the Filter Selector's search input by default", async () => {
 		const mountPoint = render(<button>Mount point</button>);
 		const { container } = render(
-			<FilterSelector primaryContentProps={{ headingElements: "" }} referenceElement={mountPoint.container} />
+			<FilterSelector
+				primaryContentProps={{ headingElements: "" }}
+				activeFilters={[]}
+				inactiveFilters={[]}
+				referenceElement={mountPoint.container}
+			/>
 		);
 
 		fireEvent.click(mountPoint.container);
 
 		await waitFor(() => {
-			const searchInput = getByDataRole(container, DataRoles.Textline.Input);
+			const searchInput = getByDataRole(container, DataRoles.TextField.Input);
 
 			expect(searchInput).toHaveFocus();
 		});
@@ -192,6 +200,8 @@ describe("com.mgmtp.a12.widgets.filter-selector", () => {
 			<FilterSelector
 				hideSearchBar
 				primaryContentProps={{ headingElements: "" }}
+				activeFilters={[]}
+				inactiveFilters={[]}
 				referenceElement={mountPoint.container}
 			/>
 		);

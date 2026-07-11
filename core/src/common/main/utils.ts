@@ -576,6 +576,19 @@ export function isElementFocusable(element: HTMLElement): boolean {
 	return !element.hasAttribute("disabled") && (focusableByTabIndex || focusableByTagName || focusableByContentEditable);
 }
 
+/**
+ * Programmatically moves focus to an element that may not be focusable by default
+ * (e.g. a `<tr>`). If the element has no `tabindex`, a `tabindex="-1"` is added first
+ * so the `focus()` call takes effect without making the element part of the tab order.
+ */
+export function focusEnsuringTabIndex(element: HTMLElement): void {
+	if (!element.hasAttribute("tabindex")) {
+		element.setAttribute("tabindex", "-1");
+	}
+
+	element.focus();
+}
+
 function filterMethods(_this: any, filter: (value: string, index: number) => boolean): string[] {
 	const keys = Object.getOwnPropertyNames(Object.getPrototypeOf(_this));
 	const methodFilter = filter || (() => true);
@@ -687,6 +700,46 @@ export function moveItemFocusNext(
 
 export function hasGotFocus(container: HTMLElement | null): boolean {
 	return !!container && container.contains(document.activeElement);
+}
+
+/** @internal */
+export function getNextWrappedIndex(currentIndex: number, length: number, direction: "forward" | "backward"): number {
+	if (length === 0) {
+		return -1;
+	}
+
+	if (direction === "forward") {
+		return currentIndex < length - 1 ? currentIndex + 1 : 0;
+	}
+
+	return currentIndex > 0 ? currentIndex - 1 : length - 1;
+}
+
+/**
+ * Finds the first focusable element outside the given container in the specified direction.
+ * @internal
+ */
+export function findFirstFocusableOutside(
+	container: HTMLElement,
+	direction: "before" | "after"
+): HTMLElement | undefined {
+	const allFocusable = Array.from(getAllFocusableElements(document.body)).filter((el) => {
+		if (container.contains(el) || el.contains(container)) {
+			return false;
+		}
+
+		const style = getComputedStyle(el);
+
+		return style.visibility !== "hidden" && style.display !== "none";
+	});
+
+	if (direction === "after") {
+		return allFocusable.find((el) => !!(container.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING));
+	}
+
+	return allFocusable
+		.reverse()
+		.find((el) => !!(container.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING));
 }
 
 export function isTypeableCharacter(event: KeyboardEvent): boolean {

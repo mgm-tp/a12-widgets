@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = `
-.c16 {
+exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker — autocomplete year selector 1`] = `
+.c17 {
   align-items: center;
   cursor: pointer;
   display: inline-flex;
@@ -22,7 +22,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
   color: rgb(5, 104, 174);
 }
 
-.c16:not(:disabled):focus {
+.c17:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -31,13 +31,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c16.c16 {
+.h_inlineBlock.h_middleAlign .c17.c17 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.c17 {
+.c18 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -59,7 +59,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
   color: rgb(255, 255, 255);
 }
 
-.c17:not(:disabled):focus {
+.c18:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -68,10 +68,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c17.c17 {
+.h_inlineBlock.h_middleAlign .c18.c18 {
   display: block;
   height: auto;
   min-height: 0px;
+}
+
+.c19 .c16 {
+  border-radius: 0px;
 }
 
 .c14 {
@@ -116,7 +120,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
   text-align: center;
 }
 
-.c18 + .c2 {
+.c20 + .c2 {
   text-align: left;
 }
 
@@ -284,33 +288,6 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
 }
 
 @media (pointer: coarse) {
-  .c16:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    text-decoration: none;
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c16:not(:disabled):hover {
-    background-color: rgb(255, 255, 255);
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    text-decoration: none;
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c16:hover {
-    outline: transparent solid 1px;
-  }
-}
-
-@media (pointer: coarse) {
   .c17:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(255, 255, 255);
@@ -333,6 +310,33 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
 
 @media (pointer: fine) {
   .c17:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover {
     outline: transparent solid 1px;
   }
 }
@@ -524,7 +528,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
       data-role="date-time-picker-footer-action"
     >
       <button
-        class="c16 button button--secondary"
+        class="c16 c17 button button--secondary"
         data-role="button"
         title=""
         type="button"
@@ -541,7 +545,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
       data-role="date-time-picker-footer-action"
     >
       <button
-        class="c17 button button--primary"
+        class="c16 c18 button button--primary"
         data-role="button"
         data-variant-type="primary"
         title=""
@@ -562,13 +566,2877 @@ exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker 1`] = 
 </div>
 `;
 
-exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date picker screen 1`] = `
+exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker — select year selector 1`] = `
+.c17 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c17:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c18 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  padding: 0px 32px;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c18:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c19 .c16 {
+  border-radius: 0px;
+}
+
+.c14 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  height: auto;
+  min-height: 48px;
+  padding: 0px 16px;
+}
+
+.c15 {
+  flex: 1 1 0%;
+  text-align: center;
+}
+
+.c15:first-child {
+  text-align: left;
+}
+
+.c15:last-child {
+  text-align: right;
+}
+
+.c1 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row-reverse;
+  min-height: 48px;
+  outline: transparent solid 1px;
+  padding: 0px 16px;
+}
+
+.c3 {
+  color: rgb(255, 255, 255);
+  flex: 1 1 0%;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+.c20 + .c2 {
+  text-align: left;
+}
+
+.c6 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.875rem;
+  height: 24px;
+  justify-content: center;
+  line-height: 1;
+  left: calc(50% - 12px);
+  padding: 2px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: calc(50% - 12px);
+  user-select: none;
+  width: 24px;
+}
+
+.c5 {
+  border-radius: 50%;
+  color: rgb(77, 77, 77);
+  height: 244px;
+  position: relative;
+  width: 244px;
+}
+
+.c7 {
+  height: 2px;
+  left: 50%;
+  outline: transparent solid 1px;
+  position: absolute;
+  pointer-events: none;
+  top: calc(50% - 1px);
+  transform-origin: left center;
+  background-color: rgb(127, 140, 155);
+  width: calc(50% - 32px);
+}
+
+.c8 {
+  border: 4px solid transparent;
+  top: calc(-3px);
+  left: calc(-4px);
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgb(127, 140, 155);
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.c9 {
+  box-sizing: border-box;
+  display: flex;
+  font-size: 0.875rem;
+  padding: 8px 16px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.c9 > * {
+  align-items: center;
+  display: flex;
+  margin: auto;
+}
+
+.c10 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  height: 36px;
+  margin: 0px 2px;
+  text-align: center;
+  width: 36px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.c11 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  height: 36px;
+  margin: 0px 2px;
+  text-align: center;
+  width: 36px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.c12 {
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  flex-shrink: 0;
+  justify-content: center;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  background-color: rgb(5, 104, 174);
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  margin-left: 0px;
+  order: -1;
+}
+
+.c13 {
+  align-items: center;
+  box-sizing: border-box;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  flex-shrink: 0;
+  justify-content: center;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  margin-right: 0px;
+  order: 1;
+}
+
+.c0 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  outline: transparent solid 1px;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+}
+
+.c0 .DayPicker-Table {
+  padding: 0px 14px 4px;
+}
+
+.c0 .DayPicker-Weekday {
+  padding: 16.5px 0px 12.5px;
+}
+
+@media (pointer: coarse) {
+  .c17:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 DateTimePicker TimePicker--dialog"
+  data-role="date-time-picker"
+  role="dialog"
+  tabindex="-1"
+>
+  <div
+    class="c1 TimePicker__header"
+    data-role="date-time-picker-header"
+  >
+    <div
+      class="c2 c3 TimePicker__title"
+      data-role="date-time-picker-title"
+    >
+      Wednesday, 02/03/2022
+    </div>
+  </div>
+  <div
+    class="c4 TimePicker__body"
+    data-role="time-picker-body"
+  >
+    <div
+      class="c5 TimePicker__clock clock"
+      data-role="time-picker-clock"
+    >
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(51px, -88.3346px);"
+      >
+        01
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(88.3346px, -51px);"
+      >
+        02
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(102px, 0px);"
+      >
+        03
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(88.3346px, 51px);"
+      >
+        04
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(51px, 88.3346px);"
+      >
+        05
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(0px, 102px);"
+      >
+        06
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-51px, 88.3346px);"
+      >
+        07
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-88.3346px, 51px);"
+      >
+        08
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-102px, 0px);"
+      >
+        09
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-88.3346px, -51px);"
+      >
+        10
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-51px, -88.3346px);"
+      >
+        11
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(0px, -102px);"
+      >
+        12
+      </span>
+      <div
+        class="c7 clock__pointer clock__pointer--initial"
+        data-role="time-picker-pointer"
+        style="transform: rotateZ(270deg);"
+      >
+        <div
+          class="c8 pointer__innerDot pointer__innerDot--initial"
+        />
+      </div>
+    </div>
+    <div
+      class="c9 TimePicker__setting"
+      data-role="time-picker-setting"
+    >
+      <div>
+        <span
+          class="c10 TimePicker__time TimePicker__time--selected TimePicker__time--initial"
+          data-role="time-picker-time"
+        >
+          hh
+        </span>
+        :
+        <span
+          class="c11 TimePicker__time TimePicker__time--initial"
+          data-role="time-picker-time"
+        >
+          mm
+        </span>
+      </div>
+      <span
+        class="c12 TimePicker__am TimePicker__am--selected"
+        data-role="time-picker-am"
+      >
+        am
+      </span>
+      <span
+        class="c13 TimePicker__pm "
+        data-role="time-picker-pm"
+      >
+        pm
+      </span>
+    </div>
+  </div>
+  <div
+    class="c14 picker-footer TimePicker__footer"
+    data-role="date-time-picker-footer"
+  >
+    <div
+      class="c15 picker-footer__action TimePicker__action"
+      data-role="date-time-picker-footer-action"
+    >
+      <button
+        class="c16 c17 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          back
+        </span>
+      </button>
+    </div>
+    <div
+      class="c15 picker-footer__action TimePicker__action"
+      data-role="date-time-picker-footer-action"
+    >
+      <button
+        class="c16 c18 button button--primary"
+        data-role="button"
+        data-variant-type="primary"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          ok
+        </span>
+      </button>
+    </div>
+    <div
+      class="c15 picker-footer__action TimePicker__action"
+      data-role="date-time-picker-footer-action"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-time-picker > render date time picker — textbox year selector (default) 1`] = `
+.c17 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c17:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c17.c17 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c18 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  padding: 0px 32px;
+  background: rgb(41, 122, 36);
+  color: rgb(255, 255, 255);
+}
+
+.c18:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.c19 .c16 {
+  border-radius: 0px;
+}
+
+.c14 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  display: flex;
+  height: auto;
+  min-height: 48px;
+  padding: 0px 16px;
+}
+
+.c15 {
+  flex: 1 1 0%;
+  text-align: center;
+}
+
+.c15:first-child {
+  text-align: left;
+}
+
+.c15:last-child {
+  text-align: right;
+}
+
+.c1 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row-reverse;
+  min-height: 48px;
+  outline: transparent solid 1px;
+  padding: 0px 16px;
+}
+
+.c3 {
+  color: rgb(255, 255, 255);
+  flex: 1 1 0%;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+.c20 + .c2 {
+  text-align: left;
+}
+
+.c6 {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.875rem;
+  height: 24px;
+  justify-content: center;
+  line-height: 1;
+  left: calc(50% - 12px);
+  padding: 2px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: calc(50% - 12px);
+  user-select: none;
+  width: 24px;
+}
+
+.c5 {
+  border-radius: 50%;
+  color: rgb(77, 77, 77);
+  height: 244px;
+  position: relative;
+  width: 244px;
+}
+
+.c7 {
+  height: 2px;
+  left: 50%;
+  outline: transparent solid 1px;
+  position: absolute;
+  pointer-events: none;
+  top: calc(50% - 1px);
+  transform-origin: left center;
+  background-color: rgb(127, 140, 155);
+  width: calc(50% - 32px);
+}
+
+.c8 {
+  border: 4px solid transparent;
+  top: calc(-3px);
+  left: calc(-4px);
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgb(127, 140, 155);
+}
+
+.c4 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.c9 {
+  box-sizing: border-box;
+  display: flex;
+  font-size: 0.875rem;
+  padding: 8px 16px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.c9 > * {
+  align-items: center;
+  display: flex;
+  margin: auto;
+}
+
+.c10 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  border: 2px solid rgb(5, 104, 174);
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  height: 36px;
+  margin: 0px 2px;
+  text-align: center;
+  width: 36px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.c11 {
+  align-items: center;
+  background-color: rgb(241, 242, 244);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  height: 36px;
+  margin: 0px 2px;
+  text-align: center;
+  width: 36px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.c12 {
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  flex-shrink: 0;
+  justify-content: center;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  background-color: rgb(5, 104, 174);
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  margin-left: 0px;
+  order: -1;
+}
+
+.c13 {
+  align-items: center;
+  box-sizing: border-box;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  flex-shrink: 0;
+  justify-content: center;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  margin-right: 0px;
+  order: 1;
+}
+
+.c0 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  outline: transparent solid 1px;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+}
+
+.c0 .DayPicker-Table {
+  padding: 0px 14px 4px;
+}
+
+.c0 .DayPicker-Weekday {
+  padding: 16.5px 0px 12.5px;
+}
+
+@media (pointer: coarse) {
+  .c17:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c17:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c18:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:not(:disabled):hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    text-decoration: none;
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c18:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c11:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c11:hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  class="c0 DateTimePicker TimePicker--dialog"
+  data-role="date-time-picker"
+  role="dialog"
+  tabindex="-1"
+>
+  <div
+    class="c1 TimePicker__header"
+    data-role="date-time-picker-header"
+  >
+    <div
+      class="c2 c3 TimePicker__title"
+      data-role="date-time-picker-title"
+    >
+      Wednesday, 02/03/2022
+    </div>
+  </div>
+  <div
+    class="c4 TimePicker__body"
+    data-role="time-picker-body"
+  >
+    <div
+      class="c5 TimePicker__clock clock"
+      data-role="time-picker-clock"
+    >
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(51px, -88.3346px);"
+      >
+        01
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(88.3346px, -51px);"
+      >
+        02
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(102px, 0px);"
+      >
+        03
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(88.3346px, 51px);"
+      >
+        04
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(51px, 88.3346px);"
+      >
+        05
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(0px, 102px);"
+      >
+        06
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-51px, 88.3346px);"
+      >
+        07
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-88.3346px, 51px);"
+      >
+        08
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-102px, 0px);"
+      >
+        09
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-88.3346px, -51px);"
+      >
+        10
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(-51px, -88.3346px);"
+      >
+        11
+      </span>
+      <span
+        class="c6 clock__num"
+        data-role="time-picker-clock-num"
+        style="transform: translate(0px, -102px);"
+      >
+        12
+      </span>
+      <div
+        class="c7 clock__pointer clock__pointer--initial"
+        data-role="time-picker-pointer"
+        style="transform: rotateZ(270deg);"
+      >
+        <div
+          class="c8 pointer__innerDot pointer__innerDot--initial"
+        />
+      </div>
+    </div>
+    <div
+      class="c9 TimePicker__setting"
+      data-role="time-picker-setting"
+    >
+      <div>
+        <span
+          class="c10 TimePicker__time TimePicker__time--selected TimePicker__time--initial"
+          data-role="time-picker-time"
+        >
+          hh
+        </span>
+        :
+        <span
+          class="c11 TimePicker__time TimePicker__time--initial"
+          data-role="time-picker-time"
+        >
+          mm
+        </span>
+      </div>
+      <span
+        class="c12 TimePicker__am TimePicker__am--selected"
+        data-role="time-picker-am"
+      >
+        am
+      </span>
+      <span
+        class="c13 TimePicker__pm "
+        data-role="time-picker-pm"
+      >
+        pm
+      </span>
+    </div>
+  </div>
+  <div
+    class="c14 picker-footer TimePicker__footer"
+    data-role="date-time-picker-footer"
+  >
+    <div
+      class="c15 picker-footer__action TimePicker__action"
+      data-role="date-time-picker-footer-action"
+    >
+      <button
+        class="c16 c17 button button--secondary"
+        data-role="button"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          back
+        </span>
+      </button>
+    </div>
+    <div
+      class="c15 picker-footer__action TimePicker__action"
+      data-role="date-time-picker-footer-action"
+    >
+      <button
+        class="c16 c18 button button--primary"
+        data-role="button"
+        data-variant-type="primary"
+        title=""
+        type="button"
+      >
+        <span
+          data-role="button-label"
+        >
+          ok
+        </span>
+      </button>
+    </div>
+    <div
+      class="c15 picker-footer__action TimePicker__action"
+      data-role="date-time-picker-footer-action"
+    />
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date picker screen — autocomplete year selector 1`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c5 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+}
+
+.c5 .c8 {
+  user-select: none;
+}
+
+.c5 .c8 {
+  color: inherit;
+}
+
+.c5 .c8 {
+  font-size: inherit;
+}
+
+.c5:not([data-role^="quick-access-button"]) {
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c5:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c8 {
+  display: block;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c16:empty {
+  display: none;
+}
+
+.c16 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c35 {
+  color: rgb(127, 140, 155);
+  user-select: none;
+  cursor: pointer;
+}
+
+.c34 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c34:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.c33 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c33::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c31 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c31 .c4 {
+  border-radius: 0px;
+}
+
+.c28 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c28 .c29 {
+  display: flex;
+  width: 100%;
+}
+
+.c28 * {
+  max-width: 100%;
+}
+
+.c14 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c14 .c15 {
+  display: block;
+  width: fit-content;
+}
+
+.c30 {
+  display: inline-flex;
+}
+
+.c30 .c13 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c32 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c22 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c22.c22.c22 {
+  outline: transparent solid 1px;
+}
+
+.c22::selection {
+  background-color: transparent;
+}
+
+.c22::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c18 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c18:focus {
+  outline: none;
+}
+
+.c20 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c20:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c26::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c24 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c24:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c10:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c10:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c10 .c15 {
+  display: block;
+  margin: 0px 0px 4px;
+}
+
+.c12 {
+  align-items: center;
+  display: flex;
+}
+
+.c27 {
+  position: relative;
+  width: 100%;
+}
+
+.c6.c6 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c6.c6:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c37 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  justify-content: center;
+  height: 32px;
+  line-height: normal;
+  margin: 0px;
+  width: 32px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c37:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  border: 2px solid rgb(213, 0, 117);
+  background-color: rgb(255, 255, 255);
+}
+
+.c38 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  justify-content: center;
+  height: 32px;
+  line-height: normal;
+  margin: 0px;
+  width: 32px;
+  color: rgb(77, 77, 77);
+  background-color: rgb(226, 230, 233);
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.c38:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c2 {
+  outline: transparent solid 1px;
+  -webkit-tap-highlight-color: transparent;
+  justify-content: center;
+  user-select: none;
+}
+
+.c2 * {
+  outline: none;
+}
+
+.c2 .DayPicker-Months {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c2 .DayPicker-Table {
+  padding: 0px 14px 24px;
+  border-spacing: 4px 0px;
+}
+
+.c2 .DayPicker-Body {
+  color: rgb(77, 77, 77);
+}
+
+.c2 .DayPicker-Month {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.c2 .DayPicker-Week .DayPicker-Day-Cell {
+  padding: 4px 0px 0px;
+}
+
+.c2 .DayPicker-Week .DayPicker-Day-Cell:first-child {
+  padding-left: 0px;
+}
+
+.c2 .DayPicker-Week .DayPicker-Day-Cell:last-child {
+  padding-right: 0px;
+}
+
+.c2 .DayPicker-Weekday {
+  color: rgb(77, 77, 77);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: normal;
+  padding: 24.5px 0px calc(12.5px);
+  text-align: center;
+  width: 32px;
+  text-decoration: underline dotted;
+  text-transform: lowercase;
+}
+
+.c2 .DayPicker-Weekday::first-letter {
+  text-transform: uppercase;
+}
+
+.c7 {
+  height: 32px;
+  width: 32px;
+}
+
+.c3 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.c11 {
+  align-items: center;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  height: 48px;
+}
+
+.c11 .c21 {
+  background-color: rgb(89, 102, 115);
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  height: 32px;
+  padding: 0px 32px 0px 8px;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.c11 .c21:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c11 .c17 {
+  height: auto;
+}
+
+.c11 .c25::after {
+  content: "";
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+  width: 32px;
+}
+
+.c11 .c19 {
+  background-color: transparent;
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c11 .c19::before {
+  display: none;
+}
+
+.c11 .c19:focus-within {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c11 .c23 {
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c11 [data-role="year-selector"] {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0px;
+  width: calc(72px);
+}
+
+.c36 {
+  height: 32px;
+  width: 32px;
+}
+
+.c0 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  outline: transparent solid 1px;
+  overflow: auto;
+}
+
+.c0 .DayPicker-Table {
+  padding: 0px 14px 4px;
+}
+
+.c0 .DayPicker-Weekday {
+  padding: 16.5px 0px 12.5px;
+}
+
+.c0 .c1 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c31:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c31:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c20:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c24:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c24:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c6.c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c6.c6:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c37:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c37:hover {
+    border: 2px solid rgb(213, 0, 117);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c38:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c38:hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11 .c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c11 .c21:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11 .c23:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11 .c23:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 DateTimePicker"
+  data-role="date-time-picker"
+  role="dialog"
+  tabindex="-1"
+>
+  <div
+    class="DayPicker c1 c2"
+    data-mode="single"
+    data-required="false"
+    data-role="date-picker"
+    lang="en-US"
+  >
+    <div
+      class="DayPicker-Months"
+    >
+      <div
+        class="DayPicker-Month"
+      >
+        <div
+          class="c3"
+          data-role="date-picker-nav-bar"
+        >
+          <button
+            aria-label="Previous Month"
+            class="c4 c5 button button--icon button--outline button--dark c6 c7 DayPicker-NavButton DayPicker-NavButton--prev"
+            data-role="date-picker-nav-bar-prev"
+            data-type="icon"
+            title="Previous Month"
+            type="button"
+          >
+            <i
+              class="c8 c9 plasma-icon plasma-icon--big"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                navigate_before
+              </span>
+            </i>
+          </button>
+          <div
+            class="c10 year-month-selector c11 DayPicker-Caption"
+            data-role="year-month-selector"
+          >
+            <div
+              class="c12 year-month-selector__inner"
+              data-role="year-month-selector-control"
+            >
+              <div
+                class="c13 c14 field field--block month-selector"
+                data-role="month-selector"
+              >
+                <label
+                  class="c15 c16 label field__label -u-unseenButRead"
+                  data-role="month-selector-label"
+                >
+                  Month
+                </label>
+                <div
+                  class="c17 c18 field__select"
+                  data-role="month-selector-control"
+                >
+                  <div
+                    class="c19 c20 field__select-wrapper"
+                    data-role="month-selector-wrapper"
+                  >
+                    <select
+                      class="c21 c22 field__selectTitle"
+                      data-role="month-selector-input"
+                    >
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="0"
+                      >
+                        January
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="1"
+                      >
+                        February
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="2"
+                      >
+                        March
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="3"
+                      >
+                        April
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="4"
+                      >
+                        May
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="5"
+                      >
+                        June
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="6"
+                      >
+                        July
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="7"
+                      >
+                        August
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="8"
+                      >
+                        September
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="9"
+                      >
+                        October
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="10"
+                      >
+                        November
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="11"
+                      >
+                        December
+                      </option>
+                    </select>
+                    <span
+                      aria-hidden="true"
+                      class="c25 c26 field__select-arrow"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                data-role="year-selector"
+              >
+                <div
+                  class="c27 autocomplete"
+                  data-role="autocomplete"
+                >
+                  <div
+                    class="c28 field-wrapper field-wrapper--block"
+                    data-role="text-field"
+                  >
+                    <div
+                      class="c29 c30 field__main"
+                    >
+                      <div
+                        class="c13 c14 field"
+                        data-role="text-field-control"
+                      >
+                        <label
+                          class="c15 c16 label field__label -u-unseenButRead"
+                          data-role="text-field-label"
+                        >
+                          Year
+                        </label>
+                        <div
+                          class="c31 field__input"
+                          data-role="text-field-input-wrapper"
+                        >
+                          <span
+                            class="c32 supported-unseen-span"
+                          />
+                          <input
+                            aria-autocomplete="list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            autocomplete="off"
+                            class="c33 field__text"
+                            data-role="year-selector-input"
+                            inputmode="numeric"
+                            maxlength="4"
+                            pattern="[0-9]*"
+                            role="combobox"
+                            spellcheck="false"
+                            type="text"
+                            value="2022"
+                          />
+                          <span
+                            class="c32 supported-unseen-span"
+                          />
+                          <div
+                            class="c34 field__suffix field__suffix--first"
+                            data-role="text-field-suffix-0"
+                          >
+                            <i
+                              aria-hidden="true"
+                              class="c8 c9 plasma-icon plasma-icon--big c35"
+                              data-role="selection-suffix"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                expand_more
+                              </span>
+                            </i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            aria-label="Next Month"
+            class="c4 c5 button button--icon button--outline button--dark c6 c7 DayPicker-NavButton DayPicker-NavButton--next"
+            data-role="date-picker-nav-bar-next"
+            data-type="icon"
+            title="Next Month"
+            type="button"
+          >
+            <i
+              class="c8 c9 plasma-icon plasma-icon--big"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                navigate_next
+              </span>
+            </i>
+          </button>
+        </div>
+        <table
+          aria-label="March 2022"
+          aria-multiselectable="false"
+          class="DayPicker-Table"
+          data-role="date-picker-month-grid"
+          role="grid"
+        >
+          <thead
+            aria-hidden="true"
+          >
+            <tr
+              class="DayPicker-Weekdays"
+            >
+              <th
+                aria-label="Sunday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Su
+              </th>
+              <th
+                aria-label="Monday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Mo
+              </th>
+              <th
+                aria-label="Tuesday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Tu
+              </th>
+              <th
+                aria-label="Wednesday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                We
+              </th>
+              <th
+                aria-label="Thursday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Th
+              </th>
+              <th
+                aria-label="Friday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Fr
+              </th>
+              <th
+                aria-label="Saturday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Sa
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="DayPicker-Body"
+          >
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-02-27"
+                data-month="2022-02"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-02-28"
+                data-month="2022-02"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-01"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 1st, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  1
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-02"
+                data-today="true"
+                role="presentation"
+              >
+                <button
+                  aria-label="Today, Wednesday, March 2nd, 2022"
+                  class="c38 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="0"
+                  type="button"
+                >
+                  2
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-03"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 3rd, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  3
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-04"
+                role="presentation"
+              >
+                <button
+                  aria-label="Friday, March 4th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  4
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-05"
+                role="presentation"
+              >
+                <button
+                  aria-label="Saturday, March 5th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  5
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-06"
+                role="presentation"
+              >
+                <button
+                  aria-label="Sunday, March 6th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  6
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-07"
+                role="presentation"
+              >
+                <button
+                  aria-label="Monday, March 7th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  7
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-08"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 8th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  8
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-09"
+                role="presentation"
+              >
+                <button
+                  aria-label="Wednesday, March 9th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  9
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-10"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 10th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  10
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-11"
+                role="presentation"
+              >
+                <button
+                  aria-label="Friday, March 11th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  11
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-12"
+                role="presentation"
+              >
+                <button
+                  aria-label="Saturday, March 12th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  12
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-13"
+                role="presentation"
+              >
+                <button
+                  aria-label="Sunday, March 13th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  13
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-14"
+                role="presentation"
+              >
+                <button
+                  aria-label="Monday, March 14th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  14
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-15"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 15th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  15
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-16"
+                role="presentation"
+              >
+                <button
+                  aria-label="Wednesday, March 16th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  16
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-17"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 17th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  17
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-18"
+                role="presentation"
+              >
+                <button
+                  aria-label="Friday, March 18th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  18
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-19"
+                role="presentation"
+              >
+                <button
+                  aria-label="Saturday, March 19th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  19
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-20"
+                role="presentation"
+              >
+                <button
+                  aria-label="Sunday, March 20th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  20
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-21"
+                role="presentation"
+              >
+                <button
+                  aria-label="Monday, March 21st, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  21
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-22"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 22nd, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  22
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-23"
+                role="presentation"
+              >
+                <button
+                  aria-label="Wednesday, March 23rd, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  23
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-24"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 24th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  24
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-25"
+                role="presentation"
+              >
+                <button
+                  aria-label="Friday, March 25th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  25
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-26"
+                role="presentation"
+              >
+                <button
+                  aria-label="Saturday, March 26th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  26
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-27"
+                role="presentation"
+              >
+                <button
+                  aria-label="Sunday, March 27th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  27
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-28"
+                role="presentation"
+              >
+                <button
+                  aria-label="Monday, March 28th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  28
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-29"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 29th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  29
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-30"
+                role="presentation"
+              >
+                <button
+                  aria-label="Wednesday, March 30th, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  30
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-31"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 31st, 2022"
+                  class="c37 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  31
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-01"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-02"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-03"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-04"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-05"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-06"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-07"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-08"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-09"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c36"
+                  role="gridcell"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date picker screen — select year selector 1`] = `
 .c8 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -767,7 +3635,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -795,6 +3664,16 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
+}
+
+.c9:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c9:not(.DayPicker-Caption) [data-role="year-selector"]:not(.) > * {
+  width: 100%;
 }
 
 .c9 .c13 {
@@ -990,6 +3869,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   color: rgb(77, 77, 77);
 }
 
+.c10 [data-role="year-selector"] {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0px;
+  width: calc(72px);
+}
+
 .c25 {
   height: 32px;
   width: 32px;
@@ -1160,6 +4046,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
     data-mode="single"
     data-required="false"
     data-role="date-picker"
+    lang="en-US"
   >
     <div
       class="DayPicker-Months"
@@ -1313,7 +4200,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 </div>
               </div>
               <div
-                class="c12 field field--block year-selector"
+                class="c12 field field--block "
                 data-role="year-selector"
               >
                 <label
@@ -2203,13 +5090,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
 </div>
 `;
 
-exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date picker classNames 1`] = `
-.c8 {
+exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date picker screen — textbox year selector (default) 1`] = `
+.c9 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2223,15 +5111,15 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   font-feature-settings: "liga";
 }
 
-.c8 > span {
+.c9 > span {
   display: inline-block;
 }
 
-.c8.c8 {
+.c9.c9 {
   max-width: unset;
 }
 
-.c4 {
+.c5 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -2253,25 +5141,25 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   width: 2rem;
 }
 
-.c4 .c7 {
+.c5 .c8 {
   user-select: none;
 }
 
-.c4 .c7 {
+.c5 .c8 {
   color: inherit;
 }
 
-.c4 .c7 {
+.c5 .c8 {
   font-size: inherit;
 }
 
-.c4:not([data-role^="quick-access-button"]) {
+.c5:not([data-role^="quick-access-button"]) {
   border-radius: 50%;
   background: transparent;
   color: rgb(255, 255, 255);
 }
 
-.c4:not([data-role^="quick-access-button"]):not(:disabled):focus {
+.c5:not([data-role^="quick-access-button"]):not(:disabled):focus {
   outline: rgb(255, 255, 255) dotted 1px;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: none;
@@ -2279,17 +5167,17 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   border: 2px solid rgb(255, 255, 255);
 }
 
-.h_inlineBlock.h_middleAlign .c4.c4 {
+.h_inlineBlock.h_middleAlign .c5.c5 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c4.c4 > .c7 {
+.h_inlineBlock.h_middleAlign .c5.c5 > .c8 {
   display: block;
 }
 
-.c14 {
+.c16 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -2311,27 +5199,114 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   margin: -1px !important;
 }
 
-.c14:empty {
+.c16:empty {
   display: none;
 }
 
-.c14 * {
+.c16 * {
   width: 1px;
   height: 1px;
 }
 
-.c12 {
+.c32 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c32::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c30 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c30 .c4 {
+  border-radius: 0px;
+}
+
+.c27 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c27 .c28 {
+  display: flex;
+  width: 100%;
+}
+
+.c27 * {
+  max-width: 100%;
+}
+
+.c14 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c12 .c13 {
+.c14 .c15 {
   display: block;
   width: fit-content;
 }
 
-.c20 {
+.c29 {
+  display: inline-flex;
+}
+
+.c29 .c13 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c31 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c22 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -2354,21 +5329,21 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   cursor: pointer;
 }
 
-.c20.c20.c20 {
+.c22.c22.c22 {
   outline: transparent solid 1px;
 }
 
-.c20::selection {
+.c22::selection {
   background-color: transparent;
 }
 
-.c20::placeholder {
+.c22::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c16 {
+.c18 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -2384,11 +5359,11 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   height: 32px;
 }
 
-.c16:focus {
+.c18:focus {
   outline: none;
 }
 
-.c18 {
+.c20 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -2397,18 +5372,19 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   position: relative;
 }
 
-.c18:focus-within {
+.c20:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c24::after {
+.c26::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2424,36 +5400,46 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   overflow-wrap: normal;
 }
 
-.c22 {
+.c24 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c22:focus {
+.c24:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c9 .c13 {
+.c10:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c10:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c10 .c15 {
   display: block;
   margin: 0px 0px 4px;
 }
 
-.c11 {
+.c12 {
   align-items: center;
   display: flex;
 }
 
-.c5.c5 {
+.c6.c6 {
   background: transparent;
   color: rgb(255, 255, 255);
 }
 
-.c5.c5:not(:disabled):focus {
+.c6.c6:not(:disabled):focus {
   outline: rgb(255, 255, 255) dotted 1px;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: none;
@@ -2461,7 +5447,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   border: 2px solid rgb(255, 255, 255);
 }
 
-.c26 {
+.c34 {
   align-items: center;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -2478,13 +5464,1613 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   color: rgb(77, 77, 77);
 }
 
-.c26:focus {
+.c34:focus {
   outline: rgb(51, 51, 51) dotted 1px;
   border: 2px solid rgb(213, 0, 117);
   background-color: rgb(255, 255, 255);
 }
 
-.c27 {
+.c35 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  justify-content: center;
+  height: 32px;
+  line-height: normal;
+  margin: 0px;
+  width: 32px;
+  color: rgb(77, 77, 77);
+  background-color: rgb(226, 230, 233);
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.c35:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c2 {
+  outline: transparent solid 1px;
+  -webkit-tap-highlight-color: transparent;
+  justify-content: center;
+  user-select: none;
+}
+
+.c2 * {
+  outline: none;
+}
+
+.c2 .DayPicker-Months {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c2 .DayPicker-Table {
+  padding: 0px 14px 24px;
+  border-spacing: 4px 0px;
+}
+
+.c2 .DayPicker-Body {
+  color: rgb(77, 77, 77);
+}
+
+.c2 .DayPicker-Month {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.c2 .DayPicker-Week .DayPicker-Day-Cell {
+  padding: 4px 0px 0px;
+}
+
+.c2 .DayPicker-Week .DayPicker-Day-Cell:first-child {
+  padding-left: 0px;
+}
+
+.c2 .DayPicker-Week .DayPicker-Day-Cell:last-child {
+  padding-right: 0px;
+}
+
+.c2 .DayPicker-Weekday {
+  color: rgb(77, 77, 77);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: normal;
+  padding: 24.5px 0px calc(12.5px);
+  text-align: center;
+  width: 32px;
+  text-decoration: underline dotted;
+  text-transform: lowercase;
+}
+
+.c2 .DayPicker-Weekday::first-letter {
+  text-transform: uppercase;
+}
+
+.c7 {
+  height: 32px;
+  width: 32px;
+}
+
+.c3 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.c11 {
+  align-items: center;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  height: 48px;
+}
+
+.c11 .c21 {
+  background-color: rgb(89, 102, 115);
+  border: 2px solid transparent;
+  color: rgb(255, 255, 255);
+  height: 32px;
+  padding: 0px 32px 0px 8px;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.c11 .c21:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c11 .c17 {
+  height: auto;
+}
+
+.c11 .c25::after {
+  content: "";
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+  width: 32px;
+}
+
+.c11 .c19 {
+  background-color: transparent;
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.c11 .c19::before {
+  display: none;
+}
+
+.c11 .c19:focus-within {
+  outline: rgb(255, 255, 255) dotted 1px;
+}
+
+.c11 .c23 {
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c11 [data-role="year-selector"] {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0px;
+  width: calc(72px);
+}
+
+.c33 {
+  height: 32px;
+  width: 32px;
+}
+
+.c0 {
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  outline: transparent solid 1px;
+  overflow: auto;
+}
+
+.c0 .DayPicker-Table {
+  padding: 0px 14px 4px;
+}
+
+.c0 .DayPicker-Weekday {
+  padding: 16.5px 0px 12.5px;
+}
+
+.c0 .c1 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:not([data-role^="quick-access-button"]):not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c5:not([data-role^="quick-access-button"]):not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c30:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c30:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c20:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c20:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c24:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c24:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c6.c6:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c6.c6:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c34:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c34:hover {
+    border: 2px solid rgb(213, 0, 117);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c35:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c35:hover {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11 .c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(5, 104, 174);
+  }
+}
+
+@media (pointer: fine) {
+  .c11 .c21:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: coarse) {
+  .c11 .c23:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c11 .c23:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 DateTimePicker"
+  data-role="date-time-picker"
+  role="dialog"
+  tabindex="-1"
+>
+  <div
+    class="DayPicker c1 c2"
+    data-mode="single"
+    data-required="false"
+    data-role="date-picker"
+    lang="en-US"
+  >
+    <div
+      class="DayPicker-Months"
+    >
+      <div
+        class="DayPicker-Month"
+      >
+        <div
+          class="c3"
+          data-role="date-picker-nav-bar"
+        >
+          <button
+            aria-label="Previous Month"
+            class="c4 c5 button button--icon button--outline button--dark c6 c7 DayPicker-NavButton DayPicker-NavButton--prev"
+            data-role="date-picker-nav-bar-prev"
+            data-type="icon"
+            title="Previous Month"
+            type="button"
+          >
+            <i
+              class="c8 c9 plasma-icon plasma-icon--big"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                navigate_before
+              </span>
+            </i>
+          </button>
+          <div
+            class="c10 year-month-selector c11 DayPicker-Caption"
+            data-role="year-month-selector"
+          >
+            <div
+              class="c12 year-month-selector__inner"
+              data-role="year-month-selector-control"
+            >
+              <div
+                class="c13 c14 field field--block month-selector"
+                data-role="month-selector"
+              >
+                <label
+                  class="c15 c16 label field__label -u-unseenButRead"
+                  data-role="month-selector-label"
+                >
+                  Month
+                </label>
+                <div
+                  class="c17 c18 field__select"
+                  data-role="month-selector-control"
+                >
+                  <div
+                    class="c19 c20 field__select-wrapper"
+                    data-role="month-selector-wrapper"
+                  >
+                    <select
+                      class="c21 c22 field__selectTitle"
+                      data-role="month-selector-input"
+                    >
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="0"
+                      >
+                        January
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="1"
+                      >
+                        February
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="2"
+                      >
+                        March
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="3"
+                      >
+                        April
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="4"
+                      >
+                        May
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="5"
+                      >
+                        June
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="6"
+                      >
+                        July
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="7"
+                      >
+                        August
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="8"
+                      >
+                        September
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="9"
+                      >
+                        October
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="10"
+                      >
+                        November
+                      </option>
+                      <option
+                        class="c23 c24 field__selectOption"
+                        data-role="month-selector-option"
+                        value="11"
+                      >
+                        December
+                      </option>
+                    </select>
+                    <span
+                      aria-hidden="true"
+                      class="c25 c26 field__select-arrow"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                data-role="year-selector"
+              >
+                <div
+                  class="c27 field-wrapper field-wrapper--block"
+                  data-role="text-field"
+                >
+                  <div
+                    class="c28 c29 field__main"
+                  >
+                    <div
+                      class="c13 c14 field"
+                      data-role="text-field-control"
+                    >
+                      <label
+                        class="c15 c16 label field__label -u-unseenButRead"
+                        data-role="text-field-label"
+                      >
+                        Year
+                      </label>
+                      <div
+                        class="c30 field__input"
+                        data-role="text-field-input-wrapper"
+                      >
+                        <span
+                          class="c31 supported-unseen-span"
+                        />
+                        <input
+                          class="c32 field__text"
+                          data-role="year-selector-input"
+                          inputmode="numeric"
+                          maxlength="4"
+                          pattern="[0-9]*"
+                          type="text"
+                          value="2022"
+                        />
+                        <span
+                          class="c31 supported-unseen-span"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            aria-label="Next Month"
+            class="c4 c5 button button--icon button--outline button--dark c6 c7 DayPicker-NavButton DayPicker-NavButton--next"
+            data-role="date-picker-nav-bar-next"
+            data-type="icon"
+            title="Next Month"
+            type="button"
+          >
+            <i
+              class="c8 c9 plasma-icon plasma-icon--big"
+              data-role="plasma-icon"
+            >
+              <span
+                aria-hidden="true"
+              >
+                navigate_next
+              </span>
+            </i>
+          </button>
+        </div>
+        <table
+          aria-label="March 2022"
+          aria-multiselectable="false"
+          class="DayPicker-Table"
+          data-role="date-picker-month-grid"
+          role="grid"
+        >
+          <thead
+            aria-hidden="true"
+          >
+            <tr
+              class="DayPicker-Weekdays"
+            >
+              <th
+                aria-label="Sunday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Su
+              </th>
+              <th
+                aria-label="Monday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Mo
+              </th>
+              <th
+                aria-label="Tuesday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Tu
+              </th>
+              <th
+                aria-label="Wednesday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                We
+              </th>
+              <th
+                aria-label="Thursday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Th
+              </th>
+              <th
+                aria-label="Friday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Fr
+              </th>
+              <th
+                aria-label="Saturday"
+                class="DayPicker-Weekday"
+                data-role="date-picker-week-day"
+                scope="col"
+              >
+                Sa
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="DayPicker-Body"
+          >
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-02-27"
+                data-month="2022-02"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-02-28"
+                data-month="2022-02"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-01"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 1st, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  1
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-02"
+                data-today="true"
+                role="presentation"
+              >
+                <button
+                  aria-label="Today, Wednesday, March 2nd, 2022"
+                  class="c35 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="0"
+                  type="button"
+                >
+                  2
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-03"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 3rd, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  3
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-04"
+                role="presentation"
+              >
+                <button
+                  aria-label="Friday, March 4th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  4
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-05"
+                role="presentation"
+              >
+                <button
+                  aria-label="Saturday, March 5th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  5
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-06"
+                role="presentation"
+              >
+                <button
+                  aria-label="Sunday, March 6th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  6
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-07"
+                role="presentation"
+              >
+                <button
+                  aria-label="Monday, March 7th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  7
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-08"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 8th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  8
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-09"
+                role="presentation"
+              >
+                <button
+                  aria-label="Wednesday, March 9th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  9
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-10"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 10th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  10
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-11"
+                role="presentation"
+              >
+                <button
+                  aria-label="Friday, March 11th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  11
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-12"
+                role="presentation"
+              >
+                <button
+                  aria-label="Saturday, March 12th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  12
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-13"
+                role="presentation"
+              >
+                <button
+                  aria-label="Sunday, March 13th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  13
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-14"
+                role="presentation"
+              >
+                <button
+                  aria-label="Monday, March 14th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  14
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-15"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 15th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  15
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-16"
+                role="presentation"
+              >
+                <button
+                  aria-label="Wednesday, March 16th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  16
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-17"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 17th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  17
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-18"
+                role="presentation"
+              >
+                <button
+                  aria-label="Friday, March 18th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  18
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-19"
+                role="presentation"
+              >
+                <button
+                  aria-label="Saturday, March 19th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  19
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-20"
+                role="presentation"
+              >
+                <button
+                  aria-label="Sunday, March 20th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  20
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-21"
+                role="presentation"
+              >
+                <button
+                  aria-label="Monday, March 21st, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  21
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-22"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 22nd, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  22
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-23"
+                role="presentation"
+              >
+                <button
+                  aria-label="Wednesday, March 23rd, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  23
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-24"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 24th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  24
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-25"
+                role="presentation"
+              >
+                <button
+                  aria-label="Friday, March 25th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  25
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-26"
+                role="presentation"
+              >
+                <button
+                  aria-label="Saturday, March 26th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  26
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-27"
+                role="presentation"
+              >
+                <button
+                  aria-label="Sunday, March 27th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  27
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-28"
+                role="presentation"
+              >
+                <button
+                  aria-label="Monday, March 28th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  28
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-29"
+                role="presentation"
+              >
+                <button
+                  aria-label="Tuesday, March 29th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  29
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-30"
+                role="presentation"
+              >
+                <button
+                  aria-label="Wednesday, March 30th, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  30
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell"
+                data-day="2022-03-31"
+                role="presentation"
+              >
+                <button
+                  aria-label="Thursday, March 31st, 2022"
+                  class="c34 DayPicker-Day"
+                  data-role="date-picker-day-button"
+                  role="gridcell"
+                  tabindex="-1"
+                  type="button"
+                >
+                  31
+                </button>
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-01"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-02"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+            </tr>
+            <tr
+              class="DayPicker-Week"
+              data-role="date-picker-week"
+            >
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-03"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-04"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-05"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-06"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-07"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-08"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+              <td
+                class="DayPicker-Day-Cell DayPicker-Day--outside"
+                data-day="2022-04-09"
+                data-month="2022-04"
+                data-outside="true"
+                role="presentation"
+              >
+                <div
+                  class="c33"
+                  role="gridcell"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date picker classNames — select year selector 1`] = `
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+.c5 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+}
+
+.c5 .c8 {
+  user-select: none;
+}
+
+.c5 .c8 {
+  color: inherit;
+}
+
+.c5 .c8 {
+  font-size: inherit;
+}
+
+.c5:not([data-role^="quick-access-button"]) {
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c5:not([data-role^="quick-access-button"]):not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c5.c5 > .c8 {
+  display: block;
+}
+
+.c16 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c16:empty {
+  display: none;
+}
+
+.c16 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c31 .c4 {
+  border-radius: 0px;
+}
+
+.c14 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c14 .c15 {
+  display: block;
+  width: fit-content;
+}
+
+.c30 .c13 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c22 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c22.c22.c22 {
+  outline: transparent solid 1px;
+}
+
+.c22::selection {
+  background-color: transparent;
+}
+
+.c22::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c18 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c18:focus {
+  outline: none;
+}
+
+.c20 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c20:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c26::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c24 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c24:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+}
+
+.c10:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c10:not(.DayPicker-Caption) [data-role="year-selector"]:not(.) > * {
+  width: 100%;
+}
+
+.c10 .c15 {
+  display: block;
+  margin: 0px 0px 4px;
+}
+
+.c12 {
+  align-items: center;
+  display: flex;
+}
+
+.c6.c6 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c6.c6:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.c28 {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  justify-content: center;
+  height: 32px;
+  line-height: normal;
+  margin: 0px;
+  width: 32px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+}
+
+.c28:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  border: 2px solid rgb(213, 0, 117);
+  background-color: rgb(255, 255, 255);
+}
+
+.c29 {
   align-items: center;
   border: 2px solid transparent;
   display: inline-flex;
@@ -2561,7 +7147,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   text-transform: uppercase;
 }
 
-.c6 {
+.c7 {
   height: 32px;
   width: 32px;
 }
@@ -2573,7 +7159,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   justify-content: space-evenly;
 }
 
-.c10 {
+.c11 {
   align-items: center;
   display: flex;
   font-weight: 700;
@@ -2581,7 +7167,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   height: 48px;
 }
 
-.c10 .c19 {
+.c11 .c21 {
   background-color: rgb(89, 102, 115);
   border: 2px solid transparent;
   color: rgb(255, 255, 255);
@@ -2591,42 +7177,49 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   border-radius: 2px;
 }
 
-.c10 .c19:focus {
+.c11 .c21:focus {
   background-color: rgba(0, 0, 0, 0.2);
   border: 2px solid rgb(255, 255, 255);
 }
 
-.c10 .c15 {
+.c11 .c17 {
   height: auto;
 }
 
-.c10 .c23::after {
+.c11 .c25::after {
   content: "";
   color: rgb(255, 255, 255);
   font-size: 1.25rem;
   width: 32px;
 }
 
-.c10 .c17 {
+.c11 .c19 {
   background-color: transparent;
   box-shadow: none;
   outline-offset: unset;
 }
 
-.c10 .c17::before {
+.c11 .c19::before {
   display: none;
 }
 
-.c10 .c17:focus-within {
+.c11 .c19:focus-within {
   outline: rgb(255, 255, 255) dotted 1px;
 }
 
-.c10 .c21 {
+.c11 .c23 {
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
 }
 
-.c25 {
+.c11 [data-role="year-selector"] {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0px;
+  width: calc(72px);
+}
+
+.c27 {
   height: 32px;
   width: 32px;
 }
@@ -2656,13 +7249,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: fine) {
-  .c4:hover {
+  .c5:hover {
     outline: transparent solid 1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c4:not([data-role^="quick-access-button"]):not(:disabled):active {
+  .c5:not([data-role^="quick-access-button"]):not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: none;
@@ -2672,7 +7265,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: fine) {
-  .c4:not([data-role^="quick-access-button"]):not(:disabled):hover {
+  .c5:not([data-role^="quick-access-button"]):not(:disabled):hover {
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: none;
     color: rgb(255, 255, 255);
@@ -2681,20 +7274,20 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: coarse) {
-  .c18:active {
+  .c20:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c18:hover {
+  .c20:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c22:active {
+  .c24:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2702,14 +7295,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: fine) {
-  .c22:hover {
+  .c24:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 @media (pointer: coarse) {
-  .c5.c5:not(:disabled):active {
+  .c6.c6:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: none;
@@ -2719,7 +7312,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: fine) {
-  .c5.c5:not(:disabled):hover {
+  .c6.c6:not(:disabled):hover {
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: none;
     color: rgb(255, 255, 255);
@@ -2728,7 +7321,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: coarse) {
-  .c26:active {
+  .c28:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
@@ -2736,14 +7329,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: fine) {
-  .c26:hover {
+  .c28:hover {
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
   }
 }
 
 @media (pointer: coarse) {
-  .c10 .c19:active {
+  .c11 .c21:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0.2);
     border: 2px solid rgb(5, 104, 174);
@@ -2751,14 +7344,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: fine) {
-  .c10 .c19:hover {
+  .c11 .c21:hover {
     background-color: rgba(0, 0, 0, 0.2);
     border: 2px solid rgb(255, 255, 255);
   }
 }
 
 @media (pointer: coarse) {
-  .c10 .c21:active {
+  .c11 .c23:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2766,7 +7359,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
 }
 
 @media (pointer: fine) {
-  .c10 .c21:hover {
+  .c11 .c23:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
@@ -2783,6 +7376,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
     data-mode="single"
     data-required="false"
     data-role="date-picker"
+    lang="en-US"
   >
     <div
       class=""
@@ -2796,14 +7390,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
         >
           <button
             aria-label="Previous Month"
-            class="c4 button button--icon button--outline button--dark c5 c6 DayPicker-NavButton DayPicker-NavButton--prev"
+            class="c4 c5 button button--icon button--outline button--dark c6 c7 DayPicker-NavButton DayPicker-NavButton--prev"
             data-role="date-picker-nav-bar-prev"
             data-type="icon"
             title="Previous Month"
             type="button"
           >
             <i
-              class="c7 c8 plasma-icon plasma-icon--big"
+              class="c8 c9 plasma-icon plasma-icon--big"
               data-role="plasma-icon"
             >
               <span
@@ -2814,114 +7408,114 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
             </i>
           </button>
           <div
-            class="c9 year-month-selector c10 DayPicker-Caption"
+            class="c10 year-month-selector c11 DayPicker-Caption"
             data-role="year-month-selector"
           >
             <div
-              class="c11 year-month-selector__inner"
+              class="c12 year-month-selector__inner"
               data-role="year-month-selector-control"
             >
               <div
-                class="c12 field field--block month-selector"
+                class="c13 c14 field field--block month-selector"
                 data-role="month-selector"
               >
                 <label
-                  class="c13 c14 label field__label -u-unseenButRead"
+                  class="c15 c16 label field__label -u-unseenButRead"
                   data-role="month-selector-label"
                 >
                   Month
                 </label>
                 <div
-                  class="c15 c16 field__select"
+                  class="c17 c18 field__select"
                   data-role="month-selector-control"
                 >
                   <div
-                    class="c17 c18 field__select-wrapper"
+                    class="c19 c20 field__select-wrapper"
                     data-role="month-selector-wrapper"
                   >
                     <select
-                      class="c19 c20 field__selectTitle"
+                      class="c21 c22 field__selectTitle"
                       data-role="month-selector-input"
                     >
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="0"
                       >
                         jan
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="1"
                       >
                         feb
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="2"
                       >
                         mar
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="3"
                       >
                         apr
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="4"
                       >
                         may
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="5"
                       >
                         jun
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="6"
                       >
                         jul
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="7"
                       >
                         aug
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="8"
                       >
                         sep
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="9"
                       >
                         oct
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="10"
                       >
                         nov
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="month-selector-option"
                         value="11"
                       >
@@ -2930,245 +7524,245 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                     </select>
                     <span
                       aria-hidden="true"
-                      class="c23 c24 field__select-arrow"
+                      class="c25 c26 field__select-arrow"
                     />
                   </div>
                 </div>
               </div>
               <div
-                class="c12 field field--block year-selector"
+                class="c13 c14 field field--block "
                 data-role="year-selector"
               >
                 <label
-                  class="c13 c14 label field__label -u-unseenButRead"
+                  class="c15 c16 label field__label -u-unseenButRead"
                   data-role="year-selector-label"
                 >
                   Year
                 </label>
                 <div
-                  class="c15 c16 field__select"
+                  class="c17 c18 field__select"
                   data-role="year-selector-control"
                 >
                   <div
-                    class="c17 c18 field__select-wrapper"
+                    class="c19 c20 field__select-wrapper"
                     data-role="year-selector-wrapper"
                   >
                     <select
-                      class="c19 c20 field__selectTitle"
+                      class="c21 c22 field__selectTitle"
                       data-role="year-selector-input"
                     >
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2000"
                       >
                         2000
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2001"
                       >
                         2001
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2002"
                       >
                         2002
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2003"
                       >
                         2003
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2004"
                       >
                         2004
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2005"
                       >
                         2005
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2006"
                       >
                         2006
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2007"
                       >
                         2007
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2008"
                       >
                         2008
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2009"
                       >
                         2009
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2010"
                       >
                         2010
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2011"
                       >
                         2011
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2012"
                       >
                         2012
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2013"
                       >
                         2013
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2014"
                       >
                         2014
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2015"
                       >
                         2015
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2016"
                       >
                         2016
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2017"
                       >
                         2017
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2018"
                       >
                         2018
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2019"
                       >
                         2019
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2020"
                       >
                         2020
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2021"
                       >
                         2021
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2022"
                       >
                         2022
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2023"
                       >
                         2023
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2024"
                       >
                         2024
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2025"
                       >
                         2025
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2026"
                       >
                         2026
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2027"
                       >
                         2027
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2028"
                       >
                         2028
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2029"
                       >
                         2029
                       </option>
                       <option
-                        class="c21 c22 field__selectOption"
+                        class="c23 c24 field__selectOption"
                         data-role="year-selector-option"
                         value="2030"
                       >
@@ -3177,7 +7771,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                     </select>
                     <span
                       aria-hidden="true"
-                      class="c23 c24 field__select-arrow"
+                      class="c25 c26 field__select-arrow"
                     />
                   </div>
                 </div>
@@ -3186,14 +7780,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
           </div>
           <button
             aria-label="Next Month"
-            class="c4 button button--icon button--outline button--dark c5 c6 DayPicker-NavButton DayPicker-NavButton--next"
+            class="c4 c5 button button--icon button--outline button--dark c6 c7 DayPicker-NavButton DayPicker-NavButton--next"
             data-role="date-picker-nav-bar-next"
             data-type="icon"
             title="Next Month"
             type="button"
           >
             <i
-              class="c7 c8 plasma-icon plasma-icon--big"
+              class="c8 c9 plasma-icon plasma-icon--big"
               data-role="plasma-icon"
             >
               <span
@@ -3290,7 +7884,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3302,7 +7896,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3313,7 +7907,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Tuesday, March 1st, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="0"
@@ -3333,7 +7927,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Today, Wednesday, March 2nd, 2022, selected"
-                  class="c27 DayPicker-Day"
+                  class="c29 DayPicker-Day"
                   data-role="date-picker-day-button"
                   disabled=""
                   role="gridcell"
@@ -3350,7 +7944,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Thursday, March 3rd, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3366,7 +7960,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Friday, March 4th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3382,7 +7976,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Saturday, March 5th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3403,7 +7997,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Sunday, March 6th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3419,7 +8013,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Monday, March 7th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3435,7 +8029,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Tuesday, March 8th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3451,7 +8045,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Wednesday, March 9th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3467,7 +8061,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Thursday, March 10th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3483,7 +8077,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Friday, March 11th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3499,7 +8093,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Saturday, March 12th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3520,7 +8114,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Sunday, March 13th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3536,7 +8130,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Monday, March 14th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3552,7 +8146,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Tuesday, March 15th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3568,7 +8162,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Wednesday, March 16th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3584,7 +8178,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Thursday, March 17th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3600,7 +8194,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Friday, March 18th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3616,7 +8210,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Saturday, March 19th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3637,7 +8231,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Sunday, March 20th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3653,7 +8247,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Monday, March 21st, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3669,7 +8263,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Tuesday, March 22nd, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3686,7 +8280,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Wednesday, March 23rd, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3702,7 +8296,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Thursday, March 24th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3718,7 +8312,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Friday, March 25th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3734,7 +8328,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Saturday, March 26th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3755,7 +8349,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Sunday, March 27th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3771,7 +8365,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Monday, March 28th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3787,7 +8381,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Tuesday, March 29th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3803,7 +8397,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Wednesday, March 30th, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3819,7 +8413,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
               >
                 <button
                   aria-label="Thursday, March 31st, 2022"
-                  class="c26 DayPicker-Day"
+                  class="c28 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3836,7 +8430,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3848,7 +8442,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3865,7 +8459,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3877,7 +8471,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3889,7 +8483,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3901,7 +8495,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3913,7 +8507,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3925,7 +8519,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>
@@ -3937,7 +8531,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
                 role="presentation"
               >
                 <div
-                  class="c25"
+                  class="c27"
                   role="gridcell"
                 />
               </td>

@@ -17,7 +17,7 @@ The interaction hint configuration follows a priority hierarchy (highest to lowe
 Enable interaction hints globally for your entire application by wrapping your root component with `InteractionHintConfigProvider`:
 
 ```tsx
-import { InteractionHintConfigProvider } from "@com.mgmtp.a12.widgets/widgets-core/lib/interaction-hint/main/interaction-hint-context.js";
+import { InteractionHintConfigProvider } from "@com.mgmtp.a12.widgets/widgets-core";
 
 function App() {
 	return (
@@ -81,20 +81,21 @@ There is no single `enableInteractionHint` prop on every component instance. To 
 
 Use the following keys with `componentConfigs` to configure interaction hints for specific widget types:
 
-| Config Key             | Showcase                                                      |
-| ---------------------- | ------------------------------------------------------------- |
-| `button`               | [Button](#/widgets/general/buttons/button)                    |
-| `iconButton`           | [Icon Button](#/widgets/general/buttons/button#icon-buttons)  |
-| `link`                 | [Link](#/widgets/general/link)                                |
-| `toggle`               | [Toggle](#/widgets/general/buttons/toggle-button)             |
-| `tabPanel`             | [Tab Panel](#/widgets/navigation/tab-panel)                   |
-| `accordion`            | [Accordion](#/widgets/navigation/accordion)                   |
-| `wizard`               | [Wizard](#/widgets/navigation/wizard)                         |
-| `horizontalFlyoutMenu` | [Flyout Menu](#/widgets/navigation/menu/flyout-menu)          |
-| `verticalFlyoutMenu`   | [Vertical Flyout Menu](#/widgets/navigation/menu/flyout-menu) |
-| `slidingMenu`          | [Sliding Menu](#/widgets/navigation/menu/sliding-menu)        |
-| `fileUpload`           | [File Upload](#/widgets/data-entry/file-upload)               |
-| `counter`              | [Counter](#/widgets/data-display/counter)                     |
-| `list`                 | [List](#/widgets/data-display/list)                           |
-| `interactiveTile`      | [Interactive Tile](#/widgets/data-display/interactive-tile)   |
-| `collapsiblePanel`     | [Collapsible Panel](#/widgets/layout/collapsible-panel)       |
+| Config Key             | Showcase                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| `button`               | [Button](#/widgets/general/buttons/button)                                                  |
+| `iconButton`           | [Icon Button](#/widgets/general/buttons/button#icon-buttons)                                |
+| `link`                 | [Link](#/widgets/general/link)                                                              |
+| `toggle`               | [Toggle](#/widgets/general/buttons/toggle-button)                                           |
+| `tabPanel`             | [Tab Panel](#/widgets/navigation/tab-panel)                                                 |
+| `accordion`            | [Accordion](#/widgets/navigation/accordion)                                                 |
+| `wizard`               | [Wizard](#/widgets/navigation/wizard)                                                       |
+| `horizontalFlyoutMenu` | [Flyout Menu](#/widgets/navigation/menu/flyout-menu)                                        |
+| `verticalFlyoutMenu`   | [Vertical Flyout Menu](#/widgets/navigation/menu/flyout-menu)                               |
+| `slidingMenu`          | [Sliding Menu](#/widgets/navigation/menu/sliding-menu)                                      |
+| `fileUpload`           | [File Upload](#/widgets/data-entry/file-upload)                                             |
+| `filter`               | [Filter Bar](#/widgets/business-case/faceted-search/filter-selector#docked-filter-selector) |
+| `counter`              | [Counter](#/widgets/data-display/counter)                                                   |
+| `list`                 | [List](#/widgets/data-display/list)                                                         |
+| `interactiveTile`      | [Interactive Tile](#/widgets/data-display/interactive-tile)                                 |
+| `collapsiblePanel`     | [Collapsible Panel](#/widgets/layout/collapsible-panel)                                     |

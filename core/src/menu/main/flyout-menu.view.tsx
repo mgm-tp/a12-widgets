@@ -48,11 +48,12 @@ import type { FlyoutMenuProps } from "./flyout-menu.api.js";
 import { MenuUtils } from "./menu.internal.js";
 import { MenuTplUtils } from "./template/menu.tpl.internal.js";
 import type { FlattenedMenuItemType } from "./template/menu.tpl.api.js";
+import { useFlyoutMenuKeyboard } from "./use-flyout-menu-keyboard.js";
 
 const { flattenToMenuItems } = MenuTplUtils;
 
 export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed, ...props }) => {
-	const domElement = useRef<HTMLDivElement | null>(null);
+	const menuItemsContainerRef = useRef<HTMLDivElement | null>(null);
 	const id = useRef<string>(props.id ? `${props.id}_mainmenu` : generateUid());
 	const menuItemsRef = useRef(flattenToMenuItems(props.items));
 	const context = useContext(A11YLanguageContext);
@@ -99,17 +100,19 @@ export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed,
 	 * placement. Therefore, all necessary li elements will be gathered.
 	 */
 	const updateNonCondensedItemCount = useCallback((): void => {
-		if (domElement.current) {
-			const menuItems = Array.from(domElement.current?.querySelectorAll(`[data-role=${DataRoles.Menu.Item}]`));
+		if (menuItemsContainerRef.current) {
+			const menuItems = Array.from(
+				menuItemsContainerRef.current?.querySelectorAll(`[data-role=${DataRoles.Menu.Item}]`)
+			);
 
 			if (menuItems.length !== menuItemsRef.current.length) {
 				return;
 			}
 
-			if (domElement.current && menuItems.length > 0) {
-				const containerWidth = domElement.current.getBoundingClientRect().width;
+			if (menuItemsContainerRef.current && menuItems.length > 0) {
+				const containerWidth = menuItemsContainerRef.current.getBoundingClientRect().width;
 				const nonCondensedItemCount = ResponsiveHandler.getNonCondensedItemNumber(
-					domElement.current,
+					menuItemsContainerRef.current,
 					menuItems,
 					// Condensed item has the same margin as a menu item when placed inside the Menu
 					condensedItemWidth + getHorizontalSpacing(menuItems[0], "margin"),
@@ -133,7 +136,7 @@ export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed,
 
 	const handleSizeChange = useCallback<OnResizeCallback>(
 		({ width }: ResizePayload): void => {
-			const containerWidth = width || domElement.current?.clientWidth;
+			const containerWidth = width || menuItemsContainerRef.current?.clientWidth;
 
 			if (props.disableCondensing || containerWidthState === containerWidth) {
 				return;
@@ -244,6 +247,17 @@ export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed,
 		[hoverDelay, updateNewStateWhenMouseOver]
 	);
 
+	const closeAllSubMenus = useCallback((): void => {
+		setPath((prev) => [prev[0]]);
+		setCondensedMenuOpen(false);
+	}, []);
+
+	const { handleMenuKeyDown, keyboardNavMode } = useFlyoutMenuKeyboard({
+		menuItemsContainerRef: menuItemsContainerRef,
+		type: props.type,
+		onCloseAllSubMenus: closeAllSubMenus
+	});
+
 	useLayoutEffect(() => {
 		const handleClickEvent = (event: Event): void => {
 			const target = event.target as Element;
@@ -307,7 +321,7 @@ export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed,
 
 		if (
 			!props.disableCondensing &&
-			domElement.current &&
+			menuItemsContainerRef.current &&
 			nonCondensedItemCountState === undefined &&
 			containerWidthState !== undefined &&
 			props.type === "horizontal"
@@ -406,9 +420,10 @@ export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed,
 				condensible={!props.disableCondensing}
 				ariaLabel={props.mainContainerLabel}
 				useAs={props.useAs}
+				onKeyDown={handleMenuKeyDown}
 			>
-				<WidgetsResizeDetector handleHeight={false} onResize={handleSizeChange} targetRef={domElement}>
-					<div ref={domElement}>
+				<WidgetsResizeDetector handleHeight={false} onResize={handleSizeChange} targetRef={menuItemsContainerRef}>
+					<div ref={menuItemsContainerRef}>
 						<MainMenuTpl
 							type={props.type}
 							id={id.current}
@@ -419,6 +434,8 @@ export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed,
 							subMenuAttributes={props.subMenuAttributes}
 							useAs={props.useAs}
 							nonCondensedItemCount={nonCondensedItemCount}
+							keyboardNavMode={keyboardNavMode}
+							onCloseAllSubMenus={closeAllSubMenus}
 						/>
 					</div>
 				</WidgetsResizeDetector>
@@ -448,8 +465,9 @@ export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed,
 				collapsed={props.collapsed}
 				ariaLabel={props.mainContainerLabel}
 				useAs={props.useAs}
+				onKeyDown={handleMenuKeyDown}
 			>
-				<div ref={domElement}>
+				<div ref={menuItemsContainerRef}>
 					<MainMenuTpl
 						type={props.type}
 						id={id.current}
@@ -458,6 +476,8 @@ export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed,
 						onMouseOver={handleMouseOver}
 						collapsed={props.collapsed}
 						useAs={props.useAs}
+						keyboardNavMode={keyboardNavMode}
+						onCloseAllSubMenus={closeAllSubMenus}
 					/>
 				</div>
 			</MenuContainer>

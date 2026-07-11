@@ -35,7 +35,6 @@ import type { ReactNode, RefObject } from "react";
 /**
  * Props for the TooltipPortal component.
  *
- * @internal
  * This is an internal component used for rendering tooltips in a positioned overlay.
  */
 export interface TooltipPortalProps {

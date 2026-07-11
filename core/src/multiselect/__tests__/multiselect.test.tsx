@@ -30,12 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { fireEvent, getAllByDataRole, getByDataRole, queryByDataRole, render } from "test-utils";
+import { fireEvent, getAllByDataRole, getByDataRole, queryByDataRole, render, setupDevice, waitFor } from "test-utils";
 import { Key } from "ts-key-enum";
-import { describe, test, expect, vi, afterEach } from "vitest";
+import { describe, test, expect, vi, afterEach, beforeAll } from "vitest";
 import { getByText } from "@testing-library/dom";
 import { userEvent } from "vitest/browser";
-import type { ReactElement } from "react";
+import type { PropsWithChildren, ReactElement, ReactNode } from "react";
+import { createContext, useContext, useState, useMemo } from "react";
 
 import { noop, Key as CustomKey } from "../../common/main/utils.js";
 import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
@@ -152,11 +153,11 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 				onChange={noop}
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container).toMatchSnapshot();
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		const portal = getByDataRole(container, DataRoles.AttachedPortal);
 		expect(portal).toBeTruthy();
 		expect(container).toMatchSnapshot();
@@ -174,11 +175,11 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 				onChange={noop}
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		const portal = queryByDataRole(container, DataRoles.AttachedPortal);
 		expect(portal).not.toBeInTheDocument();
 	});
@@ -194,7 +195,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 				disabled
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
@@ -215,11 +216,11 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 				onChange={noop}
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		const portal = getByDataRole(container, DataRoles.AttachedPortal);
 		expect(portal).toBeTruthy();
 		expect(container).toMatchSnapshot();
@@ -237,11 +238,11 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 				onChange={noop}
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		const portal = getByDataRole(container, DataRoles.AttachedPortal);
 		expect(portal).toBeTruthy();
 		expect(container).toMatchSnapshot();
@@ -292,11 +293,11 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 				onChange={noop}
 			/>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(container.firstChild).toMatchSnapshot();
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		const portal = getByDataRole(container, DataRoles.Portal);
 		expect(portal).toBeTruthy();
 		expect(container).toMatchSnapshot();
@@ -305,7 +306,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 	test("focus input without opening the list", async () => {
 		const { container } = render(<Multiselect items={ITEMS} openOnFocus={false} onChange={noop} />);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		fireEvent.focus(input);
 		expect(queryByDataRole(container, DataRoles.Dropdown)).toBeFalsy();
 
@@ -321,25 +322,25 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		const { container } = render(
 			<Multiselect items={ITEMS} onItemCheck={onItemCheckSpy} onItemClick={onItemClickSpy} onChange={onChangeSpy} />
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
-		fireEvent.click(input);
+		await userEvent.click(input);
 		const portal = getByDataRole(container, DataRoles.AttachedPortal);
 		expect(portal).toBeTruthy();
 		const items = getAllByDataRole(container, DataRoles.Dropdown.Item);
-		fireEvent.click(items[1]);
+		await userEvent.click(items[1]);
 		expect(onItemClickSpy).toHaveBeenCalledTimes(1);
 		expect(onChangeSpy).toHaveBeenCalledTimes(1);
 
 		const secondItemCheckbox = getByDataRole(items[2], DataRoles.Checkbox.Input);
 		onChangeSpy.mockClear();
-		fireEvent.click(secondItemCheckbox, { currentTarget: { checked: true } });
+		await userEvent.click(secondItemCheckbox);
 		expect(onItemCheckSpy).toHaveBeenCalledTimes(1);
 		expect(onChangeSpy).toHaveBeenCalledTimes(1);
 
 		//Open dropdown using click on input
 		onChangeSpy.mockClear();
-		fireEvent.click(input);
+		await userEvent.click(input);
 		expect(getByDataRole(container, DataRoles.Dropdown)).toBeTruthy();
 
 		//Select item using keyboard events
@@ -400,7 +401,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		};
 
 		const { container } = render(<Multiselect items={viewItems} {...properties} />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(groupingHandler).toHaveBeenCalledWith(viewItems, selectedItems);
 
@@ -429,8 +430,8 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 
 		const { container } = render(<Multiselect items={viewItems} {...properties} />);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
-		const inputWrapper = getByDataRole(container, DataRoles.Textline.Input.Wrapper);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
+		const inputWrapper = getByDataRole(container, DataRoles.TextField.Input.Wrapper);
 
 		// The sort function is called the first time when the multiselect is mounted.
 		expect(multiselectInternal.defaultGroupingHandler).toHaveBeenLastCalledWith(viewItems, selectedItems);
@@ -459,7 +460,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 
 		const { container } = render(<Multiselect items={viewItems} {...properties} />);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		// The sort is called the first time when the multiselect is mounted.
 		expect(multiselectInternal.defaultGroupingHandler).toHaveBeenLastCalledWith(viewItems, selectedItems);
@@ -486,7 +487,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 				<button>button</button>
 			</>
 		);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		const button = getByText(container, "button");
 
 		await userEvent.click(input);
@@ -523,8 +524,8 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		);
 
 		// Open dropdown
-		const input = getByDataRole(container, DataRoles.Textline.Input);
-		fireEvent.click(input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
+		await userEvent.click(input);
 
 		// Wait for dropdown to appear
 		expect(getByDataRole(baseElement, DataRoles.AttachedPortal)).toBeTruthy();
@@ -533,7 +534,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		const selectAllItem = getAllByDataRole(baseElement, DataRoles.Dropdown.Item)[0];
 		const selectAllCheckbox = getByDataRole(selectAllItem, DataRoles.Checkbox.Input);
 
-		fireEvent.click(selectAllCheckbox);
+		await userEvent.click(selectAllCheckbox);
 
 		// Assert onChange called only once
 		expect(onChangeSpy).toHaveBeenCalledTimes(1);
@@ -553,7 +554,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		};
 
 		const { container } = render(<MultiselectContainer />);
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 
 		await userEvent.click(input);
 
@@ -562,9 +563,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		expect(getByDataRole(dropdownItemWithGraphic, DataRoles.Icon)).toBeInTheDocument();
 
 		// Verify that clicking the dropdown item does not throw an error
-		expect(async () => {
-			await userEvent.click(dropdownItemWithGraphic);
-		}).not.toThrowError();
+		await expect(userEvent.click(dropdownItemWithGraphic)).resolves.not.toThrow();
 	});
 
 	test("Should not show select all option when `enableSelectAllOption` is false and update items correctly while dropdown is open", async () => {
@@ -579,7 +578,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 			<Multiselect enableSelectAllOption={false} items={initialItems} />
 		);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		await userEvent.click(input);
 
 		const dropdownPortal = getByDataRole(baseElement, DataRoles.AttachedPortal);
@@ -631,7 +630,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		const { container, baseElement } = render(<Multiselect items={itemsWithDisabled} enableSelectAllOption={false} />);
 
 		// Open dropdown
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		await userEvent.click(input);
 
 		// Verify dropdown is open
@@ -663,7 +662,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 			<Multiselect items={itemsWithFirstDisabled} enableSelectAllOption={false} />
 		);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		await userEvent.click(input);
 
 		// Open dropdown and navigate with ArrowDown
@@ -676,7 +675,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
 
 		// Check the active element is the first element which is not disabled
-		expect(document.activeElement).toBe(dropdownItems[1]);
+		expect(dropdownItems[1]).toHaveFocus();
 
 		// Verify first item is disabled
 		const disabledCheckbox = getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input);
@@ -697,7 +696,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 
 		const { container, baseElement } = render(<Multiselect items={itemsWithDisabled} enableSelectAllOption={false} />);
 
-		const input = getByDataRole(container, DataRoles.Textline.Input);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
 		await userEvent.click(input);
 
 		// Search for "Ap" which should return "Apple" (disabled) and "Apricot" (enabled)
@@ -713,7 +712,7 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
 
 		// Check the active element is the first non-disabled search result (Apricot)
-		expect(document.activeElement).toBe(dropdownItems[1]);
+		expect(dropdownItems[1]).toHaveFocus();
 
 		// Verify first search result (Apple) is disabled
 		const disabledCheckbox = getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input);
@@ -722,5 +721,287 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		// Verify second search result (Apricot) is enabled
 		const enabledCheckbox = getByDataRole(dropdownItems[1], DataRoles.Checkbox.Input);
 		expect(enabledCheckbox).not.toHaveAttribute("disabled");
+	});
+
+	test("Should disable all unselected items when the maximum selection limit is reached", async () => {
+		const MaxSelectionMultiselect = (): ReactElement => {
+			const MAX_SELECTED_ITEMS = 3;
+			const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+			const items = useMemo(
+				() =>
+					ITEMS.map((item) => ({
+						...item,
+						selected: selectedIds.includes(item.id),
+						...(selectedIds.length >= MAX_SELECTED_ITEMS && !selectedIds.includes(item.id) ? { disabled: true } : {})
+					})),
+				[selectedIds]
+			);
+
+			return (
+				<Multiselect
+					items={items}
+					enableSelectAllOption={false}
+					onChange={(selectedItems) => setSelectedIds(selectedItems.map(({ id }) => id))}
+				/>
+			);
+		};
+
+		const { container, baseElement } = render(<MaxSelectionMultiselect />);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
+		await userEvent.click(input);
+
+		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
+
+		// Select 3 items to reach the maximum
+		await userEvent.click(getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input));
+		await userEvent.click(getByDataRole(dropdownItems[2], DataRoles.Checkbox.Input));
+		await userEvent.click(getByDataRole(dropdownItems[4], DataRoles.Checkbox.Input));
+
+		// Selected items should remain enabled
+		// Unselected items should be disabled after max reached
+		for (let i = 0; i < dropdownItems.length; i++) {
+			if ([0, 2, 4].includes(i)) {
+				const checkbox = getByDataRole(dropdownItems[i], DataRoles.Checkbox.Input);
+				expect(checkbox).toHaveAttribute("aria-checked", "true");
+				expect(checkbox).not.toBeDisabled();
+			} else {
+				expect(getByDataRole(dropdownItems[i], DataRoles.Checkbox.Input)).toBeDisabled();
+			}
+		}
+	});
+
+	test("Should not cause infinite render loop when items prop uses grouped format", async () => {
+		const groupedItems: MultiselectProps.Items = {
+			selectedItems: [],
+			unselectedItems: ITEMS
+		};
+
+		const { container, baseElement } = render(<Multiselect items={groupedItems} enableSelectAllOption={false} />);
+		const input = getByDataRole(container, DataRoles.TextField.Input);
+
+		// Opening dropdown triggers componentDidUpdate — old bug caused infinite loop here
+		await userEvent.click(input);
+
+		// Clicking an item triggers setState, which re-enters componentDidUpdate
+		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
+		const firstItem = getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input);
+		await userEvent.click(firstItem);
+
+		// Component still functional means no infinite loop occurred
+		expect(input).toBeInTheDocument();
+		// Item was selected
+		expect(firstItem).toHaveAttribute("aria-checked", "true");
+	});
+
+	test("Should not crash when items contain a JSX graphic and a surrounding context exposes a throwing getter", () => {
+		const throwingModel = {
+			get header(): never {
+				throw new Error("should never be accessed");
+			}
+		};
+		const ThrowingContext = createContext<{ model: unknown }>({ model: throwingModel });
+
+		const ContextConsumer = ({ children }: PropsWithChildren): ReactNode => {
+			useContext(ThrowingContext);
+
+			return children;
+		};
+
+		const itemsWithGraphic: MultiselectProps.Item[] = ITEMS.map((item) => ({
+			...item,
+			graphic: <Icon>star</Icon>
+		}));
+
+		const { getByDataRole } = render(
+			<ContextConsumer>
+				<Multiselect items={itemsWithGraphic} label={properties.label} id={properties.id} onChange={noop} />
+			</ContextConsumer>
+		);
+
+		expect(getByDataRole(DataRoles.TextField.Input)).toBeInTheDocument();
+	});
+});
+
+const ExampleMultiselect = ({
+	items,
+	selectedItems,
+	isMobile
+}: {
+	items: MultiselectProps.Item[];
+	isMobile?: boolean;
+	selectedItems?: MultiselectProps.Item[];
+}): ReactNode => {
+	const [selectedItemsState, setSelectedItemsState] = useState<MultiselectProps.Item[]>(selectedItems || []);
+
+	const newItems = useMemo(() => {
+		const selectedIds = selectedItemsState.map((i) => i.id);
+
+		return items.map((i) => (selectedIds.includes(i.id) ? { ...i, selected: true } : i));
+	}, [items, selectedItemsState]);
+
+	return (
+		<Multiselect
+			id="multiselect-test"
+			label="Multiselect with a graphic label"
+			labelGraphic={<Icon>info</Icon>}
+			hintTemplate="{count} of {total} options shown"
+			selectAllText="All"
+			mobile={isMobile}
+			mobileHeadingTitle="Select your options"
+			placeholder="Please select or start typing"
+			onChange={setSelectedItemsState}
+			items={newItems}
+		/>
+	);
+};
+
+describe("Multiselect Mobile", () => {
+	const mobileItems: MultiselectProps.Item[] = [
+		{ id: "java", label: "Java" },
+		{ id: "groovy", label: "Groovy" },
+		{ id: "javaScript", label: "JavaScript" },
+		{ id: "c++", label: "C++" },
+		{ id: "c", label: "C" },
+		{ id: "scala", label: "Scala" },
+		{ id: "python", label: "Python" },
+		{ id: "php", label: "PHP" },
+		{ id: "actionScript", label: "ActionScript" },
+		{ id: "appleScript", label: "AppleScript" },
+		{ id: "asp", label: "Asp" },
+		{ id: "clojure", label: "Clojure" },
+		{ id: "cobol", label: "COBOL" },
+		{ id: "basic", label: "BASIC" },
+		{ id: "coldFusion", label: "ColdFusion" },
+		{ id: "123", label: "123" },
+		{ id: "456", label: "456" }
+	];
+
+	beforeAll(() => {
+		setupDevice();
+	});
+
+	afterEach(() => {
+		vi.clearAllMocks();
+	});
+
+	test("The Clear Text button should clear a selected item if the item was chosen from a search result", async () => {
+		render(<ExampleMultiselect items={mobileItems} selectedItems={[mobileItems[3]]} isMobile />);
+
+		// Open the modal with the default selected value (C++)
+		const input = document.querySelector<HTMLElement>(`[data-role="${DataRoles.TextField.Input}"]`)!;
+		await userEvent.click(input);
+
+		// Verify dropdown is visible in the modal
+		await waitFor(() => {
+			expect(queryByDataRole(document.body, DataRoles.Dropdown)).toBeTruthy();
+		});
+
+		// Select 'Java' from the dropdown
+		const javaItem = document.querySelector<HTMLElement>('[id="java"]')!;
+		javaItem.focus();
+		await userEvent.keyboard(" ");
+
+		// Save, close and Reopen Modal
+		await userEvent.keyboard("{Escape}");
+		await userEvent.click(input);
+
+		// Check that there are two items with aria-checked="true" (Java and C++)
+		await waitFor(() => {
+			const checkedItems = document.querySelectorAll(`[data-role="${DataRoles.Dropdown.Item}"][aria-checked="true"]`);
+			expect(checkedItems).toHaveLength(2);
+		});
+
+		const checkedItems = document.querySelectorAll(`[data-role="${DataRoles.Dropdown.Item}"][aria-checked="true"]`);
+		const firstCheckedText = checkedItems[0].querySelector(`[data-role="${DataRoles.Dropdown.Text}"]`);
+		const secondCheckedText = checkedItems[1].querySelector(`[data-role="${DataRoles.Dropdown.Text}"]`);
+		expect(firstCheckedText).toHaveTextContent("Java");
+		expect(secondCheckedText).toHaveTextContent("C++");
+
+		// Type 'h' in the modal input (the second text-field input in the document) and select Python
+		const modalInput = document.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.TextField.Input}"]`)[1]!;
+		await userEvent.type(modalInput, "h");
+
+		const pythonItem = document.querySelector<HTMLElement>('[id="python"]')!;
+		pythonItem.focus();
+		await userEvent.keyboard(" ");
+		await userEvent.keyboard("{Escape}");
+
+		// Re-open the modal and click the 'Clear text' button
+		await userEvent.click(input);
+		const clearButton = document.querySelector<HTMLElement>("[id='multiselect-test-popup-multiselect-clear-button']")!;
+		await userEvent.click(clearButton);
+
+		// Verify that all items are cleared
+		await waitFor(() => {
+			const checkedAfterClear = document.querySelectorAll(
+				`[data-role="${DataRoles.Dropdown.Item}"][aria-checked="true"]`
+			);
+			expect(checkedAfterClear).toHaveLength(0);
+		});
+
+		// Verify the clear button is hidden
+		const clearButtonAfterClear = document.querySelector<HTMLElement>(
+			"[id='multiselect-test-popup-multiselect-clear-button']"
+		);
+		expect(clearButtonAfterClear).toBeNull();
+
+		// Save, close and Reopen Modal — verify items remain cleared
+		await userEvent.keyboard("{Escape}");
+		await userEvent.click(input);
+
+		await waitFor(() => {
+			const checkedAfterReopen = document.querySelectorAll(
+				`[data-role="${DataRoles.Dropdown.Item}"][aria-checked="true"]`
+			);
+			expect(checkedAfterReopen).toHaveLength(0);
+		});
+
+		const clearButtonAfterReopen = document.querySelector<HTMLElement>(
+			"[id='multiselect-test-popup-multiselect-clear-button']"
+		);
+		expect(clearButtonAfterReopen).toBeNull();
+	});
+
+	test("Should clear the input text when tapping on the clear button", async () => {
+		render(<ExampleMultiselect items={mobileItems} selectedItems={[mobileItems[3]]} isMobile />);
+
+		// Open the modal with the default selected value (C++)
+		const input = document.querySelector<HTMLElement>(`[data-role="${DataRoles.TextField.Input}"]`)!;
+		await userEvent.click(input);
+
+		// Verify dropdown is visible
+		await waitFor(() => {
+			expect(queryByDataRole(document.body, DataRoles.Dropdown)).toBeTruthy();
+		});
+
+		// Select 'Java'
+		const javaItem = document.querySelector<HTMLElement>('[id="java"]')!;
+		javaItem.focus();
+		await userEvent.keyboard(" ");
+
+		// Save and close modal
+		await userEvent.keyboard("{Escape}");
+
+		// Blur input wrapper
+		const inputWrapper = document.querySelector<HTMLElement>(`[data-role="${DataRoles.TextField.Input.Wrapper}"]`)!;
+		fireEvent.blur(inputWrapper);
+
+		// Click the clear button (substitute for tap)
+		const clearButton = document.querySelector<HTMLElement>("[id='multiselect-test-multiselect-clear-button']")!;
+		await userEvent.click(clearButton);
+
+		// Verify: dropdown is visible, popup clear button is hidden, popup input is empty
+		await waitFor(() => {
+			expect(queryByDataRole(document.body, DataRoles.Dropdown)).toBeTruthy();
+		});
+
+		const clearButtonPopup = document.querySelector<HTMLElement>(
+			"[id='multiselect-test-popup-multiselect-clear-button']"
+		);
+		expect(clearButtonPopup).toBeNull();
+
+		const inputPopup = document.querySelector<HTMLInputElement>("[id='multiselect-test-popup-multiselect__input']");
+		expect(inputPopup?.value).toBe("");
 	});
 });

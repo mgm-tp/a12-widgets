@@ -33,7 +33,7 @@
 import type { ReactNode } from "react";
 import type { JSONOutput } from "typedoc";
 
-import type { SourceCode } from "@com.mgmtp.a12.widgets/widgets-utils/lib/code-example/index.js";
+import type { SourceCode } from "@com.mgmtp.a12.widgets/widgets-utils";
 import type { DefaultComponentsType } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export interface FeaturedWidget {

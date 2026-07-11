@@ -79,6 +79,14 @@ export function BasicSwitch(): ReactElement {
 				checked={checked}
 				onChange={setChecked}
 			/>
+			<Switch
+				id="custom-icons-switch"
+				label="Switch with custom thumb icons"
+				checked={checked}
+				onChange={setChecked}
+				checkedIcon={<Icon>light_mode</Icon>}
+				uncheckedIcon={<Icon>dark_mode</Icon>}
+			/>
 		</div>
 	);
 }

@@ -30,13 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode, ReactElement } from "react";
+import type { ReactNode, ReactElement, FocusEvent } from "react";
 import { useRef, useState, useCallback } from "react";
 
-import {
-	Footer,
-	Header
-} from "@com.mgmtp.a12.widgets/widgets-core/lib/date-time-picker/main/date-time-picker.internal.js";
 import type { DateTimePickerProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
 	Icon,
@@ -45,8 +41,12 @@ import {
 	DateTimePickerDialog,
 	DateTimeUtils,
 	provider,
-	PickerHeaderButton
+	PickerHeaderButton,
+	DateTimePickerFooter,
+	DateTimePickerHeader
 } from "@com.mgmtp.a12.widgets/widgets-core";
+
+import { validateYearOnBlur } from "../inputs/year-selector/year-selector-validation.utils.js";
 
 const customMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -60,6 +60,7 @@ export function DateTimeTimeButton(): ReactElement {
 
 	const [showPicker, setShowPicker] = useState(false);
 	const [value, setValue] = useState<Date | undefined>();
+	const [yearErrorMessage, setYearErrorMessage] = useState<string | undefined>();
 
 	const getReferenceElement = useCallback((ref: HTMLButtonElement | null): void => {
 		referenceElement.current = ref;
@@ -74,11 +75,15 @@ export function DateTimeTimeButton(): ReactElement {
 		setShowPicker(false);
 	}, []);
 
+	const handleYearBlur = useCallback((ev: FocusEvent<HTMLInputElement>): void => {
+		setYearErrorMessage(validateYearOnBlur(ev, { min: 1900, max: new Date().getFullYear() }));
+	}, []);
+
 	const renderFooter = useCallback(
 		(value?: Date, screen?: DateTimePickerProps.Screen, isYearMonthChanged?: boolean): ReactNode => {
 			return (
-				<Footer>
-					<Footer.Action>
+				<DateTimePickerFooter>
+					<DateTimePickerFooter.Action>
 						{screen !== "date" && (
 							<Button
 								icon={<Icon>fast_rewind</Icon>}
@@ -90,11 +95,11 @@ export function DateTimeTimeButton(): ReactElement {
 								}}
 							/>
 						)}
-					</Footer.Action>
-					<Footer.Action>
+					</DateTimePickerFooter.Action>
+					<DateTimePickerFooter.Action>
 						<Button primary label="ok" onClick={handleOk.current} />
-					</Footer.Action>
-					<Footer.Action>
+					</DateTimePickerFooter.Action>
+					<DateTimePickerFooter.Action>
 						{(value || isYearMonthChanged) && (
 							<Button
 								destructive
@@ -107,8 +112,8 @@ export function DateTimeTimeButton(): ReactElement {
 								}}
 							/>
 						)}
-					</Footer.Action>
-				</Footer>
+					</DateTimePickerFooter.Action>
+				</DateTimePickerFooter>
 			);
 		},
 		[]
@@ -119,13 +124,13 @@ export function DateTimeTimeButton(): ReactElement {
 			const pickerTitle = DateTimeUtils.formatDateTime(datetime, undefined, "dddd, DD/MM/YYYY");
 
 			return (
-				<Header
+				<DateTimePickerHeader
 					actionButtons={
 						provider.hasTouch() && <PickerHeaderButton icon={<Icon>clear</Icon>} title="Clear" onClick={onClose} />
 					}
 				>
 					{pickerTitle}
-				</Header>
+				</DateTimePickerHeader>
 			);
 		},
 		[onClose]
@@ -152,7 +157,9 @@ export function DateTimeTimeButton(): ReactElement {
 						onAccept,
 						onClose,
 						customHeaderElement: renderHeader,
-						months: customMonths
+						months: customMonths,
+						onYearSelectorBlur: handleYearBlur,
+						yearErrorMessage
 					}}
 					referenceElement={referenceElement.current}
 				/>

@@ -54,7 +54,7 @@ export function MailtoLink(props: MailtoLinkProps): ReactElement<MailtoLinkProps
 			href={`mailto:${to}`}
 			{...rest}
 		>
-			<Icon>email</Icon>
+			<Icon className={joinClassNames(addPrefix("-u-padding-r-2xs"))}>email</Icon>
 			{children}
 		</Link>
 	);

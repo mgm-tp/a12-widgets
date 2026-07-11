@@ -35,8 +35,9 @@ import { useCallback, useEffect, useState } from "react";
 import { useResizeDetector } from "react-resize-detector";
 import { Key } from "ts-key-enum";
 
-import { useArrowKeyNavigation, useStateWithCallback } from "../../common/main/hooks.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { useUpdateEffect } from "../../common/main/hooks.js";
+import { type KeyboardNavigationComponentKey, useKeyboardNavigationMode } from "../../keyboard-navigation/index.js";
 
 import type { TabPanelTemplateProps } from "./template/tab-panel.tpl.api.js";
 import type { TabPanelOrientation } from "./tab-panel.api.js";
@@ -60,10 +61,16 @@ export const useAdaptTabPanelResponsive = ({
 	isCounting: boolean;
 } => {
 	const [tabItemCounting, setTabItemCounting] = useState(true);
-	const [tabsOnMainPanel, setTabOnMainPanel] = useState<TabPanelTemplateProps.TabProps[]>(tabs);
-	const [tabsOnSubPanel, setTabOnSubPanels] = useStateWithCallback<TabPanelTemplateProps.TabProps[]>([]);
+	const [mainItemCount, setMainItemCount] = useState(tabs.length);
 
 	const isHorizontal = orientation === "horizontal";
+	// Keep the count valid if there are now fewer tabs than before.
+	const boundedMainItemCount = Math.min(mainItemCount, tabs.length);
+	// Stable key for change detection; `tabs` reference is not stable across rerenders.
+	const tabListKey = tabs.map((tab) => `${tab.id}:${tab.value}`).join("|");
+
+	const tabsOnMainPanel = tabs.slice(0, boundedMainItemCount);
+	const tabsOnSubPanel = tabs.slice(boundedMainItemCount);
 
 	const countItemsOnMain = useCallback(() => {
 		const tabListShadow = shadowTabRef.current;
@@ -74,23 +81,26 @@ export const useAdaptTabPanelResponsive = ({
 			return 0;
 		}
 
-		if (isHorizontal) {
-			// Horizontal: measure widths
-			const tabPanelRect = tabListShadow.getBoundingClientRect();
-			const tabPanelWidth = tabList.getBoundingClientRect().width;
-			const tabPanelItemWidthList = Array.from(tabListShadow.children).map(
-				(element) => element.getBoundingClientRect().width
-			);
+		const shadowRect = tabListShadow.getBoundingClientRect();
+		const shadowTabSelector = `[data-role="${DataRoles.TabPanel.Tab}"]`;
 
-			const firstItemToLeft = tabListShadow.children[0].getBoundingClientRect().left - tabPanelRect.left;
-			let mainPanelCountWidth = firstItemToLeft + tabPanelAnchorClientRect.width;
+		const shadowTabElements = Array.from(tabListShadow.querySelectorAll<HTMLElement>(shadowTabSelector)).filter(
+			(el) => el !== shadowTabAnchorRef.current
+		);
+
+		if (isHorizontal) {
+			// Horizontal: count tabs whose right edge (relative to shadow left) fits within
+			// the available width (real tablist width minus the reserved condensed-tab width).
+			const tabPanelWidth = tabList.getBoundingClientRect().width;
+			const availableWidth = tabPanelWidth - tabPanelAnchorClientRect.width;
+
 			let mainItemCount = 0;
 
-			while (mainPanelCountWidth <= tabPanelWidth && mainItemCount < tabPanelItemWidthList.length) {
-				mainPanelCountWidth += tabPanelItemWidthList[mainItemCount];
-
-				if (mainPanelCountWidth <= tabPanelWidth) {
+			for (const tab of shadowTabElements) {
+				if (tab.getBoundingClientRect().right - shadowRect.left <= availableWidth) {
 					mainItemCount++;
+				} else {
+					break;
 				}
 			}
 
@@ -107,24 +117,18 @@ export const useAdaptTabPanelResponsive = ({
 			return mainItemCount;
 		}
 
-		// Vertical: measure heights
-		const tabPanelItemHeightList = Array.from(tabListShadow.children).map(
-			(element) => element.getBoundingClientRect().height
-		);
-
-		const tabPanelRect = tabListShadow.getBoundingClientRect();
-
-		const firstItemToTop = tabListShadow.children[0].getBoundingClientRect().top - tabPanelRect.top;
-
-		let mainPanelCountHeight = firstItemToTop + tabPanelAnchorClientRect.height;
-		let mainItemCount = 0;
+		// Vertical: count tabs whose bottom edge (relative to shadow top) fits within
+		// the available height (real tablist height minus the reserved condensed-tab height).
 		const tabListHeight = tabList.getBoundingClientRect().height;
+		const availableHeight = tabListHeight - tabPanelAnchorClientRect.height;
 
-		while (mainPanelCountHeight <= tabListHeight) {
-			mainPanelCountHeight += tabPanelItemHeightList[mainItemCount];
+		let mainItemCount = 0;
 
-			if (mainPanelCountHeight <= tabListHeight) {
+		for (const tab of shadowTabElements) {
+			if (tab.getBoundingClientRect().bottom - shadowRect.top <= availableHeight) {
 				mainItemCount++;
+			} else {
+				break;
 			}
 		}
 
@@ -138,17 +142,10 @@ export const useAdaptTabPanelResponsive = ({
 
 	const countingMainAndSubTabs = useCallback(() => {
 		if (shadowTabRef.current) {
-			const mainItemCount = countItemsOnMain();
-
-			const newTabsOnMainPanel = tabs.slice(0, mainItemCount);
-			const newTabsOnSubPanel = tabs.filter((tab) => !newTabsOnMainPanel.includes(tab));
-
-			setTabOnMainPanel(newTabsOnMainPanel);
-			setTabOnSubPanels(newTabsOnSubPanel, () => {
-				setTabItemCounting(false);
-			});
+			setMainItemCount(countItemsOnMain());
+			setTabItemCounting(false);
 		}
-	}, [countItemsOnMain, setTabOnSubPanels, shadowTabRef, tabs]);
+	}, [countItemsOnMain, shadowTabRef]);
 
 	const handleOnResizeChange = useCallback(() => {
 		setTabItemCounting(true);
@@ -156,12 +153,15 @@ export const useAdaptTabPanelResponsive = ({
 	}, [countingMainAndSubTabs]);
 
 	useEffect(() => {
-		countingMainAndSubTabs();
-	}, [countingMainAndSubTabs]);
+		if (tabItemCounting) {
+			countingMainAndSubTabs();
+		}
+	}, [countingMainAndSubTabs, tabItemCounting]);
 
-	useEffect(() => {
+	// Reset counting when tab list identity changes after mount (e.g. tabs added/removed).
+	useUpdateEffect(() => {
 		setTabItemCounting(true);
-	}, [tabs]);
+	}, [tabListKey]);
 
 	useResizeDetector({
 		handleHeight: true,
@@ -180,23 +180,40 @@ export const useAdaptTabPanelResponsive = ({
 /** @internal */
 export const useSubMenuKeyPressHandle = ({
 	elementRef,
-	allowAllDirections = false
+	allowAllDirections = false,
+	navigationKey
 }: {
 	elementRef: RefObject<HTMLElement | null>;
 	allowAllDirections?: boolean;
+	navigationKey?: KeyboardNavigationComponentKey;
 }): void => {
 	const element = elementRef.current;
-
-	useArrowKeyNavigation({
-		elementRef,
-		allowAllDirections,
-		allowTabNavigation: true
-	});
+	const keyboardNavMode = useKeyboardNavigationMode(navigationKey);
+	const allowTabNavigation = keyboardNavMode === "default";
 
 	useEffect(() => {
 		const subTabList = element?.closest<HTMLElement>(`[data-role=${DataRoles.TabPanel.SubTabList}]`);
 
-		const handleKeyPressNavigation = (event: KeyboardEvent): void => {
+		const handleKeyDown = (event: KeyboardEvent): void => {
+			const isTabKey = event.key === Key.Tab;
+			const isArrowKey =
+				event.key === Key.ArrowUp ||
+				event.key === Key.ArrowDown ||
+				event.key === Key.ArrowLeft ||
+				event.key === Key.ArrowRight;
+
+			if (!isTabKey && !isArrowKey) {
+				return;
+			}
+
+			if (!allowTabNavigation && isTabKey) {
+				return;
+			}
+
+			if (!allowAllDirections && (event.key === Key.ArrowLeft || event.key === Key.ArrowRight)) {
+				return;
+			}
+
 			const subMenuActiveTab = element?.querySelectorAll<HTMLElement>(
 				`[data-role=${DataRoles.TabPanel.Tab}]:not([aria-disabled='true'])`
 			);
@@ -205,54 +222,51 @@ export const useSubMenuKeyPressHandle = ({
 				return;
 			}
 
-			if (event.key === Key.Tab || event.key === Key.ArrowUp || event.key === Key.ArrowDown) {
+			const activeTabList = Array.from(subMenuActiveTab);
+			const isFocusInside = element?.contains(document.activeElement);
+
+			if (!isFocusInside) {
 				event.preventDefault();
-			}
+				event.stopPropagation();
 
-			const subMenuSelectedTab = Array.from(subMenuActiveTab ?? []).find(
-				(tab) => tab.getAttribute("aria-selected") === "true"
-			);
+				const subMenuSelectedTab = activeTabList.find((tab) => tab.getAttribute("aria-selected") === "true");
 
-			if (subMenuSelectedTab) {
-				subMenuSelectedTab.focus();
+				if (subMenuSelectedTab) {
+					subMenuSelectedTab.focus();
 
-				return;
-			}
+					return;
+				}
 
-			switch (event.key) {
-				case Key.Tab:
-					// If tabbing out of the submenu, focus the submenu anchor
-					if (event.shiftKey) {
-						subMenuActiveTab[subMenuActiveTab.length - 1]?.focus();
-					} else {
-						subMenuActiveTab[0]?.focus();
-					}
+				const isBackward =
+					event.key === Key.ArrowUp ||
+					event.key === Key.ArrowLeft ||
+					(allowTabNavigation && event.key === Key.Tab && event.shiftKey);
 
-					break;
-				case Key.ArrowRight:
-				case Key.ArrowDown:
-					subMenuActiveTab[0]?.focus();
-					break;
-				case Key.ArrowLeft:
-				case Key.ArrowUp:
+				if (isBackward) {
 					subMenuActiveTab[subMenuActiveTab.length - 1]?.focus();
-					break;
-			}
-		};
+				} else {
+					subMenuActiveTab[0]?.focus();
+				}
 
-		const handleKeyDown = (event: KeyboardEvent): void => {
-			if (!allowAllDirections && (event.key === Key.ArrowLeft || event.key === Key.ArrowRight)) {
 				return;
 			}
 
-			switch (event.key) {
-				case Key.ArrowUp:
-				case Key.ArrowDown:
-				case Key.ArrowLeft:
-				case Key.ArrowRight:
-				case Key.Tab:
-					handleKeyPressNavigation(event);
-					break;
+			event.preventDefault();
+			event.stopPropagation();
+
+			const focusedIndex = activeTabList.indexOf(document.activeElement as HTMLElement);
+
+			const isBackward =
+				event.key === Key.ArrowUp ||
+				event.key === Key.ArrowLeft ||
+				(allowTabNavigation && event.key === Key.Tab && event.shiftKey);
+
+			if (isBackward) {
+				const targetIndex = focusedIndex > 0 ? focusedIndex - 1 : activeTabList.length - 1;
+				activeTabList[targetIndex]?.focus();
+			} else {
+				const targetIndex = focusedIndex < activeTabList.length - 1 ? focusedIndex + 1 : 0;
+				activeTabList[targetIndex]?.focus();
 			}
 		};
 
@@ -261,5 +275,5 @@ export const useSubMenuKeyPressHandle = ({
 		return (): void => {
 			subTabList?.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [allowAllDirections, element]);
+	}, [allowAllDirections, allowTabNavigation, element]);
 };

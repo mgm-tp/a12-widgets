@@ -34,32 +34,48 @@ import {
 	getDefaultTheme,
 	getFlatTheme,
 	getCompactTheme,
-	getFlatCompactTheme
+	getFlatCompactTheme,
+	getBaseTheme
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { ShowcaseThemeType } from "./themes.api.js";
+import { baseFlatOverrides } from "./base-flat.js";
 
 const DefaultThemes: ShowcaseThemeType[] = [
 	{
+		name: "base",
+		label: "Base",
+		default: true,
+		theme: getBaseTheme()
+	},
+	{
+		name: "base-flat",
+		label: "Base Flat",
+		theme: getBaseTheme(baseFlatOverrides)
+	},
+	{
 		name: "default",
 		label: "Default",
-		theme: getDefaultTheme()
+		theme: getDefaultTheme(),
+		deprecated: true
 	},
 	{
 		name: "flat",
 		label: "Flat",
-		default: true,
-		theme: getFlatTheme()
+		theme: getFlatTheme(),
+		deprecated: true
 	},
 	{
 		name: "compact",
 		label: "Compact",
-		theme: getCompactTheme()
+		theme: getCompactTheme(),
+		deprecated: true
 	},
 	{
 		name: "flat-compact",
 		label: "Flat Compact",
-		theme: getFlatCompactTheme()
+		theme: getFlatCompactTheme(),
+		deprecated: true
 	}
 ];
 

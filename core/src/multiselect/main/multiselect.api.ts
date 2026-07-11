@@ -143,17 +143,17 @@ export interface MultiselectProps extends Styleable, Identifiable, InputDOMProps
 	breakTooltipsToNewLine?: boolean;
 
 	/**
-	 * The error message(s) that will be shown in the text-line error message.
+	 * The error message(s) that will be shown in the text-field error message.
 	 */
 	errorMessage?: ReactNode;
 
 	/**
-	 * The warning message(s) that will be shown in the text-line warning message.
+	 * The warning message(s) that will be shown in the text-field warning message.
 	 */
 	warningMessage?: ReactNode;
 
 	/**
-	 * The info message(s) that will be shown in the text-line warning message.
+	 * The info message(s) that will be shown in the text-field warning message.
 	 */
 	infoMessage?: ReactNode;
 

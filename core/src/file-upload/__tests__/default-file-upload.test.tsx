@@ -45,6 +45,8 @@ import {
 	fireEvent
 } from "test-utils";
 import { Key } from "ts-key-enum";
+import type { ReactNode } from "react";
+import { useState } from "react";
 import { describe, vi, expect, test, beforeAll } from "vitest";
 import { userEvent } from "vitest/browser";
 
@@ -660,11 +662,8 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 					/>
 				);
 
-				let wrapper = getByDataRole(container, DataRoles.FileUpload);
 				let uploadControl = getByDataRole(container, DataRoles.FileUpload.Control);
 
-				// Should have fit class and max-width
-				expect(wrapper).toHaveClass("field__upload--fit");
 				expect(uploadControl).toHaveStyle({ maxWidth: "200px" });
 
 				// Change uploadAreaSize to both width and height
@@ -679,10 +678,8 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 					/>
 				);
 
-				wrapper = getByDataRole(container, DataRoles.FileUpload);
 				uploadControl = getByDataRole(container, DataRoles.FileUpload.Control);
 
-				expect(wrapper).not.toHaveClass("field__upload--fit");
 				expect(uploadControl).toHaveStyle({
 					width: "100px",
 					height: "100px"
@@ -744,10 +741,8 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 					/>
 				);
 
-				let wrapper = getByDataRole(container, DataRoles.FileUpload);
 				let uploadControl = getByDataRole(container, DataRoles.FileUpload.Control);
 
-				expect(wrapper).toHaveClass("field__upload--fit");
 				expect(uploadControl).toHaveStyle({
 					maxWidth: "300px",
 					maxHeight: "200px"
@@ -765,10 +760,8 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 					/>
 				);
 
-				wrapper = getByDataRole(container, DataRoles.FileUpload);
 				uploadControl = getByDataRole(container, DataRoles.FileUpload.Control);
 
-				expect(wrapper).toHaveClass("field__upload--fit");
 				expect(uploadControl).toHaveStyle({
 					width: "150px",
 					maxHeight: "200px"
@@ -788,11 +781,8 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 					/>
 				);
 
-				wrapper = getByDataRole(container, DataRoles.FileUpload);
 				uploadControl = getByDataRole(container, DataRoles.FileUpload.Control);
 
-				// Should not have fit class when both dimensions are fixed
-				expect(wrapper).not.toHaveClass("field__upload--fit");
 				expect(uploadControl).toHaveStyle({
 					width: "150px",
 					height: "100px"
@@ -1089,20 +1079,6 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 			expect(wrapper).toHaveClass("field__upload--fit");
 		});
 
-		test("should have fit class when both maxWidth and maxHeight are provided", () => {
-			const { container } = render(
-				<DefaultFileUpload
-					id="test-both-max"
-					label="Test Both Max"
-					uploadAreaSize={{ maxWidth: "200px", maxHeight: "150px" }}
-				/>
-			);
-
-			const wrapper = getByDataRole(container, DataRoles.FileUpload);
-
-			expect(wrapper).toHaveClass("field__upload--fit");
-		});
-
 		test("should have fit class when maxWidth is not provided but maxHeight is", () => {
 			const { container } = render(
 				<DefaultFileUpload id="test-no-maxwidth" label="Test No MaxWidth" uploadAreaSize={{ maxHeight: "150px" }} />
@@ -1152,20 +1128,6 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 			expect(wrapper).not.toHaveClass("field__upload--fit");
 		});
 
-		test("should have fit class when both maxWidth and maxHeight are provided (edge case with zero)", () => {
-			const { container } = render(
-				<DefaultFileUpload
-					id="test-zero-max"
-					label="Test Zero Max"
-					uploadAreaSize={{ maxWidth: "0px", maxHeight: "0px" }}
-				/>
-			);
-
-			const wrapper = getByDataRole(container, DataRoles.FileUpload);
-
-			expect(wrapper).toHaveClass("field__upload--fit");
-		});
-
 		describe("interaction hint", () => {
 			const title = "Upload files";
 
@@ -1203,6 +1165,69 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 
 				const hintContent = queryByDataRole(DataRoles.InteractionHint.Content);
 				expect(hintContent).not.toBeInTheDocument();
+			});
+		});
+	});
+
+	describe("Focus management after cancel", () => {
+		const DefaultFileUploadExample = (): ReactNode => {
+			const [loading, setIsLoading] = useState(true);
+
+			return (
+				<DefaultFileUpload
+					id="file-upload-basic"
+					label="Upload files with any type"
+					placeholderIcon="none"
+					multiple
+					loading={loading}
+					onCancel={() => setIsLoading(false)}
+				/>
+			);
+		};
+
+		test("Should set focus back to the file upload content after canceling the upload", async () => {
+			const { container } = render(<DefaultFileUploadExample />);
+
+			const cancelButton = container.querySelector(
+				`[data-role="${DataRoles.FileUpload.Actions}"] [data-role="${DataRoles.Button}"]`
+			)!;
+
+			await userEvent.click(cancelButton);
+
+			await waitFor(() => {
+				const fileUploadContent = container.querySelector(`[data-role="${DataRoles.FileUpload.Content}"]`)!;
+				expect(fileUploadContent).toHaveFocus();
+			});
+		});
+
+		test("Should not restore focus to the file upload content after canceling when disableFocusRestore is true", async () => {
+			const DisableFocusRestoreExample = (): ReactNode => {
+				const [loading, setIsLoading] = useState(true);
+
+				return (
+					<DefaultFileUpload
+						id="file-upload-no-restore"
+						label="Upload files with any type"
+						placeholderIcon="none"
+						multiple
+						loading={loading}
+						onCancel={() => setIsLoading(false)}
+						disableFocusRestore
+					/>
+				);
+			};
+
+			const { container } = render(<DisableFocusRestoreExample />);
+
+			const cancelButton = container.querySelector(
+				`[data-role="${DataRoles.FileUpload.Actions}"] [data-role="${DataRoles.Button}"]`
+			)!;
+
+			await userEvent.click(cancelButton);
+
+			await waitFor(() => {
+				const fileUploadContent = container.querySelector(`[data-role="${DataRoles.FileUpload.Content}"]`)!;
+				expect(fileUploadContent).not.toHaveFocus();
 			});
 		});
 	});

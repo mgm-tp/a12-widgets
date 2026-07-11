@@ -30,7 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactElement } from "react";
+import { isValidElement } from "react";
+import { cloneDeepWith } from "lodash-es";
+
 import type { MultiselectProps } from "./multiselect.api.js";
+
+/**
+ * Deep-clones the multiselect items while keeping React elements (e.g. `graphic`, `secondaryText`)
+ * by reference. Deep-cloning React elements would traverse their internal fields (such as the
+ * owner fiber), which can reach arbitrary application state and crash. React elements are immutable,
+ * so sharing them by reference is safe.
+ */
+export function cloneItems<T>(items: T): T {
+	return cloneDeepWith(items, (value): ReactElement | undefined => (isValidElement(value) ? value : undefined));
+}
 
 export function getFlattenItems(items: MultiselectProps.Items): MultiselectProps.Item[] {
 	if (Array.isArray(items)) {

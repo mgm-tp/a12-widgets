@@ -33,6 +33,7 @@
 import { rgba, setLightness } from "polished";
 
 import type { BaseThemeType } from "../../../schema/base-theme.js";
+import { GeneralFlatColorsConfig } from "../../../flat/config/base/colors.config.js";
 
 import { contentBoxConfig } from "./contentbox.config.js";
 
@@ -74,6 +75,10 @@ export type FilterSelectorConfigType = {
 		secondaryTextColor: string;
 		text: { fontSize: string; lineHeight: string };
 	};
+	filterSelectorList: {
+		sectionHeadlineColor: string;
+		dividerTopMarginExpanded: string;
+	};
 	messageBoxMargin: string;
 	secondaryContent: {
 		borderLeft: string;
@@ -100,6 +105,10 @@ export const filterSelectorConfig = (theme: BaseThemeType): FilterSelectorConfig
 	const activeIndicatorBackground = colors.interaction.selected.color;
 
 	return {
+		filterSelectorList: {
+			sectionHeadlineColor: `${GeneralFlatColorsConfig.blueDark}`,
+			dividerTopMarginExpanded: `${verticalSpacing.vertWhiteSpacingxs * 2.5}px`
+		},
 		actionBarHorizontalPadding: actionBarHorizontalPadding,
 		height: `${9 * spacing.spacingXl}px`,
 

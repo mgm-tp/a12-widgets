@@ -53,7 +53,7 @@ const helperText = loremIpsum({
 	count: 2,
 	random: fixedRandomNumber()
 });
-const id = "text-line-combination";
+const id = "text-field-combination";
 
 export function AdditionalCustomizations(): ReactElement {
 	const [inputValue, setInputValue] = useState("");
@@ -102,7 +102,7 @@ export function AdditionalCustomizations(): ReactElement {
 				/>
 				<br />
 				<TextField
-					id="text-line-text-affix"
+					id="text-field-text-affix"
 					value={inputValue || "18000"}
 					onChange={handleInputChange}
 					label="Text Affix"

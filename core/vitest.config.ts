@@ -69,6 +69,6 @@ export default defineConfig({
 		global: "window",
 		SC_DISABLE_SPEEDY: false
 	},
-	plugins: [pluginReact()],
-	resolve: { tsconfigPaths: true }
+	resolve: { tsconfigPaths: true },
+	plugins: [pluginReact()]
 });

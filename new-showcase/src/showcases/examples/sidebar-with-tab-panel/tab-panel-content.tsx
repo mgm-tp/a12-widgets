@@ -44,7 +44,7 @@ import {
 	Icon,
 	LayoutGrid,
 	Link,
-	TextLineStateless,
+	TextField,
 	Typography,
 	DefaultTableComponentRenderers,
 	Table,
@@ -129,23 +129,23 @@ const SearchPanel: FC = () => {
 			<Grid>
 				<Row layoutConfig={{ layout: { sm: [12], md: [12], lg: [12] } }}>
 					<Column>
-						<TextLineStateless label="Name" value="Search" onChange={noop} />
+						<TextField label="Name" value="Search" onChange={noop} />
 					</Column>
 				</Row>
 				<Row layoutConfig={{ layout: { sm: [12, 12], md: [6, 6], lg: [6, 6] } }}>
 					<Column>
-						<TextLineStateless label="Data Type" value="E10" onChange={noop} />
+						<TextField label="Data Type" value="E10" onChange={noop} />
 					</Column>
 					<Column>
-						<TextLineStateless label="Nationality" value="German" onChange={noop} />
+						<TextField label="Nationality" value="German" onChange={noop} />
 					</Column>
 				</Row>
 				<Row layoutConfig={{ layout: { sm: [12, 12], md: [6, 6], lg: [6, 6] } }}>
 					<Column>
-						<TextLineStateless label="Profession" value="Software" onChange={noop} />
+						<TextField label="Profession" value="Software" onChange={noop} />
 					</Column>
 					<Column>
-						<TextLineStateless label="Form" value="AgB" onChange={noop} />
+						<TextField label="Form" value="AgB" onChange={noop} />
 					</Column>
 				</Row>
 
@@ -154,18 +154,18 @@ const SearchPanel: FC = () => {
 				</Typography.Headline>
 				<Row layoutConfig={{ layout: { sm: [12, 12], md: [6, 6], lg: [6, 6] } }}>
 					<Column>
-						<TextLineStateless label="Field name" onChange={noop} />
+						<TextField label="Field name" onChange={noop} />
 					</Column>
 					<Column>
-						<TextLineStateless label="Field type" onChange={noop} />
+						<TextField label="Field type" onChange={noop} />
 					</Column>
 				</Row>
 				<Row layoutConfig={{ layout: { sm: [12, 12], md: [6, 6], lg: [6, 6] } }}>
 					<Column>
-						<TextLineStateless label="Description" onChange={noop} />
+						<TextField label="Description" onChange={noop} />
 					</Column>
 					<Column>
-						<TextLineStateless label="Internal description" onChange={noop} />
+						<TextField label="Internal description" onChange={noop} />
 					</Column>
 				</Row>
 

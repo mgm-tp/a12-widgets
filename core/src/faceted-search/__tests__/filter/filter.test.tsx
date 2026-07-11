@@ -34,6 +34,7 @@ import { render, getByDataRole, fireEvent } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { Filter } from "../../main/filter/filter.view.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 
 describe("com.mgmtp.a12.widgets.filter", () => {
 	const properties = {
@@ -74,10 +75,10 @@ describe("com.mgmtp.a12.widgets.filter", () => {
 	});
 
 	test("rendering-disabled-filter", () => {
-		const { container } = render(<Filter name="Category" disabled />);
-		const filterContent = container.querySelector(`[data-role=filter-content]`);
+		const { container, getByDataRole } = render(<Filter name="Category" disabled />);
+		const filterContent = getByDataRole(DataRoles.Filter.Content);
 
-		expect(filterContent?.hasAttribute("disabled")).toBe(true);
+		expect(filterContent.hasAttribute("disabled")).toBe(true);
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
@@ -106,16 +107,81 @@ describe("com.mgmtp.a12.widgets.filter", () => {
 	});
 
 	test("check aria-labelledby in action button gets id from hidden-text and filter-name-text", () => {
-		const { container } = render(<Filter id="test-filter" name="Category" options={["Blue", "Green", "White"]} />);
+		const { container, getByDataRole } = render(
+			<Filter id="test-filter" name="Category" options={["Blue", "Green", "White"]} />
+		);
 
-		const actionButton = container.querySelector(`[data-role=button]`);
+		const actionButton = getByDataRole(DataRoles.Button);
 		const actionButtonHiddenText = container.querySelector("#test-filter-action-button-hidden-text");
 		const filterNameText = container.querySelector("#test-filter-name-text");
 
-		expect(actionButton).not.toBeNull();
-		expect(actionButtonHiddenText).not.toBeNull();
-		expect(filterNameText).not.toBeNull();
+		expect(actionButton).toBeInTheDocument();
+		expect(actionButtonHiddenText).toBeInTheDocument();
+		expect(filterNameText).toBeInTheDocument();
 
-		expect(actionButton?.getAttribute("aria-labelledby")).toBe(`${actionButtonHiddenText?.id} ${filterNameText?.id}`);
+		expect(actionButton.getAttribute("aria-labelledby")).toBe(`${actionButtonHiddenText?.id} ${filterNameText?.id}`);
+	});
+
+	test("rendering-filter-with-prefix", () => {
+		const { container, getByDataRole } = render(
+			<Filter name="Category" prefix={<span>F</span>} options={["Blue", "Green"]} />
+		);
+
+		expect(container.firstChild).toMatchSnapshot();
+
+		const prefix = getByDataRole(DataRoles.Filter.Prefix);
+		expect(prefix).toBeInTheDocument();
+		expect(prefix.textContent).toBe("F");
+	});
+
+	test("rendering-filter-compact-mode-without-options", () => {
+		const { getByDataRole } = render(<Filter name="Category" compact />);
+
+		const filterName = getByDataRole(DataRoles.Filter.Name);
+		expect(filterName).toBeInTheDocument();
+	});
+
+	test("rendering-filter-compact-mode-with-options", () => {
+		const { getByDataRole, queryByDataRole } = render(<Filter name="Category" compact options={["Blue", "Green"]} />);
+
+		const filterName = queryByDataRole(DataRoles.Filter.Name);
+		expect(filterName).not.toBeInTheDocument();
+
+		const filterOptions = getByDataRole(DataRoles.Filter.Options);
+		expect(filterOptions).toBeInTheDocument();
+	});
+
+	test("rendering-filter-compact-mode-with-prefix-and-options", () => {
+		const { container, getByDataRole, queryByDataRole } = render(
+			<Filter name="Category" compact prefix={<span>F</span>} options={["Blue", "Green"]} />
+		);
+		expect(container.firstChild).toMatchSnapshot();
+
+		// Should show prefix
+		const prefixElement = getByDataRole(DataRoles.Filter.Prefix);
+		expect(prefixElement).toBeInTheDocument();
+		expect(prefixElement.textContent).toBe("F");
+
+		// Should hide filter name in compact mode with options
+		const filterName = queryByDataRole(DataRoles.Filter.Name);
+		expect(filterName).not.toBeInTheDocument();
+
+		// Should show options
+		const filterOptions = getByDataRole(DataRoles.Filter.Options);
+		expect(filterOptions).toBeInTheDocument();
+	});
+
+	test("rendering-filter-compact-mode-with-prefix-without-options", () => {
+		const { container, getByDataRole } = render(<Filter name="Category" compact prefix={<span>F</span>} />);
+		expect(container.firstChild).toMatchSnapshot();
+
+		// Should show prefix
+		const prefixElement = getByDataRole(DataRoles.Filter.Prefix);
+		expect(prefixElement).toBeInTheDocument();
+		expect(prefixElement.textContent).toBe("F");
+
+		// Should show filter name when no options
+		const filterName = getByDataRole(DataRoles.Filter.Name);
+		expect(filterName).toBeInTheDocument();
 	});
 });

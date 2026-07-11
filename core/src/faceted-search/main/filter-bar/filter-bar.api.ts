@@ -45,11 +45,23 @@ export interface FilterBarProps extends Styleable, Identifiable, Container {
 	 * Specifies whether the Filter Bar is disabled.
 	 */
 	disabled?: boolean;
-}
 
-export interface FilterBarMobileProps extends FilterBarProps {
+	/**
+	 * Hide the action area
+	 * @default false
+	 */
+	compact?: boolean;
+
 	/**
 	 * Actions will be placed at the end of the bar.
 	 */
 	actions?: ReactNode;
+
+	/**
+	 * Callback fired when hidden filters change due to responsive behavior.
+	 * Provides indices of filters that are currently hidden.
+	 */
+	onHiddenFiltersChange?: (hiddenIndices: number[]) => void;
 }
+
+export interface FilterBarMobileProps extends FilterBarProps {}

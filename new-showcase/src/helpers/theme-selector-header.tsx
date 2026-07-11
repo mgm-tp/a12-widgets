@@ -51,15 +51,33 @@ export function ThemeSelectorHeader(props: { isSmallView?: boolean }): ReactElem
 	const showcaseThemes = ShowcaseThemes.getThemes();
 
 	const renderedThemeOptions = (): ReactNode => {
-		return showcaseThemes.map((showcaseTheme) => (
-			<Item
-				key={showcaseTheme.name}
-				text={showcaseTheme.label ?? showcaseTheme.name}
-				meta={theme === showcaseTheme.name && <Icon>check</Icon>}
-				selected={theme === showcaseTheme.name}
-				onClick={() => setTheme(showcaseTheme.name)}
-			/>
-		));
+		const visibleThemes = showcaseThemes.filter((t) => !t.name.includes("dark") && !t.name.includes("Dark"));
+		let deprecatedHeaderRendered = false;
+
+		return visibleThemes.flatMap((showcaseTheme) => {
+			const items: ReactNode[] = [];
+
+			if (showcaseTheme.deprecated && !deprecatedHeaderRendered) {
+				deprecatedHeaderRendered = true;
+				items.push(
+					<List.SubHeader key="deprecated-header" fill>
+						Deprecated Theme
+					</List.SubHeader>
+				);
+			}
+
+			items.push(
+				<Item
+					key={showcaseTheme.name}
+					text={showcaseTheme.label ?? showcaseTheme.name}
+					meta={theme === showcaseTheme.name && <Icon>check</Icon>}
+					selected={theme === showcaseTheme.name}
+					onClick={() => setTheme(showcaseTheme.name)}
+				/>
+			);
+
+			return items;
+		});
 	};
 
 	return (

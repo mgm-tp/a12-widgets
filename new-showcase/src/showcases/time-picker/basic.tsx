@@ -38,14 +38,9 @@ import { useTimePickerProps } from "./use-time-picker-props.js";
 
 export function BasicShowcase(): ReactElement {
 	return (
-		<div className="-u-width-full">
+		<div className="-u-flex -u-flex-col -u-width-full" style={{ gap: "1rem" }}>
 			<TimePicker {...useTimePickerProps({ id: "time-picker-12h" })} label="Time Picker with 12h mode" />
-			<br />
-			<TimePicker
-				{...useTimePickerProps({ id: "time-picker-24h", timeMode: "24h" })}
-				mode="24h"
-				label="Time Picker with 24h mode"
-			/>
+			<TimePicker {...useTimePickerProps({ id: "time-picker-24h" })} mode="24h" label="Time Picker with 24h mode" />
 		</div>
 	);
 }

@@ -40,7 +40,7 @@ import {
 	Icon,
 	ModalNotification,
 	ModalOverlay,
-	TextLineStateless
+	TextField
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export namespace Elements {
@@ -104,7 +104,7 @@ export namespace Elements {
 			<ActionBarGroupArea
 				leftSlot={[
 					<ActionBarGroup key={1}>
-						<TextLineStateless onChange={() => undefined} placeholder="Search..." suffixes={<Icon>search</Icon>} />
+						<TextField onChange={() => undefined} placeholder="Search..." suffixes={<Icon>search</Icon>} />
 						<Button icon={<Icon>filter_list</Icon>} title="Filter button" />
 					</ActionBarGroup>,
 					<ActionBarGroupDivider key={2} />,

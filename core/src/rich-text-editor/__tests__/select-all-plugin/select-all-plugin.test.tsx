@@ -68,7 +68,7 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.select-all-plugin", () => {
 			await userEvent.click(contentEditable);
 
 			// Simulate Ctrl+A
-			await userEvent.keyboard("{ControlOrMeta>}a{/ControlOrMeta}");
+			await userEvent.keyboard("{Control>}a{/Control}");
 
 			await waitFor(() => {
 				const selection = window.getSelection();

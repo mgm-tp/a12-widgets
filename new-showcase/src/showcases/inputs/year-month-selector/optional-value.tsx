@@ -59,6 +59,7 @@ export const YearMonthSelectorWithOptionalValue: FC = () => {
 				month={month}
 				year={year}
 				onValueChange={onChange}
+				yearPlaceholder="YYYY"
 				optionalMonthItem={{ label: "Optional Month item" }}
 			/>
 			<br />
@@ -68,6 +69,7 @@ export const YearMonthSelectorWithOptionalValue: FC = () => {
 				month={month}
 				year={year}
 				onValueChange={onChange}
+				yearSelectorVariant="select"
 				optionalYearItem={{ label: "Optional Year item" }}
 			/>
 			<br />
@@ -77,6 +79,7 @@ export const YearMonthSelectorWithOptionalValue: FC = () => {
 				month={month}
 				year={year}
 				onValueChange={onChange}
+				yearSelectorVariant="select"
 				optionalYearItem={{ label: "Optional Year item" }}
 				optionalMonthItem={{ label: "Optional Month item" }}
 			/>

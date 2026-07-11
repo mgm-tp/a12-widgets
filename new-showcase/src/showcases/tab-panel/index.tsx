@@ -32,7 +32,7 @@
 
 import TabPanelTplAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tab-panel/main/template/tab-panel.tpl.api.json" with { type: "json" };
 import TabPanelAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tab-panel/main/tab-panel.api.json" with { type: "json" };
-import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox } from "../../helpers/showcase-styles.js";
@@ -40,10 +40,15 @@ import { StyledShowcaseBulletListInMessageBox } from "../../helpers/showcase-sty
 import { TabPanelExample } from "./basic.js";
 import { HorizontalTabPanelShowcase } from "./horizontal-tab-panel.js";
 import { TabPanelAccessibilityShowcase } from "./accessibility.js";
+import { GroupedVerticalTabPanelShowcase } from "./grouped-vertical-tab-panel.js";
+import { GroupedHorizontalTabPanelShowcase } from "./grouped-horizontal-tab-panel.js";
 
 import basicCode from "!./basic.tsx?raw";
 import horizontalTabPanelCode from "!./horizontal-tab-panel.tsx?raw";
 import tabPanelAccessibilityCode from "!./accessibility.tsx?raw";
+import groupedVerticalTabPanelCode from "!./grouped-vertical-tab-panel.tsx?raw";
+import groupedHorizontalTabPanelCode from "!./grouped-horizontal-tab-panel.tsx?raw";
+import groupedTabsCode from "!./grouped-tab-panel-data.tsx?raw";
 
 const { Item } = BulletList;
 
@@ -129,6 +134,56 @@ const showcases: Showcase[] = [
 					name: "horizontal-tab-panel.tsx",
 					code: horizontalTabPanelCode
 				}
+			},
+			{
+				label: "Grouped Vertical Tab Panel",
+				content: <GroupedVerticalTabPanelShowcase />,
+				description: {
+					info: (
+						<>
+							<p>
+								In addition to a flat tab list shown in the{" "}
+								<Link href="#/widgets/navigation/tab-panel#basic">Basic</Link> showcase, <strong>Tab Panel</strong> also
+								supports grouping tabs by passing a list of <code>TabPanelTemplateProps.GroupTabProps</code> to the{" "}
+								<code>tabs</code> property. When groups are defined, a visual dividers will be shown between them.
+							</p>
+							<p>Each group has following properties:</p>
+							<BulletList.Unordered>
+								<BulletList.Item>
+									<code>groupLabel</code>: A name for the group. Only shown as a heading on mobile's sub-tablist.
+								</BulletList.Item>
+								<BulletList.Item>
+									<code>tabs</code>: The tab items that belong to the group. Each tab is configured the same way as a
+									flat tab item.
+								</BulletList.Item>
+								<BulletList.Item>
+									<code>ariaLabel</code>: An accessible label of the group for screen readers.
+								</BulletList.Item>
+							</BulletList.Unordered>
+						</>
+					)
+				},
+				code: [
+					{ name: "grouped-vertical-tab-panel.tsx", code: groupedVerticalTabPanelCode },
+					{ name: "grouped-tabs-data.tsx", code: groupedTabsCode }
+				]
+			},
+			{
+				label: "Grouped Horizontal Tab Panel",
+				content: <GroupedHorizontalTabPanelShowcase />,
+				description: {
+					info: (
+						<p>
+							Similar to a basic Tab Panel, a grouped Tab Panel also supports horizontal view. By setting the{" "}
+							<code>orientation</code> property to <strong>horizontal</strong>, you can adjust the layout of the grouped
+							Tab Panel accordingly.
+						</p>
+					)
+				},
+				code: [
+					{ name: "grouped-horizontal-tab-panel.tsx", code: groupedHorizontalTabPanelCode },
+					{ name: "grouped-tabs-data.tsx", code: groupedTabsCode }
+				]
 			},
 			{
 				label: "Accessibility",

@@ -43,7 +43,7 @@ import { GroupColorContentBox } from "./group-color-contentbox.js";
 export function InteractionStatesColorsShowcase() {
 	const themeColors = useTheme().colors;
 	const { theme } = useContext(ThemeContext);
-	const isFlatTheme = theme.includes("flat");
+	const isBrightTheme = theme.includes("flat") || theme.includes("base");
 
 	const activeColors: Color[] = [
 		{
@@ -106,7 +106,7 @@ export function InteractionStatesColorsShowcase() {
 			colorCode: themeColors.interaction.hover.colorInverted,
 			textColor: "black"
 		},
-		...(isFlatTheme
+		...(isBrightTheme
 			? [
 					{
 						textName: "interaction.hover.colorLight",
@@ -131,7 +131,7 @@ export function InteractionStatesColorsShowcase() {
 		{
 			textName: "interaction.focus.outline",
 			colorCode: themeColors.interaction.focus.outline,
-			...(isFlatTheme && { textColor: "black" })
+			...(isBrightTheme && { textColor: "black" })
 		}
 	];
 

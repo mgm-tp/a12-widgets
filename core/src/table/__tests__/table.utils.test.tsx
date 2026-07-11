@@ -36,7 +36,7 @@ import { waitFor } from "@testing-library/dom";
 import { Range } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import type { BaseColumnType } from "../new-api/column.api.js";
+import type { BaseColumnType } from "../main/column.api.js";
 import {
 	countActionColumns,
 	flattenAllColumns,
@@ -49,13 +49,13 @@ import {
 	identifyRowsGroup,
 	isColumnGroup,
 	TableInternalUtils
-} from "../new-api/table.utils.js";
+} from "../main/table.utils.js";
 import type {
 	IdenticalRowsGroup,
 	RowsGroup,
 	RowsGroupHead,
 	TableRowsGroupRowType
-} from "../new-api/table-rows-group/table-row-group.api.js";
+} from "../main/table-rows-group/table-row-group.api.js";
 import { ColumnWidthSync } from "../main/table.internal.js";
 
 const {

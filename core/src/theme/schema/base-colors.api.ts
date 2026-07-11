@@ -48,9 +48,11 @@ export type BaseThemeColorsType = {
 		invertedBackground: string;
 		tertiaryBackground: string;
 		groupBackground: string;
+		accentBackground: string;
 	};
 	divider: {
 		color: string;
+		colorBorder: string;
 		colorSubtle: string;
 		colorDark: string;
 		colorLight: string;
@@ -130,8 +132,4 @@ export type BaseThemeColorsType = {
 		status2Color: string;
 		status3Color: string;
 	};
-};
-
-export type BaseThemeColors = {
-	colors: BaseThemeColorsType;
 };

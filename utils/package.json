@@ -1,20 +1,20 @@
 {
 	"name": "@com.mgmtp.a12.widgets/widgets-utils",
-	"version": "38.3.3",
+	"version": "39.0.2",
 	"description": "Utility widgets",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
-		"clean": "rimraf target ./lib/**",
-		"compile": "node --max-old-space-size=4096 ./node_modules/typescript/lib/tsc.js",
+		"clean": "rimraf ./lib ./target",
+		"compile": "tsc",
 		"lint:eslint": "eslint --quiet",
-		"start": "tsc --watch"
+		"start": "tsgo --watch --preserveWatchOutput"
 	},
 	"author": "mgm technology partners",
 	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
 	"dependencies": {
-		"react-syntax-highlighter": "^16.1.0",
-		"react-transition-group": "^4.4.5"
+		"react-syntax-highlighter": "^16.1.1",
+		"react-transition-group": "catalog:"
 	},
 	"peerDependencies": {
 		"@com.mgmtp.a12.widgets/widgets-core": "workspace:^",
@@ -23,15 +23,17 @@
 		"styled-components": "^6.1.18"
 	},
 	"devDependencies": {
-		"@types/react": "^19.2.6",
-		"@types/react-dom": "^19.2.3",
-		"@types/react-syntax-highlighter": "^15.5.13",
-		"@types/react-transition-group": "^4.4.12",
-		"react": "^19.2.5",
-		"react-dom": "^19.2.5",
-		"rimraf": "^6.1.2",
-		"styled-components": "6.1.19",
-		"typescript": "5.8.2"
+		"@types/node": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"@types/react-syntax-highlighter": "catalog:",
+		"@types/react-transition-group": "catalog:",
+		"@typescript/native-preview": "latest",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"rimraf": "catalog:",
+		"styled-components": "catalog:",
+		"typescript": "catalog:"
 	},
 	"files": [
 		"lib",
@@ -42,5 +44,10 @@
 		"THIRD_PARTY_NOTICES",
 		"licenses"
 	],
-	"type": "module"
+	"type": "module",
+	"exports": {
+		".": "./lib/index.js",
+		"./package.json": "./package.json"
+	},
+	"sideEffects": false
 }

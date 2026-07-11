@@ -47,7 +47,6 @@ import type { PieChartElementsProps } from "./tpl/pie-chart.tpl.api.js";
 
 const baseClassName = addPrefix("pie-chart");
 
-/** @deprecated since version 38.2.1. */
 interface PieChartState {
 	margin: Margin;
 	hoveringDataKey: string;

@@ -50,6 +50,7 @@ export type InteractionHintComponentConfigMap = {
 	accordion: InteractionHintVerticalConfig;
 	verticalFlyoutMenu: InteractionHintVerticalConfig;
 	slidingMenu: InteractionHintVerticalConfig;
+	filter?: InteractionHintBaseConfig;
 };
 export type InteractionHintComponentKey = keyof InteractionHintComponentConfigMap;
 

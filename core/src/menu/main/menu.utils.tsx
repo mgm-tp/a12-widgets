@@ -30,6 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { DataRoles } from "../../common/main/data-roles.js";
+
 import type { MenuGroup, MenuItem, MenuItemType } from "./menu.api.js";
 
 export const isMenuGroup = (item: MenuItemType | undefined): item is MenuGroup =>
@@ -37,3 +39,51 @@ export const isMenuGroup = (item: MenuItemType | undefined): item is MenuGroup =
 
 export const isMenuItemList = (items: MenuItemType[] | undefined): items is MenuItem[] =>
 	!!items?.every((item) => !isMenuGroup(item));
+
+/**
+ * Returns the menu items that can receive focus inside a container.
+ * In `arrow-only` mode, excludes aria-disabled items.
+ * In default mode, excludes items removed from the tab sequence (tabIndex === -1).
+ *
+ * @internal
+ */
+export function getNavigableMenuItems(container: HTMLElement, isArrowOnly: boolean): HTMLElement[] {
+	return Array.from(container.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Menu.Item}"]`)).filter((el) =>
+		isArrowOnly ? el.querySelector("[aria-disabled='true']") === null : el.tabIndex !== -1
+	);
+}
+
+/**
+ * Moves the roving `tabIndex=0` to `items[newIndex]`, setting all others to `tabIndex=-1`.
+ *
+ * @internal
+ */
+export function updateMenuRovingTabIndex(items: HTMLElement[], newIndex: number): void {
+	items.forEach((item, i) => {
+		item.tabIndex = i === newIndex ? 0 : -1;
+	});
+}
+
+/**
+ * Resets roving tabIndex on a container: first enabled item gets `tabIndex=0`, all others `-1`.
+ * Only enabled (non-aria-disabled) items are included.
+ *
+ * @internal
+ */
+export function resetMenuRovingTabIndex(container: HTMLElement): void {
+	getNavigableMenuItems(container, true).forEach((item, i) => {
+		item.tabIndex = i === 0 ? 0 : -1;
+	});
+}
+
+/**
+ * Initialises tabIndex for default (tab-based) navigation mode:
+ * every enabled item gets `tabIndex=0`, making all items reachable via Tab.
+ *
+ * @internal
+ */
+export function initDefaultMenuTabIndex(container: HTMLElement): void {
+	getNavigableMenuItems(container, true).forEach((item) => {
+		item.tabIndex = 0;
+	});
+}

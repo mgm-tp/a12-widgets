@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
-import { useState, useRef, useCallback, useContext } from "react";
+import type { CSSProperties, ReactElement } from "react";
+import { useState, useRef, useCallback, useContext, useMemo } from "react";
 import { styled } from "styled-components";
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism-light";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
 import dracula from "react-syntax-highlighter/dist/esm/styles/prism/dracula";
 
@@ -109,6 +109,17 @@ export const SourceCodeSection = (props: SourceCodeSectionProps): ReactElement =
 		},
 		[currentFileIndex]
 	);
+	const lineNumberStyles: CSSProperties = useMemo(() => ({ WebkitUserSelect: "none" }), []);
+	const codeTagProps = useMemo(
+		() => ({
+			style: {
+				backgroundColor: "unset",
+				fontSize: "14px",
+				fontFamily: 'Menlo,Consolas,"Droid Sans Mono",monospace'
+			}
+		}),
+		[]
+	);
 
 	return (
 		<>
@@ -127,14 +138,8 @@ export const SourceCodeSection = (props: SourceCodeSectionProps): ReactElement =
 					language={props.language || "jsx"}
 					style={dracula}
 					showLineNumbers
-					codeTagProps={{
-						style: {
-							backgroundColor: "unset",
-							fontSize: "14px",
-							fontFamily: 'Menlo,Consolas,"Droid Sans Mono",monospace'
-						}
-					}}
-					lineNumberStyle={{ WebkitUserSelect: "none" }}
+					codeTagProps={codeTagProps}
+					lineNumberStyle={lineNumberStyles}
 					customStyle={props.style}
 				>
 					{codeContent}

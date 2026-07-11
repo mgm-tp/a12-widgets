@@ -35,9 +35,9 @@ import { useMemo } from "react";
 import { styled, css } from "styled-components";
 
 import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
-import { useTableContext } from "../../new-api/table.context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
+import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import { HeadRowTpl } from "./table.head-row.tpl.view.js";

@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode, SyntheticEvent } from "react";
+import type { FocusEvent, ReactNode, SyntheticEvent } from "react";
 
 import type { Identifiable, Styleable, Container, Ref } from "../../common/main/base-props.js";
 
@@ -52,6 +52,11 @@ export interface SectionProps extends Identifiable, Styleable, Container {
 	 * Aria-role for the section
 	 */
 	role?: string;
+
+	/**
+	 * Focus event handler forwarded to the underlying div element.
+	 */
+	onFocus?: (event: FocusEvent<HTMLElement>) => void;
 }
 
 export interface HeadlineProps extends BaseTypographyProps {
@@ -109,6 +114,17 @@ export interface HeadlineProps extends BaseTypographyProps {
 	 * Displays actions or other information after the headline.
 	 */
 	addons?: ReactNode;
+
+	/**
+	 * Action buttons/icons to be displayed in the header section.
+	 * These will be rendered with proper hover and focus states.
+	 */
+	headerActions?: ReactNode;
+
+	/**
+	 * Enable compact mode with no background colors, only border on hover and focus.
+	 */
+	compact?: boolean;
 
 	/**
 	 * Used to offer additional functionality such as ids or refs.

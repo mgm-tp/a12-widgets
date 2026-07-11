@@ -1,8 +1,8 @@
 {
-	"extends": "@com.mgmtp.a12.devtools/tsconfig",
+	"extends": "./node_modules/@com.mgmtp.a12.devtools/tsconfig/tsconfig.json",
 	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"incremental": true
+		"incremental": true,
+		"stableTypeOrdering": true
 	},
 	"exclude": ["./node_modules"]
 }

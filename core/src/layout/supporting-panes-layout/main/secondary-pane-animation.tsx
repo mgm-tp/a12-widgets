@@ -38,10 +38,10 @@ import { useCallback, useRef, useState } from "react";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
 import { StyledSecondaryPane, StyledSecondaryPaneContent } from "./supporting-panes-layout.styled.js";
-import type { SupportingPanesLayoutProps } from "./supporting-panes-layout.api.js";
+import type { SupportingPanesLayoutProps, CustomAnimationConfig } from "./supporting-panes-layout.api.js";
 import { useSPLAnimationConfig } from "./supporting-pane-layout-hook.js";
 
-interface SecondaryPaneAnimationProps {
+export interface SecondaryPaneAnimationProps {
 	children: ReactNode;
 	width: string;
 	position: SupportingPanesLayoutProps.SecondaryPanePosition;
@@ -50,6 +50,7 @@ interface SecondaryPaneAnimationProps {
 	resizeHandleRenderer: (position: SupportingPanesLayoutProps.SecondaryPanePosition) => ReactNode;
 	collapsed?: boolean;
 	hide?: boolean;
+	customAnimation?: CustomAnimationConfig;
 	ref?: Ref<HTMLDivElement>;
 	htmlAttributes?: HTMLAttributes<HTMLDivElement>;
 }
@@ -64,6 +65,7 @@ export const SecondaryPaneAnimation = (props: SecondaryPaneAnimationProps): Reac
 		resizeHandleRenderer,
 		isExpandingOrCollapsing,
 		isResized,
+		customAnimation,
 		htmlAttributes,
 		...rest
 	} = props;
@@ -77,7 +79,8 @@ export const SecondaryPaneAnimation = (props: SecondaryPaneAnimationProps): Reac
 		SPLAnimationStates: { exit, visible, collapse, hidden, resize }
 	} = useSPLAnimationConfig({
 		isResized: isResized.current,
-		width
+		width,
+		customAnimation
 	});
 
 	const handleContentRef = (instance: HTMLDivElement | null) => {

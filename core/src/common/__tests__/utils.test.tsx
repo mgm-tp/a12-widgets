@@ -35,6 +35,7 @@ import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
 import {
 	addPrefix,
 	cloneObject,
+	findFirstFocusableOutside,
 	getAllFocusableElements,
 	getNearestFocusableParent,
 	getParentElement,
@@ -278,7 +279,7 @@ describe("com.mgmtp.a12.widgets.common.utils.element", () => {
 		mockElement.appendChild(button2);
 
 		moveItemFocus(mockElement, button1, "button", stubFunction);
-		expect(document.activeElement).toEqual(button2);
+		expect(button2).toHaveFocus();
 	});
 
 	test("moveItemFocusBack", () => {
@@ -291,7 +292,7 @@ describe("com.mgmtp.a12.widgets.common.utils.element", () => {
 		mockElement.appendChild(button3);
 
 		moveItemFocusBack(mockElement, button2, "button");
-		expect(document.activeElement).toEqual(button1);
+		expect(button1).toHaveFocus();
 	});
 
 	test("moveItemFocusNext", () => {
@@ -304,7 +305,7 @@ describe("com.mgmtp.a12.widgets.common.utils.element", () => {
 		mockElement.appendChild(button3);
 
 		moveItemFocusNext(mockElement, button2, "button");
-		expect(document.activeElement).toEqual(button3);
+		expect(button3).toHaveFocus();
 	});
 
 	test("hasGotFocus", () => {
@@ -451,5 +452,89 @@ describe("getIframeOffset", () => {
 		expect(getIframeOffset(button, document)).toEqual({ top: 180, left: 10 });
 
 		document.body.removeChild(outerIframe);
+	});
+});
+
+describe("findFirstFocusableOutside", () => {
+	let container: HTMLElement;
+
+	beforeEach(() => {
+		container = document.createElement("div");
+		document.body.appendChild(container);
+	});
+
+	afterEach(() => {
+		document.body.innerHTML = "";
+	});
+
+	test("returns undefined when no focusable elements exist outside the container", () => {
+		const inner = document.createElement("button");
+		container.appendChild(inner);
+
+		expect(findFirstFocusableOutside(container, "after")).toBeUndefined();
+		expect(findFirstFocusableOutside(container, "before")).toBeUndefined();
+	});
+
+	test("returns the first focusable element after the container", () => {
+		const before = document.createElement("button");
+		document.body.appendChild(before);
+		document.body.appendChild(container);
+		const after1 = document.createElement("button");
+		const after2 = document.createElement("button");
+		document.body.appendChild(after1);
+		document.body.appendChild(after2);
+
+		expect(findFirstFocusableOutside(container, "after")).toBe(after1);
+	});
+
+	test("returns the first focusable element before the container", () => {
+		const before1 = document.createElement("button");
+		const before2 = document.createElement("button");
+		document.body.appendChild(before1);
+		document.body.appendChild(before2);
+		document.body.appendChild(container);
+		const after = document.createElement("button");
+		document.body.appendChild(after);
+
+		expect(findFirstFocusableOutside(container, "before")).toBe(before2);
+	});
+
+	test("ignores focusable elements inside the container", () => {
+		const inner = document.createElement("button");
+		container.appendChild(inner);
+		const outside = document.createElement("button");
+		document.body.appendChild(outside);
+
+		expect(findFirstFocusableOutside(container, "after")).toBe(outside);
+	});
+
+	test("ignores elements with visibility hidden", () => {
+		document.body.appendChild(container);
+		const hidden = document.createElement("button");
+		hidden.style.visibility = "hidden";
+		document.body.appendChild(hidden);
+		const visible = document.createElement("button");
+		document.body.appendChild(visible);
+
+		expect(findFirstFocusableOutside(container, "after")).toBe(visible);
+	});
+
+	test("ignores elements with display none", () => {
+		document.body.appendChild(container);
+		const hidden = document.createElement("button");
+		hidden.style.display = "none";
+		document.body.appendChild(hidden);
+		const visible = document.createElement("button");
+		document.body.appendChild(visible);
+
+		expect(findFirstFocusableOutside(container, "after")).toBe(visible);
+	});
+
+	test("supports various focusable element types", () => {
+		document.body.appendChild(container);
+		const input = document.createElement("input");
+		document.body.appendChild(input);
+
+		expect(findFirstFocusableOutside(container, "after")).toBe(input);
 	});
 });

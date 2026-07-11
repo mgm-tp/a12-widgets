@@ -176,7 +176,7 @@ export const StyledNotificationContent = styled.div.withConfig({ displayName: "S
 
 		${StyledIconWrapper} {
 			color: inherit;
-			font-size: inherit;
+			font-size: ${content.icon?.fontSize ?? "inherit"};
 			margin: ${content.icon.margin};
 		}
 	`;

@@ -50,8 +50,7 @@ const showcases: Showcase[] = [
 				<p>
 					The <strong>Icon Picker</strong> Widget is an input component that allows users to pick an icon from
 					either&nbsp;
-					<ExternalLink href="https://fonts.google.com/icons?icon.set=Material+Icons">Material Icons</ExternalLink> or
-					Widget's&nbsp;
+					<ExternalLink href="https://fonts.google.com/icons">Material Symbols</ExternalLink> or Widget's&nbsp;
 					<Link href="#/widgets/general/icon#custom-icons">Custom Icons</Link>.
 				</p>
 				<p>
@@ -73,12 +72,9 @@ const showcases: Showcase[] = [
 							</p>
 							<p>
 								The&nbsp;<Icon>view_list</Icon>&nbsp;icon that is displayed next to the input will redirect you to
-								the&nbsp;
-								<ExternalLink href="https://fonts.google.com/icons?icon.set=Material+Icons">
-									Material Icons
-								</ExternalLink>{" "}
-								page where you can easily explore more icons. Do note, however, that some of the newer icons may not yet
-								be available for our picker, so please be sure to double check your selection.
+								the&nbsp;<ExternalLink href="https://fonts.google.com/icons">Material Symbols</ExternalLink> page where
+								you can easily explore more icons. Do note, however, that some of the newer icons may not yet be
+								available for our picker, so please be sure to double check your selection.
 							</p>
 						</>
 					)

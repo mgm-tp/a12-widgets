@@ -1,7 +1,7 @@
 THIRD_PARTY_NOTICES
 
 Component: A12 Widgets
-Generated: 2026-03-11 for mgm A12 Platform 2025.06-ext5
+Generated: 2026-06-22 for mgm A12 Platform 2026.06
 
 The mgm A12 Platform is developed by mgm technology partners GmbH.
 
@@ -19,22 +19,40 @@ The following third-party components are included in this distribution:
 - gradle wrapper, licensed under Apache-2.0
 	Copyright © 2015-2021 the original authors
 	Source: https://github.com/gradle/gradle/
-- @com.mgmtp.a12.devtools/codemod 1.0.0, licensed under EUPL v1.2
+- asciidoctor 2.2.9, licensed under MIT
+	Copyright (c) 2019 Dan Allen, Guillaume Grossetie, Anthonny Querouil and the Asciidoctor Project
+	Source: https://github.com/asciidoctor/asciidoctor.js
+- asciidoctor-highlight.js 0.4.0, licensed under MIT
+	Copyright 2018-2020 Jakub Jirutka <jakub@jirutka.cz>
+	Source: https://github.com/jirutka/asciidoctor-highlight.js/
+- @atlaskit/pragmatic-drag-and-drop 1.8.1, licensed under Apache-2.0
+	Copyright 2022 Atlassian Pty Ltd
+	Source: https://github.com/atlassian/pragmatic-drag-and-drop
+- @atlaskit/pragmatic-drag-and-drop-auto-scroll 1.4.0, licensed under Apache-2.0
+	Copyright 2022 Atlassian Pty Ltd
+	Source: https://github.com/atlassian/pragmatic-drag-and-drop
+- @atlaskit/pragmatic-drag-and-drop-hitbox 1.2.0, licensed under Apache-2.0
+	Copyright 2022 Atlassian Pty Ltd
+	Source: https://github.com/atlassian/pragmatic-drag-and-drop
+- @com.mgmtp.a12.devtools/build-tools 1.1.2, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/devtools 10.1.1, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/codemod 2.2.2, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/eslint-config 2.0.2, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/eslint-config 3.1.2, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/prettier-config 1.0.1, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/prettier-config 1.1.1, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- cpy-cli 6.0.0, licensed under MIT
+- @com.mgmtp.a12.devtools/tsconfig 2.0.1, licensed under EUPL v1.2
+	Copyright (C) 2012-2026 mgm technology partners GmbH
+	Source: https://github.com/mgm-tp
+- cpy-cli 7.0.0, licensed under MIT
 	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 	Source: https://github.com/sindresorhus/cpy-cli
-- date-fns 4.1.0, licensed under MIT
+- date-fns 4.2.1, licensed under MIT
 	Copyright (c) 2021 Sasha Koss and Lesha Koss https://kossnocorp.mit-license.org
 	Source: https://github.com/date-fns/date-fns
 - @date-fns/tz 1.4.1, licensed under MIT
@@ -52,13 +70,13 @@ The following third-party components are included in this distribution:
 - dnd-multi-backend 9.0.1-rc0001, licensed under MIT
 	Copyright (c) 2016-2022 Louis Brunner
 	Source: https://github.com/LouisBrunner/dnd-multi-backend
-- dompurify 3.3.1, licensed under Apache-2.0
+- dompurify 3.4.5, licensed under Apache-2.0
 	Copyright 2025 Dr.-Ing. Mario Heiderich, Cure53
 	Source: https://github.com/cure53/DOMPurify
 - @emotion/is-prop-valid 1.4.0, licensed under MIT
 	Copyright (c) Emotion team and other contributors
 	Source: https://github.com/emotion-js/emotion
-- eslint 9.39.3, licensed under MIT
+- eslint 9.39.4, licensed under MIT
 	Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
 	Source: https://github.com/eslint/eslint
 - eslint-plugin-jsx-a11y 6.10.2, licensed under MIT
@@ -67,13 +85,13 @@ The following third-party components are included in this distribution:
 - eslint-plugin-notice 1.0.0, licensed under MIT
 	Copyright (c) 2017 Nick Deis
 	Source: https://github.com/nickdeis/eslint-plugin-notice
-- eslint-plugin-react-refresh 0.4.26, licensed under MIT
+- eslint-plugin-react-refresh 0.5.3, licensed under MIT
 	Copyright (c) Arnaud Barré (https://github.com/ArnaudBarre)
 	Source: https://github.com/ArnaudBarre/eslint-plugin-react-refresh
-- eslint-plugin-storybook 10.2.11, licensed under MIT
+- eslint-plugin-storybook 10.4.4, licensed under MIT
 	Copyright (c) 2024 Storybook
 	Source: https://github.com/storybookjs/storybook
-- @faker-js/faker 10.3.0, licensed under MIT
+- @faker-js/faker 10.4.0, licensed under MIT
 	Faker - Copyright (c) 2022-2025; faker.js - Copyright (c) 2011-2020 Marak Squires; Copyright (c) 2007-2010 Benjamin Curtis; Copyright 2004-2005 by Jason Kohles
 	Source: https://github.com/faker-js/faker
 - framer-motion 12.25.0, licensed under MIT
@@ -82,65 +100,67 @@ The following third-party components are included in this distribution:
 - fuzzysort 3.1.0, licensed under MIT
 	Copyright (c) 2018 Stephen Kamenar
 	Source: https://github.com/farzher/fuzzysort
-- globals 16.5.0, licensed under MIT
+- globals 17.6.0, licensed under MIT
 	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 	Source: https://github.com/sindresorhus/globals
+- highlight.js 11.11.1, licensed under BSD-3-Clause
+	Copyright (c) 2006, Ivan Sagalaev.
+	Source: https://github.com/highlightjs/highlight.js
 - husky 9.1.7, licensed under MIT
 	Copyright (c) 2021 typicode
 	Source: https://github.com/typicode/husky
-- immer 10.2.0, licensed under MIT
+- immer 11.1.8, licensed under MIT
 	Copyright (c) 2017 Michel Weststrate
 	Source: https://github.com/immerjs/immer
-- jest-styled-components 7.2.0, licensed under MIT
+- jest-styled-components 7.4.0, licensed under MIT
 	Copyright (c) 2017 - present Michele Bertoli
 	Source: https://github.com/styled-components/jest-styled-components
 - jszip 3.10.1, licensed under MIT
 	Copyright (c) 2009-2016 Stuart Knightley, David Duponchel, Franz Buchinger, António Afonso
 	Source: https://github.com/Stuk/jszip
-- lexical 0.31.2, licensed under MIT
+- lexical 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
-- @lexical/html 0.31.2, licensed under MIT
+- @lexical/html 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
-- @lexical/link 0.31.2, licensed under MIT
+- @lexical/link 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
-- @lexical/list 0.31.2, licensed under MIT
+- @lexical/list 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
-- @lexical/plain-text 0.31.2, licensed under MIT
+- @lexical/plain-text 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
-- @lexical/react 0.31.2, licensed under MIT
+- @lexical/react 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
-- @lexical/rich-text 0.31.2, licensed under MIT
+- @lexical/rich-text 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
-- @lexical/selection 0.31.2, licensed under MIT
+- @lexical/selection 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
-- @lexical/utils 0.31.2, licensed under MIT
+- @lexical/utils 0.44.0, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/lexical
 - linkify-it 5.0.0, licensed under MIT
 	Copyright (c) 2015 Vitaly Puzrin
 	Source: https://github.com/markdown-it/linkify-it
-- lint-staged 16.2.7, licensed under MIT
+- lint-staged 17.0.7, licensed under MIT
 	Copyright (c) 2016 Andrey Okonetchnikov
-	Source: https://github.com/lint-staged/lint-staged
-- lodash-es 4.17.23, licensed under MIT
+	Source: https://github.com/okonet/lint-staged
+- lodash-es 4.18.1, licensed under MIT
 	Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 	Source: https://github.com/lodash/lodash
-- lorem-ipsum 2.0.8, licensed under ISC
+- lorem-ipsum 3.0.0, licensed under ISC
 	Copyright (c) 2012-2020 Nickolas Kenyeres <nickolas@knicklabs.com>
 	Source: https://github.com/knicklabs/node-lorem-ipsum
-- @microsoft/api-extractor 7.57.4, licensed under MIT
-	Copyright (c) Microsoft Corporation. All rights reserved.
-	Source: https://github.com/microsoft/rushstack
-- minimatch 10.2.2, licensed under BlueOak-1.0.0
-	No explicit copyright notice found in LICENSE file
+- @microsoft/api-extractor 7.58.9, licensed under MIT
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/microsoft/rushstack/tree/main/apps/api-extractor
+- minimatch 10.2.5, licensed under BlueOak-1.0.0
 	Source: https://github.com/isaacs/minimatch
 - mini-svg-data-uri 1.4.4, licensed under MIT
 	Copyright (c) 2018 Taylor Hunt
@@ -148,25 +168,19 @@ The following third-party components are included in this distribution:
 - mobile-detect 1.4.5, licensed under MIT
 	Copyright (c) 2013 Heinrich Goebl
 	Source: https://github.com/hgoebl/mobile-detect.js
-- playwright 1.58.2, licensed under Apache-2.0
-	Portions Copyright (c) Microsoft Corporation; Portions Copyright 2017 Google Inc.
-	Source: https://github.com/microsoft/playwright
-- @playwright/experimental-ct-core 1.58.2, licensed under Apache-2.0
-	Portions Copyright (c) Microsoft Corporation; Portions Copyright 2017 Google Inc.
-	Source: https://github.com/microsoft/playwright
-- @playwright/experimental-ct-react 1.58.2, licensed under Apache-2.0
-	Portions Copyright (c) Microsoft Corporation; Portions Copyright 2017 Google Inc.
+- playwright 1.60.0, licensed under Apache-2.0
+	Copyright (c) Microsoft Corporation
 	Source: https://github.com/microsoft/playwright
 - polished 4.3.1, licensed under MIT
 	Copyright (c) 2016-Present Brian Hough and Maximilian Stoiber
 	Source: https://github.com/styled-components/polished
-- prettier 3.8.1, licensed under MIT
+- prettier 3.8.4, licensed under MIT
 	Copyright © James Long and contributors
 	Source: https://github.com/prettier/prettier
-- react 19.2.4, licensed under MIT
+- react 19.2.6, licensed under MIT
 	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/react
-- react-day-picker 9.13.2, licensed under MIT
+- react-day-picker 9.14.0, licensed under MIT
 	Copyright (c) 2014-2025 Giampaolo Bellavite <io@gpbl.dev> and contributors
 	Source: https://github.com/gpbl/react-day-picker
 - react-dnd 16.0.1, licensed under MIT
@@ -184,19 +198,19 @@ The following third-party components are included in this distribution:
 - react-dnd-touch-backend 16.0.1, licensed under MIT
 	Copyright (c) 2015 Dan Abramov
 	Source: https://github.com/react-dnd/react-dnd
-- react-dom 19.2.4, licensed under MIT
-	Copyright (c) Meta Platforms, Inc. and affiliates.
+- react-dom 19.2.6, licensed under MIT
+	Copyright (c) Meta Platforms, Inc. and affiliates
 	Source: https://github.com/facebook/react
-- react-draggable 4.4.6, licensed under MIT
+- react-draggable 4.5.0, licensed under MIT
 	Copyright (c) 2014-2016 Matt Zabriskie
 	Source: https://github.com/react-grid-layout/react-draggable
 - react-element-to-jsx-string 17.0.1, licensed under MIT
 	Copyright (c) 2015 Algolia
 	Source: https://github.com/algolia/react-element-to-jsx-string
-- react-is 19.2.4, licensed under MIT
-	Copyright (c) Meta Platforms, Inc. and affiliates.
+- react-is 19.2.6, licensed under MIT
+	Copyright (c) Facebook, Inc. and its affiliates
 	Source: https://github.com/facebook/react
-- react-lines-ellipsis 0.15.4, licensed under MIT
+- react-lines-ellipsis 0.16.1, licensed under MIT
 	Copyright (c) 2016 xiaody
 	Source: https://github.com/xiaody/react-lines-ellipsis
 - react-markdown 9.1.0, licensed under MIT
@@ -205,19 +219,16 @@ The following third-party components are included in this distribution:
 - react-resize-detector 12.3.0, licensed under MIT
 	Copyright (c) 2023 Vitalii Maslianok
 	Source: https://github.com/maslianok/react-resize-detector
-- react-rnd 10.5.2, licensed under MIT
+- react-rnd 10.5.3, licensed under MIT
 	Copyright (c) 2017 @bokuweb
 	Source: https://github.com/bokuweb/react-rnd
-- react-router 5.3.4, licensed under MIT
-	Copyright (c) React Training 2015-2019 and Copyright (c) Remix Software 2020-2022
-	Source: https://github.com/remix-run/react-router
-- react-router-dom 5.3.4, licensed under MIT
+- react-router 7.17.0, licensed under MIT
 	Copyright (c) React Training 2015-2019 and Copyright (c) Remix Software 2020-2022
 	Source: https://github.com/remix-run/react-router
 - react-scroll 1.9.3, licensed under MIT
 	Copyright (c) 2015-present Joachim Karlsson (fisshy)
 	Source: https://github.com/fisshy/react-scroll
-- react-syntax-highlighter 16.1.0, licensed under MIT
+- react-syntax-highlighter 16.1.1, licensed under MIT
 	Copyright (c) 2019 Conor Hastings
 	Source: https://github.com/react-syntax-highlighter/react-syntax-highlighter
 - react-transition-group 4.4.5, licensed under BSD-3-Clause
@@ -232,61 +243,61 @@ The following third-party components are included in this distribution:
 - remark-gfm 4.0.1, licensed under MIT
 	Copyright (c) Titus Wormer <tituswormer@gmail.com>
 	Source: https://github.com/remarkjs/remark-gfm
+- remark-parse 11.0.0, licensed under MIT
+	Copyright (c) Titus Wormer <tituswormer@gmail.com>
+	Source: https://github.com/remarkjs/remark
 - rimraf 6.1.3, licensed under BlueOak-1.0.0
-	No explicit copyright notice found in LICENSE file
+	Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
 	Source: https://github.com/isaacs/rimraf
-- @rsbuild/core 1.6.7, licensed under MIT
+- @rsbuild/core 2.0.14, licensed under MIT
 	Copyright (c) 2023-present Bytedance, Inc. and its affiliates.
 	Source: https://github.com/web-infra-dev/rsbuild
-- @rsbuild/plugin-react 1.4.2, licensed under MIT
+- @rsbuild/plugin-react 2.0.1, licensed under MIT
 	Copyright (c) 2023-present Bytedance, Inc. and its affiliates
 	Source: https://github.com/web-infra-dev/rsbuild
-- @rsbuild/plugin-styled-components 1.5.1, licensed under MIT
+- @rsbuild/plugin-styled-components 1.6.3, licensed under MIT
 	Copyright (c) 2024 Rspack Contrib
 	Source: https://github.com/web-infra-dev/rsbuild
-- @rsbuild/plugin-type-check 1.3.0, licensed under MIT
-	Copyright (c) 2024 Rspack Contrib
-	Source: https://github.com/rspack-contrib/rsbuild-plugin-type-check
-- @rspack/core 1.6.4, licensed under MIT
+- @rspack/core 2.0.8, licensed under MIT
 	Copyright (c) 2022-present Bytedance Inc and its affiliates.
 	Source: https://github.com/web-infra-dev/rspack
-- scheduler 0.25.0, licensed under MIT
-	Copyright (c) Meta Platforms, Inc. and affiliates
-	Source: https://github.com/facebook/react
 - source-map-loader 5.0.0, licensed under MIT
 	Copyright JS Foundation and other contributors
 	Source: https://github.com/webpack-contrib/source-map-loader
-- storybook 10.2.11, licensed under MIT
+- storybook 10.4.4, licensed under MIT
 	Copyright (c) 2024 Storybook
 	Source: https://github.com/storybookjs/storybook
-- @storybook/addon-a11y 10.2.11, licensed under MIT
+- @storybook/addon-a11y 10.4.4, licensed under MIT
 	Copyright (c) 2024 Storybook
 	Source: https://github.com/storybookjs/storybook
-- @storybook/addon-docs 10.2.11, licensed under MIT
+- @storybook/addon-docs 10.4.4, licensed under MIT
 	Copyright (c) 2024 Storybook
 	Source: https://github.com/storybookjs/storybook
-- @storybook/addon-themes 10.2.11, licensed under MIT
+- @storybook/addon-themes 10.4.4, licensed under MIT
 	Copyright (c) 2024 Storybook
 	Source: https://github.com/storybookjs/storybook
-- @storybook/addon-vitest 10.2.11, licensed under MIT
+- @storybook/addon-vitest 10.4.4, licensed under MIT
 	Copyright (c) 2024 Storybook
 	Source: https://github.com/storybookjs/storybook
-- @storybook/react 10.2.11, licensed under MIT
+- @storybook/react 10.4.4, licensed under MIT
 	Copyright (c) 2024 Storybook
 	Source: https://github.com/storybookjs/storybook
-- @storybook/react-vite 10.2.11, licensed under MIT
+- @storybook/react-vite 10.4.4, licensed under MIT
 	Copyright (c) 2024 Storybook
 	Source: https://github.com/storybookjs/storybook
-- styled-components 6.3.11, licensed under MIT
+- styled-components 6.4.1, licensed under MIT
 	Copyright (c) 2016-present Glen Maddern and Maximilian Stoiber
 	Source: https://github.com/styled-components/styled-components
-- @stylistic/eslint-plugin 5.6.1, licensed under MIT
+- stylis 4.4.0, licensed under MIT
+	Copyright (c) 2016-present Sultan Tarimo
+	Source: https://github.com/thysultan/stylis
+- @stylistic/eslint-plugin 5.10.0, licensed under MIT
 	Copyright (c) 2023-PRESENT ESLint Stylistic contributors and OpenJS Foundation and other contributors, <www.openjsf.org>
 	Source: https://github.com/eslint-stylistic/eslint-stylistic
-- @swc/plugin-styled-components 11.1.0, licensed under Apache-2.0
+- @swc/plugin-styled-components 12.12.1, licensed under Apache-2.0
 	Copyright (c) SWC contributors
 	Source: https://github.com/swc-project/plugins
-- @tanstack/react-virtual 3.13.19, licensed under MIT
+- @tanstack/react-virtual 3.13.24, licensed under MIT
 	Copyright (c) 2021-present Tanner Linsley
 	Source: https://github.com/TanStack/virtual
 - @testing-library/dom 10.4.1, licensed under MIT
@@ -298,90 +309,87 @@ The following third-party components are included in this distribution:
 - ts-key-enum 2.0.13, licensed under MIT
 	Copyright (c) 2018 Nathan Friend
 	Source: https://gitlab.com/nfriend/ts-key-enum
-- typedoc 0.28.17, licensed under Apache-2.0
-	No explicit copyright notice found in LICENSE file
+- typedoc 0.28.19, licensed under Apache-2.0
+	Copyright (c) 2020 Oliver Nightingale
 	Source: https://github.com/TypeStrong/TypeDoc
-- type-fest 5.4.4, licensed under MIT
-	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
-	Source: https://github.com/sindresorhus/type-fest
-- typescript 5.8.2, licensed under Apache-2.0
+- typescript 6.0.3, licensed under Apache-2.0
 	Copyright (c) Microsoft Corporation
 	Source: https://github.com/microsoft/TypeScript
-- typescript-eslint 8.56.1, licensed under MIT
+- typescript-eslint 8.61.0, licensed under MIT
 	Copyright (c) 2019 typescript-eslint and other contributors
 	Source: https://github.com/typescript-eslint/typescript-eslint
-- @types/linkify-it 5.0.0, licensed under MIT
+- @typescript/native-preview 7.0.0-dev.20260518.1, licensed under Apache-2.0
 	Copyright (c) Microsoft Corporation
+	Source: https://github.com/microsoft/typescript-go
+- @types/linkify-it 5.0.0, licensed under MIT
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/lodash 4.17.24, licensed under MIT
-	Copyrights are respective of each contributor listed at the beginning of each definition file.
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/lodash-es 4.17.12, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
-- @types/node 24.10.13, licensed under MIT
-	Copyrights are respective of each contributor listed at the beginning of each definition file.
+- @types/mdast 4.0.4, licensed under MIT
+	Copyrights are respective of each contributor listed at the beginning of each definition file
+	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- @types/node 24.12.0, licensed under MIT
+	Copyright Node.js contributors
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/react 19.2.14, licensed under MIT
-	Copyrights are respective of each contributor listed at the beginning of each definition file.
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/react-dom 19.2.3, licensed under MIT
-	Copyright (c) Microsoft Corporation
-	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
-- @types/react-router 5.1.20, licensed under MIT
-	Copyright (c) Microsoft Corporation
-	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
-- @types/react-router-dom 5.3.3, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/react-scroll 1.8.10, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/react-syntax-highlighter 15.5.13, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/react-transition-group 4.4.12, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/react-virtualized 9.22.3, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
-- @types/scheduler 0.23.0, licensed under MIT
-	Copyright (c) Microsoft Corporation
-	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
-- @types/styled-components 5.1.36, licensed under MIT
-	Copyrights are respective of each contributor listed at the beginning of each definition file.
+- @types/stylis 4.2.7, licensed under MIT
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/unzipper 0.10.11, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- @types/use-sync-external-store 1.5.0, licensed under MIT
+	Copyrights are respective of each contributor listed at the beginning of each definition file
+	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- unified 11.0.5, licensed under MIT
+	Copyright (c) Titus Wormer <tituswormer@gmail.com>
+	Source: https://github.com/unifiedjs/unified
 - unzipper 0.12.3, licensed under MIT
 	(c) Ziggy Jonsson (ziggy.jonsson.nyc@gmail.com) and Copyright (c) 2012 - 2013 Near Infinity Corporation
 	Source: https://github.com/ZJONSSON/node-unzipper
-- vite 7.3.1, licensed under MIT
+- use-sync-external-store 1.6.0, licensed under MIT
+	Copyright (c) Facebook, Inc. and its affiliates
+	Source: https://github.com/facebook/react
+- vite 8.0.16, licensed under MIT
 	Copyright (c) 2019-present, VoidZero Inc. and Vite contributors
 	Source: https://github.com/vitejs/vite
-- @vitejs/plugin-react 5.1.4, licensed under MIT
+- @vitejs/plugin-react 6.0.2, licensed under MIT
 	Copyright (c) 2019-present, Yuxi (Evan) You and Vite contributors
 	Source: https://github.com/vitejs/vite-plugin-react
-- @vitejs/plugin-react-swc 4.2.3, licensed under MIT
-	Copyright (c) 2019-present, Yuxi (Evan) You and Vite contributors
-	Source: https://github.com/vitejs/vite-plugin-react
-- vitest 4.0.18, licensed under MIT
+- vitest 4.1.9, licensed under MIT
 	Copyright (c) 2021-Present VoidZero Inc. and Vitest contributors
 	Source: https://github.com/vitest-dev/vitest
-- @vitest/browser 4.0.18, licensed under MIT
+- @vitest/browser 4.1.9, licensed under MIT
+	Copyright (c) 2021-Present Vitest Team
+	Source: https://github.com/vitest-dev/vitest
+- @vitest/browser-playwright 4.1.9, licensed under MIT
 	Copyright (c) 2021-Present VoidZero Inc. and Vitest contributors
 	Source: https://github.com/vitest-dev/vitest
-- @vitest/browser-playwright 4.0.18, licensed under MIT
-	Copyright (c) 2021-Present VoidZero Inc. and Vitest contributors
+- @vitest/ui 4.1.9, licensed under MIT
+	Copyright (c) 2021-Present Vitest Team
 	Source: https://github.com/vitest-dev/vitest
-- @vitest/ui 4.0.18, licensed under MIT
-	Copyright (c) 2021-Present VoidZero Inc. and Vitest contributors
-	Source: https://github.com/vitest-dev/vitest
-- vite-tsconfig-paths 5.1.4, licensed under MIT
-	Copyright (c) Alec Larson
-	Source: https://github.com/aleclarson/vite-tsconfig-paths
 
 Code snippets of the following projects have been used in this distribution:
 
@@ -392,8 +400,7 @@ Code snippets of the following projects have been used in this distribution:
 		https://github.com/facebook/lexical/blob/v.0.12.2/packages/lexical-react/src/LexicalAutoLinkPlugin.ts
 
 
-
-NOTICE file of Playwright
+NOTICE file of playwright
 ---------------------------
 
 Playwright
@@ -416,8 +423,7 @@ General Notice
 The mgm A12 Platform is dual-licensed under the EUPL-1.2 or a
 commercial license. Third-party components remain under their
 respective licenses. For details, see the file LICENSE.
-
-“mgm A12” is a registered trademark of mgm technology partners GmbH
+"mgm A12" is a registered trademark of mgm technology partners GmbH
 (EU/DE). All other trademarks are the property of their respective
 owners.
 

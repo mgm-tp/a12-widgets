@@ -2,11 +2,11 @@
 	"extends": "../tsconfig",
 	"include": ["./src"],
 	"compilerOptions": {
+		"rootDir": "./src",
 		"outDir": "./lib",
 		"sourceMap": false,
 		"declaration": false,
 		"declarationMap": false,
-		"tsBuildInfoFile": "target/tsbuildinfo",
-		"rootDir": "./src"
+		"tsBuildInfoFile": "target/tsconfig.tsbuildinfo"
 	}
 }

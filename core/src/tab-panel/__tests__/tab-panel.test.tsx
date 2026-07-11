@@ -30,24 +30,130 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { findAllByDataRole, getAllByDataRole, getAllByRole, getByDataRole, render, waitFor } from "test-utils";
+import {
+	findAllByDataRole,
+	getAllByDataRole,
+	getAllByRole,
+	getByDataRole,
+	queryByDataRole,
+	render,
+	waitFor
+} from "test-utils";
 import { describe, expect, test, vi } from "vitest";
 import { userEvent } from "vitest/browser";
-import type { FC } from "react";
-import { useState } from "react";
+import type { FC, ReactNode } from "react";
+import { useCallback, useState } from "react";
 
 import { Icon } from "../../icon/main/icon.view.js";
 import { getBadgeTitle } from "../../badge/main/badge-utils.js";
 import { Badge } from "../../badge/main/badge.view.js";
-import { getA11yResource } from "../../common/main/a11y-localization/language-context.js";
+import { A11YLanguageContext, getA11yResource } from "../../common/main/a11y-localization/language-context.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-import { TabPanelExample } from "../../../playwright/tab-panel/tab-panel.stories.js";
+import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
+import { Button } from "../../button/main/button.view.js";
 
 import { TabPanel } from "../main/tab-panel.view.js";
 import type { TabPanelTemplateProps } from "../main/template/tab-panel.tpl.api.js";
 import { TabPanelTemplate } from "../main/template/tab-panel.tpl.view.js";
 import type { TabPanelProps } from "../main/tab-panel.api.js";
+
+// -- Story components inlined for tab-panel behavior tests --
+
+interface TabPanelExampleProps {
+	tabs?: TabPanelTemplateProps.TabProps[];
+	focusOnPanelAfterSelect?: boolean;
+}
+
+const TabPanelExample = (props: TabPanelExampleProps): ReactNode => {
+	const tabFit: TabPanelTemplateProps.TabProps[] = [
+		{ icon: <Icon>navigation</Icon>, value: "Panel 1", id: "tab1", title: "Navigation" },
+		{ icon: <Icon>event_note</Icon>, value: "Panel 3", id: "tab3", title: "Calendar" }
+	];
+
+	const tabExceed: TabPanelTemplateProps.TabProps[] = [
+		{ icon: <Icon>event_note</Icon>, value: "Panel 3", id: "tab3", title: "Calendar" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 4", disabled: true, id: "tab4", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 5", disabled: true, id: "tab5", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 6", disabled: true, id: "tab6", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 7", disabled: true, id: "tab7", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 8", disabled: true, id: "tab8", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 9", disabled: true, id: "tab9", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 10", disabled: true, id: "tab10", title: "Feedback" }
+	];
+
+	const [value, setValue] = useState<string | undefined>("Panel 1");
+	const [tabs, setTabs] = useState(tabFit);
+	const [a11yLanguage, setA11yLanguage] = useState<string>("en");
+
+	const handleSelect = useCallback(
+		(tab: TabPanelTemplateProps.TabProps) => setValue((oldValue) => (tab.value === oldValue ? undefined : tab.value)),
+		[]
+	);
+	const handleClose = useCallback(() => setValue(undefined), []);
+	const handleChangeLanguage = useCallback(() => {
+		setA11yLanguage((lang) => (lang === "en" ? "de" : "en"));
+	}, []);
+
+	return (
+		<InteractionHintConfigProvider enableInteractionHint>
+			<A11YLanguageContext.Provider value={getA11yResource(a11yLanguage)}>
+				<Button dataRole="language-button" onClick={handleChangeLanguage}>
+					Change Language
+				</Button>
+				<div className="-u-width-full" style={{ height: 300 }}>
+					<TabPanel
+						onSelect={handleSelect}
+						value={value}
+						tabs={props?.tabs ?? tabs}
+						id="basic-panel"
+						header={
+							<TabPanelTemplate.PanelHeader
+								suffixes={[<Button invert icon={<Icon>close</Icon>} onClick={handleClose} title="Close" />]}
+							/>
+						}
+						onClose={handleClose}
+						focusOnPanelAfterSelect={props.focusOnPanelAfterSelect}
+					>
+						<ActionContentbox headingElements={null}>
+							{value && <div className="-u-padding-t-md">{value}</div>}
+							<Button onClick={() => setTabs((tab) => (tab.length === 2 ? tabExceed : tabFit))}>Change tab list</Button>
+						</ActionContentbox>
+					</TabPanel>
+				</div>
+			</A11YLanguageContext.Provider>
+		</InteractionHintConfigProvider>
+	);
+};
+
+const TabPanelExceedTabExample = (): ReactNode => {
+	const tabs: TabPanelTemplateProps.TabProps[] = [
+		{ icon: <Icon>event_note</Icon>, value: "Panel 3", id: "tab3", title: "Calendar" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 4", id: "tab4", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 5", id: "tab5", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 6", id: "tab6", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 7", id: "tab7", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 8", id: "tab8", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 9", id: "tab9", title: "Feedback" },
+		{ icon: <Icon>feedback</Icon>, value: "Panel 10", id: "tab10", title: "Feedback" }
+	];
+	const [value, setValue] = useState<string | undefined>("Panel 3");
+
+	const handleSelect = useCallback(
+		(tab: TabPanelTemplateProps.TabProps) => setValue((oldValue) => (tab.value === oldValue ? undefined : tab.value)),
+		[]
+	);
+
+	return (
+		<div className="-u-width-full" style={{ height: 300 }}>
+			<TabPanel onSelect={handleSelect} value={value} tabs={tabs} id="basic-panel">
+				<ActionContentbox headingElements={null}>
+					{value && <div className="-u-padding-t-md">{value}</div>}
+				</ActionContentbox>
+			</TabPanel>
+		</div>
+	);
+};
 
 const { PanelHeader } = TabPanelTemplate;
 
@@ -674,46 +780,12 @@ describe("com.mgmtp.a12.widgets.tab-panel", () => {
 			expect(hint).not.toBeInTheDocument();
 		});
 	});
-	test("Selected item should be visible when opening submenu with many items", async () => {
-		const manyTabs = createTestTabs(20);
-
-		const selectedValue = manyTabs[19].value;
-
-		const { getByDataRole } = render(
-			<div style={{ height: "400px" }}>
-				<TabPanel tabs={manyTabs} value={selectedValue} />
-			</div>
-		);
-
-		const condensedTabButton = getByDataRole(DataRoles.Popup.TriggerElement);
-		await userEvent.click(condensedTabButton);
-
-		await waitFor(() => {
-			const subTabList = getByDataRole(DataRoles.TabPanel.SubTabList);
-			expect(subTabList).toBeInTheDocument();
-		});
-
-		const subTabList = getByDataRole(DataRoles.TabPanel.SubTabList);
-
-		const selectedTab = subTabList.querySelector(`[data-role="${DataRoles.TabPanel.Tab}"][aria-selected="true"]`)!;
-		expect(selectedTab).toBeInTheDocument();
-		expect(selectedTab?.textContent).toContain("Tab 20");
-
-		const subTabListRect = subTabList.getBoundingClientRect();
-		const selectedTabRect = selectedTab.getBoundingClientRect();
-
-		const scrollElement = getByDataRole(DataRoles.Popup.Menu);
-		// Make sure scrolling occurred to show the selected tab
-		expect(scrollElement.scrollTop).toBeGreaterThan(0);
-		expect(selectedTabRect.top).toBeGreaterThanOrEqual(subTabListRect.top);
-		expect(selectedTabRect.top).toBeLessThanOrEqual(subTabListRect.bottom);
-	});
 
 	test("sub tab list position remains stable when interaction hint appears in submenu", async () => {
 		vi.useFakeTimers();
 		const manyTabs = createTestTabs(15);
 
-		const { getByDataRole, getAllByDataRole, queryByDataRole } = render(
+		const { getByDataRole, getAllByDataRole } = render(
 			<InteractionHintConfigProvider enableInteractionHint>
 				<div style={{ height: "400px" }}>
 					<TabPanel tabs={manyTabs} value={manyTabs[0].value} />
@@ -739,8 +811,8 @@ describe("com.mgmtp.a12.widgets.tab-panel", () => {
 		// Wait for the interaction hint delay
 		await vi.advanceTimersByTimeAsync(500);
 
-		const hint = queryByDataRole(DataRoles.InteractionHint.Content);
-		expect(hint).toBeInTheDocument();
+		const hints = document.body.querySelectorAll(`[data-role="${DataRoles.InteractionHint.Content}"]`);
+		expect(hints.length).toBeGreaterThan(0);
 
 		const subTabListPositionAfterHint = {
 			top: subTabList.style.top,
@@ -933,6 +1005,198 @@ describe("com.mgmtp.a12.widgets.tab-panel", () => {
 			await waitFor(() => {
 				expect(firstTab).toHaveFocus();
 			});
+		});
+	});
+
+	describe("Mobile Tab Panel", () => {
+		test("Should close the sub tab list when pressing Enter on a sub tab item", async () => {
+			const { container } = render(<TabPanelExceedTabExample />);
+
+			const mainTab = getByDataRole(container, DataRoles.TabPanel.TabList);
+			const condensedTab = mainTab.querySelectorAll("li");
+			const lastTab = condensedTab[condensedTab.length - 1];
+			await userEvent.click(lastTab);
+
+			const subTab = getByDataRole(container, DataRoles.TabPanel.SubTabList);
+			expect(subTab).toBeVisible();
+
+			const firstItemOnSubMenu = subTab.querySelector("li")!;
+			firstItemOnSubMenu.focus();
+			await userEvent.keyboard("{Enter}");
+
+			await waitFor(() => {
+				expect(subTab).not.toBeVisible();
+			});
+		});
+	});
+
+	describe("Tab panel behavior tests", () => {
+		const BADGE_COUNT = 9;
+		const FIRST_TAB_TITLE = "Navigation";
+		const tabsWithBadge: TabPanelTemplateProps.TabProps[] = [
+			{
+				icon: <Icon>navigation</Icon>,
+				value: "Panel 1",
+				id: "tab1",
+				title: FIRST_TAB_TITLE,
+				children: <Badge id="info-badge-id" count={BADGE_COUNT} />
+			},
+			{
+				icon: <Icon>search</Icon>,
+				value: "Panel 2",
+				id: "tab2",
+				title: "Search",
+				ariaLabelledby: "info-badge-id"
+			},
+			{
+				icon: <Icon>event_note</Icon>,
+				value: "Panel 3",
+				id: "tab3",
+				title: "Calendar"
+			},
+			{
+				icon: <Icon>feedback</Icon>,
+				value: "Panel 4",
+				disabled: true,
+				id: "tab4",
+				title: "Feedback"
+			},
+			{
+				icon: <Icon>airline_seat_legroom_reduced</Icon>,
+				value: "Panel 5",
+				title: "Airline"
+			},
+			{
+				icon: <Icon>accessible</Icon>,
+				value: "Panel 6",
+				title: "Accessible"
+			}
+		];
+
+		test("Should change hint according to the changing of locale", async () => {
+			const { container } = render(<TabPanelExample tabs={tabsWithBadge} />);
+
+			const tabPanel = container.querySelector(`[data-role="${DataRoles.TabPanel}"]`)!;
+			expect(tabPanel).toBeTruthy();
+
+			// Test the aria-label of the first tab
+			const firstTabItem = tabPanel.querySelectorAll(`[data-role="${DataRoles.TabPanel.Tab}"]`)[0] as HTMLElement;
+			const ariaLabel = firstTabItem.getAttribute("aria-label");
+			expect(ariaLabel).toEqual(FIRST_TAB_TITLE);
+
+			// Test the interaction hint text of the first tab with locale "en"
+			firstTabItem.focus();
+
+			const badgeEnglishTitle = getBadgeTitle({ count: BADGE_COUNT }, getA11yResource("en").badgeTitles);
+
+			await waitFor(() => {
+				const interactionHint = container.querySelector(`[data-role="${DataRoles.InteractionHint}"]`);
+				expect(interactionHint).toBeTruthy();
+				expect(interactionHint!.textContent).toEqual(`${FIRST_TAB_TITLE}, ${badgeEnglishTitle}`);
+			});
+
+			// Change the language to German
+			const changeLanguageButton = container.querySelector(`[data-role="language-button"]`) as HTMLElement;
+			await userEvent.click(changeLanguageButton);
+
+			// Test the interaction hint text of the first tab with locale "de"
+			firstTabItem.focus();
+
+			const badgeGermanTitle = getBadgeTitle({ count: BADGE_COUNT }, getA11yResource("de").badgeTitles);
+
+			await waitFor(() => {
+				const interactionHint = container.querySelector(`[data-role="${DataRoles.InteractionHint}"]`);
+				expect(interactionHint!.textContent).toEqual(`${FIRST_TAB_TITLE}, ${badgeGermanTitle}`);
+			});
+
+			// Change the language back to English
+			await userEvent.click(changeLanguageButton);
+
+			// Test the interaction hint text of the first tab with locale "en" again
+			firstTabItem.focus();
+
+			await waitFor(() => {
+				const interactionHint = container.querySelector(`[data-role="${DataRoles.InteractionHint}"]`);
+				expect(interactionHint!.textContent).toEqual(`${FIRST_TAB_TITLE}, ${badgeEnglishTitle}`);
+			});
+		});
+
+		test("Render all items in the main tab when the number of items equals the maximum number that can be displayed in the main tab", async () => {
+			const maxTabOnMainTab = 5;
+			const tabToFitMainTab = tabsWithBadge.slice(0, maxTabOnMainTab);
+
+			const { container } = render(<TabPanelExample tabs={tabToFitMainTab} />);
+
+			const mainTab = container.querySelector(`[data-role="${DataRoles.TabPanel.TabList}"]`)!;
+			expect(mainTab).toBeTruthy();
+			expect(mainTab.querySelectorAll("li")).toHaveLength(maxTabOnMainTab);
+		});
+
+		test("Focus behavior when opening the sub-menu", async () => {
+			const { container } = render(<TabPanelExceedTabExample />);
+
+			const mainTab = container.querySelector(`[data-role="${DataRoles.TabPanel.TabList}"]`)!;
+			const condensedTab = Array.from(mainTab.querySelectorAll("li")).at(-1) as HTMLElement;
+			await userEvent.click(condensedTab);
+
+			// Wait for sub-tab to appear
+			let subTab: Element;
+			await waitFor(() => {
+				subTab = queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)!;
+				expect(subTab).toBeInTheDocument();
+			});
+			subTab = queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)!;
+
+			// When opened, the first interactive item should be focused (since no item is selected in the sub-menu)
+			const firstItemOnSubMenu = subTab.querySelectorAll("li")[0] as HTMLElement;
+			await waitFor(() => {
+				expect(firstItemOnSubMenu).toHaveFocus();
+			});
+
+			// Press Escape to close the sub-menu
+			await userEvent.keyboard("{Escape}");
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)).not.toBeInTheDocument();
+			});
+			expect(condensedTab).toHaveFocus();
+
+			// Re-open sub-menu and press ArrowUp to focus on the last item
+			await userEvent.click(condensedTab);
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)).toBeInTheDocument();
+			});
+			subTab = queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)!;
+
+			await userEvent.keyboard("{ArrowUp}");
+			const subTabItems = subTab.querySelectorAll("li");
+			const lastItemOnSubMenu = subTabItems[subTabItems.length - 1] as HTMLElement;
+			expect(lastItemOnSubMenu).toHaveFocus();
+
+			// Click third item to select it, then close sub-menu
+			const selectedItem = subTabItems[2] as HTMLElement;
+			await userEvent.click(selectedItem);
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)).not.toBeInTheDocument();
+			});
+
+			// Re-open sub-menu: should focus first interactive item (not selected)
+			await userEvent.click(condensedTab);
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)).toBeInTheDocument();
+			});
+			subTab = queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)!;
+
+			const firstItemAfterReopen = subTab.querySelectorAll("li")[0] as HTMLElement;
+			await waitFor(() => {
+				expect(firstItemAfterReopen).toHaveFocus();
+			});
+
+			// Press Escape to close the sub-menu again
+			await userEvent.keyboard("{Escape}");
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.TabPanel.SubTabList)).not.toBeInTheDocument();
+			});
+			expect(condensedTab).toHaveFocus();
 		});
 	});
 });

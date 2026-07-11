@@ -45,6 +45,7 @@ import { FocusFlatStyles } from "./config/application/focus.config.js";
 import { HoverFlatStyles } from "./config/application/hover.config.js";
 import { FlatDivisionLineStyles } from "./config/application/division-line.config.js";
 
+/** @deprecated since v39.0.0. Use {@link getBaseTheme} from `@com.mgmtp.a12.widgets/widgets-core`. */
 export const getFlatTheme = () => {
 	const defaultTheme = getDefaultTheme();
 	const colors = FlatColorsConfig;
@@ -82,4 +83,5 @@ export const getFlatTheme = () => {
 	};
 };
 
+/** @deprecated since v39.0.0. Use {@link getBaseTheme} from `@com.mgmtp.a12.widgets/widgets-core`. */
 export const flatTheme = getFlatTheme();

@@ -78,7 +78,7 @@ export const DefaultRichTextEditor: FC<DefaultRichTextEditorProps> = (props) => 
 				spellCheck: spellCheckPluginConfig.spellCheck
 			})
 		);
-	}, [spellCheckPluginConfig?.spellCheck]);
+	}, [spellCheckPluginConfig]);
 
 	const { TooltipPopup, TooltipPlugin } = useMemo(
 		() =>

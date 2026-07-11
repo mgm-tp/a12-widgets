@@ -25,7 +25,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -114,6 +115,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
 
 .c4 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -496,7 +498,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -597,6 +600,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
 
 .c4 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -920,7 +924,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1009,6 +1014,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
 
 .c4 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -1416,85 +1422,6 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
         </button>
       </div>
     </div>
-    <div
-      class="c2 filter"
-      data-role="filter"
-    >
-      <button
-        class="c3 filter__content"
-        data-role="filter-content"
-      >
-        <span
-          class="c4 filter__content-inner"
-        >
-          <span
-            class="c5 filter__name"
-            data-role="filter-name"
-          >
-            <span
-              class="c6 -u-unseenButRead"
-              data-role="hidden-text"
-            >
-              Filter name 
-            </span>
-            <span
-              class="c7 c8 filter__name-text"
-              data-role="filter-name-text"
-            >
-              Category
-            </span>
-            <i
-              class="c9 c10 plasma-icon c11 c12 filter__name-arrow"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
-              />
-            </i>
-          </span>
-          <span
-            class="c6 -u-unseenButRead"
-            data-role="hidden-text"
-          >
-            Selected option 
-          </span>
-          <span
-            class="c13 c14 filter__options"
-            data-role="filter-options"
-          >
-            Blue
-            , 
-            Green
-            , 
-            White
-          </span>
-        </span>
-      </button>
-      <div
-        class="c15 filter__action"
-        data-role="filter-action"
-      >
-        <button
-          aria-label="Delete"
-          class="c16 button button--icon c17 filter__action-button"
-          data-role="button"
-          data-type="icon"
-          title="Delete"
-          type="button"
-        >
-          <i
-            class="c9 c10 plasma-icon"
-            data-role="plasma-icon"
-          >
-            <span
-              aria-hidden="true"
-            >
-              close
-            </span>
-          </i>
-        </button>
-      </div>
-    </div>
   </div>
   <div
     class="c18 filter-bar__action h_hidden"
@@ -1549,7 +1476,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1658,6 +1586,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
 
 .c4 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;
@@ -2196,7 +2125,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2305,6 +2235,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
 
 .c4 {
   place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 281px;

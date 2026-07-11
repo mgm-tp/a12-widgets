@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 /* eslint-disable notice/notice */
-
 /*
  * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
  *
@@ -12,7 +11,7 @@
  * This source file is part of the mgm A12 Platform and available under
  * a choice of two different licenses:
  *
- * 1. Open-Source License – EUPL v1.2
+ * 1. Open-Source License - EUPL v1.2
  *    You may redistribute and/or modify this file under the terms of the
  *    European Union Public License, version 1.2 - see https://eupl.eu/.
  *
@@ -36,13 +35,14 @@
 
 import { createCodemodCLI } from "@com.mgmtp.a12.devtools/codemod";
 
-import PackageJson from "../package.json" with { type: "json" };
+import packageJson from "../package.json" with { type: "json" };
 
+import { enforceTopLevelExportsRecipe } from "./recipes/enforce-top-level-exports.js";
 import { preferTopLevelImportsRecipe } from "./recipes/prefer-top-level-imports.js";
 
 createCodemodCLI({
 	name: "widgets-codemod",
 	description: "Codemod tooling for assisting migrations of A12 Widgets",
-	recipes: [preferTopLevelImportsRecipe],
-	version: PackageJson.version
+	recipes: [preferTopLevelImportsRecipe, enforceTopLevelExportsRecipe],
+	version: packageJson.version
 });

@@ -3,8 +3,8 @@
 exports[`com.mgmtp.a12.widgets.rich-text-editor.spell-check-plugin > Partial word tests > Input snapshot for popular cases 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <span
       class="editor-misspelled-word"
@@ -200,8 +200,8 @@ HTMLCollection [
 exports[`com.mgmtp.a12.widgets.rich-text-editor.spell-check-plugin > Whole word tests > Input snapshot for popular cases 1`] = `
 HTMLCollection [
   <p
-    class="editor-paragraph ltr"
-    dir="ltr"
+    class="editor-paragraph"
+    dir="auto"
   >
     <span
       data-lexical-text="true"

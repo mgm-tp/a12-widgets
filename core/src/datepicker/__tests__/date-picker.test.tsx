@@ -35,6 +35,7 @@ import { de } from "date-fns/locale";
 import { fireEvent, getAllByDataRole, getByDataRole, getByRole, getByText, render, screen } from "test-utils";
 import { getByLabelText } from "@testing-library/dom";
 import { describe, test, expect, vi, beforeAll, afterAll } from "vitest";
+import { userEvent } from "vitest/browser";
 
 import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
@@ -55,9 +56,15 @@ describe.each([undefined, "UTC", "Pacific/Kiritimati"])(
 		afterAll(() => {
 			vi.useRealTimers();
 		});
-		test("render basic date picker", () => {
+		test("render basic date picker — select year selector", () => {
 			const { container } = render(
-				<DatePicker id="test-id" className="test-class" style={{ color: "red" }} timezone={timezone} />
+				<DatePicker
+					id="test-id"
+					className="test-class"
+					style={{ color: "red" }}
+					timezone={timezone}
+					yearSelectorVariant="select"
+				/>
 			);
 			expect(container.firstChild).toMatchSnapshot();
 		});
@@ -76,7 +83,8 @@ describe.each([undefined, "UTC", "Pacific/Kiritimati"])(
 			const day = new Date(Date.UTC(2022, 2, 12).valueOf());
 			const { container } = render(<DatePicker month={day} selected={day} value={day} timezone={timezone} />);
 			expect((screen.getByRole("option", { name: "March" }) as HTMLOptionElement).selected).toBe(true);
-			expect((screen.getByRole("option", { name: "2022" }) as HTMLOptionElement).selected).toBe(true);
+			// Year uses textbox variant by default (no yearRange) — check input value instead of option
+			expect((getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLInputElement).value).toBe("2022");
 			expect(screen.getByText("12")).toHaveAttribute("aria-label", "Saturday, March 12th, 2022, selected");
 			expect(container.getElementsByClassName("DayPicker-Day--selected")[0]).toHaveTextContent("12");
 		});
@@ -140,13 +148,17 @@ describe.each([undefined, "UTC", "Pacific/Kiritimati"])(
 			});
 		});
 
-		test("render date-range picker", () => {
+		test("render date-range picker — select year selector", () => {
 			const fromDate = new Date();
 			const toDate = new Date(fromDate);
 			toDate.setDate(fromDate.getDate() + 1);
 
 			const { container } = render(
-				<DatePicker selected={[fromDate, { from: fromDate, to: toDate }]} timezone={timezone} />
+				<DatePicker
+					selected={[fromDate, { from: fromDate, to: toDate }]}
+					timezone={timezone}
+					yearSelectorVariant="select"
+				/>
 			);
 			expect(container.firstChild).toMatchSnapshot();
 		});
@@ -159,16 +171,26 @@ describe.each([undefined, "UTC", "Pacific/Kiritimati"])(
 			expect(getByText(container, "Custom Footer")).toHaveClass("custom-footer");
 		});
 
-		test("render custom year range", () => {
-			const { container } = render(<DatePicker yearRange={{ start: 2000, end: 2030 }} timezone={timezone} />);
+		test("render custom year range with select variant shows all year options", () => {
+			const { container } = render(
+				<DatePicker yearRange={{ start: 2000, end: 2030 }} yearSelectorVariant="select" timezone={timezone} />
+			);
 
 			for (let year = 2000; year <= 2030; year++) {
 				expect(getByText(container, year)).toBeInTheDocument();
 			}
 		});
 
+		test("render custom year range with autocomplete variant", () => {
+			const { container } = render(<DatePicker yearRange={{ start: 2000, end: 2030 }} timezone={timezone} />);
+
+			// Autocomplete variant: year input renders as text input, not a select
+			const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLInputElement;
+			expect(yearInput.tagName).toBe("INPUT");
+		});
+
 		// Meaning less test. Should test again base on the actual class name provided in the datePickerClassNames
-		test("test date picker classNames", () => {
+		test("test date picker classNames — select year selector", () => {
 			const classNames = {
 				container: "",
 				wrapper: "",
@@ -194,7 +216,9 @@ describe.each([undefined, "UTC", "Pacific/Kiritimati"])(
 				disabled: "",
 				outside: ""
 			};
-			const { container } = render(<DatePicker classNames={classNames} timezone={timezone} />);
+			const { container } = render(
+				<DatePicker classNames={classNames} timezone={timezone} yearSelectorVariant="select" />
+			);
 			expect(container.firstChild).toMatchSnapshot();
 		});
 
@@ -306,7 +330,7 @@ describe.each([undefined, "UTC", "Pacific/Kiritimati"])(
 			fireEvent.click(dayBtn);
 			const clearBtn = getByRole(datePickerElement, "button", { name: "clear" });
 			fireEvent.click(clearBtn);
-			expect(document.activeElement).toEqual(datePickerElement);
+			expect(datePickerElement).toHaveFocus();
 		});
 
 		test("simulate date-range change", () => {
@@ -357,3 +381,121 @@ describe.each([undefined, "UTC", "Pacific/Kiritimati"])(
 		});
 	}
 );
+
+describe("com.mgmtp.a12.widgets.date-picker — year selector variants", () => {
+	beforeAll(() => {
+		vi.useFakeTimers();
+		vi.setSystemTime(new Date(Date.UTC(2022, 2, 2).valueOf()));
+	});
+
+	afterAll(() => {
+		vi.useRealTimers();
+	});
+
+	test("default variant (no yearRange) renders year as textbox input", () => {
+		const { container } = render(<DatePicker />);
+
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLInputElement;
+		expect(yearInput.tagName).toBe("INPUT");
+		expect(yearInput).toHaveAttribute("inputmode", "numeric");
+	});
+
+	test("textbox variant shows current year value in input", () => {
+		const day = new Date(Date.UTC(2022, 2, 12));
+		const { container } = render(<DatePicker yearSelectorVariant="textbox" value={day} month={day} />);
+
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLInputElement;
+		expect(yearInput.value).toBe("2022");
+	});
+
+	test("textbox variant: typing a 4-digit year navigates the picker", async () => {
+		const { container } = render(<DatePicker yearSelectorVariant="textbox" />);
+
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLInputElement;
+		await userEvent.click(yearInput);
+		await userEvent.clear(yearInput);
+		await userEvent.type(yearInput, "2025");
+
+		expect(yearInput.value).toBe("2025");
+	});
+
+	test("textbox variant: partial input (< 4 digits) does not navigate", async () => {
+		const onChangeFn = vi.fn();
+		const { container } = render(<DatePicker yearSelectorVariant="textbox" onChange={onChangeFn} />);
+
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLInputElement;
+		await userEvent.click(yearInput);
+		await userEvent.clear(yearInput);
+		await userEvent.type(yearInput, "20");
+
+		expect(onChangeFn).not.toHaveBeenCalled();
+	});
+
+	test("select variant renders year as select element", () => {
+		const { container } = render(<DatePicker yearSelectorVariant="select" />);
+
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLSelectElement;
+		expect(yearInput.tagName).toBe("SELECT");
+	});
+
+	test("select variant with yearRange shows correct options", () => {
+		const { container } = render(<DatePicker yearSelectorVariant="select" yearRange={{ start: 2010, end: 2015 }} />);
+
+		for (let year = 2010; year <= 2015; year++) {
+			expect(getByText(container, year)).toBeInTheDocument();
+		}
+	});
+
+	test("yearSelectorVariant=textbox: onYearSelectorBlur prop is accepted without errors", () => {
+		const onBlurFn = vi.fn();
+		const { container } = render(<DatePicker yearSelectorVariant="textbox" onYearSelectorBlur={onBlurFn} />);
+
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input);
+		expect(yearInput).toBeInTheDocument();
+		expect(yearInput.tagName).toBe("INPUT");
+	});
+
+	test("yearErrorMessage is displayed when provided", () => {
+		const { container } = render(<DatePicker yearSelectorVariant="textbox" yearErrorMessage="Invalid year" />);
+
+		expect(container).toHaveTextContent("Invalid year");
+	});
+
+	test("yearErrorMessage is NOT rendered when not provided", () => {
+		const { container } = render(<DatePicker yearSelectorVariant="textbox" />);
+
+		expect(container).not.toHaveTextContent("Invalid year");
+	});
+
+	test("autocomplete variant renders year as text input (Autocomplete)", () => {
+		const { container } = render(
+			<DatePicker yearSelectorVariant="autocomplete" yearRange={{ start: 2000, end: 2030 }} />
+		);
+
+		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLInputElement;
+		expect(yearInput.tagName).toBe("INPUT");
+	});
+});
+
+describe("com.mgmtp.a12.widgets.date-picker — year selector snapshots", () => {
+	beforeAll(() => {
+		vi.useFakeTimers();
+		vi.setSystemTime(new Date(Date.UTC(2022, 2, 2).valueOf()));
+	});
+
+	afterAll(() => {
+		vi.useRealTimers();
+	});
+
+	test("render date picker with textbox year selector (default)", () => {
+		const { container } = render(<DatePicker id="test-id" className="test-class" style={{ color: "red" }} />);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("render date picker with autocomplete year selector", () => {
+		const { container } = render(
+			<DatePicker id="test-id" className="test-class" yearRange={{ start: 2000, end: 2030 }} />
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+});

@@ -31,19 +31,13 @@
  */
 
 import type { ReactNode, ReactElement, FC } from "react";
-import { useState, useCallback, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { styled, css } from "styled-components";
 import type { JSONOutput } from "typedoc";
 
-import type { BaseColumnType, ColumnResizingOptions, TableRenderPropsType } from "@com.mgmtp.a12.widgets/widgets-core";
-import {
-	DefaultTableComponentRenderers,
-	getDataByKey,
-	Table,
-	BulletList,
-	Typography,
-	ExternalLink
-} from "@com.mgmtp.a12.widgets/widgets-core";
+import { BulletList, Typography, ExternalLink } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DataTableColumn, DataTableColumnResizingOptions } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import { MarkdownViewer } from "../markdown-viewer.js";
 import { ReflectionKind } from "../typedoc-type.js";
@@ -57,19 +51,30 @@ type RowType = {
 	deprecated?: boolean;
 };
 
-const COLUMNS: BaseColumnType<RowType>[] = [
+export const StyledCodeName = styled.code<{ $deprecated?: boolean }>(({ theme, $deprecated }) => {
+	return css`
+		${$deprecated &&
+		css`
+			color: ${theme.colors.variant.errorColor};
+		`};
+	`;
+});
+
+const COLUMNS: DataTableColumn<RowType>[] = [
 	{
 		label: "Property",
 		dataKey: "name",
 		pinning: "left",
 		width: 1,
-		verticalAlignment: "middle"
+		verticalAlignment: "middle",
+		renderCell: ({ value, row }) => value && <StyledCodeName $deprecated={row.deprecated}>{value}</StyledCodeName>
 	},
 	{
 		label: "Type",
 		dataKey: "type",
 		width: 1.6,
-		verticalAlignment: "middle"
+		verticalAlignment: "middle",
+		renderCell: ({ value, row }) => value && <StyledCodeName $deprecated={row.deprecated}>{value}</StyledCodeName>
 	},
 	{
 		label: "Description",
@@ -96,32 +101,10 @@ const StyledBulletListItem = styled(BulletList.Item)`
 	line-height: 1.5;
 `;
 
-export const StyledCodeName = styled.code<{ $deprecated?: boolean }>(({ theme, $deprecated }) => {
-	return css`
-		${$deprecated &&
-		css`
-			color: ${theme.colors.variant.errorColor};
-		`};
-	`;
-});
-
 const APITable = (props: { data: { name: string; declaration?: RowType[] } }): ReactElement => {
 	const [columns, setColumns] = useState(COLUMNS);
 
-	const BodyContent = useCallback((params: TableRenderPropsType.BodyContentProps<RowType>): ReactNode => {
-		const { column, row } = params;
-
-		if (column.dataKey === "name" || column.dataKey === "type") {
-			const dataIndex = column.dataKey;
-			const value = getDataByKey(row, dataIndex);
-
-			return value && <StyledCodeName $deprecated={row.deprecated}>{value}</StyledCodeName>;
-		}
-
-		return DefaultTableComponentRenderers.bodyContentRenderer(params);
-	}, []);
-
-	const columnResizingOptions = useMemo<ColumnResizingOptions<BaseColumnType<RowType>>>(() => {
+	const columnResizingOptions = useMemo<DataTableColumnResizingOptions<DataTableColumn<RowType>>>(() => {
 		return {
 			onEndResize: ({ resizedWidthsGetter }): void => {
 				setColumns((oldColumns) =>
@@ -140,13 +123,10 @@ const APITable = (props: { data: { name: string; declaration?: RowType[] } }): R
 	}, []);
 
 	return (
-		<Table<RowType>
+		<DataTable<RowType>
 			className="-u-border -u-border-grey -u-border-solid"
 			data={props.data.declaration}
 			columns={columns}
-			componentRenderers={{
-				bodyContentRenderer: BodyContent
-			}}
 			columnResizingOptions={columnResizingOptions}
 		/>
 	);

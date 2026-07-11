@@ -52,7 +52,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -285,16 +286,6 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 1`] = `
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -302,6 +293,16 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 1`] = `
 
   100% {
     transform: translateZ(0px);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -313,18 +314,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 1`] = `
   >
     <div
       class="c1 field-wrapper field-wrapper--block multiselect__input"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-multiselect__input"
             id="test-id-multiselect__input-label"
           >
@@ -338,11 +339,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 1`] = `
           </label>
           <div
             class="c9 field__input"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <div
               class="c10 field__prefix field__prefix--last"
-              data-role="textline-prefix-0"
+              data-role="text-field-prefix-0"
             >
               <span
                 class="c11 counter multiselect__counter"
@@ -376,7 +377,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               class="c15 c16 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-multiselect__input"
               placeholder="Test Placeholder"
               role="combobox"
@@ -388,7 +389,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 1`] = `
             />
             <div
               class="c17 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -410,7 +411,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 1`] = `
       >
         <label
           class="c21 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id-multiselect__input"
         >
           Helper text
@@ -488,7 +489,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 2`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1038,13 +1040,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 2`] = `
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -1058,13 +1060,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 2`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -1076,18 +1078,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 2`] = `
   >
     <div
       class="c1 field-wrapper field-wrapper--block multiselect__input"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-multiselect__input"
             id="test-id-multiselect__input-label"
           >
@@ -1102,11 +1104,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 2`] = `
           <div
             class="c9 field__input"
             data-isfocused="true"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <div
               class="c10 field__prefix field__prefix--last"
-              data-role="textline-prefix-0"
+              data-role="text-field-prefix-0"
             >
               <span
                 class="c11 counter multiselect__counter"
@@ -1140,7 +1142,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 2`] = `
               aria-expanded="true"
               aria-haspopup="listbox"
               class="c15 c16 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-multiselect__input"
               placeholder="Test Placeholder"
               role="combobox"
@@ -1152,7 +1154,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 2`] = `
             />
             <div
               class="c17 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -1174,7 +1176,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render default multiselect 2`] = `
       >
         <label
           class="c23 c24 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id-multiselect__input"
         >
           Helper text
@@ -2368,7 +2370,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render disabled multiselect 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2635,13 +2638,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render disabled multiselect 1`] = `
   color: rgb(226, 230, 233);
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -2655,13 +2658,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render disabled multiselect 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -2672,19 +2675,19 @@ exports[`com.mgmtp.a12.widgets.multiselect > render disabled multiselect 1`] = `
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label label--disabled"
           data-disabled="true"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -2699,11 +2702,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render disabled multiselect 1`] = `
         <div
           class="c9 c10 field__input field__input--disabled"
           data-disabled="true"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c11 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c12 c13 counter multiselect__counter"
@@ -2734,7 +2737,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render disabled multiselect 1`] = `
           <input
             aria-describedby="test-id-counter"
             class="c17 c18 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             disabled=""
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
@@ -2746,7 +2749,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render disabled multiselect 1`] = `
           />
           <div
             class="c19 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -2768,7 +2771,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render disabled multiselect 1`] = `
     >
       <label
         class="c25 c26 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -2823,7 +2826,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3123,13 +3127,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 1`] = `
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -3143,13 +3147,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -3160,18 +3164,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 1`] = `
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -3189,14 +3193,14 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 1`] = `
           aria-haspopup="listbox"
           aria-placeholder="Test Placeholder"
           class="c9 c10 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
           id="test-id-multiselect__input-wrapper"
           role="combobox"
           tabindex="0"
         >
           <div
             class="c11 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c12 c13 counter multiselect__counter"
@@ -3230,7 +3234,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c17 c18 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -3243,7 +3247,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 1`] = `
           />
           <div
             class="c19 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -3265,7 +3269,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 1`] = `
     >
       <label
         class="c25 c26 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -3327,7 +3331,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3419,7 +3424,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c35.c35 {
+.StyledMasterDetailLayoutView-fvsTKU .c35.c35 {
   padding: 0px 24px;
 }
 
@@ -3488,71 +3493,6 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   padding: 16px;
 }
 
-.c38 {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-}
-
-.c36 {
-  flex: 1 1 0%;
-  flex-direction: column;
-  padding: 8px 0px;
-}
-
-.StyledMasterDetailLayoutPane-iBWYYD .c36.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c36.masterDetailLayoutPane--exit {
-  flex: 1 0 auto;
-}
-
-.c13 {
-  align-items: center;
-  background-color: rgb(183, 192, 199);
-  border-radius: 8px;
-  color: rgb(77, 77, 77);
-  display: inline-flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  justify-content: center;
-  outline: transparent solid 1px;
-  padding: 0px 5px;
-  vertical-align: middle;
-}
-
-.c13 > * {
-  flex-shrink: 0;
-}
-
-.c46 {
-  height: auto;
-  line-height: 1rem;
-  margin: 0px;
-  padding: 0px;
-  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
-}
-
-.c15 {
-  height: auto;
-  line-height: 1rem;
-  margin: 0px;
-  padding: 0px;
-  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k2;
-}
-
-.c41.c41 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c41.c41:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
-}
-
 .c28 {
   align-items: center;
   background: rgba(22, 25, 29, 0.4);
@@ -3598,6 +3538,63 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   border-radius: 0px;
 }
 
+.c38 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c36 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-bIaFkb .c36.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c36.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c13 {
+  align-items: center;
+  background-color: rgb(183, 192, 199);
+  border-radius: 8px;
+  color: rgb(77, 77, 77);
+  display: inline-flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  justify-content: center;
+  outline: transparent solid 1px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.c13 > * {
+  flex-shrink: 0;
+}
+
+.c15 {
+  height: auto;
+  line-height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k2;
+}
+
+.c41.c41 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c41.c41:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
 .c7 {
   color: rgb(77, 77, 77);
   display: inline-block;
@@ -3614,7 +3611,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   display: none;
 }
 
-.c62 {
+.c61 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -3636,16 +3633,16 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   margin: -1px !important;
 }
 
-.c62:empty {
+.c61:empty {
   display: none;
 }
 
-.c62 * {
+.c61 * {
   width: 1px;
   height: 1px;
 }
 
-.c72 .c20 {
+.c71 .c20 {
   font-size: 1.25rem;
 }
 
@@ -3772,6 +3769,10 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   border-radius: 0px;
 }
 
+.c65 .c39 {
+  border-radius: 0px;
+}
+
 .c66 .c39 {
   border-radius: 0px;
 }
@@ -3792,10 +3793,6 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   border-radius: 0px;
 }
 
-.c71 .c39 {
-  border-radius: 0px;
-}
-
 .c1 {
   overflow-wrap: break-word;
   word-break: break-word;
@@ -3813,17 +3810,17 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   max-width: 100%;
 }
 
-.c65 .c2 {
+.c64 .c2 {
   display: flex;
   width: 100%;
 }
 
-.c65[class*="h_"] .c9 {
+.c64[class*="h_"] .c9 {
   background-color: rgb(226, 230, 233) !important;
   color: rgb(169, 179, 188) !important;
 }
 
-.c65[class*="h_"] .c6 {
+.c64[class*="h_"] .c6 {
   color: rgb(169, 179, 188) !important;
 }
 
@@ -3855,12 +3852,12 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   width: fit-content;
 }
 
-.c54 {
+.c53 {
   box-sizing: border-box;
   display: inline-block;
 }
 
-.c54 .c6 {
+.c53 .c6 {
   display: block;
   width: fit-content;
 }
@@ -3874,7 +3871,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   max-width: 100%;
 }
 
-.c58 {
+.c57 {
   margin: 0px;
   opacity: 0;
   vertical-align: top;
@@ -3884,7 +3881,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   cursor: pointer;
 }
 
-.c58 + label {
+.c57 + label {
   align-items: center;
   cursor: pointer;
   display: inline-flex;
@@ -3893,7 +3890,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   vertical-align: top;
 }
 
-.c58 + label > span {
+.c57 + label > span {
   display: inline-block;
   height: 14px;
   margin-top: 0px;
@@ -3902,7 +3899,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   width: 14px;
 }
 
-.c58 + label > span::before {
+.c57 + label > span::before {
   content: "";
   inset: 0px;
   position: absolute;
@@ -3910,20 +3907,20 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   border: 1px solid rgb(89, 102, 115);
 }
 
-.c58:focus + label > span::before,
-.c58:focus-within + label > span::before {
+.c57:focus + label > span::before,
+.c57:focus-within + label > span::before {
   inset: -1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c56 {
+.c55 {
   align-items: center;
   cursor: default;
   display: flex;
   width: 100%;
 }
 
-.c57 {
+.c56 {
   align-self: flex-start;
   display: flex;
   flex-shrink: 0;
@@ -3933,25 +3930,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.c57 > label {
+.c56 > label {
   height: 20px;
 }
 
-.c57 > label > span,
-.c57 > label > span::before {
+.c56 > label > span,
+.c56 > label > span::before {
   border-radius: 0px;
 }
 
-.c55 {
+.c54 {
   min-height: 32px;
   padding: 2px 0px 0px;
 }
 
-.c55 > .c23 > .c25 {
+.c54 > .c23 > .c25 {
   margin: 0px;
 }
 
-.c59 {
+.c58 {
   cursor: pointer;
   height: 20px;
   margin: 0px;
@@ -3959,20 +3956,20 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   vertical-align: top;
 }
 
-.c59 + label > span {
+.c58 + label > span {
   background-color: rgb(255, 255, 255);
 }
 
-.c59 + label > span::before {
+.c58 + label > span::before {
   border: 1px solid rgb(89, 102, 115);
 }
 
-.c59:focus + label > span::before,
-.c59:focus-within + label > span::before {
+.c58:focus + label > span::before,
+.c58:focus-within + label > span::before {
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c60 > button {
+.c59 > button {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
@@ -3983,7 +3980,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   width: 100%;
 }
 
-.c47 {
+.c46 {
   background-color: rgb(241, 242, 244);
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
   display: flex;
@@ -3993,11 +3990,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   width: 100%;
 }
 
-.c47:focus {
+.c46:focus {
   outline: none;
 }
 
-.c49 {
+.c48 {
   background-color: rgb(226, 230, 233);
   box-sizing: border-box;
   color: rgb(77, 77, 77);
@@ -4007,7 +4004,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   padding: 2px 8px;
 }
 
-.c50 {
+.c49 {
   animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
   display: flex;
   flex-direction: column;
@@ -4015,14 +4012,14 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   overflow-y: auto;
 }
 
-.c61 {
+.c60 {
   display: flex;
   align-items: center;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
-.c51 {
+.c50 {
   box-sizing: border-box;
   color: rgb(77, 77, 77);
   display: flex;
@@ -4035,7 +4032,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   position: relative;
 }
 
-.c51::after {
+.c50::after {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
@@ -4046,35 +4043,35 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   position: absolute;
 }
 
-.c51:focus::after {
+.c50:focus::after {
   border: 1px dotted rgb(22, 25, 29);
   content: "";
 }
 
-.c51[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+.c50[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
   font-weight: 700;
 }
 
-.c51[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+.c50[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
   content: "";
 }
 
-.c51[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+.c50[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
   border-bottom: 1px solid rgb(169, 179, 188);
 }
 
-.c52 {
+.c51 {
   align-items: center;
   display: flex;
   height: 16px;
   margin: 4px 8px 4px 0px;
 }
 
-.c52 .c20 {
+.c51 .c20 {
   color: inherit;
 }
 
-.c52 .c53 {
+.c51 .c52 {
   min-height: auto;
 }
 
@@ -4099,6 +4096,16 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   overflow: hidden;
 }
 
+.c62 .c17 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.c62 .c12 {
+  color: rgb(241, 242, 244);
+}
+
 .c63 .c17 {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -4106,16 +4113,6 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
 }
 
 .c63 .c12 {
-  color: rgb(241, 242, 244);
-}
-
-.c64 .c17 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c64 .c12 {
   color: rgb(226, 230, 233);
 }
 
@@ -4123,7 +4120,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   padding: 24px 24px 0px;
 }
 
-.c48 {
+.c47 {
   margin: 2px 0px 0px;
 }
 
@@ -4152,6 +4149,12 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   }
 }
 
+@media only screen and (max-width: 756px) {
+  .c31 {
+    width: 100%;
+  }
+}
+
 @media (pointer: coarse) {
   .c41.c41:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -4171,12 +4174,6 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   }
 }
 
-@media only screen and (max-width: 756px) {
-  .c31 {
-    width: 100%;
-  }
-}
-
 @media (pointer: coarse) {
   .c10:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -4191,102 +4188,82 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
 }
 
 @media (pointer: coarse) {
+  .c57:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c57:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c57:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
   .c58:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   .c58:active + label > span::before {
-    inset: -1px;
+    border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
   .c58:hover + label > span::before {
-    inset: -1px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c59:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c59:active + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c59:hover + label > span::before {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c59 + label:hover > span::after {
+  .c58 + label:hover > span::after {
     background-color: rgb(213, 0, 117);
   }
 
-  .c59 + label:hover > span::before {
+  .c58 + label:hover > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c51:not([data-type="icon-selected"]):active {
+  .c50:not([data-type="icon-selected"]):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c51:not([data-type="icon-selected"]):active::after {
+  .c50:not([data-type="icon-selected"]):active::after {
     border: 2px solid rgb(213, 0, 117);
     content: "";
   }
 }
 
 @media (pointer: fine) {
-  .c51:not([data-type="icon-selected"]):hover {
+  .c50:not([data-type="icon-selected"]):hover {
     cursor: pointer;
   }
 
-  .c51:not([data-type="icon-selected"]):hover::after {
+  .c50:not([data-type="icon-selected"]):hover::after {
     border: 2px solid rgb(213, 0, 117);
     content: "";
   }
 }
 
 @media (pointer: coarse) {
-  .c51[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+  .c50[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c51[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+  .c50[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
     border-bottom: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c51[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+  .c50[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
     border-bottom: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    transform: translate3d(0px, 3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
   }
 }
 
@@ -4300,6 +4277,26 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   }
 }
 
+@keyframes k1 {
+  0% {
+    transform: translate3d(0px, 3px, 0px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+}
+
+@keyframes k0 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 <div>
   <div
     class="c0 multiselect"
@@ -4308,18 +4305,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
   >
     <div
       class="c1 field-wrapper field-wrapper--block multiselect__input"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-multiselect__input"
             id="test-id-multiselect__input-label"
           >
@@ -4337,14 +4334,15 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
             aria-haspopup="listbox"
             aria-placeholder="Test Placeholder"
             class="c9 c10 field__input"
-            data-role="textline-input-wrapper"
+            data-isfocused="false"
+            data-role="text-field-input-wrapper"
             id="test-id-multiselect__input-wrapper"
             role="combobox"
             tabindex="0"
           >
             <div
               class="c11 field__prefix field__prefix--last"
-              data-role="textline-prefix-0"
+              data-role="text-field-prefix-0"
             >
               <span
                 class="c12 c13 counter multiselect__counter"
@@ -4378,7 +4376,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               class="c17 c18 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-multiselect__input"
               placeholder="Test Placeholder"
               role="combobox"
@@ -4391,7 +4389,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
             />
             <div
               class="c19 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -4413,7 +4411,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
       >
         <label
           class="c25 c26 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id-multiselect__input"
         >
           Helper text
@@ -4506,18 +4504,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                 >
                   <div
                     class="c44 field-wrapper field-wrapper--block multiselect__input field-wrapper--mobile"
-                    data-role="textline"
+                    data-role="text-field"
                   >
                     <div
                       class="c2 c3 field__main"
                     >
                       <div
                         class="c4 c5 field"
-                        data-role="textline-control"
+                        data-role="text-field-control"
                       >
                         <label
                           class="c6 c7 label field__label"
-                          data-role="textline-label"
+                          data-role="text-field-label"
                           for="test-id-popup-multiselect__input"
                           id="test-id-popup-multiselect__input-label"
                         >
@@ -4536,13 +4534,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                           aria-placeholder="Test Placeholder"
                           class="c9 c45 field__input"
                           data-isfocused="true"
-                          data-role="textline-input-wrapper"
+                          data-role="text-field-input-wrapper"
                           id="test-id-popup-multiselect__input-wrapper"
                           role="combobox"
                         >
                           <div
                             class="c11 field__prefix field__prefix--last"
-                            data-role="textline-prefix-0"
+                            data-role="text-field-prefix-0"
                           >
                             <span
                               class="c12 c13 counter multiselect__counter"
@@ -4560,7 +4558,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 role="presentation"
                               >
                                 <span
-                                  class="c46 counter__item"
+                                  class="c15 counter__item"
                                 >
                                   0
                                 </span>
@@ -4576,7 +4574,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                             aria-expanded="true"
                             aria-haspopup="listbox"
                             class="c17 c18 field__text"
-                            data-role="textline-input"
+                            data-role="text-field-input"
                             id="test-id-popup-multiselect__input"
                             placeholder="Test Placeholder"
                             role="combobox"
@@ -4588,7 +4586,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                           />
                           <div
                             class="c19 field__suffix field__suffix--first"
-                            data-role="textline-suffix-0"
+                            data-role="text-field-suffix-0"
                           >
                             <i
                               aria-hidden="true"
@@ -4607,7 +4605,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                     </div>
                   </div>
                   <div
-                    class="c47 dropdown c48 multiselect__dropdown"
+                    class="c46 dropdown c47 multiselect__dropdown"
                     data-role="dropdown"
                     id="test-id-popup-dropdown-content"
                     role="presentation"
@@ -4615,7 +4613,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                     tabindex="0"
                   >
                     <div
-                      class="c49 dropdown__hint"
+                      class="c48 dropdown__hint"
                       data-role="dropdown-hint"
                       id="test-id-popup-dropdown-content--hint"
                     >
@@ -4623,13 +4621,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                     </div>
                     <div
                       aria-labelledby="test-id-popup-dropdown-content--hint"
-                      class="c50 dropdown__content"
+                      class="c49 dropdown__content"
                       data-role="dropdown-content"
                       role="listbox"
                     >
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -4637,24 +4635,24 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c54 c55 field"
+                            class="c4 c52 c53 c54 field"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="test-id-popup-indeterminate-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <span
-                                  class="c58 c59 c60 field__check"
+                                  class="c57 c58 c59 field__check"
                                   data-role="checkbox-input-indeterminate"
                                 >
                                   <button
@@ -4678,13 +4676,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         />
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -4693,25 +4691,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="1-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="1-checkbox"
                                   tabindex="-1"
@@ -4726,7 +4724,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="1-checkbox"
                               >
@@ -4737,7 +4735,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           Java
@@ -4745,7 +4743,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -4754,25 +4752,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="2-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="2-checkbox"
                                   tabindex="-1"
@@ -4787,7 +4785,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="2-checkbox"
                               >
@@ -4798,7 +4796,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           Groovy
@@ -4806,7 +4804,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -4815,25 +4813,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="3-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="3-checkbox"
                                   tabindex="-1"
@@ -4848,7 +4846,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="3-checkbox"
                               >
@@ -4859,7 +4857,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           JavaScript
@@ -4867,7 +4865,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -4876,25 +4874,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="4-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="4-checkbox"
                                   tabindex="-1"
@@ -4909,7 +4907,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="4-checkbox"
                               >
@@ -4920,7 +4918,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           C++
@@ -4928,7 +4926,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -4937,25 +4935,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="5-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="5-checkbox"
                                   tabindex="-1"
@@ -4970,7 +4968,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="5-checkbox"
                               >
@@ -4981,7 +4979,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           C
@@ -4989,7 +4987,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -4998,25 +4996,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="6-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="6-checkbox"
                                   tabindex="-1"
@@ -5031,7 +5029,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="6-checkbox"
                               >
@@ -5042,7 +5040,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           Scala
@@ -5050,7 +5048,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5059,25 +5057,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="7-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="7-checkbox"
                                   tabindex="-1"
@@ -5092,7 +5090,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="7-checkbox"
                               >
@@ -5103,7 +5101,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           Python
@@ -5111,7 +5109,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5120,25 +5118,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="8-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="8-checkbox"
                                   tabindex="-1"
@@ -5153,7 +5151,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="8-checkbox"
                               >
@@ -5164,7 +5162,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           PHP
@@ -5172,7 +5170,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5181,25 +5179,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="9-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="9-checkbox"
                                   tabindex="-1"
@@ -5214,7 +5212,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="9-checkbox"
                               >
@@ -5225,7 +5223,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           ActionScript
@@ -5233,7 +5231,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5242,25 +5240,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="10-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="10-checkbox"
                                   tabindex="-1"
@@ -5275,7 +5273,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="10-checkbox"
                               >
@@ -5286,7 +5284,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           AppleScript
@@ -5294,7 +5292,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5303,25 +5301,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="11-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="11-checkbox"
                                   tabindex="-1"
@@ -5336,7 +5334,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="11-checkbox"
                               >
@@ -5347,7 +5345,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           Asp
@@ -5355,7 +5353,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5364,25 +5362,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="12-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="12-checkbox"
                                   tabindex="-1"
@@ -5397,7 +5395,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="12-checkbox"
                               >
@@ -5408,7 +5406,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           Clojure
@@ -5416,7 +5414,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5425,25 +5423,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="13-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="13-checkbox"
                                   tabindex="-1"
@@ -5458,7 +5456,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="13-checkbox"
                               >
@@ -5469,7 +5467,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           COBOL
@@ -5477,7 +5475,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5486,25 +5484,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="14-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="14-checkbox"
                                   tabindex="-1"
@@ -5519,7 +5517,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="14-checkbox"
                               >
@@ -5530,7 +5528,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           BASIC
@@ -5538,7 +5536,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5547,25 +5545,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="15-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="15-checkbox"
                                   tabindex="-1"
@@ -5580,7 +5578,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="15-checkbox"
                               >
@@ -5591,7 +5589,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           ColdFusion
@@ -5599,7 +5597,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5608,25 +5606,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="16-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="16-checkbox"
                                   tabindex="-1"
@@ -5641,7 +5639,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="16-checkbox"
                               >
@@ -5652,7 +5650,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           123
@@ -5660,7 +5658,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                       </div>
                       <div
                         aria-checked="false"
-                        class="c51 dropdown__item"
+                        class="c50 dropdown__item"
                         data-preselect="false"
                         data-role="dropdown-item"
                         data-type="multiselect-item"
@@ -5669,25 +5667,25 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         tabindex="0"
                       >
                         <div
-                          class="c52 dropdown__graphic"
+                          class="c51 dropdown__graphic"
                           data-role="dropdown-graphic"
                         >
                           <div
-                            class="c4 c53 c5 c55 field field--block"
+                            class="c4 c52 c5 c54 field field--block"
                             data-role="checkbox"
                           >
                             <div
-                              class="c56 field__control field__control--boolean"
+                              class="c55 field__control field__control--boolean"
                               data-role="checkbox-control"
                               id="17-checkbox-controls"
                             >
                               <span
-                                class="c57"
+                                class="c56"
                                 data-role="checkbox-control-inner"
                               >
                                 <input
                                   aria-checked="false"
-                                  class="c58 c59 field__check"
+                                  class="c57 c58 field__check"
                                   data-role="checkbox-input"
                                   id="17-checkbox"
                                   tabindex="-1"
@@ -5702,7 +5700,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                                 </label>
                               </span>
                               <label
-                                class="c6 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                class="c6 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                 data-role="checkbox-label"
                                 for="17-checkbox"
                               >
@@ -5713,7 +5711,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render mobile multiselect 2`] = `
                         </div>
                         <div
                           aria-hidden="true"
-                          class="c61 dropdown__text"
+                          class="c60 dropdown__text"
                           data-role="dropdown-text"
                         >
                           456
@@ -5786,7 +5784,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -5814,6 +5813,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -6135,13 +6135,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -6155,13 +6155,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -6172,18 +6172,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -6197,7 +6197,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
         </label>
         <div
           class="c9 message message--error field__message"
-          data-role="textline-error-message"
+          data-role="text-field-error-message"
           id="test-id-multiselect__input-error"
         >
           <div
@@ -6230,11 +6230,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
         </div>
         <div
           class="c16 c17 field__input field__input--error"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c18 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c19 c20 counter multiselect__counter"
@@ -6268,7 +6268,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c23 c24 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -6280,7 +6280,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
           />
           <div
             class="c25 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -6302,7 +6302,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
     >
       <label
         class="c30 c31 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -6375,7 +6375,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -6403,6 +6404,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -7026,13 +7028,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -7046,13 +7048,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -7064,18 +7066,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
   >
     <div
       class="c1 field-wrapper field-wrapper--block multiselect__input"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-multiselect__input"
             id="test-id-multiselect__input-label"
           >
@@ -7089,7 +7091,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
           </label>
           <div
             class="c9 message message--error field__message"
-            data-role="textline-error-message"
+            data-role="text-field-error-message"
             id="test-id-multiselect__input-error"
           >
             <div
@@ -7123,11 +7125,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
           <div
             class="c16 c17 field__input field__input--error"
             data-isfocused="true"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <div
               class="c18 field__prefix field__prefix--last"
-              data-role="textline-prefix-0"
+              data-role="text-field-prefix-0"
             >
               <span
                 class="c19 c20 counter multiselect__counter"
@@ -7161,7 +7163,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
               aria-expanded="true"
               aria-haspopup="listbox"
               class="c23 c24 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-multiselect__input"
               placeholder="Test Placeholder"
               role="combobox"
@@ -7173,7 +7175,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
             />
             <div
               class="c25 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -7195,7 +7197,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with error messa
       >
         <label
           class="c30 c31 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id-multiselect__input"
         >
           Helper text
@@ -8389,7 +8391,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -8856,13 +8859,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -8876,13 +8879,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -8893,18 +8896,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -8918,11 +8921,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
         </label>
         <div
           class="c9 c10 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c11 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c12 c13 counter multiselect__counter"
@@ -8956,7 +8959,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c17 c18 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -8968,7 +8971,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
           />
           <div
             class="c19 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -8986,7 +8989,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
       </div>
       <div
         class="c24 c25 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c26 c27 tooltip tooltip--hint"
@@ -9026,7 +9029,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip 1`]
     >
       <label
         class="c32 c33 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -9123,7 +9126,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip in 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -9575,13 +9579,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip in 
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -9595,13 +9599,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip in 
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -9612,18 +9616,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip in 
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -9668,11 +9672,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip in 
         </span>
         <div
           class="c16 c17 field__input"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c18 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c19 c20 counter multiselect__counter"
@@ -9706,7 +9710,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip in 
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c23 c24 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -9718,7 +9722,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip in 
           />
           <div
             class="c25 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -9740,7 +9744,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with tooltip in 
     >
       <label
         class="c30 c31 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -9795,7 +9799,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -10117,13 +10122,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -10137,13 +10142,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -10154,18 +10159,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -10179,7 +10184,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
         </label>
         <div
           class="c9 message message--warning field__message"
-          data-role="textline-warning-message"
+          data-role="text-field-warning-message"
           id="test-id-multiselect__input-warning"
         >
           <div
@@ -10212,11 +10217,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
         </div>
         <div
           class="c16 c17 field__input field__input--warning"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c18 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c19 c20 counter multiselect__counter"
@@ -10250,7 +10255,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
             aria-expanded="false"
             aria-haspopup="listbox"
             class="c23 c24 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             role="combobox"
@@ -10262,7 +10267,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
           />
           <div
             class="c25 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
@@ -10284,7 +10289,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
     >
       <label
         class="c29 c30 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
@@ -10357,7 +10362,8 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -10981,13 +10987,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
   }
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -11001,13 +11007,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -11019,18 +11025,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
   >
     <div
       class="c1 field-wrapper field-wrapper--block multiselect__input"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-multiselect__input"
             id="test-id-multiselect__input-label"
           >
@@ -11044,7 +11050,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
           </label>
           <div
             class="c9 message message--warning field__message"
-            data-role="textline-warning-message"
+            data-role="text-field-warning-message"
             id="test-id-multiselect__input-warning"
           >
             <div
@@ -11078,11 +11084,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
           <div
             class="c16 c17 field__input field__input--warning"
             data-isfocused="true"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
           >
             <div
               class="c18 field__prefix field__prefix--last"
-              data-role="textline-prefix-0"
+              data-role="text-field-prefix-0"
             >
               <span
                 class="c19 c20 counter multiselect__counter"
@@ -11116,7 +11122,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
               aria-expanded="true"
               aria-haspopup="listbox"
               class="c23 c24 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-multiselect__input"
               placeholder="Test Placeholder"
               role="combobox"
@@ -11128,7 +11134,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
             />
             <div
               class="c25 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -11150,7 +11156,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render multiselect with warning mes
       >
         <label
           class="c29 c30 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id-multiselect__input"
         >
           Helper text
@@ -12528,13 +12534,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render readonly multiselect 1`] = `
   color: rgb(241, 242, 244);
 }
 
-@keyframes k0 {
+@keyframes k2 {
   0% {
-    opacity: 0;
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
-    opacity: 1;
+    transform: translateZ(0px);
   }
 }
 
@@ -12548,13 +12554,13 @@ exports[`com.mgmtp.a12.widgets.multiselect > render readonly multiselect 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k0 {
   0% {
-    transform: translate3d(0px, -3px, 0px);
+    opacity: 0;
   }
 
   100% {
-    transform: translateZ(0px);
+    opacity: 1;
   }
 }
 
@@ -12565,18 +12571,18 @@ exports[`com.mgmtp.a12.widgets.multiselect > render readonly multiselect 1`] = `
 >
   <div
     class="c1 field-wrapper field-wrapper--block multiselect__input"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-multiselect__input"
           id="test-id-multiselect__input-label"
         >
@@ -12591,11 +12597,11 @@ exports[`com.mgmtp.a12.widgets.multiselect > render readonly multiselect 1`] = `
         <div
           class="c9 field__input field__input--readonly"
           data-readonly="true"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c10 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <span
               class="c11 c12 counter multiselect__counter"
@@ -12626,7 +12632,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render readonly multiselect 1`] = `
           <input
             aria-describedby="test-id-counter"
             class="c16 c17 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
             readonly=""
@@ -12644,7 +12650,7 @@ exports[`com.mgmtp.a12.widgets.multiselect > render readonly multiselect 1`] = `
     >
       <label
         class="c20 c21 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text

@@ -49,7 +49,7 @@ export * from "./filter.config.js";
 export * from "./header-trigger.config.js";
 export * from "./icon.config.js";
 export * from "./interaction-hint.config.js";
-export { interactiveTileFlatConfig, commonInteractiveTileFlatConfigs } from "./interactive-tile.config.js";
+export * from "./interactive-tile.config.js";
 export * from "./layout-grid.config.js";
 export * from "./link.config.js";
 export * from "./list.config.js";

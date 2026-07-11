@@ -30,6 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import FilterSelectorListAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.list-mode.api.json" with { type: "json" };
 import FilterSelectorTemplateAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/tpl/filter-selector.tpl.api.json" with { type: "json" };
 import FilterSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.api.json" with { type: "json" };
 import FilterSelectorMobileAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.mobile.api.json" with { type: "json" };
@@ -38,6 +39,9 @@ import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../../helpers/showcase-styles.js";
 
+import { DockedFilterSelector } from "../filter-selector-new/docked-filter-selector.js";
+import { OverlayFilterSelector } from "../filter-selector-new/overlay-filter-selector.js";
+
 import { FilterSelectorShowcase } from "./showcase.js";
 
 import filterSelectorShowcaseCode from "!./showcase.tsx?raw";
@@ -45,17 +49,62 @@ import filterSelectorCode from "!./filter-selector.tsx?raw";
 import dataCode from "!./data.tsx?raw";
 import templateCode from "!./template.tsx?raw";
 import utilsCode from "!./utils.tsx?raw";
+import filterSelectorDockedCode from "!../filter-selector-new/docked-filter-selector.tsx?raw";
+import filterSelectorOverlayCode from "!../filter-selector-new/overlay-filter-selector.tsx?raw";
+import filterSelectorSharedCode from "!../filter-selector-new/filter-selector-showcase-template.tsx?raw";
 
 const showcases: Showcase[] = [
 	{
 		label: "Filter Selector",
 		sections: [
 			{
+				label: "Docked Filter Selector",
+				description: (
+					<p>
+						In <strong>docked</strong> mode the <b>Filter Selector</b> side panel is pinned alongside the content. For a
+						fully interactive example with <b>Filter Bar</b> integration, see{" "}
+						<Link href="#/examples/filter-selector">Examples &gt; Filter Selector</Link>.
+					</p>
+				),
+				content: <DockedFilterSelector />,
+				code: [
+					{ name: "docked-filter-selector.tsx", code: filterSelectorDockedCode },
+					{ name: "filter-selector-showcase-template.tsx", code: filterSelectorSharedCode }
+				],
+				useDarkBackground: true,
+				fullSize: true,
+				fitToSection: false
+			},
+			{
+				label: "Overlay Filter Selector",
+				description: (
+					<p>
+						In <strong>overlay</strong> mode the <b>Filter Selector</b> side panel floats on top of the content without
+						reducing the main area width. For a fully interactive example with <b>Filter Bar</b> integration, see{" "}
+						<Link href="#/examples/filter-selector">Examples &gt; Filter Selector</Link>.
+					</p>
+				),
+				content: <OverlayFilterSelector />,
+				code: [
+					{ name: "overlay-filter-selector.tsx", code: filterSelectorOverlayCode },
+					{ name: "filter-selector.tsx", code: filterSelectorSharedCode }
+				],
+				useDarkBackground: true,
+				fullSize: true,
+				fitToSection: false
+			},
+			{
+				label: "Legacy Filter Selector",
 				description: (
 					<div>
 						<p>
-							The <strong>Filter Selector</strong> Widget is the container that visualizes the faceted search settings
-							by displaying two content areas side by side:
+							<strong>Note:</strong> This is the legacy implementation of the Filter Selector. It uses the{" "}
+							<code>FilterSelector</code> widget which renders the filter list and filter content side by side in a
+							separate panel.
+						</p>
+						<p>
+							The <b>Filter Selector</b> Widget is the container that visualizes the faceted search settings by
+							displaying two content areas side by side:
 						</p>
 						<BulletList.Unordered>
 							<BulletList.Item>
@@ -68,13 +117,12 @@ const showcases: Showcase[] = [
 							</BulletList.Item>
 						</BulletList.Unordered>
 						<p>
-							On small views, you can use the <strong>FilterSelectorMobile</strong> widget to display filters in a
-							modal.
+							On small views, you can use the <b>FilterSelectorMobile</b> widget to display filters in a modal.
 						</p>
 						<p>
-							The following example shows the combination of the <strong>FilterSelector</strong> &{" "}
-							<strong>FilterBar</strong>. You can also take a look at{" "}
-							<Link href="#/examples/master-detail">Examples &gt; Master Detail</Link> for advanced customizations.
+							The following example shows the combination of the <b>FilterSelector</b> & <b>FilterBar</b>. You can also
+							take a look at <Link href="#/examples/master-detail">Examples &gt; Master Detail</Link> for advanced
+							customizations.
 						</p>
 					</div>
 				),
@@ -98,6 +146,7 @@ export default {
 	structure: showcases,
 	widgetInfo: {
 		typedoc: [
+			{ declaration: FilterSelectorListAPI },
 			{ declaration: FilterSelectorTemplateAPI },
 			{ declaration: FilterSelectorAPI },
 			{ declaration: FilterSelectorMobileAPI }
@@ -105,7 +154,7 @@ export default {
 		themingConfiguration: "filterSelector",
 		inheritedThemeConfigurationNote: (
 			<p>
-				The <strong>Filter Selector</strong> inherits the style configurations of several widgets:{" "}
+				The <b>Filter Selector</b> inherits the style configurations of several widgets:{" "}
 				<StyledShowcaseLink href="#/widgets/data-entry/checkbox#checkbox-theme-configuration">
 					Checkbox
 				</StyledShowcaseLink>

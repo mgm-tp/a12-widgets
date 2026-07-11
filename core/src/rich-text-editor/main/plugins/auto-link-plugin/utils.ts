@@ -214,11 +214,23 @@ function restoreSelectionAfterLinkCreation(
 		if (originalSelectionOffset > matchEnd) {
 			const afterNode = linkNode.getNextSibling();
 
-			// Selection was after the link - focus to the text after the link
+			// Selection was after the link - walk sibling nodes to find the correct position.
 			if (afterNode && $isInlineStyleTextNode(afterNode)) {
-				const offsetInAfterNode = originalSelectionOffset - matchEnd;
+				let remainingOffset = originalSelectionOffset - matchEnd;
+				let currentNode: LexicalNode | null = afterNode;
 
-				afterNode.select(offsetInAfterNode, offsetInAfterNode);
+				while (currentNode !== null && $isInlineStyleTextNode(currentNode)) {
+					const nodeSize = currentNode.getTextContentSize();
+
+					if (remainingOffset <= nodeSize) {
+						currentNode.select(remainingOffset, remainingOffset);
+
+						return;
+					}
+
+					remainingOffset -= nodeSize;
+					currentNode = currentNode.getNextSibling();
+				}
 			} else {
 				// No text after link, place selection at the end of the link
 				const lastChild = linkNode.getLastChild();
@@ -457,9 +469,9 @@ export function handleBadNeighbors(
 
 	if ($isAutoLinkNode(previousSibling) && (!startsWithSeparator(text) || startWithLinkSuffix(text))) {
 		if (shouldEditLinkNodeByNeighbors(previousSibling, matchers)) {
+			const prevUrl = previousSibling.getURL();
 			replaceWithChildren(previousSibling);
-			handleLinkEdit(previousSibling, matchers, onChange);
-			onChange(null, previousSibling.getURL());
+			onChange(null, prevUrl);
 
 			return;
 		}
@@ -470,9 +482,9 @@ export function handleBadNeighbors(
 		(!endsWithSeparator(text) || (endsWithDot(text) && !isLinkStartingWithProtocol(nextSibling.getTextContent())))
 	) {
 		if (shouldEditLinkNodeByNeighbors(nextSibling, matchers)) {
+			const nextUrl = nextSibling.getURL();
 			replaceWithChildren(nextSibling);
-			handleLinkEdit(nextSibling, matchers, onChange);
-			onChange(null, nextSibling.getURL());
+			onChange(null, nextUrl);
 
 			return;
 		}

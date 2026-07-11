@@ -125,7 +125,7 @@ describe("com.mgmtp.a12.widgets.file-upload", () => {
 		expect(onChangeSpy).toHaveBeenCalledTimes(1);
 	});
 
-	test("file-upload onUploadAreaClick event", () => {
+	test("file-upload onUploadAreaClick event", async () => {
 		const onUploadAreaClickSpy = vi.fn();
 		render(<FileUpload onUploadAreaClick={onUploadAreaClickSpy} />);
 
@@ -133,6 +133,7 @@ describe("com.mgmtp.a12.widgets.file-upload", () => {
 
 		fireEvent.click(contentElement);
 		expect(onUploadAreaClickSpy).toHaveBeenCalledTimes(1);
+		await userEvent.keyboard("{Escape}");
 	});
 
 	test("default-file-upload input should be disabled in readOnly mode", async () => {

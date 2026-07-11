@@ -38,6 +38,10 @@ import type { TreeNodeTemplateModel } from "../tpl/tree.tpl.api.js";
 
 import type { TreeProps, MapTreeNode, TreeNodeModel } from "./tree.behavior.api.js";
 
+/**
+ * @deprecated since 39.0.0. Prefer `TreeView` for new trees. The `Insertable` behavior HOC has no direct
+ * `TreeView` equivalent yet; compose insertion affordances with `TreeView`'s `getActions` / `dragDrop`.
+ */
 export function Insertable<InProps extends TreeProps, OutProps extends InProps & InsertableTreeProps>(
 	Target: ComponentType<InProps>
 ): ComponentType<OutProps> {

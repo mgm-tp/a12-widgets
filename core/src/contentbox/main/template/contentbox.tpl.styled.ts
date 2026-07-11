@@ -40,9 +40,16 @@ import { StyledPopup } from "../../../pop-up-menu/main/popup-menu.styled.js";
 import { StyledButton } from "../../../button/main/button.styled.js";
 import { StyledMessageBoxMainContainer } from "../../../message-box/main/message-box.styled.js";
 import { StyledMasterDetailLayoutView } from "../../../layout/master-detail/main/master-detail.styled.js";
+import type { SupportingPanesLayoutProps } from "../../../layout/supporting-panes-layout/index.js";
+import { SupportingPanesLayoutComponents } from "../../../layout/supporting-panes-layout/index.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 
+import type { ContentBoxSidePanelMode } from "./contentbox.tpl.api.js";
 import { StyledContentBoxContext } from "./contentbox.context.js";
+
+import PrimaryPane = SupportingPanesLayoutComponents.PrimaryPane;
+import SecondaryPane = SupportingPanesLayoutComponents.SecondaryPane;
+import SupportingPanesLayout = SupportingPanesLayoutComponents.SupportingPanesLayout;
 
 export const StyledContentBoxHeading = styled.div.withConfig({ displayName: "StyledContentBoxHeading-sc-" })<{
 	variantColor?: string;
@@ -133,22 +140,26 @@ export const StyledContentBoxFooter = styled.div.withConfig({ displayName: "Styl
 	}
 );
 
-export const StyledContentBoxHeader = styled.div.withConfig({ displayName: "StyledContentBoxHeader-sc-" })(
-	({ theme }) => {
-		const { contentBox } = theme.components;
+export const StyledContentBoxHeader = styled.div.withConfig({ displayName: "StyledContentBoxHeader-sc-" })<{
+	$noGrow?: boolean;
+}>(({ theme, $noGrow }) => {
+	const { contentBox } = theme.components;
 
-		return css`
-			box-sizing: border-box;
-			display: flex;
-			flex-direction: column;
-			flex: 1 0 auto;
-			${StyledMessageBoxMainContainer} {
-				padding-left: calc(${contentBox.contentBoxHorizontalPadding} - 4px);
-				padding-right: ${contentBox.contentBoxHorizontalPadding};
-			}
-		`;
-	}
-);
+	return css`
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		flex: ${$noGrow ? "0 0 auto" : "1 0 auto"};
+		${StyledMessageBoxMainContainer} {
+			padding-left: calc(${contentBox.contentBoxHorizontalPadding} - 4px);
+			padding-right: ${contentBox.contentBoxHorizontalPadding};
+		}
+	`;
+});
+
+export const StyledContentBoxDetailPanelHeader = styled(StyledContentBoxHeader).attrs({ $noGrow: true }).withConfig({
+	displayName: "StyledContentBoxDetailPanelHeader-sc-"
+})``;
 
 export const StyledContentBoxTitleWrapper = styled.div.withConfig({ displayName: "StyledContentBoxTitleWrapper-sc-" })(
 	({ theme }) => {
@@ -293,3 +304,70 @@ export const StyledContentBoxAddOn = styled.div.withConfig({ displayName: "Style
 		`;
 	}
 );
+
+export const StyledSupportingPanesLayoutWrapper = styled(SupportingPanesLayout)(() => {
+	return css`
+		min-height: 0;
+		overflow: hidden;
+	`;
+});
+
+export const StyledContentBoxDetailPanel = styled(PrimaryPane)(() => {
+	return css`
+		border-radius: 0;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+	`;
+});
+
+export const StyledContentBoxSidePanel = styled(SecondaryPane)<
+	SupportingPanesLayoutProps.SecondaryPaneProps & { $mode?: ContentBoxSidePanelMode }
+>(({ theme, position, $mode }) => {
+	const isOverlay = $mode === "overlay";
+	const {
+		contentBox: { sidePanels }
+	} = theme.components;
+
+	return css`
+		border-radius: 0;
+		margin-left: 0;
+
+		${position === "right"
+			? css`
+					border-left: ${sidePanels.border};
+					${isOverlay &&
+					css`
+						box-shadow: ${sidePanels.overlay?.boxShadow};
+						position: absolute;
+						top: 0;
+						right: 0;
+						height: 100%;
+					`}
+				`
+			: css`
+					border-right: ${sidePanels.border};
+				`}
+	`;
+});
+
+export const StyledContentBoxWizardBar = styled.div.withConfig({ displayName: "StyledContentBoxWizardBar-sc-" })<{
+	collapsed?: boolean;
+}>(({ theme, collapsed }) => {
+	const { contentBox } = theme.components;
+
+	return css`
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		max-height: 200px;
+		transition: max-height 0.6s ease-in-out;
+		border-bottom: ${contentBox.wizardBar.borderBottom};
+		${collapsed &&
+		css`
+			max-height: 0;
+			transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+		`}
+	`;
+});

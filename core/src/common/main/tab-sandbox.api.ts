@@ -69,4 +69,11 @@ export interface TabSandboxProps extends Container {
 	 * Enable this flag to put focus back to the first interactive element inside the container.
 	 */
 	skipWrapperFocus?: boolean;
+
+	/**
+	 * When true, Tab key events are not intercepted. Focus can leave the sandbox naturally.
+	 * Use in `"arrow-only"` keyboard navigation mode.
+	 * @default false
+	 */
+	disableTabTrapping?: boolean;
 }

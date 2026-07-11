@@ -60,7 +60,9 @@ export const ExternalLink: FC<ExternalLinkProps> = ({
 			{...rest}
 		>
 			{children}
-			<Icon showTitleAsTooltip={false}>open_in_new</Icon>
+			<Icon className={joinClassNames(addPrefix("-u-padding-l-2xs"))} showTitleAsTooltip={false}>
+				open_in_new
+			</Icon>
 		</Link>
 	);
 };

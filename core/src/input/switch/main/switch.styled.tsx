@@ -35,6 +35,51 @@ import { setLightness } from "polished";
 
 import { active, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
+import { Label } from "../../base/template/base.tpl.view.js";
+import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+
+import type { SwitchLabelPosition } from "./switch.api.js";
+
+export const StyledSwitchLabel = styled(Label).withConfig({ displayName: "StyledSwitchLabel-sc-" })<{
+	$labelPosition?: SwitchLabelPosition;
+	$isInteractive?: boolean;
+}>(({ theme, $labelPosition, $isInteractive }) => {
+	const { label } = theme.components.switch;
+
+	return css`
+		${$isInteractive &&
+		css`
+			cursor: ${label.cursor};
+		`}
+
+		${($labelPosition === "left" || $labelPosition === "right") &&
+		css`
+			margin: 0;
+		`}
+		
+		${$labelPosition === "bottom" &&
+		css`
+			margin-top: 0;
+		`}
+	`;
+});
+
+export const StyledSwitchField = styled(StyledBaseInput.StyledField).withConfig({
+	displayName: "StyledSwitchField-sc-"
+})``;
+
+export const StyledSwitchInlineWrapper = styled.div.withConfig({
+	displayName: "StyledSwitchInlineWrapper-sc-"
+})(({ theme }) => {
+	const { control } = theme.components.switch;
+
+	return css`
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		gap: ${control.gap};
+	`;
+});
 
 export const StyledSwitchControl = styled.div.withConfig({ displayName: "StyledSwitchControl-sc-" })(({ theme }) => {
 	return css`
@@ -66,13 +111,14 @@ export const StyledSwitchThumbIcon = styled.span.withConfig({ displayName: "Styl
 		const { thumb } = theme.components.switch;
 
 		return css`
+			align-items: center;
 			display: flex;
 			height: 100%;
 			justify-content: center;
 			width: 100%;
 			${StyledIconWrapper} {
 				align-self: center;
-				color: ${thumb.uncheckedBackground};
+				color: ${thumb.uncheckedIconColor};
 				font-size: ${thumb.iconSize};
 			}
 		`;
@@ -129,29 +175,6 @@ export const StyledSwitchOption = styled.span.withConfig({ displayName: "StyledS
 	`;
 });
 
-const switchStates = (state: "on" | "off", color: string, background?: string) => {
-	const thumbColor = state === "on" ? color : background;
-
-	return css`
-		${StyledSwitchThumb} {
-			background-color: ${thumbColor};
-			border-width: ${state === "on" && 0};
-			border-color: ${state === "off" && color};
-			${state === "on" &&
-			css`
-				outline: 1px solid transparent;
-			`}
-			${StyledSwitchThumbIcon} ${StyledIconWrapper} {
-				color: ${thumbColor};
-			}
-		}
-
-		${StyledSwitchTrack} {
-			background-color: ${background ?? (state === "on" && setLightness(0.87, color))};
-		}
-	`;
-};
-
 export const StyledSwitchInteractive = styled.span.withConfig({ displayName: "StyledSwitchInteractive-sc-" })<{
 	$warning?: boolean;
 	$error?: boolean;
@@ -162,6 +185,32 @@ export const StyledSwitchInteractive = styled.span.withConfig({ displayName: "St
 }>(({ theme, $warning, $error, $readonly, $disabled, $checked, $focused }) => {
 	const { thumb, track } = theme.components.switch;
 	const currentState = $checked ? "on" : "off";
+
+	const switchStates = (state: "on" | "off", color: string, background?: string) => {
+		const thumbColor = state === "on" ? color : background;
+		const iconColor = state === "on" ? thumb.checkedIconColor : color;
+
+		return css`
+			${StyledSwitchThumb} {
+				background-color: ${thumbColor};
+				border-width: ${state === "on" && 0};
+				border-color: ${state === "off" && color};
+
+				${state === "on" &&
+				css`
+					outline: 1px solid transparent;
+				`}
+
+				${StyledSwitchThumbIcon} ${StyledIconWrapper} {
+					color: ${iconColor};
+				}
+			}
+
+			${StyledSwitchTrack} {
+				background-color: ${background ?? (state === "on" && setLightness(0.87, color))};
+			}
+		`;
+	};
 
 	return css`
 		align-items: center;

@@ -32,7 +32,7 @@
 
 /**
  * This autocomplete widget provide autocompletion for enumerated values. This widget combines the
- * TextLineStateless to provide the input functionality and DropDown for selection of values.
+ * TextField to provide the input functionality and DropDown for selection of values.
  * When user start typing, the first matching option will be pre-selected. The remaining characters of the first
  * matching option will be selected/highlighted.
  *
@@ -148,8 +148,8 @@ export interface AutocompleteProps extends Omit<BaseInputProps, "fitToParent">, 
 	itemsWrapperClassName?: string;
 
 	/**
-	 * The element to override the TextLine which triggers open the autocomplete on mobile.
-	 * @default TextLine
+	 * The element to override the TextField which triggers open the autocomplete on mobile.
+	 * @default TextField
 	 */
 	mobileTriggerElement?: ReactNode;
 

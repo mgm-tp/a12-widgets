@@ -40,8 +40,8 @@ import { Button } from "../../button/main/button.view.js";
 import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { Body } from "../new-api/table.body.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { Body } from "../main/table.body.view.js";
 
 describe("com.mgmtp.a12.widgets.table.body", () => {
 	const COLUMN_COUNT = 4;

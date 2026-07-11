@@ -33,8 +33,8 @@
 import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { PlaceHolderBodyRow } from "../new-api/table.place-holder-row.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { PlaceHolderBodyRow } from "../main/table.place-holder-row.view.js";
 
 describe("com.mgmtp.a12.widgets.table.placeholder-body-row", () => {
 	test("default", () => {

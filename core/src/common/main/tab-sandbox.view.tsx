@@ -54,7 +54,8 @@ export const TabSandbox: FC<TabSandboxProps> = ({
 	focusBack: focusBackProp,
 	children,
 	hasFocusStyle,
-	focusBackHandler
+	focusBackHandler,
+	disableTabTrapping = false
 }) => {
 	const supportContainerRef = useRef<HTMLDivElement | null>(null);
 	const prevActiveElement = useRef<Element | null>(focusBackProp || focusBackHandler ? document.activeElement : null);
@@ -69,8 +70,9 @@ export const TabSandbox: FC<TabSandboxProps> = ({
 
 		// We only manage refocusing if the current active element is still within the wrapper or if the wrapper itself is within a modal overlay, as a displayed modal overlay blocks interaction with elements beneath it.
 		if (
-			(!wrapperRef?.contains(currentActiveElement) && !isModalOverlay) ||
-			activeElementBeforeWrapperAppear === currentActiveElement
+			!focusBackHandler &&
+			((!wrapperRef?.contains(currentActiveElement) && !isModalOverlay) ||
+				activeElementBeforeWrapperAppear === currentActiveElement)
 		) {
 			return;
 		}
@@ -88,7 +90,7 @@ export const TabSandbox: FC<TabSandboxProps> = ({
 				(mainContainer as HTMLElement).focus();
 			}
 		}
-	}, []);
+	}, [focusBackHandler]);
 
 	const getWrapperRef = (): HTMLElement | null => {
 		const wrapper = supportContainerRef.current?.previousElementSibling;
@@ -135,6 +137,10 @@ export const TabSandbox: FC<TabSandboxProps> = ({
 			const wrapperRef = getWrapperRef();
 
 			if (!wrapperRef || event.key !== "Tab") {
+				return;
+			}
+
+			if (disableTabTrapping) {
 				return;
 			}
 
@@ -233,7 +239,7 @@ export const TabSandbox: FC<TabSandboxProps> = ({
 			window.removeEventListener("keydown", handleKeyDown);
 			window.removeEventListener("click", handleClick);
 		};
-	}, [focusBack, focusBackIf, focusBackProp, handleWrapperFocus, skipWrapperFocus]);
+	}, [focusBack, focusBackIf, focusBackProp, handleWrapperFocus, skipWrapperFocus, disableTabTrapping]);
 
 	useLayoutEffect(() => {
 		if (!focusOnOpen || skipWrapperFocus) {
@@ -286,7 +292,7 @@ export const TabSandbox: FC<TabSandboxProps> = ({
 		<>
 			{children}
 			<div
-				tabIndex={0}
+				tabIndex={disableTabTrapping ? -1 : 0}
 				className={TAB_SANDBOX_SUPPORTER}
 				data-role={DataRoles.TabSandbox.Supporter}
 				ref={supportContainerRef}

@@ -396,19 +396,13 @@ export namespace Wizard {
 		);
 	};
 
-	StepButtonNavigator.displayName = "Wizard.StepButtonNavigator";
-
 	export const PreviousStepButton = (props: WizardNavigationButtonProps): ReactElement<WizardNavigationButtonProps> => (
 		<StepButtonNavigator type="previous" {...props} />
 	);
 
-	PreviousStepButton.displayName = "Wizard.PreviousStepButton";
-
 	export function NextStepButton(props: WizardNavigationButtonProps): ReactElement<WizardNavigationButtonProps> {
 		return <StepButtonNavigator type="next" {...props} />;
 	}
-
-	NextStepButton.displayName = "Wizard.NextStepButton";
 
 	export function Step(props: WizardStepProps): ReactElement<WizardStepProps> {
 		const a11yContext = useContext(A11YLanguageContext);
@@ -537,8 +531,6 @@ export namespace Wizard {
 			</StyledWizardStep>
 		);
 	}
-
-	Step.displayName = "Wizard.Step";
 }
 
 Wizard.contextType = ThemeContext;

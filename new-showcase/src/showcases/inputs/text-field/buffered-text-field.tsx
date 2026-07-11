@@ -39,8 +39,8 @@ const ControlledTextField = BufferedInput(HTMLInputAdapter(TextField));
 export function BufferedTextField(): ReactElement {
 	return (
 		<ControlledTextField
-			id="buffered-text-line"
-			label="Stateful TextLine using BufferedInput"
+			id="buffered-text-field"
+			label="Stateful TextField using BufferedInput"
 			initialValue="Initial value"
 			submitOnEnter
 			onValueSubmit={(value) => {

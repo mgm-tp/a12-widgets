@@ -37,7 +37,7 @@ import { styled, css } from "styled-components";
 import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { StyledBreadcrumbSeparator } from "../../breadcrumb/main/breadcrumb.styled.js";
-import { StyledTooltipWrapper } from "../../tooltip/main/tooltip.styled.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
 import { CUSTOM_ICONS } from "./custom-icons-data.js";
@@ -49,19 +49,24 @@ export const StyledIconWrapper = styled.i.withConfig({
 })<IconProps>(({ theme, iconTheme }) => {
 	const { icon, breadcrumb } = theme.components;
 	let fontFamily;
+	let fontVariationSettings;
 
 	switch (iconTheme) {
 		case "custom":
 			fontFamily = "custom-icons";
+			fontVariationSettings = "normal";
 			break;
 		case "outlined":
-			fontFamily = "Material Icons Outlined";
+			fontFamily = "Material Symbols Outlined";
+			fontVariationSettings = "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24";
 			break;
 		case "rounded":
-			fontFamily = "Material Icons Round";
+			fontFamily = "Material Symbols Rounded";
+			fontVariationSettings = "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24";
 			break;
 		default:
-			fontFamily = "Material Icons";
+			fontFamily = "Material Symbols Outlined";
+			fontVariationSettings = "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24";
 	}
 
 	return css`
@@ -70,6 +75,7 @@ export const StyledIconWrapper = styled.i.withConfig({
 		display: inline-block;
 		direction: ltr;
 		font-family: ${fontFamily};
+		font-variation-settings: ${fontVariationSettings};
 		font-size: ${icon.fontSize};
 		font-style: normal;
 		font-weight: ${theme.typography.fontWeight.regularFontWeight};
@@ -91,7 +97,7 @@ export const StyledIconWrapper = styled.i.withConfig({
 			max-width: unset;
 		}
 
-		${StyledTooltipWrapper} & {
+		${StyledTooltipTriggerWrapper} & {
 			color: inherit;
 		}
 
@@ -110,7 +116,7 @@ export const StyledBigIconWrapper = styled(StyledIconWrapper).withConfig({ displ
 			size === "big" &&
 			css`
 				&&&,
-				${StyledTooltipWrapper} &&& {
+				${StyledTooltipTriggerWrapper} &&& {
 					font-size: ${theme.typography.fontSize.hugeFontSize};
 				}
 			`
@@ -149,45 +155,61 @@ export const StyledVariantIconWrapper = styled(StyledBigIconWrapper).withConfig(
 });
 
 /**
- * Icon for text fields using Google Material icons.
+ * Icon for text fields using Google Material Symbols.
  * You can define a title for tooltips.
  *
- * @see {@link https://design.google.com/icons/}
+ * @see {@link https://fonts.google.com/icons}
  */
 export function Icon(props: IconProps): ReactElement<IconProps> {
+	const {
+		size,
+		variant,
+		iconTheme,
+		className,
+		children,
+		iconRef,
+		showTitleAsTooltip,
+		title,
+		hiddenText,
+		dataRole,
+		onClick,
+		htmlAttributes
+	} = props;
+
 	const baseClassName = addPrefix("plasma-icon");
 	const iconClasses = joinClassNames(
 		baseClassName,
-		{ [`${baseClassName}--big`]: props.size === "big" },
-		{ [`${baseClassName}--${props.variant}`]: props.variant },
-		{ [`${baseClassName}--${props.iconTheme}`]: props.iconTheme },
-		props.className
+		{ [`${baseClassName}--big`]: size === "big" },
+		{ [`${baseClassName}--${variant}`]: variant },
+		{ [`${baseClassName}--${iconTheme}`]: iconTheme },
+		className
 	);
 	const mappingContext = useContext(IconMappingContext);
 	const mappedIconDef = getMappedIconDefinition(mappingContext, {
-		originalIcon: props.children as string,
-		theme: props.iconTheme
+		originalIcon: children as string,
+		theme: iconTheme
 	});
-	const iconLabel = mappedIconDef?.mappedIcon || (typeof props.children === "string" ? props.children : undefined);
+	const iconLabel = mappedIconDef?.mappedIcon || (typeof children === "string" ? children : undefined);
 
-	const codePoint = iconLabel && props.iconTheme === "custom" ? CUSTOM_ICONS[iconLabel] : undefined;
+	const codePoint = iconLabel && iconTheme === "custom" ? CUSTOM_ICONS[iconLabel] : undefined;
+	const hiddenTextContent = hiddenText ?? title;
 
-	const StyledIconRendered = props.variant ? StyledVariantIconWrapper : StyledBigIconWrapper;
+	const StyledIconRendered = variant ? StyledVariantIconWrapper : StyledBigIconWrapper;
 
 	return (
 		<StyledIconRendered
 			{...props}
-			{...props.htmlAttributes}
-			ref={props.iconRef}
+			{...htmlAttributes}
+			ref={iconRef}
 			className={iconClasses}
-			title={props.showTitleAsTooltip === false ? undefined : props.title?.trim()}
-			data-role={props.dataRole ?? DataRoles.Icon}
-			onClick={props.onClick}
+			title={showTitleAsTooltip === false ? undefined : title?.trim()}
+			data-role={dataRole ?? DataRoles.Icon}
+			onClick={onClick}
 		>
 			<span aria-hidden="true">
-				{props.iconTheme === "custom" && codePoint ? String.fromCodePoint(codePoint) : iconLabel}
+				{iconTheme === "custom" && codePoint ? String.fromCodePoint(codePoint) : iconLabel}
 			</span>
-			{props.title && <HiddenText>{props.title}</HiddenText>}
+			{hiddenTextContent && <HiddenText>{hiddenTextContent}</HiddenText>}
 		</StyledIconRendered>
 	);
 }

@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode, ReactElement } from "react";
+import type { ReactNode, ReactElement, FocusEvent } from "react";
 import { useRef, useState, useCallback, useMemo } from "react";
 
 import {
@@ -49,6 +49,8 @@ import {
 	HiddenText
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
+import { validateYearOnBlur } from "../inputs/year-selector/year-selector-validation.utils.js";
+
 const BufferedStringInput = BufferedInput(HTMLInputAdapter(TextField));
 const dateTimeFormat = "MM/DD/YYYY h:mm A";
 const id = "date-time-picker-simple";
@@ -60,6 +62,7 @@ export function SimpleDateTimePicker(): ReactElement {
 	const [showPicker, setShowPicker] = useState(false);
 	const [selectedDate, setSelectedDate] = useState<Date | undefined>();
 	const [value, setValue] = useState("");
+	const [yearErrorMessage, setYearErrorMessage] = useState<string | undefined>();
 
 	const getReferenceElement = useCallback((ref: HTMLButtonElement | null): void => {
 		referenceElement.current = ref;
@@ -86,6 +89,10 @@ export function SimpleDateTimePicker(): ReactElement {
 		setValue("");
 	}, []);
 
+	const handleYearBlur = useCallback((ev: FocusEvent<HTMLInputElement>): void => {
+		setYearErrorMessage(validateYearOnBlur(ev, { min: 1900, max: new Date().getFullYear() }));
+	}, []);
+
 	const renderPicker = useMemo((): ReactNode => {
 		return provider.hasTouch() ? (
 			<ModalOverlay preventScroll closeOnOutsideClick={provider.isDesktop()} noGutter onClose={onClose}>
@@ -96,6 +103,8 @@ export function SimpleDateTimePicker(): ReactElement {
 					onAccept={onAcceptValue}
 					onClose={onClose}
 					dateDisplayInTimePicker={selectedDate ? DateTimeUtils.formatUTCDateTime(selectedDate) : ""}
+					onYearSelectorBlur={handleYearBlur}
+					yearErrorMessage={yearErrorMessage}
 				/>
 			</ModalOverlay>
 		) : referenceElement.current ? (
@@ -130,11 +139,13 @@ export function SimpleDateTimePicker(): ReactElement {
 							screenRef?.focus();
 						});
 					}}
+					onYearSelectorBlur={handleYearBlur}
+					yearErrorMessage={yearErrorMessage}
 				/>
 			</AttachedPortal>
 		) : undefined;
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [onClose, selectedDate, referenceElement.current]);
+	}, [onClose, selectedDate, referenceElement.current, handleYearBlur, yearErrorMessage]);
 
 	const errorMessage = useMemo(
 		() => value !== "" && !DateTimeUtils.parseDateTimeUTC(value, dateTimeFormat) && `Invalid value: ${value}`,

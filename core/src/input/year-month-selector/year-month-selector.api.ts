@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { RefCallback, HTMLProps, ReactNode } from "react";
+import type { RefCallback, HTMLProps, ReactNode, FocusEvent } from "react";
 
 import type { BaseInputProps } from "../base/template/base.tpl.api.js";
 
-import type { YearRange } from "./year-selector.api.js";
+import type { YearRange, YearSelectorVariant, RelativeYearRange } from "./year-selector.api.js";
 import type { OptionalYearMonthItem } from "./month-selector.api.js";
 
 export interface YearMonthSelectorProps extends Omit<BaseInputProps, "hideLabel"> {
@@ -66,10 +66,29 @@ export interface YearMonthSelectorProps extends Omit<BaseInputProps, "hideLabel"
 	months?: string[];
 
 	/**
-	 * The value of the start and end years.
+	 * The range of selectable years, either as absolute values (`YearRange`) or
+	 * relative offsets from the reference year (`RelativeYearRange`).
+	 * Single-bound ranges are supported; the missing side is filled automatically.
 	 * @default start: {@link year} - 6; end: {@link year} + 7
 	 */
-	yearRange?: YearRange;
+	yearRange?: YearRange | RelativeYearRange;
+
+	/**
+	 * Controls the rendering mode of the embedded YearSelector.
+	 * When omitted, the mode is auto-detected: `"autocomplete"` if {@link yearRange} is provided, `"textbox"` otherwise.
+	 */
+	yearSelectorVariant?: YearSelectorVariant;
+
+	/**
+	 * Placeholder text shown in the YearSelector when no year is selected.
+	 */
+	yearPlaceholder?: string;
+
+	/**
+	 * Callback invoked when the embedded YearSelector loses focus.
+	 * Applies to `textbox` and `autocomplete` variants;
+	 */
+	onYearSelectorBlur?(event: FocusEvent<HTMLInputElement>): void;
 
 	/**
 	 * The hidden labels that can be used by screen reader.
@@ -97,12 +116,14 @@ export interface YearMonthSelectorProps extends Omit<BaseInputProps, "hideLabel"
 
 	/**
 	 * The reference of the year selector.
+	 * Only applies when `yearSelectorVariant="select"`.
 	 * @param instance – the select element instance.
 	 */
 	yearSelectRef?: RefCallback<HTMLSelectElement>;
 
 	/**
 	 * Additional properties that will be passed to the Year Selector's HTML select Element.
+	 * Only applies when `yearSelectorVariant="select"`.
 	 */
 	inputPropsOfYearSelector?: HTMLProps<HTMLSelectElement>;
 

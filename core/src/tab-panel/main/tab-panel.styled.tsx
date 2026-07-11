@@ -173,3 +173,92 @@ export const StyledTabPanelPanel = styled.div.withConfig({ displayName: "StyledT
 		outline: none;
 	`;
 });
+
+export const StyledTabGroup = styled.li.withConfig({ displayName: "StyledTabGroup-sc-" })<{
+	$orientation?: TabPanelOrientation;
+}>(({ theme, $orientation }) => {
+	const { tabs } = theme.components.tabPanel;
+	const isHorizontal = $orientation === "horizontal";
+
+	return css`
+		background-color: ${tabs.background};
+		display: flex;
+		flex-direction: ${isHorizontal ? "row" : "column"};
+		list-style: none;
+		position: relative;
+	`;
+});
+
+export const StyledGroupDivider = styled.li.withConfig({ displayName: "StyledGroupDivider-sc-" })<{
+	$orientation?: TabPanelOrientation;
+}>(({ theme, $orientation }) => {
+	const { groupTab } = theme.components.tabPanel;
+
+	return css`
+		box-sizing: content-box;
+		flex-shrink: 0;
+		list-style: none;
+		height: 0;
+
+		&:first-child {
+			padding-top: ${groupTab.divider.margin};
+			margin-top: 0;
+		}
+
+		${$orientation === "horizontal"
+			? css`
+					height: 100%;
+					margin: auto ${groupTab.divider.margin};
+					position: relative;
+					width: 0;
+					z-index: 1;
+
+					&::before {
+						background-color: ${groupTab.divider.background};
+						bottom: ${groupTab.divider.margin};
+						content: "";
+						left: 0;
+						position: absolute;
+						top: ${groupTab.divider.margin};
+						width: 1px;
+						transform: scaleX(0.9);
+					}
+				`
+			: css`
+					margin: ${groupTab.divider.margin} 0;
+
+					&::before {
+						background-color: ${groupTab.divider.background};
+						content: "";
+						display: block;
+						height: 1px;
+						margin: 0 ${groupTab.divider.margin};
+						transform: scaleY(0.9);
+					}
+				`}
+	`;
+});
+
+export const StyledTabGroupList = styled.ul.withConfig({ displayName: "StyledTabGroupList-sc-" })<{
+	$orientation?: TabPanelOrientation;
+}>(({ $orientation }) => {
+	return css`
+		display: flex;
+		flex-direction: ${$orientation === "horizontal" ? "row" : "column"};
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	`;
+});
+
+export const StyledSubGroupLabel = styled.div.withConfig({ displayName: "StyledSubGroupLabel-sc-" })(({ theme }) => {
+	const { subGroup } = theme.components.tabPanel.groupTab;
+
+	return css`
+		background-color: ${subGroup.background};
+		cursor: default;
+		font-size: ${subGroup.fontSize};
+		font-weight: ${subGroup.fontWeight};
+		padding: ${subGroup.padding};
+	`;
+});

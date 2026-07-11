@@ -13,7 +13,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -153,7 +154,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c24.c24 {
+.StyledMasterDetailLayoutView-fvsTKU .c24.c24 {
   padding: 0px 24px;
 }
 
@@ -222,36 +223,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
   padding: 16px;
 }
 
-.c27 {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-}
-
-.c25 {
-  flex: 1 1 0%;
-  flex-direction: column;
-  padding: 8px 0px;
-}
-
-.StyledMasterDetailLayoutPane-iBWYYD .c25.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c25.masterDetailLayoutPane--exit {
-  flex: 1 0 auto;
-}
-
-.c30.c30 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c30.c30:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
-}
-
 .c17 {
   align-items: center;
   background: rgba(22, 25, 29, 0.4);
@@ -295,6 +266,36 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
 
 .c20 .c21 {
   border-radius: 0px;
+}
+
+.c27 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c25 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-bIaFkb .c25.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c25.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c30.c30 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c30.c30:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .c7 {
@@ -705,6 +706,12 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
   }
 }
 
+@media only screen and (max-width: 756px) {
+  .c20 {
+    width: 100%;
+  }
+}
+
 @media (pointer: coarse) {
   .c30.c30:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -721,12 +728,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
     box-shadow: none;
     color: rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media only screen and (max-width: 756px) {
-  .c20 {
-    width: 100%;
   }
 }
 
@@ -851,18 +852,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
   >
     <div
       class="c1 field-wrapper field-wrapper--block"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-autocomplete__input"
             id="test-id-autocomplete__input-label"
           >
@@ -873,7 +874,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
             aria-expanded="true"
             aria-haspopup="listbox"
             class="c8 c9 field__input"
-            data-role="textline-input-wrapper"
+            data-isfocused="false"
+            data-role="text-field-input-wrapper"
             id="test-id-autocomplete__input-wrapper"
             role="combobox"
             tabindex="0"
@@ -884,7 +886,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
             <input
               aria-hidden="true"
               class="c11 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-autocomplete__input"
               type="text"
               value=""
@@ -894,7 +896,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
             />
             <div
               class="c12 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <i
                 aria-hidden="true"
@@ -994,19 +996,19 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
               >
                 <div
                   class="c33 field-wrapper field-wrapper--block field-wrapper--mobile"
-                  data-role="textline"
+                  data-role="text-field"
                 >
                   <div
                     class="c2 c3 field__main"
                   >
                     <div
                       class="c4 c5 field"
-                      data-role="textline-control"
+                      data-role="text-field-control"
                     >
                       <div
                         class="c8 c34 field__input field__input--focus"
                         data-isfocused="true"
-                        data-role="textline-input-wrapper"
+                        data-role="text-field-input-wrapper"
                       >
                         <span
                           class="c10 supported-unseen-span"
@@ -1017,7 +1019,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
                           aria-haspopup="listbox"
                           autocomplete="off"
                           class="c11 field__text"
-                          data-role="textline-input"
+                          data-role="text-field-input"
                           role="combobox"
                           type="text"
                           value=""
@@ -1027,7 +1029,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render autocomplete with li
                         />
                         <div
                           class="c12 field__suffix field__suffix--first"
-                          data-role="textline-suffix-0"
+                          data-role="text-field-suffix-0"
                         >
                           <i
                             aria-hidden="true"
@@ -1525,6 +1527,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1555,7 +1558,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1979,18 +1983,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
 >
   <div
     class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c2 c3 field__main"
     >
       <div
         class="c4 c5 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c6 c7 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-autocomplete__input"
           id="test-id-autocomplete__input-label"
         >
@@ -2004,7 +2008,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
         </label>
         <div
           class="c9 message message--error field__message"
-          data-role="textline-error-message"
+          data-role="text-field-error-message"
           id="test-id-autocomplete__input-error"
         >
           <div
@@ -2037,7 +2041,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
         </div>
         <div
           class="c16 message message--warning field__message"
-          data-role="textline-warning-message"
+          data-role="text-field-warning-message"
           id="test-id-autocomplete__input-warning"
         >
           <div
@@ -2070,7 +2074,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
         </div>
         <div
           class="c19 field__message"
-          data-role="textline-info-message"
+          data-role="text-field-info-message"
           id="test-id-autocomplete__input-info"
         >
           <div
@@ -2107,7 +2111,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
           aria-haspopup="listbox"
           aria-placeholder="Autocomplete placeholder"
           class="c21 field__input field__input--warning field__input--error"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
           id="test-id-autocomplete__input-wrapper"
           role="combobox"
           tabindex="0"
@@ -2119,7 +2123,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
             aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
             aria-hidden="true"
             class="c23 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-autocomplete__input"
             placeholder="Autocomplete placeholder"
             tabindex="-1"
@@ -2131,7 +2135,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
           />
           <div
             class="c24 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
+            data-role="text-field-suffix-0"
           >
             <button
               class="c25 c26 button button--icon"
@@ -2154,7 +2158,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
           </div>
           <div
             class="c27 field__suffix"
-            data-role="textline-suffix-1"
+            data-role="text-field-suffix-1"
           >
             <i
               aria-hidden="true"
@@ -2172,7 +2176,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
       </div>
       <div
         class="c30 c31 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         <span
           class="c32 c33 tooltip tooltip--hint"
@@ -2212,7 +2216,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
     >
       <label
         class="c35 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-autocomplete__input"
       >
         Helper text
@@ -2317,6 +2321,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2347,7 +2352,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2480,7 +2486,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c44.c44 {
+.StyledMasterDetailLayoutView-fvsTKU .c44.c44 {
   padding: 0px 24px;
 }
 
@@ -2549,36 +2555,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
   padding: 16px;
 }
 
-.c47 {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-}
-
-.c45 {
-  flex: 1 1 0%;
-  flex-direction: column;
-  padding: 8px 0px;
-}
-
-.StyledMasterDetailLayoutPane-iBWYYD .c45.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c45.masterDetailLayoutPane--exit {
-  flex: 1 0 auto;
-}
-
-.c48.c48 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c48.c48:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
-}
-
 .c37 {
   align-items: center;
   background: rgba(22, 25, 29, 0.4);
@@ -2622,6 +2598,36 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
 
 .c40 .c41 {
   border-radius: 0px;
+}
+
+.c47 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c45 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-bIaFkb .c45.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c45.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c48.c48 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c48.c48:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .c7 {
@@ -3071,6 +3077,12 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
   }
 }
 
+@media only screen and (max-width: 756px) {
+  .c40 {
+    width: 100%;
+  }
+}
+
 @media (pointer: coarse) {
   .c48.c48:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -3087,12 +3099,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
     box-shadow: none;
     color: rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media only screen and (max-width: 756px) {
-  .c40 {
-    width: 100%;
   }
 }
 
@@ -3180,18 +3186,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
   >
     <div
       class="c1 field-wrapper field-wrapper--block"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-autocomplete__input"
             id="test-id-autocomplete__input-label"
           >
@@ -3205,7 +3211,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
           </label>
           <div
             class="c9 message message--error field__message"
-            data-role="textline-error-message"
+            data-role="text-field-error-message"
             id="test-id-autocomplete__input-error"
           >
             <div
@@ -3238,7 +3244,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
           </div>
           <div
             class="c16 message message--warning field__message"
-            data-role="textline-warning-message"
+            data-role="text-field-warning-message"
             id="test-id-autocomplete__input-warning"
           >
             <div
@@ -3271,7 +3277,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
           </div>
           <div
             class="c19 field__message"
-            data-role="textline-info-message"
+            data-role="text-field-info-message"
             id="test-id-autocomplete__input-info"
           >
             <div
@@ -3308,7 +3314,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
             aria-haspopup="listbox"
             aria-placeholder="Autocomplete placeholder"
             class="c21 field__input field__input--warning field__input--error"
-            data-role="textline-input-wrapper"
+            data-isfocused="false"
+            data-role="text-field-input-wrapper"
             id="test-id-autocomplete__input-wrapper"
             role="combobox"
             tabindex="0"
@@ -3320,7 +3327,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
               aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
               aria-hidden="true"
               class="c23 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-autocomplete__input"
               placeholder="Autocomplete placeholder"
               type="text"
@@ -3331,7 +3338,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
             />
             <div
               class="c24 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <button
                 class="c25 c26 button button--icon"
@@ -3354,7 +3361,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
             </div>
             <div
               class="c27 field__suffix"
-              data-role="textline-suffix-1"
+              data-role="text-field-suffix-1"
             >
               <i
                 aria-hidden="true"
@@ -3372,7 +3379,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
         </div>
         <div
           class="c30 c31 field-addon field-addon--after"
-          data-role="textline--addon-after-0"
+          data-role="text-field--addon-after-0"
         >
           <span
             class="c32 c33 tooltip tooltip--hint"
@@ -3412,7 +3419,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
       >
         <label
           class="c35 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id-autocomplete__input"
         >
           Helper text
@@ -3536,18 +3543,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
               >
                 <div
                   class="c51 field-wrapper field-wrapper--block field-wrapper--mobile"
-                  data-role="textline"
+                  data-role="text-field"
                 >
                   <div
                     class="c2 c3 field__main"
                   >
                     <div
                       class="c4 c5 field"
-                      data-role="textline-control"
+                      data-role="text-field-control"
                     >
                       <label
                         class="c6 c52 label field__label -u-unseenButRead"
-                        data-role="textline-label"
+                        data-role="text-field-label"
                       >
                         <span
                           class="c53 -u-unseenButRead"
@@ -3558,7 +3565,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                       </label>
                       <div
                         class="c9 message message--error field__message"
-                        data-role="textline-error-message"
+                        data-role="text-field-error-message"
                       >
                         <div
                           class="c10 messageIcon"
@@ -3590,7 +3597,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                       </div>
                       <div
                         class="c16 message message--warning field__message"
-                        data-role="textline-warning-message"
+                        data-role="text-field-warning-message"
                       >
                         <div
                           class="c10 messageIcon"
@@ -3622,7 +3629,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                       </div>
                       <div
                         class="c19 field__message"
-                        data-role="textline-info-message"
+                        data-role="text-field-info-message"
                       >
                         <div
                           class="c10"
@@ -3655,7 +3662,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                       <div
                         class="c54 field__input field__input--warning field__input--error field__input--focus"
                         data-isfocused="true"
-                        data-role="textline-input-wrapper"
+                        data-role="text-field-input-wrapper"
                       >
                         <span
                           class="c22 supported-unseen-span"
@@ -3668,7 +3675,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                           aria-required="true"
                           autocomplete="off"
                           class="c23 field__text"
-                          data-role="textline-input"
+                          data-role="text-field-input"
                           placeholder="Autocomplete placeholder"
                           role="combobox"
                           type="text"
@@ -3679,7 +3686,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                         />
                         <div
                           class="c24 field__suffix field__suffix--first"
-                          data-role="textline-suffix-0"
+                          data-role="text-field-suffix-0"
                         >
                           <button
                             class="c25 c26 button button--icon"
@@ -3702,7 +3709,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                         </div>
                         <div
                           class="c27 field__suffix"
-                          data-role="textline-suffix-1"
+                          data-role="text-field-suffix-1"
                         >
                           <i
                             aria-hidden="true"
@@ -3720,7 +3727,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                     </div>
                     <div
                       class="c30 c31 field-addon field-addon--after"
-                      data-role="textline--addon-after-0"
+                      data-role="text-field--addon-after-0"
                     >
                       <span
                         class="c32 c33 tooltip tooltip--hint"
@@ -3764,7 +3771,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
                     data-role="dropdown"
                     id="test-id-dropdown"
                     role="presentation"
-                    style="width: 1191.78px;"
+                    style="width: 1204px;"
                     tabindex="0"
                   >
                     <div
@@ -4154,786 +4161,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render default mobile autoc
 </div>
 `;
 
-exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render disabled mobile autocomplete 1`] = `
-.c8 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 1px;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  width: 1px;
-  margin: -1px !important;
-}
-
-.c8 * {
-  width: 1px;
-  height: 1px;
-}
-
-.c34 {
-  display: inline-block;
-  font-size: 0px;
-  vertical-align: middle;
-  color: rgb(5, 104, 174);
-}
-
-.c13 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: custom-icons;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c13 > span {
-  display: inline-block;
-}
-
-.c13.c13 {
-  max-width: unset;
-}
-
-.c33 .c13 {
-  color: inherit;
-}
-
-.c17 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Icons";
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c17 > span {
-  display: inline-block;
-}
-
-.c17.c17 {
-  max-width: unset;
-}
-
-.c33 .c17 {
-  color: inherit;
-}
-
-.c29.c29.c29,
-.c33 .c29.c29.c29 {
-  font-size: 1.5rem;
-}
-
-.c14.c14 {
-  color: rgb(201, 29, 29);
-}
-
-.c18.c18 {
-  color: rgb(175, 121, 2);
-}
-
-.c20.c20 {
-  color: rgb(5, 104, 174);
-}
-
-.c27 {
-  align-items: center;
-  border: 2px solid transparent;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-  gap: 4px;
-  outline: none;
-  position: relative;
-  text-transform: uppercase;
-  vertical-align: middle;
-  border-radius: 50%;
-  flex-shrink: 0;
-  font-size: 1.125rem;
-  height: 2rem;
-  min-height: 0px;
-  padding: 0px;
-  width: 2rem;
-  background: transparent;
-  color: rgb(5, 104, 174);
-}
-
-.c27 .c11 {
-  user-select: none;
-}
-
-.c27 .c11 {
-  color: inherit;
-}
-
-.c27 .c11 {
-  font-size: inherit;
-}
-
-.c27:not(:disabled):focus {
-  outline: rgb(51, 51, 51) dotted 1px;
-  background-color: transparent;
-  box-shadow: none;
-  color: rgb(213, 0, 117);
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.c33 .c27.c27 {
-  font-size: 1.25rem;
-  height: fit-content;
-  min-height: 0px;
-  padding: 0px;
-  width: fit-content;
-}
-
-.c33 .c27.c27:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c33 .c27.c27:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
-  color: inherit;
-}
-
-.c33 .c27.c27:focus .c11 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c27.c27 {
-  display: block;
-  height: auto;
-  min-height: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c27.c27 > .c11 {
-  display: block;
-}
-
-.c7 {
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.45;
-  text-transform: none;
-  margin: 0px 0px 4px;
-  align-self: center;
-  color: rgb(169, 179, 188);
-}
-
-.c7:empty {
-  display: none;
-}
-
-.c9 {
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0px 0px 4px;
-  padding: 4px 8px;
-  background: rgb(252, 233, 233);
-  color: rgb(201, 29, 29);
-}
-
-.c16 {
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0px 0px 4px;
-  padding: 4px 8px;
-  background: rgb(254, 242, 218);
-  color: rgb(22, 25, 29);
-}
-
-.c19 {
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0px 0px 4px;
-  padding: 4px 8px;
-  background: rgb(230, 244, 254);
-  color: rgb(5, 104, 174);
-}
-
-.c10 {
-  display: flex;
-  margin-right: 4px;
-}
-
-.c10 .c11 {
-  font-size: 1.25rem;
-}
-
-.c15 {
-  align-self: center;
-  max-width: calc(100% - 4px - 1.25rem);
-}
-
-.c30 {
-  user-select: none;
-  color: inherit;
-  cursor: default;
-}
-
-.c32 {
-  align-items: center;
-  align-self: flex-end;
-  display: flex;
-  flex-shrink: 0;
-  height: 32px;
-  margin: 0px 0px 0px 4px;
-  justify-content: center;
-}
-
-.c36 {
-  color: rgb(97, 111, 124);
-  display: block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  line-height: 1.25;
-  margin: 4px 0px 0px;
-  width: fit-content;
-}
-
-.c35 {
-  display: flex;
-}
-
-.c35 .c31 {
-  height: auto;
-  visibility: hidden;
-}
-
-.c25 {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  min-width: 32px;
-  margin-left: -12px;
-}
-
-.c25:last-child {
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}
-
-.c28 {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  min-width: 32px;
-}
-
-.c28:last-child {
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}
-
-.c24 {
-  background-color: transparent;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  box-sizing: border-box;
-  color: inherit;
-  flex-grow: 1;
-  font-style: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.45;
-  outline: none;
-  padding: 0px 12px;
-  text-align: inherit;
-  text-overflow: ellipsis;
-  text-transform: inherit;
-  min-width: 0px;
-  width: 100%;
-}
-
-.c24::placeholder {
-  font-style: italic;
-  color: rgb(89, 102, 115);
-  opacity: 1;
-}
-
-.c39 .c26 {
-  border-radius: 0px;
-}
-
-.c40 .c26 {
-  border-radius: 0px;
-}
-
-.c41 .c26 {
-  border-radius: 0px;
-}
-
-.c22 {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  outline: transparent solid 1px;
-  height: 32px;
-  background-color: rgb(226, 230, 233);
-  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
-  color: rgb(169, 179, 188);
-}
-
-.c22 .c26 {
-  border-radius: 0px;
-}
-
-.c37 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c38 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c1 {
-  overflow-wrap: break-word;
-  word-break: break-word;
-  flex-direction: column;
-  display: flex;
-  width: 100%;
-}
-
-.c1 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c1 * {
-  max-width: 100%;
-}
-
-.c1[class*="h_"] .c21 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c1[class*="h_"] .c6 {
-  color: rgb(169, 179, 188) !important;
-}
-
-.c5 {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.c5 > .c33 {
-  margin: 0px 4px 4px 0px;
-}
-
-.c5 .c6 {
-  display: block;
-  width: fit-content;
-}
-
-.c3 {
-  display: inline-flex;
-}
-
-.c3 .c4 {
-  flex: 1 1 160px;
-  max-width: 100%;
-}
-
-.c23 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
-}
-
-.c0 {
-  position: relative;
-  width: 100%;
-}
-
-.c0[class*="h_"] .c21 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c0[class*="h_"] .c6 {
-  color: rgb(169, 179, 188) !important;
-}
-
-@media (pointer: coarse) {
-  .c27:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c27:not(:disabled):hover {
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c27:hover {
-    outline: transparent solid 1px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c33 .c27.c27:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c33 .c27.c27:active .c11 {
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c33 .c27.c27:hover .c11 {
-    color: inherit;
-  }
-}
-
-<div
-  class="c0 autocomplete"
-  data-role="autocomplete"
->
-  <div
-    class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
-  >
-    <div
-      class="c2 c3 field__main"
-    >
-      <div
-        class="c4 c5 field"
-        data-role="textline-control"
-      >
-        <label
-          class="c6 c7 label field__label label--disabled"
-          data-disabled="true"
-          data-role="textline-label"
-          for="test-id-autocomplete__input"
-          id="test-id-autocomplete__input-label"
-        >
-          Basic Autocomplete
-          <span
-            class="c8 -u-unseenButRead"
-            data-role="hidden-text"
-          >
-            , Autocomplete placeholder
-          </span>
-        </label>
-        <div
-          class="c9 message message--error field__message"
-          data-role="textline-error-message"
-          id="test-id-autocomplete__input-error"
-        >
-          <div
-            class="c10 messageIcon"
-          >
-            <i
-              class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
-              data-role="plasma-icon"
-              title="Error"
-            >
-              <span
-                aria-hidden="true"
-              >
-                
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Error
-              </span>
-            </i>
-          </div>
-          <div
-            class="c15 messageText"
-            data-role="error-text"
-          >
-            Error message
-          </div>
-        </div>
-        <div
-          class="c16 message message--warning field__message"
-          data-role="textline-warning-message"
-          id="test-id-autocomplete__input-warning"
-        >
-          <div
-            class="c10 messageIcon"
-          >
-            <i
-              class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
-              data-role="plasma-icon"
-              title="Warning"
-            >
-              <span
-                aria-hidden="true"
-              >
-                warning
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Warning
-              </span>
-            </i>
-          </div>
-          <div
-            class="c15 messageText"
-            data-role="warning-text"
-          >
-            Warning message
-          </div>
-        </div>
-        <div
-          class="c19 field__message"
-          data-role="textline-info-message"
-          id="test-id-autocomplete__input-info"
-        >
-          <div
-            class="c10"
-          >
-            <i
-              class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
-              data-role="plasma-icon"
-              title="Information"
-            >
-              <span
-                aria-hidden="true"
-              >
-                info
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Information
-              </span>
-            </i>
-          </div>
-          <div
-            class="c15"
-            data-role="info-text"
-          >
-            Info message
-          </div>
-        </div>
-        <div
-          aria-describedby="test-id-autocomplete__input test-id-autocomplete__input-label test-id-autocomplete__input-info test-id-autocomplete__input-warning test-id-autocomplete__input-error"
-          aria-placeholder="Autocomplete placeholder"
-          class="c21 c22 field__input field__input--disabled field__input--warning field__input--error"
-          data-disabled="true"
-          data-role="textline-input-wrapper"
-          id="test-id-autocomplete__input-wrapper"
-          role="combobox"
-          tabindex="0"
-        >
-          <span
-            class="c23 supported-unseen-span"
-          />
-          <input
-            aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
-            aria-hidden="true"
-            class="c24 field__text"
-            data-role="textline-input"
-            disabled=""
-            id="test-id-autocomplete__input"
-            placeholder="Autocomplete placeholder"
-            tabindex="-1"
-            type="text"
-            value=""
-          />
-          <span
-            class="c23 supported-unseen-span"
-          />
-          <div
-            class="c25 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
-          >
-            <button
-              class="c26 c27 button button--icon"
-              data-role="button"
-              data-type="icon"
-              title=""
-              type="button"
-            >
-              <i
-                class="c11 c17 plasma-icon"
-                data-role="plasma-icon"
-              >
-                <span
-                  aria-hidden="true"
-                >
-                  description
-                </span>
-              </i>
-            </button>
-          </div>
-          <div
-            class="c28 field__suffix"
-            data-role="textline-suffix-1"
-          >
-            <i
-              aria-hidden="true"
-              class="c11 c17 c29 plasma-icon plasma-icon--big c30"
-              data-role="selection-suffix"
-            >
-              <span
-                aria-hidden="true"
-              >
-                expand_more
-              </span>
-            </i>
-          </div>
-        </div>
-      </div>
-      <div
-        class="c31 c32 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
-      >
-        <span
-          class="c33 c34 tooltip tooltip--hint"
-          data-role="tooltip-hint"
-          role="tooltip"
-          title=""
-        >
-          <button
-            class="c26 c27 button button--icon"
-            data-role="button"
-            data-type="icon"
-            title=""
-            type="button"
-          >
-            <i
-              class="c11 c17 plasma-icon"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
-              >
-                info
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Hint: Tooltip
-              </span>
-            </i>
-          </button>
-        </span>
-      </div>
-    </div>
-    <div
-      class="c35 field__helper"
-    >
-      <label
-        class="c36 field__helper-text"
-        data-role="textline-helper-text"
-        for="test-id-autocomplete__input"
-      >
-        Helper text
-      </label>
-      <div
-        class="c31 c32 field-addon field-addon--after"
-      >
-        <span
-          class="c33 c34 tooltip tooltip--hint"
-          data-role="tooltip-hint"
-          role="tooltip"
-          title=""
-        >
-          <button
-            class="c26 c27 button button--icon"
-            data-role="button"
-            data-type="icon"
-            title=""
-            type="button"
-          >
-            <i
-              class="c11 c17 plasma-icon"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
-              >
-                info
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Hint: Tooltip
-              </span>
-            </i>
-          </button>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autocomplete 1`] = `
 .c37 {
   left: 0px;
@@ -4994,6 +4221,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -5024,7 +4252,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -5172,7 +4401,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-itBzGI .c45.c45 {
+.StyledMasterDetailLayoutView-fvsTKU .c45.c45 {
   padding: 0px 24px;
 }
 
@@ -5241,36 +4470,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
   padding: 16px;
 }
 
-.c48 {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-}
-
-.c46 {
-  flex: 1 1 0%;
-  flex-direction: column;
-  padding: 8px 0px;
-}
-
-.StyledMasterDetailLayoutPane-iBWYYD .c46.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-iBWYYD .c46.masterDetailLayoutPane--exit {
-  flex: 1 0 auto;
-}
-
-.c49.c49 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c49.c49:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
-}
-
 .c38 {
   align-items: center;
   background: rgba(22, 25, 29, 0.4);
@@ -5314,6 +4513,36 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
 
 .c41 .c42 {
   border-radius: 0px;
+}
+
+.c48 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c46 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-bIaFkb .c46.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c46.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c49.c49 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c49.c49:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .c7 {
@@ -5799,6 +5028,12 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
   }
 }
 
+@media only screen and (max-width: 756px) {
+  .c41 {
+    width: 100%;
+  }
+}
+
 @media (pointer: coarse) {
   .c49.c49:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -5815,12 +5050,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
     box-shadow: none;
     color: rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media only screen and (max-width: 756px) {
-  .c41 {
-    width: 100%;
   }
 }
 
@@ -5918,18 +5147,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
   >
     <div
       class="c1 field-wrapper field-wrapper--block"
-      data-role="textline"
+      data-role="text-field"
     >
       <div
         class="c2 c3 field__main"
       >
         <div
           class="c4 c5 field"
-          data-role="textline-control"
+          data-role="text-field-control"
         >
           <label
             class="c6 c7 label field__label"
-            data-role="textline-label"
+            data-role="text-field-label"
             for="test-id-autocomplete__input"
             id="test-id-autocomplete__input-label"
           >
@@ -5943,7 +5172,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
           </label>
           <div
             class="c9 message message--error field__message"
-            data-role="textline-error-message"
+            data-role="text-field-error-message"
             id="test-id-autocomplete__input-error"
           >
             <div
@@ -5976,7 +5205,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
           </div>
           <div
             class="c16 message message--warning field__message"
-            data-role="textline-warning-message"
+            data-role="text-field-warning-message"
             id="test-id-autocomplete__input-warning"
           >
             <div
@@ -6009,7 +5238,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
           </div>
           <div
             class="c19 field__message"
-            data-role="textline-info-message"
+            data-role="text-field-info-message"
             id="test-id-autocomplete__input-info"
           >
             <div
@@ -6046,7 +5275,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
             aria-haspopup="listbox"
             aria-placeholder="Autocomplete placeholder"
             class="c21 c22 field__input field__input--warning field__input--error"
-            data-role="textline-input-wrapper"
+            data-role="text-field-input-wrapper"
             id="test-id-autocomplete__input-wrapper"
             role="combobox"
             tabindex="0"
@@ -6058,7 +5287,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
               aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
               aria-hidden="true"
               class="c24 field__text"
-              data-role="textline-input"
+              data-role="text-field-input"
               id="test-id-autocomplete__input"
               placeholder="Autocomplete placeholder"
               type="text"
@@ -6069,7 +5298,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
             />
             <div
               class="c25 field__suffix field__suffix--first"
-              data-role="textline-suffix-0"
+              data-role="text-field-suffix-0"
             >
               <button
                 class="c26 c27 button button--icon"
@@ -6092,7 +5321,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
             </div>
             <div
               class="c28 field__suffix"
-              data-role="textline-suffix-1"
+              data-role="text-field-suffix-1"
             >
               <i
                 aria-hidden="true"
@@ -6110,7 +5339,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
         </div>
         <div
           class="c31 c32 field-addon field-addon--after"
-          data-role="textline--addon-after-0"
+          data-role="text-field--addon-after-0"
         >
           <span
             class="c33 c34 tooltip tooltip--hint"
@@ -6150,7 +5379,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
       >
         <label
           class="c36 field__helper-text"
-          data-role="textline-helper-text"
+          data-role="text-field-helper-text"
           for="test-id-autocomplete__input"
         >
           Helper text
@@ -6274,18 +5503,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
               >
                 <div
                   class="c52 field-wrapper field-wrapper--block field-wrapper--mobile"
-                  data-role="textline"
+                  data-role="text-field"
                 >
                   <div
                     class="c2 c3 field__main"
                   >
                     <div
                       class="c4 c5 field"
-                      data-role="textline-control"
+                      data-role="text-field-control"
                     >
                       <label
                         class="c6 c53 label field__label -u-unseenButRead"
-                        data-role="textline-label"
+                        data-role="text-field-label"
                       >
                         <span
                           class="c54 -u-unseenButRead"
@@ -6296,7 +5525,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
                       </label>
                       <div
                         class="c9 message message--error field__message"
-                        data-role="textline-error-message"
+                        data-role="text-field-error-message"
                       >
                         <div
                           class="c10 messageIcon"
@@ -6328,7 +5557,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
                       </div>
                       <div
                         class="c16 message message--warning field__message"
-                        data-role="textline-warning-message"
+                        data-role="text-field-warning-message"
                       >
                         <div
                           class="c10 messageIcon"
@@ -6360,7 +5589,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
                       </div>
                       <div
                         class="c19 field__message"
-                        data-role="textline-info-message"
+                        data-role="text-field-info-message"
                       >
                         <div
                           class="c10"
@@ -6393,7 +5622,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
                       <div
                         class="c21 c55 field__input field__input--warning field__input--error field__input--focus"
                         data-isfocused="true"
-                        data-role="textline-input-wrapper"
+                        data-role="text-field-input-wrapper"
                       >
                         <span
                           class="c23 supported-unseen-span"
@@ -6406,7 +5635,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
                           aria-required="true"
                           autocomplete="off"
                           class="c24 field__text"
-                          data-role="textline-input"
+                          data-role="text-field-input"
                           placeholder="Autocomplete placeholder"
                           role="combobox"
                           type="text"
@@ -6417,7 +5646,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
                         />
                         <div
                           class="c25 field__suffix field__suffix--first"
-                          data-role="textline-suffix-0"
+                          data-role="text-field-suffix-0"
                         >
                           <button
                             class="c26 c27 button button--icon"
@@ -6440,7 +5669,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
                         </div>
                         <div
                           class="c28 field__suffix"
-                          data-role="textline-suffix-1"
+                          data-role="text-field-suffix-1"
                         >
                           <i
                             aria-hidden="true"
@@ -6458,7 +5687,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
                     </div>
                     <div
                       class="c31 c32 field-addon field-addon--after"
-                      data-role="textline--addon-after-0"
+                      data-role="text-field--addon-after-0"
                     >
                       <span
                         class="c33 c34 tooltip tooltip--hint"
@@ -6894,722 +6123,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render loading mobile autoc
           class="c37"
           data-role="portal-placeholder"
         />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`com.mgmtp.a12.widgets.autocomplete.mobile > render readonly mobile autocomplete 1`] = `
-.c8 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 1px;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  width: 1px;
-  margin: -1px !important;
-}
-
-.c8 * {
-  width: 1px;
-  height: 1px;
-}
-
-.c30 {
-  display: inline-block;
-  font-size: 0px;
-  vertical-align: middle;
-  color: rgb(5, 104, 174);
-}
-
-.c13 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: custom-icons;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c13 > span {
-  display: inline-block;
-}
-
-.c13.c13 {
-  max-width: unset;
-}
-
-.c29 .c13 {
-  color: inherit;
-}
-
-.c17 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Icons";
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c17 > span {
-  display: inline-block;
-}
-
-.c17.c17 {
-  max-width: unset;
-}
-
-.c29 .c17 {
-  color: inherit;
-}
-
-.c36.c36.c36,
-.c29 .c36.c36.c36 {
-  font-size: 1.5rem;
-}
-
-.c14.c14 {
-  color: rgb(201, 29, 29);
-}
-
-.c18.c18 {
-  color: rgb(175, 121, 2);
-}
-
-.c20.c20 {
-  color: rgb(5, 104, 174);
-}
-
-.c26 {
-  align-items: center;
-  border: 2px solid transparent;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-  gap: 4px;
-  outline: none;
-  position: relative;
-  text-transform: uppercase;
-  vertical-align: middle;
-  border-radius: 50%;
-  flex-shrink: 0;
-  font-size: 1.125rem;
-  height: 2rem;
-  min-height: 0px;
-  padding: 0px;
-  width: 2rem;
-  background: transparent;
-  color: rgb(5, 104, 174);
-}
-
-.c26 .c11 {
-  user-select: none;
-}
-
-.c26 .c11 {
-  color: inherit;
-}
-
-.c26 .c11 {
-  font-size: inherit;
-}
-
-.c26:not(:disabled):focus {
-  outline: rgb(51, 51, 51) dotted 1px;
-  background-color: transparent;
-  box-shadow: none;
-  color: rgb(213, 0, 117);
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.c29 .c26.c26 {
-  font-size: 1.25rem;
-  height: fit-content;
-  min-height: 0px;
-  padding: 0px;
-  width: fit-content;
-}
-
-.c29 .c26.c26:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c29 .c26.c26:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
-  color: inherit;
-}
-
-.c29 .c26.c26:focus .c11 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c26.c26 {
-  display: block;
-  height: auto;
-  min-height: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c26.c26 > .c11 {
-  display: block;
-}
-
-.c7 {
-  color: rgb(77, 77, 77);
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.45;
-  text-transform: none;
-  margin: 0px 0px 4px;
-  align-self: center;
-}
-
-.c7:empty {
-  display: none;
-}
-
-.c9 {
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0px 0px 4px;
-  padding: 4px 8px;
-  background: rgb(252, 233, 233);
-  color: rgb(201, 29, 29);
-}
-
-.c16 {
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0px 0px 4px;
-  padding: 4px 8px;
-  background: rgb(254, 242, 218);
-  color: rgb(22, 25, 29);
-}
-
-.c19 {
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0px 0px 4px;
-  padding: 4px 8px;
-  background: rgb(230, 244, 254);
-  color: rgb(5, 104, 174);
-}
-
-.c10 {
-  display: flex;
-  margin-right: 4px;
-}
-
-.c10 .c11 {
-  font-size: 1.25rem;
-}
-
-.c15 {
-  align-self: center;
-  max-width: calc(100% - 4px - 1.25rem);
-}
-
-.c28 {
-  align-items: center;
-  align-self: flex-end;
-  display: flex;
-  flex-shrink: 0;
-  height: 32px;
-  margin: 0px 0px 0px 4px;
-  justify-content: center;
-}
-
-.c32 {
-  color: rgb(97, 111, 124);
-  display: block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  line-height: 1.25;
-  margin: 4px 0px 0px;
-  width: fit-content;
-}
-
-.c31 {
-  display: flex;
-}
-
-.c31 .c27 {
-  height: auto;
-  visibility: hidden;
-}
-
-.c24 {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  min-width: 32px;
-  margin-left: -12px;
-}
-
-.c24:last-child {
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}
-
-.c23 {
-  background-color: transparent;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  box-sizing: border-box;
-  color: inherit;
-  flex-grow: 1;
-  font-style: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.45;
-  outline: none;
-  padding: 0px 12px;
-  text-align: inherit;
-  text-overflow: ellipsis;
-  text-transform: inherit;
-  min-width: 0px;
-  width: 100%;
-}
-
-.c23::placeholder {
-  font-style: italic;
-  color: rgb(89, 102, 115);
-  opacity: 1;
-}
-
-.c34 .c25 {
-  border-radius: 0px;
-}
-
-.c35 .c25 {
-  border-radius: 0px;
-}
-
-.c21 {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  outline: transparent solid 1px;
-  height: 32px;
-  background-color: rgb(241, 242, 244);
-  box-shadow: none;
-}
-
-.c21 .c25 {
-  border-radius: 0px;
-}
-
-.c1 {
-  overflow-wrap: break-word;
-  word-break: break-word;
-  flex-direction: column;
-  display: flex;
-  width: 100%;
-}
-
-.c1 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c1 * {
-  max-width: 100%;
-}
-
-.c33 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c5 {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.c5 > .c29 {
-  margin: 0px 4px 4px 0px;
-}
-
-.c5 .c6 {
-  display: block;
-  width: fit-content;
-}
-
-.c3 {
-  display: inline-flex;
-}
-
-.c3 .c4 {
-  flex: 1 1 160px;
-  max-width: 100%;
-}
-
-.c22 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
-}
-
-.c0 {
-  position: relative;
-  width: 100%;
-}
-
-@media (pointer: coarse) {
-  .c26:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c26:not(:disabled):hover {
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c26:hover {
-    outline: transparent solid 1px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c29 .c26.c26:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c29 .c26.c26:active .c11 {
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c29 .c26.c26:hover .c11 {
-    color: inherit;
-  }
-}
-
-<div
-  class="c0 autocomplete"
-  data-role="autocomplete"
->
-  <div
-    class="c1 field-wrapper field-wrapper--block"
-    data-role="textline"
-  >
-    <div
-      class="c2 c3 field__main"
-    >
-      <div
-        class="c4 c5 field"
-        data-role="textline-control"
-      >
-        <label
-          class="c6 c7 label field__label"
-          data-role="textline-label"
-          for="test-id-autocomplete__input"
-          id="test-id-autocomplete__input-label"
-        >
-          Basic Autocomplete
-          <span
-            class="c8 -u-unseenButRead"
-            data-role="hidden-text"
-          >
-            , Autocomplete placeholder
-          </span>
-        </label>
-        <div
-          class="c9 message message--error field__message"
-          data-role="textline-error-message"
-          id="test-id-autocomplete__input-error"
-        >
-          <div
-            class="c10 messageIcon"
-          >
-            <i
-              class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
-              data-role="plasma-icon"
-              title="Error"
-            >
-              <span
-                aria-hidden="true"
-              >
-                
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Error
-              </span>
-            </i>
-          </div>
-          <div
-            class="c15 messageText"
-            data-role="error-text"
-          >
-            Error message
-          </div>
-        </div>
-        <div
-          class="c16 message message--warning field__message"
-          data-role="textline-warning-message"
-          id="test-id-autocomplete__input-warning"
-        >
-          <div
-            class="c10 messageIcon"
-          >
-            <i
-              class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
-              data-role="plasma-icon"
-              title="Warning"
-            >
-              <span
-                aria-hidden="true"
-              >
-                warning
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Warning
-              </span>
-            </i>
-          </div>
-          <div
-            class="c15 messageText"
-            data-role="warning-text"
-          >
-            Warning message
-          </div>
-        </div>
-        <div
-          class="c19 field__message"
-          data-role="textline-info-message"
-          id="test-id-autocomplete__input-info"
-        >
-          <div
-            class="c10"
-          >
-            <i
-              class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
-              data-role="plasma-icon"
-              title="Information"
-            >
-              <span
-                aria-hidden="true"
-              >
-                info
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Information
-              </span>
-            </i>
-          </div>
-          <div
-            class="c15"
-            data-role="info-text"
-          >
-            Info message
-          </div>
-        </div>
-        <div
-          aria-describedby="test-id-autocomplete__input test-id-autocomplete__input-label test-id-autocomplete__input-info test-id-autocomplete__input-warning test-id-autocomplete__input-error"
-          aria-placeholder="Autocomplete placeholder"
-          class="c21 field__input field__input--readonly field__input--warning field__input--error"
-          data-readonly="true"
-          data-role="textline-input-wrapper"
-          id="test-id-autocomplete__input-wrapper"
-          role="combobox"
-          tabindex="0"
-        >
-          <span
-            class="c22 supported-unseen-span"
-          />
-          <input
-            aria-describedby="test-id-autocomplete__input-warning test-id-autocomplete__input-error test-id-autocomplete__input-info warning-tooltip test-id-autocomplete__input-label"
-            aria-hidden="true"
-            class="c23 field__text"
-            data-role="textline-input"
-            id="test-id-autocomplete__input"
-            placeholder="Autocomplete placeholder"
-            readonly=""
-            tabindex="-1"
-            type="text"
-            value=""
-          />
-          <span
-            class="c22 supported-unseen-span"
-          />
-          <div
-            class="c24 field__suffix field__suffix--first"
-            data-role="textline-suffix-0"
-          >
-            <button
-              class="c25 c26 button button--icon"
-              data-role="button"
-              data-type="icon"
-              title=""
-              type="button"
-            >
-              <i
-                class="c11 c17 plasma-icon"
-                data-role="plasma-icon"
-              >
-                <span
-                  aria-hidden="true"
-                >
-                  description
-                </span>
-              </i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="c27 c28 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
-      >
-        <span
-          class="c29 c30 tooltip tooltip--hint"
-          data-role="tooltip-hint"
-          role="tooltip"
-          title=""
-        >
-          <button
-            class="c25 c26 button button--icon"
-            data-role="button"
-            data-type="icon"
-            title=""
-            type="button"
-          >
-            <i
-              class="c11 c17 plasma-icon"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
-              >
-                info
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Hint: Tooltip
-              </span>
-            </i>
-          </button>
-        </span>
-      </div>
-    </div>
-    <div
-      class="c31 field__helper"
-    >
-      <label
-        class="c32 field__helper-text"
-        data-role="textline-helper-text"
-        for="test-id-autocomplete__input"
-      >
-        Helper text
-      </label>
-      <div
-        class="c27 c28 field-addon field-addon--after"
-      >
-        <span
-          class="c29 c30 tooltip tooltip--hint"
-          data-role="tooltip-hint"
-          role="tooltip"
-          title=""
-        >
-          <button
-            class="c25 c26 button button--icon"
-            data-role="button"
-            data-type="icon"
-            title=""
-            type="button"
-          >
-            <i
-              class="c11 c17 plasma-icon"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
-              >
-                info
-              </span>
-              <span
-                class="c8 -u-unseenButRead"
-                data-role="hidden-text"
-              >
-                Hint: Tooltip
-              </span>
-            </i>
-          </button>
-        </span>
       </div>
     </div>
   </div>

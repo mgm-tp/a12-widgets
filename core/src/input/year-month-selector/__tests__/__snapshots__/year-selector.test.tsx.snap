@@ -84,7 +84,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering disabled year sel
   color: rgb(169, 179, 188);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -130,7 +131,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering disabled year sel
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -343,7 +344,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
   color: rgb(127, 140, 155);
   content: "";
   display: none;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -389,7 +391,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -558,7 +560,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
+.c0[class*="h_"] .c8.c8 {
   background-color: inherit !important;
 }
 
@@ -597,12 +599,13 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c7::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -618,18 +621,24 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
   overflow-wrap: normal;
 }
 
-.c5 {
+.c6 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c6:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
+}
+
+.c5 {
+  appearance: none;
+  color: rgb(97, 111, 124);
+  font-style: italic;
 }
 
 @media (pointer: coarse) {
@@ -646,7 +655,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c6:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -654,14 +663,14 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c6:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -679,102 +688,103 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
         <option
           class="c5 field__selectOption"
           data-role="year-selector-option"
+          value=""
         >
           additional Item
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1990"
         >
           1990
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1991"
         >
           1991
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1992"
         >
           1992
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1993"
         >
           1993
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1994"
         >
           1994
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1995"
         >
           1995
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1996"
         >
           1996
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1997"
         >
           1997
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1998"
         >
           1998
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="1999"
         >
           1999
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="2000"
         >
           2000
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="2001"
         >
           2001
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="2002"
         >
           2002
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c6 field__selectOption"
           data-role="year-selector-option"
           value="2003"
         >
@@ -783,7 +793,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c7 field__select-arrow"
       />
     </div>
   </div>
@@ -816,6 +826,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error and wa
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -842,7 +853,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error and wa
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -995,7 +1007,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error and wa
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1054,7 +1067,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error and wa
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -1329,7 +1342,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error state 
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1388,7 +1402,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error state 
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -1613,7 +1627,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with helper text 
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1672,7 +1687,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with helper text 
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -1945,7 +1960,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with hidden label
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2004,7 +2020,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with hidden label
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <label
@@ -2158,7 +2174,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2296,7 +2313,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2355,7 +2373,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -2598,7 +2616,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2657,7 +2676,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -2868,7 +2887,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2927,7 +2947,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
 }
 
 <div
-  class="c0 c1 field field--tooltips field--tooltips-1 field--block year-selector"
+  class="c0 c1 field field--tooltips field--tooltips-1 field--block "
   data-role="year-selector"
 >
   <div
@@ -3139,7 +3159,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -3198,7 +3219,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   Test Tooltip
@@ -3410,7 +3431,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning stat
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -3469,7 +3491,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning stat
 }
 
 <div
-  class="c0 c1 field field--block year-selector"
+  class="c0 c1 field field--block "
   data-role="year-selector"
 >
   <div
@@ -3697,7 +3719,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering year selector 1`]
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -3756,7 +3779,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering year selector 1`]
 }
 
 <div
-  class="c0 field field--block year-selector year-selector-class"
+  class="c0 field field--block year-selector-class"
   data-role="year-selector"
   style="background: red;"
 >

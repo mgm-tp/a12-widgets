@@ -33,9 +33,9 @@
 import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import type { BaseColumnType } from "../new-api/column.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../new-api/table.view.js";
-import { PlaceHolderBodyCell } from "../new-api/table.place-holder-body-cell.view.js";
+import type { BaseColumnType } from "../main/column.api.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { PlaceHolderBodyCell } from "../main/table.place-holder-body-cell.view.js";
 
 describe("com.mgmtp.a12.widgets.table.placeholder-body-cell", () => {
 	test("default", () => {

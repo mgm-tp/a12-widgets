@@ -31,16 +31,24 @@
  */
 
 import { describe, expect, test } from "vitest";
-import { render } from "test-utils";
+import { getAllByDataRole, getByDataRole, render, waitFor } from "test-utils";
 import { $createLineBreakNode, $createParagraphNode, $createTextNode, $getRoot } from "lexical";
 import { userEvent } from "vitest/browser";
 
 import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { editorThemeClasses } from "../../main/themes/themes.js";
-import type { ButtonType } from "../../main/plugins/index.js";
-import { BoldButton, createInlineButton } from "../../main/plugins/index.js";
+import type { ButtonType, InlineButtonProps } from "../../main/plugins/index.js";
+import {
+	AlignButtonGroup,
+	BoldButton,
+	createButtonGroup,
+	createInlineButton,
+	ItalicButton,
+	UnderlineButton
+} from "../../main/plugins/index.js";
 import { RichTextEditor } from "../../main/rich-text-editor.view.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 
 import { BUTTONS } from "./toolbar-button.js";
 
@@ -158,14 +166,22 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.toolbar-plugin", () => {
 
 			const editorInput = await findByDataRole(DataRoles.RichTextEditor.Input);
 			const paragraphChildNode = editorInput.children[0].childNodes;
-			const [_, br, secondLineNode] = Array.from(paragraphChildNode).filter(
-				(n): n is HTMLElement => n.nodeType === Node.ELEMENT_NODE
+			const [, br] = Array.from(paragraphChildNode).filter(
+				(node): node is HTMLElement => node.nodeType === Node.ELEMENT_NODE
 			);
+
+			const getSecondLineNode = (): HTMLElement => {
+				const elements = Array.from(editorInput.children[0].childNodes).filter(
+					(node): node is HTMLElement => node.nodeType === Node.ELEMENT_NODE
+				);
+
+				return elements[elements.length - 1];
+			};
 
 			const setSelectionFromLineBreakToTheEndOfLine2 = (): void => {
 				const range = document.createRange();
 				range.setStartBefore(br);
-				range.setEnd(secondLineNode.firstChild!, secondLine.length);
+				range.setEnd(getSecondLineNode().firstChild!, secondLine.length);
 
 				const selection = window.getSelection()!;
 				selection.removeAllRanges();
@@ -178,7 +194,7 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.toolbar-plugin", () => {
 			const styledGroupButton = toolbarItem[buttonIndex];
 
 			await clickButtonGroupItem(styledGroupButton, findAllByDataRole, findByDataRole);
-			expect(secondLineNode.className).toBe(styledClassName);
+			expect(getSecondLineNode().className).toBe(styledClassName);
 
 			setSelectionFromLineBreakToTheEndOfLine2();
 			await verifyButtonGroupItemState(styledGroupButton, findAllByDataRole, findByDataRole);
@@ -239,15 +255,18 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.toolbar-plugin", () => {
 				(n): n is HTMLElement => n.nodeType === Node.ELEMENT_NODE
 			);
 
-			const secondParagraphChildNode = editorInput.children[1].childNodes;
-			const [secondParagraphTextNode] = Array.from(secondParagraphChildNode).filter(
-				(n): n is HTMLElement => n.nodeType === Node.ELEMENT_NODE
-			);
-
 			const thirdParagraphChildNode = editorInput.children[2].childNodes;
 			const [thirdParagraphTextNode] = Array.from(thirdParagraphChildNode).filter(
 				(n): n is HTMLElement => n.nodeType === Node.ELEMENT_NODE
 			);
+
+			const getSecondParagraphTextNode = (): HTMLElement => {
+				const [node] = Array.from(editorInput.children[1].childNodes).filter(
+					(n): n is HTMLElement => n.nodeType === Node.ELEMENT_NODE
+				);
+
+				return node;
+			};
 
 			const setSelectionFromEndOfParagraph1ToParagraph3 = (): void => {
 				const range = document.createRange();
@@ -265,7 +284,7 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.toolbar-plugin", () => {
 			const styledGroupButton = toolbarItem[buttonIndex];
 
 			await clickButtonGroupItem(styledGroupButton, findAllByDataRole, findByDataRole);
-			expect(secondParagraphTextNode.className).toBe(styledClassName);
+			expect(getSecondParagraphTextNode().className).toBe(styledClassName);
 
 			setSelectionFromEndOfParagraph1ToParagraph3();
 			await verifyButtonGroupItemState(styledGroupButton, findAllByDataRole, findByDataRole);
@@ -276,6 +295,26 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.toolbar-plugin", () => {
 
 		test("Should the styled button be active when selecting multiple paragraph.", async () =>
 			await handleStyleButtonTestWithMultipleParagraph(3, editorThemeClasses.text!.strikethrough!));
+	});
+
+	test("Should render text in s tag after applying strikethrough format", async () => {
+		const text = "Strikethrough text";
+		const { findByDataRole, getAllByDataRole, findAllByDataRole } = render(
+			<DefaultRichTextEditor staticToolbarButtons={BUTTONS} initialConfig={{ namespace: "strikethrough-s-tag" }} />
+		);
+
+		const editorInput = await findByDataRole(DataRoles.RichTextEditor.Input);
+		await userEvent.click(editorInput);
+		await userEvent.keyboard(text);
+
+		await userEvent.keyboard("{ControlOrMeta>}a{/ControlOrMeta}");
+
+		const toolbarItems = getAllByDataRole(DataRoles.RichTextEditor.ToolbarItem);
+		await clickButtonGroupItem(toolbarItems[3], findAllByDataRole, findByDataRole);
+
+		const sTag = editorInput.querySelector("s");
+		expect(sTag).not.toBeNull();
+		expect(sTag!.textContent).toBe(text);
 	});
 
 	describe("Copy and Paste styled text", () => {
@@ -398,5 +437,240 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.toolbar-plugin", () => {
 				styleClassNames: [editorThemeClasses.text!.bold!, "editor-text-strikethrough"]
 			});
 		});
+	});
+});
+
+const customInlineButtons = [
+	{ nodeClassName: "editor-text-strikethrough", label: "Strikethrough" },
+	{ nodeClassName: "editor-text-monospace", label: "Monospace" }
+].map((format: InlineButtonProps) =>
+	createInlineButton({
+		nodeClassName: format.nodeClassName,
+		label: (
+			<span className={`${format.nodeClassName}`}>
+				{(format.label as string)?.replace(/\b\w/g, (char) => char.toUpperCase())}
+			</span>
+		),
+		className: format.nodeClassName
+	})
+);
+
+const TextFormatButtonGroup = createButtonGroup({
+	icon: <Icon>text_format</Icon>,
+	buttons: customInlineButtons,
+	title: "More"
+});
+
+const TOOLBAR_BUTTONS = [BoldButton, ItalicButton, UnderlineButton, TextFormatButtonGroup, AlignButtonGroup];
+
+const EditorWithToolbar = () => (
+	<RichTextEditor
+		id="editor-with-toolbar"
+		placeholder="Type anything..."
+		staticToolbarButtons={TOOLBAR_BUTTONS}
+		initialConfig={{ namespace: "Editor with Toolbar" }}
+	/>
+);
+
+describe("Rich Text Editor Toolbar Plugin", () => {
+	const clickBoldButtonAndRefocus = async (
+		container: HTMLElement,
+		editor: HTMLElement,
+		boldButton: Element,
+		text?: string
+	): Promise<void> => {
+		await userEvent.click(boldButton);
+		expect(boldButton).toHaveAttribute("aria-pressed", "true");
+
+		if (text) {
+			await userEvent.type(editor, text);
+		}
+
+		await userEvent.click(document.body);
+
+		await waitFor(() => {
+			expect(editor).not.toHaveFocus();
+		});
+
+		await new Promise((r) => setTimeout(r, 300));
+
+		await userEvent.click(editor);
+		expect(editor).toHaveFocus();
+	};
+
+	const clickStyledButton = async (container: HTMLElement, styledButtonGroup: Element): Promise<void> => {
+		await userEvent.click(styledButtonGroup);
+		let styledButton!: Element;
+		await waitFor(() => {
+			const toolbarListItems = container.querySelectorAll(`[data-role="${DataRoles.RichTextEditor.ToolbarListItem}"]`);
+			expect(toolbarListItems.length).toBeGreaterThan(0);
+			styledButton = toolbarListItems[0].querySelector('[role="button"]') ?? toolbarListItems[0];
+		});
+		await userEvent.click(styledButton);
+	};
+
+	const clickStyledButtonAndRefocus = async (
+		container: HTMLElement,
+		editor: HTMLElement,
+		styledButtonGroup: Element,
+		text?: string
+	): Promise<void> => {
+		await clickStyledButton(container, styledButtonGroup);
+		expect(styledButtonGroup).toHaveAttribute("aria-pressed", "true");
+
+		if (text) {
+			await userEvent.type(editor, text);
+		}
+
+		await userEvent.click(document.body);
+
+		await waitFor(() => {
+			expect(editor).not.toHaveFocus();
+		});
+
+		await userEvent.click(editor);
+		expect(editor).toHaveFocus();
+	};
+
+	test("Format button status on focus and blur editor", async () => {
+		const { container } = render(<EditorWithToolbar />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+
+		const toolbarItems = getAllByDataRole(container, DataRoles.RichTextEditor.ToolbarItem);
+		const boldButton = toolbarItems[0].querySelector('[role="button"]')!;
+
+		await clickBoldButtonAndRefocus(container, editor, boldButton);
+		expect(boldButton).toHaveAttribute("aria-pressed", "true");
+
+		await userEvent.click(boldButton);
+
+		await userEvent.type(editor, "widget");
+
+		await clickBoldButtonAndRefocus(container, editor, boldButton);
+		expect(boldButton).toHaveAttribute("aria-pressed", "false");
+
+		await clickBoldButtonAndRefocus(container, editor, boldButton, "A12");
+		expect(boldButton).toHaveAttribute("aria-pressed", "true");
+	});
+
+	test("Custom style button status on focus and blur editor", async () => {
+		const { container } = render(<EditorWithToolbar />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+
+		const styledButtonGroup = container.querySelector('[title="More"]') as HTMLElement;
+
+		await clickStyledButtonAndRefocus(container, editor, styledButtonGroup);
+		expect(styledButtonGroup).toHaveAttribute("aria-pressed", "true");
+
+		await clickStyledButton(container, styledButtonGroup);
+
+		await userEvent.type(editor, "widget");
+
+		await clickStyledButtonAndRefocus(container, editor, styledButtonGroup);
+		await waitFor(() => {
+			expect(styledButtonGroup).toHaveAttribute("aria-pressed", "false");
+		});
+
+		await clickStyledButtonAndRefocus(container, editor, styledButtonGroup, "A12");
+		await waitFor(() => {
+			expect(styledButtonGroup).toHaveAttribute("aria-pressed", "true");
+		});
+	});
+
+	test("Should retain focus on the last toolbar item", async () => {
+		const isToolbarItemFocused = (item: Element) => document.activeElement === item.firstChild;
+
+		const { container } = render(<EditorWithToolbar />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+		editor.focus();
+
+		// Press Shift + Tab to focus the toolbar
+		await userEvent.tab({ shift: true });
+		const toolbarItems = getAllByDataRole(container, DataRoles.RichTextEditor.ToolbarItem);
+		const firstToolbarItem = toolbarItems[0];
+		expect(isToolbarItemFocused(firstToolbarItem)).toBe(true);
+
+		// Press Arrow Right to focus the next toolbar item
+		await userEvent.keyboard("{ArrowRight}");
+		const secondToolbarItem = toolbarItems[1];
+		expect(isToolbarItemFocused(secondToolbarItem)).toBe(true);
+
+		// Press Tab to focus the editor again
+		await userEvent.tab();
+		expect(editor).toHaveFocus();
+
+		// Press Shift + Tab to focus the toolbar again
+		await userEvent.tab({ shift: true });
+		expect(isToolbarItemFocused(secondToolbarItem)).toBe(true);
+	});
+
+	test("Editor should not auto-focus after typing and clicking outside", async () => {
+		const { container } = render(<EditorWithToolbar />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+
+		await userEvent.click(editor);
+
+		expect(editor).toHaveFocus();
+
+		await userEvent.type(editor, "Hello world");
+
+		// Click outside to blur the editor
+		await userEvent.click(document.body);
+
+		await waitFor(() => {
+			expect(editor).not.toHaveFocus();
+		});
+
+		await new Promise((r) => setTimeout(r, 200));
+
+		expect(editor).not.toHaveFocus();
+
+		await userEvent.click(editor);
+		await userEvent.type(editor, " mgm-tp test A12W-123");
+
+		await userEvent.click(document.body);
+
+		await waitFor(() => {
+			expect(editor).not.toHaveFocus();
+		});
+
+		await new Promise((r) => setTimeout(r, 300));
+
+		expect(editor).not.toHaveFocus();
+	});
+
+	test("Editor focus behavior with toolbar interactions", async () => {
+		const { container } = render(<EditorWithToolbar />);
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+		const toolbarItems = getAllByDataRole(container, DataRoles.RichTextEditor.ToolbarItem);
+		const boldButton = toolbarItems[0].querySelector('[role="button"]')!;
+
+		await userEvent.click(editor);
+		await userEvent.type(editor, "Test text");
+
+		await userEvent.click(boldButton);
+
+		await userEvent.click(document.body);
+
+		await waitFor(() => {
+			expect(editor).not.toHaveFocus();
+		});
+
+		await new Promise((r) => setTimeout(r, 200));
+
+		expect(editor).not.toHaveFocus();
+
+		await userEvent.click(editor);
+		await userEvent.type(editor, " more text");
+
+		await userEvent.click(document.body);
+
+		await waitFor(() => {
+			expect(editor).not.toHaveFocus();
+		});
+
+		await new Promise((r) => setTimeout(r, 300));
+
+		expect(editor).not.toHaveFocus();
 	});
 });

@@ -51,7 +51,13 @@ import type { CustomSelectProps, SelectItem } from "./select.api.js";
 import { StyledCustomSelect, StyledSelectTemplate } from "./select.styled.js";
 import { baseFieldClassName, selectBaseFieldClassName, SelectTemplate } from "./template/select.tpl.view.js";
 
-const { StyledSelectDropdownWrapper, StyledSelectModal, StyledSelectMobileTextLine } = StyledCustomSelect;
+const {
+	StyledSelectDropdownWrapper,
+	StyledSelectModal,
+	StyledSelectMobileTextField,
+	StyledSelectMobileWrapper,
+	StyledSelectRichLabelWrapper
+} = StyledCustomSelect;
 const { StyledSelectInput } = StyledSelectTemplate;
 
 export function CustomSelect({
@@ -97,7 +103,8 @@ export function CustomSelect({
 		info,
 		inputProps,
 		dataRole,
-		selectWrapperId
+		selectWrapperId,
+		labelRenderer
 	} = props;
 
 	const dropdownInstanceRef = useRef<DropDown | null>(null);
@@ -106,6 +113,7 @@ export function CustomSelect({
 	const labelRef = useRef<HTMLElement | null>(null);
 	const helperTextRef = useRef<HTMLElement | null>(null);
 	const inputWrapperMobileRef = useRef<HTMLElement | null>(null);
+	const richLabelWrapperRef = useRef<HTMLDivElement | null>(null);
 	const isMobileRef = useRef(DeviceDetector.isPhone());
 	const canOpenOnFocusRef = useRef(true);
 	const canCloseModalRef = useRef(true);
@@ -136,6 +144,14 @@ export function CustomSelect({
 		value !== undefined ? selectedItem : undefined
 	);
 	const [inputWidth, setInputWidth] = useState<number | undefined>(0);
+	const [richLabelHeight, setRichLabelHeight] = useState<number | undefined>(0);
+	const [mobilePrefixWidth, setMobilePrefixWidth] = useState<number | undefined>(0);
+
+	const richLabel = useMemo(() => {
+		const currentItem = preSelectedItem ?? selectedItem;
+
+		return labelRenderer && currentItem ? labelRenderer(currentItem) || currentItem.label : "";
+	}, [labelRenderer, preSelectedItem, selectedItem]);
 
 	const handleInputRef = useCallback(
 		(ref: HTMLInputElement | null): void => {
@@ -179,6 +195,55 @@ export function CustomSelect({
 		helperTextRef.current = ref;
 	}, []);
 
+	const calculateAndSetPrefixWidth = useCallback((): void => {
+		if (inputWrapperMobileRef.current) {
+			const prefixElement = inputWrapperMobileRef.current.querySelector(
+				`[data-role="${DataRoles.TextField.Prefix}-0"]`
+			);
+
+			if (prefixElement) {
+				const prefixWidth = Math.floor(prefixElement.getBoundingClientRect().width);
+				setMobilePrefixWidth(prefixWidth);
+			}
+		}
+	}, []);
+
+	const calculateAndSetRichLabelHeight = useCallback((): void => {
+		if (richLabelWrapperRef.current) {
+			const height = Math.floor(richLabelWrapperRef.current.getBoundingClientRect().height);
+			setRichLabelHeight(height);
+		}
+	}, []);
+
+	const handleRichLabelResizeChange: OnResizeCallback = useCallback(
+		({ height }) => {
+			if (height != null) {
+				calculateAndSetRichLabelHeight();
+			}
+		},
+		[calculateAndSetRichLabelHeight]
+	);
+
+	useResizeDetector({
+		targetRef: richLabelWrapperRef,
+		onResize: handleRichLabelResizeChange
+	});
+
+	const handleResizeChange: OnResizeCallback = useCallback(({ width }) => {
+		if (width != null) {
+			setInputWidth(width);
+		}
+	}, []);
+
+	useResizeDetector({
+		targetRef: !isMobileRef.current ? selectWrapperRef : inputWrapperMobileRef,
+		onResize: handleResizeChange
+	});
+
+	useEffect(() => {
+		setPreSelectedItem(selectedItem);
+	}, [value, items, selectedItem]);
+
 	const getDropdownInstance = useCallback((instance: DropDown): void => {
 		dropdownInstanceRef.current = instance;
 	}, []);
@@ -219,7 +284,12 @@ export function CustomSelect({
 	const onModalOpenHandler = useCallback((): void => {
 		inputWrapperMobileRef.current?.focus();
 		onModalOpenProp?.();
-	}, [onModalOpenProp]);
+
+		if (richLabel) {
+			calculateAndSetPrefixWidth();
+			calculateAndSetRichLabelHeight();
+		}
+	}, [calculateAndSetPrefixWidth, calculateAndSetRichLabelHeight, onModalOpenProp, richLabel]);
 
 	const hideDropdown = useCallback((): void => {
 		if (disabled || readonly || !showDropDown || !canCloseModalRef.current) {
@@ -466,6 +536,7 @@ export function CustomSelect({
 					items={dropdownItems}
 					style={{ width: inputWidth }}
 					ariaLabelledby={id && `${id}-label`}
+					labelRenderer={labelRenderer}
 				/>
 			</StyledSelectDropdownWrapper>
 		);
@@ -478,7 +549,82 @@ export function CustomSelect({
 		horizontalMode,
 		getDropdownInstance,
 		handleSelectedItemChange,
-		handlePreSelectItemChange
+		handlePreSelectItemChange,
+		labelRenderer
+	]);
+
+	const renderSelectMobileTextField = useCallback((): ReactElement => {
+		const hasPrefixes = showPrefixes && preSelectedItem?.graphic;
+		const mobileTextField = (
+			<StyledSelectMobileTextField
+				value={preSelectedItem?.label ?? selectedItem?.label}
+				onChange={() => undefined}
+				className={`${selectBaseFieldClassName}--mobile`}
+				suffixes={[!readonly && <SelectionSuffix disabled={disabled} />]}
+				prefixes={hasPrefixes}
+				ariaDescribedby={ariaDescribedby}
+				placeholder={placeholder}
+				hideLabel={hideLabel}
+				tooltips={breakTooltipsToNewLine && tooltips}
+				addonAfter={!breakTooltipsToNewLine && tooltips}
+				errorMessage={errorMessage}
+				warningMessage={warningMessage}
+				infoMessage={infoMessage}
+				error={error}
+				warning={warning}
+				info={info}
+				inputWrapperRef={handleInputWrapperMobileRef}
+				inputRef={handleInputInsideModalRef}
+				inputProps={{ tabIndex: richLabel ? -1 : undefined }}
+				onWrapperKeyDown={handleKeyDown}
+				onWrapperKeyPress={handlePressKey}
+				customInputWrapperProps={{
+					tabIndex: richLabel ? 0 : -1
+				}}
+				$isEmptyValue={preSelectedItem?.isEmptyValue}
+			/>
+		);
+
+		return richLabel ? (
+			<StyledSelectMobileWrapper
+				data-role={DataRoles.Select.Mobile.Wrapper}
+				$richLabelHeight={richLabelHeight}
+				$prefixWidth={hasPrefixes ? mobilePrefixWidth : undefined}
+			>
+				{mobileTextField}
+				<StyledSelectRichLabelWrapper data-role={DataRoles.Select.RichLabel.Wrapper} ref={richLabelWrapperRef}>
+					{richLabel}
+				</StyledSelectRichLabelWrapper>
+			</StyledSelectMobileWrapper>
+		) : (
+			mobileTextField
+		);
+	}, [
+		ariaDescribedby,
+		breakTooltipsToNewLine,
+		disabled,
+		error,
+		errorMessage,
+		handleInputInsideModalRef,
+		handleInputWrapperMobileRef,
+		handleKeyDown,
+		handlePressKey,
+		hideLabel,
+		info,
+		infoMessage,
+		mobilePrefixWidth,
+		placeholder,
+		preSelectedItem?.graphic,
+		preSelectedItem?.isEmptyValue,
+		preSelectedItem?.label,
+		readonly,
+		richLabel,
+		richLabelHeight,
+		selectedItem?.label,
+		showPrefixes,
+		tooltips,
+		warning,
+		warningMessage
 	]);
 
 	const renderModal = (): ReactElement => {
@@ -497,50 +643,12 @@ export function CustomSelect({
 					listenToNavigationContext
 					headingButtons={<ContentBoxElements.CloseButton onClick={handleCloseButtonClick} />}
 				>
-					<StyledSelectMobileTextLine
-						value={preSelectedItem?.label ?? selectedItem?.label}
-						onChange={() => undefined}
-						className={`${selectBaseFieldClassName}--mobile`}
-						suffixes={[!readonly && <SelectionSuffix disabled={disabled} />]}
-						prefixes={showPrefixes && preSelectedItem?.graphic}
-						ariaDescribedby={ariaDescribedby}
-						placeholder={placeholder}
-						hideLabel={hideLabel}
-						tooltips={breakTooltipsToNewLine && tooltips}
-						addonAfter={!breakTooltipsToNewLine && tooltips}
-						errorMessage={errorMessage}
-						warningMessage={warningMessage}
-						infoMessage={infoMessage}
-						error={error}
-						warning={warning}
-						info={info}
-						inputWrapperRef={handleInputWrapperMobileRef}
-						inputRef={handleInputInsideModalRef}
-						onWrapperKeyDown={handleKeyDown}
-						onWrapperKeyPress={handlePressKey}
-						customInputWrapperProps={{ tabIndex: -1 }}
-						$isEmptyValue={preSelectedItem?.isEmptyValue}
-					/>
+					{renderSelectMobileTextField()}
 					{renderDropdown()}
 				</ActionContentbox>
 			</StyledSelectModal>
 		);
 	};
-
-	const handleResizeChange: OnResizeCallback = useCallback(({ width }) => {
-		if (width != null) {
-			setInputWidth(width);
-		}
-	}, []);
-
-	useResizeDetector({
-		targetRef: !isMobileRef.current ? selectWrapperRef : inputWrapperMobileRef,
-		onResize: handleResizeChange
-	});
-
-	useEffect(() => {
-		setPreSelectedItem(selectedItem);
-	}, [value, items, selectedItem]);
 
 	const selectFieldBaseClass = `${selectBaseFieldClassName}Title`;
 	const selectFieldClasses = joinClassNames(
@@ -560,6 +668,74 @@ export function CustomSelect({
 	const haspopup = unavailableInput ? undefined : "listbox";
 	const expanded = unavailableInput ? undefined : showDropDown;
 	const resolvedSelectWrapperId = selectWrapperId ?? `${id}-select-wrapper`;
+
+	const renderSelectInput = useCallback(
+		(isHidden?: boolean): ReactElement => {
+			return (
+				<StyledSelectInput
+					{...inputProps}
+					as="input"
+					data-role={inputWithSuffixName(dataRole || DataRoles.Select)}
+					className={selectFieldClasses}
+					disabled={disabled}
+					readOnly={readonly}
+					onChange={noop}
+					onFocus={handleInputFocus}
+					onBlur={handleInputBlur}
+					value={preSelectedItem?.label || ""}
+					id={id}
+					aria-describedby={joinClassNames(
+						{ [`${id}-info`]: id && infoMessage },
+						{ [`${id}-warning`]: id && warningMessage },
+						{ [`${id}-error`]: id && errorMessage },
+						ariaDescribedby
+					)}
+					placeholder={placeholder}
+					onKeyDown={handleKeyDown}
+					onKeyPress={handlePressKey}
+					ref={handleInputRef}
+					onMouseDown={(event: MouseEvent<HTMLElement>): void => event.preventDefault()}
+					aria-activedescendant={showDropDown ? preSelectedItem?.id : undefined}
+					role={role}
+					tabIndex={isMobileRef.current ? -1 : inputProps?.tabIndex}
+					aria-hidden={isMobileRef.current ? true : inputProps?.["aria-hidden"]}
+					aria-haspopup={haspopup}
+					aria-expanded={expanded}
+					aria-autocomplete={unavailableInput ? undefined : "list"}
+					$disabled={disabled}
+					$readonly={readonly}
+					$isEmptyValue={preSelectedItem?.isEmptyValue}
+					$isHidden={isHidden}
+				/>
+			);
+		},
+		[
+			ariaDescribedby,
+			dataRole,
+			disabled,
+			errorMessage,
+			expanded,
+			handleInputBlur,
+			handleInputFocus,
+			handleInputRef,
+			handleKeyDown,
+			handlePressKey,
+			haspopup,
+			id,
+			infoMessage,
+			inputProps,
+			placeholder,
+			preSelectedItem?.id,
+			preSelectedItem?.isEmptyValue,
+			preSelectedItem?.label,
+			readonly,
+			role,
+			selectFieldClasses,
+			showDropDown,
+			unavailableInput,
+			warningMessage
+		]
+	);
 
 	return (
 		<SelectTemplate
@@ -603,40 +779,12 @@ export function CustomSelect({
 					{preSelectedItem.graphic}
 				</StyledBaseInput.StyledFieldPrefixWrapper>
 			)}
-			<StyledSelectInput
-				{...inputProps}
-				as="input"
-				data-role={inputWithSuffixName(dataRole || DataRoles.Select)}
-				className={selectFieldClasses}
-				disabled={disabled}
-				readOnly={readonly}
-				$disabled={disabled}
-				$readonly={readonly}
-				$isEmptyValue={preSelectedItem?.isEmptyValue}
-				onChange={noop}
-				onFocus={handleInputFocus}
-				onBlur={handleInputBlur}
-				value={preSelectedItem?.label || ""}
-				id={id}
-				aria-describedby={joinClassNames(
-					{ [`${id}-info`]: id && infoMessage },
-					{ [`${id}-warning`]: id && warningMessage },
-					{ [`${id}-error`]: id && errorMessage },
-					ariaDescribedby
-				)}
-				placeholder={placeholder}
-				onKeyDown={handleKeyDown}
-				onKeyPress={handlePressKey}
-				ref={handleInputRef}
-				onMouseDown={(event: MouseEvent<HTMLElement>): void => event.preventDefault()}
-				aria-activedescendant={showDropDown ? preSelectedItem?.id : undefined}
-				role={role}
-				tabIndex={isMobileRef.current ? -1 : inputProps?.tabIndex}
-				aria-hidden={isMobileRef.current ? true : inputProps?.["aria-hidden"]}
-				aria-haspopup={haspopup}
-				aria-expanded={expanded}
-				aria-autocomplete={unavailableInput ? undefined : "list"}
-			/>
+			{renderSelectInput(!!richLabel)}
+			{richLabel && (
+				<StyledSelectRichLabelWrapper data-role={DataRoles.Select.RichLabel.Wrapper}>
+					{richLabel}
+				</StyledSelectRichLabelWrapper>
+			)}
 			{showDropDown &&
 				(!isMobileRef.current && selectWrapperRef.current ? (
 					<AttachedPortal

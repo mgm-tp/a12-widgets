@@ -35,7 +35,7 @@ import type { ReactNode } from "react";
 import { createContext, useContext, useMemo } from "react";
 
 import type { DefaultThemeType } from "@com.mgmtp.a12.widgets/widgets-core";
-import { getDefaultTheme } from "@com.mgmtp.a12.widgets/widgets-core";
+import { getBaseTheme } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ShowcaseThemes } from "../themes/themes.js";
 
@@ -73,7 +73,7 @@ export const CustomThemeContext = createContext<{
 	theme: DefaultThemeType;
 	setTheme: (theme: DefaultThemeType) => void;
 }>({
-	theme: getDefaultTheme(),
+	theme: getBaseTheme({ spacing: { base: 16 } }),
 	setTheme: () => {}
 });
 
@@ -91,5 +91,5 @@ export const ThemeSelector = (props: { children: ReactNode }) => {
 		return customTheme;
 	}, [customTheme, theme]);
 
-	return <ThemeProvider theme={widgetTheme}>{props.children}</ThemeProvider>;
+	return <ThemeProvider theme={widgetTheme as DefaultThemeType}>{props.children}</ThemeProvider>;
 };

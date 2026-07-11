@@ -46,6 +46,9 @@ describe("com.mgmtp.a12.widgets.application-header", () => {
 				rightSlots={[<span>Version: X.XX</span>]}
 			/>
 		);
+
+		// ApplicationHeader should have role="banner" by default
+		expect(container.firstChild).toHaveAttribute("role", "banner");
 		expect(container.firstChild).toMatchSnapshot();
 	});
 
@@ -58,6 +61,7 @@ describe("com.mgmtp.a12.widgets.application-header", () => {
 		const className = "test-class";
 		const { container } = render(
 			<ApplicationHeader
+				role="none"
 				leftSlots={[<span>Logo</span>, <span>Widgets Showcase</span>]}
 				rightSlots={[<span>Version: X.XX</span>]}
 				id={id}
@@ -65,6 +69,9 @@ describe("com.mgmtp.a12.widgets.application-header", () => {
 				style={{ color: "red" }}
 			/>
 		);
+
+		// ApplicationHeader should have custom role="none"
+		expect(container.firstChild).toHaveAttribute("role", "none");
 		expect(container.firstChild).toMatchSnapshot();
 	});
 });

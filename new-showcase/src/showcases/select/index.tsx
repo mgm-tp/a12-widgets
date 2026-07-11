@@ -191,8 +191,14 @@ const showcases: Showcase[] = [
 							for closing.
 						</p>
 						<p>
-							Lastly, if the dropdown contains an empty value item through <code>isEmptyValue</code> property, that item
-							will be shown with specific styling in both dropdown and select input.
+							Moreover, if the dropdown contains an empty value item through <code>isEmptyValue</code> property, that
+							item will be shown with specific styling in both dropdown and select input.
+						</p>
+						<p>
+							Lastly, for advanced use cases, you can customize how label in select input and dropdown items are
+							displayed by using the <code>labelRenderer</code> property. This enables you to create visually rich
+							dropdowns with complex label structures while maintaining consistency between the dropdown and selected
+							input display.
 						</p>
 					</>
 				)

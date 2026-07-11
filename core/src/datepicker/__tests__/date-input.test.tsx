@@ -94,7 +94,7 @@ describe("com.mgmtp.a12.widgets.date-input", () => {
 		vi.useRealTimers();
 	});
 
-	test("render date input with some TextLineStatelessProps", async () => {
+	test("render date input with some TextFieldProps", async () => {
 		const { container } = render(
 			<DateInput
 				id="test-date-input"
@@ -203,7 +203,7 @@ describe("com.mgmtp.a12.widgets.date-input", () => {
 				inputProps={{ inputMode: "numeric" }}
 			/>
 		);
-		const inputElement = getByDataRole(container, DataRoles.Textline.Input);
+		const inputElement = getByDataRole(container, DataRoles.TextField.Input);
 
 		expect(inputElement.getAttribute("inputmode")).toEqual("numeric");
 	});
@@ -221,7 +221,7 @@ describe("com.mgmtp.a12.widgets.date-input", () => {
 			/>
 		);
 
-		const inputElement = getByDataRole(container, DataRoles.Textline.Input);
+		const inputElement = getByDataRole(container, DataRoles.TextField.Input);
 		fireEvent.click(inputElement);
 		fireEvent.change(inputElement, { target: { value: "03/03/2022" } });
 		fireEvent.blur(inputElement);
@@ -351,7 +351,7 @@ describe("com.mgmtp.a12.widgets.date-input", () => {
 			/>
 		);
 
-		const inputElement = getByDataRole(container, DataRoles.Textline.Input);
+		const inputElement = getByDataRole(container, DataRoles.TextField.Input);
 
 		fireEvent.click(inputElement);
 		fireEvent.change(inputElement, { target: { value: "03/02/2022" } });
@@ -378,7 +378,7 @@ describe("com.mgmtp.a12.widgets.date-input", () => {
 			/>
 		);
 
-		const inputElement = getByDataRole(container, DataRoles.Textline.Input);
+		const inputElement = getByDataRole(container, DataRoles.TextField.Input);
 
 		fireEvent.click(inputElement);
 		fireEvent.change(inputElement, { target: { value: "03/02/2022 - 03/04/2022" } });

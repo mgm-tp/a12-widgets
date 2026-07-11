@@ -1567,7 +1567,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`]
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1665,7 +1666,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`]
   display: block;
 }
 
-.c4 > .c2:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 > .c2:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1687,7 +1688,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`]
   width: 22px;
 }
 
-.c5 > .c2:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c5 > .c2:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1709,7 +1710,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`]
   width: 22px;
 }
 
-.c6 > .c2:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c6 > .c2:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1841,7 +1842,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons Outlined";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -1897,7 +1899,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
 
 .c7 .c0 {
   align-self: center;
-  color: rgb(255, 255, 255);
+  color: rgb(5, 104, 174);
   font-size: 12px;
 }
 
@@ -1914,7 +1916,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
   vertical-align: top;
 }
 
-.c2 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c2 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1929,7 +1931,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
   height: 22px;
 }
 
-.c3 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c3 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1944,7 +1946,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
   height: 22px;
 }
 
-.c4 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -1987,7 +1989,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2027,7 +2030,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
 
 .c6 .c0 {
   align-self: center;
-  color: rgb(255, 255, 255);
+  color: rgb(5, 104, 174);
   font-size: 12px;
 }
 
@@ -2035,7 +2038,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
   line-height: 18px;
 }
 
-.c2 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c2 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -2050,7 +2053,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
   height: 22px;
 }
 
-.c3 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c3 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -2065,7 +2068,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
   height: 22px;
 }
 
-.c4 > .c0:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
@@ -2093,12 +2096,13 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
-.c12 {
+.c13 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2112,27 +2116,27 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
   font-feature-settings: "liga";
 }
 
-.c12 > span {
+.c13 > span {
   display: inline-block;
 }
 
-.c12.c12 {
+.c13.c13 {
   max-width: unset;
 }
 
-.c17 .c11 {
+.c18 .c12 {
   user-select: none;
 }
 
-.c17 .c11 {
+.c18 .c12 {
   color: inherit;
 }
 
-.c17 .c11 {
+.c18 .c12 {
   font-size: inherit;
 }
 
-.h_inlineBlock.h_middleAlign .c17.c17 > .c11 {
+.h_inlineBlock.h_middleAlign .c18.c18 > .c12 {
   display: block;
 }
 
@@ -2179,12 +2183,16 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
 }
 
 .c3 {
+  cursor: pointer;
+}
+
+.c4 {
   align-items: center;
   display: flex;
   height: 32px;
 }
 
-.c8 {
+.c9 {
   background-color: rgb(255, 255, 255);
   border: 2px solid rgb(5, 104, 174);
   border-radius: 50%;
@@ -2197,20 +2205,21 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
   width: 20px;
 }
 
-.c10 {
+.c11 {
+  align-items: center;
   display: flex;
   height: 100%;
   justify-content: center;
   width: 100%;
 }
 
-.c10 .c11 {
+.c11 .c12 {
   align-self: center;
-  color: rgb(255, 255, 255);
+  color: rgb(5, 104, 174);
   font-size: 12px;
 }
 
-.c6 {
+.c7 {
   background-color: rgb(241, 242, 244);
   border: 1px dotted rgb(127, 140, 155);
   border-radius: calc(16px);
@@ -2221,7 +2230,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
   width: 100%;
 }
 
-.c13 {
+.c14 {
   height: 100%;
   left: 0px;
   margin: 0px;
@@ -2231,11 +2240,11 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
   width: 100%;
 }
 
-.c13:not(:disabled) {
+.c14:not(:disabled) {
   cursor: pointer;
 }
 
-.c4 {
+.c5 {
   align-items: center;
   display: inline-flex;
   height: 20px;
@@ -2243,45 +2252,45 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
   width: 32px;
 }
 
-.c14 > .c11:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c15 > .c12:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c14 [data-role="status-icon"] .c11 {
+.c15 [data-role="status-icon"] .c12 {
   display: inherit;
 }
 
-.c14 .c11 {
+.c15 .c12 {
   align-items: center;
   display: inline-flex;
   font-size: 1.25rem;
   height: 22px;
 }
 
-.c15 > .c11:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c16 > .c12:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c15 [data-role="status-icon"] .c11 {
+.c16 [data-role="status-icon"] .c12 {
   display: inherit;
 }
 
-.c15 .c11 {
+.c16 .c12 {
   align-items: center;
   display: inline-flex;
   font-size: 1.25rem;
   height: 22px;
 }
 
-.c16 > .c11:not(.StyledTableHeadCellSortingIcon-sc-hmrsAS):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c17 > .c12:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c16 [data-role="status-icon"] .c11 {
+.c17 [data-role="status-icon"] .c12 {
   display: inherit;
 }
 
-.c16 .c11 {
+.c17 .c12 {
   align-items: center;
   display: inline-flex;
   font-size: 1.25rem;
@@ -2289,25 +2298,25 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c5:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c4:active .c7 {
+  .c5:active .c8 {
     background-color: rgb(213, 0, 117);
     border-width: 0px;
     outline: transparent solid 1px;
   }
 
-  .c4:active .c7 .c9 .c11 {
-    color: rgb(213, 0, 117);
+  .c5:active .c8 .c10 .c12 {
+    color: rgb(255, 255, 255);
   }
 
-  .c4:active .c5 {
+  .c5:active .c6 {
     background-color: rgb(255, 189, 225);
   }
 
-  .c4:active .c7 {
+  .c5:active .c8 {
     height: 22px;
     transform: translate(-1px);
     width: 22px;
@@ -2315,21 +2324,21 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
 }
 
 @media (pointer: fine) {
-  .c4:hover .c7 {
+  .c5:hover .c8 {
     background-color: rgb(213, 0, 117);
     border-width: 0px;
     outline: transparent solid 1px;
   }
 
-  .c4:hover .c7 .c9 .c11 {
-    color: rgb(213, 0, 117);
+  .c5:hover .c8 .c10 .c12 {
+    color: rgb(255, 255, 255);
   }
 
-  .c4:hover .c5 {
+  .c5:hover .c6 {
     background-color: rgb(255, 189, 225);
   }
 
-  .c4:hover .c7 {
+  .c5:hover .c8 {
     height: 22px;
     transform: translate(-1px);
     width: 22px;
@@ -2341,30 +2350,31 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
   data-role="switch"
 >
   <label
-    class="c1 c2 label field__label -u-unseenButRead"
+    class="c1 c2 label field__label -u-unseenButRead c3"
     data-role="switch-label"
   >
     Enable feature
   </label>
   <div
-    class="c3 switch"
+    class="c4 switch"
     data-role="switch-control"
   >
     <span
-      class="c4 switch__interactive"
+      class="c5 switch__interactive"
       data-role="switch-interactive"
     >
       <span
-        class="c5 c6 switch__track"
+        class="c6 c7 switch__track"
       />
       <span
-        class="c7 c8 switch__thumb"
+        class="c8 c9 switch__thumb"
       >
         <span
-          class="c9 c10"
+          class="c10 c11"
+          data-role="switch-thumb-icon"
         >
           <i
-            class="c11 c12 plasma-icon"
+            class="c12 c13 plasma-icon"
             data-role="plasma-icon"
           >
             <span
@@ -2377,7 +2387,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
       </span>
       <input
         aria-checked="false"
-        class="c13 switch__input"
+        class="c14 switch__input"
         data-role="switch-input"
         type="checkbox"
       />
@@ -2492,7 +2502,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > sortable 1`] = `
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2546,7 +2557,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > sortable 1`] = `
   min-height: 22px;
 }
 
-.c4 > .c5:not(.):not(.StyledVariantIconWrapper-sc-bMgxYI) {
+.c4 > .c5:not(.):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 

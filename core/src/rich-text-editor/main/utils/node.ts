@@ -104,7 +104,7 @@ export function shouldEditLinkNodeByNeighbors(linkNode: LinkNode, matchers: Arra
 
 	while ($isInlineStyleTextNode(processedNode) && !$isMentionNode(processedNode)) {
 		const textContent = processedNode.getTextContent();
-		previousText += textContent;
+		previousText = textContent + previousText;
 		processedNode = processedNode.getPreviousSibling();
 
 		if (textContent.includes(" ")) {
@@ -221,45 +221,76 @@ export function handleMatchedTextsInNode<T extends (text: string) => K, K extend
 	matchers: T[],
 	handler: (targetNode: TextNode, match: K) => LexicalNode
 ): void {
-	let nodeText = node.getTextContent();
+	const fullText = node.getTextContent();
 	let match: K | null;
 	let remainingTextNode: TextNode = node;
+	let consumed = 0;
+	let remainingStart = 0;
 
-	while ((match = findFirstMatch<T, K>(nodeText, matchers))) {
-		const matchStart = match.index;
-		const matchEnd = match.index + match.length;
+	while ((match = findFirstMatch<T, K>(fullText.substring(consumed), matchers))) {
+		const matchStart = consumed + match.index;
+		const matchEnd = matchStart + match.length;
+		consumed = matchEnd;
 
-		/* If the match covers the entire node text, also check the characters immediately before and after the node (previous/next node)
-		 to correctly handle cases where the text should be wrapped by two boundary characters. */
-		if (nodeText === match.text) {
-			let nodeTextWithContentAround = nodeText;
-			const previousNode = remainingTextNode.getPreviousSibling();
+		const needLeftRecheck = match.index === 0;
+		const needRightRecheck = matchEnd === fullText.length;
 
-			if ($isInlineStyleTextNode(previousNode) && !$isMentionNode(previousNode)) {
-				const previousText = previousNode.getTextContent();
-				nodeTextWithContentAround = previousText[previousText.length - 1] + nodeTextWithContentAround;
+		if (needLeftRecheck || needRightRecheck) {
+			const word = fullText.substring(matchStart, matchEnd);
+			let textWithContentAround = word;
+			let prefixLength = 0;
+
+			if (needLeftRecheck) {
+				let leftChar = "";
+
+				if (matchStart > 0) {
+					leftChar = fullText[matchStart - 1];
+				} else {
+					const previousNode = remainingTextNode.getPreviousSibling();
+
+					if ($isInlineStyleTextNode(previousNode) && !$isMentionNode(previousNode)) {
+						const previousText = previousNode.getTextContent();
+						leftChar = previousText.length > 0 ? previousText[previousText.length - 1] : "";
+					}
+				}
+
+				if (leftChar) {
+					textWithContentAround = leftChar + textWithContentAround;
+					prefixLength = 1;
+				}
 			}
 
-			const nextNode = remainingTextNode.getNextSibling();
+			if (needRightRecheck) {
+				const nextNode = remainingTextNode.getNextSibling();
 
-			if ($isInlineStyleTextNode(nextNode) && !$isMentionNode(nextNode)) {
-				const nextText = nextNode.getTextContent();
-				nodeTextWithContentAround = nodeTextWithContentAround + nextText[0];
+				if ($isInlineStyleTextNode(nextNode) && !$isMentionNode(nextNode)) {
+					const nextText = nextNode.getTextContent();
+
+					if (nextText.length > 0) {
+						textWithContentAround = textWithContentAround + nextText[0];
+					}
+				}
 			}
 
-			if (!findFirstMatch<T, K>(nodeTextWithContentAround, matchers)) {
-				nodeText = nodeText.substring(matchEnd);
-				continue;
+			if (textWithContentAround !== word) {
+				const augmentedMatch = findFirstMatch<T, K>(textWithContentAround, matchers);
+
+				if (!augmentedMatch || augmentedMatch.text !== match.text || augmentedMatch.index !== prefixLength) {
+					continue;
+				}
 			}
 		}
 
+		const relativeStart = matchStart - remainingStart;
 		let targetNode: TextNode;
 
-		if (matchStart === 0) {
+		if (relativeStart === 0) {
 			[targetNode, remainingTextNode] = $splitText(remainingTextNode, match.length);
 		} else {
-			[, targetNode, remainingTextNode] = $splitText(remainingTextNode, matchStart, matchEnd);
+			[, targetNode, remainingTextNode] = $splitText(remainingTextNode, relativeStart, relativeStart + match.length);
 		}
+
+		remainingStart = matchEnd;
 
 		const replacedTextNode = handler(targetNode, match);
 
@@ -268,8 +299,6 @@ export function handleMatchedTextsInNode<T extends (text: string) => K, K extend
 			replacedTextNode.setFormat(node.getFormat());
 			replacedTextNode.setStyle(node.getStyle());
 		}
-
-		nodeText = nodeText.substring(matchEnd);
 	}
 }
 
@@ -286,6 +315,11 @@ export function addClassToMatchersInNode(node: InlineStyleTextNode, matchers: Te
 export function mergeWithSibling(node: InlineStyleTextNode, sibling: InlineStyleTextNode): TextNode {
 	// Don't merge if either node is marked as customUnmergeable
 	if (node.isCustomUnmergeable() || sibling.isCustomUnmergeable()) {
+		return node;
+	}
+
+	// Verify the sibling is actually a current sibling (may be stale after prior merges)
+	if (sibling !== node.getNextSibling() && sibling !== node.getPreviousSibling()) {
 		return node;
 	}
 

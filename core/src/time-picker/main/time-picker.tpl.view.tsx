@@ -70,6 +70,4 @@ export namespace TimePickerTpl {
 			</StyledTimePickerHeader>
 		);
 	}
-
-	Header.displayName = "TimePicker.Header";
 }

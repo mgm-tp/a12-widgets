@@ -30,7 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { DOMExportOutput, LexicalEditor, LexicalNode, NodeKey } from "lexical";
+import type {
+	DOMConversionMap,
+	DOMConversionOutput,
+	DOMExportOutput,
+	LexicalEditor,
+	LexicalNode,
+	NodeKey
+} from "lexical";
 import { $applyNodeReplacement } from "lexical";
 import type { SerializedListItemNode } from "@lexical/list";
 import { ListItemNode as LexicalListItemNode } from "@lexical/list";
@@ -54,6 +61,26 @@ export class ListItemNode extends LexicalListItemNode {
 		super(value, checked, key);
 	}
 
+	static importDOM(): DOMConversionMap | null {
+		const converters = LexicalListItemNode.importDOM?.();
+
+		return {
+			...converters,
+			li: () => ({
+				conversion: (domNode: HTMLElement): DOMConversionOutput | null => {
+					const result = converters?.li?.(domNode);
+
+					if (result?.conversion) {
+						return result.conversion(domNode);
+					}
+
+					return null;
+				},
+				priority: 1
+			})
+		};
+	}
+
 	exportDOM(editor: LexicalEditor): DOMExportOutput {
 		const element = this.createDOM(editor._config);
 		element.style.textAlign = this.getFormatType();
@@ -64,7 +91,7 @@ export class ListItemNode extends LexicalListItemNode {
 	}
 
 	static importJSON(serializedNode: SerializedListItemNode): ListItemNode {
-		return super.importJSON(serializedNode);
+		return $createListItemNode(serializedNode.checked).updateFromJSON(serializedNode);
 	}
 
 	exportJSON(): SerializedListItemNode {

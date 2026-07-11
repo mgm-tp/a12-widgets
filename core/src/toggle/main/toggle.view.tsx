@@ -560,6 +560,4 @@ export namespace Toggle {
 			</StyledToggle.StyledToggleItem>
 		);
 	}
-
-	Item.displayName = "Toggle.Item";
 }

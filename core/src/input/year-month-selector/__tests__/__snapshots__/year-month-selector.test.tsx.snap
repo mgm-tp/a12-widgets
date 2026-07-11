@@ -1,13 +1,117 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled year month selector 1`] = `
-.c2 {
+.c16 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c16::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c14 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(226, 230, 233);
+  box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
+  color: rgb(169, 179, 188);
+}
+
+.c17 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c9[class*="h_"] .c13 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c12 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 {
+.c3 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c3[class*="h_"] .c13 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c15 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   border-width: medium;
   border-style: none;
@@ -31,25 +135,25 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   opacity: 1;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c1[class*="h_"] .c5.c5 {
+.c2[class*="h_"] .c6.c6 {
   background-color: inherit !important;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -65,11 +169,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   height: 32px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   border-radius: inherit;
   display: flex;
   flex-grow: 1;
@@ -79,12 +183,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   color: rgb(169, 179, 188);
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(169, 179, 188);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -100,27 +205,37 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -128,118 +243,118 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select field__select--disabled"
+        class="c4 field__select field__select--disabled"
         data-disabled="true"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper"
+          class="c5 field__select-wrapper"
           data-disabled="true"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle"
+            class="c6 field__selectTitle"
             data-role="month-selector-input"
             disabled=""
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -248,133 +363,49 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select field__select--disabled"
-        data-disabled="true"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper"
-          data-disabled="true"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle"
-            data-role="year-selector-input"
-            disabled=""
+          <div
+            class="c2 c12 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c13 c14 field__input field__input--disabled"
+              data-disabled="true"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c15 supported-unseen-span"
+              />
+              <input
+                class="c16 field__text"
+                data-role="year-selector-input"
+                disabled=""
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c15 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -383,17 +414,115 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly year month selector 1`] = `
-.c2 {
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c13 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  background-color: rgb(241, 242, 244);
+  box-shadow: none;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c18 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c18[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c1[class*="h_"] .c8.c8 {
+.c16[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c2[class*="h_"] .c17.c17 {
   background-color: inherit !important;
 }
 
-.c5 {
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -419,21 +548,21 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   opacity: 1;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -451,11 +580,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   min-width: 5px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   border-radius: inherit;
   display: flex;
   flex-grow: 1;
@@ -464,12 +593,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   box-shadow: none;
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: none;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -485,27 +615,37 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -513,117 +653,117 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select field__select--readonly"
+        class="c4 field__select field__select--readonly"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper"
+          class="c5 field__select-wrapper"
           data-readonly="true"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle"
+            class="c6 field__selectTitle"
             data-role="month-selector-input"
             disabled=""
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -632,132 +772,50 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select field__select--readonly"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper"
-          data-readonly="true"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle"
-            data-role="year-selector-input"
-            disabled=""
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c12 c13 field__input field__input--readonly"
+              data-readonly="true"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c14 supported-unseen-span"
+              />
+              <input
+                class="c15 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                readonly=""
+                tabindex="-1"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c14 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -766,13 +824,111 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow optional value in month selector 1`] = `
-.c2 {
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c13 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c18 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c18[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 {
+.c16[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -795,25 +951,25 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   cursor: pointer;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c1[class*="h_"] .c8.c8 {
+.c2[class*="h_"] .c17.c17 {
   background-color: inherit !important;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -829,11 +985,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   height: 32px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -842,18 +998,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   position: relative;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -869,40 +1026,63 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c13:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c4:hover {
+  .c13:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -910,121 +1090,121 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select"
+        class="c4 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper"
+          class="c5 field__select-wrapper"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle"
+            class="c6 field__selectTitle"
             data-role="month-selector-input"
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
             >
               additional Item
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -1033,136 +1213,47 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
+            <div
+              class="c12 c13 field__input"
+              data-role="text-field-input-wrapper"
             >
-              additional Item
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
-            >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c14 supported-unseen-span"
+              />
+              <input
+                class="c15 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c14 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1187,18 +1278,101 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   display: none;
 }
 
-.c4 {
+.c16 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c16::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c14 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c11 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c11 .c12 {
+  display: flex;
+  width: 100%;
+}
+
+.c11 * {
+  max-width: 100%;
+}
+
+.c5 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 .c1 {
+.c5 .c1 {
   display: block;
   width: fit-content;
 }
 
-.c7 {
+.c13 {
+  display: inline-flex;
+}
+
+.c13 .c4 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c15 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c8 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -1221,21 +1395,21 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   cursor: pointer;
 }
 
-.c7.c7.c7 {
+.c8.c8.c8 {
   outline: transparent solid 1px;
 }
 
-.c7::selection {
+.c8::selection {
   background-color: transparent;
 }
 
-.c7::placeholder {
+.c8::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c5 {
+.c6 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -1251,11 +1425,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   height: 32px;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
 }
 
-.c6 {
+.c7 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -1264,18 +1438,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   position: relative;
 }
 
-.c6:focus-within {
+.c7:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c9::after {
+.c10::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1291,18 +1466,28 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   overflow-wrap: normal;
 }
 
-.c8 {
+.c9 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c8:focus {
+.c9:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
 }
 
 .c0 .c1 {
@@ -1316,20 +1501,33 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c14:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c14:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c8:active {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c7:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c9:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -1337,7 +1535,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
 }
 
 @media (pointer: fine) {
-  .c8:hover {
+  .c9:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
@@ -1362,101 +1560,101 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
     data-role="year-month-selector-control"
   >
     <div
-      class="c4 field field--block month-selector"
+      class="c4 c5 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c5 field__select"
+        class="c6 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c6 field__select-wrapper"
+          class="c7 field__select-wrapper"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c7 field__selectTitle"
+            class="c8 field__selectTitle"
             data-role="month-selector-input"
             id="year-month-selector-month"
           >
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c8 field__selectOption"
+              class="c9 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -1465,131 +1663,48 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
           </select>
           <span
             aria-hidden="true"
-            class="c9 field__select-arrow"
+            class="c10 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c4 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c5 field__select"
-        data-role="year-selector-control"
+        class="c11 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c6 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c12 c13 field__main"
         >
-          <select
-            class="c7 field__selectTitle"
-            data-role="year-selector-input"
-            id="year-month-selector-year"
+          <div
+            class="c4 c5 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c14 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c8 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c9 field__select-arrow"
-          />
+              <span
+                class="c15 supported-unseen-span"
+              />
+              <input
+                class="c16 field__text"
+                data-role="year-selector-input"
+                id="year-month-selector-year"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c15 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1598,13 +1713,111 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom month names 1`] = `
-.c2 {
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c13 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c18 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c18[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 {
+.c16[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -1627,25 +1840,25 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   cursor: pointer;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c1[class*="h_"] .c8.c8 {
+.c2[class*="h_"] .c17.c17 {
   background-color: inherit !important;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -1661,11 +1874,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   height: 32px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -1674,18 +1887,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   position: relative;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1701,40 +1915,63 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c13:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c4:hover {
+  .c13:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -1742,115 +1979,115 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select"
+        class="c4 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper"
+          class="c5 field__select-wrapper"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle"
+            class="c6 field__selectTitle"
             data-role="month-selector-input"
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               jan
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               feb
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               mar
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               apr
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               may
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               jun
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               jul
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               aug
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               sep
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               oct
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               nov
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -1859,130 +2096,47 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c12 c13 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c14 supported-unseen-span"
+              />
+              <input
+                class="c15 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c14 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2015,7 +2169,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2043,6 +2198,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -2108,10 +2264,108 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   max-width: calc(100% - 4px - 1.25rem);
 }
 
+.c26 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c26::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c24 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c20 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c20 .c21 {
+  display: flex;
+  width: 100%;
+}
+
+.c20 * {
+  max-width: 100%;
+}
+
+.c29 .c21 {
+  display: flex;
+  width: 100%;
+}
+
+.c29[class*="h_"] .c23 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
 .c14 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
+}
+
+.c27[class*="h_"] .c23 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c22 {
+  display: inline-flex;
+}
+
+.c22 .c13 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c25 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
 }
 
 .c17 {
@@ -2151,7 +2405,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   opacity: 1;
 }
 
-.c13[class*="h_"] .c20.c20 {
+.c13[class*="h_"] .c28.c28 {
   background-color: inherit !important;
 }
 
@@ -2195,7 +2449,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2225,6 +2480,16 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   border-image: initial;
 }
 
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
 .c0 .c1 {
   margin: 0px 0px 4px;
 }
@@ -2232,6 +2497,32 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
 .c12 {
   align-items: center;
   display: flex;
+}
+
+@media (pointer: coarse) {
+  .c24:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c24:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c24.c24:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c24.c24:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
 }
 
 @media (pointer: coarse) {
@@ -2443,124 +2734,41 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
       </div>
     </div>
     <div
-      class="c13 c14 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c15 field__select"
-        data-role="year-selector-control"
+        class="c20 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c16 field__select-wrapper field__select-wrapper--error field__select-wrapper--warning"
-          data-role="year-selector-wrapper"
+          class="c21 c22 field__main"
         >
-          <select
-            class="c17 field__selectTitle field__selectTitle--error field__selectTitle--warning"
-            data-role="year-selector-input"
+          <div
+            class="c13 c14 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c23 c24 field__input field__input--warning field__input--error"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c19 field__select-arrow"
-          />
+              <span
+                class="c25 supported-unseen-span"
+              />
+              <input
+                class="c26 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c25 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2569,13 +2777,111 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error state 1`] = `
-.c2 {
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c13 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c18 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c18[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 {
+.c16[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -2598,25 +2904,25 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   cursor: pointer;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c1[class*="h_"] .c8.c8 {
+.c2[class*="h_"] .c17.c17 {
   background-color: inherit !important;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -2632,11 +2938,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   height: 32px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -2645,18 +2951,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -2672,40 +2979,76 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13.c13:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c4:hover {
+  .c13.c13:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2713,115 +3056,115 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select"
+        class="c4 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper field__select-wrapper--error"
+          class="c5 field__select-wrapper field__select-wrapper--error"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle field__selectTitle--error"
+            class="c6 field__selectTitle field__selectTitle--error"
             data-role="month-selector-input"
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -2830,130 +3173,47 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper field__select-wrapper--error"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle field__selectTitle--error"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c12 c13 field__input field__input--error"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c14 supported-unseen-span"
+              />
+              <input
+                class="c15 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c14 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2962,7 +3222,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper text 1`] = `
-.c9 {
+.c17 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -2972,17 +3232,115 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   width: fit-content;
 }
 
-.c8 {
+.c16 {
   display: flex;
 }
 
-.c2 {
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c13 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c20 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c20[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 {
+.c18[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -3005,25 +3363,25 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   cursor: pointer;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c1[class*="h_"] .c10.c10 {
+.c2[class*="h_"] .c19.c19 {
   background-color: inherit !important;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -3039,11 +3397,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   height: 32px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -3052,18 +3410,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   position: relative;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -3079,40 +3438,63 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c13:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c4:hover {
+  .c13:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -3120,115 +3502,115 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select"
+        class="c4 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper"
+          class="c5 field__select-wrapper"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle"
+            class="c6 field__selectTitle"
             data-role="month-selector-input"
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -3237,139 +3619,56 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c12 c13 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c14 supported-unseen-span"
+              />
+              <input
+                class="c15 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c14 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="c8 field__helper"
+    class="c16 field__helper"
   >
     <label
-      class="c9 field__helper-text"
+      class="c17 field__helper-text"
       data-role="year-month-selector-helper-text"
     >
       Helper text
@@ -3410,6 +3709,83 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   height: 1px;
 }
 
+.c17 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c17::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c15 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c11 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c11 .c12 {
+  display: flex;
+  width: 100%;
+}
+
+.c11 * {
+  max-width: 100%;
+}
+
+.c20 .c12 {
+  display: flex;
+  width: 100%;
+}
+
+.c20[class*="h_"] .c14 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c20[class*="h_"] .c4 {
+  color: rgb(169, 179, 188) !important;
+}
+
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -3421,13 +3797,38 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   width: fit-content;
 }
 
-.c11 .c4 {
+.c18 .c4 {
   display: block;
   width: fit-content;
 }
 
-.c11[class*="h_"] .c4 {
+.c18[class*="h_"] .c14 {
+  background-color: rgb(226, 230, 233) !important;
   color: rgb(169, 179, 188) !important;
+}
+
+.c18[class*="h_"] .c4 {
+  color: rgb(169, 179, 188) !important;
+}
+
+.c13 {
+  display: inline-flex;
+}
+
+.c13 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c16 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
 }
 
 .c8 {
@@ -3467,7 +3868,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   opacity: 1;
 }
 
-.c2[class*="h_"] .c12.c12 {
+.c2[class*="h_"] .c19.c19 {
   background-color: inherit !important;
 }
 
@@ -3511,7 +3912,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -3541,6 +3943,16 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   border-image: initial;
 }
 
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
 .c0 .c4 {
   display: block;
   margin: 0px 0px 4px;
@@ -3549,6 +3961,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
 .c1 {
   align-items: center;
   display: flex;
+}
+
+@media (pointer: coarse) {
+  .c15:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c15:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
 }
 
 @media (pointer: coarse) {
@@ -3702,130 +4127,47 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
       </div>
     </div>
     <div
-      class="c2 c3 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
-      <label
-        class="c4 c5 label field__label -u-unseenButRead"
-        data-role="year-selector-label"
-      >
-        Hidden year label
-      </label>
       <div
-        class="c6 field__select"
-        data-role="year-selector-control"
+        class="c11 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c7 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c12 c13 field__main"
         >
-          <select
-            class="c8 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <label
+              class="c4 c5 label field__label -u-unseenButRead"
+              data-role="text-field-label"
             >
-              2012
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
+              Hidden year label
+            </label>
+            <div
+              class="c14 c15 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2013
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c9 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c10 field__select-arrow"
-          />
+              <span
+                class="c16 supported-unseen-span"
+              />
+              <input
+                class="c17 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c16 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3858,7 +4200,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -3909,10 +4252,108 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   max-width: calc(100% - 4px - 1.25rem);
 }
 
+.c23 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c23::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c21 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
+}
+
+.c17 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c17 .c18 {
+  display: flex;
+  width: 100%;
+}
+
+.c17 * {
+  max-width: 100%;
+}
+
+.c26 .c18 {
+  display: flex;
+  width: 100%;
+}
+
+.c26[class*="h_"] .c20 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
 .c11 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
+}
+
+.c24[class*="h_"] .c20 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c19 {
+  display: inline-flex;
+}
+
+.c19 .c10 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c22 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
 }
 
 .c14 {
@@ -3952,7 +4393,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   opacity: 1;
 }
 
-.c10[class*="h_"] .c17.c17 {
+.c10[class*="h_"] .c25.c25 {
   background-color: inherit !important;
 }
 
@@ -3996,7 +4437,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -4026,6 +4468,16 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   border-image: initial;
 }
 
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
 .c0 .c1 {
   margin: 0px 0px 4px;
 }
@@ -4033,6 +4485,32 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
 .c9 {
   align-items: center;
   display: flex;
+}
+
+@media (pointer: coarse) {
+  .c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c21:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21.c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c21.c21:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
 }
 
 @media (pointer: coarse) {
@@ -4212,124 +4690,41 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
       </div>
     </div>
     <div
-      class="c10 c11 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c12 field__select"
-        data-role="year-selector-control"
+        class="c17 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c13 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c18 c19 field__main"
         >
-          <select
-            class="c14 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c10 c11 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c20 c21 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c15 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c16 field__select-arrow"
-          />
+              <span
+                class="c22 supported-unseen-span"
+              />
+              <input
+                class="c23 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c22 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -4338,13 +4733,111 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info state 1`] = `
-.c2 {
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c13 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c18 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c18[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 {
+.c16[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -4367,25 +4860,25 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   cursor: pointer;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c1[class*="h_"] .c8.c8 {
+.c2[class*="h_"] .c17.c17 {
   background-color: inherit !important;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -4401,11 +4894,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   height: 32px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -4414,18 +4907,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -4441,40 +4935,76 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c13.c13:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c4:hover {
+  .c13.c13:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -4482,115 +5012,115 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select"
+        class="c4 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper"
+          class="c5 field__select-wrapper"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle"
+            class="c6 field__selectTitle"
             data-role="month-selector-input"
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -4599,130 +5129,47 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c12 c13 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c14 supported-unseen-span"
+              />
+              <input
+                class="c15 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c14 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -4755,7 +5202,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4783,6 +5231,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -4848,10 +5297,108 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   max-width: calc(100% - 4px - 1.25rem);
 }
 
+.c26 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c26::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c24 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c20 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c20 .c21 {
+  display: flex;
+  width: 100%;
+}
+
+.c20 * {
+  max-width: 100%;
+}
+
+.c29 .c21 {
+  display: flex;
+  width: 100%;
+}
+
+.c29[class*="h_"] .c23 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
 .c14 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
+}
+
+.c27[class*="h_"] .c23 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c22 {
+  display: inline-flex;
+}
+
+.c22 .c13 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c25 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
 }
 
 .c17 {
@@ -4891,7 +5438,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   opacity: 1;
 }
 
-.c13[class*="h_"] .c21.c21 {
+.c13[class*="h_"] .c28.c28 {
   background-color: inherit !important;
 }
 
@@ -4915,21 +5462,6 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   outline: none;
 }
 
-.c20 {
-  background-color: rgb(241, 242, 244);
-  border-radius: inherit;
-  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
-  display: flex;
-  flex-grow: 1;
-  position: relative;
-}
-
-.c20:focus-within {
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
 .c16 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
@@ -4950,7 +5482,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -4980,6 +5513,16 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   border-image: initial;
 }
 
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
 .c0 .c1 {
   margin: 0px 0px 4px;
 }
@@ -4990,14 +5533,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
 }
 
 @media (pointer: coarse) {
-  .c20:active {
+  .c24:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c20:hover {
+  .c24:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -5211,124 +5754,41 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
       </div>
     </div>
     <div
-      class="c13 c14 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c15 field__select"
-        data-role="year-selector-control"
+        class="c20 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c20 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c21 c22 field__main"
         >
-          <select
-            class="c17 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c13 c14 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c23 c24 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c18 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c19 field__select-arrow"
-          />
+              <span
+                class="c25 supported-unseen-span"
+              />
+              <input
+                class="c26 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c25 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -5337,13 +5797,111 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with tooltip 1`] = `
-.c2 {
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c13 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c18 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c18[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 {
+.c16[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -5366,25 +5924,25 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   cursor: pointer;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c1[class*="h_"] .c8.c8 {
+.c2[class*="h_"] .c17.c17 {
   background-color: inherit !important;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -5400,11 +5958,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   height: 32px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -5413,18 +5971,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   position: relative;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -5440,40 +5999,63 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c13:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c4:hover {
+  .c13:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -5481,14 +6063,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <span
@@ -5497,104 +6079,104 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
     Test tooltip
   </span>
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select"
+        class="c4 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper"
+          class="c5 field__select-wrapper"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle"
+            class="c6 field__selectTitle"
             data-role="month-selector-input"
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -5603,130 +6185,47 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c12 c13 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c14 supported-unseen-span"
+              />
+              <input
+                class="c15 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c14 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -5735,13 +6234,111 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warning state 1`] = `
-.c2 {
+.c15 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c15::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c13 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+  box-shadow: rgb(175, 121, 2) 0px 1px 0px 0px;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c18 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c18[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 {
+.c16[class*="h_"] .c12 {
+  background-color: rgb(226, 230, 233) !important;
+  color: rgb(169, 179, 188) !important;
+}
+
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -5764,25 +6361,25 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   cursor: pointer;
 }
 
-.c5.c5.c5 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c5::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c5::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c1[class*="h_"] .c8.c8 {
+.c2[class*="h_"] .c17.c17 {
   background-color: inherit !important;
 }
 
-.c3 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -5798,11 +6395,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   height: 32px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
 }
 
-.c4 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -5811,18 +6408,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   box-shadow: rgb(175, 121, 2) 0px 1px 0px 0px;
 }
 
-.c4:focus-within {
+.c5:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c7::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -5838,40 +6436,76 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   overflow-wrap: normal;
 }
 
-.c6 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c6:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c13:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c4:hover {
+  .c13:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c6:active {
+  .c13.c13:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c13.c13:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c5:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -5879,115 +6513,115 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 c2 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c3 field__select"
+        class="c4 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c4 field__select-wrapper field__select-wrapper--warning"
+          class="c5 field__select-wrapper field__select-wrapper--warning"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c5 field__selectTitle field__selectTitle--warning"
+            class="c6 field__selectTitle field__selectTitle--warning"
             data-role="month-selector-input"
           >
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c6 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -5996,130 +6630,47 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
           </select>
           <span
             aria-hidden="true"
-            class="c7 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 c2 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c3 field__select"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c4 field__select-wrapper field__select-wrapper--warning"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c5 field__selectTitle field__selectTitle--warning"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2012"
+            <div
+              class="c12 c13 field__input field__input--warning"
+              data-role="text-field-input-wrapper"
             >
-              2012
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2013"
-            >
-              2013
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2014"
-            >
-              2014
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2015"
-            >
-              2015
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2016"
-            >
-              2016
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
-            >
-              2017
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c6 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c7 field__select-arrow"
-          />
+              <span
+                class="c14 supported-unseen-span"
+              />
+              <input
+                class="c15 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2018"
+              />
+              <span
+                class="c14 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -6128,13 +6679,96 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month selector 1`] = `
-.c1 {
+.c14 {
+  background-color: transparent;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.45;
+  outline: none;
+  padding: 0px 12px;
+  text-align: inherit;
+  text-overflow: ellipsis;
+  text-transform: inherit;
+  min-width: 0px;
+  width: 100%;
+}
+
+.c14::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c12 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c9 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.c9 .c10 {
+  display: flex;
+  width: 100%;
+}
+
+.c9 * {
+  max-width: 100%;
+}
+
+.c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c11 {
+  display: inline-flex;
+}
+
+.c11 .c2 {
+  flex: 1 1 160px;
+  max-width: 100%;
+}
+
+.c13 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
@@ -6157,21 +6791,21 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c6.c6.c6 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c6::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c6::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c2 {
+.c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
@@ -6187,11 +6821,11 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   height: 32px;
 }
 
-.c2:focus {
+.c4:focus {
   outline: none;
 }
 
-.c3 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -6200,18 +6834,19 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   position: relative;
 }
 
-.c3:focus-within {
+.c5:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c8::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -6227,34 +6862,44 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   overflow-wrap: normal;
 }
 
-.c5 {
+.c7 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c7:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
   border-image: initial;
 }
 
-.c0 {
+.c0:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c0:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
+.c1 {
   align-items: center;
   display: flex;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -6262,121 +6907,134 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
 @media (pointer: coarse) {
   .c5:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c5:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c7:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c7:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="year-month-selector"
+  class="c0 year-month-selector"
   data-role="year-month-selector"
 >
   <div
-    class="c0 year-month-selector__inner"
+    class="c1 year-month-selector__inner"
     data-role="year-month-selector-control"
   >
     <div
-      class="c1 field field--block month-selector"
+      class="c2 c3 field field--block month-selector"
       data-role="month-selector"
     >
       <div
-        class="c2 field__select"
+        class="c4 field__select"
         data-role="month-selector-control"
       >
         <div
-          class="c3 field__select-wrapper"
+          class="c5 field__select-wrapper"
           data-role="month-selector-wrapper"
         >
           <select
-            class="c4 field__selectTitle"
+            class="c6 field__selectTitle"
             data-role="month-selector-input"
           >
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="0"
             >
               January
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="1"
             >
               February
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="2"
             >
               March
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="3"
             >
               April
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="4"
             >
               May
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="5"
             >
               June
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="6"
             >
               July
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="7"
             >
               August
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="8"
             >
               September
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="9"
             >
               October
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="10"
             >
               November
             </option>
             <option
-              class="c5 field__selectOption"
+              class="c7 field__selectOption"
               data-role="month-selector-option"
               value="11"
             >
@@ -6385,130 +7043,47 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
           </select>
           <span
             aria-hidden="true"
-            class="c6 field__select-arrow"
+            class="c8 field__select-arrow"
           />
         </div>
       </div>
     </div>
     <div
-      class="c1 field field--block year-selector"
+      class=""
       data-role="year-selector"
     >
       <div
-        class="c2 field__select"
-        data-role="year-selector-control"
+        class="c9 field-wrapper field-wrapper--block"
+        data-role="text-field"
       >
         <div
-          class="c3 field__select-wrapper"
-          data-role="year-selector-wrapper"
+          class="c10 c11 field__main"
         >
-          <select
-            class="c4 field__selectTitle"
-            data-role="year-selector-input"
+          <div
+            class="c2 c3 field"
+            data-role="text-field-control"
           >
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2017"
+            <div
+              class="c12 field__input"
+              data-role="text-field-input-wrapper"
             >
-              2017
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2018"
-            >
-              2018
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2019"
-            >
-              2019
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2020"
-            >
-              2020
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2021"
-            >
-              2021
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2022"
-            >
-              2022
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2023"
-            >
-              2023
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2024"
-            >
-              2024
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2025"
-            >
-              2025
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2026"
-            >
-              2026
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2027"
-            >
-              2027
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2028"
-            >
-              2028
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2029"
-            >
-              2029
-            </option>
-            <option
-              class="c5 field__selectOption"
-              data-role="year-selector-option"
-              value="2030"
-            >
-              2030
-            </option>
-          </select>
-          <span
-            aria-hidden="true"
-            class="c6 field__select-arrow"
-          />
+              <span
+                class="c13 supported-unseen-span"
+              />
+              <input
+                class="c14 field__text"
+                data-role="year-selector-input"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="[0-9]*"
+                type="text"
+                value="2023"
+              />
+              <span
+                class="c13 supported-unseen-span"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

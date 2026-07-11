@@ -31,6 +31,7 @@
  */
 
 import { describe, test, expect, beforeEach, afterEach, vi } from "vitest";
+import { page } from "vitest/browser";
 
 import type { Orientation } from "../main/alignment.js";
 import { adjustParentMarginForEdges } from "../main/portal-utils.js";
@@ -38,21 +39,19 @@ import { adjustParentMarginForEdges } from "../main/portal-utils.js";
 describe("com.mgmtp.a12.widgets.common.portal-utils.adjustParentMarginForEdges", () => {
 	let mockElement: HTMLElement;
 	const defaultMargin = "-10px";
+	let originalViewport: { width: number; height: number };
 
-	beforeEach(() => {
-		// Mock window.innerWidth
-		Object.defineProperty(window, "innerWidth", {
-			writable: true,
-			configurable: true,
-			value: 1024
-		});
+	beforeEach(async () => {
+		originalViewport = { width: window.innerWidth, height: window.innerHeight };
+		await page.viewport(1024, originalViewport.height);
 
 		// Create a mock element
 		mockElement = document.createElement("div");
 	});
 
-	afterEach(() => {
+	afterEach(async () => {
 		vi.restoreAllMocks();
+		await page.viewport(originalViewport.width, originalViewport.height);
 	});
 
 	test("should return default margin when no reference element is provided", () => {

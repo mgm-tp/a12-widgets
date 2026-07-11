@@ -40,7 +40,7 @@ import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { ModalOverlay, StyledModalOverlayContainer } from "../../../modal-overlay/main/modal-overlay.view.js";
 import { active, inputDarkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
-import { TextLineStateless } from "../../text-line/main/template/text-line.tpl.view.js";
+import { TextField } from "../../text-field/main/template/text-field.tpl.view.js";
 import { SubHeadingElements } from "../../../contentbox/main/template/elements/sub-heading.tpl.view.js";
 import { createBoxShadow } from "../../../theme/base/mixins/_borderEffects.js";
 
@@ -50,78 +50,85 @@ export namespace StyledSelectTemplate {
 		$readonly?: boolean;
 		$disabled?: boolean;
 		$isEmptyValue?: boolean;
-	}>`
-		${({ theme, $readonly, $disabled, $isEmptyValue }) => {
-			const { select, baseInput, contentBox } = theme.components;
+		$isHidden?: boolean;
+	}>(({ theme, $readonly, $disabled, $isEmptyValue, $isHidden }) => {
+		const { select, baseInput, contentBox } = theme.components;
 
-			return css`
-				appearance: none;
-				background-color: inherit;
-				-moz-appearance: none;
-				border: none;
-				border-radius: ${select.title.borderRadius};
-				caret-color: transparent;
-				color: inherit;
-				font-size: inherit;
-				flex-grow: 1;
-				font-style: inherit;
-				font-weight: inherit;
-				font-family: inherit;
-				height: 100%;
-				&&& {
-					outline: 1px solid transparent;
-				}
-				padding: ${baseInput.input.padding};
-				padding-right: ${theme.applicationStyles.input.height};
-				text-align: inherit;
-				text-transform: inherit;
-				width: 100%;
+		return css`
+			appearance: none;
+			background-color: inherit;
+			-moz-appearance: none;
+			border: none;
+			border-radius: ${select.title.borderRadius};
+			caret-color: transparent;
+			color: inherit;
+			font-size: inherit;
+			flex-grow: 1;
+			font-style: inherit;
+			font-weight: inherit;
+			font-family: inherit;
+			height: 100%;
+			&&& {
+				outline: 1px solid transparent;
+			}
+			padding: ${baseInput.input.padding};
+			padding-right: ${theme.applicationStyles.input.height};
+			text-align: inherit;
+			text-transform: inherit;
+			width: 100%;
 
-				${$isEmptyValue &&
-				css`
-					color: ${select.empty.color};
-					font-style: ${select.empty.fontStyle};
-				`}
+			${$isHidden &&
+			css`
+				position: absolute;
+				width: 0;
+				height: 0;
+				padding: 0;
+			`}
+
+			${$isEmptyValue &&
+			css`
+				color: ${select.empty.color};
+				font-style: ${select.empty.fontStyle};
+			`}
 
 				&::selection {
-					background-color: transparent;
+				background-color: transparent;
+			}
+
+			&::placeholder {
+				font-style: italic;
+				color: ${baseInput.input.placeholderColor};
+				opacity: 1;
+			}
+
+			${$readonly &&
+			css`
+				margin: 0;
+				min-width: 5px;
+			`}
+
+			${$disabled &&
+			css`
+				background-color: inherit;
+				${StyledBaseInput.StyledField}[class*="h_"] && {
+					background-color: inherit !important;
 				}
+			`}
 
-				&::placeholder {
-					font-style: italic;
-					color: ${baseInput.input.placeholderColor};
-					opacity: 1;
-				}
-
-				${$readonly &&
-				css`
-					margin: 0;
-					min-width: 5px;
-				`}
-
-				${$disabled &&
-				css`
-					background-color: inherit;
-					${StyledBaseInput.StyledField}[class*="h_"] && {
-						background-color: inherit !important;
-					}
-				`}
-
-				${$readonly || $disabled
-					? css`
-							cursor: default;
-							opacity: 1;
-						`
-					: css`
-							cursor: pointer;
-							${StyledContentBoxFooter} &,
-							${SubHeadingElements.StyledSubHeading} & {
-								background-color: ${contentBox.subHeading.inputBackground};
-							}
-						`}
-			`;
-		}}
-	`;
+			${$readonly || $disabled
+				? css`
+						cursor: default;
+						opacity: 1;
+					`
+				: css`
+						cursor: pointer;
+						${StyledContentBoxFooter} &,
+					${SubHeadingElements.StyledSubHeading} & {
+							background-color: ${contentBox.subHeading.inputBackground};
+						}
+					`}
+		`;
+	});
 
 	export const StyledFieldSelectControl = styled.div.withConfig({ displayName: "StyledFieldSelectControl-sc-" })<{
 		$readonly?: boolean;
@@ -236,7 +243,12 @@ export namespace StyledSelectTemplate {
 				color: ${$disabled ? select.arrowIcon.disabledColor : select.arrowIcon.color};
 				content: ${select.arrowIcon.content};
 				display: ${$readonly ? "none" : "flex"};
-				font-family: "Material Icons";
+				font-family: "Material Symbols Outlined";
+				font-variation-settings:
+					"FILL" 1,
+					"wght" 400,
+					"GRAD" 0,
+					"opsz" 24;
 				font-size: ${select.arrowIcon.fontSize};
 				font-style: normal;
 				justify-content: center;
@@ -319,12 +331,12 @@ export namespace StyledCustomSelect {
 		}
 	);
 
-	export const StyledSelectMobileTextLine = styled(TextLineStateless).withConfig({
-		displayName: "StyledSelectMobileTextLine-sc-"
+	export const StyledSelectMobileTextField = styled(TextField).withConfig({
+		displayName: "StyledSelectMobileTextField-sc-"
 	})<{
 		$isEmptyValue?: boolean;
 	}>(({ theme, $isEmptyValue }) => {
-		const { mobile } = theme.components.textLine;
+		const { mobile } = theme.components.textField;
 		const { input } = theme.applicationStyles;
 		const { select } = theme.components;
 
@@ -351,6 +363,63 @@ export namespace StyledCustomSelect {
 					color: inherit;
 					cursor: default;
 				}
+			}
+		`;
+	});
+
+	export const StyledSelectRichLabelWrapper = styled.div.withConfig({
+		displayName: "StyledSelectRichLabelWrapper-sc-"
+	})<{ $readonly?: boolean; $disabled?: boolean }>(({ theme, $readonly, $disabled }) => {
+		const { baseInput } = theme.components;
+		const { input } = theme.applicationStyles;
+
+		return css`
+			display: flex;
+			width: 100%;
+			padding: ${baseInput.input.padding};
+			padding-right: ${input.height};
+			cursor: ${$readonly || $disabled ? "default" : "pointer"};
+
+			// Make the select control auto-expand to fit the rich label content
+			${StyledSelectTemplate.StyledFieldSelectControl}:has(&) {
+				height: auto;
+				min-height: ${input.height};
+			}
+		`;
+	});
+
+	export const StyledSelectMobileWrapper = styled.div.withConfig({
+		displayName: "StyledMobileModalSelect-sc-"
+	})<{ $richLabelHeight?: number; $prefixWidth?: number }>(({ theme, $richLabelHeight, $prefixWidth }) => {
+		const { input } = theme.applicationStyles;
+
+		return css`
+			display: flex;
+			flex-direction: column;
+			min-height: ${input.height};
+			height: auto;
+			width: 100%;
+			justify-content: center;
+			position: relative;
+
+			> ${StyledSelectMobileTextField} {
+				${StyledFieldInput} {
+					min-height: ${$richLabelHeight}px;
+
+					${StyledFieldTextInput} {
+						color: transparent;
+					}
+				}
+			}
+
+			> ${StyledSelectRichLabelWrapper} {
+				position: absolute;
+				width: auto;
+				${$prefixWidth &&
+				css`
+					left: ${$prefixWidth}px;
+					padding-left: 0;
+				`}
 			}
 		`;
 	});

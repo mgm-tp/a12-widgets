@@ -53,6 +53,7 @@ export const YearMonthSelectorWithDifferentLocale: FC = () => {
 					month={month}
 					year={year}
 					onValueChange={onChange}
+					yearPlaceholder="YYYY"
 					hiddenLabels={{
 						yearLabel: "Year selector with different locale",
 						monthLabel: "Month selector with different locale"

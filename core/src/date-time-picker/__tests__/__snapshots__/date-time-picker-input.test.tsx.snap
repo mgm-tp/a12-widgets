@@ -46,6 +46,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -72,7 +73,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -404,18 +406,18 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 
 <div
   class="c0 field-wrapper field-wrapper--block "
-  data-role="textline"
+  data-role="text-field"
 >
   <div
     class="c1 c2 field__main"
   >
     <div
       class="c3 c4 field"
-      data-role="textline-control"
+      data-role="text-field-control"
     >
       <label
         class="c5 c6 label field__label"
-        data-role="textline-label"
+        data-role="text-field-label"
         for="test-id-input"
         id="test-id-input-label"
       >
@@ -429,7 +431,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
       </label>
       <div
         class="c8 message message--error field__message"
-        data-role="textline-error-message"
+        data-role="text-field-error-message"
         id="test-id-input-error"
       >
         <div
@@ -462,7 +464,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
       </div>
       <div
         class="c15 message message--warning field__message"
-        data-role="textline-warning-message"
+        data-role="text-field-warning-message"
         id="test-id-input-warning"
       >
         <div
@@ -495,11 +497,11 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
       </div>
       <div
         class="c18 field__input field__input--warning field__input--error"
-        data-role="textline-input-wrapper"
+        data-role="text-field-input-wrapper"
       >
         <div
           class="c19 field__prefix field__prefix--last"
-          data-role="textline-prefix-0"
+          data-role="text-field-prefix-0"
         >
           <button
             aria-label="Select a date and time"
@@ -536,7 +538,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
         <input
           aria-describedby="test-id-input-warning test-id-input-error test-id-input-label"
           class="c23 field__text"
-          data-role="textline-input"
+          data-role="text-field-input"
           id="test-id-input"
           placeholder="MM/DD/YYYY h:mm A"
           type="text"
@@ -549,7 +551,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
     </div>
     <div
       class="c24 c25 field-addon field-addon--after"
-      data-role="textline--addon-after-0"
+      data-role="text-field--addon-after-0"
     >
       inputTooltips
     </div>
@@ -559,7 +561,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   >
     <label
       class="c27 field__helper-text"
-      data-role="textline-helper-text"
+      data-role="text-field-helper-text"
       for="test-id-input"
     >
       helperText
@@ -626,6 +628,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   display: inline-block;
   direction: ltr;
   font-family: custom-icons;
+  font-variation-settings: normal;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -652,7 +655,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   color: rgb(127, 140, 155);
   display: inline-block;
   direction: ltr;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -805,7 +809,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   display: block;
 }
 
-.c59 {
+.c63 {
   align-items: center;
   cursor: pointer;
   display: inline-flex;
@@ -826,15 +830,15 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   color: rgb(5, 104, 174);
 }
 
-.c59 .c11 {
+.c63 .c11 {
   user-select: none;
 }
 
-.c59 .c11 {
+.c63 .c11 {
   color: inherit;
 }
 
-.c59:not(:disabled):focus {
+.c63:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -843,17 +847,17 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c59.c59 {
+.h_inlineBlock.h_middleAlign .c63.c63 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c59.c59 > .c11 {
+.h_inlineBlock.h_middleAlign .c63.c63 > .c11 {
   display: block;
 }
 
-.c62 {
+.c66 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -875,15 +879,15 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   color: rgb(255, 255, 255);
 }
 
-.c62 .c11 {
+.c66 .c11 {
   user-select: none;
 }
 
-.c62 .c11 {
+.c66 .c11 {
   color: inherit;
 }
 
-.c62:not(:disabled):focus {
+.c66:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -892,13 +896,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c62.c62 {
+.h_inlineBlock.h_middleAlign .c66.c66 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c62.c62 > .c11 {
+.h_inlineBlock.h_middleAlign .c66.c66 > .c11 {
   display: block;
 }
 
@@ -985,6 +989,12 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   max-width: calc(100% - 4px - 1.25rem);
 }
 
+.c56 {
+  color: rgb(127, 140, 155);
+  user-select: none;
+  cursor: pointer;
+}
+
 .c27 {
   align-items: center;
   align-self: flex-end;
@@ -1028,6 +1038,21 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 .c21:first-child {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
+}
+
+.c55 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 32px;
+  margin-left: -12px;
+}
+
+.c55:last-child {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .c25 {
@@ -1080,6 +1105,27 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-radius: 0px;
 }
 
+.c54 {
+  background-color: rgb(241, 242, 244);
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: initial;
+  border-radius: 0px;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  outline: transparent solid 1px;
+  height: 32px;
+}
+
+.c54 .c22 {
+  border-radius: 0px;
+}
+
 .c0 {
   overflow-wrap: break-word;
   word-break: break-word;
@@ -1128,7 +1174,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   width: 0px;
 }
 
-.c56 {
+.c60 {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -1216,7 +1262,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   color: rgb(127, 140, 155);
   content: "";
   display: flex;
-  font-family: "Material Icons";
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 1.5rem;
   font-style: normal;
   justify-content: center;
@@ -1246,6 +1293,16 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-image: initial;
 }
 
+.c39:not(.DayPicker-Caption) [data-role="year-selector"] {
+  flex: 1 1 35%;
+  margin: 0px 0px 0px 16px;
+  min-width: 88px;
+}
+
+.c39:not(.DayPicker-Caption) [data-role="year-selector"]:not(.StyledYearSelector-sc-fDYXqJ) > * {
+  width: 100%;
+}
+
 .c39 .c5 {
   display: block;
   margin: 0px 0px 4px;
@@ -1258,6 +1315,11 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 .c41 {
   align-items: center;
   display: flex;
+}
+
+.c53 {
+  position: relative;
+  width: 100%;
 }
 
 .c37.c37 {
@@ -1273,7 +1335,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border: 2px solid rgb(255, 255, 255);
 }
 
-.c54 {
+.c58 {
   align-items: center;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -1290,13 +1352,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   color: rgb(77, 77, 77);
 }
 
-.c54:focus {
+.c58:focus {
   outline: rgb(51, 51, 51) dotted 1px;
   border: 2px solid rgb(213, 0, 117);
   background-color: rgb(255, 255, 255);
 }
 
-.c60 {
+.c64 {
   align-items: center;
   background-color: rgb(241, 242, 244);
   display: flex;
@@ -1305,16 +1367,16 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   padding: 0px 16px;
 }
 
-.c61 {
+.c65 {
   flex: 1 1 0%;
   text-align: center;
 }
 
-.c61:first-child {
+.c65:first-child {
   text-align: left;
 }
 
-.c61:last-child {
+.c65:last-child {
   text-align: right;
 }
 
@@ -1442,7 +1504,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   color: rgb(77, 77, 77);
 }
 
-.c53 {
+.c40 [data-role="year-selector"] {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0px;
+  width: calc(72px);
+}
+
+.c57 {
   height: 32px;
   width: 32px;
 }
@@ -1464,7 +1533,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   padding: 16.5px 0px 12.5px;
 }
 
-.c32 .c55 {
+.c32 .c59 {
   background-color: rgb(255, 255, 255);
   flex-direction: row;
   padding: 16px 20px;
@@ -1477,7 +1546,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-image: initial;
 }
 
-.c57 {
+.c61 {
   display: flex;
   flex: 1 0 0px;
   padding: 8px 0px;
@@ -1485,17 +1554,17 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   font-weight: 600;
 }
 
-.c58 {
+.c62 {
   display: inline-flex;
   flex: 2 0 0px;
   justify-content: flex-end;
 }
 
-.c58 > .c11 {
+.c62 > .c11 {
   padding-bottom: 0px;
 }
 
-.c58 > .c22 {
+.c62 > .c22 {
   height: auto;
   max-width: 160px;
   text-align: right;
@@ -1552,7 +1621,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 }
 
 @media (pointer: coarse) {
-  .c59:not(:disabled):active {
+  .c63:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(255, 255, 255);
     box-shadow: none;
@@ -1563,7 +1632,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 }
 
 @media (pointer: fine) {
-  .c59:not(:disabled):hover {
+  .c63:not(:disabled):hover {
     background-color: rgb(255, 255, 255);
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -1573,13 +1642,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 }
 
 @media (pointer: fine) {
-  .c59:hover {
+  .c63:hover {
     outline: transparent solid 1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c62:not(:disabled):active {
+  .c66:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(255, 255, 255);
     box-shadow: none;
@@ -1590,7 +1659,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 }
 
 @media (pointer: fine) {
-  .c62:not(:disabled):hover {
+  .c66:not(:disabled):hover {
     background-color: rgb(255, 255, 255);
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -1600,7 +1669,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 }
 
 @media (pointer: fine) {
-  .c62:hover {
+  .c66:hover {
     outline: transparent solid 1px;
   }
 }
@@ -1627,6 +1696,19 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 
 @media (pointer: fine) {
   .c19.c19:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c54:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c54:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -1679,7 +1761,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 }
 
 @media (pointer: coarse) {
-  .c54:active {
+  .c58:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
@@ -1687,7 +1769,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 }
 
 @media (pointer: fine) {
-  .c54:hover {
+  .c58:hover {
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
   }
@@ -1726,18 +1808,18 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 <div>
   <div
     class="c0 field-wrapper field-wrapper--block "
-    data-role="textline"
+    data-role="text-field"
   >
     <div
       class="c1 c2 field__main"
     >
       <div
         class="c3 c4 field"
-        data-role="textline-control"
+        data-role="text-field-control"
       >
         <label
           class="c5 c6 label field__label"
-          data-role="textline-label"
+          data-role="text-field-label"
           for="test-id-input"
           id="test-id-input-label"
         >
@@ -1751,7 +1833,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
         </label>
         <div
           class="c8 c9 message message--error field__message"
-          data-role="textline-error-message"
+          data-role="text-field-error-message"
           id="test-id-input-error"
         >
           <div
@@ -1784,7 +1866,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
         </div>
         <div
           class="c8 c16 message message--warning field__message"
-          data-role="textline-warning-message"
+          data-role="text-field-warning-message"
           id="test-id-input-warning"
         >
           <div
@@ -1817,11 +1899,11 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
         </div>
         <div
           class="c19 field__input field__input--warning field__input--error"
-          data-role="textline-input-wrapper"
+          data-role="text-field-input-wrapper"
         >
           <div
             class="c20 c21 field__prefix field__prefix--last"
-            data-role="textline-prefix-0"
+            data-role="text-field-prefix-0"
           >
             <button
               aria-label="Select a date and time"
@@ -1858,7 +1940,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
           <input
             aria-describedby="test-id-input-warning test-id-input-error test-id-input-label"
             class="c25 field__text"
-            data-role="textline-input"
+            data-role="text-field-input"
             id="test-id-input"
             placeholder="MM/DD/YYYY h:mm A"
             type="text"
@@ -1871,7 +1953,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
       </div>
       <div
         class="c26 c27 field-addon field-addon--after"
-        data-role="textline--addon-after-0"
+        data-role="text-field--addon-after-0"
       >
         inputTooltips
       </div>
@@ -1881,7 +1963,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
     >
       <label
         class="c29 field__helper-text"
-        data-role="textline-helper-text"
+        data-role="text-field-helper-text"
         for="test-id-input"
       >
         helperText
@@ -1922,6 +2004,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
               data-required="false"
               data-role="date-picker"
               id="test-id-date-screen"
+              lang="en-US"
             >
               <div
                 class="DayPicker-Months"
@@ -2075,179 +2158,74 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           </div>
                         </div>
                         <div
-                          class="c3 c4 field field--block year-selector"
+                          class=""
                           data-role="year-selector"
                         >
-                          <label
-                            class="c5 c42 label field__label -u-unseenButRead"
-                            data-role="year-selector-label"
-                          >
-                            Year
-                          </label>
                           <div
-                            class="c43 c44 field__select"
-                            data-role="year-selector-control"
+                            class="c53 autocomplete"
+                            data-role="autocomplete"
                           >
                             <div
-                              class="c45 c46 field__select-wrapper"
-                              data-role="year-selector-wrapper"
+                              class="c0 field-wrapper field-wrapper--block"
+                              data-role="text-field"
                             >
-                              <select
-                                class="c47 c48 field__selectTitle"
-                                data-role="year-selector-input"
+                              <div
+                                class="c1 c2 field__main"
                               >
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2000"
+                                <div
+                                  class="c3 c4 field"
+                                  data-role="text-field-control"
                                 >
-                                  2000
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2001"
-                                >
-                                  2001
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2002"
-                                >
-                                  2002
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2003"
-                                >
-                                  2003
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2004"
-                                >
-                                  2004
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2005"
-                                >
-                                  2005
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2006"
-                                >
-                                  2006
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2007"
-                                >
-                                  2007
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2008"
-                                >
-                                  2008
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2009"
-                                >
-                                  2009
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2010"
-                                >
-                                  2010
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2011"
-                                >
-                                  2011
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2012"
-                                >
-                                  2012
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2013"
-                                >
-                                  2013
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2014"
-                                >
-                                  2014
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2015"
-                                >
-                                  2015
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2016"
-                                >
-                                  2016
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2017"
-                                >
-                                  2017
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2018"
-                                >
-                                  2018
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2019"
-                                >
-                                  2019
-                                </option>
-                                <option
-                                  class="c49 c50 field__selectOption"
-                                  data-role="year-selector-option"
-                                  value="2020"
-                                >
-                                  2020
-                                </option>
-                              </select>
-                              <span
-                                aria-hidden="true"
-                                class="c51 c52 field__select-arrow"
-                              />
+                                  <label
+                                    class="c5 c42 label field__label -u-unseenButRead"
+                                    data-role="text-field-label"
+                                  >
+                                    Year
+                                  </label>
+                                  <div
+                                    class="c54 field__input"
+                                    data-role="text-field-input-wrapper"
+                                  >
+                                    <span
+                                      class="c24 supported-unseen-span"
+                                    />
+                                    <input
+                                      aria-autocomplete="list"
+                                      aria-expanded="false"
+                                      aria-haspopup="listbox"
+                                      autocomplete="off"
+                                      class="c25 field__text"
+                                      data-role="year-selector-input"
+                                      inputmode="numeric"
+                                      maxlength="4"
+                                      pattern="[0-9]*"
+                                      role="combobox"
+                                      spellcheck="false"
+                                      type="text"
+                                      value="2000"
+                                    />
+                                    <span
+                                      class="c24 supported-unseen-span"
+                                    />
+                                    <div
+                                      class="c55 field__suffix field__suffix--first"
+                                      data-role="text-field-suffix-0"
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        class="c11 c17 plasma-icon plasma-icon--big c56"
+                                        data-role="selection-suffix"
+                                      >
+                                        <span
+                                          aria-hidden="true"
+                                        >
+                                          expand_more
+                                        </span>
+                                      </i>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2359,7 +2337,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2371,7 +2349,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2383,7 +2361,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2394,7 +2372,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Wednesday, March 1st, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="0"
@@ -2410,7 +2388,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Thursday, March 2nd, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2426,7 +2404,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Friday, March 3rd, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2442,7 +2420,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Saturday, March 4th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2463,7 +2441,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Sunday, March 5th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2479,7 +2457,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Monday, March 6th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2495,7 +2473,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Tuesday, March 7th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2511,7 +2489,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Wednesday, March 8th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2527,7 +2505,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Thursday, March 9th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2543,7 +2521,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Friday, March 10th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2559,7 +2537,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Saturday, March 11th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2580,7 +2558,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Sunday, March 12th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2596,7 +2574,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Monday, March 13th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2612,7 +2590,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Tuesday, March 14th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2628,7 +2606,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Wednesday, March 15th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2644,7 +2622,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Thursday, March 16th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2660,7 +2638,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Friday, March 17th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2676,7 +2654,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Saturday, March 18th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2697,7 +2675,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Sunday, March 19th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2713,7 +2691,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Monday, March 20th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2729,7 +2707,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Tuesday, March 21st, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2745,7 +2723,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Wednesday, March 22nd, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2761,7 +2739,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Thursday, March 23rd, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2777,7 +2755,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Friday, March 24th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2793,7 +2771,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Saturday, March 25th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2814,7 +2792,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Sunday, March 26th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2830,7 +2808,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Monday, March 27th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2846,7 +2824,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Tuesday, March 28th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2862,7 +2840,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Wednesday, March 29th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2878,7 +2856,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Thursday, March 30th, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2894,7 +2872,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                         >
                           <button
                             aria-label="Friday, March 31st, 2000"
-                            class="c54 DayPicker-Day"
+                            class="c58 DayPicker-Day"
                             data-role="date-picker-day-button"
                             role="gridcell"
                             tabindex="-1"
@@ -2911,7 +2889,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2928,7 +2906,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2940,7 +2918,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2952,7 +2930,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2964,7 +2942,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2976,7 +2954,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -2988,7 +2966,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -3000,7 +2978,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                           role="presentation"
                         >
                           <div
-                            class="c53"
+                            class="c57"
                             role="gridcell"
                           />
                         </td>
@@ -3011,22 +2989,22 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
               </div>
             </div>
             <div
-              class="c55 c56 TimePicker"
+              class="c59 c60 TimePicker"
               data-role="date-time-picker-edit-time"
             >
               <span
-                class="c57 TimePicker__timeDisplay TimePicker__timeDisplay--initial"
+                class="c61 TimePicker__timeDisplay TimePicker__timeDisplay--initial"
                 data-role="date-time-picker-time-display"
               >
                 hh:mm A
               </span>
               <span
-                class="c58 TimePicker__editTimeButton"
+                class="c62 TimePicker__editTimeButton"
                 data-role="date-time-picker-edit-time-button"
               >
                 <button
                   aria-label="Select a time"
-                  class="c22 c59 button button--secondary"
+                  class="c22 c63 button button--secondary"
                   data-role="button"
                   id="test-id-time-button"
                   title="Select a time"
@@ -3051,19 +3029,19 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
               </span>
             </div>
             <div
-              class="c60 picker-footer TimePicker__footer"
+              class="c64 picker-footer TimePicker__footer"
               data-role="date-time-picker-footer"
             >
               <div
-                class="c61 picker-footer__action TimePicker__action"
+                class="c65 picker-footer__action TimePicker__action"
                 data-role="date-time-picker-footer-action"
               />
               <div
-                class="c61 picker-footer__action TimePicker__action"
+                class="c65 picker-footer__action TimePicker__action"
                 data-role="date-time-picker-footer-action"
               >
                 <button
-                  class="c22 c62 button button--primary"
+                  class="c22 c66 button button--primary"
                   data-role="button"
                   data-variant-type="primary"
                   title=""
@@ -3077,7 +3055,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                 </button>
               </div>
               <div
-                class="c61 picker-footer__action TimePicker__action"
+                class="c65 picker-footer__action TimePicker__action"
                 data-role="date-time-picker-footer-action"
               />
             </div>
