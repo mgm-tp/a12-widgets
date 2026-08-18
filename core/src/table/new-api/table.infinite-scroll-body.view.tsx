@@ -32,9 +32,8 @@
 
 import type { FC, ReactNode } from "react";
 import { useContext, useRef, useEffect } from "react";
-import type { Index } from "react-virtualized";
+import type { Index, ListRowProps } from "react-virtualized";
 import { AutoSizer, InfiniteLoader, List } from "react-virtualized";
-import { styled } from "styled-components";
 
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
@@ -43,33 +42,6 @@ import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { getRowKey } from "./table.utils.js";
 import { useTableContext } from "./table.context.js";
 import { StyledTableVirtualizedBody } from "./table.virtualized-body.view.js";
-
-const StyledInfiniteScrollBodyWrapper = styled.div.withConfig({
-	displayName: "StyledInfiniteScrollBodyWrapper-sc-"
-})`
-	position: relative;
-	overflow: hidden;
-`;
-
-const StyledInfiniteScrollPlaceholderBackground = styled.div.withConfig({
-	displayName: "StyledInfiniteScrollPlaceholderBackground-sc-"
-})`
-	position: absolute;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-	pointer-events: none;
-`;
-
-const StyledPlaceholderBackgroundItem = styled.div.withConfig({
-	displayName: "StyledPlaceholderBackgroundItem-sc-"
-})<{ $top: number; $height: number; $width: number }>`
-	position: absolute;
-	top: ${({ $top }) => $top}px;
-	height: ${({ $height }) => $height}px;
-	left: 0;
-	width: ${({ $width }) => $width}px;
-`;
 
 /** @internal */
 export const InfiniteScrollBody: FC<TableRenderPropsType.InfiniteScrollBodyProps> = (props) => {
@@ -103,6 +75,29 @@ export const InfiniteScrollBody: FC<TableRenderPropsType.InfiniteScrollBodyProps
 		return !!rowLoadingStatus(index);
 	};
 
+	const renderRow = ({ index, style, key }: ListRowProps): ReactNode => {
+		const row = data[index];
+
+		const registerRowRef = (element: HTMLElement | null) => {
+			rowRefs.current[index] = element;
+		};
+
+		if (rowLoadingStatus(index) === "loaded" && row) {
+			const rowKey = rowKeyApi ? getRowKey(row, rowKeyApi) : key;
+
+			return bodyRowRenderer({
+				key: rowKey,
+				row,
+				rowIndex: index,
+				style,
+				role: "row",
+				wrapperRef: registerRowRef
+			});
+		}
+
+		return placeHolderBodyRowRenderer({ key, rowIndex: index, style, role: "row" });
+	};
+
 	useEffect(() => {
 		if (scrollToNode) {
 			scrollToNode((nodeIndex, options) => {
@@ -125,80 +120,40 @@ export const InfiniteScrollBody: FC<TableRenderPropsType.InfiniteScrollBodyProps
 		<StyledTableVirtualizedBody tabIndex={props.tabIndex ?? -1} role={false}>
 			<AutoSizer>
 				{({ width, height }): ReactNode => {
-					const viewportPlaceholderCount = Math.ceil(height / rowHeight);
-
 					return (
-						<StyledInfiniteScrollBodyWrapper style={{ width, height }}>
-							<StyledInfiniteScrollPlaceholderBackground aria-hidden="true" style={{ width, height }}>
-								{Array.from({ length: viewportPlaceholderCount }, (_, i) => (
-									<StyledPlaceholderBackgroundItem
-										key={`placeholder-bg-${i}`}
-										$top={i * rowHeight}
-										$height={rowHeight}
-										$width={width}
-									>
-										{placeHolderBodyRowRenderer({
-											rowIndex: i,
-											role: "presentation"
-										})}
-									</StyledPlaceholderBackgroundItem>
-								))}
-							</StyledInfiniteScrollPlaceholderBackground>
-							<InfiniteLoader
-								ref={loaderRef}
-								rowCount={rowCount}
-								isRowLoaded={isRowLoaded}
-								loadMoreRows={loadData}
-								threshold={threshold}
-								minimumBatchSize={minimumBatchSize}
-							>
-								{({ onRowsRendered, registerChild }): ReactNode => (
-									<List
-										containerRole="rowgroup"
-										role="rowgroup"
-										data-role={DataRoles.Table.Infinite.Row.Group}
-										ref={(list): void => {
-											registerChild(list);
-											listRef?.(list);
-											gridInstance.current = list;
-										}}
-										rowCount={rowCount}
-										rowHeight={rowHeight}
-										width={width}
-										height={height}
-										style={style}
-										onRowsRendered={(info): void => {
-											onRowsRendered(info);
-											overrideOnRowRendered?.(info);
-										}}
-										rowRenderer={({ index, style, key }): ReactNode => {
-											const row = data[index];
-
-											const registerRowRef = (element: HTMLElement | null) => {
-												rowRefs.current[index] = element;
-											};
-
-											if (rowLoadingStatus(index) === "loaded" && row) {
-												const rowKey = rowKeyApi ? getRowKey(row, rowKeyApi) : key;
-
-												return bodyRowRenderer({
-													key: rowKey,
-													row,
-													rowIndex: index,
-													style,
-													role: "row",
-													wrapperRef: registerRowRef
-												});
-											}
-
-											return placeHolderBodyRowRenderer({ key, rowIndex: index, style, role: "row" });
-										}}
-										{...{ [`aria-label`]: tableTitles?.virtualizedBodyLabel }}
-										{...restListProps}
-									/>
-								)}
-							</InfiniteLoader>
-						</StyledInfiniteScrollBodyWrapper>
+						<InfiniteLoader
+							ref={loaderRef}
+							rowCount={rowCount}
+							isRowLoaded={isRowLoaded}
+							loadMoreRows={loadData}
+							threshold={threshold}
+							minimumBatchSize={minimumBatchSize}
+						>
+							{({ onRowsRendered, registerChild }): ReactNode => (
+								<List
+									containerRole="rowgroup"
+									role="rowgroup"
+									data-role={DataRoles.Table.Infinite.Row.Group}
+									ref={(list): void => {
+										registerChild(list);
+										listRef?.(list);
+										gridInstance.current = list;
+									}}
+									rowCount={rowCount}
+									rowHeight={rowHeight}
+									width={width}
+									height={height}
+									style={style}
+									onRowsRendered={(info): void => {
+										onRowsRendered(info);
+										overrideOnRowRendered?.(info);
+									}}
+									rowRenderer={renderRow}
+									{...{ [`aria-label`]: tableTitles?.virtualizedBodyLabel }}
+									{...restListProps}
+								/>
+							)}
+						</InfiniteLoader>
 					);
 				}}
 			</AutoSizer>

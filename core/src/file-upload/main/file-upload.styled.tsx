@@ -263,10 +263,6 @@ export namespace StyledFileUpload {
 				left: 50%;
 				transform: translate(-50%, -50%);
 				pointer-events: none;
-
-				& + svg {
-					width: 9999px;
-				}
 			`}
 		`;
 	});
@@ -596,10 +592,6 @@ export namespace StyledFileUpload {
 							opacity: 0.3;
 						}
 
-						${StyledUploadSvgIcon}[data-role="${DataRoles.FileUpload.PreviewIcon}"] {
-							width: 9999px; // fix bug in A12W-7445
-						}
-
 						${StyledLink} {
 							pointer-events: none;
 						}
@@ -708,6 +700,8 @@ export namespace StyledFileUpload {
 		$horizFit?: boolean;
 		$vertFit?: boolean;
 		$compact?: boolean;
+
+		/** @deprecated since 39.0.0. No longer in used. */
 		$fileUploadSize?: { width: string; height: string };
 	}>(({ theme, $horizFit, $vertFit, $compact, $fileUploadSize }) => {
 		return css`
@@ -730,7 +724,7 @@ export namespace StyledFileUpload {
 			css`
 				width: 100%;
 			`}
-			
+
 			${$fileUploadSize &&
 			css`
 				width: ${$fileUploadSize.width};

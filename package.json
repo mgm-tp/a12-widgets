@@ -43,7 +43,7 @@
 			"eslint --fix"
 		]
 	},
-	"version": "38.3.3",
+	"version": "38.3.5",
 	"a12Version": "2025.06-ext5",
 	"pnpm": {
 		"patchedDependencies": {

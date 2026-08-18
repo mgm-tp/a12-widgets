@@ -31,18 +31,139 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useRef } from "react";
 
-const PopupMenuPlaceholder = () => <div>PopupMenu stories coming soon...</div>;
+import { Button, Icon, List, PopUpMenu } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { PopUpMenuCloseReason } from "@com.mgmtp.a12.widgets/widgets-core";
 
-const meta: Meta<typeof PopupMenuPlaceholder> = {
+type StoryArgs = {
+	focusOnTriggerElementAfterClose: "true" | "false" | "per-reason";
+	onItemClick: boolean;
+	onOutsideClick: boolean;
+	onEscape: boolean;
+	onSpace: boolean;
+	onCloseButton: boolean;
+	onProgrammatic: boolean;
+};
+
+function getFocusOnTriggerElementAfterCloseProp(
+	args: StoryArgs
+): boolean | Partial<Record<PopUpMenuCloseReason, boolean>> {
+	if (args.focusOnTriggerElementAfterClose === "true") {
+		return true;
+	}
+
+	if (args.focusOnTriggerElementAfterClose === "false") {
+		return false;
+	}
+
+	return {
+		onItemClick: args.onItemClick,
+		onOutsideClick: args.onOutsideClick,
+		onEscape: args.onEscape,
+		onSpace: args.onSpace,
+		onCloseButton: args.onCloseButton,
+		onProgrammatic: args.onProgrammatic
+	};
+}
+
+const meta: Meta<StoryArgs> = {
 	title: "Widgets/General/PopupMenu",
-	component: PopupMenuPlaceholder,
-	parameters: {
-		layout: "centered"
+	parameters: { docs: { story: { height: "300px" } } },
+	tags: ["autodocs"],
+	argTypes: {
+		focusOnTriggerElementAfterClose: {
+			control: "radio",
+			options: ["true", "false", "per-reason"],
+			description:
+				"`true` restores focus for all close reasons. `false` disables restoration for all except ESC and Space, which always restore focus. `per-reason` lets you configure each close reason individually below."
+		},
+		onItemClick: {
+			control: "boolean",
+			description: "Restore focus after closing via item click.",
+			if: { arg: "focusOnTriggerElementAfterClose", eq: "per-reason" }
+		},
+		onOutsideClick: {
+			control: "boolean",
+			description: "Restore focus after closing via outside click.",
+			if: { arg: "focusOnTriggerElementAfterClose", eq: "per-reason" }
+		},
+		onEscape: {
+			control: "boolean",
+			description: "Restore focus after closing via ESC key.",
+			if: { arg: "focusOnTriggerElementAfterClose", eq: "per-reason" }
+		},
+		onSpace: {
+			control: "boolean",
+			description: "Restore focus after closing via Space key.",
+			if: { arg: "focusOnTriggerElementAfterClose", eq: "per-reason" }
+		},
+		onCloseButton: {
+			control: "boolean",
+			description: "Restore focus after closing via close button.",
+			if: { arg: "focusOnTriggerElementAfterClose", eq: "per-reason" }
+		},
+		onProgrammatic: {
+			control: "boolean",
+			description: "Restore focus after programmatic close.",
+			if: { arg: "focusOnTriggerElementAfterClose", eq: "per-reason" }
+		}
+	},
+	render: (args) => {
+		const closeRef = useRef<(() => void) | undefined>(undefined);
+		const triggerRef = useRef<HTMLElement | null>(null);
+
+		return (
+			<div style={{ display: "flex", flexDirection: "column", gap: "16px", padding: "12px" }}>
+				<p style={{ margin: 0, fontSize: "13px", color: "#555" }}>
+					<strong>Note:</strong> Clicking <em>Open &amp; auto-close in 2s</em> opens the popup and schedules a
+					programmatic close after 2 seconds.
+					<br />
+					When <code>onProgrammatic = true</code>, focus returns to the trigger element after the popup auto-closes;
+					<br />
+					When <code>false</code>, focus is not restored.
+				</p>
+				<div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
+					<PopUpMenu
+						icon={<Icon>arrow_drop_down</Icon>}
+						triggerElementRef={(element) => {
+							triggerRef.current = element;
+						}}
+						focusOnTriggerElementAfterClose={getFocusOnTriggerElementAfterCloseProp(args)}
+						close={(handler: () => void) => {
+							closeRef.current = handler;
+						}}
+					>
+						<List>
+							<List.Item text="List item 1" />
+							<List.Item text="List item 2" />
+							<List.Item text="List item 3" />
+						</List>
+					</PopUpMenu>
+					<Button
+						label="Open & auto-close in 2s"
+						onClick={() => {
+							triggerRef.current?.click();
+							setTimeout(() => closeRef.current?.(), 2000);
+						}}
+					/>
+				</div>
+			</div>
+		);
 	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const PopupMenuFocusOnClose: Story = {
+	args: {
+		focusOnTriggerElementAfterClose: "true",
+		onItemClick: true,
+		onOutsideClick: true,
+		onEscape: true,
+		onSpace: true,
+		onCloseButton: true,
+		onProgrammatic: true
+	}
+};

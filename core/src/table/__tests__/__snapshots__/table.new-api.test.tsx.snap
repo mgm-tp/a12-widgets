@@ -3838,7 +3838,7 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   overflow: hidden;
 }
 
-.c20 {
+.c17 {
   line-height: 1.45;
   outline: none;
   overflow: hidden;
@@ -3846,8 +3846,8 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   background-color: rgb(255, 255, 255);
 }
 
-.c20::before,
-.c20::after {
+.c17::before,
+.c17::after {
   bottom: 0px;
   left: 0px;
   position: absolute;
@@ -3856,37 +3856,37 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   pointer-events: none;
 }
 
-.c20::before {
+.c17::before {
   right: 0px;
 }
 
-.c20::after {
+.c17::after {
   display: block;
 }
 
-.c20:focus {
+.c17:focus {
   background-color: rgb(249, 250, 251);
 }
 
-.c20:last-child::before {
+.c17:last-child::before {
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c20:active,
-.c20:focus-within {
+.c17:active,
+.c17:focus-within {
   background-color: rgb(249, 250, 251);
 }
 
-.c19:focus .c22:last-child > :last-child {
+.c16:focus .c19:last-child > :last-child {
   background-clip: unset;
 }
 
-.c19:focus .c22:last-child > :last-child::before {
+.c16:focus .c19:last-child > :last-child::before {
   border-right: 2px solid rgb(213, 0, 117);
   margin-right: 1px;
 }
 
-.c34 {
+.c22 {
   min-height: 32px;
   overflow: hidden;
   isolation: isolate;
@@ -3894,38 +3894,38 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   justify-content: flex-start;
 }
 
-[data-role="tree"] .c34.c34 {
+[data-role="tree"] .c22.c22 {
   padding: 8px;
 }
 
-.c34.c34 > * {
+.c22.c22 > * {
   align-self: flex-start;
 }
 
-.c34 [class*="field--block"] {
+.c22 [class*="field--block"] {
   flex-grow: 0;
 }
 
-.c23 {
+.c20 {
   min-height: 32px;
   overflow: hidden;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-[data-role="tree"] .c23.c23 {
+[data-role="tree"] .c20.c20 {
   padding: 8px;
 }
 
-.c23.c23 > * {
+.c20.c20 > * {
   align-self: flex-start;
 }
 
-.c23 [class*="field--block"] {
+.c20 [class*="field--block"] {
   flex-grow: 0;
 }
 
-.c21 > .c45.c45::after {
+.c18 > .c33.c33::after {
   content: "";
   top: 0px;
   right: 0px;
@@ -3953,7 +3953,7 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   overflow-x: hidden;
 }
 
-.c38 {
+.c26 {
   font-weight: 600;
   min-height: 32px;
   overflow: hidden;
@@ -3961,13 +3961,13 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   align-items: flex-start;
 }
 
-.c38:empty {
+.c26:empty {
   min-height: 1px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.c36 {
+.c24 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
@@ -3975,22 +3975,22 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   z-index: 1;
 }
 
-.c36 > * {
+.c24 > * {
   position: relative;
 }
 
-.c36 > ::before {
+.c24 > ::before {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c36 > :first-child {
+.c24 > :first-child {
   box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
 }
 
-.c36 > :first-child::before {
+.c24 > :first-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -4028,19 +4028,19 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   min-width: 100%;
 }
 
-.c11 .c42.c42 {
+.c11 .c30.c30 {
   overflow: hidden;
 }
 
-.c11 .c43.c43 {
+.c11 .c31.c31 {
   overflow: hidden;
 }
 
-.c6:first-child .c43.c43.c43:first-child[data-role*="group-parent"] {
+.c6:first-child .c31.c31.c31:first-child[data-role*="group-parent"] {
   min-width: 100%;
 }
 
-.c6 > .c44.c44::after {
+.c6 > .c32.c32::after {
   border-right: 2px solid rgb(255, 255, 255);
 }
 
@@ -4057,17 +4057,17 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   flex: 0 0 auto;
 }
 
-.c41 .c13:not(:empty) {
+.c29 .c13:not(:empty) {
   flex-grow: 0;
 }
 
-.c41 .c35 {
+.c29 .c23 {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
 }
 
-.c41 .c37:last-child {
+.c29 .c25:last-child {
   flex-grow: 1;
 }
 
@@ -4119,100 +4119,7 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   border: 1px dotted rgb(51, 51, 51);
 }
 
-.c16 {
-  position: relative;
-  overflow: hidden;
-}
-
-.c17 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.c18 {
-  position: absolute;
-  top: 0px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c25 {
-  position: absolute;
-  top: 50px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c26 {
-  position: absolute;
-  top: 100px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c27 {
-  position: absolute;
-  top: 150px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c28 {
-  position: absolute;
-  top: 200px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c29 {
-  position: absolute;
-  top: 250px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c30 {
-  position: absolute;
-  top: 300px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c31 {
-  position: absolute;
-  top: 350px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c32 {
-  position: absolute;
-  top: 400px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c33 {
-  position: absolute;
-  top: 450px;
-  height: 50px;
-  left: 0px;
-  width: 500px;
-}
-
-.c24 {
+.c21 {
   background-image: linear-gradient(to right, rgba(226, 230, 233, 0.8) 20%, rgb(226, 230, 233) 50%, rgba(226, 230, 233, 0.8) 80%);
   background-size: 500px 100%;
   background-clip: content-box;
@@ -4226,50 +4133,50 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
   animation-duration: 0.5s;
 }
 
-.c39 {
+.c27 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   margin-top: -1px;
 }
 
-.c40 {
+.c28 {
   overflow-x: auto;
 }
 
 @media (pointer: fine) {
-  .c20:hover {
+  .c17:hover {
     background-color: rgb(249, 250, 251);
   }
 }
 
 @media (pointer: coarse) {
-  .c20:active {
+  .c17:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(249, 250, 251);
   }
 }
 
 @media (pointer: coarse) {
-  .c20:active {
+  .c17:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: none;
   }
 }
 
 @media (pointer: fine) {
-  .c20:hover {
+  .c17:hover {
     box-shadow: none;
   }
 }
 
 @media (pointer: coarse) {
-  .c20:active {
+  .c17:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 }
 
 @media (pointer: fine) {
-  .c19:not(:focus):hover .c22:last-child > :last-child::before {
+  .c16:not(:focus):hover .c19:last-child > :last-child::before {
     border-right: 2px solid rgb(213, 0, 117);
   }
 }
@@ -4373,685 +4280,114 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
         style="overflow: visible; height: 0px; width: 0px;"
       >
         <div
-          class="c16"
-          style="width: 500px; height: 500px;"
+          aria-label="Table body"
+          aria-readonly="true"
+          class="ReactVirtualized__Grid ReactVirtualized__List"
+          role="rowgroup"
+          style="box-sizing: border-box; direction: ltr; height: 500px; position: relative; width: 500px; will-change: transform; overflow: hidden;"
+          tabindex="0"
         >
           <div
-            aria-hidden="true"
-            class="c17"
-            style="width: 500px; height: 500px;"
-          >
-            <div
-              class="c18"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c25"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c26"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c27"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c28"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c29"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c30"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c31"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c32"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="c33"
-            >
-              <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="presentation"
-                tabindex="-1"
-              >
-                <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
-                >
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                  <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-label="Table body"
-            aria-readonly="true"
-            class="ReactVirtualized__Grid ReactVirtualized__List"
+            class="ReactVirtualized__Grid__innerScrollContainer"
             role="rowgroup"
-            style="box-sizing: border-box; direction: ltr; height: 500px; position: relative; width: 500px; will-change: transform; overflow: hidden;"
-            tabindex="0"
+            style="width: auto; height: 100px; max-width: 500px; max-height: 100px; overflow: hidden; position: relative;"
           >
             <div
-              class="ReactVirtualized__Grid__innerScrollContainer"
-              role="rowgroup"
-              style="width: auto; height: 100px; max-width: 500px; max-height: 100px; overflow: hidden; position: relative;"
+              class="c16 c3 c17 table__contentRow"
+              data-role="table-body-row"
+              role="row"
+              style="height: 50px; left: 0px; position: absolute; top: 0px; width: 100%;"
+              tabindex="-1"
             >
               <div
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="row"
-                style="height: 50px; left: 0px; position: absolute; top: 0px; width: 100%;"
-                tabindex="-1"
+                class="c5 c18 c7 c19 table__contentRow--scroll"
+                data-role="table-body-row--scroll"
               >
                 <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
+                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  data-role="table-body-cell"
+                  role="cell"
                 >
                   <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
+                    class="c21 table__bodyContent--placeHolder"
+                    data-role="table-body-content-placeholder"
+                  />
+                </div>
+                <div
+                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  data-role="table-body-cell"
+                  role="cell"
+                >
                   <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
+                    class="c21 table__bodyContent--placeHolder"
+                    data-role="table-body-content-placeholder"
+                  />
+                </div>
+                <div
+                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  data-role="table-body-cell"
+                  role="cell"
+                >
                   <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
+                    class="c21 table__bodyContent--placeHolder"
+                    data-role="table-body-content-placeholder"
+                  />
+                </div>
+                <div
+                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  data-role="table-body-cell"
+                  role="cell"
+                >
                   <div
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    <div
-                      class="c24 table__bodyContent--placeHolder"
-                      data-role="table-body-content-placeholder"
-                    />
-                  </div>
+                    class="c21 table__bodyContent--placeHolder"
+                    data-role="table-body-content-placeholder"
+                  />
                 </div>
               </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="c16 c3 c17 table__contentRow"
+              data-role="table-body-row"
+              role="row"
+              style="height: 50px; left: 0px; position: absolute; top: 50px; width: 100%;"
+              tabindex="-1"
+            >
               <div
-                aria-selected="false"
-                class="c19 c3 c20 table__contentRow"
-                data-role="table-body-row"
-                role="row"
-                style="height: 50px; left: 0px; position: absolute; top: 50px; width: 100%;"
-                tabindex="-1"
+                class="c5 c18 c7 c19 table__contentRow--scroll"
+                data-role="table-body-row--scroll"
               >
                 <div
-                  class="c5 c21 c7 c22 table__contentRow--scroll"
-                  data-role="table-body-row--scroll"
+                  aria-colindex="1"
+                  class="c8 c9 c22 table__contentCell table__contentCell--10"
+                  data-role="table-body-cell"
+                  role="cell"
                 >
-                  <div
-                    aria-colindex="1"
-                    class="c8 c9 c34 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    21
-                  </div>
-                  <div
-                    aria-colindex="2"
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    22
-                  </div>
-                  <div
-                    aria-colindex="3"
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    23
-                  </div>
-                  <div
-                    aria-colindex="4"
-                    class="c8 c9 c23 table__contentCell table__contentCell--10"
-                    data-role="table-body-cell"
-                    role="cell"
-                  >
-                    24
-                  </div>
+                  21
+                </div>
+                <div
+                  aria-colindex="2"
+                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  data-role="table-body-cell"
+                  role="cell"
+                >
+                  22
+                </div>
+                <div
+                  aria-colindex="3"
+                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  data-role="table-body-cell"
+                  role="cell"
+                >
+                  23
+                </div>
+                <div
+                  aria-colindex="4"
+                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  data-role="table-body-cell"
+                  role="cell"
+                >
+                  24
                 </div>
               </div>
             </div>
@@ -5074,11 +4410,11 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
       </div>
     </div>
     <div
-      class="c35 c36 table__footer"
+      class="c23 c24 table__footer"
       data-role="table-footer"
     >
       <div
-        class="c37 c3 table__footerRow"
+        class="c25 c3 table__footerRow"
         data-role="table-footer-row"
       >
         <div
@@ -5086,19 +4422,19 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
           data-role="table-footer-row--scroll"
         >
           <div
-            class="c8 c9 c38 table__footerCell table__footerCell--10"
+            class="c8 c9 c26 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c38 table__footerCell table__footerCell--10"
+            class="c8 c9 c26 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c38 table__footerCell table__footerCell--10"
+            class="c8 c9 c26 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c38 table__footerCell table__footerCell--10"
+            class="c8 c9 c26 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
         </div>
@@ -5106,28 +4442,28 @@ exports[`com.mgmtp.a12.widgets.table.new-api > infinite scroll table > rowLoadin
     </div>
     <div
       aria-hidden="true"
-      class="c3 c39"
+      class="c3 c27"
       data-role="table-row-scroller"
     >
       <div
-        class="c5 c7 c40"
+        class="c5 c7 c28"
         data-role="table-row-scroller--scroll"
         tabindex="-1"
       >
         <div
-          class="c8 c9 c38"
+          class="c8 c9 c26"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c38"
+          class="c8 c9 c26"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c38"
+          class="c8 c9 c26"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c38"
+          class="c8 c9 c26"
           data-role="table-row-scroller-cell"
         />
       </div>

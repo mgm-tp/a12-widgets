@@ -212,10 +212,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > default-file-upload onUploa
   pointer-events: none;
 }
 
-.c4 + svg {
-  width: 9999px;
-}
-
 .c7 {
   display: none;
 }
@@ -474,10 +470,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render basic default-file-u
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-.c8 + svg {
-  width: 9999px;
 }
 
 .c11 {
@@ -750,10 +742,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-.c6 + svg {
-  width: 9999px;
 }
 
 .c9 {
@@ -1067,10 +1055,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-.c13 + svg {
-  width: 9999px;
 }
 
 .c15 {
@@ -1579,10 +1563,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-.c12 + svg {
-  width: 9999px;
 }
 
 .c14 {
@@ -3746,10 +3726,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   pointer-events: none;
 }
 
-.c11 + svg {
-  width: 9999px;
-}
-
 .c13 {
   display: none;
 }
@@ -4169,10 +4145,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   pointer-events: none;
 }
 
-.c11 + svg {
-  width: 9999px;
-}
-
 .c13 {
   display: none;
 }
@@ -4541,10 +4513,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   pointer-events: none;
 }
 
-.c12 + svg {
-  width: 9999px;
-}
-
 .c14 {
   display: none;
 }
@@ -4846,10 +4814,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   pointer-events: none;
 }
 
-.c7 + svg {
-  width: 9999px;
-}
-
 .c10 {
   display: none;
 }
@@ -5055,10 +5019,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-.c7 + svg {
-  width: 9999px;
 }
 
 .c9 {
@@ -5710,10 +5670,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   pointer-events: none;
 }
 
-.c7 + svg {
-  width: 9999px;
-}
-
 .c10 {
   display: none;
 }
@@ -5923,10 +5879,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-.c7 + svg {
-  width: 9999px;
 }
 
 .c9 {

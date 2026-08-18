@@ -58,9 +58,8 @@ const StyledTableRowScroller = styled(StyledBaseTable.Row).withConfig({ displayN
 
 const StyledTableRowScrollerSegment = styled(StyledBaseTable.Segment).withConfig({
 	displayName: "StyledTableRowScrollerSegment-sc-"
-})(({ rowSegmentType, theme }) => {
+})<{ $crossTabulation?: boolean }>(({ rowSegmentType, theme, $crossTabulation: crossTabulation }) => {
 	const { bodyRow } = theme.components.table;
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
 
 	return css`
 		${rowSegmentType === "left" &&
@@ -85,12 +84,14 @@ const SegmentComponent = (
 	props: TableTemplateProps.RowSegmentProps
 ): ReactElement<TableTemplateProps.RowSegmentProps> => {
 	const isScroll = props.type === "scroll";
+	const crossTabulation = useTableContext((context) => context.crossTabulation);
 
 	return (
 		<StyledTableRowScrollerSegment
 			dataRole={`${DataRoles.Table.Row.Scroller}--${props.type}`}
 			rowSegmentType={props.type}
 			tabIndex={isScroll ? -1 : undefined}
+			$crossTabulation={crossTabulation}
 		>
 			{props.children}
 		</StyledTableRowScrollerSegment>

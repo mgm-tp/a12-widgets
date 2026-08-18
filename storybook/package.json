@@ -2,7 +2,7 @@
 	"name": "@com.mgmtp.a12.widgets/widgets-storybook",
 	"private": true,
 	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
-	"version": "38.3.3",
+	"version": "38.3.5",
 	"type": "module",
 	"scripts": {
 		"clean": "rimraf ./storybook-static target",

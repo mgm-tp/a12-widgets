@@ -135,86 +135,97 @@ export const StyledTableHeadCell = styled(StyledBaseTable.Cell).withConfig({ dis
 	sortable?: boolean;
 	touch?: boolean;
 	isHovering?: boolean;
-}>(({ theme, subInfo, actionCell, verAlignment, cardView, touch, isHovering }) => {
-	const { header, headCell, bodyCell, bodyRow } = theme.components.table;
-	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
-	const filterRow = useStyledTableContext((context) => !!context.header?.filterRow);
+	$filterRow?: boolean;
+}>(
+	({
+		theme,
+		subInfo,
+		actionCell,
+		verAlignment,
+		cardView,
+		touch,
+		isHovering,
+		$rowSegmentType: rowSegmentType,
+		$filterRow: filterRow
+	}) => {
+		const { header, headCell, bodyCell, bodyRow } = theme.components.table;
 
-	return css`
-		${isHovering &&
-		css`
-			${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
-		`}
-		align-items: center;
-		color: ${headCell.color};
-		cursor: default;
-		font-size: ${headCell.fontSize};
-		font-weight: ${headCell.fontWeight};
-		min-height: ${touch ? headCell.touchMinHeight : headCell.minHeight};
-		position: relative;
-		${StyledCheckbox.StyledField} {
-			min-height: auto;
-		}
-		${!subInfo &&
-		!actionCell &&
-		css`
-			padding: ${filterRow ? bodyCell.padding : headCell.padding};
-		`}
-		&:focus {
-			outline: none;
-		}
-
-		${filterRow &&
-		css`
-			overflow: hidden;
-			&:empty {
-				display: ${cardView && "none"};
+		return css`
+			${isHovering &&
+			css`
+				${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
+			`}
+			align-items: center;
+			color: ${headCell.color};
+			cursor: default;
+			font-size: ${headCell.fontSize};
+			font-weight: ${headCell.fontWeight};
+			min-height: ${touch ? headCell.touchMinHeight : headCell.minHeight};
+			position: relative;
+			${StyledCheckbox.StyledField} {
+				min-height: auto;
 			}
-		`}
+			${!subInfo &&
+			!actionCell &&
+			css`
+				padding: ${filterRow ? bodyCell.padding : headCell.padding};
+			`}
+			&:focus {
+				outline: none;
+			}
 
-		${!filterRow &&
-		!actionCell &&
-		css`
-			${StyledTableHeadCellContent} && {
+			${filterRow &&
+			css`
 				overflow: hidden;
-			}
-		`}
+				&:empty {
+					display: ${cardView && "none"};
+				}
+			`}
+
+			${!filterRow &&
+			!actionCell &&
+			css`
+				${StyledTableHeadCellContent} && {
+					overflow: hidden;
+				}
+			`}
  
 		 ${subInfo &&
-		css`
-			// Reset separator of pinned column
-			&&&&:last-of-type {
-				box-shadow: none;
-			}
-			${StyledTableMixins.setRowBG({
-				background: isHovering ? darken(bodyRow.subBGRatio, header.background) : header.background,
-				theme,
-				darken: true
-			})}
-		`}
+			css`
+				// Reset separator of pinned column
+				&&&&:last-of-type {
+					box-shadow: none;
+				}
+				${StyledTableMixins.setRowBG({
+					background: isHovering ? darken(bodyRow.subBGRatio, header.background) : header.background,
+					theme,
+					darken: true
+				})}
+			`}
 		   ${(verAlignment === "bottom" || verAlignment === "top") &&
-		css`
-			align-items: ${verAlignment === "bottom" ? "flex-end" : "flex-start"};
-		`}
+			css`
+				align-items: ${verAlignment === "bottom" ? "flex-end" : "flex-start"};
+			`}
  
 		 ${!cardView &&
-		(rowSegmentType === "left" || rowSegmentType === "scroll") &&
-		css`
-			${StyledTableHeadRowSegment}:first-child &&&:first-child[data-role*="group-parent"] {
-				min-width: 100%;
-			}
-			${StyledTableHeadCellGroup}:not(:first-child) &&&:first-child[data-role*="group-parent"] {
-				min-width: 100%;
-			}
-		`}
+			(rowSegmentType === "left" || rowSegmentType === "scroll") &&
+			css`
+				${StyledTableHeadRowSegment}:first-child &&&:first-child[data-role*="group-parent"] {
+					min-width: 100%;
+				}
+				${StyledTableHeadCellGroup}:not(:first-child) &&&:first-child[data-role*="group-parent"] {
+					min-width: 100%;
+				}
+			`}
 
 		${StyledTooltipWrapper} {
-			align-items: center;
-			display: inline-flex;
-			margin: ${headCell.tooltipMargin};
-		}
-	`;
-});
+				align-items: center;
+				display: inline-flex;
+				margin: ${headCell.tooltipMargin};
+			}
+		`;
+	}
+);
 
 export const StyledTableHeadSortableCell = styled(StyledTableHeadCell).withConfig({
 	displayName: "StyledTableHeadSortableCell-sc-"
@@ -259,48 +270,54 @@ export const StyledTableHeadSortableCell = styled(StyledTableHeadCell).withConfi
 
 const StyledTableHeadCellGroupTpl = styled(StyledTableHeadSortableCell).withConfig({
 	displayName: "StyledTableHeadCellGroupTpl-sc-"
-})(({ theme, resizable, isHovering }) => {
-	const { headCellGroup, header } = theme.components.table;
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
-	const cellHighlighting = useTableContext((context) => context.cellHighlighting);
-	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
-	const isCellHighlightingForRegularTable = !crossTabulation && cellHighlighting;
+})<{ $cellHighlighting?: boolean }>(
+	({
+		theme,
+		resizable,
+		isHovering,
+		$crossTabulation: crossTabulation,
+		$cellHighlighting: cellHighlighting,
+		$rowSegmentType: rowSegmentType
+	}) => {
+		const { headCellGroup, header } = theme.components.table;
+		const isCellHighlightingForRegularTable = !crossTabulation && cellHighlighting;
 
-	return css`
-		${isHovering &&
-		isCellHighlightingForRegularTable &&
-		css`
-			${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
-		`}
-		${!resizable &&
-		css`
-			${createPseudoElement(
-				":after",
-				css`
-					display: block;
-					left: unset;
-					border-right: ${headCellGroup.gapForSingle};
-				`
-			)}
-			&&:focus:after {
-				border-color: transparent;
-			}
-
-			${StyledTableHeadRowSegment} > && {
-				&:after {
-					border-right: ${headCellGroup.gapForGroup};
-				}
-			}
-			${crossTabulation &&
-			rowSegmentType === "left" &&
+		return css`
+			${isHovering &&
+			isCellHighlightingForRegularTable &&
 			css`
-				&&:last-child:after {
-					border-right-color: transparent;
-				}
+				${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
 			`}
-		`}
-	`;
-});
+			${!resizable &&
+			css`
+				${createPseudoElement(
+					":after",
+					css`
+						display: block;
+						left: unset;
+						border-right: ${headCellGroup.gapForSingle};
+					`
+				)}
+				&&:focus:after {
+					border-color: transparent;
+				}
+
+				${StyledTableHeadRowSegment} > && {
+					&:after {
+						border-right: ${headCellGroup.gapForGroup};
+					}
+				}
+				${crossTabulation &&
+				rowSegmentType === "left" &&
+				css`
+					&&:last-child:after {
+						border-right-color: transparent;
+					}
+				`}
+			`}
+		`;
+	}
+);
 
 export const HeadCellTpl = memo(function HeadCellTpl(
 	props: TableTemplateProps.HeadCellProps
@@ -309,6 +326,10 @@ export const HeadCellTpl = memo(function HeadCellTpl(
 	const cardView = useTableContext((context) => context.cardView);
 	const resizable = useTableContext((context) => context.resizable);
 	const hasColumnGroup = useTableContext((context) => context.hasColumnGroup);
+	const crossTabulation = useTableContext((context) => context.crossTabulation);
+	const cellHighlighting = useTableContext((context) => context.cellHighlighting);
+	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
+	const filterRow = useStyledTableContext((context) => !!context.header?.filterRow);
 	const headCellRef = useRef<HTMLDivElement | null>(null);
 	const isParentHeadCell = useMemo(() => props.dataRole?.includes("parent"), [props.dataRole]);
 	const [noEffect, setNoEffect] = useState(false);
@@ -426,6 +447,10 @@ export const HeadCellTpl = memo(function HeadCellTpl(
 			resizable={resizable}
 			sortable={sortable}
 			data-width={props.relativeWidth}
+			$crossTabulation={crossTabulation}
+			$rowSegmentType={rowSegmentType}
+			$filterRow={filterRow}
+			$cellHighlighting={cellHighlighting}
 			data-type={props.actionCell && TableDataAttributes.Table.ActionCell}
 			{...htmlAttributes}
 			title={

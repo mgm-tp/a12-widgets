@@ -63,7 +63,7 @@ import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.
 import { List } from "../../list/main/list.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import type { PopUpMenuProps } from "./pop-up-menu.api.js";
+import type { PopUpMenuCloseReason, PopUpMenuProps } from "./pop-up-menu.api.js";
 import {
 	StyledPopup,
 	StyledPopupMenu,
@@ -137,13 +137,36 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 		});
 	};
 
+	const shouldFocusTriggerAfterClose = useCallback(
+		(reason: PopUpMenuCloseReason): boolean => {
+			if (typeof focusOnTriggerElementAfterClose === "object") {
+				return focusOnTriggerElementAfterClose[reason] ?? true;
+			}
+
+			// ESC and SPACE keep the existing behavior and still restore focus to the trigger element.
+			if (focusOnTriggerElementAfterClose === false) {
+				return reason === "onEscape" || reason === "onSpace";
+			}
+
+			return true;
+		},
+		[focusOnTriggerElementAfterClose]
+	);
+
 	const closePopup = useCallback(
-		({ shouldFocusOnTriggerButton = focusOnTriggerElementAfterClose, shouldFocusBackWhenClick = true } = {}): void => {
+		({
+			closeReason,
+			shouldFocusBackWhenClick = true
+		}: {
+			closeReason: PopUpMenuCloseReason;
+			shouldFocusBackWhenClick?: boolean;
+		}): void => {
 			setShowPopUpList(false, () => {
 				if (!buttonTriggerRef.current) {
 					return;
 				}
 
+				const shouldFocusOnTriggerButton = shouldFocusTriggerAfterClose(closeReason);
 				const a11yDesignOnMobile = isMobile && enableA11YMobileDesign;
 				const allowFocusBack =
 					shouldFocusOnTriggerButton &&
@@ -164,19 +187,18 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 				}
 			});
 		},
-		[enableA11YMobileDesign, focusOnTriggerElementAfterClose, isDesktop, isMobile, setShowPopUpList]
+		[enableA11YMobileDesign, shouldFocusTriggerAfterClose, isDesktop, isMobile, setShowPopUpList]
 	);
 
 	const onPopupClick = (event: SyntheticEvent<HTMLElement>): void => {
 		// Do not trigger click event for non-interactive element
 		const targetElement = event.target as HTMLElement;
 		const isTargetInHeaderWrapper = !!targetElement.closest(`[data-role=${DataRoles.Popup.HeaderWrapper}]`);
-		const isTargetInCloseButton = !!targetElement.closest(`[data-role=${DataRoles.Popup.CloseButton}]`);
 
 		const targetElementDataRole = targetElement.getAttribute("data-role");
 
 		if (
-			(isTargetInHeaderWrapper && !isTargetInCloseButton) ||
+			isTargetInHeaderWrapper ||
 			targetElementDataRole === DataRoles.List.SubHeader ||
 			targetElement.classList.contains("list-item--non-interactive")
 		) {
@@ -194,9 +216,7 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 			return;
 		}
 
-		closePopup({
-			shouldFocusBackWhenClick: false
-		});
+		closePopup({ closeReason: "onItemClick", shouldFocusBackWhenClick: false });
 	};
 
 	const handlePopUpKeyDown = (event: ReactKeyboardEvent<HTMLElement>): void => {
@@ -214,9 +234,7 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 
 			event.stopPropagation();
 			event.preventDefault();
-			closePopup({
-				shouldFocusBackWhenClick: false
-			});
+			closePopup({ closeReason: "onItemClick", shouldFocusBackWhenClick: false });
 		}
 	};
 
@@ -240,9 +258,7 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 	};
 
 	const closePopUpAndFocusBack = (): void => {
-		closePopup({
-			shouldFocusOnTriggerButton: true
-		});
+		closePopup({ closeReason: "onCloseButton" });
 	};
 
 	const handleTransitionExited = useCallback((): void => {
@@ -404,7 +420,7 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 
 	const handleOutsideClick = (): void => {
 		if (closeOnOutsideClick) {
-			closePopup();
+			closePopup({ closeReason: "onOutsideClick" });
 		}
 	};
 
@@ -493,7 +509,7 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 
 	useEffect(() => {
 		if (close) {
-			close(() => closePopup());
+			close(() => closePopup({ closeReason: "onProgrammatic" }));
 		}
 
 		const handleKeydown = (event: KeyboardEvent): void => {
@@ -509,7 +525,7 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 			const closeOnEscKey = event.key === Key.Escape && a11yDesignOnMobile;
 
 			if (closeOnSpaceKey || closeOnEscKey) {
-				closePopup({ shouldFocusOnTriggerButton: true, shouldFocusBackWhenClick: false });
+				closePopup({ closeReason: closeOnSpaceKey ? "onSpace" : "onEscape", shouldFocusBackWhenClick: false });
 			}
 		};
 
@@ -552,6 +568,7 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 						closeOnEsc={closeOnEsc}
 						className={portalClassName}
 						referenceElement={buttonTriggerRef.current}
+						focusOnReferenceElementAfterEsc={shouldFocusTriggerAfterClose("onEscape")}
 						orientationList={orientation ? undefined : orientations}
 						orientation={orientation}
 						closeOnClickReferenceElement={false}
@@ -579,7 +596,7 @@ export const PopUpMenu: FC<PopUpMenuProps> = ({
 						<StyledPopupMenuModalOverlay
 							fullscreen
 							closeOnOutsideClick={!!closeOnOutsideClick}
-							onClose={closePopup}
+							onClose={handleOutsideClick}
 							focusBack={false}
 							closeOnEsc={false}
 							$showModalOverlay={showPopUpList}

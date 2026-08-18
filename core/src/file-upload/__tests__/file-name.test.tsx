@@ -172,4 +172,19 @@ describe("com.mgmtp.a12.widgets.default-file-upload.simplified", () => {
 		fireEvent.click(uploadArea);
 		expect(uploadAreaRefFn).toHaveBeenCalledTimes(1);
 	});
+
+	test("should not overflow when its parent has padding", () => {
+		const { container } = render(
+			<div style={{ padding: "16px" }}>
+				<DefaultFileUpload {...properties} />
+			</div>
+		);
+		const fileUpload = getByDataRole(container, `${DataRoles.FileUpload}`);
+		const fileUploadContent = getByDataRole(container, `${DataRoles.FileUpload.Content}`);
+
+		const fileUploadWidth = fileUpload.getBoundingClientRect().width;
+		const fileUploadContentWidth = fileUploadContent.getBoundingClientRect().width;
+
+		expect(fileUploadContentWidth).toBeLessThanOrEqual(fileUploadWidth);
+	});
 });

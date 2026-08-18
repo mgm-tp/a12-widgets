@@ -35,7 +35,8 @@ import { Key } from "ts-key-enum";
 import { describe, test, expect, vi, afterEach } from "vitest";
 import { getByText } from "@testing-library/dom";
 import { userEvent } from "vitest/browser";
-import type { ReactElement } from "react";
+import type { PropsWithChildren, ReactElement, ReactNode } from "react";
+import { createContext, useContext, useState, useMemo } from "react";
 
 import { noop, Key as CustomKey } from "../../common/main/utils.js";
 import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
@@ -722,5 +723,104 @@ describe("com.mgmtp.a12.widgets.multiselect", () => {
 		// Verify second search result (Apricot) is enabled
 		const enabledCheckbox = getByDataRole(dropdownItems[1], DataRoles.Checkbox.Input);
 		expect(enabledCheckbox).not.toHaveAttribute("disabled");
+	});
+
+	test("Should disable all unselected items when the maximum selection limit is reached", async () => {
+		const MaxSelectionMultiselect = (): ReactElement => {
+			const MAX_SELECTED_ITEMS = 3;
+			const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+			const items = useMemo(
+				() =>
+					ITEMS.map((item) => ({
+						...item,
+						selected: selectedIds.includes(item.id),
+						...(selectedIds.length >= MAX_SELECTED_ITEMS && !selectedIds.includes(item.id) ? { disabled: true } : {})
+					})),
+				[selectedIds]
+			);
+
+			return (
+				<Multiselect
+					items={items}
+					enableSelectAllOption={false}
+					onChange={(selectedItems) => setSelectedIds(selectedItems.map(({ id }) => id))}
+				/>
+			);
+		};
+
+		const { container, baseElement } = render(<MaxSelectionMultiselect />);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+		await userEvent.click(input);
+
+		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
+
+		// Select 3 items to reach the maximum
+		await userEvent.click(getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input));
+		await userEvent.click(getByDataRole(dropdownItems[2], DataRoles.Checkbox.Input));
+		await userEvent.click(getByDataRole(dropdownItems[4], DataRoles.Checkbox.Input));
+
+		// Selected items should remain enabled
+		// Unselected items should be disabled after max reached
+		for (let i = 0; i < dropdownItems.length; i++) {
+			if ([0, 2, 4].includes(i)) {
+				const checkbox = getByDataRole(dropdownItems[i], DataRoles.Checkbox.Input);
+				expect(checkbox).toHaveAttribute("aria-checked", "true");
+				expect(checkbox).not.toBeDisabled();
+			} else {
+				expect(getByDataRole(dropdownItems[i], DataRoles.Checkbox.Input)).toBeDisabled();
+			}
+		}
+	});
+
+	test("Should not cause infinite render loop when items prop uses grouped format", async () => {
+		const groupedItems: MultiselectProps.Items = {
+			selectedItems: [],
+			unselectedItems: ITEMS
+		};
+
+		const { container, baseElement } = render(<Multiselect items={groupedItems} enableSelectAllOption={false} />);
+		const input = getByDataRole(container, DataRoles.Textline.Input);
+
+		// Opening dropdown triggers componentDidUpdate — old bug caused infinite loop here
+		await userEvent.click(input);
+
+		// Clicking an item triggers setState, which re-enters componentDidUpdate
+		const dropdownItems = getAllByDataRole(baseElement, DataRoles.Dropdown.Item);
+		const firstItem = getByDataRole(dropdownItems[0], DataRoles.Checkbox.Input);
+		await userEvent.click(firstItem);
+
+		// Component still functional means no infinite loop occurred
+		expect(input).toBeInTheDocument();
+		// Item was selected
+		expect(firstItem).toHaveAttribute("aria-checked", "true");
+	});
+
+	test("Should not crash when items contain a JSX graphic and a surrounding context exposes a throwing getter", () => {
+		const throwingModel = {
+			get header(): never {
+				throw new Error("should never be accessed");
+			}
+		};
+		const ThrowingContext = createContext<{ model: unknown }>({ model: throwingModel });
+
+		const ContextConsumer = ({ children }: PropsWithChildren): ReactNode => {
+			useContext(ThrowingContext);
+
+			return children;
+		};
+
+		const itemsWithGraphic: MultiselectProps.Item[] = ITEMS.map((item) => ({
+			...item,
+			graphic: <Icon>star</Icon>
+		}));
+
+		const { getByDataRole } = render(
+			<ContextConsumer>
+				<Multiselect items={itemsWithGraphic} label={properties.label} id={properties.id} onChange={noop} />
+			</ContextConsumer>
+		);
+
+		expect(getByDataRole(DataRoles.Textline.Input)).toBeInTheDocument();
 	});
 });

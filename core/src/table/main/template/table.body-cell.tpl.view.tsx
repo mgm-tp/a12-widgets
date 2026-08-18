@@ -70,6 +70,13 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 	$verticalHeader?: boolean;
 	$cellHighlighting?: boolean;
 	$firstCell?: boolean;
+	$rowSelected?: boolean;
+	$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+	$rowHighlighted?: boolean;
+	$rowDisabled?: boolean;
+	$rowSubInfo?: boolean;
+	$rowInteractive?: boolean;
+	$rowNoEffect?: boolean;
 }>(
 	({
 		theme,
@@ -81,17 +88,16 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 		cardView,
 		$verticalHeader,
 		$cellHighlighting,
-		$firstCell
+		$firstCell,
+		$rowSelected: rowSelected,
+		$rowHighlightVariant: rowHighlightVariant,
+		$rowHighlighted: rowHighlighted,
+		$rowDisabled: rowDisabled,
+		$rowSubInfo: rowSubInfo,
+		$rowInteractive: rowInteractive,
+		$rowNoEffect: rowNoEffect
 	}) => {
 		const { bodyRow, bodyCell } = theme.components.table;
-
-		const rowSelected = useStyledTableContext((context) => !!context.row?.selected);
-		const rowHighlightVariant = useStyledTableContext((context) => context.row?.highlightVariant);
-		const rowHighlighted = useStyledTableContext((context) => !!context.row?.highlighted);
-		const rowDisabled = useStyledTableContext((context) => !!context.row?.disabled);
-		const rowSubInfo = useStyledTableContext((context) => !!context.row?.subInfo);
-		const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
-		const rowNoEffect = useStyledTableContext((context) => !!context.row?.noEffect);
 
 		const background = rowDisabled
 			? bodyRow.disabled.background
@@ -392,71 +398,80 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 
 export const StyledTableBodyCellGroupTpl = styled(StyledTableBodyCell).withConfig({
 	displayName: "StyledTableBodyCellGroupTpl-sc-"
-})(({ theme, resizable, $cellHighlighting }) => {
-	const { headCellGroup, bodyRow } = theme.components.table;
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
-	const isCellHighlightingForRegularTable = !crossTabulation && $cellHighlighting;
+})<{
+	$crossTabulation?: boolean;
+	$rowSegmentType?: TableTemplateProps.RowSegmentType;
+	$rowInteractive?: boolean;
+}>(
+	({
+		theme,
+		resizable,
+		$cellHighlighting,
+		$crossTabulation: crossTabulation,
+		$rowSegmentType: rowSegmentType,
+		$rowInteractive: rowInteractive
+	}) => {
+		const { headCellGroup, bodyRow } = theme.components.table;
+		const isCellHighlightingForRegularTable = !crossTabulation && $cellHighlighting;
 
-	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
-	const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
-
-	return css`
-		${isCellHighlightingForRegularTable &&
-		css`
-			${StyledTableMixins.setRowBG({
-				background: bodyRow.nonInteractive.hoverBG,
-				theme,
-				state: "hover"
-			})}
-		`};
-		position: relative;
-		${StyledTableBodyRowSegment} > && {
-			${createPseudoElement(
-				":after",
-				css`
-					display: block;
-					left: unset;
-					border-right: ${headCellGroup.borderRight};
-				`
-			)}
-		}
-		${((crossTabulation && rowSegmentType === "left") || rowSegmentType === "right") &&
-		css`
+		return css`
+			${isCellHighlightingForRegularTable &&
+			css`
+				${StyledTableMixins.setRowBG({
+					background: bodyRow.nonInteractive.hoverBG,
+					theme,
+					state: "hover"
+				})}
+			`};
+			position: relative;
 			${StyledTableBodyRowSegment} > && {
-				&:last-child:after {
-					border-right-color: transparent;
+				${createPseudoElement(
+					":after",
+					css`
+						display: block;
+						left: unset;
+						border-right: ${headCellGroup.borderRight};
+					`
+				)}
+			}
+			${((crossTabulation && rowSegmentType === "left") || rowSegmentType === "right") &&
+			css`
+				${StyledTableBodyRowSegment} > && {
+					&:last-child:after {
+						border-right-color: transparent;
+					}
 				}
-			}
-		`}
+			`}
 
-		${resizable &&
-		css`
-			[data-role="${DataRoles.Table.Body.Cell.Group}"]:last-child &&:last-child {
-				flex: 1;
-			}
-		`}
+			${resizable &&
+			css`
+				[data-role="${DataRoles.Table.Body.Cell.Group}"]:last-child &&:last-child {
+					flex: 1;
+				}
+			`}
 
 	        // Make sure when hover/focus, column's border not overlap with content row's border
 	        ${rowInteractive &&
-		css`
-			${activeAndHover(
-				css`
+			css`
+				${activeAndHover(
+					css`
+						&:after {
+							top: 3px;
+							bottom: 3px;
+						}
+					`,
+					StyledTableBodyRow
+				)}
+				${StyledTableBodyRow}:focus & {
 					&:after {
 						top: 3px;
 						bottom: 3px;
 					}
-				`,
-				StyledTableBodyRow
-			)}
-			${StyledTableBodyRow}:focus & {
-				&:after {
-					top: 3px;
-					bottom: 3px;
 				}
-			}
-		`}
-	`;
-});
+			`}
+		`;
+	}
+);
 
 const StyledTableBodyCellLabel = styled.div.withConfig({ displayName: "StyledTableBodyCellLabel-sc-" })<{
 	cardView?: boolean;
@@ -489,6 +504,13 @@ export const BodyCellTpl = memo(function BodyCellTpl(
 	const cellHighlighting = useTableContext((context) => !!context.cellHighlighting);
 	const rowHighlightVariant = useStyledTableContext((context) => context.row?.highlightVariant);
 	const rowDisabled = useStyledTableContext((context) => !!context.row?.disabled);
+	const rowSelected = useStyledTableContext((context) => !!context.row?.selected);
+	const rowHighlighted = useStyledTableContext((context) => !!context.row?.highlighted);
+	const rowSubInfo = useStyledTableContext((context) => !!context.row?.subInfo);
+	const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
+	const rowNoEffect = useStyledTableContext((context) => !!context.row?.noEffect);
+	const crossTabulation = useTableContext((context) => context.crossTabulation);
+	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
 
 	const rowInfo = rowHighlightVariant === "info";
 	const rowSuccess = rowHighlightVariant === "success";
@@ -615,6 +637,15 @@ export const BodyCellTpl = memo(function BodyCellTpl(
 			tabIndex={cellHighlighting ? -1 : undefined}
 			$cellHighlighting={cellHighlighting}
 			$firstCell={props.firstCell}
+			$rowSelected={rowSelected}
+			$rowHighlightVariant={rowHighlightVariant}
+			$rowHighlighted={rowHighlighted}
+			$rowDisabled={rowDisabled}
+			$rowSubInfo={rowSubInfo}
+			$rowInteractive={rowInteractive}
+			$rowNoEffect={rowNoEffect}
+			$crossTabulation={crossTabulation}
+			$rowSegmentType={rowSegmentType}
 			data-width={props.relativeWidth}
 			data-type={props.actionCell && TableDataAttributes.Table.ActionCell}
 		>

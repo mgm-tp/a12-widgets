@@ -1,6 +1,6 @@
 {
 	"name": "@com.mgmtp.a12.widgets/widgets-showcase-redesign",
-	"version": "38.3.3",
+	"version": "38.3.5",
 	"description": "Showcase of Widgets - Redesigned",
 	"author": "mgm technology partners",
 	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
@@ -47,7 +47,7 @@
 		"@types/react-virtualized": "^9.22.3",
 		"date-fns": "^4.1.0",
 		"deepmerge": "^4.3.1",
-		"dompurify": "^3.3.3",
+		"dompurify": "^3.4.11",
 		"fuzzysort": "^3.1.0",
 		"immer": "^11.1.4",
 		"lexical": "^0.31.2",

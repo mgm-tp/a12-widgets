@@ -147,7 +147,7 @@ export function Home(props: RouterProps) {
 					<Button
 						primary
 						label="CONTACT US"
-						onClick={() => window.open("https://www.mgm-tp.com/locations.html", "_blank")}
+						onClick={() => window.open("https://geta12.com/#/support/support-overview", "_blank")}
 					/>
 				</Column>
 			</StyledInnerWrapperShowcase>

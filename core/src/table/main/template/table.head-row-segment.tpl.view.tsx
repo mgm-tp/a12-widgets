@@ -47,9 +47,7 @@ import { useStyledTableContext } from "./table.context.styled.js";
 
 export const StyledTableHeadRowSegment = styled(StyledBaseTable.Segment).withConfig({
 	displayName: "StyledTableHeadRowSegment-sc-"
-})(({ theme }) => {
-	const filterRow = useStyledTableContext((context) => context.header?.filterRow);
-
+})<{ $filterRow?: boolean }>(({ theme, $filterRow: filterRow }) => {
 	const { headRow } = theme.components.table;
 
 	return css`
@@ -71,6 +69,8 @@ export const HeadRowSegmentTpl = memo(function HeadRowSegmentTpl(
 	props: TableTemplateProps.RowSegmentProps
 ): ReactElement<TableTemplateProps.RowSegmentProps> {
 	const cardView = useTableContext((context) => context.cardView);
+	const crossTabulation = useTableContext((context) => !!context.crossTabulation);
+	const filterRow = useStyledTableContext((context) => !!context.header?.filterRow);
 
 	const classNames = useMemo(() => {
 		return joinClassNames(`${BASE_TABLE_CLASSNAME}__headerRow--${props.type}`, props.className);
@@ -84,6 +84,8 @@ export const HeadRowSegmentTpl = memo(function HeadRowSegmentTpl(
 			dataRole={props.dataRole || `table-header-row--${props.type}`}
 			rowSegmentType={props.type}
 			cardView={cardView}
+			$crossTabulation={crossTabulation}
+			$filterRow={filterRow}
 		>
 			{props.children}
 		</StyledTableHeadRowSegment>

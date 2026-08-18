@@ -45,10 +45,8 @@ import { StyledBaseTable } from "./table.styled.js";
 
 export const StyledTableFootRowSegment = styled(StyledBaseTable.Segment).withConfig({
 	displayName: "StyledTableFootRowSegment-sc-"
-})(({ rowSegmentType, theme }) => {
+})(({ rowSegmentType, theme, $crossTabulation: crossTabulation }) => {
 	const { bodyRow, footRow } = theme.components.table;
-
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
 
 	return css`
 		${rowSegmentType === "left" &&
@@ -71,6 +69,8 @@ export const StyledTableFootRowSegment = styled(StyledBaseTable.Segment).withCon
 export const FootRowSegmentTpl = memo(function FootRowSegmentTpl(
 	props: TableTemplateProps.RowSegmentProps
 ): ReactElement<TableTemplateProps.RowSegmentProps> {
+	const crossTabulation = useTableContext((context) => !!context.crossTabulation);
+
 	const classNames = useMemo(() => {
 		return joinClassNames(`${BASE_TABLE_CLASSNAME}__footerRow--${props.type}`, props.className);
 	}, [props.className, props.type]);
@@ -82,6 +82,7 @@ export const FootRowSegmentTpl = memo(function FootRowSegmentTpl(
 			id={props.id}
 			dataRole={props.dataRole || `${BASE_TABLE_CLASSNAME}-footer-row--${props.type}`}
 			rowSegmentType={props.type}
+			$crossTabulation={crossTabulation}
 		>
 			{props.children}
 		</StyledTableFootRowSegment>

@@ -49,11 +49,7 @@ import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledBaseTable, StyledTableMixins } from "./table.styled.js";
-import {
-	StyledTableContextProvider,
-	useOptimalTableContextValue,
-	useStyledTableContext
-} from "./table.context.styled.js";
+import { StyledTableContextProvider, useOptimalTableContextValue } from "./table.context.styled.js";
 import { StyledTableExpandableWrapper } from "./table.expandable-body-row-wrapper.tpl.view.js";
 
 const bodyRowStates = (selected?: boolean, beforeBorder?: string, afterBorder?: string) => {
@@ -89,19 +85,31 @@ export const StyledBodyRowBadgeWrapper = styled.div.withConfig({ displayName: "S
 
 export const StyledTableBodyRow = styled(StyledBaseTable.Row).withConfig({ displayName: "StyledTableBodyRow-sc-" })<{
 	virtualScroll?: boolean;
+	$cellHighlighting?: boolean;
+	$crossTabulation?: boolean;
+	$selected?: boolean;
+	$highlightVariant?: TableTemplateProps.TableHighlightVariant;
+	$highlighted?: boolean;
+	$disabled?: boolean;
+	$interactive?: boolean;
+	$noEffect?: boolean;
+	$contextMenuOpen?: boolean;
 }>((props) => {
-	const { theme, cardView, virtualScroll, tabIndex } = props;
-
-	const cellHighlighting = useTableContext((context) => context.cellHighlighting);
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
-
-	const rowSelected = useStyledTableContext((context) => !!context.row?.selected);
-	const rowHighlightVariant = useStyledTableContext((context) => context.row?.highlightVariant);
-	const rowHighlighted = useStyledTableContext((context) => !!context.row?.highlighted);
-	const rowDisabled = useStyledTableContext((context) => !!context.row?.disabled);
-	const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
-	const rowNoEffect = useStyledTableContext((context) => !!context.row?.noEffect);
-	const contextMenuOpen = useStyledTableContext((context) => !!context.row?.contextMenuOpen);
+	const {
+		theme,
+		cardView,
+		virtualScroll,
+		tabIndex,
+		$cellHighlighting: cellHighlighting,
+		$crossTabulation: crossTabulation,
+		$selected: rowSelected,
+		$highlightVariant: rowHighlightVariant,
+		$highlighted: rowHighlighted,
+		$disabled: rowDisabled,
+		$interactive: rowInteractive,
+		$noEffect: rowNoEffect,
+		$contextMenuOpen: contextMenuOpen
+	} = props;
 
 	const { table } = theme.components;
 	const { bodyRow, header } = table;
@@ -350,6 +358,8 @@ export const BodyRowTpl = memo(function BodyRowTpl(
 	const hasVirtualScroll = useTableContext((context) => !!context.virtualScrollOptions);
 	const hasInfiniteScroll = useTableContext((context) => !!context.infiniteScrollOptions);
 	const dnd = useTableContext((context) => !!context.dragDropOptions);
+	const cellHighlighting = useTableContext((context) => context.cellHighlighting);
+	const crossTabulation = useTableContext((context) => context.crossTabulation);
 	const [contextMenuOpen, setContextMenuOpen] = useState<boolean>(false);
 
 	const getRef = useCallback(
@@ -517,6 +527,15 @@ export const BodyRowTpl = memo(function BodyRowTpl(
 				onTouchStart={shouldAddNoEffectClassName}
 				cardView={cardView}
 				virtualScroll={hasVirtualScroll || hasInfiniteScroll}
+				$cellHighlighting={cellHighlighting}
+				$crossTabulation={crossTabulation}
+				$selected={props.selected}
+				$highlightVariant={props.highlightVariant}
+				$highlighted={props.highlighted}
+				$disabled={props.disabled}
+				$interactive={isInteractive}
+				$noEffect={addNoEffectClass}
+				$contextMenuOpen={contextMenuOpen}
 				{...props.htmlAttributes}
 			>
 				{props.children}

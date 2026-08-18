@@ -30,16 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
+import type { ReactElement, CSSProperties, ReactNode } from "react";
 import { useState, useCallback } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import type { BaseColumnType, RowLoadingStatus } from "@com.mgmtp.a12.widgets/widgets-core";
-import { Table } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { BaseColumnType, RowLoadingStatus, TableRenderPropsType } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Button, Table } from "@com.mgmtp.a12.widgets/widgets-core";
 
 type Row = { id: number; name: string; department: string; salary: number };
 
-const ROW_COUNT = 10000;
+const ROW_COUNT = 5000;
 const BATCH_SIZE = 50;
 
 const ALL_ROWS: Row[] = Array.from({ length: ROW_COUNT }, (_, i) => ({
@@ -56,25 +56,17 @@ const columns: BaseColumnType<Row>[] = [
 	{ label: "Salary", dataGetter: ({ row }) => `$${row.salary.toLocaleString()}` }
 ];
 
-interface InfiniteScrollDemoProps {
-	latencyMs: number;
-	threshold: number;
-	minimumBatchSize: number;
-	overscanRowCount: number;
-}
+const ROW_HEIGHT = 48;
+const TABLE_HEIGHT = 480;
 
-function InfiniteScrollDemo({
-	latencyMs,
-	threshold,
-	minimumBatchSize,
-	overscanRowCount
-}: InfiniteScrollDemoProps): ReactElement {
-	const [tableData, setTableData] = useState<(Row | undefined)[]>(() => new Array(ROW_COUNT).fill(undefined));
+function useInfiniteScrollData(rows: readonly Row[], latencyMs: number) {
+	const rowCount = rows.length;
+	const [tableData, setTableData] = useState<(Row | undefined)[]>(() => new Array(rowCount).fill(undefined));
 	const [rowStatusMap, setRowStatusMap] = useState<Record<number, RowLoadingStatus>>({});
 
 	const loadData = useCallback(
 		({ startIndex, stopIndex }: { startIndex: number; stopIndex: number }) => {
-			const stop = Math.min(stopIndex, ROW_COUNT - 1);
+			const stop = Math.min(stopIndex, rowCount - 1);
 
 			setRowStatusMap((prev) => {
 				const next = { ...prev };
@@ -92,7 +84,7 @@ function InfiniteScrollDemo({
 						const next = [...prev];
 
 						for (let i = startIndex; i <= stop; i++) {
-							next[i] = ALL_ROWS[i];
+							next[i] = rows[i];
 						}
 
 						return next;
@@ -110,17 +102,81 @@ function InfiniteScrollDemo({
 				}, latencyMs)
 			);
 		},
-		[latencyMs]
+		[latencyMs, rowCount, rows]
 	);
+
+	return { tableData, rowStatusMap, loadData };
+}
+
+interface FilterableTableDemoProps {
+	rows: readonly Row[];
+	latencyMs: number;
+}
+
+function FilterableTableDemo({ rows, latencyMs }: FilterableTableDemoProps): ReactElement {
+	const rowCount = rows.length;
+	const { tableData, rowStatusMap, loadData } = useInfiniteScrollData(rows, latencyMs);
 
 	return (
 		<Table<Row>
 			data={tableData}
 			columns={columns}
-			style={{ height: 480 }}
+			style={{ height: TABLE_HEIGHT }}
 			infiniteScrollOptions={{
 				rowLoadingStatus: (index) => rowStatusMap[index],
-				rowHeight: 48,
+				rowHeight: ROW_HEIGHT,
+				loadData,
+				rowCount
+			}}
+		/>
+	);
+}
+
+interface FilterableTableProps {
+	rowCount: number;
+	latencyMs: number;
+}
+
+function FilterableTable({ rowCount, latencyMs }: FilterableTableProps): ReactElement {
+	const [filtered, setFiltered] = useState(false);
+	const effectiveRows = filtered ? [ALL_ROWS[0], ALL_ROWS[rowCount - 1]] : ALL_ROWS.slice(0, rowCount);
+
+	return (
+		<>
+			<Button onClick={() => setFiltered((f) => !f)} style={{ marginBottom: 8 }}>
+				{filtered ? "Show all rows" : "Filter: first & last only"}
+			</Button>
+			<FilterableTableDemo key={`${rowCount}-${filtered}`} rows={effectiveRows} latencyMs={latencyMs} />
+		</>
+	);
+}
+
+interface InfiniteScrollDemoProps {
+	latencyMs: number;
+	threshold: number;
+	minimumBatchSize: number;
+	overscanRowCount: number;
+
+	/** Used by the table with filter story only. */
+	rowCount?: number;
+}
+
+function InfiniteScrollDemo({
+	latencyMs,
+	threshold,
+	minimumBatchSize,
+	overscanRowCount
+}: InfiniteScrollDemoProps): ReactElement {
+	const { tableData, rowStatusMap, loadData } = useInfiniteScrollData(ALL_ROWS, latencyMs);
+
+	return (
+		<Table<Row>
+			data={tableData}
+			columns={columns}
+			style={{ height: TABLE_HEIGHT }}
+			infiniteScrollOptions={{
+				rowLoadingStatus: (index) => rowStatusMap[index],
+				rowHeight: ROW_HEIGHT,
 				loadData,
 				rowCount: ROW_COUNT,
 				threshold,
@@ -132,7 +188,7 @@ function InfiniteScrollDemo({
 }
 
 const meta: Meta<InfiniteScrollDemoProps> = {
-	title: "Widgets/Data Display/Table/Infinite Scroll",
+	title: "Data Display/Table/Infinite Scroll",
 	component: InfiniteScrollDemo,
 	parameters: {
 		layout: "padded",
@@ -140,8 +196,7 @@ const meta: Meta<InfiniteScrollDemoProps> = {
 			description: {
 				component:
 					"An infinite-scroll table that fetches data in batches as the user scrolls. " +
-					"A background layer of animated placeholder rows (rendered via `placeHolderBodyRowRenderer`) " +
-					"fills the visible area so fast scrolling never leaves a blank white gap."
+					"Scroll rapidly through unloaded rows to see placeholder skeleton rows."
 			}
 		}
 	},
@@ -195,6 +250,300 @@ export const LargeDataSetTable: Story = {
 					"Latency is set to 1 200 ms and overscanRowCount to 0 to maximise the window " +
 					"where placeholder rows are visible. Scroll rapidly to see the skeleton background " +
 					"instead of a blank white area."
+			}
+		}
+	}
+};
+
+export const TableWithFilter: Story = {
+	render: ({ rowCount = 500, latencyMs }) => (
+		<FilterableTable key={rowCount} rowCount={rowCount} latencyMs={latencyMs} />
+	),
+	args: {
+		rowCount: 500,
+		latencyMs: 800
+	},
+	argTypes: {
+		rowCount: {
+			name: "Row count",
+			description: "Total rows in the table. Use a small value (e.g. 3) to test rendering with few rows.",
+			control: { type: "number", min: 1, max: 10000 }
+		},
+		overscanRowCount: { table: { disable: true } },
+		threshold: { table: { disable: true } },
+		minimumBatchSize: { table: { disable: true } }
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"An infinite-scroll table with a filter button that switches between the full dataset " +
+					"and two rows (first and last). Use the **Row count** control to set the total number of rows."
+			}
+		}
+	}
+};
+
+// ─── Custom rowRenderer ──────────────────────────────────────────────────────
+
+const CUSTOM_ROW_RENDERER_LOADED_STYLE: CSSProperties = {
+	display: "flex",
+	alignItems: "center",
+	gap: 16,
+	padding: "0 12px",
+	boxSizing: "border-box",
+	borderBottom: "1px solid #e0e0e0",
+	background: "linear-gradient(90deg, #f0f7ff 0%, #ffffff 100%)"
+};
+
+const CUSTOM_ROW_RENDERER_LOADING_STYLE: CSSProperties = {
+	display: "flex",
+	alignItems: "center",
+	gap: 16,
+	padding: "0 12px",
+	boxSizing: "border-box",
+	borderBottom: "1px dashed #e0e0e0",
+	background: "#fafafa",
+	color: "#bdbdbd",
+	fontStyle: "italic"
+};
+
+interface CustomRowRendererDemoProps {
+	rows: readonly Row[];
+	latencyMs: number;
+}
+
+function CustomRowRendererDemo({ rows, latencyMs }: CustomRowRendererDemoProps): ReactElement {
+	const rowCount = rows.length;
+	const { tableData, rowStatusMap, loadData } = useInfiniteScrollData(rows, latencyMs);
+	const isAllLoaded = Object.values(rowStatusMap).filter((s) => s === "loaded").length === rowCount;
+
+	const rowRenderer = useCallback(
+		({ index, key, style }: { index: number; key: string; style: CSSProperties }): ReactNode => {
+			const row = tableData[index];
+			const status = rowStatusMap[index];
+
+			if (status === "loaded" && row) {
+				return (
+					<div key={key} style={{ ...style, ...CUSTOM_ROW_RENDERER_LOADED_STYLE }}>
+						<span style={{ width: 60, fontWeight: 700, color: "#1565c0" }}>#{row.id}</span>
+						<span style={{ flex: 1 }}>{row.name}</span>
+						<span style={{ width: 120, color: "#555" }}>{row.department}</span>
+						<span style={{ width: 100, textAlign: "right", color: "#2e7d32" }}>${row.salary.toLocaleString()}</span>
+					</div>
+				);
+			}
+
+			return (
+				<div key={key} style={{ ...style, ...CUSTOM_ROW_RENDERER_LOADING_STYLE }}>
+					<span>Loading row {index + 1}…</span>
+				</div>
+			);
+		},
+		[tableData, rowStatusMap]
+	);
+
+	return (
+		<Table<Row>
+			data={tableData}
+			columns={columns}
+			style={{ height: TABLE_HEIGHT }}
+			infiniteScrollOptions={{
+				rowLoadingStatus: (index) => rowStatusMap[index],
+				rowHeight: ROW_HEIGHT,
+				loadData,
+				rowCount,
+				overrideListProps: {
+					rowRenderer,
+					style: isAllLoaded
+						? undefined
+						: {
+								background: `repeating-linear-gradient(to bottom, #fafafa 0px, #fafafa ${ROW_HEIGHT - 1}px, #e0e0e0 ${ROW_HEIGHT - 1}px, #e0e0e0 ${ROW_HEIGHT}px)`
+							}
+				}
+			}}
+		/>
+	);
+}
+
+interface CustomRowRendererFilterProps {
+	rowCount: number;
+	latencyMs: number;
+}
+
+function CustomRowRendererFilter({ rowCount, latencyMs }: CustomRowRendererFilterProps): ReactElement {
+	const [filtered, setFiltered] = useState(false);
+	const effectiveRows = filtered ? [ALL_ROWS[0], ALL_ROWS[rowCount - 1]] : ALL_ROWS.slice(0, rowCount);
+
+	return (
+		<>
+			<Button onClick={() => setFiltered((f) => !f)} style={{ marginBottom: 8 }}>
+				{filtered ? "Show all rows" : "Filter: first & last only"}
+			</Button>
+			<CustomRowRendererDemo key={`${rowCount}-${filtered}`} rows={effectiveRows} latencyMs={latencyMs} />
+		</>
+	);
+}
+
+export const CustomRowRenderer: Story = {
+	name: "Custom Row Renderer (overrideListProps)",
+	render: ({ rowCount = 500, latencyMs }) => (
+		<CustomRowRendererFilter key={rowCount} rowCount={rowCount} latencyMs={latencyMs} />
+	),
+	argTypes: {
+		rowCount: {
+			name: "Row count",
+			description: "Total rows in the table.",
+			control: { type: "number", min: 1, max: 10000 }
+		},
+		overscanRowCount: { table: { disable: true } },
+		threshold: { table: { disable: true } },
+		minimumBatchSize: { table: { disable: true } }
+	},
+	args: { rowCount: 500, latencyMs: 600 },
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Demonstrates passing a custom `rowRenderer` via `overrideListProps`. " +
+					"The custom renderer has full control over every row — it receives the row index, key, " +
+					"and style from react-virtualized and renders both loaded data and the loading state itself. " +
+					"Increase **Network latency** and scroll fast to see the custom loading rows."
+			}
+		}
+	}
+};
+
+// ─── Custom placeholder ───────────────────────────────────────────────────────
+
+const shimmerKeyframes = `
+@keyframes a12-placeholder-shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+`;
+
+function injectShimmerStyles(): void {
+	if (typeof document !== "undefined" && !document.getElementById("a12-placeholder-shimmer-style")) {
+		const style = document.createElement("style");
+
+		style.id = "a12-placeholder-shimmer-style";
+		style.textContent = shimmerKeyframes;
+		document.head.appendChild(style);
+	}
+}
+
+function CustomPlaceholderRow({ style, rowIndex }: TableRenderPropsType.PlaceHolderBodyRowProps): ReactElement {
+	injectShimmerStyles();
+
+	const shimmerStyle: CSSProperties = {
+		backgroundImage: "linear-gradient(90deg, #eeeeee 25%, #f5f5f5 50%, #eeeeee 75%)",
+		backgroundSize: "800px 100%",
+		animation: "a12-placeholder-shimmer 1.4s infinite linear",
+		borderRadius: 4
+	};
+
+	return (
+		<div
+			role="row"
+			aria-rowindex={rowIndex + 1}
+			aria-busy="true"
+			style={{
+				...style,
+				display: "flex",
+				alignItems: "center",
+				gap: 12,
+				padding: "0 12px",
+				boxSizing: "border-box",
+				borderBottom: "1px solid #f0f0f0"
+			}}
+		>
+			<div style={{ ...shimmerStyle, width: 40, height: 14 }} />
+			<div style={{ ...shimmerStyle, flex: 1, height: 14 }} />
+			<div style={{ ...shimmerStyle, width: 110, height: 14 }} />
+			<div style={{ ...shimmerStyle, width: 80, height: 14 }} />
+		</div>
+	);
+}
+
+interface CustomPlaceholderDemoProps {
+	rows: readonly Row[];
+	latencyMs: number;
+}
+
+function CustomPlaceholderDemo({ rows, latencyMs }: CustomPlaceholderDemoProps): ReactElement {
+	const rowCount = rows.length;
+	const { tableData, rowStatusMap, loadData } = useInfiniteScrollData(rows, latencyMs);
+	const isAllLoaded = Object.values(rowStatusMap).filter((s) => s === "loaded").length === rowCount;
+
+	return (
+		<Table<Row>
+			data={tableData}
+			columns={columns}
+			style={{ height: TABLE_HEIGHT }}
+			infiniteScrollOptions={{
+				rowLoadingStatus: (index) => rowStatusMap[index],
+				rowHeight: ROW_HEIGHT,
+				loadData,
+				rowCount,
+				overrideListProps: {
+					style: isAllLoaded
+						? undefined
+						: {
+								background: `repeating-linear-gradient(to bottom, #eeeeee 0px, #eeeeee ${ROW_HEIGHT - 1}px, #f0f0f0 ${ROW_HEIGHT - 1}px, #f0f0f0 ${ROW_HEIGHT}px)`
+							}
+				}
+			}}
+			componentRenderers={{
+				placeHolderBodyRowRenderer: (props) => <CustomPlaceholderRow {...props} />
+			}}
+		/>
+	);
+}
+
+interface CustomPlaceholderFilterProps {
+	rowCount: number;
+	latencyMs: number;
+}
+
+function CustomPlaceholderFilter({ rowCount, latencyMs }: CustomPlaceholderFilterProps): ReactElement {
+	const [filtered, setFiltered] = useState(false);
+	const effectiveRows = filtered ? [ALL_ROWS[0], ALL_ROWS[rowCount - 1]] : ALL_ROWS.slice(0, rowCount);
+
+	return (
+		<>
+			<Button onClick={() => setFiltered((f) => !f)} style={{ marginBottom: 8 }}>
+				{filtered ? "Show all rows" : "Filter: first & last only"}
+			</Button>
+			<CustomPlaceholderDemo key={`${rowCount}-${filtered}`} rows={effectiveRows} latencyMs={latencyMs} />
+		</>
+	);
+}
+
+export const CustomPlaceholder: Story = {
+	name: "Custom Placeholder While Loading",
+	render: ({ rowCount = 500, latencyMs }) => (
+		<CustomPlaceholderFilter key={rowCount} rowCount={rowCount} latencyMs={latencyMs} />
+	),
+	argTypes: {
+		rowCount: {
+			name: "Row count",
+			description: "Total rows in the table.",
+			control: { type: "number", min: 1, max: 10000 }
+		},
+		threshold: { table: { disable: true } },
+		minimumBatchSize: { table: { disable: true } },
+		overscanRowCount: { table: { disable: true } }
+	},
+	args: { rowCount: 500 },
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Demonstrates replacing the default skeleton row with a custom shimmer animation " +
+					"via `componentRenderers.placeHolderBodyRowRenderer`. " +
+					"Increase **Network latency** and scroll rapidly to see the animated shimmer rows " +
+					"before data arrives."
 			}
 		}
 	}

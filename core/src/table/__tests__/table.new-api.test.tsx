@@ -99,13 +99,19 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 	});
 
 	test("column pinning", () => {
+		const segmentDataRole: Record<TableTemplateProps.RowSegmentType, string> = {
+			left: DataRoles.Table.Body.Row.SegmentLeft,
+			scroll: DataRoles.Table.Body.Row.SegmentScroll,
+			right: DataRoles.Table.Body.Row.SegmentRight
+		};
+
 		function assertCellNumber(
 			wrapper: HTMLElement,
 			groupType: TableTemplateProps.RowSegmentType,
 			expectedNumber: number
 		): void {
-			const segment = queryAllByDataRole(wrapper, `table-body-row--${groupType}`);
-			const bodyCells = segment[0] && queryAllByDataRole(segment[0], "table-body-cell");
+			const segment = queryAllByDataRole(wrapper, segmentDataRole[groupType]);
+			const bodyCells = segment[0] && queryAllByDataRole(segment[0], DataRoles.Table.Body.Cell);
 			expect(bodyCells?.length ?? 0).toBe(expectedNumber);
 		}
 
@@ -137,7 +143,7 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 			<Table columns={columnNames} data={data} rowEventHandlers={({ row }) => ({ onClick: () => onClickFn(row) })} />
 		);
 
-		const rowToClick = queryAllByDataRole(container, "table-body-row")[5];
+		const rowToClick = queryAllByDataRole(container, DataRoles.Table.Body.Row)[5];
 		fireEvent.click(rowToClick);
 		expect(onClickFn).toHaveBeenCalledTimes(1);
 		expect(onClickFn.mock.calls[0][0]).toBe(data[5]);
@@ -151,7 +157,7 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 
 		expect(container.firstChild).toMatchSnapshot();
 
-		const headCells = queryAllByDataRole(container, "table-header-cell");
+		const headCells = queryAllByDataRole(container, DataRoles.Table.Header.Cell);
 		const sortableHeadCells = queryAllByAttribute("title", container, "sortable");
 		expect(sortableHeadCells).toHaveLength(1);
 		expect(sortableHeadCells[0]).toEqual(headCells[0]);
@@ -189,11 +195,11 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 
 		expect(container.firstChild).toMatchSnapshot();
 
-		const sortableHeadCell = queryAllByDataRole(container, "table-header-cell");
+		const sortableHeadCell = queryAllByDataRole(container, DataRoles.Table.Header.Cell);
 		fireEvent.click(sortableHeadCell[0]);
 		expect(handleColumnActionFn).toHaveBeenCalledTimes(0);
 
-		const bodyRows = queryAllByDataRole(container, "table-body-row");
+		const bodyRows = queryAllByDataRole(container, DataRoles.Table.Body.Row);
 		fireEvent.click(bodyRows[0]);
 		expect(handleRowActionFn).toHaveBeenCalledTimes(0);
 	});
@@ -244,7 +250,7 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 		const onBlurFn = vi.fn();
 		const { container } = render(<Table columns={columnNames} data={data} onBlur={onBlurFn} />);
 
-		const bodyRows = queryAllByDataRole(container, "table-body-row");
+		const bodyRows = queryAllByDataRole(container, DataRoles.Table.Body.Row);
 		fireEvent.blur(bodyRows[0]);
 		expect(onBlurFn).toHaveBeenCalledTimes(1);
 	});
@@ -252,7 +258,7 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 	test("table should NOT render footer aria-attributes", () => {
 		const { container } = render(<Table columns={columnNames} data={data} hasFootContent={false} />);
 
-		const footer = queryByDataRole(container, "table-footer");
+		const footer = queryByDataRole(container, DataRoles.Table.Footer);
 		expect(footer?.getAttribute("role")).toBeNull();
 		expect(footer?.getAttribute("aria-label")).toBeNull();
 	});
@@ -260,7 +266,7 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 	test("table should render footer aria-attributes", () => {
 		const { container } = render(<Table columns={columnNames} data={data} hasFootContent />);
 
-		const footer = queryByDataRole(container, "table-footer");
+		const footer = queryByDataRole(container, DataRoles.Table.Footer);
 		expect(footer?.getAttribute("role")).toEqual("rowgroup");
 		expect(footer?.getAttribute("aria-label")).toEqual(languageContext.tableTitles?.footerLabel);
 	});
@@ -313,15 +319,11 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 
 			expect(container.firstChild).toMatchSnapshot();
 
-			const bodyRows = getAllByDataRole(container, "table-body-row").filter(
-				(el) => el.getAttribute("role") !== "presentation"
-			);
+			const bodyRows = getAllByDataRole(container, DataRoles.Table.Body.Row);
 
 			expect(bodyRows.length).toEqual(2);
 
-			const contentPlaceholders = getAllByDataRole(container, "table-body-content-placeholder").filter(
-				(el) => !el.closest("[role='presentation']")
-			);
+			const contentPlaceholders = getAllByDataRole(container, DataRoles.Table.Body.Content.Placeholder);
 
 			// Only 1 row is in loading state,
 			// therefore the amount of placeholders elements should be equal with the amount of columns
@@ -345,9 +347,7 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 				/>
 			);
 
-			const bodyRows = getAllByDataRole(container, "table-body-row").filter(
-				(el) => el.getAttribute("role") !== "presentation"
-			);
+			const bodyRows = getAllByDataRole(container, DataRoles.Table.Body.Row);
 			expect(bodyRows[0].style.height).toEqual(customRowHeight + "px");
 			expect(bodyRows[1].style.height).toEqual(customRowHeight + "px");
 		});
@@ -355,9 +355,7 @@ describe("com.mgmtp.a12.widgets.table.new-api", () => {
 		test("rowCount", () => {
 			const { container } = render(<Table columns={columnNames} data={data} infiniteScrollOptions={defaultOptions} />);
 
-			const bodyRows = getAllByDataRole(container, "table-body-row").filter(
-				(el) => el.getAttribute("role") !== "presentation"
-			);
+			const bodyRows = getAllByDataRole(container, DataRoles.Table.Body.Row);
 			expect(bodyRows.length).toEqual(defaultOptions.rowCount);
 		});
 

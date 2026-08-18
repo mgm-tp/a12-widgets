@@ -36,6 +36,7 @@ import { DataRoles } from "../../common/main/data-roles.js";
 
 import { BASE_TABLE_CLASSNAME } from "../main/table.internal.js";
 import { TableTemplate } from "../main/template/index.js";
+import { useStyledTableContext } from "../main/template/table.context.styled.js";
 
 import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { useTableContext } from "./table.context.js";
@@ -48,6 +49,9 @@ export const PlaceHolderBodyCell = memo(function PlaceHolderBodyCell(
 ) {
 	const columns = useTableContext((context) => context.columns);
 	const resizable = useTableContext((context) => context.resizable);
+	const crossTabulation = useTableContext((context) => context.crossTabulation);
+	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
+	const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
 
 	const placeHolderBodyContentRenderer = useTableContext(
 		(context) => context.componentRenderers.placeHolderBodyContentRenderer
@@ -88,6 +92,9 @@ export const PlaceHolderBodyCell = memo(function PlaceHolderBodyCell(
 			className={baseContentGroupClassName}
 			style={columnParentStyle}
 			data-role={DataRoles.Table.Body.Cell.Group}
+			$crossTabulation={crossTabulation}
+			$rowSegmentType={rowSegmentType}
+			$rowInteractive={rowInteractive}
 		>
 			{column.subColumns?.map((col, index) =>
 				placeHolderBodyCellRenderer?.({ ...props, column: col, key: `bodyCell-${index}` })

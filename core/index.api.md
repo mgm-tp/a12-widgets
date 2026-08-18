@@ -32649,6 +32649,9 @@ export interface PluginEditorTitles {
 export const PopUpMenu: FC<PopUpMenuProps>;
 
 // @public (undocumented)
+export type PopUpMenuCloseReason = "onItemClick" | "onOutsideClick" | "onEscape" | "onSpace" | "onCloseButton" | "onProgrammatic";
+
+// @public (undocumented)
 export const popupMenuCompactConfig: (theme: CompactThemeType) => {
     button: {
         fontSize: string;
@@ -32773,7 +32776,7 @@ export interface PopUpMenuProps extends Container, Styleable, Identifiable, Data
     };
     disabled?: boolean;
     focusOnOpen?: boolean;
-    focusOnTriggerElementAfterClose?: boolean;
+    focusOnTriggerElementAfterClose?: boolean | Partial<Record<PopUpMenuCloseReason, boolean>>;
     headerTitle?: ReactNode;
     htmlTag?: string;
     icon?: ReactNode;
@@ -34479,11 +34482,14 @@ export namespace StyledBaseTable {
     hasColumnGroup?: boolean;
     resizable?: boolean;
     $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: TableTemplateProps.RowSegmentType;
     }>> & string;
     const // (undocumented)
     Segment: IStyledComponentBase<"web", Substitute<TableTemplateProps.CollapsingWrapperProps, {
     rowSegmentType?: TableTemplateProps.RowSegmentType;
     cardView?: boolean;
+    $crossTabulation?: boolean;
     }>> & string & Omit<NamedExoticComponent<TableTemplateProps.CollapsingWrapperProps>, keyof Component<any, {}, any>>;
 }
 
@@ -36334,7 +36340,7 @@ cardView?: boolean;
 }>> & string & Omit<NamedExoticComponent<TableTemplateProps.CollapsingWrapperProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTableBodyCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+export const StyledTableBodyCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth" | "$crossTabulation" | "$rowSegmentType"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36343,6 +36349,8 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
 }, {
 actionCell?: boolean;
 useSecondaryColor?: boolean;
@@ -36351,13 +36359,24 @@ verAlignment?: Column.VerticalAlignment;
 $verticalHeader?: boolean;
 $cellHighlighting?: boolean;
 $firstCell?: boolean;
+$rowSelected?: boolean;
+$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+$rowHighlighted?: boolean;
+$rowDisabled?: boolean;
+$rowSubInfo?: boolean;
+$rowInteractive?: boolean;
+$rowNoEffect?: boolean;
 }>> & string;
 
 // @public (undocumented)
-export const StyledTableBodyCellGroup: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, never>> & string;
+export const StyledTableBodyCellGroup: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$rowInteractive?: boolean;
+}>> & string;
 
 // @public (undocumented)
-export const StyledTableBodyCellGroupTpl: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+export const StyledTableBodyCellGroupTpl: IStyledComponentBase<"web", Substitute<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth" | "$crossTabulation" | "$rowSegmentType"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36366,7 +36385,9 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
-}, "actionCell" | "useSecondaryColor" | "horizAlignment" | "verAlignment" | "$verticalHeader" | "$cellHighlighting" | "$firstCell"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, "actionCell" | "useSecondaryColor" | "$cellHighlighting" | "horizAlignment" | "verAlignment" | "$verticalHeader" | "$firstCell" | "$rowSelected" | "$rowHighlightVariant" | "$rowHighlighted" | "$rowDisabled" | "$rowSubInfo" | "$rowInteractive" | "$rowNoEffect"> & {
 actionCell?: boolean;
 useSecondaryColor?: boolean;
 horizAlignment?: Column.HorizontalAlignment;
@@ -36374,20 +36395,43 @@ verAlignment?: Column.VerticalAlignment;
 $verticalHeader?: boolean;
 $cellHighlighting?: boolean;
 $firstCell?: boolean;
-}, never>> & string;
+$rowSelected?: boolean;
+$rowHighlightVariant?: TableTemplateProps.TableHighlightVariant;
+$rowHighlighted?: boolean;
+$rowDisabled?: boolean;
+$rowSubInfo?: boolean;
+$rowInteractive?: boolean;
+$rowNoEffect?: boolean;
+}, {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+$rowInteractive?: boolean;
+}>> & string;
 
 // @public (undocumented)
 export const StyledTableBodyRow: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
 cardView?: boolean;
 }, {
 virtualScroll?: boolean;
+$cellHighlighting?: boolean;
+$crossTabulation?: boolean;
+$selected?: boolean;
+$highlightVariant?: TableTemplateProps.TableHighlightVariant;
+$highlighted?: boolean;
+$disabled?: boolean;
+$interactive?: boolean;
+$noEffect?: boolean;
+$contextMenuOpen?: boolean;
 }>> & string;
 
 // @public (undocumented)
-export const StyledTableBodyRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+export const StyledTableBodyRowSegment: IStyledComponentBase<"web", Substitute<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType" | "$crossTabulation"> & {
 rowSegmentType?: TableTemplateProps.RowSegmentType;
 cardView?: boolean;
-}, never>> & string;
+$crossTabulation?: boolean;
+}, {
+$crossTabulation?: boolean;
+}>> & string;
 
 // @public (undocumented)
 export const StyledTableContainerWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
@@ -36444,7 +36488,7 @@ hasFootContent?: boolean;
 }>> & string;
 
 // @public (undocumented)
-export const StyledTableFootCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+export const StyledTableFootCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth" | "$crossTabulation" | "$rowSegmentType"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36453,6 +36497,8 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
 }, {
 horizAlignment?: Column.HorizontalAlignment;
 verAlignment?: Column.VerticalAlignment;
@@ -36466,16 +36512,17 @@ useHighlightColor?: boolean;
 }>> & string;
 
 // @public (undocumented)
-export const StyledTableFootRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+export const StyledTableFootRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType" | "$crossTabulation"> & {
 rowSegmentType?: TableTemplateProps.RowSegmentType;
 cardView?: boolean;
+$crossTabulation?: boolean;
 }, never>> & string;
 
 // @public (undocumented)
 export const StyledTableHead: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & string;
 
 // @public (undocumented)
-export const StyledTableHeadCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+export const StyledTableHeadCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth" | "$crossTabulation" | "$rowSegmentType"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36484,12 +36531,15 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
 }, {
 noEffect?: boolean;
 verAlignment?: Column.VerticalAlignment;
 sortable?: boolean;
 touch?: boolean;
 isHovering?: boolean;
+$filterRow?: boolean;
 }>> & string;
 
 // @public (undocumented)
@@ -36507,16 +36557,20 @@ export const StyledTableHeadRow: IStyledComponentBase<"web", Substitute<FastOmit
 cardView?: boolean;
 }, {
 cardView?: boolean;
+$embedded?: boolean;
 }>> & string;
 
 // @public (undocumented)
-export const StyledTableHeadRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+export const StyledTableHeadRowSegment: IStyledComponentBase<"web", Substitute<FastOmit<TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType" | "$crossTabulation"> & {
 rowSegmentType?: TableTemplateProps.RowSegmentType;
 cardView?: boolean;
-}, never>> & string;
+$crossTabulation?: boolean;
+}, {
+$filterRow?: boolean;
+}>> & string;
 
 // @public (undocumented)
-export const StyledTableHeadSortableCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+export const StyledTableHeadSortableCell: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth" | "$crossTabulation" | "$rowSegmentType"> & {
 fixedWidth?: boolean;
 subInfo?: boolean;
 actionCell?: boolean;
@@ -36525,12 +36579,15 @@ cardView?: boolean;
 hasColumnGroup?: boolean;
 resizable?: boolean;
 $hasActionCellWidth?: boolean;
-}, "touch" | "noEffect" | "sortable" | "isHovering" | "verAlignment"> & {
+$crossTabulation?: boolean;
+$rowSegmentType?: TableTemplateProps.RowSegmentType;
+}, "touch" | "noEffect" | "sortable" | "isHovering" | "verAlignment" | "$filterRow"> & {
 noEffect?: boolean;
 verAlignment?: Column.VerticalAlignment;
 sortable?: boolean;
 touch?: boolean;
 isHovering?: boolean;
+$filterRow?: boolean;
 }, never>> & string;
 
 // @public (undocumented)
@@ -36574,18 +36631,22 @@ export namespace StyledTableTemplate {
     cardView?: boolean;
     }, {
     cardView?: boolean;
+    $embedded?: boolean;
     }>> & string;
     const // (undocumented)
     StyledHeadFilterRow: IStyledComponentBase<"web", Substitute<import("./table.tpl.api.js").TableTemplateProps.BaseProps, {
     cardView?: boolean;
     }>> & string & Omit<typeof HeadRowTpl, keyof Component<any, {}, any>>;
     const // (undocumented)
-    StyledHeadRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+    StyledHeadRowSegment: IStyledComponentBase<"web", Substitute<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType" | "$crossTabulation"> & {
     rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
     cardView?: boolean;
-    }, never>> & string;
+    $crossTabulation?: boolean;
+    }, {
+    $filterRow?: boolean;
+    }>> & string;
     const // (undocumented)
-    StyledHeadCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+    StyledHeadCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth" | "$crossTabulation" | "$rowSegmentType"> & {
     fixedWidth?: boolean;
     subInfo?: boolean;
     actionCell?: boolean;
@@ -36594,12 +36655,15 @@ export namespace StyledTableTemplate {
     hasColumnGroup?: boolean;
     resizable?: boolean;
     $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
     }, {
     noEffect?: boolean;
     verAlignment?: import("../../index.js").Column.VerticalAlignment;
     sortable?: boolean;
     touch?: boolean;
     isHovering?: boolean;
+    $filterRow?: boolean;
     }>> & string;
     const // (undocumented)
     StyledHeadCellGroup: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, {
@@ -36610,7 +36674,7 @@ export namespace StyledTableTemplate {
     cardView?: boolean;
     }>> & string & Omit<NamedExoticComponent<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps>, keyof Component<any, {}, any>>;
     const // (undocumented)
-    StyledBodyCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+    StyledBodyCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth" | "$crossTabulation" | "$rowSegmentType"> & {
     fixedWidth?: boolean;
     subInfo?: boolean;
     actionCell?: boolean;
@@ -36619,6 +36683,8 @@ export namespace StyledTableTemplate {
     hasColumnGroup?: boolean;
     resizable?: boolean;
     $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
     }, {
     actionCell?: boolean;
     useSecondaryColor?: boolean;
@@ -36627,18 +36693,37 @@ export namespace StyledTableTemplate {
     $verticalHeader?: boolean;
     $cellHighlighting?: boolean;
     $firstCell?: boolean;
+    $rowSelected?: boolean;
+    $rowHighlightVariant?: import("./table.tpl.api.js").TableTemplateProps.TableHighlightVariant;
+    $rowHighlighted?: boolean;
+    $rowDisabled?: boolean;
+    $rowSubInfo?: boolean;
+    $rowInteractive?: boolean;
+    $rowNoEffect?: boolean;
     }>> & string;
     const // (undocumented)
     StyledBodyRow: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cardView"> & {
     cardView?: boolean;
     }, {
     virtualScroll?: boolean;
+    $cellHighlighting?: boolean;
+    $crossTabulation?: boolean;
+    $selected?: boolean;
+    $highlightVariant?: import("./table.tpl.api.js").TableTemplateProps.TableHighlightVariant;
+    $highlighted?: boolean;
+    $disabled?: boolean;
+    $interactive?: boolean;
+    $noEffect?: boolean;
+    $contextMenuOpen?: boolean;
     }>> & string;
     const // (undocumented)
-    StyledBodyRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+    StyledBodyRowSegment: IStyledComponentBase<"web", Substitute<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType" | "$crossTabulation"> & {
     rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
     cardView?: boolean;
-    }, never>> & string;
+    $crossTabulation?: boolean;
+    }, {
+    $crossTabulation?: boolean;
+    }>> & string;
     const // (undocumented)
     StyledFoot: IStyledComponentBase<"web", Substitute<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, {
     hasFootContent?: boolean;
@@ -36650,12 +36735,13 @@ export namespace StyledTableTemplate {
     useHighlightColor?: boolean;
     }>> & string;
     const // (undocumented)
-    StyledFootRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType"> & {
+    StyledFootRowSegment: IStyledComponentBase<"web", FastOmit<FastOmit<import("./table.tpl.api.js").TableTemplateProps.CollapsingWrapperProps, "cardView" | "rowSegmentType" | "$crossTabulation"> & {
     rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
     cardView?: boolean;
+    $crossTabulation?: boolean;
     }, never>> & string;
     const // (undocumented)
-    StyledFootCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth"> & {
+    StyledFootCell: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "resizable" | "fixedWidth" | "subInfo" | "cardView" | "relativeWidth" | "actionCell" | "hasColumnGroup" | "$hasActionCellWidth" | "$crossTabulation" | "$rowSegmentType"> & {
     fixedWidth?: boolean;
     subInfo?: boolean;
     actionCell?: boolean;
@@ -36664,6 +36750,8 @@ export namespace StyledTableTemplate {
     hasColumnGroup?: boolean;
     resizable?: boolean;
     $hasActionCellWidth?: boolean;
+    $crossTabulation?: boolean;
+    $rowSegmentType?: import("./table.tpl.api.js").TableTemplateProps.RowSegmentType;
     }, {
     horizAlignment?: import("../../index.js").Column.HorizontalAlignment;
     verAlignment?: import("../../index.js").Column.VerticalAlignment;
@@ -41576,7 +41664,7 @@ export interface YearSelectorProps<T extends OptionalYearMonthItem | undefined =
 
 // Warnings were encountered during analysis:
 //
-// src/file-upload/main/default/default-file-upload.view.tsx:515:28 - (ae-forgotten-export) The symbol "FileUploadIconProps" needs to be exported by the entry point index.d.ts
+// src/file-upload/main/default/default-file-upload.view.tsx:475:28 - (ae-forgotten-export) The symbol "FileUploadIconProps" needs to be exported by the entry point index.d.ts
 // src/layout/supporting-panes-layout/main/secondary-pane-animation.tsx:57:36 - (ae-forgotten-export) The symbol "SecondaryPaneAnimationProps" needs to be exported by the entry point index.d.ts
 // src/menu/main/sliding-menu.view.tsx:443:25 - (ae-forgotten-export) The symbol "SlidingMenuMainWrapper" needs to be exported by the entry point index.d.ts
 // src/multiselect/main/multiselect.view.tsx:81:6 - (ae-forgotten-export) The symbol "defaultJoiningHandler" needs to be exported by the entry point index.d.ts

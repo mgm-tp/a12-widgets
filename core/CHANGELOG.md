@@ -1,3 +1,23 @@
+## 38.3.5
+
+### Fixed
+
+- **Multiselect**
+  - Infinite render loop when items is passed as object form.
+  - Multiselect wrapped by a context value with a throwing getter fails to render when the `graphic` property contains a React element.
+- **Popup Menu:** The focus restoration behavior inside `PopupMenu` could not be configured per close reason. `focusOnTriggerElementAfterClose` now accepts either a boolean or a configuration object, allowing focus restoration to be controlled separately for close reasons such as item clicks, outside clicks, ESC, SPACE, close button clicks and programmatic closes.
+- **File Upload:** The content overflows its wrapper when File Upload is placed inside a parent element that has padding.
+
+### Deprecation
+
+- **FileUpload:** The `$fileUploadSize` property in `StyledFieldUploadWrapper` has been deprecated.
+
+## 38.3.4
+
+### Fixed
+
+- **Table:** Revert the background placeholder layer introduced in 38.3.0 to prevent blank content during fast scrolling in infinite scroll table. The fix caused persistent placeholder rows when `rowCount` is smaller than the visible row capacity. To customize the background overlay, use the `style` in `overrideListProps` for the table container.
+
 ## 38.3.3
 
 ### Fixed
@@ -98,8 +118,8 @@
   - When there is no selected tab item on submenu, the first arrow key navigation causes unexpected scrolling behavior.
   - The submenu shakes when the interaction hint appears.
   - The condense tab item on horizontal mode shakes when getting focus.
-  - Focus cannot set to panel element if a tab item is selected. To resolve this, provide the `focusOnPanelAfterSelect` property to allow users to control whether to focus on the panel after selecting a tab item.
   - [A11Y] The new heading has no semantic information available for screen readers. To resolve it, `role="heading"` and `aria-level` attributes (default value is 2, customizable via `ariaLevel` property) are added to ensure proper semantic structure for screen readers.
+  - Focus cannot set to panel element if a tab item is selected. To resolve this, provide the `focusOnPanelAfterSelect` property to allow users to control whether to focus on the panel after selecting a tab item.
 - **Button Group Container:** The position of `AttachedPortal` inside `PopupMenu` cannot be customized. To support customization, the `popupListAttributes` property is provided. It allows you to add extra HTML attributes to the popup menu’s portal element when responsive behavior is enabled.
 - **Multiselect:**
   - The checkbox in a disabled item is not disabled.
@@ -885,7 +905,7 @@
 - **Progress Bar:** [A11Y] Support a visual indication for the progress bar when customizing the color in the browser settings.
 - **Table:** Improve the interface to distinguish the row chosen to open the context menu.
 - **Attached Portal, Callout, Comment Container:** Introduce the `referenceElementRect` property that receives a precomputed DOMRect value from the element that triggers the portal opening. If the reference element is partially overlapped, this given property will help to recalculate the portal's orientation to be displayed according to the element's visibility. To observe and get the visible part of the reference element, the **IntersectionObserverHelper** utility will be useful.
-- **Tree - DnD:** Introduce the `strictDnD` property to indicate whether the droppable area is limited. Set this prop to `false` in order to enable dropping on top or bottom of a node which behaves similar to `TreeTable`.
+- **Tree - DnD:** Introduce the `strictDnD` property to indicate whether the droppable area is limited. Set this property to `false` in order to enable dropping on top or bottom of a node which behaves similar to `TreeTable`.
 - **Table:** [A11Y] Provide an adjustment of aria attributes for the Expandable Table to fulfill WCAG.
 - **Content Box:** [A11Y] The hidden heading text is only supported on desktop.
 - **Link:** [A11Y] The `title` of the Icon is no longer supported in External Link and Mailto Link.

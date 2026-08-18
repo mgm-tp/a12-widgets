@@ -811,10 +811,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   pointer-events: none;
 }
 
-.c8 + svg {
-  width: 9999px;
-}
-
 .c10 {
   display: none;
 }

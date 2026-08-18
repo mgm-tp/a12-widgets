@@ -451,6 +451,187 @@ describe("com.mgmtp.a12.widgets.popup-menu", () => {
 			expect(interactiveButton).toHaveFocus();
 		});
 
+		test("Should NOT restore focus to trigger element when focusOnTriggerElementAfterClose.onItemClick is false", async () => {
+			const { container } = render(
+				<PopUpMenu icon={<Icon>arrow_drop_up</Icon>} focusOnTriggerElementAfterClose={{ onItemClick: false }}>
+					<List>
+						<List.Item text="List item 1" />
+						<List.Item text="List item 2" />
+					</List>
+				</PopUpMenu>
+			);
+
+			const popupTriggerElement = getByDataRole(container, DataRoles.Popup.TriggerElement);
+
+			await userEvent.click(popupTriggerElement);
+
+			const popupMenu = getByDataRole(document.body, DataRoles.Popup.Menu);
+			const firstItem = getAllByDataRole(popupMenu, DataRoles.List.Item.Content)[0];
+
+			firstItem.focus();
+			await userEvent.keyboard("{Enter}");
+
+			expect(queryByDataRole(document.body, DataRoles.Popup.Menu)).toBeNull();
+			expect(popupTriggerElement).not.toHaveFocus();
+		});
+
+		test("Should NOT restore focus to trigger element when focusOnTriggerElementAfterClose.onOutsideClick is false", async () => {
+			vi.useFakeTimers({ toFake: ["requestAnimationFrame"] });
+
+			const { container } = render(
+				<>
+					<div id="non-interactive-div">Non-interactive area</div>
+					<PopUpMenu icon={<Icon>arrow_drop_up</Icon>} focusOnTriggerElementAfterClose={{ onOutsideClick: false }}>
+						<List>
+							<List.Item text="List item 1" />
+							<List.Item text="List item 2" />
+						</List>
+					</PopUpMenu>
+				</>
+			);
+
+			const popupTriggerElement = getByDataRole(container, DataRoles.Popup.TriggerElement);
+			const nonInteractiveDiv = document.getElementById("non-interactive-div") as HTMLElement;
+
+			await userEvent.click(popupTriggerElement);
+
+			const popupMenu = getByDataRole(document.body, DataRoles.Popup.Menu);
+			expect(popupMenu).toBeTruthy();
+
+			// Click outside
+			await userEvent.click(nonInteractiveDiv);
+
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.Popup.Menu)).toBeNull();
+			});
+
+			// Flush the requestAnimationFrame scheduled by focus restoration.
+			vi.advanceTimersByTime(500);
+
+			expect(popupTriggerElement).not.toHaveFocus();
+
+			vi.useRealTimers();
+		});
+
+		test("Should NOT restore focus to trigger element when focusOnTriggerElementAfterClose.onProgrammatic is false", async () => {
+			vi.useFakeTimers({ toFake: ["requestAnimationFrame"] });
+
+			let closePopupFromOutside: (() => void) | undefined;
+
+			const { container } = render(
+				<PopUpMenu
+					icon={<Icon>arrow_drop_up</Icon>}
+					close={(closePopup) => {
+						closePopupFromOutside = closePopup;
+					}}
+					focusOnTriggerElementAfterClose={{ onProgrammatic: false }}
+				>
+					<List>
+						<List.Item text="List item 1" />
+						<List.Item text="List item 2" />
+					</List>
+				</PopUpMenu>
+			);
+
+			const popupTriggerElement = getByDataRole(container, DataRoles.Popup.TriggerElement);
+
+			await userEvent.click(popupTriggerElement);
+
+			closePopupFromOutside?.();
+
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.Popup.Menu)).toBeNull();
+			});
+			// Flush the requestAnimationFrame scheduled by focus restoration.
+			vi.advanceTimersByTime(500);
+
+			expect(popupTriggerElement).not.toHaveFocus();
+
+			vi.useRealTimers();
+		});
+
+		test("Should NOT restore focus to trigger element when focusOnTriggerElementAfterClose.onSpace is false", async () => {
+			const { container } = render(
+				<PopUpMenu icon={<Icon>arrow_drop_up</Icon>} focusOnTriggerElementAfterClose={{ onSpace: false }}>
+					<button type="button" aria-pressed="false">
+						Action
+					</button>
+				</PopUpMenu>
+			);
+
+			const popupTriggerElement = getByDataRole(container, DataRoles.Popup.TriggerElement);
+
+			await userEvent.click(popupTriggerElement);
+
+			await userEvent.keyboard("{Space}");
+
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.Popup.Menu)).toBeNull();
+			});
+
+			expect(popupTriggerElement).not.toHaveFocus();
+		});
+
+		test("Should respect multiple focusOnTriggerElementAfterClose close reason configs", async () => {
+			const { container } = render(
+				<>
+					<div id="non-interactive-div">Non-interactive area</div>
+					<PopUpMenu
+						icon={<Icon>arrow_drop_up</Icon>}
+						focusOnTriggerElementAfterClose={{
+							onItemClick: false,
+							onOutsideClick: false
+						}}
+					>
+						<List>
+							<List.Item text="List item 1" />
+							<List.Item text="List item 2" />
+						</List>
+					</PopUpMenu>
+				</>
+			);
+
+			const popupTriggerElement = getByDataRole(container, DataRoles.Popup.TriggerElement);
+			const nonInteractiveDiv = document.getElementById("non-interactive-div") as HTMLElement;
+
+			// Open the popup menu.
+			await userEvent.click(popupTriggerElement);
+
+			const popupMenu = getByDataRole(document.body, DataRoles.Popup.Menu);
+			const firstItem = getAllByDataRole(popupMenu, DataRoles.List.Item.Content)[0];
+
+			// Close by item click, focusOnTriggerElementAfterClose.onItemClick is false, so focus should not return.
+			await userEvent.click(firstItem);
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.Popup.Menu)).toBeNull();
+			});
+
+			expect(popupTriggerElement).not.toHaveFocus();
+
+			// Reopen the popup menu.
+			await userEvent.click(popupTriggerElement);
+
+			// Close by outside click, focusOnTriggerElementAfterClose.onOutsideClick is false, so focus should not return.
+			await userEvent.click(nonInteractiveDiv);
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.Popup.Menu)).toBeNull();
+			});
+
+			expect(popupTriggerElement).not.toHaveFocus();
+
+			// Reopen the popup menu.
+			await userEvent.click(popupTriggerElement);
+
+			// Close by ESC, focusOnTriggerElementAfterClose.onEscape is not configured, so it defaults to true.
+			await userEvent.keyboard("{Escape}");
+
+			await waitFor(() => {
+				expect(queryByDataRole(document.body, DataRoles.Popup.Menu)).toBeNull();
+			});
+
+			expect(popupTriggerElement).toHaveFocus();
+		});
+
 		describe("interaction hint", () => {
 			test("should update the hint after opening the popup menu", async () => {
 				const { container } = render(
@@ -582,6 +763,63 @@ describe("com.mgmtp.a12.widgets.popup-menu", () => {
 				// Focus on the trigger element after the popup is closed
 				expect(buttonTrigger).toHaveFocus();
 			});
+		});
+
+		test("Should NOT restore focus to trigger element when focusOnTriggerElementAfterClose.onEscape is false", async () => {
+			const { container } = render(
+				<PopupMenuConfigContext.Provider value={{ enableA11YMobileDesign: true }}>
+					<PopUpMenu icon={<Icon>arrow_drop_up</Icon>} focusOnTriggerElementAfterClose={{ onEscape: false }}>
+						<List>
+							<List.Item text="List item 1" />
+							<List.Item text="List item 2" />
+						</List>
+					</PopUpMenu>
+				</PopupMenuConfigContext.Provider>
+			);
+
+			const popupTriggerElement = getByDataRole(container, DataRoles.Popup.TriggerElement);
+
+			await userEvent.click(popupTriggerElement);
+			await userEvent.keyboard("{Escape}");
+
+			await waitFor(() => {
+				expect(queryByDataRole(container, DataRoles.Popup.Menu)).toBeNull();
+			});
+
+			expect(popupTriggerElement).not.toHaveFocus();
+		});
+
+		test("Should NOT restore focus to trigger element when focusOnTriggerElementAfterClose.onCloseButton is false", async () => {
+			vi.useFakeTimers({ toFake: ["requestAnimationFrame"] });
+
+			const { container } = render(
+				<PopupMenuConfigContext.Provider value={{ enableA11YMobileDesign: true }}>
+					<PopUpMenu orientation="top" headerTitle="menu" focusOnTriggerElementAfterClose={{ onCloseButton: false }}>
+						<List>
+							<List.Item text="List item 1" />
+							<List.Item text="List item 2" />
+						</List>
+					</PopUpMenu>
+				</PopupMenuConfigContext.Provider>
+			);
+
+			const popupTriggerElement = getByDataRole(container, DataRoles.Popup.TriggerElement);
+
+			await userEvent.click(popupTriggerElement);
+
+			const closeButton = getByDataRole(container, DataRoles.Popup.CloseButton);
+
+			await userEvent.click(closeButton);
+
+			await waitFor(() => {
+				expect(queryByDataRole(container, DataRoles.Popup.Menu)).toBeNull();
+			});
+			// Flush the requestAnimationFrame scheduled by focus restoration.
+			vi.advanceTimersByTime(500);
+
+			expect(popupTriggerElement).not.toHaveFocus();
+
+			vi.useRealTimers();
 		});
 	});
 });

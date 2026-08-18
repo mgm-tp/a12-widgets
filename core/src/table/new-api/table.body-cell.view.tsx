@@ -43,6 +43,7 @@ import { BASE_TABLE_CLASSNAME } from "../main/table.internal.js";
 import { StyledTableTemplate, TableTemplate } from "../main/template/index.js";
 import { StyledBaseTable } from "../main/template/table.styled.js";
 import { useStyledTableContext } from "../main/template/table.context.styled.js";
+import type { TableTemplateProps } from "../main/template/table.tpl.api.js";
 
 import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { isColumnGroup, TableInternalUtils as Utils, TableInternalUtils } from "./table.utils.js";
@@ -50,11 +51,12 @@ import { useCellHighlightingTableContext, useTableContext } from "./table.contex
 
 export const StyledTableBodyCellGroup = styled(StyledBaseTable.Group).withConfig({
 	displayName: "StyledTableBodyCellGroup-sc-"
-})(({ theme }) => {
+})<{
+	$crossTabulation?: boolean;
+	$rowSegmentType?: TableTemplateProps.RowSegmentType;
+	$rowInteractive?: boolean;
+}>(({ theme, $crossTabulation: crossTabulation, $rowSegmentType: rowSegmentType, $rowInteractive: rowInteractive }) => {
 	const { headCellGroup } = theme.components.table;
-	const crossTabulation = useTableContext((context) => context.crossTabulation);
-	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
-	const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
 
 	const resetBorder = css`
 		&:last-child:after {
@@ -106,6 +108,9 @@ export const BodyCell = memo(function BodyCell(props: TableRenderPropsType.BodyC
 	const resizable = useTableContext((context) => context.resizable);
 	const setHoveringColumn = useCellHighlightingTableContext((context) => context.setHoveringColumn);
 	const setContextMenuOpen = useStyledTableContext((context) => context.row?.setContextMenuOpen);
+	const crossTabulation = useTableContext((context) => context.crossTabulation);
+	const rowSegmentType = useStyledTableContext((context) => context.rowSegmentType);
+	const rowInteractive = useStyledTableContext((context) => !!context.row?.interactive);
 
 	const flattenColumns = useTableContext((context) => context.flattenColumns);
 
@@ -242,6 +247,9 @@ export const BodyCell = memo(function BodyCell(props: TableRenderPropsType.BodyC
 			className={baseContentGroupClassName}
 			style={columnParentStyle}
 			data-role={DataRoles.Table.Body.Cell.Group}
+			$crossTabulation={crossTabulation}
+			$rowSegmentType={rowSegmentType}
+			$rowInteractive={rowInteractive}
 		>
 			{column.subColumns?.map((col, index) => {
 				const isCellOnParWithGroup =
