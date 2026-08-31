@@ -97,7 +97,7 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 	const condensedTabShadowRef = useRef<HTMLLIElement | null>(null);
 
 	const isHorizontalMenu = orientation === "horizontal";
-	const shouldFocusOnPanel = focusOnPanelAfterSelect && children;
+	const shouldFocusOnPanel = focusOnPanelAfterSelect && Boolean(children);
 
 	const groupedTabs = isGroupedTabList(tabs) ? tabs : null;
 	const isGrouped = groupedTabs !== null;

@@ -58,7 +58,6 @@ const ShowcaseProgressBarWrapper = styled.div<{ $hasBackground?: boolean }>(({ t
 					outline: 2px dotted ${colors.interaction.secondaryInteractionColor};
 				`}
 		box-sizing: border-box;
-		border-radius: ${2 * spacing.spacing.spacingXs}px;
 		height: ${spacing.spacing.spacingLg}px;
 		position: relative;
 		width: 100%;

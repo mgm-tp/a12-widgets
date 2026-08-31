@@ -67,7 +67,7 @@ export function BasicShowcase(): ReactElement {
 				/>
 			}
 		>
-			<CodeSnippetGenerationWrapper>
+			<CodeSnippetGenerationWrapper namespaceOptions={[{ name: "List", subComponents: ["Item"] }]}>
 				<div className="-u-width-full">
 					<p>List with more info</p>
 					<PopUpMenu headerTitle={headerTitle}>

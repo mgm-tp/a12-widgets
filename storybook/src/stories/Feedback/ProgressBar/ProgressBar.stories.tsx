@@ -57,9 +57,17 @@ export const Default: Story = {
 	args: {
 		percentage: 50
 	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"ProgressBar inside a parent with no background. The component uses its own theme colors for the track and fill."
+			}
+		}
+	},
 	decorators: [
 		(Story) => (
-			<div style={{ width: "300px", padding: "20px", backgroundColor: "#f5f5f5" }}>
+			<div style={{ width: "300px", padding: "20px" }}>
 				<Story />
 			</div>
 		)
@@ -67,6 +75,13 @@ export const Default: Story = {
 };
 
 export const Animated: Story = {
+	parameters: {
+		docs: {
+			description: {
+				story: "ProgressBar advancing continuously. Demonstrates the CSS transition on the fill width."
+			}
+		}
+	},
 	render: () => {
 		const AnimatedProgressBar = () => {
 			const [progress, setProgress] = useState(0);
@@ -80,7 +95,7 @@ export const Animated: Story = {
 			}, []);
 
 			return (
-				<div style={{ width: "300px", padding: "20px", backgroundColor: "#f5f5f5" }}>
+				<div style={{ width: "300px", padding: "8px" }}>
 					<ProgressBar percentage={progress} />
 					<div style={{ marginTop: "8px", textAlign: "center" }}>{progress}%</div>
 				</div>
@@ -92,6 +107,14 @@ export const Animated: Story = {
 };
 
 export const MultipleSteps: Story = {
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Several ProgressBars representing independent steps in a multi-stage process, each at a different completion state."
+			}
+		}
+	},
 	render: () => (
 		<div
 			style={{
@@ -99,8 +122,7 @@ export const MultipleSteps: Story = {
 				flexDirection: "column",
 				gap: "16px",
 				width: "300px",
-				padding: "20px",
-				backgroundColor: "#f5f5f5"
+				padding: "20px"
 			}}
 		>
 			<div>
@@ -117,4 +139,32 @@ export const MultipleSteps: Story = {
 			</div>
 		</div>
 	)
+};
+
+export const WithColoredParentBackground: Story = {
+	args: {
+		percentage: 50
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"ProgressBar inside a parent that has a background color. The components uses parent's background color for the track and fill."
+			}
+		}
+	},
+	decorators: [
+		(Story) => (
+			<div
+				style={{
+					backgroundColor: "#4a90d9",
+					borderRadius: "4px",
+					padding: "8px",
+					width: "300px"
+				}}
+			>
+				<Story />
+			</div>
+		)
+	]
 };

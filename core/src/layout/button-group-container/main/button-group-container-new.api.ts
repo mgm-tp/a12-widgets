@@ -123,6 +123,18 @@ export interface ButtonGroupContainerNewProps extends Styleable, Identifiable, C
 	 * **Note:** This property only takes effect when {@link responsive} is set to `true`.
 	 */
 	popupListAttributes?: HTMLAttributes<HTMLElement>;
+
+	/**
+	 * When enabled, the container only takes up as much width as its visible buttons (`max-width: max-content`),
+	 * allowing siblings to sit next to it rather than being pushed away.
+	 * Recalculation is triggered when the container's parentElement resizes.
+	 * The container's parentElement must not have `max-width: max-content` or a fixed width —
+	 * it must be able to grow and shrink with available space for uncollapsing to work correctly.
+	 *
+	 * @requires responsive={true}
+	 * @default false
+	 */
+	fitVisibleContentWidth?: boolean;
 }
 
 export namespace ButtonGroupContainerNewProps {

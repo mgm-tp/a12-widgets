@@ -20,16 +20,17 @@ exports[`com.mgmtp.a12.widgets.chat.Container > rendering-container 1`] = `
 }
 
 <div
-  aria-live="polite"
   class="c0 chat-container test-class"
   data-role="chat"
   id="test-id"
-  role="log"
   style="color: red;"
 >
   <div
+    aria-live="polite"
     class="c1 chat-container__inner"
+    data-role="chat-container-inner"
     id="test-id-inner-container"
+    role="log"
   />
 </div>
 `;
@@ -94,6 +95,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-date-marker 1`] = `
 >
   <div
     class="c2 c3 chat-date__content"
+    data-role="chat-date-marker-content"
   >
     Yesterday
   </div>
@@ -166,9 +168,11 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message 1`] = `
 >
   <div
     class="c1 chat-message__container"
+    data-role="chat-message-container"
   >
     <div
       class="c2 chat-message__bubble"
+      data-role="chat-message-bubble"
     >
       <div
         aria-label="You said:"
@@ -440,9 +444,11 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
   >
     <div
       class="c10 c11 chat-message__container"
+      data-role="chat-message-container"
     >
       <div
         class="c12 c13 chat-message__bubble"
+        data-role="chat-message-bubble"
       >
         <div
           aria-label="Peter said:"
@@ -734,9 +740,11 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   >
     <div
       class="c11 c12 chat-message__container"
+      data-role="chat-message-container"
     >
       <div
         class="c13 c14 chat-message__bubble"
+        data-role="chat-message-bubble"
       >
         <div
           aria-label="Peter said:"
@@ -881,12 +889,14 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification 1`] = `
   style="color: red;"
 >
   <div
-    aria-live="polite"
     class="c1 chat-notification-wrapper"
+    data-role="chat-notification-wrapper"
   >
     <div
+      aria-label="Notification"
       class="c2 chat-notification-content"
-      role="log"
+      data-role="chat-notification-content"
+      role="region"
     >
       2 new messages
     </div>
@@ -939,12 +949,14 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-type 1`] =
   style="color: red;"
 >
   <div
-    aria-live="polite"
     class="c1 chat-notification-wrapper"
+    data-role="chat-notification-wrapper"
   >
     <div
+      aria-label="Notification"
       class="c2 c3 chat-notification-content"
-      role="log"
+      data-role="chat-notification-content"
+      role="region"
     >
       2 new messages
     </div>
@@ -1001,12 +1013,14 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-type 2`] =
   style="color: red;"
 >
   <div
-    aria-live="polite"
     class="c1 chat-notification-wrapper"
+    data-role="chat-notification-wrapper"
   >
     <div
+      aria-label="Notification"
       class="c2 c3 chat-notification-content"
-      role="log"
+      data-role="chat-notification-content"
+      role="region"
     >
       2 new messages
     </div>
@@ -1067,12 +1081,14 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-type 3`] =
   style="color: red;"
 >
   <div
-    aria-live="polite"
     class="c1 chat-notification-wrapper"
+    data-role="chat-notification-wrapper"
   >
     <div
+      aria-label="Notification"
       class="c2 c3 chat-notification-content"
-      role="log"
+      data-role="chat-notification-content"
+      role="region"
     >
       2 new messages
     </div>
@@ -1135,12 +1151,12 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-with-fixTo
   data-role="chat-notification"
 >
   <div
-    aria-live="polite"
     class="c1 chat-notification-wrapper"
+    data-role="chat-notification-wrapper"
   >
     <div
       class="c2 c3 chat-notification-content"
-      role="alert"
+      data-role="chat-notification-content"
     />
   </div>
 </div>
@@ -1157,6 +1173,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-secondary-content 1`] =
 
 <div
   class="c0 chat-message__secondary-content test-class"
+  data-role="chat-message-secondary-content"
   id="test-id"
   style="color: red;"
 >
@@ -1316,12 +1333,14 @@ exports[`com.mgmtp.a12.widgets.chat.template > simulating-click-event-notificati
   data-role="chat-notification"
 >
   <div
-    aria-live="polite"
     class="c1 chat-notification-wrapper chat-notification-wrapper--clickable"
+    data-role="chat-notification-wrapper"
   >
     <div
+      aria-label="Notification"
       class="c2 c3 chat-notification-content"
-      role="log"
+      data-role="chat-notification-content"
+      role="region"
     />
   </div>
 </div>

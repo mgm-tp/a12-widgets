@@ -1,3 +1,7 @@
+## 39.0.3
+
+No breaking changes in 39.0.2.
+
 ## 39.0.2
 
 No breaking changes in 39.0.2.

@@ -1006,6 +1006,30 @@ describe("com.mgmtp.a12.widgets.tab-panel", () => {
 				expect(firstTab).toHaveFocus();
 			});
 		});
+
+		test("Should keep the focus in a field inside the panel while typing when `focusOnPanelAfterSelect` is enabled", async () => {
+			const TabPanelWithField: FC = () => {
+				const [text, setText] = useState("");
+
+				return (
+					<TabPanel focusOnPanelAfterSelect tabs={tabs}>
+						<input aria-label="Panel Field" value={text} onChange={(event) => setText(event.target.value)} />
+					</TabPanel>
+				);
+			};
+
+			const { getByDataRole, getByRole } = render(<TabPanelWithField />);
+
+			const field = getByRole("textbox");
+
+			await userEvent.click(field);
+			await userEvent.type(field, "abc");
+
+			// Re-rendering the panel content must not move the focus back to the panel
+			expect(field).toHaveFocus();
+			expect(field).toHaveValue("abc");
+			expect(getByDataRole(DataRoles.Panel)).not.toHaveFocus();
+		});
 	});
 
 	describe("Mobile Tab Panel", () => {

@@ -32,10 +32,10 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledButton } from "../../button/main/button.styled.js";
-import { StyledIconPickerWrapper } from "../../input/icon-picker/main/icon-picker.styled.js";
+import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 
 import { DatePickerFooter } from "./date-picker.tpl.view.js";
+import { StyledPickerHeaderButton } from "./date-picker.styled.js";
 
 export namespace StyledDatePickerMobile {
 	export const StyledDatePickerDialogContainer = styled.div.withConfig({
@@ -60,15 +60,19 @@ export namespace StyledDatePickerMobile {
 			justify-content: space-between;
 			padding: ${header.padding};
 
-			${StyledButton} {
-				height: auto;
-			}
+			${StyledPickerHeaderButton} {
+				${StyledIconWrapper} {
+					color: ${header.icon.color};
+					font-size: ${header.icon.fontSize};
+					margin: 0;
+					padding: 0;
+				}
 
-			${StyledIconPickerWrapper} {
-				color: ${header.icon.color};
-				font-size: ${header.icon.fontSize};
-				margin: 0;
-				padding: 0;
+				&:focus {
+					${StyledIconWrapper} {
+						color: inherit;
+					}
+				}
 			}
 		`;
 	});

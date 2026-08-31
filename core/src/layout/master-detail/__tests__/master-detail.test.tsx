@@ -50,7 +50,6 @@ import { TransitionProvider } from "../main/master-detail.context.js";
 const visibleViewDataRole = "visibile-view-test";
 
 describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
-	const baseDataRole = "master-detail-layout";
 	const visibleViewsExample = [
 		{
 			element: (
@@ -69,7 +68,7 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 	];
 
 	test("topStructure", () => {
-		const { container } = render(
+		const { container, getByDataRole } = render(
 			<MasterDetail
 				className="aCssClass"
 				style={{ color: "red" }}
@@ -80,19 +79,19 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 				visibleViews={[]}
 			/>
 		);
-		expect(container.querySelector(`[data-role=${baseDataRole}-view]`)).toBeTruthy();
+		expect(getByDataRole(DataRoles.MasterDetail.Layout.View)).toBeTruthy();
 		expect(container.querySelector(".aCssClass")).toBeTruthy();
 	});
 
 	test("rendering-master-detail-header-empty", () => {
-		const { container } = render(<Header title="Title" />);
+		const { container, getByDataRole } = render(<Header title="Title" />);
 		expect(container.firstChild).toMatchSnapshot();
-		expect(container.querySelector(`[data-role=master-detail-header]`)).toBeTruthy();
-		expect(container.querySelector(`[data-role=${baseDataRole}-title]`)?.textContent).toEqual("Title");
+		expect(getByDataRole(DataRoles.MasterDetail.Header)).toBeTruthy();
+		expect(getByDataRole(DataRoles.MasterDetail.Layout.Title).textContent).toEqual("Title");
 	});
 
 	test("rendering-master-detail-body-with-1-visible", () => {
-		const { container } = render(
+		const { container, getByDataRole } = render(
 			<TransitionProvider>
 				<Body
 					animation={{
@@ -104,11 +103,11 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 		);
 
 		expect(container.firstChild).toMatchSnapshot();
-		expect(container.querySelector(`[data-role=${visibleViewDataRole}]`)?.textContent).toEqual("visible1");
+		expect(getByDataRole(visibleViewDataRole).textContent).toEqual("visible1");
 	});
 
 	test("rendering-master-detail-body-with-2-visibles", () => {
-		const { container } = render(
+		const { container, getByDataRole, getAllByDataRole } = render(
 			<TransitionProvider>
 				<Body
 					animation={{
@@ -120,15 +119,15 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 		);
 
 		expect(container.firstChild).toMatchSnapshot();
-		const visibleViews = container.querySelectorAll(`[data-role=${visibleViewDataRole}]`);
+		const visibleViews = getAllByDataRole(visibleViewDataRole);
 		expect(visibleViews).toHaveLength(2);
 		expect(visibleViews[0].textContent).toEqual("visible1");
 		expect(visibleViews[1].textContent).toEqual("visible2");
-		expect(container.querySelector(`[data-role=${baseDataRole}-body]`)).toBeTruthy();
+		expect(getByDataRole(DataRoles.MasterDetail.Layout.Body)).toBeTruthy();
 	});
 
 	test("rendering-master-detail-single-body", () => {
-		const { container } = render(
+		const { container, getByDataRole } = render(
 			<TransitionProvider>
 				<Body
 					animation={{
@@ -147,12 +146,12 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 			</TransitionProvider>
 		);
 		expect(container.firstChild).toMatchSnapshot();
-		expect(container.querySelector(`[data-role=${baseDataRole}-body]`)).toBeTruthy();
-		expect(container.querySelector(`[data-role=${visibleViewDataRole}]`)?.textContent).toEqual("visible1");
+		expect(getByDataRole(DataRoles.MasterDetail.Layout.Body)).toBeTruthy();
+		expect(getByDataRole(visibleViewDataRole).textContent).toEqual("visible1");
 	});
 
 	test("rendering-master-detail-two-visibles-body", () => {
-		const { container } = render(
+		const { container, getByDataRole, getAllByDataRole } = render(
 			<TransitionProvider>
 				<Body
 					animation={{
@@ -163,8 +162,8 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 			</TransitionProvider>
 		);
 		expect(container.firstChild).toMatchSnapshot();
-		expect(container.querySelector(`[data-role=${baseDataRole}-body]`)).toBeTruthy();
-		const visibleViews = container.querySelectorAll(`[data-role=${visibleViewDataRole}]`);
+		expect(getByDataRole(DataRoles.MasterDetail.Layout.Body)).toBeTruthy();
+		const visibleViews = getAllByDataRole(visibleViewDataRole);
 		expect(visibleViews).toHaveLength(2);
 		expect(visibleViews[0].textContent).toEqual("visible1");
 		expect(visibleViews[1].textContent).toEqual("visible2");
@@ -272,7 +271,7 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 		});
 
 		test("Should use flex layout for desktop multi-column view", () => {
-			const { container } = render(
+			const { container, getAllByDataRole } = render(
 				<TransitionProvider>
 					<Body
 						animation={{
@@ -286,14 +285,14 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 			const panes = container.querySelectorAll('[class*="StyledMasterDetailLayoutPane"]');
 			expect(panes.length).toBe(2);
 
-			const visibleViews = container.querySelectorAll(`[data-role=${visibleViewDataRole}]`);
+			const visibleViews = getAllByDataRole(visibleViewDataRole);
 			expect(visibleViews).toHaveLength(2);
 			expect(visibleViews[0].textContent).toEqual("visible1");
 			expect(visibleViews[1].textContent).toEqual("visible2");
 		});
 
 		test("Should not break desktop behavior with single view", () => {
-			const { container } = render(
+			const { container, getByDataRole } = render(
 				<TransitionProvider>
 					<Body
 						animation={{
@@ -307,8 +306,7 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 			const pane = container.querySelector('[class*="StyledMasterDetailLayoutPane"]');
 			expect(pane).toBeTruthy();
 
-			const visibleView = container.querySelector(`[data-role=${visibleViewDataRole}]`);
-			expect(visibleView?.textContent).toEqual("visible1");
+			expect(getByDataRole(visibleViewDataRole).textContent).toEqual("visible1");
 		});
 
 		test("Should apply correct CSS classes during animation", async () => {
@@ -349,7 +347,7 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 		});
 
 		test("Should use width: 100% for single pane in small view (mobile)", () => {
-			const { container } = render(
+			const { container, getByDataRole } = render(
 				<TransitionProvider>
 					<Body
 						animation={{
@@ -363,15 +361,18 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 			const pane = container.querySelector('[class*="StyledMasterDetailLayoutPane"]');
 			expect(pane).toBeTruthy();
 
-			const visibleView = container.querySelector(`[data-role=${visibleViewDataRole}]`);
-			expect(visibleView?.textContent).toEqual("visible1");
+			expect(getByDataRole(visibleViewDataRole).textContent).toEqual("visible1");
 		});
 
 		test("Should maintain width: 100% after navigation back in mobile view", async () => {
 			const onAnimationEnd = vi.fn();
 
 			// Start with single view (Overview)
-			const { rerender: rerenderComponent, container } = render(
+			const {
+				rerender: rerenderComponent,
+				container,
+				getByDataRole
+			} = render(
 				<MasterDetail
 					visibleViews={[visibleViewsExample[0]]}
 					animation={{
@@ -421,8 +422,7 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 			expect(paneAfterBack).toBeTruthy();
 
 			// Verify the view content is still correct
-			const visibleView = container.querySelector(`[data-role=${visibleViewDataRole}]`);
-			expect(visibleView?.textContent).toEqual("visible1");
+			expect(getByDataRole(visibleViewDataRole).textContent).toEqual("visible1");
 		});
 
 		test("Should handle view transitions correctly in small view", async () => {
@@ -478,7 +478,7 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 		});
 
 		test("Should handle resizable panes in small view", () => {
-			const { container } = render(
+			const { container, getByDataRole } = render(
 				<TransitionProvider>
 					<Body
 						animation={{
@@ -497,8 +497,7 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail", () => {
 			const pane = container.querySelector('[class*="StyledMasterDetailLayoutPane"]');
 			expect(pane).toBeTruthy();
 
-			const visibleView = container.querySelector(`[data-role=${visibleViewDataRole}]`);
-			expect(visibleView?.textContent).toEqual("visible1");
+			expect(getByDataRole(visibleViewDataRole).textContent).toEqual("visible1");
 		});
 	});
 });
@@ -594,7 +593,11 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail.resize", () => {
 
 		for (let i = 1; i <= steps; i++) {
 			document.dispatchEvent(
-				new MouseEvent("mousemove", { bubbles: true, clientX: startX + x * (i / steps), clientY: startY })
+				new MouseEvent("mousemove", {
+					bubbles: true,
+					clientX: startX + x * (i / steps),
+					clientY: startY
+				})
 			);
 		}
 
@@ -603,20 +606,17 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail.resize", () => {
 
 	test("Should not go under minWidth when resizing", async () => {
 		const minWidth = 300;
-		const { container } = render(<MasterDetailResizeExample resizeOptions={{ maxWidth: "70%", minWidth }} />);
+		const { container, getByDataRole, getAllByDataRole } = render(
+			<MasterDetailResizeExample resizeOptions={{ maxWidth: "70%", minWidth }} />
+		);
 
 		const openButton = container.querySelector("#open-detail-test") as HTMLElement;
 		openButton.click();
 
-		await waitFor(
-			() => expect(container.querySelectorAll(`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`).length).toBe(2),
-			{ timeout: 2000 }
-		);
+		await waitFor(() => expect(getAllByDataRole(DataRoles.MasterDetail.Layout.Pane).length).toBe(2), { timeout: 2000 });
 
-		const resizeHandler = container.querySelector(`[data-role="${DataRoles.ResizableHandler}"]`) as HTMLElement;
-		const firstPane = container.querySelectorAll(
-			`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`
-		)[0] as HTMLElement;
+		const resizeHandler = getByDataRole(DataRoles.ResizableHandler);
+		const firstPane = getAllByDataRole(DataRoles.MasterDetail.Layout.Pane)[0];
 
 		const initialWidth = firstPane.getBoundingClientRect().width;
 
@@ -633,20 +633,56 @@ describe("com.mgmtp.a12.widgets.layout.masterdetail.resize", () => {
 	});
 
 	test("The view's width should not exceed maxWidth from beginning", async () => {
-		const { container } = render(<MasterDetailResizeExample resizeOptions={{ maxWidth: 400, minWidth: 200 }} />);
+		const { container, getAllByDataRole } = render(
+			<MasterDetailResizeExample resizeOptions={{ maxWidth: 400, minWidth: 200 }} />
+		);
 
 		const openButton = container.querySelector("#open-detail-test") as HTMLElement;
 		openButton.click();
 
-		await waitFor(
-			() => expect(container.querySelectorAll(`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`).length).toBe(2),
-			{ timeout: 2000 }
+		await waitFor(() => expect(getAllByDataRole(DataRoles.MasterDetail.Layout.Pane).length).toBe(2), { timeout: 2000 });
+
+		const firstPane = getAllByDataRole(DataRoles.MasterDetail.Layout.Pane)[0];
+
+		await waitFor(() => expect(firstPane.getBoundingClientRect().width).toBe(400), {
+			timeout: 2000
+		});
+	});
+
+	test("Should call onResizeStart, onResize, and onResizeStop from firstViewResizableOptions when resizing the first pane", async () => {
+		const onResizeStart = vi.fn();
+		const onResize = vi.fn();
+		const onResizeStop = vi.fn();
+
+		const { getByDataRole, getAllByDataRole } = render(
+			<MasterDetail
+				visibleViews={[
+					{ element: <p data-role={visibleViewDataRole}>Pane 1</p> },
+					{ element: <p data-role={visibleViewDataRole}>Pane 2</p> }
+				]}
+				firstViewResizableOptions={{
+					minWidth: "100px",
+					maxWidth: "70%",
+					onResizeStart,
+					onResize,
+					onResizeStop
+				}}
+			/>
 		);
 
-		const firstPane = container.querySelectorAll(
-			`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`
-		)[0] as HTMLElement;
+		await waitFor(() => expect(getAllByDataRole(DataRoles.MasterDetail.Layout.Pane).length).toBe(2), { timeout: 2000 });
 
-		await waitFor(() => expect(firstPane.getBoundingClientRect().width).toBe(400), { timeout: 2000 });
+		const resizeHandler = getByDataRole(DataRoles.ResizableHandler);
+
+		await moveResize(resizeHandler, { x: 50, steps: 3 });
+
+		await waitFor(
+			() => {
+				expect(onResizeStart).toHaveBeenCalled();
+				expect(onResize).toHaveBeenCalled();
+				expect(onResizeStop).toHaveBeenCalled();
+			},
+			{ timeout: 2000 }
+		);
 	});
 });

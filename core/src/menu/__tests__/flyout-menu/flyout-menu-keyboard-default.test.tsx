@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect, beforeAll } from "vitest";
+import { describe, test, expect, beforeAll, beforeEach } from "vitest";
 import {
 	render,
 	waitFor,
@@ -116,6 +116,23 @@ describe("com.mgmtp.a12.widgets.flyout-menu", () => {
 			setupDevice("desktop");
 		});
 
+		/**
+		 * The browser keeps one real pointer position for the whole page, and it survives across tests
+		 * and test files. Whenever the DOM changes, Chromium re-dispatches `mouseover` for the element
+		 * that ends up under that stationary pointer. If the pointer happens to rest where a menu item
+		 * is rendered, the menu reacts to a hover nobody performed: it opens or closes submenus behind
+		 * the keyboard interaction under test. Park the pointer in an empty corner before every test so
+		 * that only the keyboard drives the menu.
+		 */
+		beforeEach(async () => {
+			const parkingSpot = document.createElement("div");
+
+			parkingSpot.setAttribute("style", "position:fixed;right:0;bottom:0;width:20px;height:20px");
+			document.body.append(parkingSpot);
+			await userEvent.hover(parkingSpot);
+			parkingSpot.remove();
+		});
+
 		describe("keyboard navigation (horizontal)", () => {
 			test("moves focus right with ArrowRight", async () => {
 				const { getAllByDataRole } = render(<FlyoutMenu type="horizontal" items={items} />);
@@ -159,7 +176,7 @@ describe("com.mgmtp.a12.widgets.flyout-menu", () => {
 			});
 		});
 
-		describe("keyboard navigation (vertical)", { retry: 2 }, () => {
+		describe("keyboard navigation (vertical)", () => {
 			test("moves focus down with ArrowDown", async () => {
 				const { container } = render(<FlyoutMenu type="vertical" style={{ width: 300 }} items={items} />);
 				const allItems = getAllByDataRole(container, DataRoles.Menu.Item);
@@ -220,7 +237,7 @@ describe("com.mgmtp.a12.widgets.flyout-menu", () => {
 			});
 		});
 
-		describe("submenu arrow key navigation (vertical)", { retry: 2 }, () => {
+		describe("submenu arrow key navigation (vertical)", () => {
 			test("ArrowDown in open submenu moves focus to next submenu item", async () => {
 				const { container } = render(<FlyoutMenu type="vertical" style={{ width: 300 }} items={itemsWithSubMenu} />);
 				const allItems = getAllByDataRole(container, DataRoles.Menu.Item);
@@ -306,7 +323,7 @@ describe("com.mgmtp.a12.widgets.flyout-menu", () => {
 			});
 		});
 
-		describe("vertical submenu close behavior", { retry: 2 }, () => {
+		describe("vertical submenu close behavior", () => {
 			test("Escape closes vertical submenu and returns focus to parent item", async () => {
 				const { container } = render(<FlyoutMenu type="vertical" style={{ width: 300 }} items={itemsWithSubMenu} />);
 				const allItems = getAllByDataRole(container, DataRoles.Menu.Item);
@@ -346,7 +363,7 @@ describe("com.mgmtp.a12.widgets.flyout-menu", () => {
 			});
 		});
 
-		describe("nested submenu (vertical)", { retry: 2 }, () => {
+		describe("nested submenu (vertical)", () => {
 			test("ArrowRight from child item opens grandchild submenu", async () => {
 				const { container } = render(
 					<FlyoutMenu type="vertical" style={{ width: 300 }} items={verticalItemsWithNestedSubMenu} />
@@ -551,7 +568,7 @@ describe("com.mgmtp.a12.widgets.flyout-menu", () => {
 			});
 		});
 
-		describe("nested submenu (horizontal)", { retry: 2 }, () => {
+		describe("nested submenu (horizontal)", () => {
 			test("ArrowDown opens child submenu, ArrowRight opens grandchild submenu", async () => {
 				const { container } = render(<FlyoutMenu type="horizontal" items={verticalItemsWithNestedSubMenu} />);
 				const allItems = getAllByDataRole(container, DataRoles.Menu.Item);

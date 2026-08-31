@@ -102,7 +102,10 @@ const LayoutPane = (props: LayoutPaneInternalProps): ReactNode => {
 
 	const { absoluteMaxWidth, absoluteMinWidth } = useElementDimensions({
 		elementRef: paneRef,
-		widthConfig: { maxWidth: props.resizableOptions?.maxWidth, minWidth: props.resizableOptions?.minWidth }
+		widthConfig: {
+			maxWidth: props.resizableOptions?.maxWidth,
+			minWidth: props.resizableOptions?.minWidth
+		}
 	});
 	const {
 		components: {
@@ -250,7 +253,11 @@ export function Body(props: MasterDetailBodyProps): ReactElement {
 
 	const columnsCount = props.visibleViews.length;
 
-	const handleResizeStop = (event: MouseEvent, data: ResizeCallbackData, view: VisibleView): void => {
+	const handleResizeStop = (
+		event: MouseEvent,
+		data: ResizeCallbackData,
+		onResizeStopCallback?: ResizeOptions["onResizeStop"]
+	): void => {
 		if (data.node && data.width && dataResize?.width !== data.width) {
 			/**
 			 * Determine the maximum allowable width for the adjacent pane that is not being resized.
@@ -260,14 +267,14 @@ export function Body(props: MasterDetailBodyProps): ReactElement {
 			setDataResize({ width: data.width, maxWidth });
 		}
 
-		view.resizableOptions?.onResizeStop?.(event, data);
+		onResizeStopCallback?.(event, data);
 	};
 
 	const getResizableOptions = (view: VisibleView, index: number): ResizeablePaneOptions | undefined => {
 		if (index === 0 && props.firstViewResizableOptions) {
 			return {
 				...props.firstViewResizableOptions,
-				onResizeStop: (event, data) => handleResizeStop(event, data, view),
+				onResizeStop: (event, data) => handleResizeStop(event, data, props.firstViewResizableOptions?.onResizeStop),
 				position: "right"
 			};
 		}
@@ -280,7 +287,7 @@ export function Body(props: MasterDetailBodyProps): ReactElement {
 
 		return {
 			...view.resizableOptions,
-			onResizeStop: (event, data) => handleResizeStop(event, data, view),
+			onResizeStop: (event, data) => handleResizeStop(event, data, view.resizableOptions?.onResizeStop),
 			position
 		};
 	};

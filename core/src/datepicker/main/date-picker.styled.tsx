@@ -56,6 +56,7 @@ import { Button } from "../../button/main/button.view.js";
 import { getBaseButtonVariantStyles } from "../../button/main/button.styled.js";
 import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
 import { TextField } from "../../input/text-field/text-field.view.js";
+import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 
 import type { DatePickerProps } from "./date-picker.api.js";
 
@@ -492,7 +493,12 @@ export namespace StyledDatePicker {
 				display: inline-block;
 				flex-shrink: 0;
 				margin: 0;
-				width: calc(${caption.selectInput.height} * 2.25);
+				width: ${caption.selectInput.yearSelector?.width};
+
+				${StyledBaseInput.StyledFieldInput} {
+					height: ${caption.selectInput.height};
+					background-color: ${$mobile && mobile.fieldSelect.background};
+				}
 			}
 		`;
 	});

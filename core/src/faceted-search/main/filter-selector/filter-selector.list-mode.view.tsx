@@ -31,10 +31,12 @@
  */
 
 import type { FC, ReactNode } from "react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 
 import { Badge } from "../../../badge/main/badge.view.js";
 import { Typography } from "../../../typography/main/typography.view.js";
+import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 
 import type {
 	FilterItemData,
@@ -56,6 +58,7 @@ const FilterItem: FC<{
 	noDivider: boolean;
 }> = ({ item, noDivider }) => {
 	const [isCollapsed, setIsCollapsed] = useState(item.collapsed);
+	const languageContext = useContext<A11yDefinition>(A11YLanguageContext);
 
 	useEffect(() => {
 		setIsCollapsed(item.collapsed);
@@ -63,6 +66,7 @@ const FilterItem: FC<{
 
 	const showBadge = isCollapsed && !!item.active;
 	const badgeVariant = item.badgeVariant ?? "info";
+	const badgeTitle = item.badgeTitle ?? languageContext.filterSelectorTitles?.activeFilterBadgeTitle;
 
 	const handleCollapseToggle = (): void => {
 		setIsCollapsed((prev) => !prev);
@@ -84,7 +88,7 @@ const FilterItem: FC<{
 				{item.label}
 				{showBadge && (
 					<span style={{ marginLeft: "4px" }}>
-						<Badge tiny standalone variant={badgeVariant} />
+						<Badge tiny standalone variant={badgeVariant} title={badgeTitle} />
 					</span>
 				)}
 			</Typography.Headline>

@@ -33,6 +33,7 @@
 import { kebabCase } from "lodash-es";
 
 const DATA_ROLES_TREE = {
+	A11yLiveRegion: "",
 	Accordion: {
 		Details: "",
 		Section: "",
@@ -76,9 +77,14 @@ const DATA_ROLES_TREE = {
 		GridSubPoint: ""
 	},
 	Chat: {
+		ContainerInner: "",
+		BottomNotification: "",
 		Message: {
+			Container: "",
+			Bubble: "",
 			Content: "",
 			Status: "",
+			SecondaryContent: "",
 			Group: ""
 		},
 		User: {
@@ -87,9 +93,15 @@ const DATA_ROLES_TREE = {
 			Name: ""
 		},
 		AvatarImg: "",
-		DateMarker: "",
-		Notification: "",
-		TypingMarker: ""
+		DateMarker: {
+			Content: ""
+		},
+		Notification: {
+			Wrapper: "",
+			Content: ""
+		},
+		TypingMarker: "",
+		A11yLiveRegion: ""
 	},
 	Toggle: {
 		Item: "",

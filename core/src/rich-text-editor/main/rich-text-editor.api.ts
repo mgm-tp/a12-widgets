@@ -105,4 +105,10 @@ export interface RichTextEditorProps
 	 * @default true
 	 */
 	useComposer?: boolean;
+
+	/**
+	 * Enables the built-in history plugin for undo/redo functionality.
+	 * @default true
+	 */
+	enableHistory?: boolean;
 }

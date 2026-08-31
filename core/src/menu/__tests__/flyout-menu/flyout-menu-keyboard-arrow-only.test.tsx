@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect, beforeAll, afterEach } from "vitest";
+import { describe, test, expect, beforeAll, beforeEach, afterEach } from "vitest";
 import {
 	render,
 	waitFor,
@@ -114,6 +114,23 @@ describe("com.mgmtp.a12.widgets.flyout-menu", () => {
 	describe("arrow-only mode", () => {
 		beforeAll(() => {
 			setupDevice("desktop");
+		});
+
+		/**
+		 * The browser keeps one real pointer position for the whole page, and it survives across tests
+		 * and test files. Whenever the DOM changes, Chromium re-dispatches `mouseover` for the element
+		 * that ends up under that stationary pointer. If the pointer happens to rest where a menu item
+		 * is rendered, the menu reacts to a hover nobody performed: it opens or closes submenus behind
+		 * the keyboard interaction under test. Park the pointer in an empty corner before every test so
+		 * that only the keyboard drives the menu.
+		 */
+		beforeEach(async () => {
+			const parkingSpot = document.createElement("div");
+
+			parkingSpot.setAttribute("style", "position:fixed;right:0;bottom:0;width:20px;height:20px");
+			document.body.append(parkingSpot);
+			await userEvent.hover(parkingSpot);
+			parkingSpot.remove();
 		});
 
 		describe("basic navigation", () => {
@@ -504,7 +521,7 @@ describe("com.mgmtp.a12.widgets.flyout-menu", () => {
 			});
 		});
 
-		describe("deeply nested submenu Tab", { retry: 2 }, () => {
+		describe("deeply nested submenu Tab", () => {
 			test("Tab from grandchild level closes all submenus and exits menu (vertical)", async () => {
 				const { container } = render(
 					<KeyboardNavigationConfigProvider mode="arrow-only">

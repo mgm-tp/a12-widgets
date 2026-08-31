@@ -51,6 +51,7 @@ const DefaultThemes: ShowcaseThemeType[] = [
 	{
 		name: "base-flat",
 		label: "Base Flat",
+		subLabel: "Theming Demo",
 		theme: getBaseTheme(baseFlatOverrides)
 	},
 	{

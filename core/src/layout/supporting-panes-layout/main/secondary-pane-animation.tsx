@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { AnimationDefinition, HTMLMotionProps } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
+import type { AnimationDefinition, HTMLMotionProps } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import type { HTMLAttributes, ReactNode, Ref, RefObject } from "react";
 import { useCallback, useRef, useState } from "react";
 
@@ -92,7 +92,7 @@ export const SecondaryPaneAnimation = (props: SecondaryPaneAnimationProps): Reac
 			{position === "right" && resizeHandleRenderer("right")}
 			<StyledSecondaryPaneContent
 				key={collapsed ? "collapsed" : "expanded"}
-				data-role={DataRoles.SupportingPanesLayout.SecondaryPane.Content}
+				data-role={`${DataRoles.SupportingPanesLayout.SecondaryPane.Content}`}
 				ref={handleContentRef}
 				variants={contentVariants}
 				initial={isResized.current ? false : hidden}
@@ -139,7 +139,7 @@ export const SecondaryPaneAnimation = (props: SecondaryPaneAnimationProps): Reac
 				<StyledSecondaryPane
 					{...rest}
 					{...(htmlAttributes as HTMLMotionProps<"div">)}
-					data-role={DataRoles.SupportingPanesLayout.SecondaryPane}
+					data-role={`${DataRoles.SupportingPanesLayout.SecondaryPane}`}
 					data-positioning={position}
 					onAnimationStart={handleAnimationStart}
 					onAnimationComplete={handleAnimationComplete}

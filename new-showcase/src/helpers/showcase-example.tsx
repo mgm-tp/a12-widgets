@@ -46,6 +46,7 @@ import { ShowcaseDescription } from "./showcase-description.js";
 import { ShowcaseExampleContent } from "./showcase-example-content.js";
 import { ShowcaseExampleToolbar } from "./showcase-example-toolbar.js";
 import { ShowcaseExampleContext } from "./showcase-example-context.js";
+import { getWidgetCoreDisplayNames } from "./widget-core-display-names.js";
 
 /*
  * `react-element-to-jsx-string` ships both CJS and ESM builds. Depending on which entry the bundler
@@ -95,17 +96,44 @@ export function CodeSnippetGenerationWrapper(
 
 	const displayName = useCallback(
 		(element: ReactNode): string => {
-			const elementType = (element as ReactElement)?.type as any;
-			const typeDisplayName = elementType?.displayName;
-			const typeName = elementType?.name;
+			const elementType = isValidElement(element) ? element.type : undefined;
+			// Restrict to component references (functions/classes/forwardRef/memo objects). React built-ins
+			// like `Fragment` are symbols and native elements are strings — both must be excluded before
+			// using the `in` operator, which throws on non-objects.
+			const isJSXElementConstructor =
+				typeof elementType === "function" || (typeof elementType === "object" && elementType !== null);
 
-			const matchedOption = namespaceOptions?.find((option) =>
-				option.subComponents.includes(typeDisplayName || typeName)
-			);
+			// `displayName` — set explicitly by the component author (e.g. `Foo.displayName = "Foo"`).
+			const typeDisplayName =
+				isJSXElementConstructor && "displayName" in elementType && typeof elementType.displayName === "string"
+					? elementType.displayName
+					: undefined;
+			// `name` — the function/class name.
+			const typeName = isJSXElementConstructor && "name" in elementType ? elementType.name : undefined;
 
-			return matchedOption?.name
-				? `${matchedOption.name}.${typeDisplayName || typeName}`
-				: typeDisplayName || typeName || elementType;
+			// Try widgets-core lookup first: in prod builds, `name`/`displayName` may be mangled,
+			// but the widgets-core export map recovers the original name(s) by object identity.
+			const coreNames = getWidgetCoreDisplayNames(elementType);
+
+			// Prefer a name the showcase declared in `namespaceOptions`, so a declared alias like
+			// `ContentBoxElements.CloseButton` wins over other export names (e.g. `CloseButtonTpl`).
+			for (const option of namespaceOptions ?? []) {
+				const matchedName = option.subComponents.find((name) => coreNames.has(name));
+
+				if (matchedName) {
+					return `${option.name}.${matchedName}`;
+				}
+			}
+
+			// Fall back to the first widgets-core name, else `displayName`/`name`.
+			const componentName = coreNames.values().next().value || typeDisplayName || typeName;
+
+			if (componentName) {
+				return componentName;
+			}
+
+			// Native elements (`div`, `span`, ...) already come through as strings.
+			return typeof elementType === "string" ? elementType : "Unknown";
 		},
 		[namespaceOptions]
 	);
@@ -115,7 +143,10 @@ export function CodeSnippetGenerationWrapper(
 			maxInlineAttributesLineLength: 80,
 			showFunctions: true,
 			...options,
-			displayName: namespaceOptions ? displayName : options?.displayName
+			// Our resolver is the default (a showcase can still override it via `options.displayName`).
+			// Without it, components that don't set a displayName (e.g. List.Item) show up as "No Display Name"
+			// in production, because minifiers strip the function name it falls back to.
+			displayName: options?.displayName ?? displayName
 		});
 
 		setGeneratedCodeSnippet?.(codeSnippet);

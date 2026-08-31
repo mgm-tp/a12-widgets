@@ -325,7 +325,8 @@ export function mergeWithSibling(node: InlineStyleTextNode, sibling: InlineStyle
 
 	if (
 		isEqual(sibling.getSelectedStyleName(), node.getSelectedStyleName()) &&
-		sibling.getFormat() === node.getFormat()
+		sibling.getFormat() === node.getFormat() &&
+		sibling.getStyle() === node.getStyle()
 	) {
 		return node.mergeWithSibling(sibling);
 	}

@@ -63,7 +63,9 @@ export function NewsItems(): ReactElement {
 	return (
 		<>
 			<NewsBox
-				image={<ResponsiveImageContainer src="images/news-sample.jpg" alt="Base Theme" title="Base Theme" />}
+				image={
+					<ResponsiveImageContainer src="images/news-box-section/base-theme.png" alt="Base Theme" title="Base Theme" />
+				}
 				header={
 					<Typography.Headline level={3} ariaLevel={3}>
 						Base Theme
@@ -71,10 +73,27 @@ export function NewsItems(): ReactElement {
 				}
 				content="The new Base Theme introduces a clean three-layer architecture — Application, Semantic, and Widget — that makes theming straightforward with minimal token changes. Override a single color, spacing unit, or border scale and watch it propagate automatically to every widget."
 				footer={<NewsFooter href="#/basics/theme/base-theme" anchorText="Learn More" />}
-				info={<div>08.06.2026</div>}
+				info={<div>01.07.2026</div>}
 			/>
 			<NewsBox
-				image={<ResponsiveImageContainer src="images/news-sample-landscape.jpg" alt="Calendar" title="Calendar" />}
+				image={
+					<ResponsiveImageContainer
+						src="images/news-box-section/quick-theme-palette.png"
+						alt="Quick Theme Palette"
+						title="Quick Theme Palette"
+					/>
+				}
+				header={
+					<Typography.Headline level={3} ariaLevel={3}>
+						Experimental: Quick Theme Palette
+					</Typography.Headline>
+				}
+				content="The Quick Theme Palette is a convenience layer above Base Theme. It allows you to quickly customize the app using only a few high-level variables, including spacing, fonts, colors, typography scale."
+				footer={<NewsFooter href="#/basics/theme/base-theme/quick-start#live-preview" anchorText="Learn More" />}
+				info={<div>01.07.2026</div>}
+			/>
+			<NewsBox
+				image={<ResponsiveImageContainer src="images/news-box-section/calendar.png" alt="Calendar" title="Calendar" />}
 				header={
 					<Typography.Headline level={3} ariaLevel={3}>
 						Calendar
@@ -86,7 +105,12 @@ export function NewsItems(): ReactElement {
 			/>
 			<NewsBox
 				image={
-					<ResponsiveImageContainer src="images/news-sample.jpg" alt="Interaction Hint" title="Interaction Hint" />
+					<ResponsiveImageContainer
+						src="images/news-box-section/interaction-hint.png"
+						alt="Interaction Hint"
+						title="Interaction Hint"
+						style={{ width: "16rem" }}
+					/>
 				}
 				header={
 					<Typography.Headline level={3} ariaLevel={3}>
@@ -100,7 +124,7 @@ export function NewsItems(): ReactElement {
 			<NewsBox
 				image={
 					<ResponsiveImageContainer
-						src="images/news-sample-landscape.jpg"
+						src="images/news-box-section/resize-handler.png"
 						alt="Resize Handler"
 						title="Resize Handler"
 					/>
@@ -113,53 +137,6 @@ export function NewsItems(): ReactElement {
 				content="The Resize Handler provides dynamic resizing capabilities, enabling users to adjust content area sizes with flexibility. This feature supports workspace personalization, helps prioritize specific content, and enhances usability based on user preferences or screen dimensions."
 				footer={<NewsFooter href="#/widgets/layout/resize-handler" anchorText="Learn More" />}
 				info={<div>10.02.2025</div>}
-			/>
-			<NewsBox
-				image={
-					<ResponsiveImageContainer
-						src="images/news-sample.jpg"
-						alt="Supporting Panes Layout (SPL)"
-						title="Supporting Panes Layout (SPL)"
-					/>
-				}
-				header={
-					<Typography.Headline level={3} ariaLevel={3}>
-						Supporting Panes Layout (SPL)
-					</Typography.Headline>
-				}
-				content="The generic layout is used to provide a consistent and flexible structure for UI Model Editors like the Content Model Editor and SME, enhanced user context, improves information accessibility, and supports the creation of complex, multi-level UI layouts through nesting and integration with other widgets."
-				footer={<NewsFooter href="#/experimental/supporting-panes-layout" anchorText="Learn More" />}
-				info={<div>09.10.2024</div>}
-			/>
-			<NewsBox
-				image={
-					<ResponsiveImageContainer
-						src="images/news-sample-landscape.jpg"
-						alt="Interactive Tile"
-						title="Interactive Tile"
-					/>
-				}
-				header={
-					<Typography.Headline level={3} ariaLevel={3}>
-						Interactive Tile
-					</Typography.Headline>
-				}
-				content="The Interactive Tile widget provides a button-like visual to present options in a familiar, interactive format, enhancing usability by making selections more intuitive and engaging, creating a better experience for users."
-				footer={<NewsFooter href="#/widgets/data-display/interactive-tile" anchorText="Learn More" />}
-				info={<div>09.10.2024</div>}
-			/>
-			<NewsBox
-				image={
-					<ResponsiveImageContainer src="images/news-sample.jpg" alt="Rich Text Editor" title="Rich Text Editor" />
-				}
-				header={
-					<Typography.Headline level={3} ariaLevel={3}>
-						Lexical based Rich Text Editor
-					</Typography.Headline>
-				}
-				content="The Rich Text Editor Widget is a highly performant and accessible text editor. It supports custom plugins, prebuilt nodes, and inherits common Text Field features like states, messages and helper text."
-				footer={<NewsFooter href="#/widgets/data-entry/rich-text-editor" anchorText="Learn More" />}
-				info={<div>09.04.2024</div>}
 			/>
 		</>
 	);

@@ -57,7 +57,7 @@ export function BasicTextOutput(): ReactElement {
 	return (
 		// start code removal
 		<StyledWrapper>
-			<CodeSnippetGenerationWrapper>
+			<CodeSnippetGenerationWrapper namespaceOptions={[{ name: "BulletList", subComponents: ["Unordered", "Item"] }]}>
 				<TextOutput label="Text Output">{shortText}</TextOutput>
 
 				<TextOutput label="Text Output with multiline">{longText}</TextOutput>

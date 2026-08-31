@@ -93,6 +93,7 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 		spellCheck,
 		children,
 		useComposer = true,
+		enableHistory = true,
 		...rest
 	} = props;
 	const [focused, setFocused] = useState(false);
@@ -183,7 +184,12 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 
 	const renderContent = (
 		<RichTextEditorSelectionCacheProvider>
-			<StyledBaseInput.StyledFieldWrapper $block id={id} style={style} data-role={DataRoles.RichTextEditor.Wrapper}>
+			<StyledBaseInput.StyledFieldWrapper
+				$block
+				id={id && `${id}-wrapper`}
+				style={style}
+				data-role={DataRoles.RichTextEditor.Wrapper}
+			>
 				<StyledEditorMain
 					$autoExpand={autoExpand}
 					$withInitialHeight={isFixedHeight}
@@ -266,7 +272,7 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 									}
 									ErrorBoundary={LexicalErrorBoundary}
 								/>
-								<HistoryPlugin />
+								{enableHistory && <HistoryPlugin />}
 								<TabFocusPluginInternal />
 								{readonly && <SelectAllPlugin />}
 								<TextFormatPlugin />

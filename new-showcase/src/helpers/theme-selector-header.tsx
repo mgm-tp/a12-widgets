@@ -70,6 +70,7 @@ export function ThemeSelectorHeader(props: { isSmallView?: boolean }): ReactElem
 				<Item
 					key={showcaseTheme.name}
 					text={showcaseTheme.label ?? showcaseTheme.name}
+					secondaryText={showcaseTheme.subLabel}
 					meta={theme === showcaseTheme.name && <Icon>check</Icon>}
 					selected={theme === showcaseTheme.name}
 					onClick={() => setTheme(showcaseTheme.name)}

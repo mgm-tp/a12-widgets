@@ -258,22 +258,50 @@ describe("com.mgmtp.a12.widgets.calendar.infinite-view", () => {
 		);
 
 		await waitFor(() => {
-			expect(onDateRangeDisplayChange).toHaveBeenCalledTimes(1);
+			expect(onDateRangeDisplayChange).toHaveBeenCalled();
 		});
 
 		const scrollableParent = getByDataRole(container, DataRoles.Calendar.MonthView.Infinite.ScrollContainer);
+
+		/*
+		 * The virtualizer performs its own `scrollToIndex` towards `date` on first change, and that
+		 * scroll is asynchronous: the first `onVisibleRangeChange` fires while the list is still at
+		 * the top (range 0-4). Driving the scroll before that settles races it — the initial scroll's
+		 * own range update gets counted as if it were the test's, and the manual `scrollTop` is
+		 * overwritten, so a later scroll produces no range change at all. Wait for the offset to come
+		 * to rest before touching it.
+		 */
+		let previousScrollTop = -1;
+
+		await waitFor(() => {
+			const currentScrollTop = scrollableParent.scrollTop;
+			const settled = currentScrollTop > 0 && currentScrollTop === previousScrollTop;
+
+			previousScrollTop = currentScrollTop;
+			expect(settled).toBe(true);
+		});
+
 		const weekHeight = scrollableParent.clientHeight / displayWeeksCount;
+
+		/*
+		 * Counts are compared against a baseline captured after settling rather than asserted as
+		 * absolute values. The virtualizer legitimately emits several range updates while it settles,
+		 * so any fixed number here only holds by luck of timing.
+		 */
+		const callsBeforeScrollDown = onDateRangeDisplayChange.mock.calls.length;
 
 		// Scroll down by 1 week
 		scrollableParent.scrollTop += weekHeight;
 		await waitFor(() => {
-			expect(onDateRangeDisplayChange).toHaveBeenCalledTimes(2);
+			expect(onDateRangeDisplayChange.mock.calls.length).toBeGreaterThan(callsBeforeScrollDown);
 		});
+
+		const callsBeforeScrollUp = onDateRangeDisplayChange.mock.calls.length;
 
 		// Scroll up by 1 week
 		scrollableParent.scrollTop -= weekHeight;
 		await waitFor(() => {
-			expect(onDateRangeDisplayChange).toHaveBeenCalledTimes(3);
+			expect(onDateRangeDisplayChange.mock.calls.length).toBeGreaterThan(callsBeforeScrollUp);
 		});
 	});
 

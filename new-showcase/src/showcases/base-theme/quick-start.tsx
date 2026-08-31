@@ -45,12 +45,20 @@ const showcases: Showcase[] = [
 		sections: [
 			{
 				label: "Live preview",
-				description: (
-					<p>
-						Toggle the checkbox to switch between the default theme and the dark palette. Every widget under the{" "}
-						<code>ThemeProvider</code> updates automatically.
-					</p>
-				),
+				description: {
+					info: (
+						<p>
+							Toggle the checkbox to switch between the default theme and the dark palette. Every widget under the{" "}
+							<code>ThemeProvider</code> updates automatically.
+						</p>
+					),
+					note: (
+						<p>
+							<code>QuickThemePalette</code> is still in <b>experimental</b>. This live preview gives a quick idea of
+							the theme, but it does not yet include the full concept.
+						</p>
+					)
+				},
 				useConfiguration: true,
 				content: <ThemePreviewDemo />,
 				code: { name: "theme-preview-demo.tsx", code: ThemePreviewDemoCode }

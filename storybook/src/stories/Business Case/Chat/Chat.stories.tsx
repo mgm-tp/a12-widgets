@@ -30,9 +30,23 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactNode, ChangeEvent, KeyboardEvent, ReactElement } from "react";
+import { useState, useRef, useCallback, useEffect, Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Chat } from "@com.mgmtp.a12.widgets/widgets-core";
+import {
+	Chat,
+	Icon,
+	ActionContentbox,
+	ContentBoxElements,
+	Button,
+	Checkbox,
+	TextAreaStateless
+} from "@com.mgmtp.a12.widgets/widgets-core";
+
+interface ChatStoryArgs {
+	numberOfMessages?: number;
+}
 
 const meta: Meta<typeof Chat.Container> = {
 	title: "Business Case/Chat",
@@ -51,6 +65,7 @@ const meta: Meta<typeof Chat.Container> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+type InteractiveStory = StoryObj<ChatStoryArgs>;
 
 export const Default: Story = {
 	name: "Basic Chat",
@@ -198,6 +213,7 @@ export const WithNotification: Story = {
 					<Chat.Message position="right">Scroll up to see older messages</Chat.Message>
 				</Chat.MessageGroup>
 			</Chat.Container>
+			{/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
 			<Chat.Notification show variant="info" fixedToBottom onClick={() => {}}>
 				3 new messages
 			</Chat.Notification>
@@ -284,6 +300,532 @@ export const MessageWithStatus: Story = {
 			description: {
 				story:
 					"Use the status prop on Chat.Message to display metadata below a message — such as a timestamp or delivery/read indicator. The status value can be a string or ReactNode."
+			}
+		}
+	}
+};
+
+// --- Adding Multiple Messages story ---
+
+interface MessageType {
+	content: ReactNode;
+	userName?: string;
+	status?: string;
+	position?: "left" | "right";
+}
+
+type ChatItem = { kind: "message"; data: MessageType } | { kind: "notification"; text: string };
+
+const CONVERSATION: ChatItem[] = [
+	{
+		kind: "message",
+		data: { content: "Hello, my name is Peter. How can I help you?", userName: "Peter", status: "11:11 am" }
+	},
+	{
+		kind: "message",
+		data: { content: "Hello! I have a question about room service.", status: "11:13 am", position: "right" }
+	},
+	{
+		kind: "message",
+		data: {
+			content: "Could you please tell me which service you're asking about?",
+			userName: "Peter",
+			status: "11:13 am"
+		}
+	},
+	{ kind: "message", data: { content: "It's about pet services.", status: "11:14 am", position: "right" } },
+	{
+		kind: "message",
+		data: {
+			content: "My puppies are staying with me and I would like to request food and in-room cleaning services.",
+			status: "11:15 am",
+			position: "right"
+		}
+	},
+	{
+		kind: "message",
+		data: {
+			content: "Yes, sure. Please check the attached files with all the information about our pet services.",
+			userName: "Peter",
+			status: "11:16 am"
+		}
+	},
+	{ kind: "message", data: { content: "Pet Services Policy and Agreement", status: "11:17 am", userName: "Peter" } },
+	{ kind: "message", data: { content: "Pet Services Registration", status: "11:17 am", userName: "Peter" } },
+	{ kind: "message", data: { content: "Great. I'll take a look.", status: "11:17 am", position: "right" } }
+];
+
+function AddingMultipleMessagesChat({ numberOfMessages = 3 }: { numberOfMessages?: number }): ReactElement {
+	const [inputMessage, setInputMessage] = useState("");
+	const [chatItems, setChatItems] = useState<ChatItem[]>(CONVERSATION);
+	const chatContainerInstance = useRef<Chat.Container | null>(null);
+
+	const getChatContainerInstance = useCallback((ref: Chat.Container) => {
+		chatContainerInstance.current = ref;
+	}, []);
+
+	const handleScrollToBottom = useCallback(() => {
+		chatContainerInstance.current?.scrollToBottom();
+	}, []);
+
+	useEffect(() => {
+		handleScrollToBottom();
+	}, [handleScrollToBottom, chatItems]);
+
+	const handleInputChange = useCallback((event: ChangeEvent<HTMLTextAreaElement>): void => {
+		const message = event.target.value;
+
+		if (message.substring(-1) === "\n" && message.trim() === "") {
+			return;
+		}
+
+		setInputMessage(message);
+	}, []);
+
+	const handleSendMessage = useCallback((): void => {
+		if (inputMessage.trim() !== "") {
+			const date = new Date();
+			const hour = date.getHours() - (date.getHours() >= 12 ? 12 : 0);
+			const period = date.getHours() >= 12 ? "pm" : "am";
+			const status = `${hour}:${date.getMinutes()} ${period}`;
+
+			const newItems: ChatItem[] = [
+				{ kind: "message", data: { content: inputMessage.trim(), status, position: "right" } }
+			];
+
+			for (let i = 1; i < numberOfMessages; i++) {
+				newItems.push({
+					kind: "message",
+					data: {
+						content: (
+							<>
+								Re ({i}): <strong>{inputMessage.trim()}</strong> <Icon>check_circle</Icon>
+							</>
+						),
+						status,
+						userName: "Peter"
+					}
+				});
+			}
+
+			newItems.push({ kind: "notification", text: `${numberOfMessages} new messages received` });
+
+			setChatItems((items) => [...items, ...newItems]);
+		}
+
+		setInputMessage("");
+	}, [inputMessage, numberOfMessages]);
+
+	const handleKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLTextAreaElement>): void => {
+			if (event.key === "Enter" && !event.shiftKey) {
+				handleSendMessage();
+			}
+		},
+		[handleSendMessage]
+	);
+
+	const renderMessageGroups = useCallback((): ReactNode => {
+		const groups: ({ kind: "messageGroup"; messages: MessageType[] } | { kind: "notification"; text: string })[] = [];
+
+		for (const item of chatItems) {
+			if (item.kind === "notification") {
+				groups.push({ kind: "notification", text: item.text });
+			} else {
+				const lastGroup = groups[groups.length - 1];
+
+				if (lastGroup?.kind === "messageGroup" && item.data.userName === lastGroup.messages[0].userName) {
+					lastGroup.messages.push(item.data);
+				} else {
+					groups.push({ kind: "messageGroup", messages: [item.data] });
+				}
+			}
+		}
+
+		return groups.map((group, index) => {
+			if (group.kind === "notification") {
+				return (
+					<Chat.Notification key={`notification-${index}`} variant="success">
+						{group.text}
+					</Chat.Notification>
+				);
+			}
+
+			return (
+				<Chat.MessageGroup
+					position={group.messages[0].position}
+					userInfo={group.messages[0].userName ? <Chat.UserInfo userName={group.messages[0].userName} /> : undefined}
+					key={index}
+				>
+					{group.messages.map((message, msgIndex) => (
+						<Fragment key={msgIndex}>
+							<Chat.Message status={message.status}>{message.content}</Chat.Message>
+						</Fragment>
+					))}
+				</Chat.MessageGroup>
+			);
+		});
+	}, [chatItems]);
+
+	return (
+		<ActionContentbox
+			style={{ height: 500, width: 400 }}
+			className="-u-flex"
+			headingElements={<ContentBoxElements.Title key="title" text="Chat with expandable input" />}
+			padding={false}
+			footer={
+				<ContentBoxElements.Footer>
+					<div className="-u-flex -u-width-full">
+						<div className="-u-flex-grow -u-margin-r-xs -u-self-start -sc-input-wrapper">
+							<TextAreaStateless
+								style={{ maxHeight: 300 }}
+								value={inputMessage}
+								placeholder="Type anything..."
+								onChange={handleInputChange}
+								onKeyDown={handleKeyDown}
+								autoExpand
+							/>
+						</div>
+						<Button
+							className="-u-self-start"
+							onClick={handleSendMessage}
+							icon={<Icon>send</Icon>}
+							title="Send Message"
+							primary
+						/>
+					</div>
+				</ContentBoxElements.Footer>
+			}
+		>
+			<Chat.Container ref={getChatContainerInstance}>{renderMessageGroups()}</Chat.Container>
+		</ActionContentbox>
+	);
+}
+
+export const AddingMultipleMessages: InteractiveStory = {
+	render: (args) => <AddingMultipleMessagesChat numberOfMessages={args.numberOfMessages as number} />,
+	args: {
+		numberOfMessages: 3
+	},
+	argTypes: {
+		numberOfMessages: {
+			control: { type: "number", min: 1, step: 1 },
+			description: "Number of messages added per send (1 user message + N-1 replies)"
+		}
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Interactive chat that demonstrates adding multiple messages dynamically. Type a message and press Enter or click Send — configurable number of replies are generated automatically."
+			}
+		}
+	}
+};
+
+// --- Add Message and Notification story ---
+
+function AddMessageAndNotificationChat(): ReactElement {
+	const [inputMessage, setInputMessage] = useState("");
+	const [chatItems, setChatItems] = useState<ChatItem[]>(CONVERSATION);
+	const notificationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const chatContainerInstance = useRef<Chat.Container | null>(null);
+
+	const getChatContainerInstance = useCallback((ref: Chat.Container) => {
+		chatContainerInstance.current = ref;
+	}, []);
+
+	const handleScrollToBottom = useCallback(() => {
+		chatContainerInstance.current?.scrollToBottom();
+	}, []);
+
+	useEffect(() => {
+		handleScrollToBottom();
+	}, [handleScrollToBottom, chatItems]);
+
+	useEffect(() => {
+		return () => {
+			if (notificationTimerRef.current) {
+				clearTimeout(notificationTimerRef.current);
+			}
+		};
+	}, []);
+
+	const handleInputChange = useCallback((event: ChangeEvent<HTMLTextAreaElement>): void => {
+		const message = event.target.value;
+
+		if (message.substring(-1) === "\n" && message.trim() === "") {
+			return;
+		}
+
+		setInputMessage(message);
+	}, []);
+
+	const handleSendMessage = useCallback((): void => {
+		if (inputMessage.trim() !== "") {
+			const date = new Date();
+			const hour = date.getHours() - (date.getHours() >= 12 ? 12 : 0);
+			const period = date.getHours() >= 12 ? "pm" : "am";
+
+			const messageItem: ChatItem = {
+				kind: "message",
+				data: { content: inputMessage.trim(), status: `${hour}:${date.getMinutes()} ${period}`, position: "right" }
+			};
+
+			setChatItems((items) => [...items, messageItem]);
+
+			if (notificationTimerRef.current) {
+				clearTimeout(notificationTimerRef.current);
+			}
+
+			notificationTimerRef.current = setTimeout(() => {
+				setChatItems((items) => [...items, { kind: "notification", text: "Message sent successfully" }]);
+			}, 2000);
+		}
+
+		setInputMessage("");
+	}, [inputMessage]);
+
+	const handleKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLTextAreaElement>): void => {
+			if (event.key === "Enter" && !event.shiftKey) {
+				handleSendMessage();
+			}
+		},
+		[handleSendMessage]
+	);
+
+	const renderMessageGroups = useCallback((): ReactNode => {
+		const groups: ({ kind: "messageGroup"; messages: MessageType[] } | { kind: "notification"; text: string })[] = [];
+
+		for (const item of chatItems) {
+			if (item.kind === "notification") {
+				groups.push({ kind: "notification", text: item.text });
+			} else {
+				const lastGroup = groups[groups.length - 1];
+
+				if (lastGroup?.kind === "messageGroup" && item.data.userName === lastGroup.messages[0].userName) {
+					lastGroup.messages.push(item.data);
+				} else {
+					groups.push({ kind: "messageGroup", messages: [item.data] });
+				}
+			}
+		}
+
+		return groups.map((group, index) => {
+			if (group.kind === "notification") {
+				return (
+					<Chat.Notification key={`notification-${index}`} variant="success">
+						{group.text}
+					</Chat.Notification>
+				);
+			}
+
+			return (
+				<Chat.MessageGroup
+					position={group.messages[0].position}
+					userInfo={group.messages[0].userName ? <Chat.UserInfo userName={group.messages[0].userName} /> : undefined}
+					key={index}
+				>
+					{group.messages.map((message, msgIndex) => (
+						<Fragment key={msgIndex}>
+							<Chat.Message status={message.status}>{message.content}</Chat.Message>
+						</Fragment>
+					))}
+				</Chat.MessageGroup>
+			);
+		});
+	}, [chatItems]);
+
+	return (
+		<ActionContentbox
+			style={{ height: 500, width: 400 }}
+			className="-u-flex"
+			headingElements={<ContentBoxElements.Title key="title" text="Chat with expandable input" />}
+			padding={false}
+			footer={
+				<ContentBoxElements.Footer>
+					<div className="-u-flex -u-width-full">
+						<div className="-u-flex-grow -u-margin-r-xs -u-self-start -sc-input-wrapper">
+							<TextAreaStateless
+								style={{ maxHeight: 300 }}
+								value={inputMessage}
+								placeholder="Type anything..."
+								onChange={handleInputChange}
+								onKeyDown={handleKeyDown}
+								autoExpand
+							/>
+						</div>
+						<Button
+							className="-u-self-start"
+							onClick={handleSendMessage}
+							icon={<Icon>send</Icon>}
+							title="Send Message"
+							primary
+						/>
+					</div>
+				</ContentBoxElements.Footer>
+			}
+		>
+			<Chat.Container ref={getChatContainerInstance}>{renderMessageGroups()}</Chat.Container>
+		</ActionContentbox>
+	);
+}
+
+export const AddMessageAndNotification: InteractiveStory = {
+	render: () => <AddMessageAndNotificationChat />,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Interactive chat that demonstrates adding messages and notifications dynamically. Type a message and press Enter or click Send — the message appears immediately, and a success notification is added after the configured delay."
+			}
+		}
+	}
+};
+
+// --- Message and fixedToBottom Notification story ---
+
+function MessageAndFixedToBottomNotificationChat(): ReactElement {
+	const [inputMessage, setInputMessage] = useState("");
+	const [additionalMessages, setAdditionalMessages] = useState<MessageType[]>([]);
+	const [showNotification, setShowNotification] = useState(true);
+	const [notificationText, setNotificationText] = useState<string | null>(null);
+	const notificationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const chatContainerInstance = useRef<Chat.Container | null>(null);
+
+	const getChatContainerInstance = useCallback((ref: Chat.Container) => {
+		chatContainerInstance.current = ref;
+	}, []);
+
+	const handleScrollToBottom = useCallback(() => {
+		chatContainerInstance.current?.scrollToBottom();
+	}, []);
+
+	useEffect(() => {
+		handleScrollToBottom();
+	}, [handleScrollToBottom, additionalMessages]);
+
+	useEffect(() => {
+		return () => {
+			if (notificationTimerRef.current) {
+				clearTimeout(notificationTimerRef.current);
+			}
+		};
+	}, []);
+
+	const handleInputChange = useCallback((event: ChangeEvent<HTMLTextAreaElement>): void => {
+		const message = event.target.value;
+
+		if (message.substring(-1) === "\n" && message.trim() === "") {
+			return;
+		}
+
+		setInputMessage(message);
+	}, []);
+
+	const handleSendMessage = useCallback((): void => {
+		if (inputMessage.trim() !== "") {
+			const date = new Date();
+			const hour = date.getHours() - (date.getHours() >= 12 ? 12 : 0);
+			const period = date.getHours() >= 12 ? "pm" : "am";
+			const status = `${hour}:${date.getMinutes()} ${period}`;
+
+			setAdditionalMessages((messages) => [...messages, { content: inputMessage.trim(), status, position: "right" }]);
+
+			if (notificationTimerRef.current) {
+				clearTimeout(notificationTimerRef.current);
+			}
+
+			setNotificationText(null);
+			notificationTimerRef.current = setTimeout(() => {
+				setNotificationText("Message sent successfully");
+			}, 2000);
+		}
+
+		setInputMessage("");
+	}, [inputMessage]);
+
+	const handleKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLTextAreaElement>): void => {
+			if (event.key === "Enter" && !event.shiftKey) {
+				event.preventDefault();
+				handleSendMessage();
+			}
+		},
+		[handleSendMessage]
+	);
+
+	return (
+		<ActionContentbox
+			style={{ height: 500, width: 400 }}
+			className="-u-flex"
+			headingElements={<ContentBoxElements.Title key="title" text="Chat with fixedToBottom notification" />}
+			padding={false}
+			footer={
+				<ContentBoxElements.Footer>
+					<div className="-u-flex -u-width-full">
+						<div className="-u-flex-grow -u-margin-r-xs -u-self-start -sc-input-wrapper">
+							<TextAreaStateless
+								style={{ maxHeight: 300 }}
+								value={inputMessage}
+								placeholder="Type anything..."
+								onChange={handleInputChange}
+								onKeyDown={handleKeyDown}
+								autoExpand
+							/>
+						</div>
+						<Button
+							className="-u-self-start"
+							onClick={handleSendMessage}
+							icon={<Icon>send</Icon>}
+							title="Send Message"
+							primary
+						/>
+					</div>
+					<Checkbox
+						label="Show notification after message"
+						checked={showNotification}
+						onChange={() => setShowNotification((prev) => !prev)}
+					/>
+				</ContentBoxElements.Footer>
+			}
+		>
+			<Chat.Container ref={getChatContainerInstance}>
+				{CONVERSATION.filter((item) => item.kind === "message").map((item, index) => (
+					<Chat.MessageGroup
+						key={index}
+						position={item.data.position}
+						userInfo={item.data.userName ? <Chat.UserInfo userName={item.data.userName} /> : undefined}
+					>
+						<Chat.Message status={item.data.status}>{item.data.content}</Chat.Message>
+					</Chat.MessageGroup>
+				))}
+
+				{additionalMessages.map((message, index) => (
+					<Chat.MessageGroup key={`new-${index}`} position="right">
+						<Chat.Message status={message.status}>{message.content}</Chat.Message>
+					</Chat.MessageGroup>
+				))}
+
+				{showNotification && notificationText && (
+					<Chat.Notification variant="success" fixedToBottom>
+						{notificationText}
+					</Chat.Notification>
+				)}
+			</Chat.Container>
+		</ActionContentbox>
+	);
+}
+
+export const MessageAndFixedToBottomNotification: InteractiveStory = {
+	name: "Message and fixedToBottom Notification",
+	render: () => <MessageAndFixedToBottomNotificationChat />,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Interactive chat demonstrating the fixedToBottom notification overlay. Send a message and a success notification appears fixed to the bottom of the chat container after a configurable delay. Use the checkbox to toggle the notification feature on/off."
 			}
 		}
 	}

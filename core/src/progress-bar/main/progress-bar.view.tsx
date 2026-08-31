@@ -44,7 +44,7 @@ export const StyledProgressBar = styled.span.withConfig({ displayName: "StyledPr
 	const { progressBar } = theme.components;
 
 	return css`
-		background-color: ${hasBackground ? `${progressBar.background}` : "inherit"};
+		background-color: ${hasBackground ? progressBar.background : progressBar.bufferBG};
 		border-radius: inherit;
 		inset: 0;
 		isolation: isolate;
@@ -58,13 +58,16 @@ export const StyledProgressBar = styled.span.withConfig({ displayName: "StyledPr
 	`;
 });
 
-export const StyledProgressBarFill = styled.span.withConfig({ displayName: "StyledProgressBarFill-sc-" })<{
+export const StyledProgressBarFill = styled.span.withConfig({
+	displayName: "StyledProgressBarFill-sc-"
+})<{
 	percentage?: number;
-}>(({ theme, percentage }) => {
+	$backgroundColor?: string;
+}>(({ theme, percentage, $backgroundColor }) => {
 	const { progressBar } = theme.components;
 
 	return css`
-		background-color: ${progressBar.fillBG};
+		background-color: ${$backgroundColor ?? progressBar.fillBG};
 		outline: 1px solid transparent;
 		transition: ${progressBar.transition};
 		width: ${percentage}%;
@@ -72,20 +75,21 @@ export const StyledProgressBarFill = styled.span.withConfig({ displayName: "Styl
 	`;
 });
 
-export const StyledProgressBarBuffer = styled.span.withConfig({ displayName: "StyledProgressBarBuffer-sc-" })(
-	({ theme }) => {
-		const { progressBar } = theme.components;
+export const StyledProgressBarBuffer = styled.span.withConfig({
+	displayName: "StyledProgressBarBuffer-sc-"
+})(({ theme }) => {
+	const { progressBar } = theme.components;
 
-		return css`
-			background-color: ${progressBar.bufferBG};
-		`;
-	}
-);
+	return css`
+		background-color: ${progressBar.bufferBG};
+	`;
+});
 
 export function ProgressBar(props: ProgressBarProps): ReactElement<ProgressBarProps> {
 	const progressBarRef = useRef<HTMLSpanElement | null>(null);
 	const parentRef = useRef<HTMLElement | null>(null);
 	const [background, setBackground] = useState(false);
+	const [parentFillColor, setParentFillColor] = useState<string | undefined>(undefined);
 	const theme = useTheme();
 
 	useEffect(() => {
@@ -101,8 +105,10 @@ export function ProgressBar(props: ProgressBarProps): ReactElement<ProgressBarPr
 				// change background in progress bar from "inherit" to its own color
 				if (parentBGColor === "rgba(0, 0, 0, 0)" || parentBGColor === "transparent" || parentBGColor === undefined) {
 					setBackground(true);
+					setParentFillColor(undefined);
 				} else {
 					setBackground(false);
+					setParentFillColor(parentBGColor);
 				}
 			}
 		}
@@ -117,7 +123,11 @@ export function ProgressBar(props: ProgressBarProps): ReactElement<ProgressBarPr
 
 	return (
 		<StyledProgressBar hasBackground={background} ref={progressBarRef} data-role={DataRoles.ProgressBar}>
-			<StyledProgressBarFill data-role={DataRoles.ProgressBar.Fill} percentage={props.percentage} />
+			<StyledProgressBarFill
+				data-role={DataRoles.ProgressBar.Fill}
+				percentage={props.percentage}
+				$backgroundColor={parentFillColor}
+			/>
 			<StyledProgressBarBuffer data-role={DataRoles.ProgressBar.Buffer} />
 		</StyledProgressBar>
 	);

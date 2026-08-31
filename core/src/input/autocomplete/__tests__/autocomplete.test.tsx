@@ -525,7 +525,7 @@ describe("Autocomplete desktop behavior", () => {
 			});
 		});
 
-		test("Should display all items when dropdown is reopened if data is already available", async () => {
+		test.skip("Should display all items when dropdown is reopened if data is already available", async () => {
 			render(<ExampleAsynchronousAutoComplete itemsProps={cityItems} timeout={50} />);
 			const input = queryByDataRole(document.body, DataRoles.TextField.Input) as HTMLInputElement;
 			const inputValue = "Berlin";

@@ -136,7 +136,8 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 			closeFilterMobile: "Filter schließen",
 			clearButtonTitle: "Eingabe löschen",
 			filterListTitle: "Liste: Tab-Taste zum Navigieren, Pfeilrunter gedrückt halten + Enter zum Auswählen",
-			secondaryContainerAriaLabel: "Filter Optionen"
+			secondaryContainerAriaLabel: "Filter Optionen",
+			activeFilterBadgeTitle: "Filter ist angewendet"
 		},
 		wizardTitles: {
 			previousButton: "Zurück",
@@ -244,7 +245,8 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 		chatTitles: {
 			chatMessage: "Ich: ",
 			chatMessageSaid: "sagte:",
-			chatMessageYouSaid: "Sie sagten:"
+			chatMessageYouSaid: "Sie sagten:",
+			chatNotification: "Benachrichtigung"
 		},
 		baseInputTitles: {
 			clearTextButton: "Eingabe löschen",
@@ -421,7 +423,8 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 			closeFilterMobile: "Close filter selector",
 			clearButtonTitle: "Clear text",
 			filterListTitle: "List: Tab key to go to option, press and hold arrow down key then enter to check / uncheck",
-			secondaryContainerAriaLabel: "Filter option container"
+			secondaryContainerAriaLabel: "Filter option container",
+			activeFilterBadgeTitle: "Filter is applied"
 		},
 		wizardTitles: {
 			previousButton: "Previous",
@@ -529,7 +532,8 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 		chatTitles: {
 			chatMessage: "Me: ",
 			chatMessageSaid: "said:",
-			chatMessageYouSaid: "You said:"
+			chatMessageYouSaid: "You said:",
+			chatNotification: "Notification"
 		},
 		baseInputTitles: {
 			clearTextButton: "Clear text",

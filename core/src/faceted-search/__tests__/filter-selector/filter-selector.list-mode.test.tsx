@@ -38,6 +38,7 @@ import { FilterSelectorTemplate } from "../../main/filter-selector/tpl/filter-se
 import type { FilterItemData, FilterSectionData } from "../../main/filter-selector/filter-selector.list-mode.api.js";
 import { filterData, filterSectionData } from "../../test/setup.js";
 import { DataRoles } from "../../../common/index.js";
+import { A11yResourceDefinitions } from "../../../common/main/a11y-localization/a11y-resources.js";
 
 const sampleItems: FilterItemData[] = [
 	{
@@ -182,6 +183,38 @@ describe("FilterSelector – new items-based list mode", () => {
 
 		const portal = getByDataRole(DataRoles.AttachedPortal);
 		expect(portal).toBeTruthy();
+	});
+
+	test("forwards badgeTitle to Badge title attribute when item is collapsed and active", () => {
+		const badgeTitle = "Custom badge title";
+		const item: FilterItemData = {
+			id: "status",
+			label: "Status",
+			content: <div>Status content</div>,
+			active: true,
+			collapsed: true,
+			badgeTitle
+		};
+
+		const { getByDataRole } = render(<FilterSelector listMode={{ items: [item] }} />);
+
+		const badge = getByDataRole(DataRoles.Badge);
+		expect(badge.getAttribute("title")).toBe(badgeTitle);
+	});
+
+	test("Badge falls back to default title when badgeTitle is omitted", () => {
+		const item: FilterItemData = {
+			id: "status",
+			label: "Status",
+			content: <div>Status content</div>,
+			active: true,
+			collapsed: true
+		};
+
+		const { getByDataRole } = render(<FilterSelector listMode={{ items: [item] }} />);
+
+		const badge = getByDataRole(DataRoles.Badge);
+		expect(badge.getAttribute("title")).toBe(A11yResourceDefinitions.en.filterSelectorTitles?.activeFilterBadgeTitle);
 	});
 
 	test("classic mode is not affected by new-mode-only props being absent", () => {

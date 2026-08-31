@@ -46,7 +46,10 @@ export const datePickerCompactConfig = (theme: CompactThemeType) => {
 				height: spacing.spacing.spacingLg + spacing.spacing.spacing3xs * 2 + "px",
 				padding: `0 ${
 					spacing.horizontalSpacing.horizWhiteSpacinglg + spacing.horizontalSpacing.horizWhiteSpacing3xs * 2
-				}px 0 ${spacing.horizontalSpacing.horizWhiteSpacingxs}px`
+				}px 0 ${spacing.horizontalSpacing.horizWhiteSpacingxs}px`,
+				yearSelector: {
+					width: `${spacing.horizontalSpacing.horizWhiteSpacing6xl + spacing.horizontalSpacing.horizWhiteSpacingxs}px`
+				}
 			}
 		},
 		day: {

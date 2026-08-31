@@ -224,7 +224,7 @@ exports[`Disabled Rich Text Editor > Should render disabled editor with content 
   <div
     class="c0"
     data-role="rich-text-editor-wrapper"
-    id="disabled-content-test"
+    id="disabled-content-test-wrapper"
   >
     <div
       class="c1 c2 c3"
@@ -485,7 +485,7 @@ exports[`Readonly Rich Text Editor > Should render readonly editor with content 
   <div
     class="c0"
     data-role="rich-text-editor-wrapper"
-    id="readonly-content-test"
+    id="readonly-content-test-wrapper"
   >
     <div
       class="c1 c2 c3"
@@ -744,7 +744,7 @@ exports[`Readonly Rich Text Editor > Should render readonly editor without conte
   <div
     class="c0"
     data-role="rich-text-editor-wrapper"
-    id="readonly-empty-test"
+    id="readonly-empty-test-wrapper"
   >
     <div
       class="c1 c2 c3"
@@ -962,7 +962,7 @@ exports[`Rich Text Editor > Should render with label, content and helper text 1`
   <div
     class="c0"
     data-role="rich-text-editor-wrapper"
-    id="label-content-helper-test"
+    id="label-content-helper-test-wrapper"
   >
     <div
       class="c1 c2 c3"
@@ -1204,7 +1204,7 @@ exports[`Rich Text Editor > Should render with label, placeholder and helper tex
   <div
     class="c0"
     data-role="rich-text-editor-wrapper"
-    id="label-placeholder-helper-test"
+    id="label-placeholder-helper-test-wrapper"
   >
     <div
       class="c1 c2 c3"

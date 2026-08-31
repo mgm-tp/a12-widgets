@@ -62,6 +62,9 @@ export const datePickerFlatConfig = (theme: FlatThemeType) => {
 			header: {
 				title: {
 					color: colors.text.color
+				},
+				icon: {
+					color: colors.interaction.primaryInteractionColor
 				}
 			},
 			fieldSelect: {

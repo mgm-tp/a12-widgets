@@ -43,7 +43,7 @@
 			"eslint --fix"
 		]
 	},
-	"version": "39.0.2",
-	"a12Version": "2026.06-ext0",
+	"version": "39.0.3",
+	"a12Version": "2026.06-ext1",
 	"type": "module"
 }

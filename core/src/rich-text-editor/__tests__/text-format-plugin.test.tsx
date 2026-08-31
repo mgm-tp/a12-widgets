@@ -30,17 +30,26 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { $patchStyleText } from "@lexical/selection";
+import { mergeRegister } from "@lexical/utils";
+import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_EDITOR, createCommand } from "lexical";
+import type { FC } from "react";
+import { useEffect } from "react";
 import { getAllByDataRole, getByDataRole, render, waitFor } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
-import { createInlineButton } from "../main/plugins/static-toolbar-plugin/inline-button/inline-button.view.js";
+import type { MentionPluginProps, TooltipPluginConfig } from "../index.js";
+import { $isInlineStyleTextNode, $updateTextSelection } from "../index.js";
 import type { TextMatcher, TextMatcherResult } from "../main/plugins/plugin.internal.api.js";
+import { createInlineButton } from "../main/plugins/static-toolbar-plugin/inline-button/inline-button.view.js";
+import { Separator } from "../main/plugins/static-toolbar-plugin/separator/separator.view.js";
 import type { LinkPluginConfig, SpellCheckPluginConfig } from "../main/wrapper/default-rich-text-editor.api.js";
 import { DefaultRichTextEditor } from "../main/wrapper/default-rich-text-editor.view.js";
-import type { MentionPluginProps, TooltipPluginConfig } from "../index.js";
 
 import { DefaultEditorCombination } from "./default-editor-combination.js";
 
@@ -53,6 +62,72 @@ const StrikethroughButton = createInlineButton({
 	nodeClassName: "editor-text-strikethrough",
 	label: "Strikethrough"
 });
+
+const SET_STYLE_COMMAND = createCommand("SET_STYLE_COMMAND");
+const PATCH_STYLE_COMMAND = createCommand("PATCH_STYLE_COMMAND");
+
+const SetStyleButton = createInlineButton({
+	onClick: (event, editor) => {
+		event.preventDefault();
+		editor?.dispatchCommand(SET_STYLE_COMMAND, undefined);
+	},
+	icon: <Icon>format_color_fill</Icon>,
+	title: "setStyle (red)"
+});
+
+const PatchStyleButton = createInlineButton({
+	onClick: (event, editor) => {
+		event.preventDefault();
+		editor?.dispatchCommand(PATCH_STYLE_COMMAND, undefined);
+	},
+	icon: <Icon>format_color_text</Icon>,
+	title: "patchStyleText (blue)"
+});
+
+const InlineStylePlugin: FC = () => {
+	const [editor] = useLexicalComposerContext();
+
+	useEffect(() => {
+		return mergeRegister(
+			editor.registerCommand(
+				SET_STYLE_COMMAND,
+				() => {
+					const selection = $getSelection();
+
+					if (!$isRangeSelection(selection) || selection.isCollapsed()) {
+						return true;
+					}
+
+					$updateTextSelection(selection, (node) => {
+						if ($isInlineStyleTextNode(node)) {
+							node.setStyle("color: red");
+						}
+					});
+
+					return true;
+				},
+				COMMAND_PRIORITY_EDITOR
+			),
+			editor.registerCommand(
+				PATCH_STYLE_COMMAND,
+				() => {
+					const selection = $getSelection();
+
+					if (!$isRangeSelection(selection) || selection.isCollapsed()) {
+						return true;
+					}
+
+					$patchStyleText(selection, { color: "blue" });
+
+					return true;
+				},
+				COMMAND_PRIORITY_EDITOR
+			)
+		);
+	}, [editor]);
+
+	return null;
+};
 
 describe("TextFormatPlugin - addSelectedStyleName sets unmergeable", () => {
 	test("should not merge nodes with different class names after addSelectedStyleName", async () => {
@@ -433,6 +508,70 @@ describe("TextFormatPlugin - Endless transform prevention", () => {
 			expect(misspelledTexts).toContain("developr");
 			// "javescript" is part of the no-boundary compound "developrjavescript" -> not flagged.
 			expect(misspelledTexts).not.toContain("javescript");
+		});
+	});
+});
+
+describe("TextFormatPlugin - Inline style with setStyle and patchStyleText", () => {
+	test("should apply inline style using setStyle on selected text", async () => {
+		const { container } = render(
+			<DefaultRichTextEditor
+				initialConfig={{ namespace: "set-style-test" }}
+				staticToolbarButtons={[SetStyleButton, Separator, PatchStyleButton]}
+			>
+				<InlineStylePlugin />
+			</DefaultRichTextEditor>
+		);
+
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+		await userEvent.click(editor);
+		await userEvent.type(editor, "hello world");
+
+		// Select "world" (last 5 characters)
+		const selectedText = "world";
+		await userEvent.keyboard("{End}");
+		await userEvent.keyboard(`{Shift>}${"{ArrowLeft}".repeat(selectedText.length)}{/Shift}`);
+
+		// Click the setStyle button (first toolbar item)
+		const toolbarItems = getAllByDataRole(container, DataRoles.RichTextEditor.ToolbarItem);
+		await userEvent.click(toolbarItems[0]);
+
+		// Verify that inline style "color: red" was applied only to "world"
+		await waitFor(() => {
+			const worldSpan = [...editor.querySelectorAll("span")].find((el) => el.textContent === selectedText);
+			expect(worldSpan).not.toBeNull();
+			expect(worldSpan).toHaveStyle({ color: "red" });
+		});
+	});
+
+	test("should apply inline style using patchStyleText on selected text", async () => {
+		const { container } = render(
+			<DefaultRichTextEditor
+				initialConfig={{ namespace: "patch-style-test" }}
+				staticToolbarButtons={[SetStyleButton, Separator, PatchStyleButton]}
+			>
+				<InlineStylePlugin />
+			</DefaultRichTextEditor>
+		);
+
+		const editor = getByDataRole(container, DataRoles.RichTextEditor.Input);
+		await userEvent.click(editor);
+		await userEvent.type(editor, "hello world");
+
+		// Select "world" (last 5 characters)
+		const selectedText = "world";
+		await userEvent.keyboard("{End}");
+		await userEvent.keyboard(`{Shift>}${"{ArrowLeft}".repeat(selectedText.length)}{/Shift}`);
+
+		// Click the patchStyleText button (third toolbar item, index 2 — separator is index 1)
+		const toolbarItems = getAllByDataRole(container, DataRoles.RichTextEditor.ToolbarItem);
+		await userEvent.click(toolbarItems[2]);
+
+		// Verify that inline style "color: blue" was applied only to "world"
+		await waitFor(() => {
+			const worldSpan = [...editor.querySelectorAll("span")].find((el) => el.textContent === selectedText);
+			expect(worldSpan).not.toBeNull();
+			expect(worldSpan).toHaveStyle({ color: "blue" });
 		});
 	});
 });

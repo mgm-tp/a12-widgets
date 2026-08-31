@@ -52,6 +52,15 @@ export interface FilterItemData extends Omit<FilterSelectorProps.FilterData, "no
 	 */
 	badgeVariant?: "info" | "error";
 
+	/**
+	 * The custom title of the Badge on a collapsed active heading.
+	 *
+	 * If not provided, the default localized title will be shown:
+	 * - English: "Filter is applied"
+	 * - German: "Filter ist angewendet"
+	 */
+	badgeTitle?: string;
+
 	/** When `true`, the meta element is always visible (not only on hover). */
 	showMeta?: boolean;
 

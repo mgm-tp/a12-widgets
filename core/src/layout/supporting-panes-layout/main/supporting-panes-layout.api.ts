@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { Variants } from "framer-motion";
+import type { Variants } from "motion/react";
 
 import type { Styleable, Identifiable, Container, Ref, HTMLAttributes } from "../../../common/main/base-props.js";
 

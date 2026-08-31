@@ -2,7 +2,7 @@
 
 exports[`com.mgmtp.a12.widgets.progress-bar > rendering element with progress bar  1`] = `
 .c0 {
-  background-color: inherit;
+  background-color: rgb(226, 230, 233);
   border-radius: inherit;
   inset: 0px;
   isolation: isolate;
@@ -17,7 +17,7 @@ exports[`com.mgmtp.a12.widgets.progress-bar > rendering element with progress ba
 }
 
 .c1 {
-  background-color: inherit;
+  background-color: rgb(0, 0, 255);
   outline: transparent solid 1px;
   transition: width 1s ease-out;
   width: 50%;

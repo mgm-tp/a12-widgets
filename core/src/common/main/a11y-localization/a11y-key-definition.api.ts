@@ -250,6 +250,7 @@ export interface FilterSelectorTitles {
 	clearButtonTitle?: string;
 	filterListTitle?: string;
 	secondaryContainerAriaLabel?: string;
+	activeFilterBadgeTitle?: string;
 }
 
 export interface WizardTitles {
@@ -498,6 +499,7 @@ export interface ChatTitles {
 	chatMessage?: string;
 	chatMessageSaid?: string;
 	chatMessageYouSaid?: string;
+	chatNotification?: string;
 }
 
 export interface BaseInputTitles {

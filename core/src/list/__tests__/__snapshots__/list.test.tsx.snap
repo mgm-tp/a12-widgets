@@ -30,7 +30,7 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
 }
 
 .c3 {
-  background-color: inherit;
+  background-color: rgb(226, 230, 233);
   border-radius: inherit;
   inset: 0px;
   isolation: isolate;
@@ -45,7 +45,7 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
 }
 
 .c4 {
-  background-color: inherit;
+  background-color: rgb(255, 255, 255);
   outline: transparent solid 1px;
   transition: width 1s ease-out;
   width: 50%;

@@ -1,3 +1,26 @@
+## 39.0.3
+
+### Fixed
+
+- **Rich Text Editor:**
+  - Duplicate IDs between the input wrapper and the main input.
+  - `InlineStyleTextNode` nodes with different inline styles are incorrectly merged.
+  - Cannot disable the built-in `HistoryPlugin`. To resolve this, a new `enableHistory` property is introduced to allow disabling it for use with alternative history implementations.
+- **Date Picker:**
+  - [Mobile]: Close button on header is not themable.
+  - [Compact/Flat Compact] The value in the year selector is cut off in `select` mode.
+  - Year Selector on header in `"textbox"` and `"autocomplete"` modes does not have the same height as the month selector.
+- **Filter Selector (list mode):** Cannot custom the title attribute of the active badge in collapsed filter items (`FilterItemData`). To resolve this, a new `badgeTitle` property is introduced. If not specified, a new localized `activeFilterBadgeTitle` value is used by default:
+  - English: "Filter is applied"
+  - German: "Filter ist angewendet"
+- **Master Detail:** The `onResizeStop` callback from `firstViewResizableOptions` is not called when resizing the first pane.
+- **Chat:** [A11Y] [iOS] VoiceOver reads the notification multiple times and announces an unchanged message when opening or closing a ModalOverlay whose trigger element is inside the chat container. To resolve this, update the aria attributes in chat elements and provide a new localized name for the notification region's `aria-label` attribute:
+  - **chatNotification**:
+    - English: "Notification"
+    - German: "Benachrichtigung"
+- **Tab Panel:** With `focusOnPanelAfterSelect` enabled, the panel took the focus on every re-render, so the input field inside it lost the focus after the first keystroke.
+- **Progress Bar:** A color fringe appears when the Progress Bar is inside an element with a background color.
+
 ## 39.0.2
 
 ### Fixed
@@ -156,6 +179,21 @@
 - **`createTheme()`** — use `getBaseTheme()` with options instead.
 - **`getDefaultTheme` / `defaultTheme`** and **`getCompactTheme` / `compactTheme`** — deprecated and will be removed in a future release with **no replacement**; their visual style is not carried forward. Adopt `getBaseTheme()` to stay supported (expect a visual change to the flat style).
 - **FileUpload:** The `$fileUploadSize` property in `StyledFieldUploadWrapper` has been deprecated.
+
+## 38.3.6
+
+### Fixed
+
+- Project fails to compile when using the exact version of framer-motion while motion-dom is using a floating version.
+- **Button Group Container:** A responsive `ButtonGroupContainer` stretched to fill all available width instead of sitting next to its siblings. To resolve this, a `fitVisibleContentWidth` property is introduced (requires `responsive={true}`). When enabled, the container applies `max-width: max-content` and delegates resize detection to its `parentElement`.
+- **Tab Panel:** With `focusOnPanelAfterSelect` enabled, the panel took the focus on every re-render, so the input field inside it lost the focus after the first keystroke.
+
+### Dependencies Update
+
+| Name          | Old version | New version |
+| ------------- | ----------- | ----------- |
+| framer-motion | 12.25.0     |             |
+| motion        |             | ^12.42.2    |
 
 ## 38.3.5
 

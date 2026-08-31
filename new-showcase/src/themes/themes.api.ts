@@ -43,6 +43,11 @@ export interface ShowcaseThemeType {
 	 */
 	label?: string;
 
+	/*
+	 * This prop is used to display the sub label of a theme.
+	 */
+	subLabel?: string;
+
 	theme: DefaultThemeType | BaseThemeConfig;
 
 	default?: boolean;

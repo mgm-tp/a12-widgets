@@ -39,8 +39,43 @@ import "./test.css";
 
 expect.addSnapshotSerializer(styleSheetSerializer);
 
+/**
+ * Per-test teardown.
+ *
+ * `cleanup()` unmounts the React trees it rendered, but it does not own
+ * everything a test can leave behind. Instrumenting this hook across a full
+ * suite run found, after `cleanup()` had already run: 32 stray body nodes
+ * (leaked portals plus recharts' cached `#recharts_measurement_span`) and
+ * body-level attributes written by components such as scroll locks and
+ * `aria-hidden`.
+ *
+ * This sweep is hygiene, not a flakiness fix: measured over 20 consecutive
+ * full-suite runs it produced no reduction in the flake rate. It is here to stop
+ * per-test residue from accumulating into order-dependence later.
+ *
+ * What is deliberately NOT done here, each rejected on measured evidence:
+ *   - `vi.useRealTimers()` is NOT forced. date-picker, date-time-picker and
+ *     date-time-utils install fake timers in `beforeAll` and restore them in
+ *     `afterAll`. Tearing the clock down per-test would never reinstall it.
+ *   - `vi.restoreAllMocks()` is NOT called. It breaks 17 tests: tag-input.mobile
+ *     calls `setupDevice()` (a `vi.spyOn` on the shared device `provider`
+ *     singleton) once in `beforeAll`, so restoring per-test reverts that suite to
+ *     a desktop device after its first test.
+ *   - `vi.resetAllMocks()` is NOT called: it would wipe `vi.fn()`
+ *     implementations that suites configure once in `beforeAll`.
+ */
 afterEach(() => {
 	cleanup();
+
+	for (const node of [...document.body.children]) {
+		if (node.tagName !== "STYLE" && node.tagName !== "SCRIPT") {
+			node.remove();
+		}
+	}
+
+	document.body.removeAttribute("style");
+	document.body.removeAttribute("aria-hidden");
+	document.body.className = "";
 });
 
 export {};

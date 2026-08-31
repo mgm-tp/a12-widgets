@@ -1742,7 +1742,7 @@ exports[`com.mgmtp.a12.widgets.button > rendering-vertical-button 1`] = `
 
 exports[`com.mgmtp.a12.widgets.icon-button > rendering button with progress bar 1`] = `
 .c2 {
-  background-color: inherit;
+  background-color: rgb(226, 230, 233);
   border-radius: inherit;
   inset: 0px;
   isolation: isolate;
@@ -1757,7 +1757,7 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering button with progress bar 
 }
 
 .c3 {
-  background-color: inherit;
+  background-color: rgb(41, 122, 36);
   outline: transparent solid 1px;
   transition: width 1s ease-out;
   width: 50%;

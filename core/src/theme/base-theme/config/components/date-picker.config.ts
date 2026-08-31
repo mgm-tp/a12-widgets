@@ -37,9 +37,17 @@ import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
 import { mergeConfig } from "../../utils/merge-config.js";
 
 export type DatePickerConfigType = {
-	body: { color: string; padding: string; horizontalCellSpacing: string; verticalCellSpacing: string };
+	body: {
+		color: string;
+		padding: string;
+		horizontalCellSpacing: string;
+		verticalCellSpacing: string;
+	};
 	caption: {
-		fieldSelect: { arrowIcon: { color: string; fontSize: string; width: string }; firstChildMargin: string };
+		fieldSelect: {
+			arrowIcon: { color: string; fontSize: string; width: string };
+			firstChildMargin: string;
+		};
 		fontWeight: number;
 		height: string;
 		selectInput: {
@@ -52,6 +60,9 @@ export type DatePickerConfigType = {
 			height: string;
 			hover: { background: string; border: string };
 			padding: string;
+			yearSelector?: {
+				width: string;
+			};
 		};
 		selectOption: {
 			active: { background: string; color: string };
@@ -158,7 +169,9 @@ const defaultDatePickerConfig = (theme: BaseThemeCore): DatePickerConfigType => 
 				borderRadius: theme.border.radius.sm,
 				color: colors.text.invertedColor,
 				height: `${spacing.spacing.spacingLg + spacing.spacing.spacing3xs * 2}px`,
-				padding: `0 ${spacing.verticalSpacing.vertWhiteSpacingmd}px 0 ${spacing.horizontalSpacing.horizWhiteSpacingxs}px`,
+				padding: `0 ${
+					spacing.horizontalSpacing.horizWhiteSpacinglg + spacing.horizontalSpacing.horizWhiteSpacing3xs * 2
+				}px 0 ${spacing.horizontalSpacing.horizWhiteSpacingxs}px`,
 				active: {
 					background: colors.interaction.touchOverlay,
 					border: `${theme.border.width.medium} solid ${colors.interaction.secondaryInteractionColor}`
@@ -171,6 +184,9 @@ const defaultDatePickerConfig = (theme: BaseThemeCore): DatePickerConfigType => 
 					background: colors.interaction.touchOverlay,
 					border: `${theme.border.width.medium} solid ${colors.interaction.focus.colorInverted}`,
 					color: colors.interaction.focus.colorInverted
+				},
+				yearSelector: {
+					width: `${spacing.horizontalSpacing.horizWhiteSpacing6xl + spacing.horizontalSpacing.horizWhiteSpacingxs}px`
 				}
 			},
 			selectOption: {
@@ -279,8 +295,8 @@ const defaultDatePickerConfig = (theme: BaseThemeCore): DatePickerConfigType => 
 				height: `${2 * spacing.spacing.spacingMd}px`,
 				padding: `0 ${spacing.horizontalSpacing.horizWhiteSpacingsm}px`,
 				icon: {
-					color: colors.interaction.secondaryInteractionColor,
-					fontSize: typography.fontSize["4XlFontSize"]
+					color: colors.interaction.primaryInteractionColor,
+					fontSize: "inherit"
 				},
 				title: {
 					color: colors.text.invertedColor,
@@ -295,7 +311,7 @@ const defaultDatePickerConfig = (theme: BaseThemeCore): DatePickerConfigType => 
 				firstChildMargin: `0 ${spacing.horizontalSpacing.horizWhiteSpacingxs}px 0 0`,
 				background: colors.background.primaryBackground,
 				color: colors.text.color,
-				fontSize: typography.fontSize.mediumFontSize,
+				fontSize: typography.fontSize.tinyFontSize,
 				focusBoxShadow: `0 2px 0 0 ${colors.interaction.focus.color}`
 			},
 			day: {

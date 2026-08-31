@@ -69,6 +69,9 @@ const ColoredCell: FC<Container & { bgColor: string }> = ({ children, bgColor })
 		<StyledCellContent>{children}</StyledCellContent>
 	</StyledCellWrapper>
 );
+// Local (non-widgets-core) component: set an explicit displayName so production (minified) code
+// snippets show `ColoredCell` instead of the mangled name (e.g. `UJ`).
+ColoredCell.displayName = "ColoredCell";
 
 const COLUMN_COUNT = 3;
 

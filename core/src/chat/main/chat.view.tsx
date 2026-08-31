@@ -30,17 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { UIEvent, ReactNode, ReactElement } from "react";
-import { createRef, Children, isValidElement, Component, useContext, useRef, createContext } from "react";
-import { scroller, animateScroll, Events } from "react-scroll";
+import type { ReactElement, ReactNode, RefCallback, UIEvent } from "react";
+import { Children, Component, createContext, createRef, isValidElement, useCallback, useContext, useRef } from "react";
+import { animateScroll, Events, scroller } from "react-scroll";
 
-import { bindMethods, generateUid, joinClassNames, addPrefix } from "../../common/main/utils.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { Icon } from "../../icon/main/icon.view.js";
-import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { addPrefix, bindMethods, generateUid, joinClassNames } from "../../common/main/utils.js";
+import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
+import { Icon } from "../../icon/main/icon.view.js";
+import { useLiveRegion } from "../../common/main/use-live-region.js";
 
 import type { ChatProps } from "./chat.api.js";
 import {
@@ -57,18 +58,57 @@ import {
 	StyledMessageGroup,
 	StyledMessageStatus,
 	StyledMessageWrapper,
+	StyledNotificationContainer,
 	StyledNotificationContent,
 	StyledNotificationWrapper,
 	StyledSecondaryContent,
 	StyledTypingMaker,
 	StyledUserInfo,
-	StyledUserName,
-	StyledNotificationContainer
+	StyledUserName
 } from "./chat.styled.js";
 
 const baseClassName = addPrefix("chat");
 
 const UserNameContext = createContext<string | undefined>(undefined);
+
+interface ChatInnerContainerProps {
+	containerId: string;
+	innerRef: RefCallback<HTMLDivElement>;
+	onScroll(event: UIEvent<HTMLElement>): void;
+	children: ReactNode;
+}
+
+function ChatInnerContainer({ containerId, innerRef, onScroll, children }: ChatInnerContainerProps): ReactElement {
+	const { liveRegion, containerRef } = useLiveRegion({
+		contentSelector: `[data-role="${DataRoles.Chat.Message}"], [data-role="${DataRoles.Chat.Notification}"]`,
+		dataRole: DataRoles.Chat.A11yLiveRegion
+	});
+
+	const setInnerContainerRef = useCallback(
+		(element: HTMLDivElement | null): void => {
+			innerRef(element);
+			containerRef(element);
+		},
+		[containerRef, innerRef]
+	);
+
+	return (
+		<>
+			<StyledContainerInner
+				className={`${baseClassName}-container__inner`}
+				ref={setInnerContainerRef}
+				id={containerId}
+				onScroll={onScroll}
+				aria-live={liveRegion ? "off" : "polite"}
+				role="log"
+				data-role={DataRoles.Chat.ContainerInner}
+			>
+				{children}
+			</StyledContainerInner>
+			{liveRegion}
+		</>
+	);
+}
 
 export namespace Chat {
 	const MESSAGE_BASE_CLASS = `${baseClassName}-message`;
@@ -337,21 +377,24 @@ export namespace Chat {
 						id={id}
 						style={style}
 						className={classNames}
-						aria-live="polite"
-						role="log"
 						data-role={DataRoles.Chat}
 						ref={this.wrapperRef}
 					>
-						<StyledContainerInner
-							className={`${baseClassName}-container__inner`}
-							ref={this.getInnerContainerRef}
-							id={this.innerContainerId}
+						<ChatInnerContainer
+							containerId={this.innerContainerId}
+							innerRef={this.getInnerContainerRef}
 							onScroll={this.handleOnInnerContainerScroll}
 						>
 							{this.renderInnerChildren()}
-						</StyledContainerInner>
+						</ChatInnerContainer>
 						{fixedToBottomNotifications?.length > 0 && (
-							<StyledBottomNotificationWrapper scrollWidth={scrollWidth}>
+							<StyledBottomNotificationWrapper
+								aria-live="assertive"
+								role="alert"
+								aria-atomic="false"
+								scrollWidth={scrollWidth}
+								data-role={DataRoles.Chat.BottomNotification}
+							>
 								{fixedToBottomNotifications}
 							</StyledBottomNotificationWrapper>
 						)}
@@ -390,8 +433,16 @@ export namespace Chat {
 				data-role={DataRoles.Chat.Message}
 			>
 				{chatMessageTitle && <HiddenText>{chatMessageTitle}</HiddenText>}
-				<StyledMessageContainer position={position} className={`${MESSAGE_BASE_CLASS}__container`}>
-					<StyledMessageBubble position={position} className={`${MESSAGE_BASE_CLASS}__bubble`}>
+				<StyledMessageContainer
+					position={position}
+					className={`${MESSAGE_BASE_CLASS}__container`}
+					data-role={DataRoles.Chat.Message.Container}
+				>
+					<StyledMessageBubble
+						position={position}
+						className={`${MESSAGE_BASE_CLASS}__bubble`}
+						data-role={DataRoles.Chat.Message.Bubble}
+					>
 						<StyledMessageContent
 							className={`${MESSAGE_BASE_CLASS}__content`}
 							data-role={DataRoles.Chat.Message.Content}
@@ -423,6 +474,7 @@ export namespace Chat {
 			<StyledSecondaryContent
 				ref={wrapperRef}
 				className={joinClassNames(`${MESSAGE_BASE_CLASS}__secondary-content`, className)}
+				data-role={DataRoles.Chat.Message.SecondaryContent}
 				{...rest}
 			>
 				{children}
@@ -472,7 +524,7 @@ export namespace Chat {
 	}
 
 	export function Avatar(props: ChatProps.AvatarProps): ReactElement<ChatProps.AvatarProps> {
-		const { id, style, imageUrl, className, alt } = props;
+		const { id, style, imageUrl, className, alt = "" } = props;
 
 		return (
 			<StyledAvatarImage
@@ -497,7 +549,9 @@ export namespace Chat {
 				className={joinClassNames(baseDateClassName, className)}
 				data-role={DataRoles.Chat.DateMarker}
 			>
-				<StyledDateContent className={`${baseDateClassName}__content`}>{children}</StyledDateContent>
+				<StyledDateContent className={`${baseDateClassName}__content`} data-role={DataRoles.Chat.DateMarker.Content}>
+					{children}
+				</StyledDateContent>
 			</StyledDateMarker>
 		);
 	}
@@ -513,6 +567,7 @@ export namespace Chat {
 		style,
 		variant = "info"
 	}: ChatProps.NotificationProps): ReactElement<ChatProps.NotificationProps> {
+		const { chatTitles } = useContext<A11yDefinition>(A11YLanguageContext);
 		const nodeRef = useRef<HTMLDivElement>(null);
 		const baseNotificationClassName = `${baseClassName}-notification`;
 
@@ -539,13 +594,15 @@ export namespace Chat {
 					})}
 					onClick={onClick}
 					onKeyDown={onKeyDown}
-					aria-live="polite"
 					ref={nodeRef}
+					data-role={DataRoles.Chat.Notification.Wrapper}
 				>
 					<StyledNotificationContent
 						className={`${baseNotificationClassName}-content`}
-						role={fixedToBottom ? "alert" : "log"}
 						$variant={variant}
+						data-role={DataRoles.Chat.Notification.Content}
+						role={!fixedToBottom ? "region" : undefined}
+						aria-label={!fixedToBottom ? chatTitles?.chatNotification : undefined}
 					>
 						{children}
 					</StyledNotificationContent>

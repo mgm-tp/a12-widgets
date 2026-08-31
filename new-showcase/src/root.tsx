@@ -65,6 +65,12 @@ import { showcaseTheme } from "./helpers/showcase-theme.js";
 function renderShowcase(module: IndexMenuItem.ShowcaseModule, basePath: string) {
 	return (
 		<LayoutShowcaseContentBox
+			// All showcase routes render this same component type at the same tree position,
+			// so without a key React would reuse the mounted instance across navigation
+			// e.g. a "Show code" panel opened on one page would appear already open on the next page at the same section position.
+			// Keying by showcase path makes React remount on navigation, so each page starts with fresh state.
+			// See https://react.dev/learn/preserving-and-resetting-state#same-component-at-the-same-position-preserves-state
+			key={basePath}
 			label={module.label}
 			showcases={module.structure}
 			basePath={basePath}

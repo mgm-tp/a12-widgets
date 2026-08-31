@@ -1,7 +1,7 @@
 {
 	"name": "@com.mgmtp.a12.widgets/widgets-storybook",
 	"private": true,
-	"version": "39.0.2",
+	"version": "39.0.3",
 	"type": "module",
 	"scripts": {
 		"lint:eslint": "eslint --quiet --cache --cache-location target/.eslintcache",

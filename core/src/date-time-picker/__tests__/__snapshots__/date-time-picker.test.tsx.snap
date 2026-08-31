@@ -1816,13 +1816,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   height: 1px;
 }
 
-.c35 {
+.c36 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
 }
 
-.c34 {
+.c35 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -1832,12 +1832,12 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   margin-left: -12px;
 }
 
-.c34:last-child {
+.c35:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c33 {
+.c34 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
@@ -1860,13 +1860,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   width: 100%;
 }
 
-.c33::placeholder {
+.c34::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c31 {
+.c32 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
@@ -1883,7 +1883,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   height: 32px;
 }
 
-.c31 .c4 {
+.c32 .c4 {
   border-radius: 0px;
 }
 
@@ -1924,7 +1924,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   max-width: 100%;
 }
 
-.c32 {
+.c33 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2081,7 +2081,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   border: 2px solid rgb(255, 255, 255);
 }
 
-.c37 {
+.c38 {
   align-items: center;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -2098,13 +2098,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   color: rgb(77, 77, 77);
 }
 
-.c37:focus {
+.c38:focus {
   outline: rgb(51, 51, 51) dotted 1px;
   border: 2px solid rgb(213, 0, 117);
   background-color: rgb(255, 255, 255);
 }
 
-.c38 {
+.c39 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -2122,7 +2122,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   font-weight: 700;
 }
 
-.c38:focus {
+.c39:focus {
   outline: rgb(51, 51, 51) dotted 1px;
   border: 2px solid rgb(213, 0, 117);
 }
@@ -2255,10 +2255,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   display: inline-block;
   flex-shrink: 0;
   margin: 0px;
-  width: calc(72px);
+  width: 72px;
 }
 
-.c36 {
+.c11 [data-role="year-selector"] .c31 {
+  height: 32px;
+}
+
+.c37 {
   height: 32px;
   width: 32px;
 }
@@ -2313,14 +2317,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
 }
 
 @media (pointer: coarse) {
-  .c31:active {
+  .c32:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c31:hover {
+  .c32:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -2373,7 +2377,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
 }
 
 @media (pointer: coarse) {
-  .c37:active {
+  .c38:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
@@ -2381,21 +2385,21 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
 }
 
 @media (pointer: fine) {
-  .c37:hover {
+  .c38:hover {
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
   }
 }
 
 @media (pointer: coarse) {
-  .c38:active {
+  .c39:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c38:hover {
+  .c39:hover {
     border: 2px solid rgb(213, 0, 117);
   }
 }
@@ -2620,18 +2624,18 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                           Year
                         </label>
                         <div
-                          class="c31 field__input"
+                          class="c31 c32 field__input"
                           data-role="text-field-input-wrapper"
                         >
                           <span
-                            class="c32 supported-unseen-span"
+                            class="c33 supported-unseen-span"
                           />
                           <input
                             aria-autocomplete="list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             autocomplete="off"
-                            class="c33 field__text"
+                            class="c34 field__text"
                             data-role="year-selector-input"
                             inputmode="numeric"
                             maxlength="4"
@@ -2642,15 +2646,15 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                             value="2022"
                           />
                           <span
-                            class="c32 supported-unseen-span"
+                            class="c33 supported-unseen-span"
                           />
                           <div
-                            class="c34 field__suffix field__suffix--first"
+                            class="c35 field__suffix field__suffix--first"
                             data-role="text-field-suffix-0"
                           >
                             <i
                               aria-hidden="true"
-                              class="c8 c9 plasma-icon plasma-icon--big c35"
+                              class="c8 c9 plasma-icon plasma-icon--big c36"
                               data-role="selection-suffix"
                             >
                               <span
@@ -2774,7 +2778,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -2786,7 +2790,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -2797,7 +2801,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 1st, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2814,7 +2818,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Today, Wednesday, March 2nd, 2022"
-                  class="c38 DayPicker-Day"
+                  class="c39 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="0"
@@ -2830,7 +2834,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 3rd, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2846,7 +2850,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Friday, March 4th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2862,7 +2866,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Saturday, March 5th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2883,7 +2887,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Sunday, March 6th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2899,7 +2903,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Monday, March 7th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2915,7 +2919,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 8th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2931,7 +2935,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Wednesday, March 9th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2947,7 +2951,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 10th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2963,7 +2967,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Friday, March 11th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -2979,7 +2983,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Saturday, March 12th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3000,7 +3004,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Sunday, March 13th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3016,7 +3020,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Monday, March 14th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3032,7 +3036,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 15th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3048,7 +3052,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Wednesday, March 16th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3064,7 +3068,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 17th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3080,7 +3084,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Friday, March 18th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3096,7 +3100,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Saturday, March 19th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3117,7 +3121,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Sunday, March 20th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3133,7 +3137,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Monday, March 21st, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3149,7 +3153,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 22nd, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3165,7 +3169,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Wednesday, March 23rd, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3181,7 +3185,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 24th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3197,7 +3201,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Friday, March 25th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3213,7 +3217,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Saturday, March 26th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3234,7 +3238,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Sunday, March 27th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3250,7 +3254,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Monday, March 28th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3266,7 +3270,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 29th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3282,7 +3286,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Wednesday, March 30th, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3298,7 +3302,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 31st, 2022"
-                  class="c37 DayPicker-Day"
+                  class="c38 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -3315,7 +3319,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3327,7 +3331,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3344,7 +3348,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3356,7 +3360,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3368,7 +3372,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3380,7 +3384,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3392,7 +3396,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3404,7 +3408,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3416,7 +3420,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c36"
+                  class="c37"
                   role="gridcell"
                 />
               </td>
@@ -3873,7 +3877,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   display: inline-block;
   flex-shrink: 0;
   margin: 0px;
-  width: calc(72px);
+  width: 72px;
 }
 
 .c25 {
@@ -5208,7 +5212,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   height: 1px;
 }
 
-.c32 {
+.c33 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
@@ -5231,13 +5235,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   width: 100%;
 }
 
-.c32::placeholder {
+.c33::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c30 {
+.c31 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
@@ -5254,7 +5258,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   height: 32px;
 }
 
-.c30 .c4 {
+.c31 .c4 {
   border-radius: 0px;
 }
 
@@ -5295,7 +5299,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   max-width: 100%;
 }
 
-.c31 {
+.c32 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -5447,7 +5451,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   border: 2px solid rgb(255, 255, 255);
 }
 
-.c34 {
+.c35 {
   align-items: center;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -5464,13 +5468,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   color: rgb(77, 77, 77);
 }
 
-.c34:focus {
+.c35:focus {
   outline: rgb(51, 51, 51) dotted 1px;
   border: 2px solid rgb(213, 0, 117);
   background-color: rgb(255, 255, 255);
 }
 
-.c35 {
+.c36 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -5488,7 +5492,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   font-weight: 700;
 }
 
-.c35:focus {
+.c36:focus {
   outline: rgb(51, 51, 51) dotted 1px;
   border: 2px solid rgb(213, 0, 117);
 }
@@ -5621,10 +5625,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
   display: inline-block;
   flex-shrink: 0;
   margin: 0px;
-  width: calc(72px);
+  width: 72px;
 }
 
-.c33 {
+.c11 [data-role="year-selector"] .c30 {
+  height: 32px;
+}
+
+.c34 {
   height: 32px;
   width: 32px;
 }
@@ -5679,14 +5687,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
 }
 
 @media (pointer: coarse) {
-  .c30:active {
+  .c31:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c30:hover {
+  .c31:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -5739,7 +5747,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
 }
 
 @media (pointer: coarse) {
-  .c34:active {
+  .c35:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
@@ -5747,21 +5755,21 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
 }
 
 @media (pointer: fine) {
-  .c34:hover {
+  .c35:hover {
     border: 2px solid rgb(213, 0, 117);
     background-color: rgb(255, 255, 255);
   }
 }
 
 @media (pointer: coarse) {
-  .c35:active {
+  .c36:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c35:hover {
+  .c36:hover {
     border: 2px solid rgb(213, 0, 117);
   }
 }
@@ -5982,14 +5990,14 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                         Year
                       </label>
                       <div
-                        class="c30 field__input"
+                        class="c30 c31 field__input"
                         data-role="text-field-input-wrapper"
                       >
                         <span
-                          class="c31 supported-unseen-span"
+                          class="c32 supported-unseen-span"
                         />
                         <input
-                          class="c32 field__text"
+                          class="c33 field__text"
                           data-role="year-selector-input"
                           inputmode="numeric"
                           maxlength="4"
@@ -5998,7 +6006,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                           value="2022"
                         />
                         <span
-                          class="c31 supported-unseen-span"
+                          class="c32 supported-unseen-span"
                         />
                       </div>
                     </div>
@@ -6113,7 +6121,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6125,7 +6133,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6136,7 +6144,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 1st, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6153,7 +6161,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Today, Wednesday, March 2nd, 2022"
-                  class="c35 DayPicker-Day"
+                  class="c36 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="0"
@@ -6169,7 +6177,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 3rd, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6185,7 +6193,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Friday, March 4th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6201,7 +6209,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Saturday, March 5th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6222,7 +6230,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Sunday, March 6th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6238,7 +6246,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Monday, March 7th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6254,7 +6262,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 8th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6270,7 +6278,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Wednesday, March 9th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6286,7 +6294,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 10th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6302,7 +6310,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Friday, March 11th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6318,7 +6326,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Saturday, March 12th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6339,7 +6347,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Sunday, March 13th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6355,7 +6363,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Monday, March 14th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6371,7 +6379,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 15th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6387,7 +6395,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Wednesday, March 16th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6403,7 +6411,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 17th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6419,7 +6427,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Friday, March 18th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6435,7 +6443,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Saturday, March 19th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6456,7 +6464,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Sunday, March 20th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6472,7 +6480,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Monday, March 21st, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6488,7 +6496,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 22nd, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6504,7 +6512,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Wednesday, March 23rd, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6520,7 +6528,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 24th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6536,7 +6544,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Friday, March 25th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6552,7 +6560,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Saturday, March 26th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6573,7 +6581,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Sunday, March 27th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6589,7 +6597,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Monday, March 28th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6605,7 +6613,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Tuesday, March 29th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6621,7 +6629,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Wednesday, March 30th, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6637,7 +6645,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
               >
                 <button
                   aria-label="Thursday, March 31st, 2022"
-                  class="c34 DayPicker-Day"
+                  class="c35 DayPicker-Day"
                   data-role="date-picker-day-button"
                   role="gridcell"
                   tabindex="-1"
@@ -6654,7 +6662,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6666,7 +6674,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6683,7 +6691,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6695,7 +6703,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6707,7 +6715,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6719,7 +6727,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6731,7 +6739,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6743,7 +6751,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -6755,7 +6763,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > render date
                 role="presentation"
               >
                 <div
-                  class="c33"
+                  class="c34"
                   role="gridcell"
                 />
               </td>
@@ -7216,7 +7224,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker.date-picker-screen > test date p
   display: inline-block;
   flex-shrink: 0;
   margin: 0px;
-  width: calc(72px);
+  width: 72px;
 }
 
 .c27 {

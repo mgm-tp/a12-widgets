@@ -49,7 +49,7 @@ import { PopUpMenu } from "../../../pop-up-menu/main/pop-up-menu.view.js";
 import { defaultTheme } from "../../../theme/default/default-theme.js";
 
 import type { ButtonGroupContainerLegacyProps } from "./button-group-container-legacy.api.js";
-import { cloneButtonsWithKeys } from "./button-group-container.utils.js";
+import { cloneButtonsWithKeys, getAvailableWidth } from "./button-group-container.utils.js";
 import { StyledButtonGroupContainer, StyledButtonGroupResponsiveContainer } from "./button-group-container.styled.js";
 
 const baseClassName = addPrefix("button-group-container");
@@ -69,6 +69,7 @@ export class ButtonGroupContainerLegacy extends Component<
 
 	private dummyRef: HTMLElement | null = null;
 	private containerRef: RefObject<HTMLDivElement | null> = createRef();
+	private parentElementRef: RefObject<HTMLElement | null> = createRef();
 	private popupMenuIconWidth = 0;
 
 	constructor(props: ButtonGroupContainerLegacyProps) {
@@ -270,8 +271,7 @@ export class ButtonGroupContainerLegacy extends Component<
 	}
 
 	private renderResponsiveContainer(): ReactNode {
-		const { id, style, className, leftSlot = [], rightSlot = [] } = this.props;
-
+		const { id, style, className, leftSlot = [], rightSlot = [], fitVisibleContentWidth = false } = this.props;
 		const isTestEnvironment = document.hidden; // Prevent test of other projects fail
 		const leftGroup = cloneButtonsWithKeys({ buttons: leftSlot, rootKey: "left-dummy", withProps: false });
 		const rightGroup = cloneButtonsWithKeys({ buttons: rightSlot, rootKey: "right-dummy", withProps: false });
@@ -281,7 +281,7 @@ export class ButtonGroupContainerLegacy extends Component<
 				<WidgetsResizeDetector
 					handleHeight={false}
 					onResize={this.updateNonCondensedButtonCount}
-					targetRef={this.containerRef}
+					targetRef={fitVisibleContentWidth ? this.parentElementRef : this.containerRef}
 				>
 					<StyledButtonGroupResponsiveContainer
 						className={joinClassNames(`${baseClassName} ${baseClassName}--responsive`, className)}
@@ -289,6 +289,7 @@ export class ButtonGroupContainerLegacy extends Component<
 						style={style}
 						ref={this.containerRef}
 						data-role={DataRoles.ButtonGroupContainer}
+						$fitVisibleContentWidth={fitVisibleContentWidth}
 					>
 						{this.renderCondensedGroups()}
 					</StyledButtonGroupResponsiveContainer>
@@ -363,13 +364,13 @@ export class ButtonGroupContainerLegacy extends Component<
 
 				if (buttonRefs.length > 0) {
 					const parentGap = parseFloat((this.context || defaultTheme)?.components.buttonGroup.gap.split(" ")[0]);
-
 					const nonCondensedButtonCount = ResponsiveHandler.getNonCondensedItemNumberRtl(
 						this.containerRef.current,
 						buttonRefs,
 						// popupMenuIconWidth should include margin when placed inside ButtonGroupContainer
 						this.popupMenuIconWidth + getHorizontalSpacing(buttonRefs[0], "margin"),
-						parentGap
+						parentGap,
+						getAvailableWidth(this.containerRef.current, this.props.fitVisibleContentWidth ?? false)
 					);
 					this.setState({ nonCondensedButtonCount, countingState: false });
 				}
@@ -379,6 +380,7 @@ export class ButtonGroupContainerLegacy extends Component<
 
 	componentDidMount(): void {
 		if (this.props.responsive) {
+			this.parentElementRef.current = this.containerRef.current?.parentElement ?? null;
 			this.handleLoad();
 		}
 	}

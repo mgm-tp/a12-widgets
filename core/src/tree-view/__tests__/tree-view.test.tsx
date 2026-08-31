@@ -31,7 +31,7 @@
  */
 
 import type { Instruction } from "@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item";
-import { findByText, fireEvent, getByDataRole, getByText, queryByText, render } from "test-utils";
+import { findAllByDataRole, findByText, fireEvent, getByDataRole, getByText, queryByText, render } from "test-utils";
 import { userEvent } from "vitest/browser";
 import { describe, expect, test, vi } from "vitest";
 
@@ -182,9 +182,12 @@ describe("com.mgmtp.a12.widgets.tree-view", () => {
 			await userEvent.click(expander as HTMLElement);
 
 			// While loading: the arrow button renders its progress indicator and is non-interactive.
-			expect(
-				treeitem("remote").querySelector(`[data-role="${DataRoles.ProgressIndicator.CircleSpinner}"]`)
-			).not.toBeNull();
+			// `ProgressIndicator` only mounts its spinner after `setTimeout(openingDelay)` has fired, so the
+			// spinner lands a macrotask *after* the click promise resolves — await it instead of reading the DOM
+			// synchronously (the synchronous read races the timer and loses under load).
+			expect(await findAllByDataRole(treeitem("remote"), DataRoles.ProgressIndicator.CircleSpinner)).not.toHaveLength(
+				0
+			);
 			expect(expander).toBeDisabled();
 			expect(loadChildren).toHaveBeenCalledTimes(1);
 

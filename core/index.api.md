@@ -55,12 +55,12 @@ import { FastOmit } from 'styled-components';
 import { FC } from 'react';
 import type { FocusEvent as FocusEvent_2 } from 'react';
 import type { FocusEventHandler } from 'react';
-import { ForwardRefComponent } from 'framer-motion';
+import { ForwardRefComponent } from 'motion/react';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes as HTMLAttributes_2 } from 'react';
 import type { HTMLElementType } from 'react';
-import { HTMLMotionProps } from 'framer-motion';
+import { HTMLMotionProps } from 'motion/react';
 import { HTMLProps } from 'react';
 import { ImgHTMLAttributes } from 'react';
 import type { InfiniteLoader } from 'react-virtualized';
@@ -142,7 +142,7 @@ import { TZDate } from '@date-fns/tz';
 import type { UIEvent as UIEvent_2 } from 'react';
 import { useEffect } from 'react';
 import type { useResizeDetectorProps } from 'react-resize-detector';
-import type { Variants } from 'framer-motion';
+import type { Variants } from 'motion/react';
 import { WebTarget } from 'styled-components';
 import type { XYCoord } from 'react-dnd';
 
@@ -3141,6 +3141,7 @@ export class ButtonGroupContainerLegacy extends Component<ButtonGroupContainerLe
 // @public
 export interface ButtonGroupContainerLegacyProps extends Styleable, Identifiable, Container {
     collapsingDirection?: "left-to-right" | "right-to-left";
+    fitVisibleContentWidth?: boolean;
     // @deprecated
     leftSlot?: ReactNode[];
     leftSlotProps?: ButtonGroupContainerLegacyProps.ButtonGroup;
@@ -3178,6 +3179,7 @@ export class ButtonGroupContainerNew extends Component<ButtonGroupContainerNewPr
 // @public
 export interface ButtonGroupContainerNewProps extends Styleable, Identifiable, Container {
     collapsingDirection?: "left-to-right" | "right-to-left";
+    fitVisibleContentWidth?: boolean;
     leftSlotButtons?: ButtonGroupContainerNewProps.ButtonProps[];
     leftSlotProps?: ButtonGroupContainerNewProps.ButtonGroup;
     popupListAttributes?: HTMLAttributes_2<HTMLElement>;
@@ -4043,6 +4045,8 @@ export interface ChatTitles {
     chatMessageSaid?: string;
     // (undocumented)
     chatMessageYouSaid?: string;
+    // (undocumented)
+    chatNotification?: string;
 }
 
 // @public (undocumented)
@@ -4704,6 +4708,9 @@ export const CompactComponentsConfigs: (theme: CompactThemeType) => {
             selectInput: {
                 height: string;
                 padding: string;
+                yearSelector: {
+                    width: string;
+                };
             };
         };
         day: {
@@ -5359,6 +5366,9 @@ export const compactTheme: {
                 selectInput: {
                     height: string;
                     padding: string;
+                    yearSelector: {
+                        width: string;
+                    };
                 };
             };
             day: {
@@ -6801,6 +6811,9 @@ export const datePickerCompactConfig: (theme: CompactThemeType) => {
         selectInput: {
             height: string;
             padding: string;
+            yearSelector: {
+                width: string;
+            };
         };
     };
     day: {
@@ -6866,6 +6879,9 @@ export type DatePickerConfigType = {
                 border: string;
             };
             padding: string;
+            yearSelector?: {
+                width: string;
+            };
         };
         selectOption: {
             active: {
@@ -7069,6 +7085,9 @@ export const datePickerFlatConfig: (theme: FlatThemeType) => {
     mobile: {
         header: {
             title: {
+                color: string;
+            };
+            icon: {
                 color: string;
             };
         };
@@ -8921,6 +8940,7 @@ export const filterFlatConfig: () => {
 
 // @public
 export interface FilterItemData extends Omit<FilterSelectorProps.FilterData, "nonRemovable"> {
+    badgeTitle?: string;
     badgeVariant?: "info" | "error";
     collapsed?: boolean;
     content: ReactNode;
@@ -9301,6 +9321,8 @@ export namespace FilterSelectorTemplateProps {
 
 // @public (undocumented)
 export interface FilterSelectorTitles {
+    // (undocumented)
+    activeFilterBadgeTitle?: string;
     // @deprecated
     ariaLabel?: string;
     // (undocumented)
@@ -12294,6 +12316,9 @@ export const flatCompactTheme: {
                     title: {
                         color: string;
                     };
+                    icon: {
+                        color: string;
+                    };
                 };
                 fieldSelect: {
                     focusBoxShadow: string;
@@ -14531,6 +14556,9 @@ export const flatCompactTheme: {
                 selectInput: {
                     height: string;
                     padding: string;
+                    yearSelector: {
+                        width: string;
+                    };
                 };
             };
             day: {
@@ -16536,6 +16564,9 @@ export const FlatComponentsConfigs: (theme: FlatThemeType) => {
         mobile: {
             header: {
                 title: {
+                    color: string;
+                };
+                icon: {
                     color: string;
                 };
             };
@@ -19069,6 +19100,9 @@ export const flatTheme: {
                     title: {
                         color: string;
                     };
+                    icon: {
+                        color: string;
+                    };
                 };
                 fieldSelect: {
                     focusBoxShadow: string;
@@ -20814,6 +20848,9 @@ export const getCompactTheme: () => {
                 selectInput: {
                     height: string;
                     padding: string;
+                    yearSelector: {
+                        width: string;
+                    };
                 };
             };
             day: {
@@ -22724,6 +22761,9 @@ export const getFlatCompactTheme: () => {
             mobile: {
                 header: {
                     title: {
+                        color: string;
+                    };
+                    icon: {
                         color: string;
                     };
                 };
@@ -24963,6 +25003,9 @@ export const getFlatCompactTheme: () => {
                 selectInput: {
                     height: string;
                     padding: string;
+                    yearSelector: {
+                        width: string;
+                    };
                 };
             };
             day: {
@@ -27114,6 +27157,9 @@ export const getFlatTheme: () => {
             mobile: {
                 header: {
                     title: {
+                        color: string;
+                    };
+                    icon: {
                         color: string;
                     };
                 };
@@ -33648,7 +33694,7 @@ export namespace ResponsiveHandler {
     // @deprecated
     export function computeSpacingValues(wrapperElement: HTMLElement, elementToRender: ReactElement, itemClassName: string, callback: (condensedItemWidth: number) => void, theme: DefaultThemeType): void;
     export function getNonCondensedItemNumber(domRef: Element | null, items: Element[], condensedItemWidth: number, parentPadding?: number): number;
-    export function getNonCondensedItemNumberRtl(domRef: Element | null, items: Element[], condensedItemWidth: number, parentGap: number): number;
+    export function getNonCondensedItemNumberRtl(domRef: Element | null, items: Element[], condensedItemWidth: number, parentGap: number, availableWidthOverride?: number): number;
     // @deprecated (undocumented)
     export function renderDummyElementForMeasure(theme: DefaultThemeType, elementToRender: ReactNode, mountPoint: HTMLElement, callback: () => void): void;
 }
@@ -33808,6 +33854,7 @@ export const RichTextEditorLabel: FC<LabelProps>;
 export interface RichTextEditorProps extends Styleable, Identifiable, Container, OmittedInputBaseProps, Pick<RichTextEditorComposerProps, "initialConfig"> {
     addonAfter?: ReactNode | ReactNode[];
     autoExpand?: boolean;
+    enableHistory?: boolean;
     maxHeight?: number | string;
     minHeight?: number | string;
     onChange?(editorState: EditorState, editor: LexicalEditor): void;
@@ -34961,12 +35008,16 @@ export const StyledButtonGroupContainer: IStyledComponentBase<"web", FastOmit<De
 export const StyledButtonGroupContainerList: IStyledComponentBase<"web", FastOmit<ListProps, never> & Partial<Pick<ListProps, never>>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledButtonGroupResponsiveContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+export const StyledButtonGroupResponsiveContainer: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
+}, "$fitVisibleContentWidth"> & {
+$fitVisibleContentWidth?: boolean;
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
+}, "$fitVisibleContentWidth"> & {
+$fitVisibleContentWidth?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -37429,10 +37480,12 @@ hasBackground: boolean;
 export const StyledProgressBarBuffer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledProgressBarFill: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "percentage"> & {
+export const StyledProgressBarFill: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$backgroundColor" | "percentage"> & {
 percentage?: number;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "percentage"> & {
+$backgroundColor?: string;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLSpanElement>, HTMLSpanElement>, "$backgroundColor" | "percentage"> & {
 percentage?: number;
+$backgroundColor?: string;
 }, never>>> & string;
 
 // @public (undocumented)

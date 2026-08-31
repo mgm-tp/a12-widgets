@@ -68,7 +68,9 @@ export function PaddingConfiguration(): ReactElement {
 			}
 			useDarkBackground
 		>
-			<CodeSnippetGenerationWrapper>
+			<CodeSnippetGenerationWrapper
+				namespaceOptions={[{ name: "ContentBoxElements", subComponents: ["Footer", "Title", "CloseButton"] }]}
+			>
 				<ActionContentbox
 					footer={<ContentBoxElements.Footer />}
 					headingElements={<ContentBoxElements.Title key="title" text="Content box with padding configuration" />}

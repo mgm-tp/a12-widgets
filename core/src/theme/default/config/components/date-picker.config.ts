@@ -51,6 +51,9 @@ export type DatePickerConfigType = {
 			height: string;
 			hover: { background: string; border: string };
 			padding: string;
+			yearSelector?: {
+				width: string;
+			};
 		};
 		selectOption: {
 			active: { background: string; color: string };
@@ -168,6 +171,9 @@ export const datePickerConfig = (theme: BaseThemeType): DatePickerConfigType => 
 					background: rgba(0, 0, 0, 0.2),
 					border: `2px solid ${colors.interaction.focus.colorInverted}`,
 					color: colors.interaction.focus.colorInverted
+				},
+				yearSelector: {
+					width: `${spacing.horizontalSpacing.horizWhiteSpacing5xl}px`
 				}
 			},
 			selectOption: {
@@ -278,8 +284,8 @@ export const datePickerConfig = (theme: BaseThemeType): DatePickerConfigType => 
 				height: `${2 * spacing.spacing.spacingMd}px`,
 				padding: `0 ${spacing.horizontalSpacing.horizWhiteSpacingsm}px`,
 				icon: {
-					color: colors.interaction.secondaryInteractionColor,
-					fontSize: typography.fontSize["4XlFontSize"]
+					color: colors.text.invertedColor,
+					fontSize: "inherit"
 				},
 				title: {
 					color: colors.text.invertedColor,
@@ -294,7 +300,7 @@ export const datePickerConfig = (theme: BaseThemeType): DatePickerConfigType => 
 				firstChildMargin: `0 ${spacing.horizontalSpacing.horizWhiteSpacingxs}px 0 0`,
 				background: colors.background.primaryBackground,
 				color: colors.text.color,
-				fontSize: typography.fontSize.mediumFontSize,
+				fontSize: typography.fontSize.tinyFontSize,
 				focusBoxShadow: `0 2px 0 0 ${colors.interaction.focus.color}`
 			},
 			day: {

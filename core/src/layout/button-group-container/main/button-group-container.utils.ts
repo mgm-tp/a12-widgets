@@ -33,12 +33,58 @@
 import type { ReactNode } from "react";
 import { createElement, isValidElement, cloneElement } from "react";
 
+import { getHorizontalSpacing } from "../../../common/main/responsive-handler.js";
 import { QuickAccessButton } from "../../../quick-access-button/main/quick-access-button.view.js";
 import type { ButtonProps } from "../../../button/main/button.api.js";
 import { Button } from "../../../button/main/button.view.js";
 import { List } from "../../../list/main/list.view.js";
 
 import { ButtonGroupContainerProps } from "./button-group-container.api.js";
+
+/** @internal */
+export function getAvailableWidth(
+	containerElement: HTMLElement | null,
+	fitVisibleContentWidth: boolean | undefined
+): number | undefined {
+	// undefined signals getNonCondensedItemNumberRtl to use the default containerRef width
+	if (!fitVisibleContentWidth || !containerElement) {
+		return undefined;
+	}
+
+	const parent = containerElement.parentElement;
+
+	if (!parent) {
+		return undefined;
+	}
+
+	const visibleSiblings = Array.from(parent.children).filter((element) => {
+		// Exclude the container itself
+		if (element === containerElement) {
+			return false;
+		}
+
+		// Exclude elements that don't occupy space in the flow layout
+		const style = window.getComputedStyle(element);
+
+		return style.display !== "none" && style.position !== "absolute" && style.position !== "fixed";
+	});
+
+	const siblingsWidth = visibleSiblings.reduce(
+		(sum, sibling) => sum + sibling.getBoundingClientRect().width + getHorizontalSpacing(sibling, "margin"),
+		0
+	);
+
+	const parentStyle = window.getComputedStyle(parent);
+	const isFlex = parentStyle.display === "flex" || parentStyle.display === "inline-flex";
+
+	if (isFlex) {
+		const columnGap = parseFloat(parentStyle.columnGap) || 0;
+
+		return parent.getBoundingClientRect().width - siblingsWidth - visibleSiblings.length * columnGap;
+	}
+
+	return parent.getBoundingClientRect().width - siblingsWidth;
+}
 
 /** @internal */
 export function createButtons(params: {
