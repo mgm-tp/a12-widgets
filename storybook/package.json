@@ -2,7 +2,7 @@
 	"name": "@com.mgmtp.a12.widgets/widgets-storybook",
 	"private": true,
 	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
-	"version": "38.3.5",
+	"version": "38.3.6",
 	"type": "module",
 	"scripts": {
 		"clean": "rimraf ./storybook-static target",
@@ -21,7 +21,6 @@
 		"styled-components": "6.1.19"
 	},
 	"devDependencies": {
-		"rimraf": "^6.1.2",
 		"@storybook/addon-a11y": "^10.3.5",
 		"@storybook/addon-docs": "^10.3.5",
 		"@storybook/addon-themes": "^10.3.5",
@@ -34,6 +33,7 @@
 		"@types/react-dom": "^19.2.3",
 		"@types/styled-components": "^5.1.36",
 		"@vitejs/plugin-react": "^6.0.1",
+		"rimraf": "^6.1.2",
 		"storybook": "^10.3.5",
 		"typescript": "~5.8.2",
 		"vite": "^8.0.8"

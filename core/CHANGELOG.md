@@ -1,3 +1,18 @@
+## 38.3.6
+
+### Fixed
+
+- Project fails to compile when using the exact version of framer-motion while motion-dom is using a floating version.
+- **Button Group Container:** A responsive `ButtonGroupContainer` stretched to fill all available width instead of sitting next to its siblings. To resolve this, a `fitVisibleContentWidth` property is introduced (requires `responsive={true}`). When enabled, the container applies `max-width: max-content` and delegates resize detection to its `parentElement`.
+- **Tab Panel:** With `focusOnPanelAfterSelect` enabled, the panel took the focus on every re-render, so the input field inside it lost the focus after the first keystroke.
+
+### Dependencies Update
+
+| Name          | Old version | New version |
+| ------------- | ----------- | ----------- |
+| framer-motion | 12.25.0     |             |
+| motion        |             | ^12.42.2    |
+
 ## 38.3.5
 
 ### Fixed

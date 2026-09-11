@@ -55,12 +55,12 @@ import { FastOmit } from 'styled-components';
 import { FC } from 'react';
 import type { FocusEvent as FocusEvent_2 } from 'react';
 import type { FocusEventHandler } from 'react';
-import { ForwardRefComponent } from 'framer-motion';
+import { ForwardRefComponent } from 'motion/react';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes as HTMLAttributes_2 } from 'react';
 import type { HTMLElementType } from 'react';
-import { HTMLMotionProps } from 'framer-motion';
+import { HTMLMotionProps } from 'motion/react';
 import { HTMLProps } from 'react';
 import { ImgHTMLAttributes } from 'react';
 import type { InfiniteLoader } from 'react-virtualized';
@@ -3049,6 +3049,7 @@ export class ButtonGroupContainerLegacy extends Component<ButtonGroupContainerLe
 // @public
 export interface ButtonGroupContainerLegacyProps extends Styleable, Identifiable, Container {
     collapsingDirection?: "left-to-right" | "right-to-left";
+    fitVisibleContentWidth?: boolean;
     // @deprecated
     leftSlot?: ReactNode[];
     leftSlotProps?: ButtonGroupContainerLegacyProps.ButtonGroup;
@@ -3086,6 +3087,7 @@ export class ButtonGroupContainerNew extends Component<ButtonGroupContainerNewPr
 // @public
 export interface ButtonGroupContainerNewProps extends Styleable, Identifiable, Container {
     collapsingDirection?: "left-to-right" | "right-to-left";
+    fitVisibleContentWidth?: boolean;
     leftSlotButtons?: ButtonGroupContainerNewProps.ButtonProps[];
     leftSlotProps?: ButtonGroupContainerNewProps.ButtonGroup;
     popupListAttributes?: HTMLAttributes_2<HTMLElement>;
@@ -33407,7 +33409,7 @@ export namespace ResponsiveHandler {
     // @deprecated
     export function computeSpacingValues(wrapperElement: HTMLElement, elementToRender: ReactElement, itemClassName: string, callback: (condensedItemWidth: number) => void, theme: DefaultThemeType): void;
     export function getNonCondensedItemNumber(domRef: Element | null, items: Element[], condensedItemWidth: number, parentPadding?: number): number;
-    export function getNonCondensedItemNumberRtl(domRef: Element | null, items: Element[], condensedItemWidth: number, parentGap: number): number;
+    export function getNonCondensedItemNumberRtl(domRef: Element | null, items: Element[], condensedItemWidth: number, parentGap: number, availableWidthOverride?: number): number;
     // @deprecated (undocumented)
     export function renderDummyElementForMeasure(theme: DefaultThemeType, elementToRender: ReactNode, mountPoint: HTMLElement, callback: () => void): void;
 }
@@ -34560,7 +34562,9 @@ export const StyledButtonGroupContainer: IStyledComponentBase<"web", FastOmit<De
 export const StyledButtonGroupContainerList: IStyledComponentBase<"web", FastOmit<ListProps, never>> & string & Omit<typeof List, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledButtonGroupResponsiveContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, never>> & string;
+export const StyledButtonGroupResponsiveContainer: IStyledComponentBase<"web", Substitute<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>, {
+$fitVisibleContentWidth?: boolean;
+}>> & string;
 
 // @public (undocumented)
 export const StyledCalendarDayContent: IStyledComponentBase<"web", Substitute<ClassAttributes<HTMLDivElement> & HTMLAttributes_2<HTMLDivElement>, {

@@ -5,3 +5,8 @@ lockfileIncludeTarballUrl: false
 
 packages:
   - "*"
+patchedDependencies:
+  "react-dnd@16.0.1": core/patches/pnpm/react-dnd@16.0.1.patch
+allowBuilds:
+  core-js: true
+  esbuild: true

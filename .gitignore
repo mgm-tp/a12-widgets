@@ -35,7 +35,10 @@ public-showcase
 json-api/core
 com.mgmtp.a12-*.tgz
 cyclonedx.json
+# Atlas downloads scan results into the repo, one directory per dedupId
 sbom.json
+findings.sarif
+magellan_findings.json
 core/pnpm-lock.yaml
 
 # Test artifact

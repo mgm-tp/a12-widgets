@@ -94,7 +94,7 @@ export const TabPanel: FC<TabPanelProps> = (props: TabPanelProps): ReactElement 
 	const openSubPanelRafIdRef = useRef<number | null>(null);
 
 	const isHorizontalMenu = orientation === "horizontal";
-	const shouldFocusOnPanel = focusOnPanelAfterSelect && children;
+	const shouldFocusOnPanel = focusOnPanelAfterSelect && Boolean(children);
 
 	const { hintRenderer } = useInteractionHint({
 		title: tabPanelTitles?.condensedTabTitle,

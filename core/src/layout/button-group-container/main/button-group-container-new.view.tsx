@@ -49,7 +49,7 @@ import { PopUpMenu } from "../../../pop-up-menu/main/pop-up-menu.view.js";
 import { defaultTheme } from "../../../theme/default/default-theme.js";
 
 import type { ButtonGroupContainerNewProps } from "./button-group-container-new.api.js";
-import { createButtons } from "./button-group-container.utils.js";
+import { createButtons, getAvailableWidth } from "./button-group-container.utils.js";
 import {
 	StyledButtonGroupContainer,
 	StyledButtonGroupContainerList,
@@ -70,6 +70,7 @@ export class ButtonGroupContainerNew extends Component<ButtonGroupContainerNewPr
 
 	private dummyRef: HTMLElement | null = null;
 	private containerRef: RefObject<HTMLDivElement | null> = createRef();
+	private parentElementRef: RefObject<HTMLElement | null> = createRef();
 	private popupMenuIconWidth = 0;
 
 	constructor(props: ButtonGroupContainerNewProps) {
@@ -279,7 +280,14 @@ export class ButtonGroupContainerNew extends Component<ButtonGroupContainerNewPr
 	}
 
 	private renderResponsiveContainer(): ReactNode {
-		const { id, style, className, leftSlotButtons = [], rightSlotButtons = [] } = this.props;
+		const {
+			id,
+			style,
+			className,
+			leftSlotButtons = [],
+			rightSlotButtons = [],
+			fitVisibleContentWidth = false
+		} = this.props;
 
 		const isTestEnvironment = document.hidden; // Prevent test of other projects fail
 		const leftGroup = createButtons({ containerButtonProps: leftSlotButtons, withProps: false });
@@ -290,7 +298,7 @@ export class ButtonGroupContainerNew extends Component<ButtonGroupContainerNewPr
 				<WidgetsResizeDetector
 					handleHeight={false}
 					onResize={this.updateNonCondensedButtonCount}
-					targetRef={this.containerRef}
+					targetRef={fitVisibleContentWidth ? this.parentElementRef : this.containerRef}
 				>
 					<StyledButtonGroupResponsiveContainer
 						className={joinClassNames(`${baseClassName} ${baseClassName}--responsive`, className)}
@@ -298,6 +306,7 @@ export class ButtonGroupContainerNew extends Component<ButtonGroupContainerNewPr
 						style={style}
 						ref={this.containerRef}
 						data-role={DataRoles.ButtonGroupContainer}
+						$fitVisibleContentWidth={fitVisibleContentWidth}
 					>
 						{this.renderCondensedGroups()}
 					</StyledButtonGroupResponsiveContainer>
@@ -369,13 +378,13 @@ export class ButtonGroupContainerNew extends Component<ButtonGroupContainerNewPr
 
 				if (buttonRefs.length > 0) {
 					const parentGap = parseFloat((this.context || defaultTheme)?.components.buttonGroup.gap.split(" ")[0]);
-
 					const nonCondensedButtonCount = ResponsiveHandler.getNonCondensedItemNumberRtl(
 						this.containerRef.current,
 						buttonRefs,
 						// popupMenuIconWidth should include margin when placed inside ButtonGroupContainer
 						this.popupMenuIconWidth + getHorizontalSpacing(buttonRefs[0], "margin"),
-						parentGap
+						parentGap,
+						getAvailableWidth(this.containerRef.current, this.props.fitVisibleContentWidth ?? false)
 					);
 					this.setState({ nonCondensedButtonCount, countingState: false });
 				}
@@ -385,6 +394,7 @@ export class ButtonGroupContainerNew extends Component<ButtonGroupContainerNewPr
 
 	componentDidMount(): void {
 		if (this.props.responsive) {
+			this.parentElementRef.current = this.containerRef.current?.parentElement ?? null;
 			this.handleLoad();
 		}
 	}

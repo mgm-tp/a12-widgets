@@ -31,7 +31,7 @@
  */
 
 import { useTheme } from "styled-components";
-import type { BezierDefinition, Variants } from "framer-motion";
+import type { BezierDefinition, Variants } from "motion/react";
 
 import { getTransitionDuration } from "../../../common/main/utils/css-utils.js";
 

@@ -1,6 +1,6 @@
 {
 	"name": "@com.mgmtp.a12.widgets/widgets-utils",
-	"version": "38.3.5",
+	"version": "38.3.6",
 	"description": "Utility widgets",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

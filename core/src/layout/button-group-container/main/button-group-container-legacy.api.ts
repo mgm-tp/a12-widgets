@@ -106,6 +106,18 @@ export interface ButtonGroupContainerLegacyProps extends Styleable, Identifiable
 	 * @default "left-to-right"
 	 */
 	collapsingDirection?: "left-to-right" | "right-to-left";
+
+	/**
+	 * When enabled, the container only takes up as much width as its visible buttons (`max-width: max-content`),
+	 * allowing siblings to sit next to it rather than being pushed away.
+	 * Recalculation is triggered when the container's parentElement resizes.
+	 * The container's parentElement must not have `max-width: max-content` or a fixed width —
+	 * it must be able to grow and shrink with available space for uncollapsing to work correctly.
+	 *
+	 * @requires responsive={true}
+	 * @default false
+	 */
+	fitVisibleContentWidth?: boolean;
 }
 
 export namespace ButtonGroupContainerLegacyProps {

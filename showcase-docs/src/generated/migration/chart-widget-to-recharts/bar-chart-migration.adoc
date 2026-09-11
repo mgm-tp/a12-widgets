@@ -1,0 +1,114 @@
+= Bar Chart Migration
+
+When migrating from the Bar Chart Widget to direct usage of Recharts, certain deprecated APIs need to be replaced with their corresponding Recharts components and properties.
+
+== Deprecated APIs and Their Recharts Equivalents
+
+Below is a mapping of deprecated APIs to their Recharts equivalents for Bar Chart.
+
+[cols="1,1",options="header"]
+|===
+| Deprecated API | Recharts Equivalent
+| cartesianGridProps | link:https://recharts.github.io/en-US/api/CartesianGrid/[<CartesianGrid />]
+| xAxisProps | link:https://recharts.github.io/en-US/api/XAxis/[<XAxis />]
+| xAxisDataKey | link:https://recharts.github.io/en-US/api/YAxis/#dataKey[<XAxis dataKey />]
+| xAxisLabel | link:https://recharts.github.io/en-US/api/XAxis/#label[<XAxis label />]
+| xAxisLabelProps | link:https://recharts.github.io/en-US/api/Label/[<Label />]
+| yAxisProps | link:https://recharts.github.io/en-US/api/YAxis/[<YAxis />]
+| yAxisLabel | link:https://recharts.github.io/en-US/api/YAxis/#label[<YAxis label />]
+| yAxisLabelProps | link:https://recharts.github.io/en-US/api/Label/[<Label />]
+| tooltipProps | link:https://recharts.github.io/en-US/api/Tooltip/[<Tooltip />]
+| barPropsMap | link:https://recharts.github.io/en-US/api/Bar/[<Bar />]
+| cellPropsList | link:https://recharts.github.io/en-US/api/Cell/[<Cell />]
+| labelKey | link:https://recharts.github.io/en-US/api/Legend/[<Legend />]
+| thresholdProps | link:https://recharts.github.io/en-US/api/Area/[<Area />] and wrapped by link:https://recharts.github.io/en-US/api/ComposedChart/[<ComposedChart />]
+| aboveThresholdStyle | link:https://recharts.github.io/en-US/api/Cell/[<Cell />]
+| belowThresholdStyle | link:https://recharts.github.io/en-US/api/Cell/[<Cell />]
+| showLegend | link:https://recharts.github.io/en-US/api/Legend/[<Legend />]
+| showTooltip | link:https://recharts.github.io/en-US/api/Tooltip/[<Tooltip />]
+| onLegendClick | link:https://recharts.github.io/en-US/api/Legend/#onClick[<Legend onClick />]
+|===
+
+For the complete list and documentation of all Recharts Bar Chart components, please refer to the link:https://recharts.github.io/en-US/api/BarChart/[BarChart API].
+
+== Deprecated Types and Their Recharts Equivalents
+
+And below is a mapping of deprecated types to their Recharts equivalents for Bar Chart.
+
+[cols="1,1",options="header"]
+|===
+| Deprecated Type | Recharts Equivalent
+| Layout | link:https://recharts.github.io/en-US/api/Bar/#layout[<Bar layout />]
+| VerticalAlign | link:https://recharts.github.io/en-US/api/Legend/#verticalAlign[<Legend verticalAlign />]
+| Align | link:https://recharts.github.io/en-US/api/Legend/#align[<Legend align />]
+|===
+
+*NOTE:* Some Widgets' custom elements, such as Bar Chart template's `+Legend+` and `+Item+` are also deprecated. Therefore, relying solely on Recharts may not provide the same result.
+If you still wish to implement these functionalities, please refer to the Widgets core's existing implementation to apply the necessary customizations in your project.
+
+== Migration Example
+
+This is a practical example of how to migrate from the legacy Bar Chart Widget.
+
+* *Before:* Single component with properties
++
+[source,tsx]
+----
+import { ResponsiveChartContainer, BarChart } from "@com.mgmtp.a12.widgets/widgets-core";
+
+const DATA = [
+	{ product: "Apple", sale: 120 },
+	{ product: "Peach", sale: 150 },
+	{ product: "Grapes", sale: 100 },
+	{ product: "Strawberry", sale: 90 },
+	{ product: "Blueberry", sale: 140 }
+];
+
+const BAR_PROPS_MAP = {
+	sale: {
+		dataKey: "sale",
+		color: "#0088FE"
+	}
+};
+
+<ResponsiveChartContainer aspect={1} maxHeight={400}>
+	<BarChart
+		barSize={40}
+		data={DATA}
+		labelKey="product"
+		xAxisProps={{ dataKey: "product" }}
+		xAxisLabel="Product"
+		xAxisLabelProps={{ position: "insideBottom", offset: -5 }}
+		yAxisLabel="Sale"
+		barPropsMap={BAR_PROPS_MAP}
+		cartesianGridProps={{
+			horizontal: true,
+			vertical: true
+		}}
+	/>
+</ResponsiveChartContainer>;
+----
+* *After:* Composed components with children from Recharts directly
++
+[source,tsx]
+----
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+
+const DATA = [
+	{ product: "Apple", sale: 120 },
+	{ product: "Peach", sale: 150 },
+	{ product: "Grapes", sale: 100 },
+	{ product: "Strawberry", sale: 90 },
+	{ product: "Blueberry", sale: 140 }
+];
+
+<ResponsiveContainer aspect={1} maxHeight={400}>
+	<BarChart data={DATA} barSize={40}>
+		<CartesianGrid stroke="#f1f2f4" strokeDasharray="2 4" strokeWidth={2} />
+		<XAxis dataKey="product" label={{ value: "Product", position: "insideBottom", offset: -5 }} />
+		<YAxis label={{ value: "Sale", angle: -90, position: "insideLeft" }} />
+		<Tooltip />
+		<Bar dataKey="sale" fill="#0088FE" />
+	</BarChart>
+</ResponsiveContainer>;
+----

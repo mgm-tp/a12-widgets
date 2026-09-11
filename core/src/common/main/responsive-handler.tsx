@@ -153,20 +153,22 @@ export namespace ResponsiveHandler {
 		domRef: Element | null,
 		items: Element[],
 		condensedItemWidth: number,
-		parentGap: number
+		parentGap: number,
+		availableWidthOverride?: number
 	): number {
 		if (!domRef) {
 			return 0;
 		}
 
-		const availableWidth = domRef.getBoundingClientRect().width;
+		const availableWidth = availableWidthOverride ?? domRef.getBoundingClientRect().width;
 		let nonCondensedItem = items.length;
 		let sumOfElementWidths = 0;
 
 		for (let index = items.length - 1; index >= 0; index--) {
 			const item = items[index];
 			const itemWidth = item.getBoundingClientRect().width;
-			sumOfElementWidths += itemWidth + getHorizontalSpacing(item, "margin") + parentGap;
+			const gap = index < items.length - 1 ? parentGap : 0;
+			sumOfElementWidths += itemWidth + getHorizontalSpacing(item, "margin") + gap;
 
 			if (sumOfElementWidths > availableWidth - (index === 0 ? 0 : condensedItemWidth)) {
 				nonCondensedItem--;

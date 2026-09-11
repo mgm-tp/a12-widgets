@@ -1,6 +1,6 @@
 {
 	"name": "@com.mgmtp.a12.widgets/widgets-codemod",
-	"version": "38.3.5-SNAPSHOT",
+	"version": "38.3.6",
 	"description": "Codemod for Widgets",
 	"author": "mgm technology partners",
 	"license": "(EUPL-1.2 OR LicenseRef-commercial)",

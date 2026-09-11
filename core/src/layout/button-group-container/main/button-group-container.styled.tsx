@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 import { List } from "../../../list/main/list.view.js";
 import { StyledButtonGroup } from "../../../button-group/main/button-group.view.js";
@@ -43,17 +43,23 @@ export const StyledButtonGroupContainer = styled.div.withConfig({ displayName: "
 	gap: ${(props) => props.theme.components.buttonGroup.gap};
 `;
 
-export const StyledButtonGroupResponsiveContainer = styled(StyledButtonGroupContainer)`
-	flex-shrink: 1;
-	flex-wrap: nowrap;
-	min-width: 0;
-	& ${StyledButtonGroup} {
-		flex-shrink: 0;
-	}
-	& ${StyledButton} {
-		white-space: nowrap;
-	}
-`;
+export const StyledButtonGroupResponsiveContainer = styled(StyledButtonGroupContainer)<{
+	$fitVisibleContentWidth?: boolean;
+}>(({ $fitVisibleContentWidth }) => {
+	return css`
+		flex-shrink: 1;
+		flex-wrap: nowrap;
+		min-width: 0;
+		max-width: ${$fitVisibleContentWidth && "max-content"};
+
+		& ${StyledButtonGroup} {
+			flex-shrink: 0;
+		}
+		& ${StyledButton} {
+			white-space: nowrap;
+		}
+	`;
+});
 
 export const StyledButtonGroupContainerList = styled(List)(
 	({ theme }) => `
